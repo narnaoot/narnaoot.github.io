@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>n4bil — Nabil Arnaoot</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-1: #0F0C29;
+    --bg-2: #1A1060;
+    --bg-3: #24243E;
+    --glass: rgba(255,255,255,0.06);
+    --glass-border: rgba(255,255,255,0.12);
+    --glass-hover: rgba(255,255,255,0.10);
+    --text: #F0EEFF;
+    --text-muted: rgba(240,238,255,0.6);
+    --violet: #8B5CF6;
+    --indigo: #6366F1;
+    --cyan: #06B6D4;
+    --pink: #EC4899;
+    --emerald: #10B981;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: linear-gradient(135deg, var(--bg-1) 0%, var(--bg-2) 50%, var(--bg-3) 100%);
+    background-attachment: fixed;
+    color: var(--text);
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+
+  /* Ambient blobs */
+  .blob {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.35;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .blob-1 { width: 500px; height: 500px; top: -100px; left: -100px; background: var(--violet); }
+  .blob-2 { width: 400px; height: 400px; top: 30%; right: -50px; background: var(--cyan); }
+  .blob-3 { width: 350px; height: 350px; bottom: 10%; left: 20%; background: var(--pink); opacity: 0.2; }
+
+  /* ===================== NAV ===================== */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2.5rem;
+    background: rgba(15,12,41,0.6);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--glass-border);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    text-decoration: none;
+  }
+
+  .logo-circle {
+    width: 40px; height: 40px;
+    background: linear-gradient(135deg, var(--violet), var(--cyan));
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: white;
+  }
+
+  .nav-wordmark {
+    font-weight: 700;
+    font-size: 1.2rem;
+    background: linear-gradient(90deg, var(--violet), var(--cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  nav .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  nav .nav-links li a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  nav .nav-links li a:hover { color: var(--text); }
+
+  /* ===================== HERO ===================== */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 2.5rem 80px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-content { max-width: 800px; }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 1rem;
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: 100px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+    backdrop-filter: blur(10px);
+  }
+
+  .hero-badge span { color: var(--cyan); }
+
+  .hero h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.03em;
+  }
+
+  .hero h1 .gradient {
+    background: linear-gradient(90deg, var(--violet), var(--cyan), var(--pink));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero p {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+    line-height: 1.7;
+  }
+
+  .cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 2rem;
+    background: linear-gradient(135deg, var(--violet), var(--indigo));
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 8px 32px rgba(139,92,246,0.35);
+  }
+
+  .cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 48px rgba(139,92,246,0.5);
+  }
+
+  /* ===================== SECTION BASE ===================== */
+  section { padding: 100px 2.5rem; position: relative; z-index: 1; }
+
+  .section-container { max-width: 1100px; margin: 0 auto; }
+
+  .section-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.3rem 0.8rem;
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--cyan);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 3.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .glass-card {
+    background: var(--glass);
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    transition: all 0.3s;
+  }
+
+  .glass-card:hover {
+    background: var(--glass-hover);
+    border-color: rgba(255,255,255,0.2);
+    transform: translateY(-4px);
+  }
+
+  /* ===================== ABOUT ===================== */
+  .about-content { max-width: 750px; }
+
+  .about p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+  }
+
+  /* ===================== SKILLS ===================== */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .skill-card {
+    padding: 1.75rem;
+  }
+
+  .skill-icon {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .skill-card h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .skill-card p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  /* ===================== PROJECTS ===================== */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .project-card {
+    overflow: hidden;
+  }
+
+  .project-image {
+    width: 100%;
+    height: 170px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.8rem;
+    border-bottom: 1px solid var(--glass-border);
+  }
+
+  .project-image-1 { background: linear-gradient(135deg, rgba(139,92,246,0.3), rgba(99,102,241,0.3)); }
+  .project-image-2 { background: linear-gradient(135deg, rgba(6,182,212,0.3), rgba(16,185,129,0.3)); }
+  .project-image-3 { background: linear-gradient(135deg, rgba(236,72,153,0.3), rgba(139,92,246,0.3)); }
+  .project-image-4 { background: linear-gradient(135deg, rgba(16,185,129,0.3), rgba(6,182,212,0.3)); }
+  .project-image-5 { background: linear-gradient(135deg, rgba(99,102,241,0.3), rgba(236,72,153,0.3)); }
+  .project-image-6 { background: linear-gradient(135deg, rgba(139,92,246,0.3), rgba(16,185,129,0.3)); }
+
+  .project-content { padding: 1.5rem; }
+
+  .project-card h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .project-card p {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1rem;
+  }
+
+  .project-tag {
+    padding: 0.2rem 0.65rem;
+    background: rgba(139,92,246,0.2);
+    border: 1px solid rgba(139,92,246,0.3);
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #C4B5FD;
+  }
+
+  .project-link {
+    color: var(--cyan);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: opacity 0.2s;
+  }
+
+  .project-link:hover { opacity: 0.7; }
+
+  /* ===================== EXPERIENCE ===================== */
+  .experience-item {
+    padding: 1.75rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .experience-item h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+  }
+
+  .experience-date {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--cyan);
+    margin-bottom: 0.75rem;
+    letter-spacing: 0.03em;
+  }
+
+  .experience-item p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  /* ===================== CONTACT ===================== */
+  .contact { text-align: center; }
+
+  .contact-content { max-width: 600px; margin: 0 auto; }
+
+  .contact p {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+    line-height: 1.7;
+  }
+
+  .contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .contact-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px; height: 56px;
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    font-size: 1.4rem;
+    text-decoration: none;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s;
+  }
+
+  .contact-link:hover {
+    background: linear-gradient(135deg, var(--violet), var(--indigo));
+    border-color: transparent;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(139,92,246,0.4);
+  }
+
+  /* ===================== FOOTER ===================== */
+  footer {
+    padding: 1.5rem;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    border-top: 1px solid var(--glass-border);
+    position: relative;
+    z-index: 1;
+  }
+
+  footer a { color: var(--cyan); text-decoration: none; }
+
+  /* ===================== RESPONSIVE ===================== */
+  @media (max-width: 768px) {
+    nav { padding: 0.8rem 1.5rem; }
+    nav .nav-links { gap: 1.5rem; }
+    .hero h1 { font-size: 2.6rem; }
+    section { padding: 60px 1.5rem; }
+    h2 { font-size: 2rem; }
+    .skills-grid, .projects-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+<div class="blob blob-3"></div>
+
+<!-- Navigation -->
+<nav>
+  <a href="#home" class="nav-logo">
+    <div class="logo-circle">n</div>
+    <span class="nav-wordmark">n4bil</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- Hero Section -->
+<section id="home" class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">✨ <span>Available for opportunities</span></div>
+    <h1>Hello, I'm<br><span class="gradient">Nabil Arnaoot</span> 👋</h1>
+    <p>Full-stack developer crafting elegant solutions to complex problems. Passionate about web technologies, user experience, and building scalable applications.</p>
+    <button class="cta-button" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">Explore My Work ✦</button>
+  </div>
+</section>
+
+<!-- About Section -->
+<section id="about">
+  <div class="section-container">
+    <div class="section-tag">About Me</div>
+    <h2>About Me</h2>
+    <div class="about-content">
+      <p>I'm a full-stack developer with a passion for creating intuitive web experiences. With expertise in front-end and back-end technologies, I bring ideas to life through clean code and thoughtful design. I believe in continuous learning and staying updated with the latest industry trends.</p>
+      <p>When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or sharing knowledge with the developer community.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Skills Section -->
+<section id="skills">
+  <div class="section-container">
+    <div class="section-tag">Skills</div>
+    <h2>My Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-card glass-card">
+        <div class="skill-icon">💻</div>
+        <h3>Frontend Development</h3>
+        <p>Expert in React, Vue, and vanilla JavaScript. Creating responsive and interactive user interfaces.</p>
+      </div>
+      <div class="skill-card glass-card">
+        <div class="skill-icon">⚙️</div>
+        <h3>Backend Development</h3>
+        <p>Proficient in Node.js, Python, and database design. Building robust server-side applications.</p>
+      </div>
+      <div class="skill-card glass-card">
+        <div class="skill-icon">🎨</div>
+        <h3>UI/UX Design</h3>
+        <p>Crafting beautiful interfaces with attention to detail. Understanding user needs and design principles.</p>
+      </div>
+      <div class="skill-card glass-card">
+        <div class="skill-icon">🚀</div>
+        <h3>DevOps &amp; Deployment</h3>
+        <p>Experience with Docker, CI/CD pipelines, and cloud platforms like AWS and Heroku.</p>
+      </div>
+      <div class="skill-card glass-card">
+        <div class="skill-icon">📊</div>
+        <h3>Data &amp; Analytics</h3>
+        <p>Working with databases, analytics tools, and data visualization technologies.</p>
+      </div>
+      <div class="skill-card glass-card">
+        <div class="skill-icon">🔧</div>
+        <h3>Problem Solving</h3>
+        <p>Approaching complex challenges with systematic thinking and creative problem-solving techniques.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects">
+  <div class="section-container">
+    <div class="section-tag">Projects</div>
+    <h2>My Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card glass-card">
+        <div class="project-image project-image-1">🌐</div>
+        <div class="project-content">
+          <h3>Portfolio Website</h3>
+          <p>A modern, responsive portfolio showcasing my work and skills. Built with HTML, CSS, and JavaScript.</p>
+          <div class="project-tags">
+            <span class="project-tag">HTML</span>
+            <span class="project-tag">CSS</span>
+            <span class="project-tag">JavaScript</span>
+          </div>
+          <a href="#" class="project-link">View Project →</a>
+        </div>
+      </div>
+      <div class="project-card glass-card">
+        <div class="project-image project-image-2">📱</div>
+        <div class="project-content">
+          <h3>Mobile App</h3>
+          <p>A cross-platform mobile application developed with React Native. Features include user authentication and real-time updates.</p>
+          <div class="project-tags">
+            <span class="project-tag">React Native</span>
+            <span class="project-tag">Firebase</span>
+            <span class="project-tag">Mobile</span>
+          </div>
+          <a href="#" class="project-link">View Project →</a>
+        </div>
+      </div>
+      <div class="project-card glass-card">
+        <div class="project-image project-image-3">⚡</div>
+        <div class="project-content">
+          <h3>Web Application</h3>
+          <p>A full-stack web application with real-time features. Includes complex state management and API integration.</p>
+          <div class="project-tags">
+            <span class="project-tag">React</span>
+            <span class="project-tag">Node.js</span>
+            <span class="project-tag">MongoDB</span>
+          </div>
+          <a href="#" class="project-link">View Project →</a>
+        </div>
+      </div>
+      <div class="project-card glass-card">
+        <div class="project-image project-image-4">🎯</div>
+        <div class="project-content">
+          <h3>SaaS Platform</h3>
+          <p>A Software-as-a-Service platform with subscription management and analytics. Built for scalability.</p>
+          <div class="project-tags">
+            <span class="project-tag">Vue.js</span>
+            <span class="project-tag">PostgreSQL</span>
+            <span class="project-tag">AWS</span>
+          </div>
+          <a href="#" class="project-link">View Project →</a>
+        </div>
+      </div>
+      <div class="project-card glass-card">
+        <div class="project-image project-image-5">🔐</div>
+        <div class="project-content">
+          <h3>Security Tool</h3>
+          <p>A cybersecurity tool for penetration testing. Includes advanced features for vulnerability assessment.</p>
+          <div class="project-tags">
+            <span class="project-tag">Python</span>
+            <span class="project-tag">Security</span>
+            <span class="project-tag">CLI</span>
+          </div>
+          <a href="#" class="project-link">View Project →</a>
+        </div>
+      </div>
+      <div class="project-card glass-card">
+        <div class="project-image project-image-6">🎓</div>
+        <div class="project-content">
+          <h3>Learning Platform</h3>
+          <p>An online education platform with course management and student tracking. Interactive learning experience.</p>
+          <div class="project-tags">
+            <span class="project-tag">React</span>
+            <span class="project-tag">Django</span>
+            <span class="project-tag">PostgreSQL</span>
+          </div>
+          <a href="#" class="project-link">View Project →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Experience Section -->
+<section id="experience">
+  <div class="section-container" style="max-width:850px">
+    <div class="section-tag">Experience</div>
+    <h2>My Experience</h2>
+    <div class="experience-item glass-card">
+      <h3>Senior Full-Stack Developer</h3>
+      <div class="experience-date">2021 — Present · Tech Company Inc.</div>
+      <p>Leading full-stack development projects, mentoring junior developers, and architecting scalable solutions. Implemented microservices architecture reducing system latency by 40%.</p>
+    </div>
+    <div class="experience-item glass-card">
+      <h3>Full-Stack Developer</h3>
+      <div class="experience-date">2019 — 2021 · Digital Solutions Ltd.</div>
+      <p>Developed and maintained multiple web applications for enterprise clients. Implemented automated testing reducing bugs by 35%. Collaborated with cross-functional teams.</p>
+    </div>
+    <div class="experience-item glass-card">
+      <h3>Junior Web Developer</h3>
+      <div class="experience-date">2017 — 2019 · StartUp Co.</div>
+      <p>Built responsive web applications using React and Node.js. Improved website performance by 50%. Participated in agile development cycles and code reviews.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="contact">
+  <div class="contact-content">
+    <div class="section-tag" style="margin:0 auto 1rem">Contact</div>
+    <h2>Get In Touch</h2>
+    <p>I'm always open to new opportunities and interesting projects. Feel free to reach out if you'd like to collaborate or just chat about technology!</p>
+    <div class="contact-links">
+      <a href="https://github.com" class="contact-link" title="GitHub"><span>⭐</span></a>
+      <a href="https://linkedin.com" class="contact-link" title="LinkedIn"><span>💼</span></a>
+      <a href="https://twitter.com" class="contact-link" title="Twitter"><span>🐦</span></a>
+      <a href="mailto:contact@example.com" class="contact-link" title="Email"><span>✉️</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>&copy; 2024 Nabil Arnaoot. All rights reserved. Made with love and code.</p>
+</footer>
+
+</body>
+</html>

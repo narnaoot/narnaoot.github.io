@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>n4bil — Nabil Arnaoot</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --white: #FFFFFF;
+    --off-white: #F8F8F8;
+    --black: #111111;
+    --gray: #888888;
+    --light-gray: #E5E5E5;
+    --accent: #D4451A;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--white);
+    color: var(--black);
+    overflow-x: hidden;
+  }
+
+  /* ===================== NAV ===================== */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 4rem;
+    background: rgba(255,255,255,0.97);
+    border-bottom: 1px solid var(--light-gray);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+
+  .logo-circle {
+    width: 38px; height: 38px;
+    background: var(--black);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--white);
+  }
+
+  .nav-wordmark {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.3rem;
+    color: var(--black);
+    margin-left: 0.6rem;
+  }
+
+  nav .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    list-style: none;
+  }
+
+  nav .nav-links li a {
+    text-decoration: none;
+    color: var(--gray);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  nav .nav-links li a:hover { color: var(--black); }
+
+  /* ===================== HERO ===================== */
+  .hero {
+    padding-top: 130px;
+    padding-bottom: 120px;
+    padding-left: 4rem;
+    padding-right: 4rem;
+    border-bottom: 1px solid var(--light-gray);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: end;
+    gap: 4rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 5rem;
+    font-weight: 400;
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-right {
+    padding-bottom: 0.5rem;
+  }
+
+  .hero p {
+    font-size: 1.05rem;
+    color: var(--gray);
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+    max-width: 440px;
+  }
+
+  .cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.85rem 2rem;
+    background: var(--black);
+    color: var(--white);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: none;
+    transition: background 0.2s;
+  }
+
+  .cta-button:hover { background: var(--accent); }
+
+  /* ===================== SECTION BASE ===================== */
+  .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 4rem;
+  }
+
+  section { padding: 100px 0; border-bottom: 1px solid var(--light-gray); }
+
+  .section-header {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 4rem;
+    margin-bottom: 5rem;
+    align-items: start;
+  }
+
+  .section-number {
+    font-size: 0.75rem;
+    color: var(--gray);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding-top: 0.5rem;
+  }
+
+  h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 3rem;
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+
+  /* ===================== ABOUT ===================== */
+  .about-body {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 4rem;
+  }
+
+  .about-body p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--gray);
+    margin-bottom: 1.5rem;
+  }
+
+  /* ===================== SKILLS ===================== */
+  .skills { background: var(--off-white); }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+  }
+
+  .skill-card {
+    padding: 2.5rem 2rem;
+    border-right: 1px solid var(--light-gray);
+    border-bottom: 1px solid var(--light-gray);
+    transition: background 0.2s;
+  }
+
+  .skill-card:hover { background: var(--white); }
+
+  .skill-card:nth-child(3n) { border-right: none; }
+  .skill-card:nth-child(4), .skill-card:nth-child(5), .skill-card:nth-child(6) { border-bottom: none; }
+
+  .skill-icon {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .skill-card h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-bottom: 0.75rem;
+  }
+
+  .skill-card p {
+    color: var(--gray);
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  /* ===================== PROJECTS ===================== */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+  }
+
+  .project-card { }
+
+  .project-image {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: var(--off-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    margin-bottom: 1.25rem;
+    border: 1px solid var(--light-gray);
+  }
+
+  .project-card h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+  }
+
+  .project-card p {
+    color: var(--gray);
+    font-size: 0.875rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .project-tag {
+    padding: 0.2rem 0.6rem;
+    border: 1px solid var(--light-gray);
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    color: var(--gray);
+  }
+
+  .project-link {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  /* ===================== EXPERIENCE ===================== */
+  .experience { background: var(--off-white); }
+
+  .experience-item {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 4rem;
+    padding: 2.5rem 0;
+    border-bottom: 1px solid var(--light-gray);
+  }
+
+  .experience-item:first-of-type { border-top: 1px solid var(--light-gray); }
+
+  .experience-date {
+    font-size: 0.8rem;
+    color: var(--gray);
+    letter-spacing: 0.05em;
+    padding-top: 0.3rem;
+  }
+
+  .experience-body h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin-bottom: 0.75rem;
+  }
+
+  .experience-body p {
+    color: var(--gray);
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  /* ===================== CONTACT ===================== */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .contact p {
+    font-size: 1.05rem;
+    color: var(--gray);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+
+  .contact-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .contact-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px; height: 48px;
+    border: 1px solid var(--light-gray);
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: var(--black);
+    transition: all 0.2s;
+  }
+
+  .contact-link:hover {
+    background: var(--black);
+    border-color: var(--black);
+  }
+
+  /* ===================== FOOTER ===================== */
+  footer {
+    padding: 2rem 4rem;
+    border-top: 1px solid var(--light-gray);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+    color: var(--gray);
+    letter-spacing: 0.05em;
+  }
+
+  footer a { color: var(--accent); text-decoration: none; }
+
+  /* ===================== RESPONSIVE ===================== */
+  @media (max-width: 1024px) {
+    .hero, .container { padding-left: 2rem; padding-right: 2rem; }
+    .hero { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 3.5rem; }
+    .section-header, .about-body, .contact-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    .experience-item { grid-template-columns: 1fr; gap: 0.5rem; }
+    .skills-grid, .projects-grid { grid-template-columns: 1fr 1fr; }
+    .skill-card:nth-child(2n) { border-right: none; }
+    .skill-card:nth-child(3) { border-right: 1px solid var(--light-gray); border-bottom: 1px solid var(--light-gray); }
+    nav { padding: 1rem 2rem; }
+    footer { padding: 1.5rem 2rem; }
+  }
+
+  @media (max-width: 600px) {
+    nav { padding: 0.8rem 1.5rem; }
+    .hero h1 { font-size: 2.6rem; }
+    .skills-grid, .projects-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+  <a href="#home" class="nav-logo">
+    <div class="logo-circle">n</div>
+    <span class="nav-wordmark">n4bil</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- Hero Section -->
+<section id="home">
+  <div class="hero">
+    <h1>Hello,<br>I'm <em>Nabil</em><br>Arnaoot 👋</h1>
+    <div class="hero-right">
+      <p>Full-stack developer crafting elegant solutions to complex problems. Passionate about web technologies, user experience, and building scalable applications.</p>
+      <button class="cta-button" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">Explore My Work →</button>
+    </div>
+  </div>
+</section>
+
+<!-- About Section -->
+<section id="about">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-number">01 — About</div>
+      <h2>A developer<br>who cares about<br><em style="font-style:italic;color:var(--accent)">the details.</em></h2>
+    </div>
+    <div class="about-body">
+      <div></div>
+      <div>
+        <p>I'm a full-stack developer with a passion for creating intuitive web experiences. With expertise in front-end and back-end technologies, I bring ideas to life through clean code and thoughtful design. I believe in continuous learning and staying updated with the latest industry trends.</p>
+        <p>When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or sharing knowledge with the developer community.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Skills Section -->
+<section id="skills" class="skills">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-number">02 — Skills</div>
+      <h2>My Skills</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-icon">💻</div>
+        <h3>Frontend Development</h3>
+        <p>Expert in React, Vue, and vanilla JavaScript. Creating responsive and interactive user interfaces.</p>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">⚙️</div>
+        <h3>Backend Development</h3>
+        <p>Proficient in Node.js, Python, and database design. Building robust server-side applications.</p>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">🎨</div>
+        <h3>UI/UX Design</h3>
+        <p>Crafting beautiful interfaces with attention to detail. Understanding user needs and design principles.</p>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">🚀</div>
+        <h3>DevOps &amp; Deployment</h3>
+        <p>Experience with Docker, CI/CD pipelines, and cloud platforms like AWS and Heroku.</p>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">📊</div>
+        <h3>Data &amp; Analytics</h3>
+        <p>Working with databases, analytics tools, and data visualization technologies.</p>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">🔧</div>
+        <h3>Problem Solving</h3>
+        <p>Approaching complex challenges with systematic thinking and creative problem-solving techniques.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-number">03 — Projects</div>
+      <h2>My Projects</h2>
+    </div>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-image">🌐</div>
+        <h3>Portfolio Website</h3>
+        <p>A modern, responsive portfolio showcasing my work and skills. Built with HTML, CSS, and JavaScript.</p>
+        <div class="project-tags">
+          <span class="project-tag">HTML</span>
+          <span class="project-tag">CSS</span>
+          <span class="project-tag">JavaScript</span>
+        </div>
+        <a href="#" class="project-link">View Project →</a>
+      </div>
+      <div class="project-card">
+        <div class="project-image">📱</div>
+        <h3>Mobile App</h3>
+        <p>A cross-platform mobile application developed with React Native. Features include user authentication and real-time updates.</p>
+        <div class="project-tags">
+          <span class="project-tag">React Native</span>
+          <span class="project-tag">Firebase</span>
+          <span class="project-tag">Mobile</span>
+        </div>
+        <a href="#" class="project-link">View Project →</a>
+      </div>
+      <div class="project-card">
+        <div class="project-image">⚡</div>
+        <h3>Web Application</h3>
+        <p>A full-stack web application with real-time features. Includes complex state management and API integration.</p>
+        <div class="project-tags">
+          <span class="project-tag">React</span>
+          <span class="project-tag">Node.js</span>
+          <span class="project-tag">MongoDB</span>
+        </div>
+        <a href="#" class="project-link">View Project →</a>
+      </div>
+      <div class="project-card">
+        <div class="project-image">🎯</div>
+        <h3>SaaS Platform</h3>
+        <p>A Software-as-a-Service platform with subscription management and analytics. Built for scalability.</p>
+        <div class="project-tags">
+          <span class="project-tag">Vue.js</span>
+          <span class="project-tag">PostgreSQL</span>
+          <span class="project-tag">AWS</span>
+        </div>
+        <a href="#" class="project-link">View Project →</a>
+      </div>
+      <div class="project-card">
+        <div class="project-image">🔐</div>
+        <h3>Security Tool</h3>
+        <p>A cybersecurity tool for penetration testing. Includes advanced features for vulnerability assessment.</p>
+        <div class="project-tags">
+          <span class="project-tag">Python</span>
+          <span class="project-tag">Security</span>
+          <span class="project-tag">CLI</span>
+        </div>
+        <a href="#" class="project-link">View Project →</a>
+      </div>
+      <div class="project-card">
+        <div class="project-image">🎓</div>
+        <h3>Learning Platform</h3>
+        <p>An online education platform with course management and student tracking. Interactive learning experience.</p>
+        <div class="project-tags">
+          <span class="project-tag">React</span>
+          <span class="project-tag">Django</span>
+          <span class="project-tag">PostgreSQL</span>
+        </div>
+        <a href="#" class="project-link">View Project →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Experience Section -->
+<section id="experience" class="experience">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-number">04 — Experience</div>
+      <h2>My Experience</h2>
+    </div>
+    <div class="experience-item">
+      <div class="experience-date">2021 — Present<br>Tech Company Inc.</div>
+      <div class="experience-body">
+        <h3>Senior Full-Stack Developer</h3>
+        <p>Leading full-stack development projects, mentoring junior developers, and architecting scalable solutions. Implemented microservices architecture reducing system latency by 40%.</p>
+      </div>
+    </div>
+    <div class="experience-item">
+      <div class="experience-date">2019 — 2021<br>Digital Solutions Ltd.</div>
+      <div class="experience-body">
+        <h3>Full-Stack Developer</h3>
+        <p>Developed and maintained multiple web applications for enterprise clients. Implemented automated testing reducing bugs by 35%. Collaborated with cross-functional teams.</p>
+      </div>
+    </div>
+    <div class="experience-item">
+      <div class="experience-date">2017 — 2019<br>StartUp Co.</div>
+      <div class="experience-body">
+        <h3>Junior Web Developer</h3>
+        <p>Built responsive web applications using React and Node.js. Improved website performance by 50%. Participated in agile development cycles and code reviews.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-number">05 — Contact</div>
+      <h2>Get In Touch</h2>
+    </div>
+    <div class="contact-grid">
+      <div></div>
+      <div>
+        <p>I'm always open to new opportunities and interesting projects. Feel free to reach out if you'd like to collaborate or just chat about technology!</p>
+        <div class="contact-links">
+          <a href="https://github.com" class="contact-link" title="GitHub"><span>⭐</span></a>
+          <a href="https://linkedin.com" class="contact-link" title="LinkedIn"><span>💼</span></a>
+          <a href="https://twitter.com" class="contact-link" title="Twitter"><span>🐦</span></a>
+          <a href="mailto:contact@example.com" class="contact-link" title="Email"><span>✉️</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <span>&copy; 2024 Nabil Arnaoot</span>
+  <span>Made with love and code</span>
+</footer>
+
+</body>
+</html>
