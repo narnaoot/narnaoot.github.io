@@ -975,106 +975,258 @@
 
 
 <!-- ════════════════════════════════════════════════════════
-     SPIRAL SVG
+     RIVER JOURNEY — Animal Crossing style
 ════════════════════════════════════════════════════════ -->
 <script>
 (function () {
   const svg = document.getElementById('spiralSvg');
   const ns  = 'http://www.w3.org/2000/svg';
+  svg.setAttribute('viewBox', '0 0 560 560');
 
+  // ── Helpers ────────────────────────────────────────────
+  function mk(tag, attrs) {
+    const e = document.createElementNS(ns, tag);
+    for (const [k,v] of Object.entries(attrs)) e.setAttribute(k, v);
+    return e;
+  }
+  function ap(parent, tag, attrs) { const e = mk(tag, attrs); parent.appendChild(e); return e; }
+
+  // Seeded RNG for deterministic grass/texture
+  let _seed = 31;
+  function rng() { _seed = (_seed * 1664525 + 1013904223) & 0x7fffffff; return _seed / 0x7fffffff; }
+
+  // ── Grassy meadow background ───────────────────────────
+  ap(svg, 'rect', { x:0, y:0, width:560, height:560, fill:'#C6E28A', rx:14 });
+  for (let i = 0; i < 110; i++) {
+    ap(svg, 'circle', {
+      cx: (rng()*560).toFixed(1), cy: (rng()*560).toFixed(1),
+      r:  (1.5 + rng()*2.8).toFixed(1),
+      fill: rng() > 0.5 ? '#A8CB6A' : '#B6D878',
+      opacity: (0.18 + rng()*0.22).toFixed(2),
+    });
+  }
+
+  // ── Spiral math with organic river wobble ──────────────
   const cx = 280, cy = 290, b = 21.5;
   const T0 = 0.9, T1 = 4.65 * Math.PI;
-  const YEAR_START = 2006, YEAR_END = 2026;
+  const YS = 2006, YE = 2026;
 
-  function yearToTheta(y) { return T0 + (y - YEAR_START) / (YEAR_END - YEAR_START) * (T1 - T0); }
-  function thetaToXY(t)   { const r = b * t, a = t - Math.PI / 2; return { x: cx + r * Math.cos(a), y: cy + r * Math.sin(a) }; }
+  function yearToTheta(y) { return T0 + (y - YS) / (YE - YS) * (T1 - T0); }
 
-  // Spiral path
-  let d = '';
-  for (let i = 0; i <= 600; i++) {
-    const t = T0 + (T1 - T0) * i / 600;
-    const { x, y } = thetaToXY(t);
-    d += (i === 0 ? `M ${x.toFixed(1)} ${y.toFixed(1)}` : ` L ${x.toFixed(1)} ${y.toFixed(1)}`);
+  // Gentle sinusoidal wobble gives the path an organic, river-like meander
+  function thetaToXY(t) {
+    const wobble = 7   * Math.sin(t * 5.3  + 0.7)
+                 + 3.5 * Math.sin(t * 12.8 + 2.1)
+                 + 2   * Math.sin(t * 2.4  + 0.3);
+    const r = b * t + wobble;
+    const a = t - Math.PI / 2;
+    return { x: cx + r * Math.cos(a), y: cy + r * Math.sin(a) };
   }
-  const path = document.createElementNS(ns, 'path');
-  path.setAttribute('d', d);
-  path.setAttribute('fill', 'none');
-  path.setAttribute('stroke', '#E8DDD0');
-  path.setAttribute('stroke-width', '2.5');
-  path.setAttribute('stroke-linecap', 'round');
-  svg.appendChild(path);
 
-  // Theme annotations
+  // Build path points + SVG path string
+  const STEPS = 600;
+  const pts = [];
+  let dPath = '';
+  for (let i = 0; i <= STEPS; i++) {
+    const t = T0 + (T1 - T0) * i / STEPS;
+    const p = thetaToXY(t);
+    pts.push({ t, x: p.x, y: p.y });
+    dPath += i === 0 ? `M ${p.x.toFixed(1)} ${p.y.toFixed(1)}`
+                     : ` L ${p.x.toFixed(1)} ${p.y.toFixed(1)}`;
+  }
+
+  // Local tangent direction at a step index
+  function tangentAt(i) {
+    const lo = Math.max(0, i-4), hi = Math.min(pts.length-1, i+4);
+    const dx = pts[hi].x - pts[lo].x, dy = pts[hi].y - pts[lo].y;
+    const len = Math.hypot(dx, dy) || 1;
+    return { x: dx/len, y: dy/len };
+  }
+
+  // ── Draw river (layered strokes) ───────────────────────
   [
-    { theta: T0 + (T1-T0)*0.08, text: 'storytelling begins' },
-    { theta: T0 + (T1-T0)*0.3,  text: 'cross-functional'    },
-    { theta: T0 + (T1-T0)*0.5,  text: 'systems thinking'    },
-    { theta: T0 + (T1-T0)*0.72, text: 'data & analysis'     },
-    { theta: T0 + (T1-T0)*0.92, text: 'leadership'          },
+    ['#D8C488', 68, 1   ],  // sandy bank
+    ['#267880', 52, 1   ],  // dark water outline
+    ['#4CB4B8', 44, 1   ],  // river body
+    ['#7AD0D4', 24, 1   ],  // lighter mid-water
+    ['#B2E4E8', 10, 0.65],  // bright surface highlight
+  ].forEach(([stroke, w, op]) =>
+    ap(svg, 'path', { d:dPath, fill:'none', stroke,
+      'stroke-width':w, 'stroke-linecap':'round', 'stroke-linejoin':'round', opacity:op })
+  );
+
+  // ── Water ripple marks ─────────────────────────────────
+  for (let i = 22; i < pts.length - 22; i += 36) {
+    const p = pts[i], tg = tangentAt(i);
+    const nx = -tg.y, ny = tg.x, w = 7.5;
+    ap(svg, 'path', {
+      d: `M ${(p.x - nx*w).toFixed(1)} ${(p.y - ny*w).toFixed(1)}`
+       + ` Q ${(p.x + tg.x*5).toFixed(1)} ${(p.y + tg.y*5).toFixed(1)},`
+       + `   ${(p.x + nx*w).toFixed(1)} ${(p.y + ny*w).toFixed(1)}`,
+      fill:'none', stroke:'#FFFFFF', 'stroke-width':'1.5',
+      'stroke-linecap':'round', opacity:'0.28',
+    });
+  }
+
+  // ── Trees (AC-style rounded canopy clusters) ───────────
+  const TREE_PAL = [
+    { top:'#52924A', shd:'#3E7838', trunk:'#8A5C38', hi:'#72B460' },
+    { top:'#489040', shd:'#357030', trunk:'#7A4E2E', hi:'#64A858' },
+    { top:'#60A450', shd:'#4A8840', trunk:'#8E6040', hi:'#7CBE68' },
+  ];
+  // [step-index, side (+1/-1), scale, palette-index]
+  [
+    [35,  1, 1.00, 0], [38,  -1, 0.85, 1],
+    [100,-1, 1.00, 2], [104,  1, 0.80, 0],
+    [168, 1, 0.95, 1], [172, -1, 0.85, 2],
+    [238,-1, 1.00, 0], [243,  1, 0.90, 1],
+    [310, 1, 0.95, 2], [315, -1, 0.80, 0],
+    [380,-1, 1.00, 1], [385,  1, 0.85, 2],
+    [448, 1, 1.00, 0], [452, -1, 0.90, 1],
+    [515,-1, 0.95, 2], [519,  1, 0.80, 0],
+  ].forEach(([si, side, sc, pi]) => {
+    const p = pts[Math.min(si, pts.length-1)];
+    const tg = tangentAt(Math.min(si, pts.length-1));
+    const nx = -tg.y * side, ny = tg.x * side;
+    const dist = 56 + pi * 5;
+    const tx = p.x + nx * dist, ty = p.y + ny * dist;
+    if (tx < 8 || tx > 552 || ty < 8 || ty > 552) return;
+    const c = TREE_PAL[pi], s = sc;
+    ap(svg, 'ellipse', { cx:tx.toFixed(1), cy:(ty+12*s).toFixed(1), rx:(9*s).toFixed(1), ry:(3*s).toFixed(1), fill:'#000', opacity:'0.06' });
+    ap(svg, 'rect', { x:(tx-2.5*s).toFixed(1), y:ty.toFixed(1), width:(5*s).toFixed(1), height:(9*s).toFixed(1), fill:c.trunk, rx:'2' });
+    // Shadow canopy
+    [[0,  -3, 11], [-5, 3, 8.5], [5, 3, 8.5]].forEach(([dx,dy,r]) =>
+      ap(svg, 'circle', { cx:(tx+dx*s).toFixed(1), cy:(ty+dy*s).toFixed(1), r:(r*s).toFixed(1), fill:c.shd })
+    );
+    // Top canopy
+    [[0,  -3, 10], [-4.5, 3, 7.5], [4.5, 3, 7.5]].forEach(([dx,dy,r]) =>
+      ap(svg, 'circle', { cx:(tx+dx*s).toFixed(1), cy:(ty+dy*s).toFixed(1), r:(r*s).toFixed(1), fill:c.top })
+    );
+    ap(svg, 'circle', { cx:(tx-3*s).toFixed(1), cy:(ty-6*s).toFixed(1), r:(2.8*s).toFixed(1), fill:c.hi, opacity:'0.6' });
+  });
+
+  // ── Flowers ────────────────────────────────────────────
+  [
+    [58,  -1, '#E8614F'], [90,   1, '#D4920A'], [145, -1, '#8B7BC8'],
+    [198,  1, '#6A9F7A'], [254, -1, '#E88060'], [308,  1, '#D4920A'],
+    [362, -1, '#E8614F'], [418,  1, '#8B7BC8'], [472, -1, '#6A9F7A'],
+    [528,  1, '#D4920A'], [22,   1, '#8B7BC8'],
+  ].forEach(([si, side, col]) => {
+    const p = pts[Math.min(si, pts.length-1)];
+    const tg = tangentAt(Math.min(si, pts.length-1));
+    const nx = -tg.y * side, ny = tg.x * side;
+    const fx = p.x + nx * 38, fy = p.y + ny * 38;
+    if (fx < 4 || fx > 556 || fy < 4 || fy > 556) return;
+    for (let k = 0; k < 5; k++) {
+      const a = k / 5 * Math.PI * 2;
+      ap(svg, 'circle', { cx:(fx+Math.cos(a)*4).toFixed(1), cy:(fy+Math.sin(a)*4).toFixed(1), r:'3', fill:col, opacity:'0.82' });
+    }
+    ap(svg, 'circle', { cx:fx.toFixed(1), cy:fy.toFixed(1), r:'2', fill:'#FFF8E0' });
+  });
+
+  // ── Recurring theme labels (on the grassy bank) ────────
+  [
+    { frac:0.09, text:'storytelling begins', side:-1 },
+    { frac:0.29, text:'cross-functional',    side: 1 },
+    { frac:0.49, text:'systems thinking',    side:-1 },
+    { frac:0.70, text:'data & analysis',     side: 1 },
+    { frac:0.90, text:'leadership',          side:-1 },
   ].forEach(th => {
-    const { x, y } = thetaToXY(th.theta);
-    const el = document.createElementNS(ns, 'text');
-    el.setAttribute('x', x); el.setAttribute('y', y - 9);
-    el.setAttribute('font-family', "'Nunito', sans-serif"); el.setAttribute('font-size', '8');
-    el.setAttribute('fill', '#9A8070'); el.setAttribute('text-anchor', 'middle'); el.setAttribute('font-style', 'italic');
+    const i  = Math.round(th.frac * STEPS);
+    const p  = pts[Math.min(i, pts.length-1)];
+    const tg = tangentAt(Math.min(i, pts.length-1));
+    const nx = -tg.y * th.side, ny = tg.x * th.side;
+    const el = mk('text', {
+      x: (p.x + nx * 31).toFixed(1), y: (p.y + ny * 31).toFixed(1),
+      'font-family':"'Nunito', sans-serif", 'font-size':'7.5',
+      fill:'#7A6A58', 'text-anchor':'middle', 'font-style':'italic',
+    });
     el.textContent = th.text;
     svg.appendChild(el);
   });
 
-  // Job stops
+  // ── Job signpost markers ───────────────────────────────
   [
-    { year: 2006.9, label: 'Elegrity',   role: 'Engr PM',           color: '#6A9F7A', side: 'right' },
-    { year: 2010.0, label: 'eBay',       role: 'Program Manager',   color: '#D4920A', side: 'left'  },
-    { year: 2011.4, label: 'Apple',      role: 'Engr PM',           color: '#4A90D9', side: 'right' },
-    { year: 2014.8, label: 'Apple',      role: 'BA / BPE',          color: '#4A90D9', side: 'left'  },
-    { year: 2020.0, label: "St. Mary's", role: 'Consultant + MS ✦', color: '#8B7BC8', side: 'right' },
-    { year: 2024.3, label: 'SFMTA',      role: 'Principal BA',      color: '#E8614F', side: 'left', current: true },
+    { year:2006.9, label:'Elegrity',   role:'Engr PM',          color:'#6A9F7A', side: 1  },
+    { year:2010.0, label:'eBay',       role:'Prog. Manager',    color:'#D4920A', side:-1  },
+    { year:2011.4, label:'Apple',      role:'Engr PM',          color:'#4A90D9', side: 1  },
+    { year:2014.8, label:'Apple',      role:'BA / BPE',         color:'#4A90D9', side:-1  },
+    { year:2020.0, label:"St. Mary's", role:'Consultant+MS ✦',  color:'#8B7BC8', side: 1  },
+    { year:2024.3, label:'SFMTA',      role:'Principal BA',     color:'#E8614F', side:-1, current:true },
   ].forEach(job => {
-    const t = yearToTheta(job.year);
-    const { x, y } = thetaToXY(t);
-    const s = job.side === 'right' ? 1 : -1;
-    const lx = x + s * 16;
-    const anchor = s > 0 ? 'start' : 'end';
+    const t   = yearToTheta(job.year);
+    const p   = thetaToXY(t);
+    const si  = Math.round((t - T0) / (T1 - T0) * STEPS);
+    const tg  = tangentAt(Math.min(si, pts.length-1));
+    const nx  = -tg.y * job.side, ny = tg.x * job.side;
 
+    // Post base: slightly off the river toward the label side
+    const bx = p.x + nx * 10, by = p.y + ny * 10;
+    const postH = job.current ? 30 : 24;
+
+    // Sign card
+    const sw  = job.label.length > 6 ? 66 : 58;
+    const sh  = job.current ? 27 : 23;
+    const scx = bx + nx * (sw * 0.38) + (job.side > 0 ? 8 : -8);
+    const sx  = scx - sw / 2;
+    const sy  = by - postH - sh + 3;
+
+    // Shadow
+    ap(svg, 'rect', { x:(sx+2).toFixed(1), y:(sy+2).toFixed(1), width:sw, height:sh, rx:6, fill:'#000', opacity:'0.08' });
+
+    // Wooden post
+    ap(svg, 'rect', { x:(bx-2.5).toFixed(1), y:(by-postH).toFixed(1), width:5, height:postH, fill:'#9A6844', rx:2 });
+    ap(svg, 'line', { x1:bx.toFixed(1), y1:by.toFixed(1), x2:bx.toFixed(1), y2:(by-postH).toFixed(1), stroke:'#7A5030', 'stroke-width':'1', opacity:'0.28' });
+
+    // Sign plank
+    ap(svg, 'rect', { x:sx.toFixed(1), y:sy.toFixed(1), width:sw, height:sh, rx:6,
+      fill:job.current ? job.color : '#FEF8E8',
+      stroke:job.color, 'stroke-width':job.current ? '2.5' : '1.5',
+    });
+
+    // Company name
+    const nameEl = mk('text', { x:scx.toFixed(1), y:(sy+12).toFixed(1),
+      'font-family':"'Playfair Display', serif",
+      'font-size':job.current ? '12' : '10', 'font-weight':'700',
+      fill:job.current ? '#FFFFFF' : job.color, 'text-anchor':'middle',
+    });
+    nameEl.textContent = job.label;
+    svg.appendChild(nameEl);
+
+    // Role
+    const roleEl = mk('text', { x:scx.toFixed(1), y:(sy+sh-4).toFixed(1),
+      'font-family':"'Nunito', sans-serif", 'font-size':'6.5',
+      fill:job.current ? 'rgba(255,255,255,0.82)' : '#9A8070', 'text-anchor':'middle',
+    });
+    roleEl.textContent = job.role;
+    svg.appendChild(roleEl);
+
+    // Pulse rings for current position
     if (job.current) {
-      const ring = document.createElementNS(ns, 'circle');
-      ring.setAttribute('cx', x); ring.setAttribute('cy', y); ring.setAttribute('r', '11');
-      ring.setAttribute('fill', 'none'); ring.setAttribute('stroke', job.color);
-      ring.setAttribute('stroke-width', '1.5'); ring.setAttribute('opacity', '0.4');
-      svg.appendChild(ring);
+      ap(svg, 'circle', { cx:p.x.toFixed(1), cy:p.y.toFixed(1), r:'14', fill:'none', stroke:job.color, 'stroke-width':'1',   opacity:'0.22' });
+      ap(svg, 'circle', { cx:p.x.toFixed(1), cy:p.y.toFixed(1), r:'10', fill:'none', stroke:job.color, 'stroke-width':'1.5', opacity:'0.38' });
     }
 
-    const dot = document.createElementNS(ns, 'circle');
-    dot.setAttribute('cx', x); dot.setAttribute('cy', y); dot.setAttribute('r', job.current ? '7' : '5.5');
-    dot.setAttribute('fill', job.color); dot.setAttribute('stroke', '#FFFBF5'); dot.setAttribute('stroke-width', '2');
-    svg.appendChild(dot);
+    // Stone on the river
+    ap(svg, 'circle', { cx:p.x.toFixed(1), cy:p.y.toFixed(1), r:job.current ? '7.5' : '5.5', fill:job.color, stroke:'#FFFBF5', 'stroke-width':'2.5' });
 
-    const line = document.createElementNS(ns, 'line');
-    line.setAttribute('x1', x); line.setAttribute('y1', y);
-    line.setAttribute('x2', x + s * 13); line.setAttribute('y2', y);
-    line.setAttribute('stroke', job.color); line.setAttribute('stroke-width', '1'); line.setAttribute('opacity', '0.5');
-    svg.appendChild(line);
-
-    [[job.label, "'Playfair Display', serif", job.current ? '13' : '11', '700', job.color, y - 3],
-     [job.role,  "'Nunito', sans-serif",       '8.5',                    '400', '#9A8070', y + 10],
-     [Math.floor(job.year), "'Nunito', sans-serif", '7.5', '400', '#BFB0A5', y + 21],
-    ].forEach(([text, font, size, weight, fill, ty]) => {
-      const el = document.createElementNS(ns, 'text');
-      el.setAttribute('x', lx); el.setAttribute('y', ty);
-      el.setAttribute('font-family', font); el.setAttribute('font-size', size);
-      el.setAttribute('font-weight', weight); el.setAttribute('fill', fill);
-      el.setAttribute('text-anchor', anchor);
-      el.textContent = text;
-      svg.appendChild(el);
+    // Year (just off the stone, toward the label side)
+    const yearEl = mk('text', { x:(p.x + nx*14).toFixed(1), y:(p.y + ny*14 + 5).toFixed(1),
+      'font-family':"'Nunito', sans-serif", 'font-size':'7.5',
+      fill:'#9A8070', 'text-anchor':'middle',
     });
+    yearEl.textContent = Math.floor(job.year).toString();
+    svg.appendChild(yearEl);
   });
 
-  const cLabel = document.createElementNS(ns, 'text');
-  cLabel.setAttribute('x', cx); cLabel.setAttribute('y', cy + 4);
-  cLabel.setAttribute('font-family', "'Nunito', sans-serif"); cLabel.setAttribute('font-size', '9');
-  cLabel.setAttribute('fill', '#BFB0A5'); cLabel.setAttribute('text-anchor', 'middle'); cLabel.setAttribute('font-style', 'italic');
-  cLabel.textContent = '2006 →';
-  svg.appendChild(cLabel);
+  // ── Center of spiral ───────────────────────────────────
+  const cEl = mk('text', { x:cx, y:cy+4,
+    'font-family':"'Nunito', sans-serif", 'font-size':'9',
+    fill:'#8A7A68', 'text-anchor':'middle', 'font-style':'italic',
+  });
+  cEl.textContent = '2006 →';
+  svg.appendChild(cEl);
+
 })();
 
 
