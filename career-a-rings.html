@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Career Depth — Design A: Growth Rings</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #F6F0E8;
+      min-height: 100vh;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      font-family: 'Nunito', sans-serif;
+      padding: 36px 16px;
+    }
+    .badge { background: #4878C8; color: #fff; font-size: .68rem; font-weight: 800;
+      letter-spacing: .1em; text-transform: uppercase; padding: 3px 11px;
+      border-radius: 20px; margin-bottom: 10px; display: inline-block; }
+    h1 { font-family: 'Playfair Display', serif; font-size: 1.7rem; color: #2E2218; margin-bottom: 6px; }
+    .sub { font-size: .87rem; color: #9A8070; max-width: 460px; text-align: center;
+      line-height: 1.6; margin-bottom: 28px; }
+    svg { display: block; max-width: 100%; }
+    .legend { display: flex; flex-wrap: wrap; gap: 8px 18px; justify-content: center; margin-top: 22px; }
+    .li { display: flex; align-items: center; gap: 6px; font-size: .82rem; color: #5A4A3A; font-weight: 600; }
+    .ls { width: 12px; height: 12px; border-radius: 3px; flex-shrink: 0; }
+    .note { font-style: italic; color: #9A8070; font-size: .78rem; margin-top: 10px; text-align: center; }
+  </style>
+</head>
+<body>
+  <span class="badge">Design A</span>
+  <h1>Growth Rings</h1>
+  <p class="sub">Each ring is a career phase — its thickness proportional to years in that phase. The same five themes recur in every ring, but they deepen outward: muted at the core, rich and saturated at the edge.</p>
+  <svg id="viz" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 580" width="580" height="580"></svg>
+  <div class="legend">
+    <div class="li"><div class="ls" style="background:#E8A040"></div>Storytelling</div>
+    <div class="li"><div class="ls" style="background:#4AA888"></div>Cross-functional</div>
+    <div class="li"><div class="ls" style="background:#4878C8"></div>Systems thinking</div>
+    <div class="li"><div class="ls" style="background:#9058C8"></div>Data &amp; analysis</div>
+    <div class="li"><div class="ls" style="background:#E04848"></div>Leadership</div>
+  </div>
+  <p class="note">Ring width ∝ years in phase · Saturation deepens outward → expertise accumulates</p>
+
+<script>
+(function () {
+  const svg = document.getElementById('viz');
+  const ns  = 'http://www.w3.org/2000/svg';
+  const cx = 290, cy = 295;
+
+  function mk(tag, a) {
+    const e = document.createElementNS(ns, tag);
+    for (const [k,v] of Object.entries(a)) e.setAttribute(k, v);
+    return e;
+  }
+  function ap(p, tag, a) { const e = mk(tag, a); p.appendChild(e); return e; }
+  function f(n) { return n.toFixed(2); }
+
+  // Annular sector path: inner radius r0, outer r1, from angle a0 to a1 (radians)
+  function annular(r0, r1, a0, a1) {
+    const lg = (a1 - a0) > Math.PI ? 1 : 0;
+    const [s0,c0,s1,c1] = [Math.sin(a0),Math.cos(a0),Math.sin(a1),Math.cos(a1)];
+    return `M ${f(cx+r0*c0)} ${f(cy+r0*s0)}`
+         + ` L ${f(cx+r1*c0)} ${f(cy+r1*s0)}`
+         + ` A ${f(r1)} ${f(r1)} 0 ${lg} 1 ${f(cx+r1*c1)} ${f(cy+r1*s1)}`
+         + ` L ${f(cx+r0*c1)} ${f(cy+r0*s1)}`
+         + ` A ${f(r0)} ${f(r0)} 0 ${lg} 0 ${f(cx+r0*c0)} ${f(cy+r0*s0)} Z`;
+  }
+
+  // Five recurring themes — equal 72° wedges, starting at top (-π/2)
+  const THEMES = [
+    { h: 35,  label: 'storytelling'    },
+    { h: 162, label: 'cross-functional' },
+    { h: 215, label: 'systems thinking' },
+    { h: 262, label: 'data & analysis'  },
+    { h: 5,   label: 'leadership'       },
+  ].map((t, i, arr) => ({
+    ...t,
+    a0:   -Math.PI/2 + (i   / arr.length) * 2*Math.PI,
+    a1:   -Math.PI/2 + ((i+1) / arr.length) * 2*Math.PI,
+    aMid: -Math.PI/2 + ((i + 0.5) / arr.length) * 2*Math.PI,
+  }));
+
+  // Six career phases — ring width ∝ duration (years)
+  const PHASES = [
+    { label: 'Elegrity',   short: 'Elegrity',   years: '2006–10', dur: 4  },
+    { label: 'eBay',       short: 'eBay',        years: '2010–11', dur: 1  },
+    { label: 'Apple I',    short: 'Apple',       years: '2011–14', dur: 3  },
+    { label: 'Apple II',   short: 'Apple',       years: '2014–20', dur: 6  },
+    { label: "St. Mary's", short: "St.M's",      years: '2020–22', dur: 2  },
+    { label: 'SFMTA',      short: 'SFMTA',       years: '2022–24', dur: 2  },
+  ];
+  const totalDur  = PHASES.reduce((s,p) => s + p.dur, 0); // 18
+  const INNER = 36, OUTER = 252, RING_GAP = 3;
+  const pxPerYr = (OUTER - INNER) / totalDur;
+  let rCur = INNER;
+  PHASES.forEach(p => { p.r0 = rCur; rCur += p.dur * pxPerYr; p.r1 = rCur; });
+
+  // ── Background warm disc ───────────────────────────────
+  ap(svg, 'circle', { cx, cy, r: OUTER + 28, fill: '#EDE4D4' });
+  ap(svg, 'circle', { cx, cy, r: OUTER + 10, fill: '#E4D8C8' });
+
+  // ── Draw rings ─────────────────────────────────────────
+  PHASES.forEach((ph, pi) => {
+    const t = pi / (PHASES.length - 1); // 0 (inner) → 1 (outer)
+    THEMES.forEach(th => {
+      const sat = Math.round(22 + t * 62);  // 22% → 84%: muted → vivid
+      const lit = Math.round(75 - t * 24);  // 75% → 51%: pale → rich
+      ap(svg, 'path', {
+        d: annular(ph.r0 + RING_GAP/2, ph.r1 - RING_GAP/2, th.a0, th.a1),
+        fill: `hsl(${th.h}, ${sat}%, ${lit}%)`,
+        stroke: '#F6F0E8', 'stroke-width': '0.6',
+      });
+    });
+  });
+
+  // ── Ring boundary lines (subtle) ──────────────────────
+  PHASES.forEach(ph => {
+    ap(svg, 'circle', { cx, cy, r: f(ph.r0), fill: 'none', stroke: '#F6F0E8', 'stroke-width': '2' });
+  });
+  ap(svg, 'circle', { cx, cy, r: f(PHASES[PHASES.length-1].r1), fill: 'none', stroke: '#F6F0E8', 'stroke-width': '2.5' });
+
+  // ── Theme wedge divider lines ──────────────────────────
+  THEMES.forEach(th => {
+    ap(svg, 'line', {
+      x1: f(cx + INNER * Math.cos(th.a0)), y1: f(cy + INNER * Math.sin(th.a0)),
+      x2: f(cx + OUTER * Math.cos(th.a0)), y2: f(cy + OUTER * Math.sin(th.a0)),
+      stroke: '#F6F0E8', 'stroke-width': '1.2', opacity: '0.7',
+    });
+  });
+
+  // ── Company labels: right side, at ring midpoint radius ───
+  // Place labels at angle 0 (3 o'clock, right), stacked by radius
+  PHASES.forEach((ph, pi) => {
+    const rMid = (ph.r0 + ph.r1) / 2;
+    const lx = cx + rMid + 2;
+    const ly = cy;
+    const labelEl = mk('text', {
+      x: f(cx + rMid * 1.0), y: f(cy),
+      'font-family': "'Nunito', sans-serif",
+      'font-size': rMid < 80 ? '7.5' : rMid < 140 ? '9' : '10',
+      'font-weight': '800',
+      fill: '#FFFFFF',
+      'text-anchor': 'middle',
+      'dominant-baseline': 'middle',
+      'paint-order': 'stroke',
+      stroke: 'rgba(0,0,0,0.18)',
+      'stroke-width': '3',
+    });
+    labelEl.textContent = ph.short;
+    svg.appendChild(labelEl);
+    // Year under the label
+    const yrEl = mk('text', {
+      x: f(cx + rMid), y: f(cy + (rMid < 80 ? 10 : 13)),
+      'font-family': "'Nunito', sans-serif",
+      'font-size': rMid < 80 ? '6' : '7.5',
+      fill: 'rgba(255,255,255,0.72)',
+      'text-anchor': 'middle',
+    });
+    yrEl.textContent = ph.years;
+    svg.appendChild(yrEl);
+  });
+
+  // ── Theme labels at outer edge ─────────────────────────
+  const LR = OUTER + 18;
+  THEMES.forEach(th => {
+    // Multi-word: split if needed
+    const words = th.label.split(' ');
+    if (words.length === 1) {
+      const el = mk('text', {
+        x: f(cx + LR * Math.cos(th.aMid)), y: f(cy + LR * Math.sin(th.aMid)),
+        'font-family': "'Nunito', sans-serif", 'font-size': '9', 'font-weight': '700',
+        fill: '#5A4A3A', 'text-anchor': 'middle', 'dominant-baseline': 'middle',
+      });
+      el.textContent = th.label;
+      svg.appendChild(el);
+    } else {
+      words.forEach((w, wi) => {
+        const offset = (wi - (words.length-1)/2) * 11;
+        const el = mk('text', {
+          x: f(cx + LR * Math.cos(th.aMid)),
+          y: f(cy + LR * Math.sin(th.aMid) + offset),
+          'font-family': "'Nunito', sans-serif", 'font-size': '8.5', 'font-weight': '700',
+          fill: '#5A4A3A', 'text-anchor': 'middle', 'dominant-baseline': 'middle',
+        });
+        el.textContent = w;
+        svg.appendChild(el);
+      });
+    }
+  });
+
+  // ── Center label ───────────────────────────────────────
+  ap(svg, 'circle', { cx, cy, r: INNER - 4, fill: '#E4D8C8' });
+  const c1 = mk('text', { x: cx, y: cy - 5,
+    'font-family': "'Playfair Display', serif", 'font-size': '11', 'font-weight': '700',
+    fill: '#8A7A68', 'text-anchor': 'middle', 'dominant-baseline': 'middle',
+  });
+  c1.textContent = '2006';
+  svg.appendChild(c1);
+  const c2 = mk('text', { x: cx, y: cy + 8,
+    'font-family': "'Nunito', sans-serif", 'font-size': '7.5', fill: '#B0A090',
+    'text-anchor': 'middle', 'font-style': 'italic',
+  });
+  c2.textContent = '→ now';
+  svg.appendChild(c2);
+
+  // ── Outer depth arrow / callout ────────────────────────
+  const arrowEl = mk('text', {
+    x: f(cx), y: f(cy + OUTER + 44),
+    'font-family': "'Nunito', sans-serif", 'font-size': '9.5',
+    fill: '#9A8070', 'text-anchor': 'middle', 'font-style': 'italic',
+  });
+  arrowEl.textContent = '↑ expertise deepens outward ↑';
+  svg.appendChild(arrowEl);
+
+})();
+</script>
+</body>
+</html>
