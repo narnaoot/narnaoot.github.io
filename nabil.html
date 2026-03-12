@@ -1138,7 +1138,7 @@
     const nx = -tg.y * th.side, ny = tg.x * th.side;
     const el = mk('text', {
       x: (p.x + nx * 31).toFixed(1), y: (p.y + ny * 31).toFixed(1),
-      'font-family':"'Nunito', sans-serif", 'font-size':'7.5',
+      'font-family':"'Nunito', sans-serif", 'font-size':'11',
       fill:'#7A6A58', 'text-anchor':'middle', 'font-style':'italic',
     });
     el.textContent = th.text;
@@ -1162,11 +1162,11 @@
 
     // Post base: slightly off the river toward the label side
     const bx = p.x + nx * 10, by = p.y + ny * 10;
-    const postH = job.current ? 30 : 24;
+    const postH = job.current ? 38 : 30;
 
     // Sign card
-    const sw  = job.label.length > 6 ? 66 : 58;
-    const sh  = job.current ? 27 : 23;
+    const sw  = job.label.length > 6 ? 86 : 74;
+    const sh  = job.current ? 38 : 34;
     const scx = bx + nx * (sw * 0.38) + (job.side > 0 ? 8 : -8);
     const sx  = scx - sw / 2;
     const sy  = by - postH - sh + 3;
@@ -1185,17 +1185,17 @@
     });
 
     // Company name
-    const nameEl = mk('text', { x:scx.toFixed(1), y:(sy+12).toFixed(1),
+    const nameEl = mk('text', { x:scx.toFixed(1), y:(sy+16).toFixed(1),
       'font-family':"'Playfair Display', serif",
-      'font-size':job.current ? '12' : '10', 'font-weight':'700',
+      'font-size':job.current ? '15' : '13', 'font-weight':'700',
       fill:job.current ? '#FFFFFF' : job.color, 'text-anchor':'middle',
     });
     nameEl.textContent = job.label;
     svg.appendChild(nameEl);
 
     // Role
-    const roleEl = mk('text', { x:scx.toFixed(1), y:(sy+sh-4).toFixed(1),
-      'font-family':"'Nunito', sans-serif", 'font-size':'6.5',
+    const roleEl = mk('text', { x:scx.toFixed(1), y:(sy+sh-6).toFixed(1),
+      'font-family':"'Nunito', sans-serif", 'font-size':'9',
       fill:job.current ? 'rgba(255,255,255,0.82)' : '#9A8070', 'text-anchor':'middle',
     });
     roleEl.textContent = job.role;
@@ -1212,7 +1212,7 @@
 
     // Year (just off the stone, toward the label side)
     const yearEl = mk('text', { x:(p.x + nx*14).toFixed(1), y:(p.y + ny*14 + 5).toFixed(1),
-      'font-family':"'Nunito', sans-serif", 'font-size':'7.5',
+      'font-family':"'Nunito', sans-serif", 'font-size':'10',
       fill:'#9A8070', 'text-anchor':'middle',
     });
     yearEl.textContent = Math.floor(job.year).toString();
@@ -1221,7 +1221,7 @@
 
   // ── Center of spiral ───────────────────────────────────
   const cEl = mk('text', { x:cx, y:cy+4,
-    'font-family':"'Nunito', sans-serif", 'font-size':'9',
+    'font-family':"'Nunito', sans-serif", 'font-size':'12',
     fill:'#8A7A68', 'text-anchor':'middle', 'font-style':'italic',
   });
   cEl.textContent = '2006 →';
