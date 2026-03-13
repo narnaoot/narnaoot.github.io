@@ -57,7 +57,7 @@
       overflow-x: auto;
     }
     #chainSvg {
-      min-width: 760px;
+      min-width: 820px;
       width: 100%;
       height: auto;
       display: block;
@@ -71,7 +71,7 @@
   <h2>Not a ladder. A through-line.</h2>
   <p class="subtitle">Each role contributed something the next one required. Vertical position reflects scope of impact.</p>
   <div class="chain-outer">
-    <svg id="chainSvg" viewBox="0 0 1200 415" xmlns="http://www.w3.org/2000/svg">
+    <svg id="chainSvg" viewBox="0 0 1010 370" xmlns="http://www.w3.org/2000/svg">
       <title>Nabil Arnaoot career progression, 2006 to present</title>
     </svg>
   </div>
@@ -90,50 +90,50 @@
   }
 
   // ── Layout constants ───────────────────────────────────────
-  const CW = 112, CH = 68, HW = CW / 2, HH = CH / 2;
+  // Smaller viewBox (1010 wide) so SVG scales UP on typical screens → text renders larger
+  const CW = 132, CH = 84, HW = CW / 2, HH = CH / 2;
 
   // ── Career data ────────────────────────────────────────────
-  // x = horizontal position, y = vertical (lower y = higher scope)
   const roles = [
-    { x:  110, y: 345, company: 'Elegrity',   title: 'Engr PM',         years: '2006 – 10', color: '#6A9F7A' },
-    { x:  300, y: 310, company: 'eBay',        title: 'Program Mgr',     years: '2010 – 11', color: '#D4920A' },
-    { x:  495, y: 248, company: 'Apple',       title: 'Engr PM',         years: '2011 – 14', color: '#4A90D9' },
-    { x:  680, y: 262, company: 'Apple',       title: 'BA / BPE',        years: '2014 – 20', color: '#4A90D9', pivot: true },
-    { x:  875, y: 190, company: "St. Mary's",  title: 'Consultant + MS', years: '2020 – 24', color: '#8B7BC8' },
-    { x: 1075, y: 100, company: 'SFMTA',       title: 'Principal BA',    years: '2024 – now',color: '#E8614F', current: true },
+    { x:  102, y: 300, company: 'Elegrity',   title: 'Engr PM',         years: '2006 – 10', color: '#6A9F7A' },
+    { x:  272, y: 268, company: 'eBay',        title: 'Program Mgr',     years: '2010 – 11', color: '#D4920A' },
+    { x:  442, y: 210, company: 'Apple',       title: 'Engr PM',         years: '2011 – 14', color: '#4A90D9' },
+    { x:  606, y: 224, company: 'Apple',       title: 'BA / BPE',        years: '2014 – 20', color: '#4A90D9', pivot: true },
+    { x:  778, y: 162, company: "St. Mary's",  title: 'Consultant + MS', years: '2020 – 24', color: '#8B7BC8' },
+    { x:  948, y:  76, company: 'SFMTA',       title: 'Principal BA',    years: '2024 – now',color: '#E8614F', current: true },
   ];
 
-  // Labels describe what the previous role gave that made this one possible
+  // Bridge labels: what carried from the previous role into this one
   const bridges = [
-    { label: 'stakeholder craft', pivot: false },
-    { label: 'technical fluency', pivot: false },
-    { label: 'systems → process', pivot: true  },
-    { label: 'formalized skills',  pivot: false },
-    { label: 'data leadership',    pivot: false },
+    { label: 'relationships',   pivot: false },
+    { label: 'tech fluency',    pivot: false },
+    { label: 'sys → process',  pivot: true  },
+    { label: 'deep analytics',  pivot: false },
+    { label: 'data leadership', pivot: false },
   ];
 
   // ── Defs ──────────────────────────────────────────────────
   const defs = el('defs', {}, svg);
 
-  // Dot grid background pattern
+  // Dot grid
   const pat = el('pattern', { id: 'dg', x: 0, y: 0, width: 24, height: 24, patternUnits: 'userSpaceOnUse' }, defs);
   el('circle', { cx: 1, cy: 1, r: 1, fill: '#E8DDD0' }, pat);
 
   // Arrowhead markers
   function mkMarker(id, color) {
-    const m = el('marker', { id, markerWidth: '9', markerHeight: '9', refX: '8', refY: '3', orient: 'auto' }, defs);
-    el('path', { d: 'M0,0 L0,6 L9,3 z', fill: color }, m);
+    const m = el('marker', { id, markerWidth: '10', markerHeight: '10', refX: '9', refY: '3.5', orient: 'auto' }, defs);
+    el('path', { d: 'M0,0 L0,7 L10,3.5 z', fill: color }, m);
   }
   mkMarker('arN', '#C0B4A8');
   mkMarker('arP', '#C4830A');
   mkMarker('arC', '#D0504A');
 
-  // Bridge paths — defined once in defs, reused for stroke and textPath
+  // Bridge paths in defs (reused for <use> stroke and textPath)
   roles.forEach((r, i) => {
     if (i >= roles.length - 1) return;
     const nx = roles[i + 1].x, ny = roles[i + 1].y;
-    const x1 = r.x + HW,  y1 = r.y;
-    const x2 = nx - HW,   y2 = ny;
+    const x1 = r.x + HW, y1 = r.y;
+    const x2 = nx - HW,  y2 = ny;
     const dx = x2 - x1;
     el('path', {
       id: `bp${i}`,
@@ -142,31 +142,31 @@
   });
 
   // ── Background ─────────────────────────────────────────────
-  el('rect', { x: 0, y: 0, width: 1200, height: 415, fill: '#FFFBF5' }, svg);
-  el('rect', { x: 0, y: 0, width: 1200, height: 415, fill: 'url(#dg)', opacity: '.45' }, svg);
+  el('rect', { x: 0, y: 0, width: 1010, height: 370, fill: '#FFFBF5' }, svg);
+  el('rect', { x: 0, y: 0, width: 1010, height: 370, fill: 'url(#dg)', opacity: '.45' }, svg);
 
-  // ── Scope axis (left edge) ─────────────────────────────────
-  el('line', { x1: 38, y1: 64, x2: 38, y2: 380, stroke: '#DDD0C0', 'stroke-width': '1', 'stroke-dasharray': '2,7' }, svg);
-  el('polygon', { points: '33,59 38,47 43,59', fill: '#CCC0B0' }, svg);
+  // ── Scope axis ─────────────────────────────────────────────
+  el('line', { x1: 34, y1: 54, x2: 34, y2: 342, stroke: '#DDD0C0', 'stroke-width': '1', 'stroke-dasharray': '2,7' }, svg);
+  el('polygon', { points: '29,49 34,37 39,49', fill: '#CCC0B0' }, svg);
 
   function axisLbl(text, y) {
     const e = el('text', {
-      x: 38, y,
+      x: 34, y,
       'text-anchor': 'middle',
       'font-family': 'Nunito,sans-serif',
-      'font-size': '8',
+      'font-size': '11',
       'font-weight': '800',
-      'letter-spacing': '.1em',
+      'letter-spacing': '.08em',
       fill: '#C0B0A0',
     }, svg);
     e.textContent = text;
   }
-  axisLbl('ORG-WIDE', 36);
-  axisLbl('TEAM', 396);
+  axisLbl('ORG-WIDE', 28);
+  axisLbl('TEAM', 360);
 
-  // Faint horizontal scope guide lines
-  [92, 185, 278, 370].forEach(y => {
-    el('line', { x1: 56, y1: y, x2: 1184, y2: y, stroke: '#ECE5D8', 'stroke-width': '.8', 'stroke-dasharray': '3,14' }, svg);
+  // Faint horizontal guides
+  [68, 148, 228, 308].forEach(y => {
+    el('line', { x1: 52, y1: y, x2: 990, y2: y, stroke: '#EDE5D8', 'stroke-width': '1', 'stroke-dasharray': '3,14' }, svg);
   });
 
   // ── Connectors ────────────────────────────────────────────
@@ -175,42 +175,45 @@
     const stroke   = b.pivot ? '#C4830A' : isLast ? '#D0504A' : '#C4B8AC';
     const markerId = b.pivot ? 'arP'     : isLast ? 'arC'     : 'arN';
 
-    // Visible stroke (references path defined in defs)
     el('use', {
       href: `#bp${i}`,
       fill: 'none',
       stroke,
-      'stroke-width': b.pivot ? '2.2' : '1.8',
+      'stroke-width': b.pivot ? '2.5' : '2',
       'stroke-dasharray': b.pivot ? '7,4' : 'none',
       'marker-end': `url(#${markerId})`,
     }, svg);
 
-    // Bridge label rides the curve via textPath
-    // paint-order stroke/fill trick creates a white halo so text is legible over the line
+    // Label via textPath — rides the curve with white halo for legibility
     const tEl = el('text', {
       'font-family': 'Nunito,sans-serif',
-      'font-size': '9',
+      'font-size': '12',
       'font-weight': '700',
-      fill: b.pivot ? '#7A5100' : '#A09080',
+      fill: b.pivot ? '#7A5100' : '#907868',
       'paint-order': 'stroke fill',
       stroke: '#FFFBF5',
       'stroke-width': '5',
       'stroke-linejoin': 'round',
     }, svg);
-    const tp = el('textPath', { href: `#bp${i}`, startOffset: '50%', 'text-anchor': 'middle', dy: '-7' }, tEl);
+    const tp = el('textPath', {
+      href: `#bp${i}`,
+      startOffset: '50%',
+      'text-anchor': 'middle',
+      dy: '-9',
+    }, tEl);
     tp.textContent = b.label;
 
     // ↩ PIVOT badge above the Apple→Apple connector
     if (b.pivot) {
       const r  = roles[i], nr = roles[i + 1];
       const mx = (r.x + nr.x) / 2;
-      const my = (r.y + nr.y) / 2 - 30;
-      el('rect', { x: mx - 27, y: my - 9, width: 54, height: 17, rx: '8', fill: '#C4830A' }, svg);
+      const my = Math.min(r.y, nr.y) - HH - 22;
+      el('rect', { x: mx - 32, y: my - 11, width: 64, height: 20, rx: '10', fill: '#C4830A' }, svg);
       const bt = el('text', {
-        x: mx, y: my + 4,
+        x: mx, y: my + 5,
         'text-anchor': 'middle',
         'font-family': 'Nunito,sans-serif',
-        'font-size': '7.5',
+        'font-size': '10',
         'font-weight': '800',
         'letter-spacing': '.1em',
         fill: '#FFF',
@@ -224,34 +227,33 @@
     const lx = r.x - HW, ty = r.y - HH;
     const cid = `cc${i}`;
 
-    // Clip path (keeps left-accent color inside card corners)
     const cp = el('clipPath', { id: cid }, defs);
-    el('rect', { x: lx, y: ty, width: CW, height: CH, rx: '10' }, cp);
+    el('rect', { x: lx, y: ty, width: CW, height: CH, rx: '11' }, cp);
 
-    // Drop shadow
-    el('rect', { x: lx + 2, y: ty + 3, width: CW, height: CH, rx: '10', fill: 'rgba(61,43,31,.07)' }, svg);
+    // Shadow
+    el('rect', { x: lx + 2, y: ty + 3, width: CW, height: CH, rx: '11', fill: 'rgba(61,43,31,.08)' }, svg);
 
-    // Clipped interior (white bg + color accent bar)
+    // Clipped interior
     const cg = el('g', { 'clip-path': `url(#${cid})` }, svg);
     el('rect', { x: lx, y: ty, width: CW, height: CH, fill: '#FFF' }, cg);
-    el('rect', { x: lx, y: ty, width: 5, height: CH, fill: r.color }, cg);
+    el('rect', { x: lx, y: ty, width: 6, height: CH, fill: r.color }, cg);
     if (r.current) {
-      el('rect', { x: lx, y: ty, width: CW, height: 7, fill: r.color, opacity: '.15' }, cg);
+      el('rect', { x: lx, y: ty, width: CW, height: 8, fill: r.color, opacity: '.15' }, cg);
     }
 
-    // Card border (colored + slightly thicker for current role)
+    // Border
     el('rect', {
-      x: lx, y: ty, width: CW, height: CH, rx: '10',
+      x: lx, y: ty, width: CW, height: CH, rx: '11',
       fill: 'none',
       stroke: r.current ? r.color : '#E8DDD0',
-      'stroke-width': r.current ? '2' : '1.5',
+      'stroke-width': r.current ? '2.5' : '1.5',
     }, svg);
 
-    // Company name
+    // Company name — largest text in the card
     const ce = el('text', {
-      x: lx + 14, y: ty + 23,
+      x: lx + 16, y: ty + 28,
       'font-family': "'Playfair Display',serif",
-      'font-size': '14',
+      'font-size': '18',
       'font-weight': '700',
       fill: '#3D2B1F',
     }, svg);
@@ -259,28 +261,28 @@
 
     // Role title
     const te = el('text', {
-      x: lx + 14, y: ty + 39,
+      x: lx + 16, y: ty + 48,
       'font-family': 'Nunito,sans-serif',
-      'font-size': '10.5',
-      'font-weight': '600',
+      'font-size': '13',
+      'font-weight': '700',
       fill: '#5A4033',
     }, svg);
     te.textContent = r.title;
 
     // Year range
     const ye = el('text', {
-      x: lx + 14, y: ty + 54,
+      x: lx + 16, y: ty + 66,
       'font-family': 'Nunito,sans-serif',
-      'font-size': '9',
+      'font-size': '11',
       'font-weight': '600',
       fill: '#9A8070',
     }, svg);
     ye.textContent = r.years;
 
-    // Current role: pulsing dot (two circles for halo effect)
+    // Current: pulsing dot
     if (r.current) {
-      el('circle', { cx: lx + CW - 14, cy: ty + 14, r: '7',  fill: r.color, opacity: '.22' }, svg);
-      el('circle', { cx: lx + CW - 14, cy: ty + 14, r: '3.5', fill: r.color }, svg);
+      el('circle', { cx: lx + CW - 16, cy: ty + 16, r: '8',  fill: r.color, opacity: '.22' }, svg);
+      el('circle', { cx: lx + CW - 16, cy: ty + 16, r: '4.5', fill: r.color }, svg);
     }
   });
 
