@@ -1,0 +1,1471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>n4bil — Nabil Arnaoot</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FEFCF3;
+    --warm-white: #FFF9EE;
+    --coral: #FF6B6B;
+    --peach: #FFB347;
+    --mint: #6BCB77;
+    --sky: #4D96FF;
+    --lavender: #C77DFF;
+    --soft-yellow: #FFD93D;
+    --dark: #2D2D2D;
+    --mid: #6B6B6B;
+    --light-border: #E8E0D0;
+    --card-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    --card-hover-shadow: 0 12px 40px rgba(0,0,0,0.15);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--cream);
+    color: var(--dark);
+    overflow-x: hidden;
+  }
+
+  /* ===================== NAV ===================== */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2.5rem;
+    background: rgba(254,252,243,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 2px solid var(--light-border);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .logo-circle {
+    width: 44px; height: 44px;
+    background: var(--sky);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem;
+    border: 3px solid var(--dark);
+    box-shadow: 3px 3px 0 var(--dark);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .logo-circle:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--dark); }
+
+  .nav-wordmark {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: 1.4rem;
+    color: var(--dark);
+    letter-spacing: -0.5px;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--dark);
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.3px;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    transition: background 0.2s, color 0.2s;
+  }
+  .nav-links a:hover { background: var(--soft-yellow); }
+
+  .nav-icons { display: flex; gap: 0.8rem; align-items: center; }
+  .nav-icons a {
+    color: var(--dark);
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: transform 0.2s;
+    display: flex; align-items: center;
+  }
+  .nav-icons a:hover { transform: scale(1.2); }
+
+  /* ===================== PAGES ===================== */
+  .page { display: none; min-height: 100vh; padding-top: 80px; }
+  .page.active { display: block; }
+
+  /* ===================== HOME PAGE ===================== */
+  .hero {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 5rem 2.5rem 3rem;
+  }
+
+  .hero-text { flex: 1; }
+
+  .hero-eyebrow {
+    display: inline-block;
+    background: var(--soft-yellow);
+    border: 2px solid var(--dark);
+    border-radius: 20px;
+    padding: 0.25rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+  }
+
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    font-weight: 900;
+    line-height: 1.05;
+    margin-bottom: 1.2rem;
+    color: var(--dark);
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--coral);
+  }
+
+  .hero-sub {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--mid);
+    max-width: 480px;
+    margin-bottom: 2rem;
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--dark);
+    color: white;
+    padding: 0.85rem 2rem;
+    border-radius: 30px;
+    font-weight: 800;
+    font-size: 1rem;
+    text-decoration: none;
+    border: 2px solid var(--dark);
+    box-shadow: 4px 4px 0 var(--coral);
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+  }
+  .hero-cta:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--coral); }
+
+  .hero-illustration {
+    flex-shrink: 0;
+    width: 280px;
+    height: 280px;
+    position: relative;
+  }
+
+  .hero-blob {
+    width: 100%; height: 100%;
+    background: linear-gradient(135deg, var(--sky) 0%, var(--lavender) 100%);
+    border-radius: 60% 40% 55% 45% / 50% 60% 40% 55%;
+    border: 3px solid var(--dark);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 6rem;
+    animation: blobMorph 6s ease-in-out infinite;
+  }
+
+  @keyframes blobMorph {
+    0%, 100% { border-radius: 60% 40% 55% 45% / 50% 60% 40% 55%; }
+    33% { border-radius: 40% 60% 45% 55% / 60% 40% 55% 45%; }
+    66% { border-radius: 55% 45% 60% 40% / 45% 55% 50% 50%; }
+  }
+
+  /* floating badges */
+  .badge {
+    position: absolute;
+    background: white;
+    border: 2px solid var(--dark);
+    border-radius: 12px;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.75rem;
+    font-weight: 800;
+    box-shadow: 3px 3px 0 var(--dark);
+    animation: float 3s ease-in-out infinite;
+    white-space: nowrap;
+  }
+  .badge-1 { top: -10px; right: -20px; background: var(--soft-yellow); animation-delay: 0s; }
+  .badge-2 { bottom: 10px; left: -30px; background: var(--mint); animation-delay: 1s; }
+  .badge-3 { top: 50%; right: -35px; background: var(--coral); color: white; animation-delay: 0.5s; }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  /* wave divider */
+  .wave-divider {
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    margin-top: 1rem;
+  }
+  .wave-divider svg { display: block; width: 100%; }
+
+  /* work section */
+  .work-section {
+    background: var(--warm-white);
+    padding: 4rem 2.5rem 5rem;
+  }
+
+  .section-header {
+    max-width: 1100px;
+    margin: 0 auto 3rem;
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+  }
+
+  .section-title {
+    font-family: 'Fraunces', serif;
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: var(--dark);
+  }
+
+  .section-subtitle {
+    color: var(--mid);
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .projects-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.8rem;
+  }
+
+  .project-card {
+    background: white;
+    border: 2px solid var(--dark);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    cursor: pointer;
+    transition: transform 0.25s, box-shadow 0.25s;
+    position: relative;
+  }
+
+  .project-card:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 8px 8px 0 var(--dark);
+  }
+
+  .card-color-band {
+    height: 8px;
+  }
+
+  .card-body { padding: 1.6rem 1.6rem 1.8rem; }
+
+  .card-icon {
+    width: 52px; height: 52px;
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    border: 2px solid var(--dark);
+    box-shadow: 3px 3px 0 var(--dark);
+  }
+
+  .card-tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+    margin-bottom: 0.6rem;
+  }
+
+  .card-title {
+    font-family: 'Fraunces', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 0.7rem;
+    color: var(--dark);
+  }
+
+  .card-desc {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--mid);
+  }
+
+  .card-arrow {
+    position: absolute;
+    bottom: 1.4rem; right: 1.4rem;
+    width: 36px; height: 36px;
+    background: var(--dark);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: white;
+    font-size: 1rem;
+    transition: transform 0.2s;
+  }
+  .project-card:hover .card-arrow { transform: translate(2px,-2px); }
+
+  /* ===================== ABOUT / CONTACT STRIP ===================== */
+  .contact-strip {
+    background: var(--dark);
+    color: white;
+    padding: 4rem 2.5rem;
+    text-align: center;
+  }
+
+  .contact-strip h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 2rem;
+    font-weight: 900;
+    margin-bottom: 0.8rem;
+  }
+
+  .contact-strip p { color: #aaa; margin-bottom: 1.5rem; }
+
+  .contact-strip a.email-btn {
+    display: inline-block;
+    background: var(--soft-yellow);
+    color: var(--dark);
+    padding: 0.8rem 2rem;
+    border-radius: 30px;
+    font-weight: 800;
+    text-decoration: none;
+    border: 2px solid var(--soft-yellow);
+    transition: background 0.2s;
+  }
+  .contact-strip a.email-btn:hover { background: var(--coral); color: white; border-color: var(--coral); }
+
+  .social-row {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.2rem;
+  }
+  .social-row a {
+    color: #888;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 700;
+    transition: color 0.2s;
+  }
+  .social-row a:hover { color: var(--soft-yellow); }
+
+  /* ===================== PROJECT PAGES ===================== */
+  .project-page {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 3rem 2rem 5rem;
+  }
+
+  .back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: white;
+    border: 2px solid var(--dark);
+    border-radius: 20px;
+    padding: 0.4rem 1rem;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    box-shadow: 2px 2px 0 var(--dark);
+    margin-bottom: 2rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .back-btn:hover { transform: translate(-2px,-2px); box-shadow: 4px 4px 0 var(--dark); }
+
+  .project-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .project-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 0.25rem 0.8rem;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+    border: 2px solid var(--dark);
+  }
+
+  .project-title {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 0.8rem;
+  }
+
+  .project-lead {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--mid);
+    margin-bottom: 1.5rem;
+  }
+
+  .color-rule {
+    height: 4px;
+    border-radius: 2px;
+    margin: 2rem 0;
+  }
+
+  .project-body h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 2rem 0 0.8rem;
+    color: var(--dark);
+  }
+
+  .project-body p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 1rem;
+  }
+
+  .project-body ul {
+    margin: 0.5rem 0 1rem 1.2rem;
+    line-height: 1.8;
+    color: #444;
+  }
+
+  .project-body li { margin-bottom: 0.3rem; }
+
+  .project-body code {
+    background: #F0EBE0;
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.9em;
+    font-family: 'Courier New', monospace;
+  }
+
+  .project-body pre {
+    background: #2D2D2D;
+    color: #f8f8f2;
+    padding: 1.2rem 1.5rem;
+    border-radius: 12px;
+    overflow-x: auto;
+    margin: 1rem 0;
+    font-size: 0.88rem;
+    line-height: 1.6;
+    border: 2px solid var(--dark);
+    box-shadow: 4px 4px 0 var(--dark);
+  }
+
+  .project-body pre code {
+    background: none;
+    padding: 0;
+    color: inherit;
+  }
+
+  .tableau-embed {
+    width: 100%;
+    background: #F7F3EA;
+    border: 2px solid var(--dark);
+    border-radius: 16px;
+    overflow: hidden;
+    margin: 1.5rem 0;
+    box-shadow: 6px 6px 0 var(--dark);
+  }
+
+  .tableau-embed iframe {
+    width: 100%;
+    height: 500px;
+    border: none;
+    display: block;
+  }
+
+  .tableau-caption {
+    font-size: 0.8rem;
+    color: var(--mid);
+    text-align: center;
+    padding: 0.6rem;
+    background: #F0EAD8;
+    border-top: 1px solid var(--light-border);
+  }
+
+  .tableau-caption a {
+    color: var(--sky);
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .call-out {
+    background: var(--warm-white);
+    border-left: 4px solid var(--coral);
+    border-radius: 0 12px 12px 0;
+    padding: 1rem 1.5rem;
+    margin: 1.5rem 0;
+    font-weight: 600;
+    color: var(--dark);
+  }
+
+  .data-highlight {
+    display: inline-block;
+    background: var(--soft-yellow);
+    border: 2px solid var(--dark);
+    border-radius: 8px;
+    padding: 0.1rem 0.5rem;
+    font-weight: 800;
+  }
+
+  .nav-between-projects {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 2px solid var(--light-border);
+    gap: 1rem;
+  }
+
+  .nav-proj-btn {
+    flex: 1;
+    background: white;
+    border: 2px solid var(--dark);
+    border-radius: 14px;
+    padding: 1rem 1.2rem;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-decoration: none;
+    color: var(--dark);
+    box-shadow: 3px 3px 0 var(--dark);
+  }
+  .nav-proj-btn:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--dark); }
+  .nav-proj-btn.right { text-align: right; }
+  .nav-proj-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: var(--mid); margin-bottom: 0.3rem; }
+  .nav-proj-title { font-family: 'Fraunces', serif; font-weight: 700; font-size: 1rem; }
+
+  /* Color themes per project */
+  .theme-crashes { --accent: #FF6B6B; --accent-light: #FFE5E5; }
+  .theme-gardens { --accent: #6BCB77; --accent-light: #E5F7E8; }
+  .theme-shap    { --accent: #4D96FF; --accent-light: #E3EEFF; }
+  .theme-unicorn { --accent: #C77DFF; --accent-light: #F3E5FF; }
+  .theme-prob    { --accent: #FFB347; --accent-light: #FFF3E3; }
+
+  /* info box */
+  .info-box {
+    border: 2px solid var(--dark);
+    border-radius: 14px;
+    padding: 1.2rem 1.5rem;
+    margin: 1.5rem 0;
+    position: relative;
+  }
+
+  .info-box-label {
+    position: absolute;
+    top: -12px; left: 16px;
+    background: var(--soft-yellow);
+    border: 2px solid var(--dark);
+    border-radius: 20px;
+    padding: 0.1rem 0.7rem;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* ===================== FOOTER ===================== */
+  footer {
+    background: var(--cream);
+    border-top: 2px solid var(--light-border);
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.85rem;
+    color: var(--mid);
+  }
+
+  /* ===== RIBBON TIMELINE ===== */
+  .ribbon-wrap {
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .ribbon-row {
+    display: flex;
+    align-items: center;
+    min-height: 90px;
+    position: relative;
+  }
+
+  .ribbon-label-left {
+    width: 220px;
+    flex-shrink: 0;
+    text-align: right;
+    padding-right: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .ribbon-label-right {
+    width: 220px;
+    flex-shrink: 0;
+    text-align: left;
+    padding-left: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .rib-step {
+    font-size: 0.75rem;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+
+  .rib-desc {
+    font-size: 0.88rem;
+    line-height: 1.4;
+    color: var(--mid);
+    font-weight: 500;
+  }
+
+  .ribbon-track {
+    flex: 1;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  .rib-bar {
+    flex: 1;
+    height: 56px;
+    background: var(--rib);
+    opacity: 0.85;
+  }
+
+  .rib-turn {
+    width: 56px;
+    height: 112px;
+    flex-shrink: 0;
+    background: var(--rib);
+    opacity: 0.85;
+  }
+
+  .rib-turn.right {
+    border-radius: 0 56px 56px 0;
+    margin-right: -28px;
+  }
+
+  .rib-turn.left {
+    border-radius: 56px 0 0 56px;
+    margin-left: -28px;
+  }
+
+  .rib-phase {
+    font-family: 'Fraunces', serif;
+    font-size: 1.6rem;
+    font-weight: 900;
+    white-space: nowrap;
+    padding: 0 1.2rem;
+    flex-shrink: 0;
+    z-index: 1;
+    text-shadow: 0 1px 3px rgba(255,255,255,0.6);
+  }
+
+  .rib-dot {
+    width: 22px; height: 22px;
+    background: #333;
+    border-radius: 50%;
+    border: 3px solid #555;
+    position: absolute;
+    z-index: 2;
+  }
+
+  .rib-dot.top { top: -11px; right: 0; }
+  .rib-dot.bottom { bottom: -11px; right: 0; }
+
+  .ribbon-right .ribbon-track { flex-direction: row; }
+  .ribbon-left .ribbon-track { flex-direction: row-reverse; }
+  .ribbon-left .rib-dot.bottom { right: auto; left: 0; }
+
+  .end-row .rib-dot.bottom { bottom: -11px; }
+
+  @media (max-width: 600px) {
+    .ribbon-label-left, .ribbon-label-right { width: 120px; }
+    .rib-phase { font-size: 1.1rem; padding: 0 0.5rem; }
+  }
+
+  /* ===== POPULATION TREE DIAGRAMS ===== */
+  .pop-tree {
+    background: white;
+    border: 2px solid var(--dark);
+    border-radius: 16px;
+    padding: 1.5rem 1rem 1rem;
+    margin: 1.5rem 0;
+    box-shadow: 5px 5px 0 var(--dark);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: auto;
+  }
+  .pop-node {
+    border-radius: 8px;
+    padding: 0.45rem 0.9rem;
+    text-align: center;
+    border: 2px solid var(--dark);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .pop-num { font-weight: 800; font-size: 0.88rem; line-height: 1.3; }
+  .pop-sub { font-size: 0.7rem; font-weight: 600; opacity: 0.8; line-height: 1.2; }
+  .pop-total   { background: var(--sky); color: white; min-width: 200px; }
+  .pop-sick    { background: var(--coral); color: white; min-width: 130px; }
+  .pop-healthy { background: var(--mint); color: white; min-width: 160px; }
+  .pop-test-sick-all { background: var(--coral); color: white; min-width: 130px; }
+  .pop-test-sick-fp  { background: var(--peach); color: white; min-width: 130px; }
+  .pop-test-healthy  { background: var(--mint); color: white; min-width: 150px; }
+  .pop-branches { width: 100%; height: 24px; display: flex; justify-content: center; }
+  .pop-row-2 { display: flex; gap: 1rem; margin-bottom: 0.5rem; flex-wrap: wrap; justify-content: center; }
+  .pop-row-3 { display: flex; gap: 0.6rem; flex-wrap: wrap; justify-content: center; }
+  .pop-caption { font-size: 0.75rem; color: var(--mid); text-align: center; margin-top: 0.8rem; font-style: italic; }
+
+  /* responsive */
+  @media (max-width: 700px) {
+    .hero { flex-direction: column; text-align: center; padding: 3rem 1.5rem; }
+    .hero-illustration { width: 220px; height: 220px; }
+    .hero-sub { margin-left: auto; margin-right: auto; }
+    .hero-cta { margin: 0 auto; }
+    nav { padding: 0.8rem 1.2rem; }
+    .nav-links { display: none; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .section-header { flex-direction: column; gap: 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav>
+  <a class="nav-logo" onclick="showPage('home')">
+    <div class="logo-circle">⭐</div>
+    <span class="nav-wordmark">n4bil</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#" onclick="showPage('home');return false;">Work</a></li>
+    <li><a href="#" onclick="showPage('contact');return false;">Contact</a></li>
+  </ul>
+  <div class="nav-icons">
+    <a href="https://public.tableau.com/app/profile/nabil.arnaoot" target="_blank" title="Tableau">📊</a>
+    <a href="https://medium.com/@narnaoot" target="_blank" title="Medium">✍️</a>
+    <a href="https://www.linkedin.com/in/narnaoot/" target="_blank" title="LinkedIn">💼</a>
+    <a href="https://github.com/narnaoot" target="_blank" title="GitHub">🐙</a>
+  </div>
+</nav>
+
+<!-- ===== HOME PAGE ===== -->
+<div id="page-home" class="page active">
+  <section class="hero">
+    <div class="hero-text">
+      <div class="hero-eyebrow">👋 Hello there!</div>
+      <h1>Hi, I'm <em>Nabil.</em></h1>
+      <p class="hero-sub">
+        I'm a business analyst living in San Francisco. I like solving problems so that my teams can level up, get things done, and then go home.
+      </p>
+      <a class="hero-cta" onclick="document.querySelector('.work-section').scrollIntoView({behavior:'smooth'})">
+        See my work ↓
+      </a>
+    </div>
+    <div class="hero-illustration">
+      <div class="hero-blob">🕶️</div>
+      <span class="badge badge-1">📍 San Francisco</span>
+      <span class="badge badge-2">📊 Data Analyst</span>
+      <span class="badge badge-3">🍎 ex-Apple</span>
+    </div>
+  </section>
+
+  <div class="wave-divider">
+    <svg viewBox="0 0 1200 60" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,30 C200,60 400,0 600,30 C800,60 1000,0 1200,30 L1200,60 L0,60 Z" fill="#FFF9EE"/>
+    </svg>
+  </div>
+
+  <section class="work-section">
+    <div class="section-header">
+      <h2 class="section-title">Work Samples</h2>
+      <span class="section-subtitle">click any card to explore</span>
+    </div>
+
+    <div class="projects-grid">
+
+      <!-- Card 1: Crashes -->
+      <div class="project-card" onclick="showPage('crashes')">
+        <div class="card-color-band" style="background: var(--coral);"></div>
+        <div class="card-body">
+          <div class="card-icon" style="background: #FFE5E5;">🍎</div>
+          <span class="card-tag" style="background: #FFE5E5; color: var(--coral);">Business Analysis · Tableau</span>
+          <h3 class="card-title">Reducing Crashes for iTunes</h3>
+          <p class="card-desc">Started with an incomprehensible spreadsheet, ended with real changes that improved iTunes stability at Apple.</p>
+        </div>
+        <div class="card-arrow">→</div>
+      </div>
+
+      <!-- Card 2: Gardens -->
+      <div class="project-card" onclick="showPage('gardens')">
+        <div class="card-color-band" style="background: var(--mint);"></div>
+        <div class="card-body">
+          <div class="card-icon" style="background: #E5F7E8;">🌿</div>
+          <span class="card-tag" style="background: #E5F7E8; color: #3A9B46;">Visual Storytelling · Tableau</span>
+          <h3 class="card-title">Secret Gardens of San Francisco</h3>
+          <p class="card-desc">Exploring and mapping the little-known public spaces hidden in downtown San Francisco.</p>
+        </div>
+        <div class="card-arrow">→</div>
+      </div>
+
+      <!-- Card 3: SHAP -->
+      <div class="project-card" onclick="showPage('shap')">
+        <div class="card-color-band" style="background: var(--sky);"></div>
+        <div class="card-body">
+          <div class="card-icon" style="background: #E3EEFF;">🤖</div>
+          <span class="card-tag" style="background: #E3EEFF; color: var(--sky);">ML · Python · Data Science</span>
+          <h3 class="card-title">Bringing Clarity to ML: Explainability with SHAP</h3>
+          <p class="card-desc">A Jupyter Notebook tutorial on using SHAP to make machine learning models understandable—to humans.</p>
+        </div>
+        <div class="card-arrow">→</div>
+      </div>
+
+      <!-- Card 4: Unicorns -->
+      <div class="project-card" onclick="showPage('unicorns')">
+        <div class="card-color-band" style="background: var(--lavender);"></div>
+        <div class="card-body">
+          <div class="card-icon" style="background: #F3E5FF;">🦄</div>
+          <span class="card-tag" style="background: #F3E5FF; color: var(--lavender);">Data Analysis · Tableau · Pride</span>
+          <h3 class="card-title">Chasing Unicorns for Pride</h3>
+          <p class="card-desc">Digging into Google search trends for "unicorn" — when, where, and why. The answer surprised me.</p>
+        </div>
+        <div class="card-arrow">→</div>
+      </div>
+
+      <!-- Card 5: Probability -->
+      <div class="project-card" onclick="showPage('probability')">
+        <div class="card-color-band" style="background: var(--peach);"></div>
+        <div class="card-body">
+          <div class="card-icon" style="background: #FFF3E3;">🎲</div>
+          <span class="card-tag" style="background: #FFF3E3; color: #C07000;">Statistics · Writing</span>
+          <h3 class="card-title">Conditional Probability for Normal Humans</h3>
+          <p class="card-desc">If you test positive for malaria, how likely are you actually sick? Most doctors don't know. Here's the intuitive explanation.</p>
+        </div>
+        <div class="card-arrow">→</div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="contact-strip" id="contact-section">
+    <h2>Let's Work Together</h2>
+    <p>Areas of expertise: Business Analysis · Reports & Dashboards · Project Management · Process Engineering</p>
+    <a class="email-btn" href="/cdn-cgi/l/email-protection#d0a7b5b290bee4b2b9bcfeb3bfbd">📬 <span class="__cf_email__" data-cfemail="07706265476933656e6b2964686a">[email&#160;protected]</span></a>
+    <div class="social-row">
+      <a href="https://public.tableau.com/app/profile/nabil.arnaoot" target="_blank">Tableau Public</a>
+      <a href="https://medium.com/@narnaoot" target="_blank">Medium</a>
+      <a href="https://www.linkedin.com/in/narnaoot/" target="_blank">LinkedIn</a>
+      <a href="https://github.com/narnaoot" target="_blank">GitHub</a>
+    </div>
+  </div>
+
+  <footer>Made with 💛 — n4bil.com</footer>
+</div>
+
+<!-- ===== PROJECT: CRASHES ===== -->
+<div id="page-crashes" class="page theme-crashes">
+  <div class="project-page">
+    <button class="back-btn" onclick="showPage('home')">← Back to Work</button>
+    <div class="project-header">
+      <div class="project-tag" style="background:#FFE5E5; color:var(--coral);">🍎 Business Analysis · Tableau</div>
+      <h1 class="project-title">Reducing Crashes for iTunes</h1>
+      <p class="project-lead">iTunes was crashing constantly. My teammates carried pagers and woke up in the middle of the night to restore service. There was no consistent way to measure downtime across products or over time. Here's what changed — and how.</p>
+      <div class="color-rule" style="background: linear-gradient(90deg, var(--coral), var(--peach));"></div>
+    </div>
+
+    <div class="project-body">
+
+      <!-- CHAPTER CARDS - stacked ribbon style -->
+      <div style="display:flex; flex-direction:column; gap:0; margin: 1.5rem 0 2rem;">
+
+        <div style="display:flex; align-items:stretch; border:2px solid var(--dark); border-radius:16px 16px 0 0; margin-bottom:-2px; overflow:hidden; transition:transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateX(4px)';this.style.boxShadow='4px 4px 0 var(--dark)';this.style.zIndex='1';this.style.position='relative';" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.zIndex='';this.style.position='';">
+          <div style="width:80px; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-family:'Fraunces',serif; font-size:2.5rem; font-weight:900; color:white; opacity:0.95; background:var(--coral);">01</div>
+          <div style="flex:1; padding:1.3rem 1.5rem; background:white;">
+            <div style="font-size:0.7rem; font-weight:900; letter-spacing:2px; text-transform:uppercase; margin-bottom:0.25rem; color:var(--coral);">Prototype</div>
+            <div style="font-family:'Fraunces',serif; font-size:1.15rem; font-weight:700; margin-bottom:0.4rem; line-height:1.3;">Build something — anything — that works.</div>
+            <div style="font-size:0.92rem; line-height:1.6; color:var(--mid);">Create a MySQL database and Tableau report. Load new data manually every week.</div>
+          </div>
+        </div>
+
+        <div style="display:flex; align-items:stretch; border:2px solid var(--dark); margin-bottom:-2px; overflow:hidden; transition:transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateX(4px)';this.style.boxShadow='4px 4px 0 var(--dark)';this.style.zIndex='1';this.style.position='relative';" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.zIndex='';this.style.position='';">
+          <div style="width:80px; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-family:'Fraunces',serif; font-size:2.5rem; font-weight:900; color:white; opacity:0.95; background:var(--mint);">02</div>
+          <div style="flex:1; padding:1.3rem 1.5rem; background:white;">
+            <div style="font-size:0.7rem; font-weight:900; letter-spacing:2px; text-transform:uppercase; margin-bottom:0.25rem; color:#3A9B46;">Scale</div>
+            <div style="font-family:'Fraunces',serif; font-size:1.15rem; font-weight:700; margin-bottom:0.4rem; line-height:1.3;">Stop doing it by hand.</div>
+            <div style="font-size:0.92rem; line-height:1.6; color:var(--mid);">Find the company-wide database system. Modify it to add the data I need.</div>
+          </div>
+        </div>
+
+        <div style="display:flex; align-items:stretch; border:2px solid var(--dark); margin-bottom:-2px; overflow:hidden; transition:transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateX(4px)';this.style.boxShadow='4px 4px 0 var(--dark)';this.style.zIndex='1';this.style.position='relative';" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.zIndex='';this.style.position='';">
+          <div style="width:80px; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-family:'Fraunces',serif; font-size:2.5rem; font-weight:900; color:white; opacity:0.95; background:var(--peach);">03</div>
+          <div style="flex:1; padding:1.3rem 1.5rem; background:white;">
+            <div style="font-size:0.7rem; font-weight:900; letter-spacing:2px; text-transform:uppercase; margin-bottom:0.25rem; color:#B07000;">Process</div>
+            <div style="font-family:'Fraunces',serif; font-size:1.15rem; font-weight:700; margin-bottom:0.4rem; line-height:1.3;">Give crashes a proper home.</div>
+            <div style="font-size:0.92rem; line-height:1.6; color:var(--mid);">Build a process for iTunes crashes that includes recording the cause in my system. Train the team. Convince everybody to use it.</div>
+          </div>
+        </div>
+
+        <div style="display:flex; align-items:stretch; border:2px solid var(--dark); margin-bottom:-2px; overflow:hidden; transition:transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateX(4px)';this.style.boxShadow='4px 4px 0 var(--dark)';this.style.zIndex='1';this.style.position='relative';" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.zIndex='';this.style.position='';">
+          <div style="width:80px; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-family:'Fraunces',serif; font-size:2.5rem; font-weight:900; color:white; opacity:0.95; background:var(--sky);">04</div>
+          <div style="flex:1; padding:1.3rem 1.5rem; background:white;">
+            <div style="font-size:0.7rem; font-weight:900; letter-spacing:2px; text-transform:uppercase; margin-bottom:0.25rem; color:var(--sky);">Automate</div>
+            <div style="font-family:'Fraunces',serif; font-size:1.15rem; font-weight:700; margin-bottom:0.4rem; line-height:1.3;">Make it run itself.</div>
+            <div style="font-size:0.92rem; line-height:1.6; color:var(--mid);">Lead the web development team in creating a web-based system to handle everything automatically.</div>
+          </div>
+        </div>
+
+        <div style="display:flex; align-items:stretch; border:2px solid var(--dark); margin-bottom:-2px; overflow:hidden; transition:transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateX(4px)';this.style.boxShadow='4px 4px 0 var(--dark)';this.style.zIndex='1';this.style.position='relative';" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.zIndex='';this.style.position='';">
+          <div style="width:80px; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-family:'Fraunces',serif; font-size:2.5rem; font-weight:900; color:white; opacity:0.95; background:var(--lavender);">05</div>
+          <div style="flex:1; padding:1.3rem 1.5rem; background:white;">
+            <div style="font-size:0.7rem; font-weight:900; letter-spacing:2px; text-transform:uppercase; margin-bottom:0.25rem; color:var(--lavender);">Analyze</div>
+            <div style="font-family:'Fraunces',serif; font-size:1.15rem; font-weight:700; margin-bottom:0.4rem; line-height:1.3;">The data finally speaks.</div>
+            <div style="font-size:0.92rem; line-height:1.6; color:var(--mid);">Discover and present data showing that the main reason iTunes crashes is because of old software bugs.</div>
+          </div>
+        </div>
+
+        <div style="display:flex; align-items:stretch; border:2px solid var(--dark); border-radius:0 0 16px 16px; overflow:hidden; transition:transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateX(4px)';this.style.boxShadow='4px 4px 0 var(--dark)';this.style.zIndex='1';this.style.position='relative';" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.zIndex='';this.style.position='';">
+          <div style="width:80px; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-family:'Fraunces',serif; font-size:2.5rem; font-weight:900; color:white; opacity:0.95; background:var(--dark);">06</div>
+          <div style="flex:1; padding:1.3rem 1.5rem; background:white;">
+            <div style="font-size:0.7rem; font-weight:900; letter-spacing:2px; text-transform:uppercase; margin-bottom:0.25rem; color:var(--dark);">Change</div>
+            <div style="font-family:'Fraunces',serif; font-size:1.15rem; font-weight:700; margin-bottom:0.4rem; line-height:1.3;">The VP acts. The pagers go quiet.</div>
+            <div style="font-size:0.92rem; line-height:1.6; color:var(--mid);">The iTunes VP assigns developers to fix old bugs. iTunes stabilizes. On-call teammates sleep through the night. The automated system stands ready to catch anything that comes next.</div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="call-out" style="margin-top:2rem;">This is my favorite kind of project: one where cleaning up a mess creates something genuinely useful — and where teammates stop getting woken up at 3am.</div>
+
+    </div>
+
+    <div class="nav-between-projects">
+      <div class="nav-proj-btn" onclick="showPage('probability')">
+        <div class="nav-proj-label">← Previous</div>
+        <div class="nav-proj-title">Conditional Probability for Normal Humans</div>
+      </div>
+      <div class="nav-proj-btn right" onclick="showPage('gardens')">
+        <div class="nav-proj-label">Next →</div>
+        <div class="nav-proj-title">Secret Gardens of San Francisco</div>
+      </div>
+    </div>
+  </div>
+  <footer>Made with 💛 — n4bil.com</footer>
+</div>
+
+<!-- ===== PROJECT: GARDENS ===== -->
+<div id="page-gardens" class="page theme-gardens">
+  <div class="project-page">
+    <button class="back-btn" onclick="showPage('home')">← Back to Work</button>
+    <div class="project-header">
+      <div class="project-tag" style="background:#E5F7E8; color:#3A9B46;">🌿 Visual Storytelling · Tableau</div>
+      <h1 class="project-title">Secret Gardens of San Francisco</h1>
+      <p class="project-lead">For a class on visual storytelling with Tableau, I explored and mapped the little-known public spaces tucked away in downtown San Francisco.</p>
+      <div class="color-rule" style="background: linear-gradient(90deg, var(--mint), var(--sky));"></div>
+    </div>
+
+    <div class="project-body">
+
+      <div class="tableau-embed">
+        <iframe
+          src="https://public.tableau.com/views/SecretGardensofSanFrancisco/SecretGardensofSanFrancisco?%3Adisplay_count=n&amp;%3Alanguage=en-US&amp;%3Aorigin=viz_share_link?:embed=y&:display_count=yes&:showVizHome=no&:toolbar=no"
+          allowfullscreen>
+        </iframe>
+        <div class="tableau-caption">
+          Original interactive map on <a href="https://public.tableau.com/app/profile/nabil.arnaoot" target="_blank">Tableau Public →</a>
+          &nbsp;
+        </div>
+      </div>
+
+      <h2>The Project</h2>
+      <p>
+        San Francisco's downtown is famous for its density — but hidden within it are dozens of little-known public gardens, plazas, and open spaces that most residents and visitors walk right past. For a visual storytelling class, I set out to find them, document them, and put them on a map.
+      </p>
+
+      <h2>The Approach</h2>
+      <p>
+        I researched and collected data on publicly accessible green spaces in the downtown core, gathering coordinates, descriptions, and access information. I then built an interactive Tableau map that lets viewers explore the spaces by location.
+      </p>
+
+      <div class="call-out">
+        The result is a map of unexpected greenery — quiet refuges from the concrete that even many long-time San Franciscans don't know exist.
+      </div>
+
+      <h2>What I Learned</h2>
+      <p>
+        This project was a great exercise in spatial storytelling. Showing data on a map changes the way people relate to it — suddenly abstract coordinates become places you can visit. It also reinforced how much context matters when visualizing data: a good map doesn't just show where things are, it tells you why to care.
+      </p>
+
+    </div>
+
+    <div class="nav-between-projects">
+      <div class="nav-proj-btn" onclick="showPage('crashes')">
+        <div class="nav-proj-label">← Previous</div>
+        <div class="nav-proj-title">Reducing Crashes for iTunes</div>
+      </div>
+      <div class="nav-proj-btn right" onclick="showPage('shap')">
+        <div class="nav-proj-label">Next →</div>
+        <div class="nav-proj-title">Bringing Clarity to ML: SHAP</div>
+      </div>
+    </div>
+  </div>
+  <footer>Made with 💛 — n4bil.com</footer>
+</div>
+
+<!-- ===== PROJECT: SHAP ===== -->
+<div id="page-shap" class="page theme-shap">
+  <div class="project-page">
+    <button class="back-btn" onclick="showPage('home')">← Back to Work</button>
+    <div class="project-header">
+      <div class="project-tag" style="background:#E3EEFF; color:var(--sky);">🤖 ML · Python · Data Science</div>
+      <h1 class="project-title">Bringing Clarity to ML: Explainability with SHAP</h1>
+      <p class="project-lead">For an independent project, I investigated the SHAP package and put together this guide to explain how it works and how to use it to explain machine learning models.</p>
+      <div class="color-rule" style="background: linear-gradient(90deg, var(--sky), var(--lavender));"></div>
+    </div>
+
+    <div class="project-body">
+
+      <p>SHAP can provide explanations of:</p>
+      <ul>
+        <li>why a model made a particular prediction</li>
+        <li>how relatively important the different variables are</li>
+        <li>and otherwise enable transparency.</li>
+      </ul>
+
+      <p>If you'd like to follow along hands-on, you can create a Jupyter notebook and run the code blocks as you go. Just make sure you have SHAP installed (see below) and import the diabetes dataset from scikit-learn. All the code on this page can be copied directly into your notebook cells.</p>
+
+      <h2>The Problem: Why Do We Need Explainability?</h2>
+
+      <div class="call-out">
+        <strong>As AI models are playing a more and more important role in people's lives, we have to be able to explain how they work.</strong>
+      </div>
+
+      <p>We currently have a lot of models that are making decisions affecting human lives, but it's very difficult to understand what those decisions are based on. For example, many courtrooms are using algorithms to make decisions about sentencing. People using the algorithms to make these life-changing decisions often do not understand why a particular prisoner is granted or denied bail.</p>
+      <p>In some cases the programmer understands how a model works but the end user does not, in other cases nobody knows what variables a model is using.</p>
+      <p>I have two goals for explainability in my own work: 1) to be able to understand why a model makes a particular decision and 2) be able to explain it to other people.</p>
+      <p>This page will walk you through a basic overview of what Shapley values are, and how to use them with the Python SHAP package to help explain your models. It's based on the SHAP documentation, but simplified. I'm hoping to save you some of the time that it took me to figure out how they work!</p>
+
+      <h2>Installing SHAP</h2>
+      <p>Before you can run this notebook install SHAP with either:</p>
+      <pre><code>pip install shap</code></pre>
+      <p>or</p>
+      <pre><code>conda install -c conda-forge shap</code></pre>
+
+      <h2>Starting Simple: Linear Regression</h2>
+      <p>We'll start out with the simplest possible model, a linear regression, and then move on from there.</p>
+      <p>Linear regression creates a model like:</p>
+
+      <div class="info-box">
+        <div class="info-box-label">Example</div>
+        <p style="margin-top:0.5rem;"><strong>housing price = 10,000 + 3 × (age of house in years) + 10 × (rooms in house)</strong></p>
+        <p>In this example, 3 and 10 are the coefficients. They let us predict housing price by plugging in the age of the house and the number of rooms. However, they are not able to tell us how important the age of the house is compared to the number of rooms. The size of the coefficients for the different variables doesn't tell us how heavily they are weighted in making the prediction.</p>
+      </div>
+
+      <p>We'll use the famous diabetes dataset and try to predict the progression of diabetes based on different factors. Some of these coefficients are not clear — here's more information from the scikit documentation on what the variables mean: s1, total serum cholesterol; s2, low-density lipoproteins; s3, high-density lipoproteins; s4, total cholesterol; s5, possibly log of serum triglycerides level; s6, blood sugar level.</p>
+      <p>All of the factors have been normalized — the values may not look as you expect them to.</p>
+
+      <h2>What Are Shapley Values?</h2>
+      <p>You can think of a Shapley value as how much a prediction changes when we add a new variable to the model.</p>
+      <p>The underlying math for Shapley values is extremely complex. However, in the case of linear regressions, they become much simpler to calculate.</p>
+
+      <h2>The Partial Dependence Plot</h2>
+      <p>The first graph shows how we can use the partial dependence plot for a simple prediction:</p>
+
+      <pre><code>shap.partial_dependence_plot("s5", model.predict, X100, ice=False,
+    model_expected_value=True, feature_expected_value=True)</code></pre>
+
+      <div class="call-out">
+        <strong>The grey line shows the average progression of diabetes; the blue line shows our predictions.</strong>
+        <ul style="margin-top:0.6rem;">
+          <li>The x axis shows s5, ranging from -0.10 to 0.15.</li>
+          <li>The grey squares along the x axis are a histogram showing the distribution of s5; remember that the numbers have been normalized, so they cluster around 0.</li>
+          <li>The y axis shows progression of diabetes; the higher the number, the worse the diabetes got.</li>
+          <li>The blue line shows predictions. To find the predicted progression for a patient with 0.05 s5, look at that number on the x axis and look up to find the point on the blue line.</li>
+          <li>The grey dotted lines are averages. There is a grey dotted line running across from about 150 — this is the average progression of the disease. The grey dotted line coming up from about 0 shows the average s5 level, which makes sense as it has been normalized to make the average 0.</li>
+        </ul>
+      </div>
+
+      <p>The grey dotted lines are averages. There is a grey line dotted line running across from about 150 — this is the average progression of the disease across all the patients. The grey dotted line coming up from about 1 shows the average s5 level. This makes sense, as it has been normalized to make the average 0.</p>
+
+      <h2>Computing SHAP Values &amp; Zooming In on a Single Prediction</h2>
+      <p>Now let's zoom in on a single prediction.</p>
+
+      <pre><code># compute the SHAP values for the linear model
+explainer = shap.Explainer(model.predict, X100)
+shap_values = explainer(X)
+
+# make a standard partial dependence plot
+sample_ind = 18
+shap.partial_dependence_plot(
+    "s5", model.predict, X100, model_expected_value=True,
+    feature_expected_value=True, ice=False,
+    shap_values=shap_values[sample_ind:sample_ind+1,:]
+)</code></pre>
+
+      <div class="call-out">
+        <strong>The Shapley value for this prediction is the red line: the distance between the average diabetes progression and the progression we are predicting.</strong>
+        <p style="margin-top:0.5rem;">We're looking at the predicted change in diabetes when the s5 is -0.02. The black dot on the blue line shows the s5 and diabetes for this particular prediction, and the red line shows how far this value is from the diabetes score across all the patients.</p>
+        <p>Note that this graph only shows predicted values — we are not looking at any actual observations from real-world patients.</p>
+      </div>
+
+      <h2>The Waterfall Plot: How Each Variable Influences a Single Prediction</h2>
+
+      <pre><code># the waterfall_plot shows how we use each variable to make a better prediction
+# then the average across all patients
+shap.plots.waterfall(shap_values[sample_ind], max_display=10)</code></pre>
+
+      <div class="call-out">
+        <strong>This graph shows how influential each variable is for a single prediction.</strong>
+        <ul style="margin-top:0.6rem;">
+          <li>The most important variables for this prediction are on the top, and they also have the longest bar. For this prediction, s1 (blood sugar) is most important, followed by s5.</li>
+          <li>Red squares mean the variable makes the predicted diabetes score higher than average, blue squares lower than average.</li>
+          <li>You can also read the graph from right to left to see what the prediction will be. Start reading from the bottom.</li>
+          <li>The average score for all patients is about 148. Because this patient has a (normalized) age of -0.038 (below the average age of patients) we add 0.37 to the diabetes score we are predicting for this particular patient.</li>
+          <li>The next row up shows us that because this patient has s6 of -0.018, we subtract 0.98 from the predicted score.</li>
+          <li>Continuing to move up each row in the graph, we can see how our predicted score will increase or decrease based on a particular variable.</li>
+          <li>In the last step, we add 29.54 (due to high blood sugar) and get our prediction of 148.003.</li>
+        </ul>
+      </div>
+
+      <h2>The Bar Chart: Average Variable Importance</h2>
+      <p>So far we've been looking at how variables affect a single prediction. Now let's look at how they affect predictions overall.</p>
+
+      <pre><code>shap.plots.bar(shap_values)</code></pre>
+
+      <p>Looking at the average impact of different variables, we can see that s5 is the most important predictor variable on average. Blood sugar (s6) is still important, but it's not the most important on average.</p>
+
+      <p>What about if we have a factor that matters a lot for a small number of observations? We can look at the maximum Shapley values instead:</p>
+
+      <pre><code>shap.plots.bar(shap_values.abs.max(0))</code></pre>
+
+      <div class="call-out">
+        <strong>This graph will highlight if there is one variable that doesn't influence many observations, but when it does it makes a huge difference.</strong>
+        <p style="margin-top:0.5rem;">In our bail example, we might want prior conviction for murder to work like this. Most people don't have a conviction for murder so it doesn't impact the decision, but in those cases where someone does have a previous murder conviction it should trump other factors and lead to a decision to deny bail.</p>
+      </div>
+
+      <p>There's a lot more out there — Shapley values can be used to explain a lot of different kinds of models.</p>
+
+      <h2>Assumptions and Options</h2>
+      <p><strong>So far we've looked at a very simple model, which makes Shapley values easier to calculate.</strong></p>
+      <p>So far we've been assuming:</p>
+      <ul>
+        <li>We are looking at a linear regression model — which simplifies the math and makes Shapley values easier to calculate.</li>
+        <li>We're assuming every predictor is independent.</li>
+        <li>We're also looking at additive models. In the graphs above, you see that you can add the effect of each variable to get the final prediction.</li>
+      </ul>
+      <p>SHAP can also work with nonlinear models, non-additive models, and correlated features. These are more complicated and require more research. SHAP gets more exciting when it's used on more complicated models.</p>
+      <p>This more complicated example starts to show how SHAP can be useful in explaining more confusing models — red shows phrases the model saw as positive, blue as negative.</p>
+
+      <h2>Conclusion</h2>
+      <p>This has been a quick introduction into why we need explainability, what Shapley values are, and how to use the SHAP package in Python to explain your models. As more and more life-changing decisions are made by models that are designed to be incomprehensible, we absolutely must do a better job explaining how our models work.</p>
+      <p>This has just been a start — I've covered only some of the material from the first introduction to the SHAP package documentation at <a href="https://shap.readthedocs.io" style="color:var(--sky);font-weight:700;" target="_blank">shap.readthedocs.io</a>.</p>
+
+      <p style="font-size:0.85rem; color:var(--mid); margin-top:1.5rem;">Originally written by Nabil Arnaoot on 1/8/21 and revised 7/11/2021. Finding good examples in the underlying math from Rúaidhri Hallinan. You might find this helpful: particularly on <a href="https://shap.readthedocs.io" style="color:var(--sky);" target="_blank">using Shapley values to explain ML models</a>.</p>
+
+    </div>
+
+    <div class="nav-between-projects">
+      <div class="nav-proj-btn" onclick="showPage('gardens')">
+        <div class="nav-proj-label">← Previous</div>
+        <div class="nav-proj-title">Secret Gardens of San Francisco</div>
+      </div>
+      <div class="nav-proj-btn right" onclick="showPage('unicorns')">
+        <div class="nav-proj-label">Next →</div>
+        <div class="nav-proj-title">Chasing Unicorns for Pride</div>
+      </div>
+    </div>
+  </div>
+  <footer>Made with 💛 — n4bil.com</footer>
+</div>
+
+<!-- ===== PROJECT: UNICORNS ===== -->
+<div id="page-unicorns" class="page theme-unicorn">
+  <div class="project-page">
+    <button class="back-btn" onclick="showPage('home')">← Back to Work</button>
+    <div class="project-header">
+      <div class="project-tag" style="background:#F3E5FF; color:var(--lavender);">🦄 Data Analysis · Tableau · Pride</div>
+      <h1 class="project-title">Chasing Unicorns for Pride</h1>
+      <p class="project-lead">In honor of Pride, I dug into Google search trends for the word "unicorn." When were these searches most popular, where, and why? The answer surprised me.</p>
+      <div class="color-rule" style="background: linear-gradient(90deg, var(--lavender), var(--coral));"></div>
+    </div>
+
+    <div class="project-body">
+
+      <div class="tableau-embed">
+        <iframe
+          src="https://public.tableau.com/views/UnicornChasers/UnicornChasers?:embed=y&:display_count=yes&:showVizHome=no&:toolbar=no">
+        </iframe>
+        <div class="tableau-caption">
+          Original interactive dashboard on <a href="https://public.tableau.com/app/profile/nabil.arnaoot" target="_blank">Tableau Public →</a>
+          &nbsp;
+        </div>
+      </div>
+
+      
+    </div>
+
+    <div class="nav-between-projects">
+      <div class="nav-proj-btn" onclick="showPage('shap')">
+        <div class="nav-proj-label">← Previous</div>
+        <div class="nav-proj-title">Bringing Clarity to ML: SHAP</div>
+      </div>
+      <div class="nav-proj-btn right" onclick="showPage('probability')">
+        <div class="nav-proj-label">Next →</div>
+        <div class="nav-proj-title">Conditional Probability for Normal Humans</div>
+      </div>
+    </div>
+  </div>
+  <footer>Made with 💛 — n4bil.com</footer>
+</div>
+
+<!-- ===== PROJECT: PROBABILITY ===== -->
+<div id="page-probability" class="page theme-prob">
+  <div class="project-page">
+    <button class="back-btn" onclick="showPage('home')">← Back to Work</button>
+    <div class="project-header">
+      <div class="project-tag" style="background:#FFF3E3; color:#C07000;">🎲 Statistics · Writing</div>
+      <h1 class="project-title">Conditional Probability for Normal Humans</h1>
+      <p class="project-lead">If you test positive for malaria, how likely is it that you actually have malaria? Many doctors don't even understand the answer. Here's an explanation without complicated formulas.</p>
+      <div class="color-rule" style="background: linear-gradient(90deg, var(--peach), var(--soft-yellow));"></div>
+    </div>
+
+    <div class="project-body">
+
+      <h2>This Important Concept Is Usually Taught With Horrific Formulas</h2>
+      <p>
+        Conditional probability (also known as Bayes) lets you answer important questions like: given that I tested positive for malaria, how likely is it that I actually have malaria? It's pretty important that doctors and nurses understand how it works.
+      </p>
+      <p>
+        The problem is, most schools teach it in an incoherent way with a terrible formula. So doctors memorize it for a statistics class, then promptly forget it. There's a better way — one that lets you avoid the formulas altogether and get the same results.
+      </p>
+
+      <h2>Here's an Example</h2>
+
+      <div class="info-box">
+        <div class="info-box-label">Assumptions</div>
+        <ul style="margin-top:0.8rem;">
+          <li>About 1% of people have malaria, worldwide.</li>
+          <li>We have an extremely accurate test for malaria.</li>
+          <li>Anyone who has malaria and takes the test will be described as sick. (No false negatives.)</li>
+          <li>Of people who do <em>not</em> have malaria and take the test, 1% will be described as sick even though they're actually healthy.</li>
+        </ul>
+      </div>
+
+      <p><strong>The question:</strong> I just took a malaria test, and it said that I am sick. What are the odds that I actually am sick?</p>
+
+      <div class="call-out">
+        Intuitively, I would guess the odds are somewhere around 99%. Actually, it's closer to <span class="data-highlight">50%</span>. Here's how you get there.
+      </div>
+
+      <h2>The Trick: Use Real Numbers</h2>
+      <p>
+        Let's make up an example with specific numbers — the trick is to actually do the math.
+      </p>
+      <p>
+        Here's the breakdown for a group of <strong>1 million people</strong>:
+      </p>
+
+      <!-- MALARIA TREE DIAGRAM -->
+      <div class="pop-tree">
+        <div class="pop-node pop-total">
+          <span class="pop-num">1,000,000 people</span>
+        </div>
+        <div class="pop-branches">
+          <div class="pop-branch-line left-line"></div>
+          <div class="pop-branch-line right-line"></div>
+        </div>
+        <div class="pop-row-2">
+          <div class="pop-node pop-sick">
+            <span class="pop-num">10,000 sick</span>
+            <span class="pop-sub">1% of 1 million</span>
+          </div>
+          <div class="pop-node pop-healthy">
+            <span class="pop-num">990,000 healthy</span>
+            <span class="pop-sub">99% of 1 million</span>
+          </div>
+        </div>
+        <div class="pop-row-3">
+          <div class="pop-node pop-test-sick-all">
+            <span class="pop-num">10,000 test sick</span>
+            <span class="pop-sub">all sick</span>
+          </div>
+          <div class="pop-node pop-test-sick-fp">
+            <span class="pop-num">9,900 test sick</span>
+            <span class="pop-sub">1% of the healthy</span>
+          </div>
+          <div class="pop-node pop-test-healthy">
+            <span class="pop-num">980,100 test healthy</span>
+            <span class="pop-sub">99% of the healthy</span>
+          </div>
+        </div>
+        <p class="pop-caption">Malaria and testing for one million people</p>
+      </div>
+
+      <ul>
+        <li>Since 1% of the population has malaria: <strong>10,000 people are sick</strong>, and 990,000 are healthy.</li>
+        <li>All 10,000 sick people test positive (no false negatives).</li>
+        <li>Of the 990,000 healthy people, 1% test positive: <strong>9,900 false positives</strong>.</li>
+        <li>Total people who test positive: 10,000 + 9,900 = <strong>19,900</strong>.</li>
+      </ul>
+
+      <p>
+        Out of all the people who tested positive, what percentage actually have malaria?
+      </p>
+
+      <div class="call-out">
+        10,000 ÷ 19,900 = <span class="data-highlight">50.3%</span> — only a coin flip's chance of actually being sick!
+      </div>
+
+      <h2>Why Such a Strange Result?</h2>
+      <p>
+        It's because the overall percentage of people who have malaria is so low. Because only 1% of the population has malaria, the number on the top of our fraction (10,000) is also relatively low compared to the false positives. The false positives swamp the true positives.
+      </p>
+      <p>
+        Here are the numbers for an illness that <em>half</em> the population has:
+      </p>
+
+      <!-- COMMON DISEASE TREE DIAGRAM -->
+      <div class="pop-tree">
+        <div class="pop-node pop-total">
+          <span class="pop-num">1,000,000 people</span>
+        </div>
+        <div class="pop-branches">
+          <div class="pop-branch-line left-line"></div>
+          <div class="pop-branch-line right-line"></div>
+        </div>
+        <div class="pop-row-2">
+          <div class="pop-node pop-sick">
+            <span class="pop-num">500,000 sick</span>
+            <span class="pop-sub">50% of 1 million</span>
+          </div>
+          <div class="pop-node pop-healthy">
+            <span class="pop-num">500,000 healthy</span>
+            <span class="pop-sub">50% of 1 million</span>
+          </div>
+        </div>
+        <div class="pop-row-3">
+          <div class="pop-node pop-test-sick-all">
+            <span class="pop-num">500,000 test sick</span>
+            <span class="pop-sub">all sick</span>
+          </div>
+          <div class="pop-node pop-test-sick-fp">
+            <span class="pop-num">5,000 test sick</span>
+            <span class="pop-sub">1% of the healthy</span>
+          </div>
+          <div class="pop-node pop-test-healthy">
+            <span class="pop-num">495,000 test healthy</span>
+            <span class="pop-sub">99% of the healthy</span>
+          </div>
+        </div>
+        <p class="pop-caption">Illness and testing for a common disease</p>
+      </div>
+
+      <ul>
+        <li>Total sick people / total people who tested sick</li>
+        <li>500,000 / 505,000 = <span class="data-highlight">99%</span></li>
+      </ul>
+
+      <p>
+        Much more intuitive! When the disease is common, the base rate overwhelms the false positive rate.
+      </p>
+
+      <div class="call-out">
+        🎓 Congratulations — you now understand test results better than most doctors do. Go forth and enjoy.
+      </div>
+
+      <p style="font-size:0.85rem; color: var(--mid); margin-top: 1rem;">
+        ¹ The facts about malaria in this example are not accurate — we're simplifying to make the logic easier to follow.
+        Also available as a <a href="https://medium.com/@narnaoot" style="color:var(--sky);font-weight:700;" target="_blank">post on Medium →</a>
+      </p>
+
+    </div>
+
+    <div class="nav-between-projects">
+      <div class="nav-proj-btn" onclick="showPage('unicorns')">
+        <div class="nav-proj-label">← Previous</div>
+        <div class="nav-proj-title">Chasing Unicorns for Pride</div>
+      </div>
+      <div class="nav-proj-btn right" onclick="showPage('crashes')">
+        <div class="nav-proj-label">Next →</div>
+        <div class="nav-proj-title">Reducing Crashes for iTunes</div>
+      </div>
+    </div>
+  </div>
+  <footer>Made with 💛 — n4bil.com</footer>
+</div>
+
+<!-- ===== CONTACT PAGE ===== -->
+<div id="page-contact" class="page">
+  <div class="project-page" style="max-width:600px; text-align:center; padding-top:5rem;">
+    <button class="back-btn" onclick="showPage('home')" style="margin:0 auto 3rem;">← Back</button>
+    <div style="font-size:4rem; margin-bottom:1rem;">📬</div>
+    <h1 class="project-title" style="margin-bottom:1rem;">Let's Work Together</h1>
+    <p style="color:var(--mid); font-size:1.1rem; line-height:1.7; margin-bottom:2rem;">
+      I'm Nabil Arnaoot — a business analyst and data storyteller based in San Francisco with 20+ years in tech, most recently as a Business Process Engineer at Apple.
+    </p>
+    <div style="background:white; border:2px solid var(--dark); border-radius:20px; padding:2rem; box-shadow: 5px 5px 0 var(--dark); margin-bottom:2rem;">
+      <div style="font-weight:800; font-size:0.75rem; letter-spacing:1px; text-transform:uppercase; color:var(--mid); margin-bottom:0.5rem;">Areas of Expertise</div>
+      <div style="display:flex; flex-wrap:wrap; gap:0.6rem; justify-content:center;">
+        <span style="background:var(--soft-yellow); border:2px solid var(--dark); border-radius:20px; padding:0.3rem 0.9rem; font-weight:700; font-size:0.9rem;">Business Analysis</span>
+        <span style="background:#E5F7E8; border:2px solid var(--dark); border-radius:20px; padding:0.3rem 0.9rem; font-weight:700; font-size:0.9rem;">Reports & Dashboards</span>
+        <span style="background:#E3EEFF; border:2px solid var(--dark); border-radius:20px; padding:0.3rem 0.9rem; font-weight:700; font-size:0.9rem;">Project Management</span>
+        <span style="background:#FFE5E5; border:2px solid var(--dark); border-radius:20px; padding:0.3rem 0.9rem; font-weight:700; font-size:0.9rem;">Process Engineering</span>
+      </div>
+    </div>
+    <a class="email-btn" href="/cdn-cgi/l/email-protection#95e2f0f7d5fba1f7fcf9bbf6faf8" style="display:inline-block; background:var(--dark); color:white; padding:1rem 2.5rem; border-radius:30px; font-weight:800; font-size:1.1rem; text-decoration:none; border:2px solid var(--dark); box-shadow: 4px 4px 0 var(--coral);">
+      📬 <span class="__cf_email__" data-cfemail="097e6c6b49673d6b6065276a6664">[email&#160;protected]</span>
+    </a>
+  </div>
+  <footer>Made with 💛 — n4bil.com</footer>
+</div>
+
+<script>
+  function showPage(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    const target = document.getElementById('page-' + id);
+    if (target) {
+      target.classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }
+</script>
+</body>
+</html>
