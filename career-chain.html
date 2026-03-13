@@ -71,7 +71,7 @@
   <h2>Not a ladder. A through-line.</h2>
   <p class="subtitle">Each role contributed something the next one required. Vertical position reflects scope of impact.</p>
   <div class="chain-outer">
-    <svg id="chainSvg" viewBox="0 0 1010 370" xmlns="http://www.w3.org/2000/svg">
+    <svg id="chainSvg" viewBox="0 0 1010 420" xmlns="http://www.w3.org/2000/svg">
       <title>Nabil Arnaoot career progression, 2006 to present</title>
     </svg>
   </div>
@@ -90,17 +90,17 @@
   }
 
   // ── Layout constants ───────────────────────────────────────
-  // Smaller viewBox (1010 wide) so SVG scales UP on typical screens → text renders larger
   const CW = 132, CH = 84, HW = CW / 2, HH = CH / 2;
 
   // ── Career data ────────────────────────────────────────────
+  // Y values shifted down +40 vs previous version to give breathing room at top for labels
   const roles = [
-    { x:  102, y: 300, company: 'Elegrity',   title: 'Engr PM',         years: '2006 – 10', color: '#6A9F7A' },
-    { x:  272, y: 268, company: 'eBay',        title: 'Program Mgr',     years: '2010 – 11', color: '#D4920A' },
-    { x:  442, y: 210, company: 'Apple',       title: 'Engr PM',         years: '2011 – 14', color: '#4A90D9' },
-    { x:  606, y: 224, company: 'Apple',       title: 'BA / BPE',        years: '2014 – 20', color: '#4A90D9', pivot: true },
-    { x:  778, y: 162, company: "St. Mary's",  title: 'Consultant + MS', years: '2020 – 24', color: '#8B7BC8' },
-    { x:  948, y:  76, company: 'SFMTA',       title: 'Principal BA',    years: '2024 – now',color: '#E8614F', current: true },
+    { x:  102, y: 340, company: 'Elegrity',   title: 'Engr PM',         years: '2006 – 10', color: '#6A9F7A' },
+    { x:  272, y: 308, company: 'eBay',        title: 'Program Mgr',     years: '2010 – 11', color: '#D4920A' },
+    { x:  442, y: 250, company: 'Apple',       title: 'Engr PM',         years: '2011 – 14', color: '#4A90D9' },
+    { x:  606, y: 264, company: 'Apple',       title: 'BA / BPE',        years: '2014 – 20', color: '#4A90D9', pivot: true },
+    { x:  778, y: 202, company: "St. Mary's",  title: 'Consultant + MS', years: '2020 – 24', color: '#8B7BC8' },
+    { x:  948, y: 116, company: 'SFMTA',       title: 'Principal BA',    years: '2024 – now',color: '#E8614F', current: true },
   ];
 
   // Bridge labels: what carried from the previous role into this one
@@ -142,12 +142,12 @@
   });
 
   // ── Background ─────────────────────────────────────────────
-  el('rect', { x: 0, y: 0, width: 1010, height: 370, fill: '#FFFBF5' }, svg);
-  el('rect', { x: 0, y: 0, width: 1010, height: 370, fill: 'url(#dg)', opacity: '.45' }, svg);
+  el('rect', { x: 0, y: 0, width: 1010, height: 420, fill: '#FFFBF5' }, svg);
+  el('rect', { x: 0, y: 0, width: 1010, height: 420, fill: 'url(#dg)', opacity: '.45' }, svg);
 
   // ── Scope axis ─────────────────────────────────────────────
-  el('line', { x1: 34, y1: 54, x2: 34, y2: 342, stroke: '#DDD0C0', 'stroke-width': '1', 'stroke-dasharray': '2,7' }, svg);
-  el('polygon', { points: '29,49 34,37 39,49', fill: '#CCC0B0' }, svg);
+  el('line', { x1: 34, y1: 66, x2: 34, y2: 392, stroke: '#DDD0C0', 'stroke-width': '1', 'stroke-dasharray': '2,7' }, svg);
+  el('polygon', { points: '29,61 34,49 39,61', fill: '#CCC0B0' }, svg);
 
   function axisLbl(text, y) {
     const e = el('text', {
@@ -161,11 +161,11 @@
     }, svg);
     e.textContent = text;
   }
-  axisLbl('ORG-WIDE', 28);
-  axisLbl('TEAM', 360);
+  axisLbl('ORG-WIDE', 40);
+  axisLbl('TEAM', 410);
 
   // Faint horizontal guides
-  [68, 148, 228, 308].forEach(y => {
+  [88, 168, 248, 328].forEach(y => {
     el('line', { x1: 52, y1: y, x2: 990, y2: y, stroke: '#EDE5D8', 'stroke-width': '1', 'stroke-dasharray': '3,14' }, svg);
   });
 
@@ -184,38 +184,45 @@
       'marker-end': `url(#${markerId})`,
     }, svg);
 
-    // Label via textPath — rides the curve with white halo for legibility
-    const tEl = el('text', {
-      'font-family': 'Nunito,sans-serif',
-      'font-size': '12',
-      'font-weight': '700',
-      fill: b.pivot ? '#7A5100' : '#907868',
-      'paint-order': 'stroke fill',
-      stroke: '#FFFBF5',
-      'stroke-width': '5',
-      'stroke-linejoin': 'round',
-    }, svg);
-    const tp = el('textPath', {
-      href: `#bp${i}`,
-      startOffset: '50%',
-      'text-anchor': 'middle',
-      dy: '-9',
-    }, tEl);
-    tp.textContent = b.label;
+    const r  = roles[i];
+    const nr = roles[i + 1];
+    const mx = (r.x + nr.x) / 2;
 
-    // ↩ PIVOT badge above the Apple→Apple connector
-    if (b.pivot) {
-      const r  = roles[i], nr = roles[i + 1];
-      const mx = (r.x + nr.x) / 2;
-      const my = Math.min(r.y, nr.y) - HH - 22;
-      el('rect', { x: mx - 32, y: my - 11, width: 64, height: 20, rx: '10', fill: '#C4830A' }, svg);
-      const bt = el('text', {
-        x: mx, y: my + 5,
+    // ── Bridge label: plain horizontal text above the higher card ──
+    // Positioned above min(card tops) so it's always in clear space, never on a curve.
+    if (!b.pivot) {
+      const labelY = Math.min(r.y, nr.y) - HH - 14;
+      const pw = b.label.length * 7.4 + 20;
+      el('rect', {
+        x: mx - pw / 2, y: labelY - 14,
+        width: pw, height: 21,
+        rx: '10',
+        fill: '#F5EFE8',
+        stroke: '#E0D4C4',
+        'stroke-width': '1',
+      }, svg);
+      const lt = el('text', {
+        x: mx, y: labelY,
         'text-anchor': 'middle',
         'font-family': 'Nunito,sans-serif',
-        'font-size': '10',
+        'font-size': '12',
+        'font-weight': '700',
+        fill: '#7A6858',
+      }, svg);
+      lt.textContent = b.label;
+    }
+
+    // ↩ PIVOT badge (replaces label for the Apple→Apple connector)
+    if (b.pivot) {
+      const my = Math.min(r.y, nr.y) - HH - 14;
+      el('rect', { x: mx - 34, y: my - 14, width: 68, height: 21, rx: '10', fill: '#C4830A' }, svg);
+      const bt = el('text', {
+        x: mx, y: my,
+        'text-anchor': 'middle',
+        'font-family': 'Nunito,sans-serif',
+        'font-size': '11',
         'font-weight': '800',
-        'letter-spacing': '.1em',
+        'letter-spacing': '.08em',
         fill: '#FFF',
       }, svg);
       bt.textContent = '↩ PIVOT';
