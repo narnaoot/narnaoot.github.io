@@ -51,1361 +51,1317 @@
     }
 
     /* ── Layout ─────────────────────────────────────────── */
-    .container {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
+    .page { max-width: 1080px; margin: 0 auto; padding: 0 20px 80px; }
+    section { margin-top: 64px; }
 
-    section {
-      padding: 80px 0;
-    }
-
-    section + section {
-      border-top: 1px solid var(--border);
-    }
-
-    /* ── Nav ─────────────────────────────────────────────── */
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(255, 251, 245, 0.93);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav-inner {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 0 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 56px;
-    }
-
-    .nav-logo {
-      font-family: 'Playfair Display', serif;
-      font-weight: 700;
-      font-size: 1.1rem;
-      color: var(--text);
-      text-decoration: none;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-size: .8rem;
-      font-weight: 700;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      color: var(--muted);
-      text-decoration: none;
-      transition: color .2s;
-    }
-
-    .nav-links a:hover { color: var(--coral); }
-
-    /* ── Hero ────────────────────────────────────────────── */
-    #hero {
-      padding: 100px 0 80px;
-      border-top: none;
-    }
-
-    .hero-eyebrow {
-      font-size: .75rem;
-      font-weight: 800;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      color: var(--coral);
-      margin-bottom: 20px;
-    }
-
-    .hero-headline {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.4rem, 6vw, 4rem);
-      font-weight: 900;
-      line-height: 1.12;
-      color: var(--text);
-      margin-bottom: 28px;
-    }
-
-    .hero-headline em {
-      font-style: italic;
-      color: var(--coral);
-    }
-
-    .hero-body {
-      font-size: 1.1rem;
-      max-width: 600px;
-      color: var(--text);
-      margin-bottom: 36px;
-      line-height: 1.8;
-    }
-
-    .hero-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 14px;
-      background: var(--warm2);
-      border-radius: 99px;
-      font-size: .8rem;
-      font-weight: 700;
-      color: var(--text);
-    }
-
-    .pill.coral { background: var(--coral-lt); color: var(--coral); }
-
-    /* ── Impact ──────────────────────────────────────────── */
-    .stat-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .stat-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--r);
-      padding: 1.5rem;
-    }
-
-    .stat-number {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      font-weight: 900;
-      color: var(--coral);
-      line-height: 1;
-      margin-bottom: 6px;
-    }
-
-    .stat-label {
-      font-size: .8rem;
-      color: var(--muted);
-      font-weight: 600;
-      line-height: 1.3;
-    }
-
-    /* ── How I Work ──────────────────────────────────────── */
-    .how-grid {
+    .two-col {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      margin-top: 2.5rem;
+      gap: 24px;
     }
+    @media (max-width: 680px) { .two-col { grid-template-columns: 1fr; } }
 
-    @media (max-width: 600px) {
-      .how-grid { grid-template-columns: 1fr; }
-    }
-
-    .how-card {
+    .card {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
       border-radius: var(--r);
-      padding: 2rem;
+      padding: 28px;
     }
 
-    .how-card.tape {
-      background: var(--teal-lt);
-      border: 1px solid var(--teal);
-    }
-
-    .how-card.drano {
-      background: var(--coral-lt);
-      border: 1px solid var(--coral);
-    }
-
-    .how-card-icon {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-
-    .how-card h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.3rem;
-      font-weight: 700;
-      margin-bottom: 6px;
-    }
-
-    .how-card.tape h3 { color: var(--teal); }
-    .how-card.drano h3 { color: var(--coral); }
-
-    .how-card-sub {
-      font-size: .85rem;
-      font-weight: 600;
-      color: var(--muted);
-      margin-bottom: 1rem;
-      font-style: italic;
-    }
-
-    .how-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .how-list li {
-      font-size: .9rem;
-      padding-left: 1.2rem;
+    /* ── Header ─────────────────────────────────────────── */
+    header {
+      background: var(--bg);
+      border-bottom: 1.5px solid var(--border);
+      padding: 56px 20px 52px;
+      text-align: center;
       position: relative;
-      color: var(--text);
     }
-
-    .how-list li::before {
-      content: '→';
-      position: absolute;
-      left: 0;
-      color: var(--muted);
-      font-size: .8rem;
-      top: 2px;
-    }
-
-    /* ── Career ──────────────────────────────────────────── */
-    .career-chain {
-      position: relative;
-      margin-top: 2.5rem;
-    }
-
-    .career-chain::before {
+    header::before {
       content: '';
-      position: absolute;
-      left: 20px;
-      top: 0;
-      bottom: 0;
-      width: 2px;
+      position: absolute; inset: 0;
+      background-image: radial-gradient(var(--border) 1px, transparent 1px);
+      background-size: 24px 24px;
+      opacity: .4;
+      pointer-events: none;
+    }
+
+    .avatar-ring {
+      width: 88px; height: 88px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--coral), var(--mustard));
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px;
+    }
+    .avatar-ring span {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: #fff;
+      font-weight: 900;
+    }
+
+    .hero-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 6vw, 3.6rem);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -1px;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+    .hero-name em { font-style: italic; color: var(--coral); }
+
+    .hero-tagline {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 540px;
+      margin: 0 auto 20px;
+      font-weight: 600;
+    }
+
+    .chip-row {
+      display: flex; flex-wrap: wrap;
+      gap: 10px; justify-content: center;
+    }
+    .chip {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: 99px;
+      padding: 5px 16px;
+      font-size: .82rem;
+      font-weight: 700;
+      color: var(--text);
+      text-decoration: none;
+      transition: border-color .2s, background .2s;
+    }
+    .chip:hover { border-color: var(--coral); background: var(--coral-lt); }
+
+    /* ── Section heading ─────────────────────────────────── */
+    .section-h {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 22px;
+      flex-wrap: wrap;
+    }
+    .section-h h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.7rem;
+      font-weight: 900;
+      color: var(--text);
+      line-height: 1.2;
+    }
+    .section-h .section-tag {
+      background: var(--warm2);
+      border: 1.5px solid var(--border);
+      border-radius: 99px;
+      padding: 2px 12px;
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ── Questions ───────────────────────────────────────── */
+    .q-phase { margin-bottom: 20px; }
+
+    .q-phase-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+    .q-phase-label {
+      font-size: .68rem;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .q-phase-line {
+      flex: 1;
+      height: 1px;
       background: var(--border);
     }
 
-    .career-item {
-      display: flex;
-      gap: 1.5rem;
-      margin-bottom: 2rem;
+    .question-flow {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    @media (max-width: 720px) { .question-flow { grid-template-columns: 1fr; } }
+
+    .q-card {
+      background: var(--warm);
+      border: 1.5px solid var(--border);
+      border-radius: var(--r);
+      padding: 24px;
       position: relative;
+      overflow: hidden;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .q-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,.07);
+    }
+    .q-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 10px;
+      opacity: 0.22;
+    }
+    .q-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--text);
+      line-height: 1.5;
+    }
+    .q-note {
+      font-size: .78rem;
+      color: var(--muted);
+      margin-top: 10px;
     }
 
-    .career-dot {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      flex-shrink: 0;
+    .q-phase-connector {
       display: flex;
       align-items: center;
-      justify-content: center;
-      font-size: .8rem;
-      font-weight: 800;
-      z-index: 1;
-      position: relative;
+      gap: 16px;
+      margin: 18px 0 22px;
     }
-
-    .career-dot.current {
-      background: var(--coral);
-      color: #fff;
-      box-shadow: 0 0 0 4px var(--coral-lt);
+    .q-phase-connector::before,
+    .q-phase-connector::after {
+      content: '';
+      flex: 1;
+      border-top: 1.5px dashed var(--border);
     }
-
-    .career-dot.past {
-      background: var(--surface);
-      color: var(--muted);
-      border: 2px solid var(--border);
-    }
-
-    .career-body {
-      padding-top: 6px;
-    }
-
-    .career-title {
-      font-family: 'Playfair Display', serif;
+    .connector-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--warm2);
+      border: 1.5px solid var(--border);
+      border-radius: 99px;
+      padding: 5px 16px;
+      font-size: .76rem;
       font-weight: 700;
-      font-size: 1.05rem;
-      margin-bottom: 2px;
-    }
-
-    .career-company {
-      font-weight: 700;
-      font-size: .85rem;
-      color: var(--coral);
-    }
-
-    .career-dates {
-      font-size: .8rem;
       color: var(--muted);
-      font-weight: 600;
-      margin-top: 2px;
+      white-space: nowrap;
     }
 
-    .career-note {
-      font-size: .85rem;
-      color: var(--muted);
-      margin-top: 4px;
-    }
-
-    /* ── Selected Work ───────────────────────────────────── */
-    .work-grid {
+    /* ── Duct Tape / Drano ───────────────────────────────── */
+    .dt-drano {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 2rem;
-      margin-top: 2.5rem;
-    }
-
-    .work-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border: 1.5px solid var(--border);
       border-radius: var(--r);
       overflow: hidden;
     }
+    @media (max-width: 640px) { .dt-drano { grid-template-columns: 1fr; } }
 
-    .work-card-header {
-      padding: 2rem 2rem 1rem;
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
+    .panel { padding: 32px 28px; }
+    .panel-tape  { background: var(--coral-lt); }
+    .panel-drain { background: var(--teal-lt); border-left: 1.5px solid var(--border); }
+    @media (max-width: 640px) { .panel-drain { border-left: none; border-top: 1.5px solid var(--border); } }
+
+    .panel-icon  { font-size: 2.6rem; margin-bottom: 12px; line-height: 1; }
+    .panel-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .panel-sub {
+      font-size: .82rem;
+      color: var(--muted);
+      margin-bottom: 16px;
+      font-weight: 700;
+      letter-spacing: .03em;
+    }
+    .panel-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .ptag {
+      border-radius: 8px;
+      padding: 5px 12px;
+      font-size: .8rem;
+      font-weight: 700;
+    }
+    .ptag-tape  { background: rgba(232,97,79,.14);  color: var(--coral);   border: 1px solid rgba(232,97,79,.25); }
+    .ptag-drain { background: rgba(45,181,168,.14); color: var(--teal);    border: 1px solid rgba(45,181,168,.25); }
+    .panel-note {
+      margin-top: 18px;
+      font-size: .82rem;
+      color: var(--muted);
+      font-style: italic;
+      line-height: 1.5;
     }
 
+    /* ── Career Thread ───────────────────────────────────── */
+    .chain-outer { border: 1.5px solid var(--border); border-radius: var(--r); background: var(--surface); padding: 24px 20px 18px; overflow-x: auto; }
+    #chainSvg { min-width: 820px; width: 100%; height: auto; display: block; }
+
+    /* ── Work Samples ────────────────────────────────────── */
+    .work-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+    @media (max-width: 680px) { .work-grid { grid-template-columns: 1fr; } }
+
+    .work-card {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--r);
+      padding: 24px;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .work-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,.07);
+    }
+
+    .work-card-top {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
     .work-icon {
-      font-size: 2.2rem;
+      font-size: 2rem;
+      line-height: 1;
       flex-shrink: 0;
       margin-top: 2px;
     }
-
-    .work-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 8px;
+    .work-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--text);
+      margin-bottom: 6px;
     }
-
-    .tag {
-      font-size: .7rem;
+    .work-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .wtag {
+      font-size: .68rem;
       font-weight: 800;
-      letter-spacing: .06em;
+      letter-spacing: .07em;
       text-transform: uppercase;
-      padding: 3px 10px;
+      padding: 2px 9px;
       border-radius: 99px;
       background: var(--warm2);
       color: var(--muted);
     }
-
-    .work-card h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.2rem;
-      font-weight: 700;
-      margin-bottom: 4px;
+    .work-desc {
+      font-size: .86rem;
+      color: var(--muted);
+      line-height: 1.55;
+      margin-bottom: 14px;
     }
 
-    .work-card-body {
-      padding: 0 2rem 2rem;
-    }
-
-    .work-description {
-      font-size: .95rem;
-      color: var(--text);
-      margin-bottom: 1.5rem;
-      line-height: 1.7;
-    }
-
-    /* Project phases (iTunes) */
-    .phases {
+    /* iTunes flow steps */
+    .flow-steps {
       display: flex;
       flex-direction: column;
       gap: 0;
       border: 1px solid var(--border);
-      border-radius: var(--r);
+      border-radius: 10px;
       overflow: hidden;
     }
-
-    .phase {
-      display: grid;
-      grid-template-columns: 80px 1fr;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .phase:last-child { border-bottom: none; }
-
-    .phase-number {
-      background: var(--warm);
+    .flow-step {
       display: flex;
       align-items: center;
-      justify-content: center;
-      font-size: .7rem;
+      gap: 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .flow-step:last-child { border-bottom: none; }
+    .fs-num {
+      background: var(--warm);
+      min-width: 52px;
+      padding: 8px 0;
+      text-align: center;
+      font-size: .65rem;
       font-weight: 800;
       letter-spacing: .1em;
       text-transform: uppercase;
       color: var(--muted);
       border-right: 1px solid var(--border);
-    }
-
-    .phase-content {
-      padding: 1rem 1.2rem;
-    }
-
-    .phase-title {
-      font-weight: 800;
-      font-size: .85rem;
-      color: var(--text);
-      margin-bottom: 3px;
-    }
-
-    .phase-desc {
-      font-size: .82rem;
-      color: var(--muted);
-      line-height: 1.5;
-    }
-
-    .work-pullquote {
-      margin-top: 1.5rem;
-      padding: 1rem 1.4rem;
-      background: var(--teal-lt);
-      border-left: 3px solid var(--teal);
-      border-radius: 0 var(--r) var(--r) 0;
-      font-size: .9rem;
-      color: var(--text);
-      font-style: italic;
-      line-height: 1.6;
-    }
-
-    /* ── The Questions ───────────────────────────────────── */
-    .questions-intro {
-      font-size: 1.05rem;
-      max-width: 580px;
-      line-height: 1.75;
-      margin-bottom: 2.5rem;
-    }
-
-    .questions-phases {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-    }
-
-    @media (max-width: 640px) {
-      .questions-phases { grid-template-columns: 1fr; }
-    }
-
-    .questions-phase {
+      align-self: stretch;
       display: flex;
-      flex-direction: column;
-      gap: 1rem;
+      align-items: center;
+      justify-content: center;
     }
-
-    .phase-label {
-      font-size: .7rem;
-      font-weight: 800;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: var(--muted);
-      padding-bottom: 10px;
-      border-bottom: 1px solid var(--border);
+    .fs-body {
+      padding: 8px 12px;
     }
-
-    .question-item {
-      display: flex;
-      gap: 1rem;
-      align-items: flex-start;
-    }
-
-    .question-n {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
-      font-weight: 900;
-      color: var(--border);
-      line-height: 1;
-      flex-shrink: 0;
-      min-width: 28px;
-    }
-
-    .question-text {
-      font-size: .95rem;
-      font-weight: 700;
-      color: var(--text);
-      line-height: 1.45;
-    }
-
-    .question-why {
-      font-size: .82rem;
-      color: var(--muted);
-      margin-top: 4px;
-      font-style: italic;
-      font-weight: 400;
-    }
-
-    /* ── Voices ──────────────────────────────────────────── */
-    .voices-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-      margin-top: 2.5rem;
-    }
-
-    @media (max-width: 640px) {
-      .voices-grid { grid-template-columns: 1fr; }
-    }
-
-    .voice-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--r);
-      padding: 1.8rem;
-    }
-
-    .voice-quote {
-      font-size: .95rem;
-      line-height: 1.7;
-      color: var(--text);
-      margin-bottom: 1.2rem;
-    }
-
-    .voice-quote::before {
-      content: '\201C';
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      color: var(--border);
-      line-height: 0;
-      vertical-align: -0.5rem;
-      margin-right: 4px;
-    }
-
-    .voice-attr {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    .voice-name {
-      font-size: .85rem;
+    .fs-title {
+      font-size: .8rem;
       font-weight: 800;
       color: var(--text);
     }
-
-    .voice-role {
-      font-size: .78rem;
+    .fs-desc {
+      font-size: .74rem;
       color: var(--muted);
-    }
-
-    /* ── Personal Portrait ───────────────────────────────── */
-    .portrait-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2.5rem;
-    }
-
-    .portrait-item {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .portrait-key {
-      font-size: .72rem;
-      font-weight: 800;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    .portrait-val {
-      font-size: .95rem;
-      font-weight: 700;
-      color: var(--text);
       line-height: 1.4;
     }
-
-    .portrait-note {
-      font-size: .82rem;
-      color: var(--muted);
-      line-height: 1.5;
-      font-style: italic;
+    .flow-step.highlight .fs-num {
+      background: var(--coral-lt);
+      color: var(--coral);
     }
+    .flow-step.highlight .fs-title { color: var(--coral); }
 
-    /* ── Skills ──────────────────────────────────────────── */
-    .skills-sections {
+    /* ── Skill bars ──────────────────────────────────────── */
+    .toolkit-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 2rem;
-      margin-top: 2.5rem;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
     }
+    @media (max-width: 720px) { .toolkit-grid { grid-template-columns: 1fr; } }
 
-    .skills-group h3 {
-      font-size: .75rem;
-      font-weight: 800;
-      letter-spacing: .12em;
-      text-transform: uppercase;
+    .toolkit-card {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--r);
+      padding: 24px 22px;
+    }
+    .toolkit-card-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+    .toolkit-icon {
+      width: 42px; height: 42px;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+    .toolkit-card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.2;
+    }
+    .toolkit-card-sub {
+      font-size: .72rem;
       color: var(--muted);
-      margin-bottom: 1rem;
-      padding-bottom: 8px;
-      border-bottom: 1px solid var(--border);
+      font-weight: 600;
+      margin-top: 2px;
     }
-
-    .skill-row {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .skill-item {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .skill-meta {
+    .skill-row { margin-bottom: 10px; }
+    .skill-row:last-child { margin-bottom: 0; }
+    .skill-label-row {
       display: flex;
       justify-content: space-between;
-      font-size: .82rem;
+      align-items: center;
+      margin-bottom: 5px;
     }
-
-    .skill-name { font-weight: 700; color: var(--text); }
-    .skill-pct { font-weight: 600; color: var(--muted); }
-
-    .skill-bar {
-      height: 5px;
+    .skill-label { font-size: .78rem; font-weight: 700; color: var(--text); }
+    .skill-pct   { font-size: .68rem; font-weight: 800; color: var(--muted); }
+    .skill-track {
+      width: 100%; height: 7px;
       background: var(--border);
       border-radius: 99px;
       overflow: hidden;
     }
-
     .skill-fill {
       height: 100%;
-      background: var(--coral);
       border-radius: 99px;
+      width: 0%;
+      transition: width 1.1s cubic-bezier(.4,0,.2,1);
     }
 
-    /* ── Education ───────────────────────────────────────── */
-    .edu-list {
+    /* ── Quotes ──────────────────────────────────────────── */
+    .quotes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 18px;
+    }
+    .quote-card {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--r);
+      padding: 24px 24px 20px;
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
-      margin-top: 2rem;
+      gap: 14px;
+      transition: transform .2s, box-shadow .2s;
     }
-
-    .edu-item {
-      display: flex;
-      gap: 1.2rem;
-      align-items: flex-start;
-    }
-
-    .edu-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--coral);
-      flex-shrink: 0;
-      margin-top: 6px;
-    }
-
-    .edu-degree {
-      font-weight: 800;
-      font-size: .95rem;
-      color: var(--text);
-    }
-
-    .edu-school {
-      font-size: .9rem;
-      color: var(--muted);
-      margin-top: 2px;
-    }
-
-    .edu-note {
-      font-size: .8rem;
-      color: var(--muted);
-      font-style: italic;
-      margin-top: 2px;
-    }
-
-    /* ── Contact / Footer ────────────────────────────────── */
-    #contact {
-      padding-bottom: 100px;
-    }
-
-    .contact-intro {
-      font-size: 1.1rem;
-      max-width: 520px;
-      line-height: 1.75;
-      margin-bottom: 2rem;
-    }
-
-    .contact-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .contact-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 20px;
-      border-radius: 99px;
-      font-size: .85rem;
-      font-weight: 800;
-      text-decoration: none;
-      transition: opacity .2s;
-    }
-
-    .contact-link:hover { opacity: .8; }
-
-    .contact-link.primary {
-      background: var(--coral);
-      color: #fff;
-    }
-
-    .contact-link.secondary {
-      background: var(--warm2);
-      color: var(--text);
-    }
-
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 24px 0;
-      text-align: center;
-      font-size: .8rem;
-      color: var(--muted);
-    }
-
-    /* ── Section headings ────────────────────────────────── */
-    .section-heading {
+    .quote-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,.06); }
+    .quote-mark {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(1.6rem, 4vw, 2.2rem);
-      font-weight: 900;
-      line-height: 1.15;
-      margin-bottom: 8px;
+      font-size: 2.4rem;
+      color: var(--coral);
+      line-height: .8;
+      opacity: .6;
     }
-
-    .section-sub {
-      font-size: 1rem;
+    .quote-text { font-size: .92rem; color: var(--text); line-height: 1.65; flex: 1; }
+    .quote-attr {
+      font-size: .76rem;
+      font-weight: 800;
       color: var(--muted);
-      max-width: 520px;
-      line-height: 1.65;
-      margin-bottom: 0;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      border-top: 1px solid var(--border);
+      padding-top: 12px;
+    }
+    .quote-card.special { background: var(--warm); border-color: var(--mustard); }
+
+    /* ── Personal Data Portrait ──────────────────────────── */
+    .portrait-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+    .portrait-card {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--r);
+      padding: 22px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .portrait-card .p-icon  { font-size: 1.8rem; line-height: 1; }
+    .portrait-card .p-label { font-size: .68rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+    .portrait-card .p-value { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--text); line-height: 1.2; }
+    .portrait-card .p-note  { font-size: .78rem; color: var(--muted); line-height: 1.4; }
+
+    .mini-bar-wrap { width: 100%; }
+    .mini-bar-row  { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+    .mini-bar-label { font-size: .75rem; font-weight: 700; width: 50px; flex-shrink: 0; color: var(--text); }
+    .mini-bar-track { flex: 1; height: 10px; background: var(--border); border-radius: 99px; overflow: hidden; }
+    .mini-bar-fill  { height: 100%; border-radius: 99px; }
+
+    .cat-row  { display: flex; gap: 10px; flex-wrap: wrap; }
+    .cat-chip {
+      background: var(--coral-lt);
+      border: 1.5px solid rgba(232,97,79,.25);
+      border-radius: 99px;
+      padding: 5px 14px 5px 10px;
+      font-size: .82rem;
+      font-weight: 700;
+      color: var(--coral);
+      display: flex; align-items: center; gap: 5px;
     }
 
-    /* ── Misc ────────────────────────────────────────────── */
-    a { color: inherit; }
-
-    @media (max-width: 480px) {
-      .nav-links { display: none; }
-      .how-grid { grid-template-columns: 1fr; }
+    /* ── Impact ──────────────────────────────────────────── */
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 16px;
     }
+    .impact-card {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--r);
+      padding: 22px 20px 18px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .impact-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,.08); }
+    .impact-card .i-num  { font-family: 'Playfair Display', serif; font-size: 2.6rem; font-weight: 900; line-height: 1; margin-bottom: 6px; }
+    .impact-card .i-desc { font-size: .8rem; color: var(--muted); line-height: 1.4; font-weight: 600; }
+    .impact-card .i-accent { position: absolute; bottom: 0; left: 0; right: 0; height: 4px; }
+
+    /* ── Education ───────────────────────────────────────── */
+    .edu-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+    .edu-card {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-left: 4px solid var(--mustard);
+      border-radius: var(--r);
+      padding: 18px 18px 16px;
+    }
+    .edu-school { font-weight: 800; font-size: .93rem; margin-bottom: 3px; }
+    .edu-degree { font-size: .83rem; color: var(--teal); font-weight: 700; margin-bottom: 3px; }
+    .edu-year   { font-size: .75rem; color: var(--muted); }
+    .badge {
+      display: inline-block;
+      background: var(--must-lt);
+      color: var(--mustard);
+      border: 1px solid rgba(212,146,10,.3);
+      border-radius: 99px;
+      font-size: .65rem;
+      font-weight: 800;
+      padding: 2px 9px;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      vertical-align: middle;
+      margin-left: 5px;
+    }
+
+    /* ── Certs ───────────────────────────────────────────── */
+    .cert-list { display: flex; flex-direction: column; gap: 10px; }
+    .cert-item {
+      background: var(--warm);
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 16px;
+      font-size: .85rem;
+      display: flex; align-items: center; gap: 12px;
+      font-weight: 700;
+    }
+    .cert-item .ci-icon { font-size: 1.1rem; }
+    .cert-item .ci-sub  { font-size: .74rem; color: var(--muted); font-weight: 600; }
+
+    /* ── Footer ──────────────────────────────────────────── */
+    footer {
+      text-align: center;
+      padding: 32px 20px;
+      border-top: 1.5px solid var(--border);
+      color: var(--muted);
+      font-size: .82rem;
+    }
+    footer a { color: var(--coral); text-decoration: none; font-weight: 700; }
   </style>
 </head>
 <body>
 
-<!-- ── Nav ─────────────────────────────────────────────── -->
-<nav>
-  <div class="nav-inner">
-    <a class="nav-logo" href="#hero">Nabil Arnaoot</a>
-    <ul class="nav-links">
-      <li><a href="#work">Work</a></li>
-      <li><a href="#questions">Method</a></li>
-      <li><a href="#voices">Voices</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </div>
-</nav>
+<!-- ════════════════════════════════════════════════════════
+     HEADER
+════════════════════════════════════════════════════════ -->
+<header>
+  <div style="max-width:1080px;margin:0 auto;position:relative;">
+    <div class="avatar-ring"><span>NA</span></div>
 
-<!-- ── Hero ────────────────────────────────────────────── -->
-<section id="hero">
-  <div class="container">
-    <p class="hero-eyebrow">Business Analyst · Data Storyteller · San Francisco</p>
-    <h1 class="hero-headline serif">
-      I make complicated things<br>
-      <em>legible</em>.
-    </h1>
-    <p class="hero-body">
-      Hi, I'm Nabil. I'm a business analyst and data storyteller. I specialize
-      in walking into ambiguous situations, finding out what's actually going on,
-      and turning tangled information into clear decisions. I've been doing this
-      for 19+ years — at Apple, at eBay, and now at SFMTA, where I help make
-      San Francisco's transit work better.
+    <h1 class="hero-name">Nabil <em>Arnaoot</em></h1>
+
+    <p class="hero-tagline">
+      Business Analyst &amp; Project Manager · Data Storyteller · Translator of Complexity · Builder of What Doesn't Exist Yet
     </p>
-    <div class="hero-meta">
-      <span class="pill coral">Currently: SFMTA</span>
-      <span class="pill">ex-Apple · 7 years</span>
-      <span class="pill">San Francisco, CA</span>
+    <p class="hero-tagline" style="margin-top:8px; font-style:italic; color:var(--coral);">
+      I solve problems so that teams can go.
+    </p>
+
+    <div class="chip-row">
+      <a class="chip" href="mailto:narnaoot@gmail.com">✉ narnaoot@gmail.com</a>
+      <a class="chip" href="https://www.linkedin.com/in/narnaoot" target="_blank">in LinkedIn</a>
+      <span class="chip" style="pointer-events:none">📍 San Francisco, CA</span>
+      <span class="chip" style="pointer-events:none">🍵 Tea, not coffee</span>
+      <span class="chip" style="pointer-events:none">🐱 Octavia &amp; Cleopatra</span>
     </div>
   </div>
-</section>
+</header>
 
-<!-- ── Impact ───────────────────────────────────────────── -->
-<section id="impact">
-  <div class="container">
-    <p class="label">At a Glance</p>
-    <h2 class="section-heading serif">The work, in numbers.</h2>
-    <p class="section-sub" style="margin-bottom: 2.5rem;">A few data points from 19+ years of making systems work.</p>
-    <div class="stat-grid">
-      <div class="stat-card">
-        <div class="stat-number">19+</div>
-        <div class="stat-label">Years of professional experience</div>
+<!-- ════════════════════════════════════════════════════════
+     MAIN
+════════════════════════════════════════════════════════ -->
+<div class="page">
+
+  <!-- ── The Questions ─────────────────────────────────── -->
+  <section>
+    <div class="section-h">
+      <h2>The Questions I Always Ask</h2>
+      <span class="section-tag">my diagnostic toolkit</span>
+    </div>
+
+    <div class="q-phase">
+      <div class="q-phase-header">
+        <span class="q-phase-label">Phase 1 — Opening</span>
+        <div class="q-phase-line"></div>
       </div>
-      <div class="stat-card">
-        <div class="stat-number">300M+</div>
-        <div class="stat-label">iCloud users supported at launch</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">500K</div>
-        <div class="stat-label">Systems rebuilt with new kernel update process</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">40+</div>
-        <div class="stat-label">Engineering teams collaborated with at Apple</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">300+</div>
-        <div class="stat-label">Engineers using systems I built</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">7</div>
-        <div class="stat-label">Years at Apple across two very different roles</div>
+      <div class="question-flow">
+        <div class="q-card">
+          <div class="q-num" style="color:var(--coral)">01</div>
+          <div class="q-text">It's six months from now. You are really happy. What has changed?</div>
+          <div class="q-note">This is where we start. The answer tells me everything about what actually matters.</div>
+        </div>
+        <div class="q-card">
+          <div class="q-num" style="color:var(--coral)">02</div>
+          <div class="q-text">What is keeping you from getting your work done?</div>
+          <div class="q-note">Not what you want to build — what's in the way right now.</div>
+        </div>
+        <div class="q-card">
+          <div class="q-num" style="color:var(--coral)">03</div>
+          <div class="q-text">What terrible, manual task do you absolutely hate doing?</div>
+          <div class="q-note">This is where automation and process redesign live.</div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- ── How I Work ───────────────────────────────────────── -->
-<section id="how">
-  <div class="container">
-    <p class="label">How I Work</p>
-    <h2 class="section-heading serif">Every problem is either Duct Tape or Drano.</h2>
-    <p class="section-sub" style="margin-bottom: 0;">I've found most organizational problems fall into one of two categories. Knowing which one you have changes everything about how you fix it.</p>
-    <div class="how-grid">
-      <div class="how-card tape">
-        <div class="how-card-icon">🛠</div>
-        <h3>Duct Tape</h3>
-        <p class="how-card-sub">When something doesn't hold together — I build the structure.</p>
-        <ul class="how-list">
-          <li>Siloed teams</li>
-          <li>Inconsistent data</li>
-          <li>Unclear ownership</li>
-          <li>No shared process</li>
-          <li>Missing documentation</li>
-          <li>Scattered reporting</li>
-        </ul>
+    <div class="q-phase-connector">
+      <div class="connector-badge">↓&nbsp;&nbsp;then I go deeper&nbsp;&nbsp;↓</div>
+    </div>
+
+    <div class="q-phase">
+      <div class="q-phase-header">
+        <span class="q-phase-label">Phase 2 — Diagnosis</span>
+        <div class="q-phase-line"></div>
       </div>
-      <div class="how-card drano">
-        <div class="how-card-icon">🚿</div>
-        <h3>Drano</h3>
-        <p class="how-card-sub">When something isn't moving — I clear the path.</p>
-        <ul class="how-list">
-          <li>Stuck workflows</li>
-          <li>Manual bottlenecks</li>
-          <li>Stalled projects</li>
-          <li>Buried insights</li>
-          <li>Waiting on sign-off</li>
-          <li>Technical debt blocking features</li>
-        </ul>
+      <div class="question-flow">
+        <div class="q-card" style="background:var(--lav-lt);border-color:rgba(139,123,200,.25)">
+          <div class="q-num" style="color:var(--lavender)">04</div>
+          <div class="q-text">What's getting in your way?</div>
+          <div class="q-note">Not the work itself — the friction around it. Dependencies, approvals, the things that shouldn't be hard but are.</div>
+        </div>
+        <div class="q-card" style="background:var(--teal-lt);border-color:rgba(45,181,168,.25)">
+          <div class="q-num" style="color:var(--teal)">05</div>
+          <div class="q-text">What do you need to know to fix that?</div>
+          <div class="q-note">I want to understand the information gap, not just the symptom. What data, clarity, or decision is missing?</div>
+        </div>
+        <div class="q-card" style="background:var(--must-lt);border-color:rgba(212,146,10,.25)">
+          <div class="q-num" style="color:var(--mustard)">06</div>
+          <div class="q-text">What does the team already know that executives need to be convinced of?</div>
+          <div class="q-note">Practitioners see the problem clearly. The challenge is making it legible upward — and that's a translation job.</div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ── Career ────────────────────────────────────────────── -->
-<section id="career">
-  <div class="container">
-    <p class="label">Career</p>
-    <h2 class="section-heading serif">Each role contributed something the next one required.</h2>
-    <p class="section-sub" style="margin-bottom: 0;">Managing projects → solving org-wide problems → building from scratch.</p>
-    <div class="career-chain">
-
-      <div class="career-item">
-        <div class="career-dot current">NOW</div>
-        <div class="career-body">
-          <div class="career-title serif">Principal Business Analyst</div>
-          <div class="career-company">SFMTA — San Francisco Municipal Transportation Agency</div>
-          <div class="career-dates">2024 – Present</div>
-          <div class="career-note">Business analysis and project management for my city's transit infrastructure.</div>
-        </div>
-      </div>
-
-      <div class="career-item">
-        <div class="career-dot past">MS</div>
-        <div class="career-body">
-          <div class="career-title serif">Consultant + MS in Business Analytics</div>
-          <div class="career-company">Saint Mary's College of California</div>
-          <div class="career-dates">2020 – 2024</div>
-          <div class="career-note">Honors. Built and deepened the analytical toolkit.</div>
-        </div>
-      </div>
-
-      <div class="career-item">
-        <div class="career-dot past">BA</div>
-        <div class="career-body">
-          <div class="career-title serif">Business Analyst</div>
-          <div class="career-company">Apple</div>
-          <div class="career-dates">2014 – 2020</div>
-          <div class="career-note">Organization-wide focus. The pivot role — from projects to systemic problems.</div>
-        </div>
-      </div>
-
-      <div class="career-item">
-        <div class="career-dot past">PM</div>
-        <div class="career-body">
-          <div class="career-title serif">Engineering Program Manager</div>
-          <div class="career-company">Apple</div>
-          <div class="career-dates">2011 – 2014</div>
-          <div class="career-note">Projects focus. Learning how Apple runs at scale.</div>
-        </div>
-      </div>
-
-      <div class="career-item">
-        <div class="career-dot past">PM</div>
-        <div class="career-body">
-          <div class="career-title serif">Program Manager</div>
-          <div class="career-company">eBay</div>
-          <div class="career-dates">2010 – 2011</div>
-        </div>
-      </div>
-
-      <div class="career-item">
-        <div class="career-dot past">PM</div>
-        <div class="career-body">
-          <div class="career-title serif">Engineering Program Manager</div>
-          <div class="career-company">Elegrity</div>
-          <div class="career-dates">2006 – 2010</div>
-          <div class="career-note">Where it all started.</div>
-        </div>
-      </div>
-
+  <!-- ── Duct Tape / Drano ──────────────────────────────── -->
+  <section>
+    <div class="section-h">
+      <h2>How I Work</h2>
+      <span class="section-tag">two kinds of problems</span>
     </div>
-  </div>
-</section>
+    <div class="dt-drano">
+      <div class="panel panel-tape">
+        <div class="panel-icon">🩹</div>
+        <div class="panel-title">Duct Tape</div>
+        <div class="panel-sub">When something doesn't hold together — I build the structure</div>
+        <div class="panel-tags">
+          <span class="ptag ptag-tape">Siloed teams</span>
+          <span class="ptag ptag-tape">Inconsistent data</span>
+          <span class="ptag ptag-tape">Unclear ownership</span>
+          <span class="ptag ptag-tape">No shared process</span>
+          <span class="ptag ptag-tape">Missing documentation</span>
+          <span class="ptag ptag-tape">Scattered reporting</span>
+        </div>
+        <div class="panel-note">
+          Built processes used by 300+ engineers. Created iCloud's outage tracking system from scratch. Rebuilt kernel update workflow for 500,000 systems.
+        </div>
+      </div>
+      <div class="panel panel-drain">
+        <div class="panel-icon">🪣</div>
+        <div class="panel-title">Drano</div>
+        <div class="panel-sub">When something isn't moving — I clear the path</div>
+        <div class="panel-tags">
+          <span class="ptag ptag-drain">Stuck workflows</span>
+          <span class="ptag ptag-drain">Manual bottlenecks</span>
+          <span class="ptag ptag-drain">Stalled projects</span>
+          <span class="ptag ptag-drain">Buried insights</span>
+          <span class="ptag ptag-drain">Waiting on sign-off</span>
+          <span class="ptag ptag-drain">Technical debt blocking features</span>
+        </div>
+        <div class="panel-note">
+          Love going from 0 to 1. That's an infinite increase. Making people's jobs and lives easier is the whole point.
+        </div>
+      </div>
+    </div>
+  </section>
 
-<!-- ── Selected Work ─────────────────────────────────────── -->
-<section id="work">
-  <div class="container">
-    <p class="label">Selected Work</p>
-    <h2 class="section-heading serif">Problems worth telling.</h2>
-    <p class="section-sub" style="margin-bottom: 0;">A few projects that show how I think.</p>
+  <!-- ── Career Thread ─────────────────────────────────── -->
+  <section>
+    <div class="section-h">
+      <h2>Not a ladder. A through-line.</h2>
+      <span class="section-tag">career thread</span>
+    </div>
+    <p style="color:var(--muted);font-size:.88rem;margin-bottom:24px;max-width:680px;">
+      Each role contributed something the next one required. Vertical position reflects scope of impact.
+    </p>
+    <div class="chain-outer">
+      <svg id="chainSvg" viewBox="0 0 1010 420" xmlns="http://www.w3.org/2000/svg">
+        <title>Nabil Arnaoot career progression, 2006 to present</title>
+      </svg>
+    </div>
+    <p style="color:var(--muted);font-size:.85rem;margin-top:16px;max-width:680px;font-style:italic;">
+      Managing projects → solving org-wide problems
+    </p>
+  </section>
 
+  <!-- ── Selected Work ──────────────────────────────────── -->
+  <section>
+    <div class="section-h">
+      <h2>Selected Work</h2>
+      <span class="section-tag">problems worth telling</span>
+    </div>
     <div class="work-grid">
 
-      <!-- Project 1: iTunes Crashes -->
+      <!-- iTunes Crashes -->
       <div class="work-card">
-        <div class="work-card-header">
+        <div class="work-card-top">
           <div class="work-icon">🍎</div>
           <div>
-            <h3>Reducing Crashes for iTunes</h3>
+            <div class="work-title">Reducing Crashes for iTunes</div>
             <div class="work-tags">
-              <span class="tag">Business Analysis</span>
-              <span class="tag">Tableau</span>
-              <span class="tag">Apple</span>
+              <span class="wtag">Business Analysis</span>
+              <span class="wtag">Tableau</span>
+              <span class="wtag">Apple</span>
             </div>
           </div>
         </div>
-        <div class="work-card-body">
-          <p class="work-description">Started with an incomprehensible spreadsheet. Ended with real changes that improved iTunes stability — and let on-call engineers sleep through the night.</p>
-          <div class="phases">
-            <div class="phase">
-              <div class="phase-number">01<br>Prototype</div>
-              <div class="phase-content">
-                <div class="phase-title">Build something — anything — that works.</div>
-                <div class="phase-desc">Create a MySQL database and Tableau report. Load new data manually every week.</div>
-              </div>
-            </div>
-            <div class="phase">
-              <div class="phase-number">02<br>Scale</div>
-              <div class="phase-content">
-                <div class="phase-title">Stop doing it by hand.</div>
-                <div class="phase-desc">Find the company-wide database system. Modify it to add the data I need.</div>
-              </div>
-            </div>
-            <div class="phase">
-              <div class="phase-number">03<br>Process</div>
-              <div class="phase-content">
-                <div class="phase-title">Give crashes a proper home.</div>
-                <div class="phase-desc">Build a process for iTunes crashes that includes recording the cause. Train the team. Convince everybody to use it.</div>
-              </div>
-            </div>
-            <div class="phase">
-              <div class="phase-number">04<br>Automate</div>
-              <div class="phase-content">
-                <div class="phase-title">Make it run itself.</div>
-                <div class="phase-desc">Lead the web development team in creating a web-based system to handle everything automatically.</div>
-              </div>
-            </div>
-            <div class="phase">
-              <div class="phase-number">05<br>Analyze</div>
-              <div class="phase-content">
-                <div class="phase-title">The data finally speaks.</div>
-                <div class="phase-desc">Discover and present data showing that the main reason iTunes crashes is because of old software bugs.</div>
-              </div>
-            </div>
-            <div class="phase">
-              <div class="phase-number">06<br>Change</div>
-              <div class="phase-content">
-                <div class="phase-title">The VP acts. The pagers go quiet.</div>
-                <div class="phase-desc">The iTunes VP assigns developers to fix old bugs. iTunes stabilizes. On-call teammates sleep through the night.</div>
-              </div>
-            </div>
+        <div class="work-desc">Started with an incomprehensible spreadsheet. Ended with on-call engineers sleeping through the night.</div>
+        <div class="flow-steps">
+          <div class="flow-step">
+            <div class="fs-num">01<br>Prototype</div>
+            <div class="fs-body"><div class="fs-title">Build anything that works</div><div class="fs-desc">MySQL + Tableau. Manual data load weekly.</div></div>
           </div>
-          <div class="work-pullquote">
-            This is my favorite kind of project: one where cleaning up a mess creates something genuinely useful — and where teammates stop getting woken up at 3am.
+          <div class="flow-step">
+            <div class="fs-num">02<br>Scale</div>
+            <div class="fs-body"><div class="fs-title">Stop doing it by hand</div><div class="fs-desc">Find the company DB. Modify it. Add the data.</div></div>
+          </div>
+          <div class="flow-step">
+            <div class="fs-num">03<br>Process</div>
+            <div class="fs-body"><div class="fs-title">Give crashes a proper home</div><div class="fs-desc">Build the process. Train the team. Get buy-in.</div></div>
+          </div>
+          <div class="flow-step">
+            <div class="fs-num">04<br>Automate</div>
+            <div class="fs-body"><div class="fs-title">Make it run itself</div><div class="fs-desc">Lead web dev team. Full automation.</div></div>
+          </div>
+          <div class="flow-step">
+            <div class="fs-num">05<br>Analyze</div>
+            <div class="fs-body"><div class="fs-title">The data finally speaks</div><div class="fs-desc">Old bugs are the main crash cause. Present findings.</div></div>
+          </div>
+          <div class="flow-step highlight">
+            <div class="fs-num">06<br>Change</div>
+            <div class="fs-body"><div class="fs-title">VP acts. Pagers go quiet.</div><div class="fs-desc">Developers reassigned. iTunes stabilizes.</div></div>
           </div>
         </div>
       </div>
 
-      <!-- Project 2: SHAP -->
+      <!-- SHAP -->
       <div class="work-card">
-        <div class="work-card-header">
+        <div class="work-card-top">
           <div class="work-icon">🤖</div>
           <div>
-            <h3>Bringing Clarity to ML: Explainability with SHAP</h3>
+            <div class="work-title">Making ML Explainable with SHAP</div>
             <div class="work-tags">
-              <span class="tag">ML</span>
-              <span class="tag">Python</span>
-              <span class="tag">Data Science</span>
+              <span class="wtag">ML</span>
+              <span class="wtag">Python</span>
+              <span class="wtag">Data Science</span>
             </div>
           </div>
         </div>
-        <div class="work-card-body">
-          <p class="work-description">A tutorial on using SHAP to make machine learning models understandable — to humans. Because as more and more life-changing decisions get made by models designed to be incomprehensible, we absolutely must do a better job explaining how they work.</p>
-          <p class="work-description">Covers Shapley values from first principles, then walks through linear regression examples, partial dependence plots, waterfall plots, and bar charts showing average variable importance — with explicit attention to assumptions and edge cases.</p>
-          <div class="work-pullquote">
-            If a model affects someone's mortgage, job application, or medical diagnosis, "it's complicated" is not a good enough answer.
-          </div>
+        <div class="work-desc">As more life-changing decisions get made by models designed to be incomprehensible, we absolutely must do better. A tutorial on using SHAP to make machine learning understandable — to humans.</div>
+        <div class="panel-tags" style="gap:8px;">
+          <span class="ptag" style="background:var(--lav-lt);color:var(--lavender);border:1px solid rgba(139,123,200,.25)">Shapley values</span>
+          <span class="ptag" style="background:var(--lav-lt);color:var(--lavender);border:1px solid rgba(139,123,200,.25)">Linear regression</span>
+          <span class="ptag" style="background:var(--lav-lt);color:var(--lavender);border:1px solid rgba(139,123,200,.25)">Waterfall plots</span>
+          <span class="ptag" style="background:var(--lav-lt);color:var(--lavender);border:1px solid rgba(139,123,200,.25)">Partial dependence</span>
+          <span class="ptag" style="background:var(--lav-lt);color:var(--lavender);border:1px solid rgba(139,123,200,.25)">Variable importance</span>
+          <span class="ptag" style="background:var(--lav-lt);color:var(--lavender);border:1px solid rgba(139,123,200,.25)">Model assumptions</span>
         </div>
       </div>
 
-      <!-- Project 3: Conditional Probability -->
+      <!-- Secret Gardens -->
       <div class="work-card">
-        <div class="work-card-header">
-          <div class="work-icon">🎲</div>
-          <div>
-            <h3>Conditional Probability for Normal Humans</h3>
-            <div class="work-tags">
-              <span class="tag">Statistics</span>
-              <span class="tag">Writing</span>
-            </div>
-          </div>
-        </div>
-        <div class="work-card-body">
-          <p class="work-description">If you test positive for malaria, how likely is it that you actually have malaria? Many doctors don't even understand the answer. This piece explains it — without complicated formulas — because important ideas shouldn't require a statistics degree to access.</p>
-          <div class="work-pullquote">
-            Making something genuinely understandable is harder than making it technically correct. I think about that a lot.
-          </div>
-        </div>
-      </div>
-
-      <!-- Project 4: Secret Gardens -->
-      <div class="work-card">
-        <div class="work-card-header">
+        <div class="work-card-top">
           <div class="work-icon">🌿</div>
           <div>
-            <h3>Secret Gardens of San Francisco</h3>
+            <div class="work-title">Secret Gardens of San Francisco</div>
             <div class="work-tags">
-              <span class="tag">Visual Storytelling</span>
-              <span class="tag">Tableau</span>
+              <span class="wtag">Visual Storytelling</span>
+              <span class="wtag">Tableau</span>
             </div>
           </div>
         </div>
-        <div class="work-card-body">
-          <p class="work-description">Exploring and mapping the little-known public spaces hidden in downtown San Francisco. A love letter to the city, built out of data.</p>
+        <div class="work-desc">Exploring and mapping the little-known public spaces hidden in downtown San Francisco. A love letter to the city, built out of data.</div>
+        <div class="panel-tags" style="gap:8px;">
+          <span class="ptag" style="background:var(--sage-lt);color:var(--sage);border:1px solid rgba(106,159,122,.25)">Geospatial data</span>
+          <span class="ptag" style="background:var(--sage-lt);color:var(--sage);border:1px solid rgba(106,159,122,.25)">Tableau Public</span>
+          <span class="ptag" style="background:var(--sage-lt);color:var(--sage);border:1px solid rgba(106,159,122,.25)">Urban exploration</span>
+          <span class="ptag" style="background:var(--sage-lt);color:var(--sage);border:1px solid rgba(106,159,122,.25)">Data journalism</span>
+        </div>
+      </div>
+
+      <!-- Conditional Probability -->
+      <div class="work-card">
+        <div class="work-card-top">
+          <div class="work-icon">🎲</div>
+          <div>
+            <div class="work-title">Conditional Probability for Normal Humans</div>
+            <div class="work-tags">
+              <span class="wtag">Statistics</span>
+              <span class="wtag">Writing</span>
+            </div>
+          </div>
+        </div>
+        <div class="work-desc">If you test positive for malaria, how likely is it that you actually have malaria? Many doctors get this wrong. An explanation without complicated formulas — because important ideas shouldn't require a statistics degree.</div>
+        <div class="panel-tags" style="gap:8px;">
+          <span class="ptag" style="background:var(--must-lt);color:var(--mustard);border:1px solid rgba(212,146,10,.25)">Bayes' theorem</span>
+          <span class="ptag" style="background:var(--must-lt);color:var(--mustard);border:1px solid rgba(212,146,10,.25)">Plain language</span>
+          <span class="ptag" style="background:var(--must-lt);color:var(--mustard);border:1px solid rgba(212,146,10,.25)">Medical statistics</span>
         </div>
       </div>
 
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ── The Questions ─────────────────────────────────────── -->
-<section id="questions">
-  <div class="container">
-    <p class="label">Method</p>
-    <h2 class="section-heading serif">The questions I always ask.</h2>
-    <p class="questions-intro">Before I build anything, I ask questions. These six have never failed me. They're split into two phases: opening the conversation, and figuring out what's actually wrong.</p>
-    <div class="questions-phases">
+  <!-- ── What I Bring ───────────────────────────────────── -->
+  <section>
+    <div class="section-h">
+      <h2>What I Bring</h2>
+      <span class="section-tag">capabilities</span>
+    </div>
+    <div class="toolkit-grid">
 
-      <div class="questions-phase">
-        <div class="phase-label">Phase 1 — Opening</div>
-        <div class="question-item">
-          <div class="question-n">1</div>
+      <div class="toolkit-card">
+        <div class="toolkit-card-header">
+          <div class="toolkit-icon" style="background:var(--coral-lt)">📊</div>
           <div>
-            <div class="question-text">"It's six months from now. You are really happy. What has changed?"</div>
-            <div class="question-why">This tells you what actually matters.</div>
+            <div class="toolkit-card-title">Data &amp; Analysis</div>
+            <div class="toolkit-card-sub">Turning numbers into decisions</div>
           </div>
         </div>
-        <div class="question-item">
-          <div class="question-n">2</div>
-          <div>
-            <div class="question-text">"What is keeping you from getting your work done?"</div>
-            <div class="question-why">Not what you want to build — what's in the way.</div>
-          </div>
+        <div class="skill-row">
+          <div class="skill-label-row"><span class="skill-label">Data Storytelling</span><span class="skill-pct">97%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-width="97" style="background:var(--coral)"></div></div>
         </div>
-        <div class="question-item">
-          <div class="question-n">3</div>
-          <div>
-            <div class="question-text">"What terrible, manual task do you absolutely hate doing?"</div>
-            <div class="question-why">Where automation and process redesign live.</div>
-          </div>
+        <div class="skill-row">
+          <div class="skill-label-row"><span class="skill-label">SQL / Python / R</span><span class="skill-pct">85%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-width="85" style="background:var(--coral)"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label-row"><span class="skill-label">Visualization</span><span class="skill-pct">90%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-width="90" style="background:var(--coral)"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label-row"><span class="skill-label">Requirements Analysis</span><span class="skill-pct">95%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-width="95" style="background:var(--coral)"></div></div>
         </div>
       </div>
 
-      <div class="questions-phase">
-        <div class="phase-label">Phase 2 — Diagnosis</div>
-        <div class="question-item">
-          <div class="question-n">4</div>
+      <div class="toolkit-card">
+        <div class="toolkit-card-header">
+          <div class="toolkit-icon" style="background:var(--teal-lt)">🏗️</div>
           <div>
-            <div class="question-text">"What's getting in your way?"</div>
-            <div class="question-why">The friction around work: dependencies, approvals, handoffs.</div>
+            <div class="toolkit-card-title">Process &amp; Systems</div>
+            <div class="toolkit-card-sub">Building what doesn't exist yet</div>
           </div>
         </div>
-        <div class="question-item">
-          <div class="question-n">5</div>
+        <div class="skill-row">
+          <div class="skill-label-row"><span class="skill-label">Process Design</span><span class="skill-pct">95%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-width="95" style="background:var(--teal)"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label-row"><span class="skill-label">Project Management</span><span class="skill-pct">92%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-width="92" style="background:var(--teal)"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label-row"><span class="skill-label">Agile / Scrum</span><span class="skill-pct">88%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-width="88" style="background:var(--teal)"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label-row"><span class="skill-label">Gap Analysis</span><span class="skill-pct">96%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-width="96" style="background:var(--teal)"></div></div>
+        </div>
+      </div>
+
+      <div class="toolkit-card">
+        <div class="toolkit-card-header">
+          <div class="toolkit-icon" style="background:var(--lav-lt)">🔄</div>
           <div>
-            <div class="question-text">"What do you need to know to fix that?"</div>
-            <div class="question-why">Understanding the information gap.</div>
+            <div class="toolkit-card-title">Translation &amp; Communication</div>
+            <div class="toolkit-card-sub">Making complexity legible</div>
           </div>
         </div>
-        <div class="question-item">
-          <div class="question-n">6</div>
-          <div>
-            <div class="question-text">"What does the team already know that executives need to be convinced of?"</div>
-            <div class="question-why">Making problems legible upward. A translation job.</div>
-          </div>
+        <div class="skill-row">
+          <div class="skill-label-row"><span class="skill-label">Stakeholder Mgmt</span><span class="skill-pct">98%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-width="98" style="background:var(--lavender)"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label-row"><span class="skill-label">Technical Writing</span><span class="skill-pct">95%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-width="95" style="background:var(--lavender)"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label-row"><span class="skill-label">Cross-functional</span><span class="skill-pct">97%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-width="97" style="background:var(--lavender)"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label-row"><span class="skill-label">Executive Comms</span><span class="skill-pct">93%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-width="93" style="background:var(--lavender)"></div></div>
         </div>
       </div>
 
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ── Voices ────────────────────────────────────────────── -->
-<section id="voices">
-  <div class="container">
-    <p class="label">Voices</p>
-    <h2 class="section-heading serif">What people say.</h2>
-    <div class="voices-grid">
+  <!-- ── What People Say ────────────────────────────────── -->
+  <section>
+    <div class="section-h">
+      <h2>What People Say</h2>
+      <span class="section-tag">in their words</span>
+    </div>
+    <div class="quotes-grid">
 
-      <div class="voice-card">
-        <p class="voice-quote">He has the unique ability to walk into an ambiguous situation, quickly grasp the key milestones and action items, identify technical needs that have not been addressed, and get results — all while getting a smile out of everyone in the room.</p>
-        <div class="voice-attr">
-          <span class="voice-name">Brianna Gamp</span>
-          <span class="voice-role">Information Security Leader</span>
-        </div>
+      <div class="quote-card">
+        <div class="quote-mark">"</div>
+        <div class="quote-text">He has the unique ability to walk into an ambiguous situation, quickly grasp the key milestones and action items, identify technical needs that have not been addressed, and get results — all while getting a smile out of everyone in the room.</div>
+        <div class="quote-attr">Brianna Gamp · Information Security Leader</div>
       </div>
 
-      <div class="voice-card">
-        <p class="voice-quote">He takes a large amount of disparate and easily confused data and packages it into an easily understood, easily communicated snapshot of progress. He knows how to ask the right questions and does not relent until he has a clear understanding — but he's not a nuisance to the busy engineer. He has a genuine concern for others.</p>
-        <div class="voice-attr">
-          <span class="voice-name">Robert Mooney</span>
-          <span class="voice-role">Principal Security Architect</span>
-        </div>
+      <div class="quote-card">
+        <div class="quote-mark">"</div>
+        <div class="quote-text">He's a natural. He takes a large amount of disparate and easily confused data and packages it into an easily understood, easily communicated snapshot of progress. He knows how to ask the right questions and does not relent until he has a clear understanding — but he's not a nuisance to the busy engineer. He has a genuine concern for others.</div>
+        <div class="quote-attr">Robert Mooney · Principal Security Architect</div>
       </div>
 
-      <div class="voice-card">
-        <p class="voice-quote">You mentor others — especially women, people of color, shy folks, young people. You pass on knowledge horizontally and vertically. You like shy cats, and you cannot lie.</p>
-        <div class="voice-attr">
-          <span class="voice-name">Kim</span>
-          <span class="voice-role">Colleague & Friend</span>
-        </div>
+      <div class="quote-card">
+        <div class="quote-mark">"</div>
+        <div class="quote-text">He is an extremely dynamic and versatile program and project manager. Besides being an eloquent speaker and writer, he brings teams together and makes projects successful. If there is a difficult moment in a project, he faces it and resolves it with a unique charm that makes it fun to work with him.</div>
+        <div class="quote-attr">Sneha Phadke · Director, Application Security · eBay</div>
       </div>
 
-      <div class="voice-card">
-        <p class="voice-quote">A broad-ranging, incisive and inspired mind; relentless passion; bright, glowing kindness; independence of judgment — you don't form your ideas to suit an existing framework, but think the values through until you know what you support deeply.</p>
-        <div class="voice-attr">
-          <span class="voice-name">Frankie Pauncevolt Hill</span>
-          <span class="voice-role"></span>
-        </div>
+      <div class="quote-card">
+        <div class="quote-mark">"</div>
+        <div class="quote-text">He brought a level of humanity to our team that we sometimes forget. When he leaves, we'll go back to being robots.</div>
+        <div class="quote-attr">Chris Winter · Colleague</div>
+      </div>
+
+      <div class="quote-card">
+        <div class="quote-mark">"</div>
+        <div class="quote-text">A broad-ranging, incisive and inspired mind; relentless passion; bright, glowing kindness; independence of judgment — you don't form your ideas to suit an existing framework, but think the values through until you know what you support deeply.</div>
+        <div class="quote-attr">Frankie Pauncevolt Hill</div>
+      </div>
+
+      <div class="quote-card">
+        <div class="quote-mark">"</div>
+        <div class="quote-text">I really appreciate the way you explain, the way you solve a problem, the way you help us and the way you talk. I've learned a lot of things from you.</div>
+        <div class="quote-attr">Ipsita · MS Cohort, Saint Mary's College</div>
+      </div>
+
+      <div class="quote-card special">
+        <div class="quote-mark" style="color:var(--mustard);">"</div>
+        <div class="quote-text">You mentor others — especially women, people of color, shy folks, young people. You pass on knowledge horizontally and vertically. You like shy cats, and you cannot lie.</div>
+        <div class="quote-attr">Kim · Colleague &amp; Friend</div>
       </div>
 
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ── Personal Portrait ─────────────────────────────────── -->
-<section id="portrait">
-  <div class="container">
-    <p class="label">Personal Portrait</p>
-    <h2 class="section-heading serif">A few data points that don't fit a résumé.</h2>
+  <!-- ── Personal Data Portrait ─────────────────────────── -->
+  <section>
+    <div class="section-h">
+      <h2>Personal Data Portrait</h2>
+      <span class="section-tag">the human behind the data</span>
+    </div>
     <div class="portrait-grid">
 
-      <div class="portrait-item">
-        <span class="portrait-key">Cats</span>
-        <span class="portrait-val">Octavia &amp; Cleopatra</span>
-        <span class="portrait-note">Both started feral. Patience, consistency, and a safe environment make all the difference — for cats and people both.</span>
+      <div class="portrait-card">
+        <div class="p-icon">🐱</div>
+        <div class="p-label">Adopted cats</div>
+        <div class="cat-row">
+          <span class="cat-chip">🐾 Octavia</span>
+          <span class="cat-chip">🐾 Cleopatra</span>
+        </div>
+        <div class="p-note">Both started feral. Patience, consistency, and a safe environment make all the difference — for cats and people both.</div>
       </div>
 
-      <div class="portrait-item">
-        <span class="portrait-key">Where I started</span>
-        <span class="portrait-val">English Literature, U of Chicago</span>
-        <span class="portrait-note">Structure, voice, audience. Thinking about how to tell a good story ever since. Data is just the latest language.</span>
+      <div class="portrait-card">
+        <div class="p-icon">🍵</div>
+        <div class="p-label">Beverage preference</div>
+        <div class="p-value">Tea</div>
+        <div class="mini-bar-wrap">
+          <div class="mini-bar-row">
+            <div class="mini-bar-label">Tea</div>
+            <div class="mini-bar-track"><div class="mini-bar-fill" style="width:100%;background:var(--teal)"></div></div>
+          </div>
+          <div class="mini-bar-row">
+            <div class="mini-bar-label">Coffee</div>
+            <div class="mini-bar-track"><div class="mini-bar-fill" style="width:0%;background:var(--coral)"></div></div>
+          </div>
+        </div>
+        <div class="p-note">No contest.</div>
       </div>
 
-      <div class="portrait-item">
-        <span class="portrait-key">Beverage</span>
-        <span class="portrait-val">Tea. No contest.</span>
+      <div class="portrait-card">
+        <div class="p-icon">📚</div>
+        <div class="p-label">Where I started</div>
+        <div class="p-value">English Lit</div>
+        <div class="p-note">University of Chicago. Structure, voice, audience — I've been thinking about how to tell a good story ever since. Data is just the latest language.</div>
       </div>
 
-      <div class="portrait-item">
-        <span class="portrait-key">Favorite kind of project</span>
-        <span class="portrait-val">0 → 1</span>
-        <span class="portrait-note">0 to 1 is infinite. 1 to a million is less impressive.</span>
+      <div class="portrait-card">
+        <div class="p-icon">∞</div>
+        <div class="p-label">Favorite kind of project</div>
+        <div class="p-value">0 → 1</div>
+        <div class="p-note" style="font-style:italic;color:var(--text)">"0 to 1 is infinite. 1 to a million is less impressive."</div>
       </div>
 
-      <div class="portrait-item">
-        <span class="portrait-key">Currently making better</span>
-        <span class="portrait-val">San Francisco's transit</span>
-        <span class="portrait-note">Proud to work on my city's infrastructure every day.</span>
+      <div class="portrait-card">
+        <div class="p-icon">→</div>
+        <div class="p-label">Career shape</div>
+        <div class="p-value">A through-line</div>
+        <div class="p-note">Each role contributed something the next one required. Managing projects → solving org-wide problems.</div>
       </div>
 
-      <div class="portrait-item">
-        <span class="portrait-key">Career shape</span>
-        <span class="portrait-val">A through-line</span>
-        <span class="portrait-note">Each role contributed something the next one required.</span>
+      <div class="portrait-card">
+        <div class="p-icon">🏙</div>
+        <div class="p-label">Currently making better</div>
+        <div class="p-value">San Francisco's transit</div>
+        <div class="p-note">Business analysis and project management for SFMTA. Proud to work on my city's infrastructure every day.</div>
       </div>
 
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ── Skills ────────────────────────────────────────────── -->
-<section id="skills">
-  <div class="container">
-    <p class="label">Skills</p>
-    <h2 class="section-heading serif">What I bring to the table.</h2>
-    <div class="skills-sections">
+  <!-- ── Impact ─────────────────────────────────────────── -->
+  <section>
+    <div class="section-h"><h2>Impact at a Glance</h2></div>
+    <div class="impact-grid">
+      <div class="impact-card">
+        <div class="i-num" style="color:var(--coral)"><span class="count-num" data-count-to="19" data-suffix="+">19+</span></div>
+        <div class="i-desc">years of professional experience</div>
+        <div class="i-accent" style="background:var(--coral)"></div>
+      </div>
+      <div class="impact-card">
+        <div class="i-num" style="color:var(--teal)"><span class="count-num" data-count-to="300" data-suffix="M+">300M+</span></div>
+        <div class="i-desc">iCloud users supported at launch</div>
+        <div class="i-accent" style="background:var(--teal)"></div>
+      </div>
+      <div class="impact-card">
+        <div class="i-num" style="color:var(--mustard)"><span class="count-num" data-count-to="500" data-suffix="K">500K</span></div>
+        <div class="i-desc">systems rebuilt with new kernel update process</div>
+        <div class="i-accent" style="background:var(--mustard)"></div>
+      </div>
+      <div class="impact-card">
+        <div class="i-num" style="color:var(--lavender)"><span class="count-num" data-count-to="40" data-suffix="+">40+</span></div>
+        <div class="i-desc">engineering teams collaborated with at Apple</div>
+        <div class="i-accent" style="background:var(--lavender)"></div>
+      </div>
+      <div class="impact-card">
+        <div class="i-num" style="color:var(--sage)"><span class="count-num" data-count-to="300" data-suffix="+">300+</span></div>
+        <div class="i-desc">engineers using systems I built</div>
+        <div class="i-accent" style="background:var(--sage)"></div>
+      </div>
+      <div class="impact-card">
+        <div class="i-num" style="color:var(--coral)"><span class="count-num" data-count-to="7" data-suffix="">7</span></div>
+        <div class="i-desc">years at Apple across two roles</div>
+        <div class="i-accent" style="background:var(--coral)"></div>
+      </div>
+    </div>
+  </section>
 
-      <div class="skills-group">
-        <h3>Data &amp; Analysis</h3>
-        <div class="skill-row">
-          <div class="skill-item">
-            <div class="skill-meta"><span class="skill-name">Data Storytelling</span><span class="skill-pct">97%</span></div>
-            <div class="skill-bar"><div class="skill-fill" style="width:97%"></div></div>
+  <!-- ── Education + Certs ──────────────────────────────── -->
+  <section>
+    <div class="two-col">
+
+      <div>
+        <div class="section-h"><h2>Education</h2></div>
+        <div class="edu-row">
+          <div class="edu-card">
+            <div class="edu-school">Saint Mary's College of California <span class="badge">Honors</span></div>
+            <div class="edu-degree">MS, Business Analytics</div>
+            <div class="edu-year">2021 – 2022</div>
           </div>
-          <div class="skill-item">
-            <div class="skill-meta"><span class="skill-name">Visualization</span><span class="skill-pct">90%</span></div>
-            <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+          <div class="edu-card">
+            <div class="edu-school">George Mason University</div>
+            <div class="edu-degree">MS, Information Systems</div>
           </div>
-          <div class="skill-item">
-            <div class="skill-meta"><span class="skill-name">Requirements Analysis</span><span class="skill-pct">95%</span></div>
-            <div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div>
+          <div class="edu-card">
+            <div class="edu-school">UC Berkeley</div>
+            <div class="edu-degree">Certificate, Data Analytics</div>
+            <div class="edu-year">2018 – 2019</div>
           </div>
-          <div class="skill-item">
-            <div class="skill-meta"><span class="skill-name">SQL / Python / R</span><span class="skill-pct">85%</span></div>
-            <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+          <div class="edu-card">
+            <div class="edu-school">University of Chicago</div>
+            <div class="edu-degree">BA, English Literature</div>
+            <div class="edu-year">Where it all began</div>
           </div>
         </div>
       </div>
 
-      <div class="skills-group">
-        <h3>Process &amp; Systems</h3>
-        <div class="skill-row">
-          <div class="skill-item">
-            <div class="skill-meta"><span class="skill-name">Process Design</span><span class="skill-pct">95%</span></div>
-            <div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div>
+      <div>
+        <div class="section-h"><h2>Certifications</h2></div>
+        <div class="cert-list">
+          <div class="cert-item">
+            <span class="ci-icon">☁️</span>
+            <div><div>Google Cloud Essentials</div><div class="ci-sub">Google Cloud</div></div>
           </div>
-          <div class="skill-item">
-            <div class="skill-meta"><span class="skill-name">Gap Analysis</span><span class="skill-pct">96%</span></div>
-            <div class="skill-bar"><div class="skill-fill" style="width:96%"></div></div>
+          <div class="cert-item">
+            <span class="ci-icon">🤖</span>
+            <div><div>Baseline: Data, ML &amp; AI</div><div class="ci-sub">Google</div></div>
           </div>
-          <div class="skill-item">
-            <div class="skill-meta"><span class="skill-name">Project Management</span><span class="skill-pct">92%</span></div>
-            <div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div>
+          <div class="cert-item">
+            <span class="ci-icon">🔬</span>
+            <div><div>Scientific Data Processing</div><div class="ci-sub">Microsoft 365</div></div>
           </div>
-          <div class="skill-item">
-            <div class="skill-meta"><span class="skill-name">Agile / Scrum</span><span class="skill-pct">88%</span></div>
-            <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="skills-group">
-        <h3>Translation &amp; Communication</h3>
-        <div class="skill-row">
-          <div class="skill-item">
-            <div class="skill-meta"><span class="skill-name">Stakeholder Management</span><span class="skill-pct">98%</span></div>
-            <div class="skill-bar"><div class="skill-fill" style="width:98%"></div></div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-meta"><span class="skill-name">Cross-functional Collaboration</span><span class="skill-pct">97%</span></div>
-            <div class="skill-bar"><div class="skill-fill" style="width:97%"></div></div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-meta"><span class="skill-name">Technical Writing</span><span class="skill-pct">95%</span></div>
-            <div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-meta"><span class="skill-name">Executive Communications</span><span class="skill-pct">93%</span></div>
-            <div class="skill-bar"><div class="skill-fill" style="width:93%"></div></div>
+          <div class="cert-item">
+            <span class="ci-icon">📊</span>
+            <div><div>Microsoft Excel</div><div class="ci-sub">Microsoft 365 Apps &amp; Office 2019</div></div>
           </div>
         </div>
       </div>
 
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ── Education ─────────────────────────────────────────── -->
-<section id="education">
-  <div class="container">
-    <p class="label">Education</p>
-    <h2 class="section-heading serif">Built the toolkit deliberately.</h2>
-    <div class="edu-list">
-      <div class="edu-item">
-        <div class="edu-dot"></div>
-        <div>
-          <div class="edu-degree">MS, Business Analytics</div>
-          <div class="edu-school">Saint Mary's College of California · 2021–2022</div>
-          <div class="edu-note">Honors</div>
-        </div>
-      </div>
-      <div class="edu-item">
-        <div class="edu-dot" style="background: var(--teal)"></div>
-        <div>
-          <div class="edu-degree">MS, Information Systems</div>
-          <div class="edu-school">George Mason University</div>
-        </div>
-      </div>
-      <div class="edu-item">
-        <div class="edu-dot" style="background: var(--mustard)"></div>
-        <div>
-          <div class="edu-degree">Certificate, Data Analytics</div>
-          <div class="edu-school">UC Berkeley · 2018–2019</div>
-        </div>
-      </div>
-      <div class="edu-item">
-        <div class="edu-dot" style="background: var(--lavender)"></div>
-        <div>
-          <div class="edu-degree">BA, English Literature</div>
-          <div class="edu-school">University of Chicago</div>
-          <div class="edu-note">Where the data storytelling instinct was born.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── Contact ───────────────────────────────────────────── -->
-<section id="contact">
-  <div class="container">
-    <p class="label">Contact</p>
-    <h2 class="section-heading serif">Let's talk.</h2>
-    <p class="contact-intro">I'm especially interested in problems that involve translation — between technical teams and leadership, between messy data and clear decisions, between what an organization knows and what it's able to act on.</p>
-    <div class="contact-links">
-      <a href="mailto:narnaoot@gmail.com" class="contact-link primary">narnaoot@gmail.com</a>
-      <a href="https://linkedin.com/in/narnaoot" class="contact-link secondary" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://public.tableau.com" class="contact-link secondary" target="_blank" rel="noopener">Tableau Public</a>
-      <a href="https://github.com/narnaoot" class="contact-link secondary" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://medium.com/@narnaoot" class="contact-link secondary" target="_blank" rel="noopener">Medium</a>
-    </div>
-  </div>
-</section>
+</div><!-- /page -->
 
 <footer>
-  <div class="container">
-    Nabil Arnaoot · San Francisco, CA · narnaoot@gmail.com
-  </div>
+  Made with curiosity &amp; care ·
+  <a href="https://www.linkedin.com/in/narnaoot" target="_blank">linkedin.com/in/narnaoot</a> ·
+  <a href="mailto:narnaoot@gmail.com">narnaoot@gmail.com</a>
 </footer>
+
+
+<!-- ════════════════════════════════════════════════════════
+     CAREER THREAD — skill-chain visualization
+════════════════════════════════════════════════════════ -->
+<script>
+(function () {
+  const svg = document.getElementById('chainSvg');
+  const ns  = 'http://www.w3.org/2000/svg';
+
+  function el(tag, attrs, parent) {
+    const e = document.createElementNS(ns, tag);
+    for (const [k, v] of Object.entries(attrs || {})) e.setAttribute(k, v);
+    if (parent) parent.appendChild(e);
+    return e;
+  }
+
+  const CW = 132, CH = 84, HW = CW / 2, HH = CH / 2;
+
+  const roles = [
+    { x:  102, y: 340, company: 'Elegrity',   title: 'Engr PM',          years: '2006 – 10',              color: '#6A9F7A' },
+    { x:  272, y: 308, company: 'eBay',        title: 'Program Mgr',      years: '2010 – 11',              color: '#D4920A' },
+    { x:  442, y: 250, company: 'Apple',       title: 'Engr PM',          years: '2011 – 14 · projects',   color: '#4A90D9' },
+    { x:  606, y: 224, company: 'Apple',       title: 'Business Analyst', years: '2014 – 20 · org-wide',   color: '#4A90D9', pivot: true },
+    { x:  778, y: 202, company: "St. Mary's",  title: 'Consultant + MS',  years: '2020 – 24',              color: '#8B7BC8' },
+    { x:  948, y: 116, company: 'SFMTA',       title: 'Principal BA',     years: '2024 – now',             color: '#E8614F', current: true },
+  ];
+
+  const bridges = [
+    { label: 'relationships',   pivot: false },
+    { label: 'tech fluency',    pivot: false },
+    { label: 'sys → process',  pivot: true  },
+    { label: 'deep analytics',  pivot: false },
+    { label: 'data leadership', pivot: false },
+  ];
+
+  const defs = el('defs', {}, svg);
+
+  const pat = el('pattern', { id: 'dg', x: 0, y: 0, width: 24, height: 24, patternUnits: 'userSpaceOnUse' }, defs);
+  el('circle', { cx: 1, cy: 1, r: 1, fill: '#E8DDD0' }, pat);
+
+  function mkMarker(id, color) {
+    const m = el('marker', { id, markerWidth: '10', markerHeight: '10', refX: '9', refY: '3.5', orient: 'auto' }, defs);
+    el('path', { d: 'M0,0 L0,7 L10,3.5 z', fill: color }, m);
+  }
+  mkMarker('arN', '#C0B4A8');
+  mkMarker('arP', '#C4830A');
+  mkMarker('arC', '#D0504A');
+
+  roles.forEach((r, i) => {
+    if (i >= roles.length - 1) return;
+    const nx = roles[i + 1].x, ny = roles[i + 1].y;
+    const x1 = r.x + HW, y1 = r.y, x2 = nx - HW, y2 = ny, dx = x2 - x1;
+    el('path', { id: `bp${i}`, d: `M${x1},${y1} C${x1+dx*.42},${y1} ${x2-dx*.42},${y2} ${x2},${y2}` }, defs);
+  });
+
+  el('rect', { x: 0, y: 0, width: 1010, height: 420, fill: '#FFFBF5' }, svg);
+  el('rect', { x: 0, y: 0, width: 1010, height: 420, fill: 'url(#dg)', opacity: '.45' }, svg);
+
+  el('line', { x1: 34, y1: 66, x2: 34, y2: 392, stroke: '#DDD0C0', 'stroke-width': '1', 'stroke-dasharray': '2,7' }, svg);
+  el('polygon', { points: '29,61 34,49 39,61', fill: '#CCC0B0' }, svg);
+
+  function axisLbl(text, y) {
+    const e = el('text', { x: 34, y, 'text-anchor': 'middle', 'font-family': 'Nunito,sans-serif', 'font-size': '11', 'font-weight': '800', 'letter-spacing': '.08em', fill: '#C0B0A0' }, svg);
+    e.textContent = text;
+  }
+  axisLbl('ORG-WIDE', 40);
+  axisLbl('TEAM', 410);
+
+  [88, 168, 248, 328].forEach(y => {
+    el('line', { x1: 52, y1: y, x2: 990, y2: y, stroke: '#EDE5D8', 'stroke-width': '1', 'stroke-dasharray': '3,14' }, svg);
+  });
+
+  bridges.forEach((b, i) => {
+    const isLast = i === bridges.length - 1;
+    const stroke = b.pivot ? '#C4830A' : isLast ? '#D0504A' : '#C4B8AC';
+    el('use', { href: `#bp${i}`, fill: 'none', stroke, 'stroke-width': b.pivot ? '2.5' : '2', 'stroke-dasharray': b.pivot ? '7,4' : 'none', 'marker-end': `url(#${b.pivot ? 'arP' : isLast ? 'arC' : 'arN'})` }, svg);
+
+    const r = roles[i], nr = roles[i + 1], mx = (r.x + nr.x) / 2;
+
+    if (!b.pivot) {
+      const labelY = Math.min(r.y, nr.y) - HH - 14;
+      const pw = b.label.length * 7.4 + 20;
+      el('rect', { x: mx - pw/2, y: labelY - 14, width: pw, height: 21, rx: '10', fill: '#F5EFE8', stroke: '#E0D4C4', 'stroke-width': '1' }, svg);
+      const lt = el('text', { x: mx, y: labelY, 'text-anchor': 'middle', 'font-family': 'Nunito,sans-serif', 'font-size': '12', 'font-weight': '700', fill: '#7A6858' }, svg);
+      lt.textContent = b.label;
+    }
+
+    if (b.pivot) {
+      const my = Math.min(r.y, nr.y) - HH - 14;
+      el('rect', { x: mx - 34, y: my - 14, width: 68, height: 21, rx: '10', fill: '#C4830A' }, svg);
+      const bt = el('text', { x: mx, y: my, 'text-anchor': 'middle', 'font-family': 'Nunito,sans-serif', 'font-size': '11', 'font-weight': '800', 'letter-spacing': '.08em', fill: '#FFF' }, svg);
+      bt.textContent = '↩ PIVOT';
+    }
+  });
+
+  roles.forEach((r, i) => {
+    const lx = r.x - HW, ty = r.y - HH, cid = `cc${i}`;
+    const cp = el('clipPath', { id: cid }, defs);
+    el('rect', { x: lx, y: ty, width: CW, height: CH, rx: '11' }, cp);
+    el('rect', { x: lx+2, y: ty+3, width: CW, height: CH, rx: '11', fill: 'rgba(61,43,31,.08)' }, svg);
+    const cg = el('g', { 'clip-path': `url(#${cid})` }, svg);
+    el('rect', { x: lx, y: ty, width: CW, height: CH, fill: '#FFF' }, cg);
+    el('rect', { x: lx, y: ty, width: 6, height: CH, fill: r.color }, cg);
+    if (r.current) el('rect', { x: lx, y: ty, width: CW, height: 8, fill: r.color, opacity: '.15' }, cg);
+    el('rect', { x: lx, y: ty, width: CW, height: CH, rx: '11', fill: 'none', stroke: r.current ? r.color : '#E8DDD0', 'stroke-width': r.current ? '2.5' : '1.5' }, svg);
+    const ce = el('text', { x: lx+16, y: ty+28, 'font-family': "'Playfair Display',serif", 'font-size': '18', 'font-weight': '700', fill: '#3D2B1F' }, svg);
+    ce.textContent = r.company;
+    const te = el('text', { x: lx+16, y: ty+48, 'font-family': 'Nunito,sans-serif', 'font-size': '13', 'font-weight': '700', fill: '#5A4033' }, svg);
+    te.textContent = r.title;
+    const ye = el('text', { x: lx+16, y: ty+66, 'font-family': 'Nunito,sans-serif', 'font-size': '11', 'font-weight': '600', fill: '#9A8070' }, svg);
+    ye.textContent = r.years;
+    if (r.current) {
+      el('circle', { cx: lx+CW-16, cy: ty+16, r: '8',  fill: r.color, opacity: '.22' }, svg);
+      el('circle', { cx: lx+CW-16, cy: ty+16, r: '4.5', fill: r.color }, svg);
+    }
+  });
+
+})();
+
+
+// ── Animated impact counters ──────────────────────────────
+(function () {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting || entry.target.dataset.counted) return;
+      entry.target.dataset.counted = '1';
+      const target = parseInt(entry.target.dataset.countTo, 10);
+      const suffix = entry.target.dataset.suffix || '';
+      const start  = performance.now();
+      const dur    = 1400;
+      (function tick(now) {
+        const p = Math.min((now - start) / dur, 1);
+        const e = 1 - Math.pow(1 - p, 3);
+        entry.target.textContent = Math.round(e * target) + suffix;
+        if (p < 1) requestAnimationFrame(tick);
+      })(start);
+    });
+  }, { threshold: 0.4 });
+
+  document.querySelectorAll('.count-num[data-count-to]').forEach(el => observer.observe(el));
+})();
+
+
+// ── Skill bar scroll-in animation ────────────────────────
+(function () {
+  const fills = Array.from(document.querySelectorAll('.skill-fill[data-width]'));
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting || entry.target.dataset.animated) return;
+      entry.target.dataset.animated = '1';
+      const delay = fills.indexOf(entry.target) % 4 * 80;
+      setTimeout(() => { entry.target.style.width = entry.target.dataset.width + '%'; }, delay);
+    });
+  }, { threshold: 0.3 });
+
+  fills.forEach(el => observer.observe(el));
+})();
+</script>
 
 </body>
 </html>
