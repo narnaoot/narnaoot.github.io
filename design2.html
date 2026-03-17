@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nabil Arnaoot — Data Analytics</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0f1117;
+      --bg2: #1a1d27;
+      --bg3: #222636;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --accent: #7c3aed;
+      --accent2: #a78bfa;
+      --border: #2d3148;
+    }
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+    a { color: var(--accent2); text-decoration: none; }
+    a:hover { color: #fff; }
+
+    /* Sidebar layout */
+    .layout { display: flex; min-height: 100vh; }
+
+    aside {
+      width: 280px;
+      flex-shrink: 0;
+      background: var(--bg2);
+      border-right: 1px solid var(--border);
+      padding: 3rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+    }
+
+    .logo {
+      display: flex; flex-direction: column; gap: 0.4rem;
+    }
+    .logo-name {
+      font-size: 1.3rem; font-weight: 700; letter-spacing: -0.02em; color: #fff;
+    }
+    .logo-sub { font-size: 0.78rem; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; }
+
+    .status-badge {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      background: rgba(124, 58, 237, 0.15);
+      border: 1px solid rgba(124, 58, 237, 0.4);
+      color: var(--accent2);
+      padding: 0.3rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 500;
+    }
+    .status-badge::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--accent2);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    nav { display: flex; flex-direction: column; gap: 0.25rem; }
+    nav a {
+      display: block; padding: 0.5rem 0.75rem;
+      border-radius: 6px;
+      font-size: 0.9rem; color: var(--muted);
+      transition: background 0.15s, color 0.15s;
+    }
+    nav a:hover { background: var(--bg3); color: var(--text); }
+
+    .sidebar-links {
+      margin-top: auto;
+      display: flex; flex-direction: column; gap: 0.5rem;
+    }
+    .sidebar-links a {
+      font-size: 0.8rem; color: var(--muted);
+      display: flex; align-items: center; gap: 0.4rem;
+    }
+    .sidebar-links a:hover { color: var(--accent2); }
+
+    main {
+      flex: 1;
+      padding: 4rem 3rem;
+      max-width: 760px;
+    }
+
+    section { margin-bottom: 4rem; }
+
+    .section-label {
+      font-size: 0.7rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.12em;
+      color: var(--accent2); margin-bottom: 1rem;
+    }
+
+    .bio-text { font-size: 1rem; color: var(--muted); line-height: 1.8; }
+    .bio-text p + p { margin-top: 0.9rem; }
+    .bio-text strong { color: var(--text); }
+
+    .card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 0.75rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .card:hover {
+      border-color: var(--accent);
+      transform: translateX(4px);
+    }
+    .card a { color: var(--text); font-size: 0.95rem; font-weight: 500; }
+    .card a:hover { color: var(--accent2); }
+    .card p { color: var(--muted); font-size: 0.85rem; margin-top: 0.3rem; line-height: 1.5; }
+
+    @media (max-width: 700px) {
+      .layout { flex-direction: column; }
+      aside { width: 100%; height: auto; position: static; flex-direction: row; flex-wrap: wrap; }
+      main { padding: 2rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="layout">
+  <aside>
+    <div class="logo">
+      <span class="logo-name">Nabil Arnaoot</span>
+      <span class="logo-sub">Data Analytics · SF</span>
+    </div>
+    <span class="status-badge">Open to work</span>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#tutorials">Tutorials</a>
+    </nav>
+    <div class="sidebar-links">
+      <a href="https://medium.com/@narnaoot" target="_blank">&#8599; Medium</a>
+      <a href="https://github.com/narnaoot" target="_blank">&#8599; GitHub</a>
+      <a href="https://public.tableau.com/app/profile/nabil.arnaoot" target="_blank">&#8599; Tableau</a>
+    </div>
+  </aside>
+
+  <main>
+    <section id="about">
+      <div class="section-label">About</div>
+      <div class="bio-text">
+        <p>After <strong>twenty years in tech</strong>, most recently as a Business Process Engineer at <strong>Apple</strong>, I finished an <strong>MS in Business Analytics</strong> from Saint Mary's College. My practicum project mapped and analyzed internet access across the US.</p>
+        <p>I like using data to solve problems and guide strategy, and I'm currently looking for work. Drop me a line if you have any cool projects you'd like to collaborate on!</p>
+        <p>Fun fact: I'm a passionate reader, and occasional writer, of science fiction — particularly the stuff that explores radically different ways people can live.</p>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="section-label">Projects</div>
+      <div class="card">
+        <a href="https://public.tableau.com/app/profile/nabil.arnaoot/viz/TheDigitalDivideInternetAccessAcrosstheUS/USAreaswithPoorInternet" target="_blank">The Digital Divide: Internet Access across the US</a>
+        <p>Practicum project for MS degree. Scraped internet plans for all US zip codes, mapped alongside census data for a filterable view of the digital divide.</p>
+      </div>
+      <div class="card">
+        <a href="https://github.com/narnaoot/explainability/blob/b9040434a80d28159401cdce369c1c43e47e742a/Explainable%20AI.ipynb" target="_blank">Tutorial on explainability with SHAP</a>
+        <p>How to understand and explain model predictions using the SHAP package in Python.</p>
+      </div>
+      <div class="card">
+        <a href="https://public.tableau.com/app/profile/nabil.arnaoot/viz/SecretGardensofSanFrancisco/SecretGardensofSanFrancisco" target="_blank">Secret Gardens of San Francisco</a>
+        <p>Filterable map and visual exploration of privately-owned public open spaces hidden across the city.</p>
+      </div>
+      <div class="card">
+        <a href="https://github.com/narnaoot/tesla_research/blob/main/TeslaPerceptionsCaseStudy.pdf" target="_blank">Case Study: Perceptions of Tesla</a>
+        <p>Perceptual maps and survey analysis comparing customer perceptions of Tesla's luxury vehicles against competitors.</p>
+      </div>
+      <div class="card">
+        <a href="https://rpubs.com/n4bil/case_study" target="_blank">Case Study: Quality Control with Hypothesis Testing</a>
+        <p>Demonstrating how hypothesis testing maintains quality control in manufacturing. Written in R.</p>
+      </div>
+    </section>
+
+    <section id="tutorials">
+      <div class="section-label">Tutorials</div>
+      <div class="card">
+        <a href="https://medium.com/@narnaoot/mapping-addresses-in-tableau-7e7a6b2e73cf" target="_blank">Mapping Addresses in Tableau</a>
+        <p>Use Tableau Prep to turn street addresses into mappable latitudes and longitudes.</p>
+      </div>
+      <div class="card">
+        <a href="https://medium.com/@narnaoot/conditional-probability-for-normal-people-139dfcaa9ef8" target="_blank">Conditional Probability for Normal People</a>
+        <p>A clear explanation of one of the trickier concepts in statistics.</p>
+      </div>
+      <div class="card">
+        <a href="https://medium.com/@narnaoot" target="_blank">All tutorials on Medium →</a>
+        <p></p>
+      </div>
+    </section>
+  </main>
+</div>
+
+</body>
+</html>
