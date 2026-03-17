@@ -3,558 +3,178 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nabil Arnaoot — LinkedIn Profile</title>
+  <title>Nabil Arnaoot — Full Profile</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700;1,9..144,900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg:        #F3F2EF;
-      --surface:   #FFFFFF;
-      --warm:      #FFF8F0;
-      --warm2:     #FDECD6;
-      --text:      #3D2B1F;
-      --muted:     #9A8070;
-      --border:    #E3DDD5;
-      --coral:     #E8614F;
-      --coral-lt:  #FDEAE7;
-      --teal:      #2DB5A8;
-      --teal-lt:   #E0F5F3;
-      --mustard:   #D4920A;
-      --must-lt:   #FEF4DC;
-      --sage:      #6A9F7A;
-      --lavender:  #8B7BC8;
-      --lav-lt:    #EFECF9;
-      --r: 12px;
+      --white:    #FFFFFF;
+      --off:      #F9F8F6;
+      --ink:      #111110;
+      --mid:      #6B6660;
+      --faint:    #E8E3DC;
+      --rule:     #E0DBD4;
+      --coral:    #E8614F;
+      --coral-lt: #FDE8E5;
+      --mustard:  #C98B09;
+      --must-lt:  #FEF3D8;
+      --teal:     #1FA99D;
+      --teal-lt:  #DFF3F1;
+      --sage:     #6A9F7A;
+      --sage-lt:  #E8F3EB;
+      --lavender: #7B6DC8;
+      --lav-lt:   #ECEAF8;
+      --r: 10px;
     }
-
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--off); color: var(--ink); line-height: 1.6; -webkit-font-smoothing: antialiased; }
 
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Nunito', sans-serif;
-      line-height: 1.6;
-    }
+    /* NAV */
+    .topnav { position: sticky; top: 0; z-index: 200; background: rgba(255,255,255,.97); backdrop-filter: blur(16px); border-bottom: 1px solid var(--rule); height: 64px; display: flex; align-items: center; }
+    .topnav-inner { max-width: 1280px; margin: 0 auto; padding: 0 3rem; width: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-family: 'Fraunces', serif; font-size: 1.05rem; font-weight: 700; letter-spacing: -.3px; color: var(--ink); text-decoration: none; }
+    .nav-logo em { font-style: normal; color: var(--coral); }
+    .nav-links { display: flex; list-style: none; }
+    .nav-links a { padding: 8px 16px; font-size: .72rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--mid); text-decoration: none; transition: color .15s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--coral); }
+    @media (max-width: 640px) { .topnav-inner { padding: 0 1.5rem; } .nav-links a { padding: 8px 9px; font-size: .66rem; } }
 
-    /* ── Top nav bar (LinkedIn-style) ──────────────────── */
-    .topbar {
-      background: var(--surface);
-      border-bottom: 1px solid var(--border);
-      height: 52px;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .topbar-inner {
-      width: 100%;
-      max-width: 1128px;
-      padding: 0 16px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .topbar-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
-      font-weight: 900;
-      color: var(--coral);
-      letter-spacing: -1px;
-    }
-    .topbar-links {
-      display: flex;
-      gap: 4px;
-      list-style: none;
-    }
-    .topbar-links a {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 2px;
-      padding: 8px 12px;
-      font-size: .72rem;
-      font-weight: 700;
-      color: var(--muted);
-      text-decoration: none;
-      border-radius: 6px;
-      transition: color .15s;
-    }
-    .topbar-links a:hover { color: var(--text); }
-    .topbar-links .tl-icon { font-size: 1.1rem; }
-    @media (max-width: 640px) { .topbar-links { display: none; } }
+    /* LAYOUT */
+    .layout { max-width: 1100px; margin: 0 auto; padding: 2.5rem 2rem 6rem; display: grid; grid-template-columns: 1fr 280px; gap: 1.5rem; align-items: start; }
+    @media (max-width: 860px) { .layout { grid-template-columns: 1fr; } }
+    @media (max-width: 640px) { .layout { padding: 1.5rem 1rem 4rem; } }
 
-    /* ── Main layout ────────────────────────────────────── */
-    .layout {
-      max-width: 1128px;
-      margin: 0 auto;
-      padding: 24px 16px 60px;
-      display: grid;
-      grid-template-columns: 1fr 300px;
-      gap: 20px;
-      align-items: start;
-    }
-    @media (max-width: 860px) {
-      .layout { grid-template-columns: 1fr; }
-    }
+    .main-col { display: flex; flex-direction: column; gap: 1.5rem; }
+    .side-col  { display: flex; flex-direction: column; gap: 1.5rem; }
 
-    .main-col { display: flex; flex-direction: column; gap: 16px; }
-    .side-col  { display: flex; flex-direction: column; gap: 16px; }
+    /* CARD */
+    .card { background: var(--white); border: 1px solid var(--rule); border-radius: var(--r); overflow: hidden; }
+    .card-body { padding: 1.5rem 1.75rem 1.75rem; }
+    .card-title { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 700; color: var(--ink); margin-bottom: 1.25rem; }
 
-    /* ── Card ───────────────────────────────────────────── */
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--r);
-      overflow: hidden;
-    }
-    .card-body { padding: 20px 24px 24px; }
-    .card-section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 16px;
-    }
+    /* PROFILE BANNER */
+    .profile-banner { height: 120px; background: var(--ink); position: relative; overflow: hidden; }
+    .profile-banner::after { content: ''; position: absolute; inset: 0; background: linear-gradient(120deg, #1a1a19 0%, var(--coral) 70%, var(--mustard) 100%); opacity: .85; }
 
-    /* ── Profile card (top) ─────────────────────────────── */
-    .profile-banner {
-      height: 128px;
-      background: linear-gradient(120deg, #3D2B1F 0%, #6B3A2A 35%, var(--coral) 70%, var(--mustard) 100%);
-      position: relative;
-      overflow: hidden;
-    }
-    .profile-banner::before {
-      content: '';
-      position: absolute; inset: 0;
-      background-image: radial-gradient(rgba(255,255,255,.12) 1px, transparent 1px);
-      background-size: 20px 20px;
-    }
+    .profile-photo-wrap { position: relative; margin: -46px 0 0 1.5rem; display: inline-block; z-index: 1; }
+    .profile-photo { width: 92px; height: 92px; border-radius: 50%; background: linear-gradient(135deg, var(--coral), var(--mustard)); border: 3px solid var(--white); display: flex; align-items: center; justify-content: center; }
+    .profile-photo span { font-family: 'Fraunces', serif; font-size: 2rem; font-weight: 900; color: var(--white); }
+    .open-badge { position: absolute; bottom: 3px; right: -3px; background: var(--teal); color: var(--white); font-size: .58rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 2px 7px; border-radius: 99px; border: 2px solid var(--white); }
 
-    .profile-photo-wrap {
-      position: relative;
-      margin: -52px 0 0 24px;
-      display: inline-block;
-    }
-    .profile-photo {
-      width: 104px; height: 104px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--coral), var(--mustard));
-      border: 4px solid var(--surface);
-      display: flex; align-items: center; justify-content: center;
-    }
-    .profile-photo span {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.2rem;
-      font-weight: 900;
-      color: #fff;
-    }
-    .profile-open-badge {
-      position: absolute;
-      bottom: 4px; right: -4px;
-      background: var(--teal);
-      color: #fff;
-      font-size: .6rem;
-      font-weight: 800;
-      letter-spacing: .05em;
-      text-transform: uppercase;
-      padding: 2px 7px;
-      border-radius: 99px;
-      border: 2px solid var(--surface);
-    }
-
-    .profile-info {
-      padding: 12px 24px 0;
-    }
-    .profile-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.6rem;
-      font-weight: 900;
-      color: var(--text);
-      margin-bottom: 4px;
-      line-height: 1.15;
-    }
-    .profile-headline {
-      font-size: .9rem;
-      color: var(--text);
-      font-weight: 600;
-      line-height: 1.45;
-      margin-bottom: 6px;
-    }
-    .profile-sub {
-      font-size: .82rem;
-      color: var(--muted);
-      margin-bottom: 12px;
-    }
-    .profile-sub a {
-      color: var(--teal);
-      text-decoration: none;
-      font-weight: 700;
-    }
+    .profile-info { padding: .75rem 1.75rem 0; }
+    .profile-name { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 900; color: var(--ink); margin-bottom: .3rem; line-height: 1.15; }
+    .profile-headline { font-size: .9rem; color: var(--ink); font-weight: 500; line-height: 1.45; margin-bottom: .4rem; }
+    .profile-sub { font-size: .8rem; color: var(--mid); margin-bottom: 1rem; }
+    .profile-sub a { color: var(--teal); text-decoration: none; font-weight: 600; }
     .profile-sub a:hover { text-decoration: underline; }
 
-    .profile-actions {
-      padding: 12px 24px 20px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      border-top: 1px solid var(--border);
-      margin-top: 12px;
-    }
-    .btn {
-      padding: 7px 18px;
-      border-radius: 99px;
-      font-size: .83rem;
-      font-weight: 800;
-      cursor: pointer;
-      border: none;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: opacity .15s;
-    }
+    /* OPEN TO WORK */
+    .open-to-work { background: var(--teal-lt); border: 1px solid rgba(31,169,157,.3); border-radius: 8px; padding: 1rem 1.25rem; display: flex; gap: 1rem; margin: 0 1.75rem 1.25rem; align-items: flex-start; }
+    .otw-dot { color: var(--teal); font-size: 1rem; flex-shrink: 0; margin-top: 2px; }
+    .otw-title { font-size: .85rem; font-weight: 700; color: var(--teal); margin-bottom: 2px; }
+    .otw-roles { font-size: .8rem; color: var(--ink); }
+
+    /* PROFILE ACTIONS */
+    .profile-actions { padding: .75rem 1.75rem 1.25rem; display: flex; flex-wrap: wrap; gap: 8px; border-top: 1px solid var(--rule); }
+    .btn { padding: 7px 18px; border-radius: 3px; font-size: .8rem; font-weight: 600; cursor: pointer; border: none; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: opacity .15s; }
     .btn:hover { opacity: .85; }
-    .btn-primary { background: var(--coral); color: #fff; }
-    .btn-outline {
-      background: transparent;
-      color: var(--text);
-      border: 1.5px solid var(--text);
-    }
-    .btn-ghost {
-      background: var(--warm2);
-      color: var(--text);
-    }
+    .btn-primary { background: var(--coral); color: var(--white); }
+    .btn-outline { background: transparent; color: var(--ink); border: 1.5px solid var(--ink); }
+    .btn-ghost { background: var(--off); color: var(--ink); border: 1px solid var(--rule); }
 
-    /* ── Open to work banner ────────────────────────────── */
-    .open-to-work {
-      background: var(--teal-lt);
-      border: 1.5px solid var(--teal);
-      border-radius: 10px;
-      padding: 14px 18px;
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      margin: 0 24px 20px;
-    }
-    .otw-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 1px; }
-    .otw-title { font-weight: 800; font-size: .88rem; color: var(--teal); margin-bottom: 2px; }
-    .otw-roles { font-size: .82rem; color: var(--text); }
+    /* ABOUT TEXT */
+    .about-text { font-size: .9rem; color: var(--ink); line-height: 1.7; margin-bottom: 1rem; }
+    .highlight-item { display: flex; gap: 1rem; align-items: flex-start; margin-bottom: .75rem; }
+    .hi-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--coral); flex-shrink: 0; margin-top: 7px; }
+    .hi-text { font-size: .86rem; color: var(--ink); line-height: 1.6; }
 
-    /* ── About ──────────────────────────────────────────── */
-    .about-text {
-      font-size: .92rem;
-      color: var(--text);
-      line-height: 1.7;
-      margin-bottom: 14px;
-    }
-    .highlights-list {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-top: 14px;
-    }
-    .highlight-item {
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-    }
-    .hi-dot {
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: var(--coral);
-      flex-shrink: 0;
-      margin-top: 6px;
-    }
-    .hi-text {
-      font-size: .87rem;
-      color: var(--text);
-      line-height: 1.55;
-    }
-
-    /* ── Experience ─────────────────────────────────────── */
+    /* EXPERIENCE */
     .exp-list { display: flex; flex-direction: column; }
-    .exp-item {
-      display: flex;
-      gap: 16px;
-      padding: 16px 0;
-      border-bottom: 1px solid var(--border);
-    }
-    .exp-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .exp-item { display: flex; gap: 1rem; padding: 1.25rem 0; border-bottom: 1px solid var(--rule); }
     .exp-item:first-child { padding-top: 0; }
-
-    .exp-logo {
-      width: 48px; height: 48px;
-      border-radius: 8px;
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.3rem;
-      font-weight: 900;
-      border: 1.5px solid var(--border);
-      background: var(--warm);
-    }
-
+    .exp-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .exp-logo { width: 44px; height: 44px; border-radius: 8px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; border: 1px solid var(--rule); background: var(--off); }
     .exp-body { flex: 1; min-width: 0; }
-    .exp-company-row {
-      display: flex;
-      align-items: baseline;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-bottom: 2px;
-    }
-    .exp-company {
-      font-family: 'Playfair Display', serif;
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--text);
-    }
-    .exp-duration-total {
-      font-size: .75rem;
-      color: var(--muted);
-      font-weight: 700;
-    }
-    .exp-role {
-      font-size: .88rem;
-      font-weight: 800;
-      color: var(--text);
-      margin-bottom: 2px;
-    }
-    .exp-meta {
-      font-size: .78rem;
-      color: var(--muted);
-      margin-bottom: 8px;
-      font-weight: 600;
-    }
-    .exp-bullets {
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
-      margin-top: 8px;
-    }
-    .exp-bullet {
-      display: flex;
-      gap: 8px;
-      align-items: flex-start;
-      font-size: .85rem;
-      color: var(--text);
-      line-height: 1.5;
-    }
-    .exp-bullet::before {
-      content: '·';
-      color: var(--coral);
-      font-size: 1.1rem;
-      line-height: 1.2;
-      flex-shrink: 0;
-    }
+    .exp-company-row { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; margin-bottom: 2px; }
+    .exp-company { font-family: 'Fraunces', serif; font-size: .98rem; font-weight: 700; color: var(--ink); }
+    .exp-duration { font-size: .73rem; color: var(--mid); font-weight: 500; }
+    .exp-role { font-size: .86rem; font-weight: 600; color: var(--ink); margin-bottom: 2px; }
+    .exp-meta { font-size: .75rem; color: var(--mid); margin-bottom: .5rem; }
+    .exp-bullets { display: flex; flex-direction: column; gap: 4px; }
+    .exp-bullet { font-size: .83rem; color: var(--ink); line-height: 1.55; padding-left: 1rem; position: relative; }
+    .exp-bullet::before { content: '·'; color: var(--coral); position: absolute; left: 0; font-size: 1rem; line-height: 1.3; }
+    .sub-roles { display: flex; flex-direction: column; gap: 1rem; }
+    .sub-role { padding-left: 1rem; border-left: 2px solid var(--rule); }
+    .sub-role-title { font-size: .86rem; font-weight: 600; color: var(--ink); margin-bottom: 2px; }
+    .sub-role-meta { font-size: .75rem; color: var(--mid); margin-bottom: .4rem; }
 
-    /* Sub-roles within same company */
-    .sub-roles { display: flex; flex-direction: column; gap: 12px; margin-top: 4px; }
-    .sub-role { padding-left: 12px; border-left: 2px solid var(--border); }
-    .sub-role-title { font-size: .88rem; font-weight: 800; color: var(--text); margin-bottom: 2px; }
-    .sub-role-meta { font-size: .78rem; color: var(--muted); font-weight: 600; margin-bottom: 6px; }
-
-    /* ── Education ──────────────────────────────────────── */
-    .edu-list { display: flex; flex-direction: column; gap: 0; }
-    .edu-item {
-      display: flex;
-      gap: 16px;
-      padding: 14px 0;
-      border-bottom: 1px solid var(--border);
-    }
-    .edu-item:last-child { border-bottom: none; padding-bottom: 0; }
+    /* EDUCATION */
+    .edu-list { display: flex; flex-direction: column; }
+    .edu-item { display: flex; gap: 1rem; padding: 1.1rem 0; border-bottom: 1px solid var(--rule); }
     .edu-item:first-child { padding-top: 0; }
+    .edu-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .edu-logo { width: 44px; height: 44px; border-radius: 8px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; border: 1px solid var(--rule); background: var(--off); }
+    .edu-school-name { font-size: .92rem; font-weight: 600; color: var(--ink); margin-bottom: 2px; }
+    .edu-degree-text { font-size: .8rem; color: var(--mid); font-weight: 500; margin-bottom: 2px; }
+    .edu-years { font-size: .75rem; color: var(--mid); }
+    .edu-badge { display: inline-block; background: var(--must-lt); color: var(--mustard); border: 1px solid rgba(201,139,9,.25); border-radius: 3px; font-size: .6rem; font-weight: 700; padding: 1px 7px; letter-spacing: .05em; text-transform: uppercase; vertical-align: middle; margin-left: 5px; }
 
-    .edu-logo {
-      width: 48px; height: 48px;
-      border-radius: 8px;
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.3rem;
-      border: 1.5px solid var(--border);
-      background: var(--warm);
-    }
-    .edu-school-name {
-      font-family: 'Playfair Display', serif;
-      font-size: .98rem;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 2px;
-    }
-    .edu-degree-text {
-      font-size: .83rem;
-      color: var(--muted);
-      font-weight: 700;
-      margin-bottom: 2px;
-    }
-    .edu-years {
-      font-size: .78rem;
-      color: var(--muted);
-    }
-    .edu-badge {
-      display: inline-block;
-      background: var(--must-lt);
-      color: var(--mustard);
-      border: 1px solid rgba(212,146,10,.3);
-      border-radius: 99px;
-      font-size: .63rem;
-      font-weight: 800;
-      padding: 1px 8px;
-      letter-spacing: .05em;
-      text-transform: uppercase;
-      margin-left: 6px;
-      vertical-align: middle;
-    }
+    /* SKILLS */
+    .skill-chips { display: flex; flex-wrap: wrap; gap: 7px; }
+    .skill-chip { background: var(--off); border: 1px solid var(--rule); border-radius: 3px; padding: 5px 12px; font-size: .78rem; font-weight: 500; color: var(--ink); transition: border-color .15s; }
+    .skill-chip:hover { border-color: var(--coral); }
+    .skill-chip.featured { background: var(--coral-lt); border-color: rgba(232,97,79,.3); color: var(--coral); font-weight: 600; }
 
-    /* ── Skills ─────────────────────────────────────────── */
-    .skills-section { padding: 20px 24px 24px; }
-    .skill-chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    .skill-chip {
-      background: var(--warm);
-      border: 1.5px solid var(--border);
-      border-radius: 99px;
-      padding: 5px 14px;
-      font-size: .8rem;
-      font-weight: 700;
-      color: var(--text);
-      transition: border-color .15s, background .15s;
-    }
-    .skill-chip:hover {
-      border-color: var(--coral);
-      background: var(--coral-lt);
-    }
-    .skill-chip.featured {
-      background: var(--coral-lt);
-      border-color: rgba(232,97,79,.35);
-      color: var(--coral);
-    }
-
-    /* ── Recommendations ────────────────────────────────── */
-    .rec-list { display: flex; flex-direction: column; gap: 0; }
-    .rec-item {
-      padding: 16px 0;
-      border-bottom: 1px solid var(--border);
-    }
-    .rec-item:last-child { border-bottom: none; padding-bottom: 0; }
+    /* RECOMMENDATIONS */
+    .rec-list { display: flex; flex-direction: column; }
+    .rec-item { padding: 1.5rem 0; border-bottom: 1px solid var(--rule); }
     .rec-item:first-child { padding-top: 0; }
+    .rec-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .rec-header { display: flex; gap: .75rem; align-items: center; margin-bottom: .75rem; }
+    .rec-avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--off); border: 1px solid var(--rule); display: flex; align-items: center; justify-content: center; font-size: .78rem; font-weight: 700; color: var(--mid); flex-shrink: 0; }
+    .rec-name { font-size: .88rem; font-weight: 700; color: var(--ink); }
+    .rec-role { font-size: .75rem; color: var(--mid); margin-top: 1px; }
+    .rec-text { font-family: 'Fraunces', serif; font-style: italic; font-size: .95rem; color: var(--ink); line-height: 1.65; }
 
-    .rec-header {
-      display: flex;
-      gap: 12px;
-      align-items: center;
-      margin-bottom: 10px;
-    }
-    .rec-avatar {
-      width: 40px; height: 40px;
-      border-radius: 50%;
-      background: var(--warm2);
-      border: 1.5px solid var(--border);
-      display: flex; align-items: center; justify-content: center;
-      font-size: .85rem;
-      font-weight: 800;
-      color: var(--muted);
-      flex-shrink: 0;
-    }
-    .rec-name { font-weight: 800; font-size: .9rem; color: var(--text); }
-    .rec-role { font-size: .78rem; color: var(--muted); margin-top: 1px; }
-
-    .rec-quote-mark {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
-      color: var(--coral);
-      opacity: .5;
-      line-height: .5;
-      margin-bottom: 6px;
-    }
-    .rec-text {
-      font-size: .86rem;
-      color: var(--text);
-      line-height: 1.65;
-    }
-
-    /* ── Certifications (sidebar) ───────────────────────── */
-    .cert-list { display: flex; flex-direction: column; gap: 12px; }
-    .cert-item {
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-    }
-    .cert-icon {
-      width: 36px; height: 36px;
-      border-radius: 8px;
-      background: var(--warm);
-      border: 1.5px solid var(--border);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1rem;
-      flex-shrink: 0;
-    }
-    .cert-name { font-size: .85rem; font-weight: 800; color: var(--text); }
-    .cert-issuer { font-size: .75rem; color: var(--muted); margin-top: 1px; }
-
-    /* ── Contact (sidebar) ──────────────────────────────── */
-    .contact-list { display: flex; flex-direction: column; gap: 10px; }
-    .contact-row {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-      font-size: .85rem;
-    }
-    .contact-icon { font-size: 1rem; width: 20px; text-align: center; flex-shrink: 0; }
-    .contact-val { color: var(--text); font-weight: 600; }
-    .contact-val a { color: var(--teal); text-decoration: none; font-weight: 700; }
+    /* SIDEBAR */
+    .sidebar-section-title { font-size: .88rem; font-weight: 700; color: var(--ink); margin-bottom: 1rem; }
+    .contact-list { display: flex; flex-direction: column; gap: .75rem; }
+    .contact-row { display: flex; gap: .75rem; align-items: center; font-size: .83rem; }
+    .contact-icon { font-size: .95rem; width: 18px; text-align: center; flex-shrink: 0; color: var(--mid); }
+    .contact-val { color: var(--ink); }
+    .contact-val a { color: var(--teal); text-decoration: none; font-weight: 600; }
     .contact-val a:hover { text-decoration: underline; }
+    .cert-list { display: flex; flex-direction: column; gap: .75rem; }
+    .cert-item { display: flex; gap: .75rem; align-items: flex-start; }
+    .cert-icon { width: 32px; height: 32px; border-radius: 6px; background: var(--off); border: 1px solid var(--rule); display: flex; align-items: center; justify-content: center; font-size: .9rem; flex-shrink: 0; }
+    .cert-name { font-size: .82rem; font-weight: 600; color: var(--ink); }
+    .cert-issuer { font-size: .73rem; color: var(--mid); margin-top: 1px; }
 
-    /* ── People also viewed (sidebar) ──────────────────── */
-    .sidebar-label {
-      font-size: .72rem;
-      font-weight: 800;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 14px;
-    }
-
-    /* ── Footer ─────────────────────────────────────────── */
-    .li-footer {
-      text-align: center;
-      padding: 24px 16px;
-      font-size: .75rem;
-      color: var(--muted);
-      border-top: 1px solid var(--border);
-      background: var(--surface);
-    }
-    .li-footer a { color: var(--coral); text-decoration: none; font-weight: 700; }
+    /* PAGE FOOTER */
+    .page-footer { text-align: center; padding: 1.5rem 1rem; font-size: .75rem; color: var(--mid); border-top: 1px solid var(--rule); background: var(--white); }
+    .page-footer a { color: var(--coral); text-decoration: none; font-weight: 600; }
   </style>
 </head>
 <body>
 
-<!-- ── Nav bar ──────────────────────────────────────────── -->
-<nav class="topbar">
-  <div class="topbar-inner">
-    <div class="topbar-logo">in</div>
-    <ul class="topbar-links">
-      <li><a href="#"><span class="tl-icon">🏠</span>Home</a></li>
-      <li><a href="#"><span class="tl-icon">👥</span>Network</a></li>
-      <li><a href="#"><span class="tl-icon">💼</span>Jobs</a></li>
-      <li><a href="#"><span class="tl-icon">💬</span>Messaging</a></li>
-      <li><a href="#"><span class="tl-icon">🔔</span>Notifications</a></li>
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="index.html" class="nav-logo">N<em>A</em></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="method.html">Method</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="linked_in.html" class="active">LinkedIn</a></li>
     </ul>
   </div>
 </nav>
 
-<!-- ── Layout ───────────────────────────────────────────── -->
 <div class="layout">
 
-  <!-- ════ MAIN COLUMN ════ -->
+  <!-- MAIN COLUMN -->
   <div class="main-col">
 
     <!-- Profile card -->
@@ -562,7 +182,7 @@
       <div class="profile-banner"></div>
       <div class="profile-photo-wrap">
         <div class="profile-photo"><span>NA</span></div>
-        <span class="profile-open-badge">Open</span>
+        <span class="open-badge">Open</span>
       </div>
       <div class="profile-info">
         <div class="profile-name">Nabil Arnaoot</div>
@@ -573,15 +193,13 @@
           <a href="https://www.linkedin.com/in/narnaoot" target="_blank">linkedin.com/in/narnaoot</a>
         </div>
       </div>
-
       <div class="open-to-work">
-        <div class="otw-icon">🟢</div>
+        <span class="otw-dot">●</span>
         <div>
           <div class="otw-title">Open to opportunities</div>
           <div class="otw-roles">Business Analyst · Data Analyst · Program Manager · Business Process Engineer</div>
         </div>
       </div>
-
       <div class="profile-actions">
         <a href="mailto:narnaoot@gmail.com" class="btn btn-primary">✉ Message</a>
         <a href="https://www.linkedin.com/in/narnaoot" target="_blank" class="btn btn-outline">Connect on LinkedIn</a>
@@ -592,14 +210,10 @@
     <!-- About -->
     <div class="card">
       <div class="card-body">
-        <div class="card-section-title">About</div>
-        <p class="about-text">
-          I'm a business analyst passionate about using data to tell compelling stories. Those stories guide leadership strategy and demonstrate a clear path to success — keeping teams focused on shared goals and vision.
-        </p>
-        <p class="about-text">
-          Colleagues have praised my skills with Tableau, creative problem-solving, and my friendly but persistent take on collaboration. I have a service approach to leadership, love to mentor, and invest deeply in the people around me.
-        </p>
-        <div class="highlights-list">
+        <div class="card-title">About</div>
+        <p class="about-text">I'm a business analyst passionate about using data to tell compelling stories. Those stories guide leadership strategy and demonstrate a clear path to success — keeping teams focused on shared goals and vision.</p>
+        <p class="about-text">Colleagues have praised my skills with Tableau, creative problem-solving, and my friendly but persistent take on collaboration. I have a service approach to leadership, love to mentor, and invest deeply in the people around me.</p>
+        <div style="margin-top:1rem">
           <div class="highlight-item">
             <div class="hi-dot"></div>
             <div class="hi-text">Seven years at Apple in project management and business analysis, regularly collaborating with 40+ engineering teams. Built processes and systems used by 300+ engineers.</div>
@@ -623,16 +237,13 @@
     <!-- Experience -->
     <div class="card">
       <div class="card-body">
-        <div class="card-section-title">Experience</div>
+        <div class="card-title">Experience</div>
         <div class="exp-list">
 
-          <!-- SFMTA -->
           <div class="exp-item">
             <div class="exp-logo">🚌</div>
             <div class="exp-body">
-              <div class="exp-company-row">
-                <span class="exp-company">San Francisco Municipal Transportation Agency</span>
-              </div>
+              <div class="exp-company-row"><span class="exp-company">San Francisco Municipal Transportation Agency</span></div>
               <div class="exp-role">Principal Business Analyst</div>
               <div class="exp-meta">April 2024 – Present · San Francisco, CA</div>
               <div class="exp-bullets">
@@ -642,13 +253,10 @@
             </div>
           </div>
 
-          <!-- Saint Mary's -->
           <div class="exp-item">
             <div class="exp-logo">🎓</div>
             <div class="exp-body">
-              <div class="exp-company-row">
-                <span class="exp-company">Saint Mary's College of California</span>
-              </div>
+              <div class="exp-company-row"><span class="exp-company">Saint Mary's College of California</span></div>
               <div class="exp-role">Data Analysis Consultant</div>
               <div class="exp-meta">2020 – August 2024 · While pursuing MS in Business Analytics</div>
               <div class="exp-bullets">
@@ -658,13 +266,12 @@
             </div>
           </div>
 
-          <!-- Apple -->
           <div class="exp-item">
-            <div class="exp-logo" style="font-size:1.6rem; font-family:'Playfair Display',serif; color:#3D2B1F;"></div>
+            <div class="exp-logo" style="font-family:'Fraunces',serif;font-size:.85rem;font-weight:900;color:var(--ink)">A</div>
             <div class="exp-body">
               <div class="exp-company-row">
                 <span class="exp-company">Apple</span>
-                <span class="exp-duration-total">7 years 2 months</span>
+                <span class="exp-duration">7 years 2 months</span>
               </div>
               <div class="sub-roles">
                 <div class="sub-role">
@@ -689,9 +296,8 @@
             </div>
           </div>
 
-          <!-- eBay -->
           <div class="exp-item">
-            <div class="exp-logo" style="font-size:.75rem;font-weight:900;color:#E53238;letter-spacing:-1px;">eBay</div>
+            <div class="exp-logo" style="font-size:.7rem;font-weight:700;color:#E53238;letter-spacing:-.5px">eBay</div>
             <div class="exp-body">
               <div class="exp-role">Program Manager</div>
               <div class="exp-meta">December 2009 – May 2011 · 1 year 6 months</div>
@@ -702,12 +308,11 @@
             </div>
           </div>
 
-          <!-- Elegrity -->
           <div class="exp-item">
             <div class="exp-logo">⚙️</div>
             <div class="exp-body">
+              <div class="exp-company-row"><span class="exp-company">Elegrity</span></div>
               <div class="exp-role">Engineering Project Manager</div>
-              <div class="exp-company-row"><span class="exp-company" style="font-size:.88rem;">Elegrity</span></div>
               <div class="exp-meta">November 2006 – September 2009 · 2 years 11 months</div>
               <div class="exp-bullets">
                 <div class="exp-bullet">Provided project management consulting services.</div>
@@ -722,9 +327,8 @@
     <!-- Education -->
     <div class="card">
       <div class="card-body">
-        <div class="card-section-title">Education</div>
+        <div class="card-title">Education</div>
         <div class="edu-list">
-
           <div class="edu-item">
             <div class="edu-logo">🎓</div>
             <div>
@@ -733,7 +337,6 @@
               <div class="edu-years">October 2021 – October 2022</div>
             </div>
           </div>
-
           <div class="edu-item">
             <div class="edu-logo">🏛️</div>
             <div>
@@ -741,7 +344,6 @@
               <div class="edu-degree-text">MS, Information Systems</div>
             </div>
           </div>
-
           <div class="edu-item">
             <div class="edu-logo">🐻</div>
             <div>
@@ -750,7 +352,6 @@
               <div class="edu-years">2018 – 2019</div>
             </div>
           </div>
-
           <div class="edu-item">
             <div class="edu-logo">📚</div>
             <div>
@@ -759,15 +360,14 @@
               <div class="edu-years">Where the data storytelling instinct was born.</div>
             </div>
           </div>
-
         </div>
       </div>
     </div>
 
     <!-- Skills -->
     <div class="card">
-      <div class="skills-section">
-        <div class="card-section-title">Skills</div>
+      <div class="card-body">
+        <div class="card-title">Skills</div>
         <div class="skill-chips">
           <span class="skill-chip featured">IT Business Analysis</span>
           <span class="skill-chip featured">Data Storytelling</span>
@@ -796,7 +396,7 @@
     <!-- Recommendations -->
     <div class="card">
       <div class="card-body">
-        <div class="card-section-title">Recommendations</div>
+        <div class="card-title">Recommendations</div>
         <div class="rec-list">
 
           <div class="rec-item">
@@ -807,8 +407,7 @@
                 <div class="rec-role">Information Security Leader</div>
               </div>
             </div>
-            <div class="rec-quote-mark">"</div>
-            <div class="rec-text">He has the unique ability to walk into an ambiguous situation, quickly grasp the key milestones and action items, identify technical needs that have not been addressed, and get results — all while getting a smile out of everyone in the room.</div>
+            <div class="rec-text">"He has the unique ability to walk into an ambiguous situation, quickly grasp the key milestones and action items, identify technical needs that have not been addressed, and get results — all while getting a smile out of everyone in the room."</div>
           </div>
 
           <div class="rec-item">
@@ -819,8 +418,7 @@
                 <div class="rec-role">Principal Security Architect</div>
               </div>
             </div>
-            <div class="rec-quote-mark">"</div>
-            <div class="rec-text">He's a natural. He takes a large amount of disparate and easily confused data and packages it into an easily understood, easily communicated snapshot of progress. He knows how to ask the right questions and does not relent until he has a clear understanding — but he's not a nuisance to the busy engineer. He has a genuine concern for others.</div>
+            <div class="rec-text">"He's a natural. He takes a large amount of disparate and easily confused data and packages it into an easily understood, easily communicated snapshot of progress. He knows how to ask the right questions and does not relent until he has a clear understanding — but he's not a nuisance to the busy engineer. He has a genuine concern for others."</div>
           </div>
 
           <div class="rec-item">
@@ -831,8 +429,7 @@
                 <div class="rec-role">Director, Application Security · eBay</div>
               </div>
             </div>
-            <div class="rec-quote-mark">"</div>
-            <div class="rec-text">He is an extremely dynamic and versatile program and project manager. Besides being an eloquent speaker and writer, he brings teams together and makes projects successful. If there is a difficult moment in a project, he faces it and resolves it with a unique charm that makes it fun to work with him.</div>
+            <div class="rec-text">"He is an extremely dynamic and versatile program and project manager. Besides being an eloquent speaker and writer, he brings teams together and makes projects successful. If there is a difficult moment in a project, he faces it and resolves it with a unique charm that makes it fun to work with him."</div>
           </div>
 
           <div class="rec-item">
@@ -843,8 +440,7 @@
                 <div class="rec-role">Colleague</div>
               </div>
             </div>
-            <div class="rec-quote-mark">"</div>
-            <div class="rec-text">He brought a level of humanity to our team that we sometimes forget. When he leaves, we'll go back to being robots.</div>
+            <div class="rec-text">"He brought a level of humanity to our team that we sometimes forget. When he leaves, we'll go back to being robots."</div>
           </div>
 
         </div>
@@ -853,88 +449,60 @@
 
   </div><!-- /main-col -->
 
-  <!-- ════ SIDEBAR ════ -->
+  <!-- SIDEBAR -->
   <div class="side-col">
 
-    <!-- Contact info -->
     <div class="card">
       <div class="card-body">
-        <div class="card-section-title" style="font-size:1rem;">Contact info</div>
+        <div class="sidebar-section-title">Contact info</div>
         <div class="contact-list">
-          <div class="contact-row">
-            <span class="contact-icon">✉</span>
-            <span class="contact-val"><a href="mailto:narnaoot@gmail.com">narnaoot@gmail.com</a></span>
-          </div>
-          <div class="contact-row">
-            <span class="contact-icon">in</span>
-            <span class="contact-val"><a href="https://www.linkedin.com/in/narnaoot" target="_blank">linkedin.com/in/narnaoot</a></span>
-          </div>
-          <div class="contact-row">
-            <span class="contact-icon">📍</span>
-            <span class="contact-val">San Francisco, CA</span>
-          </div>
+          <div class="contact-row"><span class="contact-icon">✉</span><span class="contact-val"><a href="mailto:narnaoot@gmail.com">narnaoot@gmail.com</a></span></div>
+          <div class="contact-row"><span class="contact-icon">in</span><span class="contact-val"><a href="https://www.linkedin.com/in/narnaoot" target="_blank">linkedin.com/in/narnaoot</a></span></div>
+          <div class="contact-row"><span class="contact-icon">📍</span><span class="contact-val">San Francisco, CA</span></div>
         </div>
       </div>
     </div>
 
-    <!-- Certifications -->
     <div class="card">
       <div class="card-body">
-        <div class="card-section-title" style="font-size:1rem;">Certifications</div>
+        <div class="sidebar-section-title">Certifications</div>
         <div class="cert-list">
           <div class="cert-item">
             <div class="cert-icon">☁️</div>
-            <div>
-              <div class="cert-name">Google Cloud Essentials</div>
-              <div class="cert-issuer">Google Cloud</div>
-            </div>
+            <div><div class="cert-name">Google Cloud Essentials</div><div class="cert-issuer">Google Cloud</div></div>
           </div>
           <div class="cert-item">
             <div class="cert-icon">🤖</div>
-            <div>
-              <div class="cert-name">Baseline: Data, ML &amp; AI</div>
-              <div class="cert-issuer">Google</div>
-            </div>
+            <div><div class="cert-name">Baseline: Data, ML &amp; AI</div><div class="cert-issuer">Google</div></div>
           </div>
           <div class="cert-item">
             <div class="cert-icon">🔬</div>
-            <div>
-              <div class="cert-name">Scientific Data Processing</div>
-              <div class="cert-issuer">Microsoft 365</div>
-            </div>
+            <div><div class="cert-name">Scientific Data Processing</div><div class="cert-issuer">Microsoft 365</div></div>
           </div>
           <div class="cert-item">
             <div class="cert-icon">📊</div>
-            <div>
-              <div class="cert-name">Microsoft Excel</div>
-              <div class="cert-issuer">Microsoft 365 Apps &amp; Office 2019</div>
-            </div>
+            <div><div class="cert-name">Microsoft Excel</div><div class="cert-issuer">Microsoft 365 Apps &amp; Office 2019</div></div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Top skills sidebar -->
     <div class="card">
       <div class="card-body">
-        <div class="card-section-title" style="font-size:1rem;">Top Skills</div>
-        <div class="skill-chips" style="flex-direction:column;gap:6px;">
+        <div class="sidebar-section-title">Top Skills</div>
+        <div class="skill-chips" style="flex-direction:column;gap:6px">
           <span class="skill-chip featured" style="width:fit-content">IT Business Analysis</span>
-          <span class="skill-chip featured" style="width:fit-content">Google BigQuery</span>
           <span class="skill-chip featured" style="width:fit-content">Data Storytelling</span>
+          <span class="skill-chip featured" style="width:fit-content">Google BigQuery</span>
         </div>
       </div>
     </div>
 
-    <!-- Also view -->
     <div class="card">
       <div class="card-body">
-        <div class="sidebar-label">Also on the web</div>
+        <div class="sidebar-section-title">Also on the web</div>
         <div class="contact-list">
-          <div class="contact-row">
-            <span class="contact-icon">🌐</span>
-            <span class="contact-val"><a href="index.html">Personal portfolio →</a></span>
-          </div>
+          <div class="contact-row"><span class="contact-icon">🌐</span><span class="contact-val"><a href="index.html">Personal portfolio →</a></span></div>
         </div>
       </div>
     </div>
@@ -943,8 +511,7 @@
 
 </div><!-- /layout -->
 
-<div class="li-footer">
-  Redesigned by Nabil Arnaoot ·
+<div class="page-footer">
   <a href="index.html">Portfolio</a> ·
   <a href="https://www.linkedin.com/in/narnaoot" target="_blank">LinkedIn</a> ·
   <a href="mailto:narnaoot@gmail.com">narnaoot@gmail.com</a>

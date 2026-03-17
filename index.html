@@ -3,441 +3,157 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nabil Arnaoot — Data Storyteller</title>
+  <title>Nabil Arnaoot — Business Analyst &amp; Data Storyteller</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700;1,9..144,900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    /* ── Tokens ─────────────────────────────────────────── */
     :root {
-      --bg:       #FFFBF5;
-      --surface:  #FFFFFF;
-      --warm:     #FFF5E8;
-      --warm2:    #FDECD6;
-      --text:     #3D2B1F;
-      --muted:    #9A8070;
-      --border:   #E8DDD0;
+      --white:    #FFFFFF;
+      --off:      #F9F8F6;
+      --ink:      #111110;
+      --mid:      #6B6660;
+      --faint:    #E8E3DC;
+      --rule:     #E0DBD4;
       --coral:    #E8614F;
-      --coral-lt: #FDEAE7;
-      --teal:     #2DB5A8;
-      --teal-lt:  #E0F5F3;
-      --mustard:  #D4920A;
-      --must-lt:  #FEF4DC;
+      --coral-lt: #FDE8E5;
+      --mustard:  #C98B09;
+      --must-lt:  #FEF3D8;
+      --teal:     #1FA99D;
+      --teal-lt:  #DFF3F1;
       --sage:     #6A9F7A;
-      --sage-lt:  #EBF4EE;
-      --lavender: #8B7BC8;
-      --lav-lt:   #EFECF9;
-      --r: 14px;
+      --sage-lt:  #E8F3EB;
+      --lavender: #7B6DC8;
+      --lav-lt:   #ECEAF8;
+      --r: 10px;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Nunito', sans-serif;
-      line-height: 1.65;
-    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--ink); line-height: 1.6; -webkit-font-smoothing: antialiased; }
 
-    /* ── Top nav ────────────────────────────────────────── */
-    .topnav {
-      background: var(--surface);
-      border-bottom: 1.5px solid var(--border);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      height: 56px;
-      display: flex;
-      align-items: center;
-    }
-    .topnav-inner {
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 0 28px;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .nav-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.25rem;
-      font-weight: 900;
-      color: var(--coral);
-      letter-spacing: -0.5px;
-      text-decoration: none;
-    }
-    .nav-links {
-      display: flex;
-      gap: 4px;
-      list-style: none;
-    }
-    .nav-links a {
-      padding: 6px 14px;
-      font-size: .78rem;
-      font-weight: 800;
-      letter-spacing: .09em;
-      text-transform: uppercase;
-      color: var(--muted);
-      text-decoration: none;
-      border-radius: 8px;
-      transition: color .15s, background .15s;
-    }
-    .nav-links a:hover, .nav-links a.active { color: var(--text); background: var(--warm2); }
-    @media (max-width: 600px) {
-      .nav-links a { padding: 6px 10px; font-size: .72rem; letter-spacing: .06em; }
-    }
+    /* NAV */
+    .topnav { position: sticky; top: 0; z-index: 200; background: rgba(255,255,255,.97); backdrop-filter: blur(16px); border-bottom: 1px solid var(--rule); height: 64px; display: flex; align-items: center; }
+    .topnav-inner { max-width: 1280px; margin: 0 auto; padding: 0 3rem; width: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-family: 'Fraunces', serif; font-size: 1.05rem; font-weight: 700; letter-spacing: -.3px; color: var(--ink); text-decoration: none; }
+    .nav-logo em { font-style: normal; color: var(--coral); }
+    .nav-links { display: flex; list-style: none; }
+    .nav-links a { padding: 8px 16px; font-size: .72rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--mid); text-decoration: none; transition: color .15s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--coral); }
+    @media (max-width: 640px) { .topnav-inner { padding: 0 1.5rem; } .nav-links a { padding: 8px 9px; font-size: .66rem; } }
 
-    /* ── Hero ───────────────────────────────────────────── */
-    header {
-      background: linear-gradient(160deg, #3D2B1F 0%, #6B3A2A 40%, #B34A38 75%, var(--mustard) 100%);
-      padding: 72px 28px 64px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    header::before {
-      content: '';
-      position: absolute; inset: 0;
-      background-image: radial-gradient(rgba(255,255,255,.07) 1px, transparent 1px);
-      background-size: 28px 28px;
-    }
+    /* HERO */
+    .hero { max-width: 1280px; margin: 0 auto; padding: 8rem 3rem 7rem; border-bottom: 1px solid var(--rule); }
+    @media (max-width: 640px) { .hero { padding: 4rem 1.5rem 4rem; } }
+    .hero-kicker { display: flex; align-items: center; gap: 16px; font-size: .72rem; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: var(--coral); margin-bottom: 2rem; }
+    .hero-kicker-line { width: 56px; height: 1px; background: var(--coral); flex-shrink: 0; }
+    .hero-name { font-family: 'Fraunces', serif; font-size: clamp(4.5rem, 10.5vw, 9rem); font-weight: 900; line-height: .92; letter-spacing: -3px; color: var(--ink); margin-bottom: 3rem; }
+    .hero-name em { display: block; font-style: italic; color: var(--coral); }
+    .hero-body { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+    @media (max-width: 760px) { .hero-body { grid-template-columns: 1fr; gap: 2.5rem; } }
+    .hero-tagline { font-family: 'Fraunces', serif; font-size: clamp(1.15rem, 2.2vw, 1.5rem); font-weight: 300; font-style: italic; line-height: 1.55; color: var(--mid); margin-bottom: 1.8rem; }
+    .hero-desc { font-size: .95rem; color: var(--mid); line-height: 1.8; margin-bottom: 2.2rem; }
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 2.2rem; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--coral); color: #fff; padding: 11px 24px; border-radius: 4px; font-size: .85rem; font-weight: 600; text-decoration: none; transition: opacity .15s; }
+    .btn-primary:hover { opacity: .88; }
+    .btn-outline { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: var(--ink); padding: 10px 24px; border-radius: 4px; border: 1.5px solid var(--rule); font-size: .85rem; font-weight: 600; text-decoration: none; transition: border-color .15s; }
+    .btn-outline:hover { border-color: var(--ink); }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 16px; }
+    .hero-meta-item { font-size: .82rem; color: var(--mid); font-weight: 500; }
 
-    .avatar-ring {
-      width: 82px; height: 82px;
-      border-radius: 50%;
-      background: rgba(255,255,255,.12);
-      border: 2.5px solid rgba(255,255,255,.3);
-      display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 24px;
-      font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
-      font-weight: 900;
-      color: rgba(255,255,255,.9);
-      position: relative;
-    }
+    /* STATS */
+    .hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 1px solid var(--rule); border-radius: var(--r); overflow: hidden; }
+    .hs { padding: 28px 24px; border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+    .hs:nth-child(2n) { border-right: none; }
+    .hs:nth-child(3), .hs:nth-child(4) { border-bottom: none; }
+    .hs-num { font-family: 'Fraunces', serif; font-size: 2.6rem; font-weight: 900; line-height: 1; margin-bottom: 5px; }
+    .hs-lbl { font-size: .72rem; font-weight: 500; color: var(--mid); line-height: 1.45; }
 
-    .hero-name {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.6rem, 7vw, 4rem);
-      font-weight: 900;
-      line-height: 1.1;
-      letter-spacing: -1.5px;
-      color: #fff;
-      margin-bottom: 16px;
-    }
-    .hero-name em { font-style: italic; color: var(--mustard); }
+    /* SECTION COMMON */
+    .section-wrap { max-width: 1280px; margin: 0 auto; padding: 0 3rem; }
+    @media (max-width: 640px) { .section-wrap { padding: 0 1.5rem; } }
+    .section-label { display: flex; align-items: center; gap: 20px; padding: 3.5rem 0 2.5rem; }
+    .section-label-text { font-size: .7rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--mid); white-space: nowrap; }
+    .section-label-rule { flex: 1; height: 1px; background: var(--rule); }
 
-    .hero-tagline {
-      font-size: clamp(.9rem, 2vw, 1.05rem);
-      color: rgba(255,255,255,.75);
-      font-weight: 600;
-      max-width: 560px;
-      margin: 0 auto 8px;
-      letter-spacing: .02em;
-    }
-    .hero-punch {
-      font-size: 1rem;
-      color: rgba(255,255,255,.5);
-      font-style: italic;
-      margin-bottom: 32px;
-    }
+    /* FEATURED QUOTE BAND */
+    .featured-quote-band { background: var(--off); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 5rem 3rem; }
+    @media (max-width: 640px) { .featured-quote-band { padding: 3rem 1.5rem; } }
+    .featured-quote-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 100px 1fr; gap: 3rem; align-items: start; }
+    @media (max-width: 760px) { .featured-quote-inner { grid-template-columns: 1fr; gap: 1rem; } }
+    .fq-mark { font-family: 'Fraunces', serif; font-size: 8rem; font-weight: 900; color: var(--coral); line-height: .7; opacity: .3; }
+    .fq-text { font-family: 'Fraunces', serif; font-size: clamp(1.25rem, 2.4vw, 1.8rem); font-weight: 300; font-style: italic; line-height: 1.55; color: var(--ink); margin-bottom: 1.8rem; }
+    .fq-attr { font-size: .78rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--mid); display: flex; align-items: center; gap: 10px; }
+    .fq-attr::before { content: '—'; }
 
-    .chip-row {
-      display: flex; flex-wrap: wrap;
-      gap: 10px; justify-content: center;
-    }
-    .chip {
-      background: rgba(255,255,255,.12);
-      border: 1.5px solid rgba(255,255,255,.22);
-      border-radius: 99px;
-      padding: 6px 18px;
-      font-size: .8rem;
-      font-weight: 700;
-      color: rgba(255,255,255,.85);
-      text-decoration: none;
-      transition: background .2s, border-color .2s;
-    }
-    .chip:hover { background: rgba(255,255,255,.22); border-color: rgba(255,255,255,.4); }
+    /* ABOUT */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; padding-bottom: 5rem; }
+    @media (max-width: 760px) { .about-grid { grid-template-columns: 1fr; gap: 2.5rem; } }
+    .about-body-text { font-size: .97rem; color: var(--mid); line-height: 1.85; }
+    .about-body-text + .about-body-text { margin-top: 1rem; }
+    .about-pull { padding: 2.5rem 0; border-top: 3px solid var(--coral); }
+    .about-pull-text { font-family: 'Fraunces', serif; font-size: clamp(1.05rem, 1.8vw, 1.28rem); font-weight: 700; font-style: italic; line-height: 1.6; color: var(--ink); margin-bottom: 1.2rem; }
+    .about-pull-attr { font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--mid); }
 
-    /* ── Stats strip ─────────────────────────────────────── */
-    .stats-strip {
-      background: var(--text);
-      padding: 0;
-      display: flex;
-      justify-content: center;
-    }
-    .stats-inner {
-      max-width: 1080px;
-      width: 100%;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-    }
-    .stat {
-      padding: 22px 20px;
-      text-align: center;
-      border-right: 1px solid rgba(255,255,255,.1);
-    }
-    .stat:last-child { border-right: none; }
-    .stat-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      font-weight: 900;
-      color: var(--coral);
-      line-height: 1;
-      margin-bottom: 4px;
-    }
-    .stat-lbl {
-      font-size: .7rem;
-      font-weight: 700;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.45);
-    }
-    @media (max-width: 600px) {
-      .stats-inner { grid-template-columns: repeat(2, 1fr); }
-      .stat:nth-child(2) { border-right: none; }
-    }
-
-    /* ── Page body ───────────────────────────────────────── */
-    .page {
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 60px 28px 80px;
-      display: flex;
-      flex-direction: column;
-      gap: 72px;
-    }
-
-    /* ── Section headings ────────────────────────────────── */
-    .section-h {
-      display: flex;
-      align-items: baseline;
-      gap: 16px;
-      margin-bottom: 28px;
-      flex-wrap: wrap;
-    }
-    .section-h h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
-      font-weight: 900;
-      color: var(--text);
-    }
-    .section-tag {
-      background: var(--warm2);
-      border: 1.5px solid var(--border);
-      border-radius: 99px;
-      padding: 3px 14px;
-      font-size: .7rem;
-      font-weight: 800;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    /* ── Page nav cards (teasers) ────────────────────────── */
-    .page-nav-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-    @media (max-width: 700px) { .page-nav-grid { grid-template-columns: 1fr; } }
-
-    .page-card {
-      background: var(--surface);
-      border: 1.5px solid var(--border);
-      border-radius: var(--r);
-      padding: 28px 26px;
-      text-decoration: none;
-      color: var(--text);
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      transition: transform .2s, box-shadow .2s, border-color .2s;
-    }
-    .page-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 30px rgba(0,0,0,.08);
-      border-color: var(--coral);
-    }
-    .page-card-icon {
-      font-size: 2rem;
-      line-height: 1;
-    }
-    .page-card-label {
-      font-size: .68rem;
-      font-weight: 800;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-    .page-card-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: var(--text);
-      line-height: 1.25;
-    }
-    .page-card-desc {
-      font-size: .84rem;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-    .page-card-cta {
-      margin-top: 8px;
-      font-size: .78rem;
-      font-weight: 800;
-      color: var(--coral);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .page-card-accent {
-      height: 4px;
-      border-radius: 99px;
-      margin-bottom: 4px;
-    }
-
-    /* ── About blurb (home) ──────────────────────────────── */
-    .home-about {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 32px;
-      align-items: center;
-    }
-    @media (max-width: 700px) { .home-about { grid-template-columns: 1fr; } }
-
-    .about-lead {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.2rem, 2.5vw, 1.55rem);
-      font-weight: 700;
-      color: var(--text);
-      line-height: 1.45;
-      margin-bottom: 18px;
-    }
-    .about-lead em { font-style: italic; color: var(--coral); }
-
-    .about-body {
-      font-size: .92rem;
-      color: var(--muted);
-      line-height: 1.75;
-    }
-
-    .about-pull {
-      background: linear-gradient(135deg, var(--coral-lt), var(--must-lt));
-      border: 1.5px solid var(--border);
-      border-radius: var(--r);
-      padding: 36px 32px;
-      position: relative;
-      overflow: hidden;
-    }
-    .about-pull::before {
-      content: '"';
-      position: absolute;
-      top: -10px; left: 16px;
-      font-family: 'Playfair Display', serif;
-      font-size: 8rem;
-      color: rgba(232,97,79,.1);
-      line-height: 1;
-    }
-    .about-pull-text {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.15rem;
-      font-weight: 700;
-      font-style: italic;
-      color: var(--text);
-      line-height: 1.55;
-      position: relative;
-      margin-bottom: 16px;
-    }
-    .about-pull-attr {
-      font-size: .75rem;
-      font-weight: 800;
-      color: var(--muted);
-      letter-spacing: .08em;
-      text-transform: uppercase;
-    }
-
-    /* ── Impact counters ─────────────────────────────────── */
-    .impact-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-    @media (max-width: 700px) { .impact-grid { grid-template-columns: repeat(2, 1fr); } }
+    /* IMPACT BAND */
+    .impact-band { background: var(--ink); padding: 5rem 3rem; }
+    @media (max-width: 640px) { .impact-band { padding: 3rem 1.5rem; } }
+    .impact-inner { max-width: 1280px; margin: 0 auto; }
+    .impact-header { display: flex; align-items: center; gap: 20px; margin-bottom: 3rem; }
+    .impact-header-text { font-size: .7rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: rgba(255,255,255,.35); white-space: nowrap; }
+    .impact-header-rule { flex: 1; height: 1px; background: rgba(255,255,255,.1); }
+    .impact-grid { display: grid; grid-template-columns: repeat(3,1fr); }
+    @media (max-width: 700px) { .impact-grid { grid-template-columns: repeat(2,1fr); } }
     @media (max-width: 420px) { .impact-grid { grid-template-columns: 1fr; } }
+    .impact-item { padding: 2.5rem 2rem 2rem; border-right: 1px solid rgba(255,255,255,.07); border-bottom: 1px solid rgba(255,255,255,.07); }
+    .impact-item:nth-child(3n) { border-right: none; }
+    .impact-item:nth-last-child(-n+3) { border-bottom: none; }
+    .impact-num { font-family: 'Fraunces', serif; font-size: clamp(2.6rem, 4.5vw, 3.8rem); font-weight: 900; line-height: 1; margin-bottom: 10px; }
+    .impact-lbl { font-size: .78rem; font-weight: 400; color: rgba(255,255,255,.38); line-height: 1.5; }
 
-    .impact-card {
-      background: var(--surface);
-      border: 1.5px solid var(--border);
-      border-radius: var(--r);
-      padding: 24px 20px 20px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      transition: transform .2s, box-shadow .2s;
-    }
-    .impact-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,.08); }
-    .impact-card .i-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.6rem;
-      font-weight: 900;
-      line-height: 1;
-      margin-bottom: 8px;
-    }
-    .impact-card .i-desc {
-      font-size: .78rem;
-      color: var(--muted);
-      line-height: 1.45;
-      font-weight: 600;
-    }
-    .impact-card .i-accent {
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 4px;
-    }
+    /* PRAISE */
+    .praise-section { padding-bottom: 1rem; }
+    .praise-full { padding: 2.8rem 0; border-top: 1px solid var(--rule); }
+    .praise-full:last-child { border-bottom: 1px solid var(--rule); }
+    .praise-full-header { display: flex; align-items: center; gap: 14px; margin-bottom: 1.4rem; }
+    .praise-avatar { width: 42px; height: 42px; border-radius: 50%; background: var(--faint); display: flex; align-items: center; justify-content: center; font-size: .82rem; font-weight: 700; color: var(--mid); flex-shrink: 0; }
+    .praise-name { font-size: .9rem; font-weight: 700; color: var(--ink); }
+    .praise-role { font-size: .78rem; color: var(--mid); margin-top: 1px; }
+    .praise-quote-text { font-size: .97rem; color: var(--mid); line-height: 1.8; padding-left: 56px; }
+    @media (max-width: 640px) { .praise-quote-text { padding-left: 0; } }
 
-    /* ── Footer ──────────────────────────────────────────── */
-    footer {
-      background: var(--text);
-      color: rgba(255,255,255,.5);
-      text-align: center;
-      padding: 40px 28px;
-      font-size: .82rem;
-    }
-    footer .footer-inner { max-width: 1080px; margin: 0 auto; }
-    .footer-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
-      font-weight: 900;
-      color: #fff;
-      margin-bottom: 8px;
-    }
-    .footer-links {
-      display: flex;
-      gap: 8px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin: 16px 0;
-    }
-    .footer-link {
-      padding: 6px 18px;
-      border-radius: 99px;
-      text-decoration: none;
-      font-size: .8rem;
-      font-weight: 800;
-      transition: opacity .15s;
-    }
+    /* EXPLORE */
+    .explore-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); border-radius: var(--r); overflow: hidden; margin-bottom: 5rem; }
+    @media (max-width: 700px) { .explore-grid { grid-template-columns: 1fr; } }
+    .explore-card { background: var(--white); padding: 2.5rem 2rem 2rem; text-decoration: none; color: var(--ink); display: flex; flex-direction: column; gap: 10px; transition: background .15s; }
+    .explore-card:hover { background: var(--off); }
+    .explore-accent { height: 3px; border-radius: 2px; margin-bottom: 4px; }
+    .explore-icon { font-size: 1.8rem; line-height: 1; }
+    .explore-label { font-size: .65rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--mid); }
+    .explore-title { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 700; line-height: 1.25; }
+    .explore-desc { font-size: .85rem; color: var(--mid); line-height: 1.6; flex: 1; }
+    .explore-cta { margin-top: 6px; font-size: .8rem; font-weight: 600; color: var(--coral); }
+
+    /* FOOTER */
+    footer { background: var(--ink); padding: 5rem 3rem; }
+    @media (max-width: 640px) { footer { padding: 3rem 1.5rem; } }
+    .footer-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto; gap: 3rem; align-items: end; }
+    @media (max-width: 640px) { .footer-inner { grid-template-columns: 1fr; } }
+    .footer-name { font-family: 'Fraunces', serif; font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 900; color: #fff; line-height: 1; margin-bottom: .75rem; letter-spacing: -1px; }
+    .footer-sub { font-size: .85rem; color: rgba(255,255,255,.35); margin-bottom: 2rem; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 10px; }
+    .footer-link { padding: 9px 22px; border-radius: 4px; text-decoration: none; font-size: .82rem; font-weight: 600; transition: opacity .15s; }
     .footer-link:hover { opacity: .8; }
     .footer-link.primary { background: var(--coral); color: #fff; }
-    .footer-link.soft { background: rgba(255,255,255,.1); color: rgba(255,255,255,.7); }
-    footer p { margin-top: 16px; font-size: .75rem; }
+    .footer-link.ghost { background: rgba(255,255,255,.08); color: rgba(255,255,255,.6); }
+    .footer-fine { font-size: .72rem; color: rgba(255,255,255,.18); text-align: right; }
+    @media (max-width: 640px) { .footer-fine { text-align: left; } }
   </style>
 </head>
 <body>
 
-<!-- ── Nav ──────────────────────────────────────────────── -->
 <nav class="topnav">
   <div class="topnav-inner">
-    <a href="index.html" class="nav-logo">NA</a>
+    <a href="index.html" class="nav-logo">N<em>A</em></a>
     <ul class="nav-links">
       <li><a href="index.html" class="active">Home</a></li>
       <li><a href="work.html">Work</a></li>
@@ -448,180 +164,205 @@
   </div>
 </nav>
 
-<!-- ── Hero ─────────────────────────────────────────────── -->
-<header>
-  <div class="avatar-ring">NA</div>
-  <h1 class="hero-name">Nabil <em>Arnaoot</em></h1>
-  <p class="hero-tagline">Business Analyst · Data Storyteller · Translator of Complexity · Builder of What Doesn't Exist Yet</p>
-  <p class="hero-punch">I solve problems so that teams can go.</p>
-  <div class="chip-row">
-    <a class="chip" href="https://www.linkedin.com/in/narnaoot" target="_blank">in Connect on LinkedIn</a>
-    <span class="chip">📍 San Francisco, CA</span>
-    <span class="chip">🍵 Tea, not coffee</span>
-    <span class="chip">🐱 Octavia &amp; Cleopatra</span>
+<section class="hero">
+  <div class="hero-kicker">
+    <span class="hero-kicker-line"></span>
+    Business Analyst · Data Storyteller · San Francisco
   </div>
-</header>
+  <h1 class="hero-name">Nabil<br><em>Arnaoot</em></h1>
+  <div class="hero-body">
+    <div>
+      <p class="hero-tagline">I turn messy, ambiguous situations into systems that work — and stories that move people to act.</p>
+      <p class="hero-desc">19+ years of experience across Apple, SFMTA, and eBay. I bridge the gap between data and decision — from 40+ engineering teams to the C-suite.</p>
+      <div class="hero-ctas">
+        <a href="https://www.linkedin.com/in/narnaoot" target="_blank" class="btn-primary">Connect on LinkedIn ↗</a>
+        <a href="work.html" class="btn-outline">See my work →</a>
+      </div>
+      <div class="hero-meta">
+        <span class="hero-meta-item">📍 San Francisco, CA</span>
+        <span class="hero-meta-item">🍵 Tea, not coffee</span>
+        <span class="hero-meta-item">🐱 Octavia &amp; Cleopatra</span>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="hs">
+        <div class="hs-num" style="color:var(--coral)"><span class="count-up" data-to="19" data-sfx="+">19+</span></div>
+        <div class="hs-lbl">Years experience</div>
+      </div>
+      <div class="hs">
+        <div class="hs-num" style="color:var(--teal)"><span class="count-up" data-to="300" data-sfx="M+">300M+</span></div>
+        <div class="hs-lbl">iCloud users at launch</div>
+      </div>
+      <div class="hs">
+        <div class="hs-num" style="color:var(--mustard)"><span class="count-up" data-to="500" data-sfx="K">500K</span></div>
+        <div class="hs-lbl">Systems rebuilt</div>
+      </div>
+      <div class="hs">
+        <div class="hs-num" style="color:var(--lavender)"><span class="count-up" data-to="40" data-sfx="+">40+</span></div>
+        <div class="hs-lbl">Engineering teams at Apple</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<!-- ── Stats strip ───────────────────────────────────────── -->
-<div class="stats-strip">
-  <div class="stats-inner">
-    <div class="stat">
-      <div class="stat-num">19+</div>
-      <div class="stat-lbl">Years experience</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">300M+</div>
-      <div class="stat-lbl">iCloud users at launch</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">300+</div>
-      <div class="stat-lbl">Engineers using systems I built</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">40+</div>
-      <div class="stat-lbl">Teams collaborated with at Apple</div>
+<div class="featured-quote-band">
+  <div class="featured-quote-inner">
+    <div class="fq-mark">"</div>
+    <div>
+      <p class="fq-text">He has the unique ability to walk into an ambiguous situation, quickly grasp the key milestones and action items, identify technical needs that have not been addressed, and get results — all while getting a smile out of everyone in the room.</p>
+      <div class="fq-attr">Brianna Gamp · Information Security Leader</div>
     </div>
   </div>
 </div>
 
-<!-- ── Main content ──────────────────────────────────────── -->
-<main class="page">
-
-  <!-- About blurb -->
-  <section>
-    <div class="home-about">
-      <div>
-        <p class="about-lead">Data becomes a story. Complexity becomes <em>clarity</em>. Stuck teams get unstuck.</p>
-        <p class="about-body">
-          I'm a business analyst and data storyteller with 19+ years of experience turning messy, ambiguous situations into systems that work — and stories that move people to act.
-        </p>
-        <p class="about-body" style="margin-top: 14px;">
-          I spent seven years at Apple — collaborating with 40+ engineering teams, launching iCloud to 300M+ users, rebuilding kernel update workflows for 500K systems. Now I bring that same approach to San Francisco's transit network at SFMTA.
-        </p>
-        <p class="about-body" style="margin-top: 14px;">
-          University of Chicago, English Literature — that's where the data storytelling instinct was born. MS in Business Analytics (with honors) is where it got sharper.
-        </p>
-      </div>
-      <div class="about-pull">
-        <p class="about-pull-text">"He has the unique ability to walk into an ambiguous situation, quickly grasp the key milestones and action items, identify technical needs that have not been addressed, and get results — all while getting a smile out of everyone in the room."</p>
-        <div class="about-pull-attr">Brianna Gamp · Information Security Leader</div>
-      </div>
+<div class="section-wrap">
+  <div class="section-label">
+    <span class="section-label-text">About</span>
+    <span class="section-label-rule"></span>
+  </div>
+  <div class="about-grid">
+    <div>
+      <p class="about-body-text">I'm a business analyst and data storyteller with 19+ years of experience. I spent seven years at Apple — collaborating with 40+ engineering teams, launching iCloud to 300M+ users, rebuilding kernel update workflows for 500K systems. Now I bring that same approach to San Francisco's transit network at SFMTA.</p>
+      <p class="about-body-text">The through-line across every role: I translate complexity into clarity. I build the things that don't exist yet. I get teams unstuck.</p>
+      <p class="about-body-text">I studied English Literature at the University of Chicago — that's where the storytelling instinct was born. An MS in Business Analytics with honors is where it got sharper.</p>
     </div>
-  </section>
+    <div class="about-pull">
+      <p class="about-pull-text">"He's a natural. He takes a large amount of disparate and easily confused data and packages it into an easily understood, easily communicated snapshot of progress. He knows how to ask the right questions and does not relent until he has a clear understanding — but he's not a nuisance to the busy engineer."</p>
+      <div class="about-pull-attr">Robert Mooney · Principal Security Architect</div>
+    </div>
+  </div>
+</div>
 
-  <!-- Impact at a Glance -->
-  <section>
-    <div class="section-h">
-      <h2>Impact at a Glance</h2>
-      <span class="section-tag">by the numbers</span>
+<div class="impact-band">
+  <div class="impact-inner">
+    <div class="impact-header">
+      <span class="impact-header-text">Impact at a glance</span>
+      <span class="impact-header-rule"></span>
     </div>
     <div class="impact-grid">
-      <div class="impact-card">
-        <div class="i-num" style="color:var(--coral)"><span class="count-num" data-count-to="19" data-suffix="+">19+</span></div>
-        <div class="i-desc">years of professional experience</div>
-        <div class="i-accent" style="background:var(--coral)"></div>
+      <div class="impact-item">
+        <div class="impact-num" style="color:var(--coral)"><span class="count-up" data-to="19" data-sfx="+">19+</span></div>
+        <div class="impact-lbl">Years of professional experience</div>
       </div>
-      <div class="impact-card">
-        <div class="i-num" style="color:var(--teal)"><span class="count-num" data-count-to="300" data-suffix="M+">300M+</span></div>
-        <div class="i-desc">iCloud users supported at launch</div>
-        <div class="i-accent" style="background:var(--teal)"></div>
+      <div class="impact-item">
+        <div class="impact-num" style="color:#4DCFC6"><span class="count-up" data-to="300" data-sfx="M+">300M+</span></div>
+        <div class="impact-lbl">iCloud users supported at launch</div>
       </div>
-      <div class="impact-card">
-        <div class="i-num" style="color:var(--mustard)"><span class="count-num" data-count-to="500" data-suffix="K">500K</span></div>
-        <div class="i-desc">systems rebuilt with new kernel update process</div>
-        <div class="i-accent" style="background:var(--mustard)"></div>
+      <div class="impact-item">
+        <div class="impact-num" style="color:#F0A820"><span class="count-up" data-to="500" data-sfx="K">500K</span></div>
+        <div class="impact-lbl">Systems rebuilt with new kernel update process</div>
       </div>
-      <div class="impact-card">
-        <div class="i-num" style="color:var(--lavender)"><span class="count-num" data-count-to="40" data-suffix="+">40+</span></div>
-        <div class="i-desc">engineering teams collaborated with at Apple</div>
-        <div class="i-accent" style="background:var(--lavender)"></div>
+      <div class="impact-item">
+        <div class="impact-num" style="color:#A89AE8"><span class="count-up" data-to="40" data-sfx="+">40+</span></div>
+        <div class="impact-lbl">Engineering teams collaborated with at Apple</div>
       </div>
-      <div class="impact-card">
-        <div class="i-num" style="color:var(--sage)"><span class="count-num" data-count-to="300" data-suffix="+">300+</span></div>
-        <div class="i-desc">engineers using systems I built</div>
-        <div class="i-accent" style="background:var(--sage)"></div>
+      <div class="impact-item">
+        <div class="impact-num" style="color:#7EC48E"><span class="count-up" data-to="300" data-sfx="+">300+</span></div>
+        <div class="impact-lbl">Engineers using systems I built</div>
       </div>
-      <div class="impact-card">
-        <div class="i-num" style="color:var(--coral)"><span class="count-num" data-count-to="7" data-suffix="">7</span></div>
-        <div class="i-desc">years at Apple across two roles</div>
-        <div class="i-accent" style="background:var(--coral)"></div>
+      <div class="impact-item">
+        <div class="impact-num" style="color:rgba(255,255,255,.65)"><span class="count-up" data-to="7" data-sfx="">7</span></div>
+        <div class="impact-lbl">Years at Apple across two roles</div>
       </div>
     </div>
-  </section>
+  </div>
+</div>
 
-  <!-- Page navigation cards -->
-  <section>
-    <div class="section-h">
-      <h2>Explore</h2>
-      <span class="section-tag">the full picture</span>
+<div class="section-wrap">
+  <div class="section-label">
+    <span class="section-label-text">What people say</span>
+    <span class="section-label-rule"></span>
+  </div>
+  <div class="praise-section">
+    <div class="praise-full">
+      <div class="praise-full-header">
+        <div class="praise-avatar">SP</div>
+        <div>
+          <div class="praise-name">Sneha Phadke</div>
+          <div class="praise-role">Director, Application Security · eBay</div>
+        </div>
+      </div>
+      <p class="praise-quote-text">"He is an extremely dynamic and versatile program and project manager. Besides being an eloquent speaker and writer, he brings teams together and makes projects successful. If there is a difficult moment in a project, he faces it and resolves it with a unique charm that makes it fun to work with him."</p>
     </div>
-    <div class="page-nav-grid">
-
-      <a class="page-card" href="work.html">
-        <div class="page-card-accent" style="background: linear-gradient(90deg, var(--coral), var(--mustard))"></div>
-        <div class="page-card-icon">🗂️</div>
-        <div class="page-card-label">Portfolio</div>
-        <div class="page-card-title">Selected Work</div>
-        <div class="page-card-desc">Case studies of real problems solved — from reducing iTunes crashes to mapping San Francisco's secret gardens.</div>
-        <div class="page-card-cta">View work →</div>
-      </a>
-
-      <a class="page-card" href="method.html">
-        <div class="page-card-accent" style="background: linear-gradient(90deg, var(--teal), var(--lavender))"></div>
-        <div class="page-card-icon">🔍</div>
-        <div class="page-card-label">Process</div>
-        <div class="page-card-title">How I Work</div>
-        <div class="page-card-desc">The questions I always ask, the two kinds of problems I solve, and the skills I bring to every engagement.</div>
-        <div class="page-card-cta">See my method →</div>
-      </a>
-
-      <a class="page-card" href="about.html">
-        <div class="page-card-accent" style="background: linear-gradient(90deg, var(--lavender), var(--sage))"></div>
-        <div class="page-card-icon">👤</div>
-        <div class="page-card-label">The Person</div>
-        <div class="page-card-title">About Nabil</div>
-        <div class="page-card-desc">A data portrait of the human behind the analysis — with testimonials, education, and the cats who supervise everything.</div>
-        <div class="page-card-cta">Learn more →</div>
-      </a>
-
+    <div class="praise-full">
+      <div class="praise-full-header">
+        <div class="praise-avatar">CW</div>
+        <div>
+          <div class="praise-name">Chris Winter</div>
+          <div class="praise-role">Manager</div>
+        </div>
+      </div>
+      <p class="praise-quote-text">"He brought a level of humanity to our team that we sometimes forget. When he leaves, we'll go back to being robots."</p>
     </div>
-  </section>
+  </div>
+  <p style="font-size:.83rem;color:var(--mid);padding-bottom:3.5rem;">More testimonials in <a href="about.html" style="color:var(--coral);font-weight:600;text-decoration:none;">About →</a></p>
+</div>
 
-</main>
+<div class="section-wrap">
+  <div class="section-label">
+    <span class="section-label-text">Explore</span>
+    <span class="section-label-rule"></span>
+  </div>
+  <div class="explore-grid">
+    <a class="explore-card" href="work.html">
+      <div class="explore-accent" style="background:linear-gradient(90deg,var(--coral),var(--mustard))"></div>
+      <div class="explore-icon">🗂️</div>
+      <div class="explore-label">Portfolio</div>
+      <div class="explore-title">Selected Work</div>
+      <div class="explore-desc">Case studies of real problems solved — from reducing iTunes crashes to mapping San Francisco's secret gardens.</div>
+      <div class="explore-cta">View work →</div>
+    </a>
+    <a class="explore-card" href="method.html">
+      <div class="explore-accent" style="background:linear-gradient(90deg,var(--teal),var(--lavender))"></div>
+      <div class="explore-icon">🔍</div>
+      <div class="explore-label">Process</div>
+      <div class="explore-title">How I Work</div>
+      <div class="explore-desc">The questions I always ask, the two kinds of problems I solve, and the toolkit I bring to every engagement.</div>
+      <div class="explore-cta">See my method →</div>
+    </a>
+    <a class="explore-card" href="about.html">
+      <div class="explore-accent" style="background:linear-gradient(90deg,var(--lavender),var(--sage))"></div>
+      <div class="explore-icon">👤</div>
+      <div class="explore-label">The Person</div>
+      <div class="explore-title">About Nabil</div>
+      <div class="explore-desc">The human behind the data — with testimonials, education, the cats who supervise everything, and a tea preference that is not up for debate.</div>
+      <div class="explore-cta">Learn more →</div>
+    </a>
+  </div>
+</div>
 
-<!-- ── Footer ────────────────────────────────────────────── -->
 <footer>
   <div class="footer-inner">
-    <div class="footer-name">If you would like to chat</div>
-    <div style="font-size:.84rem; color:rgba(255,255,255,.45);">Currently: Principal Business Analyst at SFMTA · San Francisco, CA</div>
-    <div class="footer-links">
-      <a href="https://www.linkedin.com/in/narnaoot" target="_blank" class="footer-link primary">Connect on LinkedIn</a>
-      <a href="linked_in.html" class="footer-link soft">Full Profile</a>
+    <div>
+      <div class="footer-name">Let's talk.</div>
+      <div class="footer-sub">Currently: Principal Business Analyst at SFMTA · Open to opportunities</div>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/narnaoot" target="_blank" class="footer-link primary">Connect on LinkedIn</a>
+        <a href="mailto:narnaoot@gmail.com" class="footer-link ghost">narnaoot@gmail.com</a>
+        <a href="linked_in.html" class="footer-link ghost">Full profile</a>
+      </div>
     </div>
-    <p>Made with curiosity &amp; care</p>
+    <div class="footer-fine">Made with curiosity &amp; care</div>
   </div>
 </footer>
 
 <script>
-// ── Animated impact counters ──────────────────────────────
 (function () {
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting || entry.target.dataset.counted) return;
-      entry.target.dataset.counted = '1';
-      const target = parseInt(entry.target.dataset.countTo, 10);
-      const suffix = entry.target.dataset.suffix || '';
-      const start  = performance.now();
-      const dur    = 1400;
-      (function tick(now) {
-        const p = Math.min((now - start) / dur, 1);
-        const e = 1 - Math.pow(1 - p, 3);
-        entry.target.textContent = Math.round(e * target) + suffix;
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting || e.target.dataset.done) return;
+      e.target.dataset.done = '1';
+      const to = parseInt(e.target.dataset.to, 10);
+      const sfx = e.target.dataset.sfx || '';
+      const t0 = performance.now(), dur = 1200;
+      (function tick(t) {
+        const p = Math.min((t - t0) / dur, 1), v = 1 - Math.pow(1 - p, 3);
+        e.target.textContent = Math.round(v * to) + sfx;
         if (p < 1) requestAnimationFrame(tick);
-      })(start);
+      })(t0);
     });
-  }, { threshold: 0.4 });
-  document.querySelectorAll('.count-num[data-count-to]').forEach(el => observer.observe(el));
+  }, { threshold: 0.5 });
+  document.querySelectorAll('.count-up[data-to]').forEach(el => obs.observe(el));
 })();
 </script>
 </body>

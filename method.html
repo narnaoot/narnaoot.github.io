@@ -6,257 +6,124 @@
   <title>How I Work — Nabil Arnaoot</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700;1,9..144,900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    /* ── Tokens ─────────────────────────────────────────── */
     :root {
-      --bg:       #FFFBF5;
-      --surface:  #FFFFFF;
-      --warm:     #FFF5E8;
-      --warm2:    #FDECD6;
-      --text:     #3D2B1F;
-      --muted:    #9A8070;
-      --border:   #E8DDD0;
+      --white:    #FFFFFF;
+      --off:      #F9F8F6;
+      --ink:      #111110;
+      --mid:      #6B6660;
+      --faint:    #E8E3DC;
+      --rule:     #E0DBD4;
       --coral:    #E8614F;
-      --coral-lt: #FDEAE7;
-      --teal:     #2DB5A8;
-      --teal-lt:  #E0F5F3;
-      --mustard:  #D4920A;
-      --must-lt:  #FEF4DC;
+      --coral-lt: #FDE8E5;
+      --mustard:  #C98B09;
+      --must-lt:  #FEF3D8;
+      --teal:     #1FA99D;
+      --teal-lt:  #DFF3F1;
       --sage:     #6A9F7A;
-      --sage-lt:  #EBF4EE;
-      --lavender: #8B7BC8;
-      --lav-lt:   #EFECF9;
-      --r: 14px;
+      --sage-lt:  #E8F3EB;
+      --lavender: #7B6DC8;
+      --lav-lt:   #ECEAF8;
+      --r: 10px;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background: var(--bg); color: var(--text); font-family: 'Nunito', sans-serif; line-height: 1.65; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--ink); line-height: 1.6; -webkit-font-smoothing: antialiased; }
 
-    /* ── Nav ───────────────────────────────────────────── */
-    .topnav {
-      background: var(--surface);
-      border-bottom: 1.5px solid var(--border);
-      position: sticky; top: 0; z-index: 100;
-      height: 56px; display: flex; align-items: center;
-    }
-    .topnav-inner {
-      max-width: 1080px; margin: 0 auto; padding: 0 28px;
-      width: 100%; display: flex; align-items: center; justify-content: space-between;
-    }
-    .nav-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.25rem; font-weight: 900;
-      color: var(--coral); letter-spacing: -0.5px; text-decoration: none;
-    }
-    .nav-links { display: flex; gap: 4px; list-style: none; }
-    .nav-links a {
-      padding: 6px 14px; font-size: .78rem; font-weight: 800;
-      letter-spacing: .09em; text-transform: uppercase;
-      color: var(--muted); text-decoration: none;
-      border-radius: 8px; transition: color .15s, background .15s;
-    }
-    .nav-links a:hover, .nav-links a.active { color: var(--text); background: var(--warm2); }
-    @media (max-width: 600px) {
-      .nav-links a { padding: 6px 10px; font-size: .72rem; letter-spacing: .06em; }
-    }
+    /* NAV */
+    .topnav { position: sticky; top: 0; z-index: 200; background: rgba(255,255,255,.97); backdrop-filter: blur(16px); border-bottom: 1px solid var(--rule); height: 64px; display: flex; align-items: center; }
+    .topnav-inner { max-width: 1280px; margin: 0 auto; padding: 0 3rem; width: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-family: 'Fraunces', serif; font-size: 1.05rem; font-weight: 700; letter-spacing: -.3px; color: var(--ink); text-decoration: none; }
+    .nav-logo em { font-style: normal; color: var(--coral); }
+    .nav-links { display: flex; list-style: none; }
+    .nav-links a { padding: 8px 16px; font-size: .72rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--mid); text-decoration: none; transition: color .15s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--coral); }
+    @media (max-width: 640px) { .topnav-inner { padding: 0 1.5rem; } .nav-links a { padding: 8px 9px; font-size: .66rem; } }
 
-    /* ── Page header ─────────────────────────────────────── */
-    .page-header {
-      background: linear-gradient(135deg, var(--teal) 0%, #1a8a7e 50%, #157a6e 100%);
-      padding: 56px 28px 48px;
-      position: relative; overflow: hidden;
-    }
-    .page-header::before {
-      content: '';
-      position: absolute; inset: 0;
-      background-image: radial-gradient(rgba(255,255,255,.08) 1px, transparent 1px);
-      background-size: 24px 24px;
-    }
-    .page-header-inner { max-width: 1080px; margin: 0 auto; position: relative; }
-    .page-header-label {
-      font-size: .7rem; font-weight: 800; letter-spacing: .2em;
-      text-transform: uppercase; color: rgba(255,255,255,.55);
-      margin-bottom: 12px;
-    }
-    .page-header h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 5vw, 3.2rem);
-      font-weight: 900; color: #fff; line-height: 1.15;
-      margin-bottom: 14px;
-    }
-    .page-header h1 em { font-style: italic; color: rgba(255,255,255,.6); }
-    .page-header-sub {
-      font-size: 1rem; color: rgba(255,255,255,.65);
-      font-weight: 600; max-width: 560px; line-height: 1.6;
-    }
+    /* PAGE HEADER */
+    .page-header { border-bottom: 1px solid var(--rule); padding: 7rem 3rem 5rem; max-width: 1280px; margin: 0 auto; }
+    @media (max-width: 640px) { .page-header { padding: 4rem 1.5rem 3rem; } }
+    .page-header-kicker { display: flex; align-items: center; gap: 16px; font-size: .72rem; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: var(--teal); margin-bottom: 2rem; }
+    .page-header-kicker-line { width: 56px; height: 1px; background: var(--teal); flex-shrink: 0; }
+    .page-header h1 { font-family: 'Fraunces', serif; font-size: clamp(2.8rem, 6vw, 5.5rem); font-weight: 900; line-height: .95; letter-spacing: -2px; color: var(--ink); margin-bottom: 1.5rem; }
+    .page-header h1 em { font-style: italic; color: var(--teal); }
+    .page-header-sub { font-size: 1.05rem; color: var(--mid); line-height: 1.65; max-width: 560px; }
 
-    /* ── Body ───────────────────────────────────────────── */
-    .page {
-      max-width: 1080px; margin: 0 auto;
-      padding: 64px 28px 80px;
-      display: flex; flex-direction: column; gap: 72px;
-    }
+    /* MAIN BODY */
+    .page-body { max-width: 1280px; margin: 0 auto; padding: 5rem 3rem 7rem; display: flex; flex-direction: column; gap: 7rem; }
+    @media (max-width: 640px) { .page-body { padding: 3rem 1.5rem 5rem; gap: 5rem; } }
 
-    /* ── Section heading ─────────────────────────────────── */
-    .section-h {
-      display: flex; align-items: baseline; gap: 16px;
-      margin-bottom: 28px; flex-wrap: wrap;
-    }
-    .section-h h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.8rem; font-weight: 900; color: var(--text);
-    }
-    .section-tag {
-      background: var(--warm2); border: 1.5px solid var(--border);
-      border-radius: 99px; padding: 3px 14px;
-      font-size: .7rem; font-weight: 800; letter-spacing: .12em;
-      text-transform: uppercase; color: var(--muted);
-    }
+    /* SECTION HEADING */
+    .section-heading { margin-bottom: 3rem; }
+    .section-kicker { font-size: .72rem; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: var(--mid); margin-bottom: .75rem; }
+    .section-heading h2 { font-family: 'Fraunces', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; line-height: 1.0; letter-spacing: -1px; color: var(--ink); }
 
-    /* ── Question cards ──────────────────────────────────── */
-    .q-phase { margin-bottom: 20px; }
-    .q-phase-header {
-      display: flex; align-items: center; gap: 14px; margin-bottom: 14px;
-    }
-    .q-phase-label {
-      font-size: .68rem; font-weight: 800; letter-spacing: .14em;
-      text-transform: uppercase; color: var(--muted);
-      white-space: nowrap; flex-shrink: 0;
-    }
-    .q-phase-line { flex: 1; height: 1px; background: var(--border); }
+    /* QUESTIONS — open numbered layout */
+    .q-phase-label { font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--mid); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem; }
+    .q-phase-label::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
 
-    .question-flow {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
-    }
-    @media (max-width: 720px) { .question-flow { grid-template-columns: 1fr; } }
+    .question-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--rule); border: 2px solid var(--rule); border-radius: var(--r); overflow: hidden; margin-bottom: 1.5rem; }
+    @media (max-width: 720px) { .question-grid { grid-template-columns: 1fr; } }
 
-    .q-card {
-      background: var(--warm); border: 1.5px solid var(--border);
-      border-radius: var(--r); padding: 24px;
-      position: relative; overflow: hidden;
-      transition: transform .2s, box-shadow .2s;
-    }
-    .q-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,.07); }
-    .q-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.8rem; font-weight: 900;
-      line-height: 1; margin-bottom: 10px; opacity: 0.22;
-    }
-    .q-text {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.05rem; font-style: italic;
-      color: var(--text); line-height: 1.5;
-    }
-    .q-note { font-size: .78rem; color: var(--muted); margin-top: 10px; }
+    .q-card { background: var(--white); padding: 2rem; }
+    .q-card.phase2 { background: var(--off); }
+    .q-num { font-family: 'Fraunces', serif; font-size: 3rem; font-weight: 900; line-height: 1; margin-bottom: .75rem; opacity: .18; }
+    .q-text { font-family: 'Fraunces', serif; font-size: 1.05rem; font-style: italic; color: var(--ink); line-height: 1.5; margin-bottom: .75rem; }
+    .q-note { font-size: .8rem; color: var(--mid); line-height: 1.6; }
 
-    /* connector between phases */
-    .q-phase-connector {
-      display: flex; align-items: center; gap: 16px; margin: 18px 0 22px;
-    }
-    .q-phase-connector::before, .q-phase-connector::after {
-      content: ''; flex: 1; border-top: 1.5px dashed var(--border);
-    }
-    .connector-badge {
-      background: var(--warm2); border: 1.5px solid var(--border);
-      border-radius: 99px; padding: 5px 16px;
-      font-size: .76rem; font-weight: 700; color: var(--muted); white-space: nowrap;
-    }
+    .q-bridge { display: flex; align-items: center; gap: 1.5rem; margin: 0 0 1.5rem; }
+    .q-bridge::before, .q-bridge::after { content: ''; flex: 1; border-top: 1.5px dashed var(--rule); }
+    .q-bridge-text { font-size: .78rem; font-weight: 600; color: var(--mid); white-space: nowrap; padding: 6px 16px; border: 1px solid var(--rule); border-radius: 99px; }
 
-    /* ── Duct Tape / Drano ───────────────────────────────── */
-    .dt-drano {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 0;
-      border: 1.5px solid var(--border); border-radius: var(--r); overflow: hidden;
-    }
+    /* DUCT TAPE / DRANO — full-width editorial */
+    .dt-drano { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--rule); border-radius: var(--r); overflow: hidden; }
     @media (max-width: 640px) { .dt-drano { grid-template-columns: 1fr; } }
-
-    .panel { padding: 36px 32px; }
+    .panel { padding: 3rem; }
     .panel-tape { background: var(--coral-lt); }
-    .panel-drain { background: var(--teal-lt); border-left: 1.5px solid var(--border); }
-    @media (max-width: 640px) { .panel-drain { border-left: none; border-top: 1.5px solid var(--border); } }
-
-    .panel-icon { font-size: 2.6rem; margin-bottom: 12px; line-height: 1; }
-    .panel-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.55rem; font-weight: 700; color: var(--text); margin-bottom: 4px;
-    }
-    .panel-sub { font-size: .84rem; color: var(--muted); margin-bottom: 18px; font-weight: 700; }
+    .panel-drain { background: var(--teal-lt); border-left: 1px solid var(--rule); }
+    @media (max-width: 640px) { .panel-drain { border-left: none; border-top: 1px solid var(--rule); } }
+    .panel-emoji { font-size: 2.2rem; margin-bottom: 1rem; }
+    .panel-title { font-family: 'Fraunces', serif; font-size: 1.8rem; font-weight: 700; color: var(--ink); margin-bottom: .4rem; }
+    .panel-sub { font-size: .84rem; color: var(--mid); margin-bottom: 1.5rem; font-weight: 500; }
     .panel-tags { display: flex; flex-wrap: wrap; gap: 8px; }
-    .ptag { border-radius: 8px; padding: 5px 12px; font-size: .8rem; font-weight: 700; }
-    .ptag-tape { background: rgba(232,97,79,.14); color: var(--coral); border: 1px solid rgba(232,97,79,.25); }
-    .ptag-drain { background: rgba(45,181,168,.14); color: var(--teal); border: 1px solid rgba(45,181,168,.25); }
-    .panel-note {
-      margin-top: 20px; font-size: .84rem; color: var(--muted);
-      font-style: italic; line-height: 1.55;
-    }
+    .ptag-tape { background: rgba(232,97,79,.12); color: var(--coral); border: 1px solid rgba(232,97,79,.22); border-radius: 3px; padding: 4px 12px; font-size: .75rem; font-weight: 600; }
+    .ptag-drain { background: rgba(31,169,157,.12); color: var(--teal); border: 1px solid rgba(31,169,157,.22); border-radius: 3px; padding: 4px 12px; font-size: .75rem; font-weight: 600; }
+    .panel-note { margin-top: 1.5rem; font-size: .84rem; color: var(--mid); font-style: italic; line-height: 1.6; }
 
-    /* ── Skill toolkit ───────────────────────────────────── */
-    .toolkit-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
-    }
-    @media (max-width: 720px) { .toolkit-grid { grid-template-columns: 1fr; } }
-
-    .toolkit-card {
-      background: var(--surface); border: 1.5px solid var(--border);
-      border-radius: var(--r); padding: 26px 22px;
-    }
-    .toolkit-card-header {
-      display: flex; align-items: center; gap: 12px; margin-bottom: 20px;
-    }
-    .toolkit-icon {
-      width: 44px; height: 44px; border-radius: 11px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.35rem; flex-shrink: 0;
-    }
-    .toolkit-card-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.08rem; font-weight: 700; color: var(--text); line-height: 1.2;
-    }
-    .toolkit-card-sub { font-size: .72rem; color: var(--muted); font-weight: 600; margin-top: 2px; }
-    .skill-row { margin-bottom: 12px; }
+    /* SKILL TOOLKIT */
+    .toolkit-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; }
+    @media (max-width: 720px) { .toolkit-grid { grid-template-columns: 1fr; gap: 2rem; } }
+    .toolkit-col { border-top: 2px solid var(--rule); padding-top: 2rem; }
+    .toolkit-col-header { display: flex; align-items: center; gap: .75rem; margin-bottom: 1.75rem; }
+    .toolkit-col-icon { font-size: 1.4rem; }
+    .toolkit-col-title { font-family: 'Fraunces', serif; font-size: 1.1rem; font-weight: 700; color: var(--ink); }
+    .toolkit-col-sub { font-size: .75rem; color: var(--mid); margin-top: 2px; }
+    .skill-row { margin-bottom: 1rem; }
     .skill-row:last-child { margin-bottom: 0; }
-    .skill-label-row {
-      display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;
-    }
-    .skill-label { font-size: .8rem; font-weight: 700; color: var(--text); }
-    .skill-pct { font-size: .68rem; font-weight: 800; color: var(--muted); }
-    .skill-track {
-      width: 100%; height: 8px; background: var(--border);
-      border-radius: 99px; overflow: hidden;
-    }
-    .skill-fill {
-      height: 100%; border-radius: 99px; width: 0%;
-      transition: width 1.1s cubic-bezier(.4,0,.2,1);
-    }
+    .skill-label-row { display: flex; justify-content: space-between; margin-bottom: 5px; }
+    .skill-label { font-size: .82rem; font-weight: 500; color: var(--ink); }
+    .skill-pct { font-size: .72rem; font-weight: 600; color: var(--mid); }
+    .skill-track { width: 100%; height: 4px; background: var(--rule); border-radius: 99px; overflow: hidden; }
+    .skill-fill { height: 100%; border-radius: 99px; width: 0%; transition: width 1.1s cubic-bezier(.4,0,.2,1); }
 
-    /* ── Footer ─────────────────────────────────────────── */
-    footer {
-      background: var(--text); color: rgba(255,255,255,.5);
-      text-align: center; padding: 40px 28px; font-size: .82rem;
-    }
-    footer .footer-inner { max-width: 1080px; margin: 0 auto; }
-    .footer-name {
-      font-family: 'Playfair Display', serif; font-size: 1.4rem;
-      font-weight: 900; color: #fff; margin-bottom: 8px;
-    }
-    .footer-links {
-      display: flex; gap: 8px; justify-content: center;
-      flex-wrap: wrap; margin: 16px 0;
-    }
-    .footer-link {
-      padding: 6px 18px; border-radius: 99px;
-      text-decoration: none; font-size: .8rem; font-weight: 800; transition: opacity .15s;
-    }
-    .footer-link:hover { opacity: .8; }
-    .footer-link.primary { background: var(--coral); color: #fff; }
-    .footer-link.soft { background: rgba(255,255,255,.1); color: rgba(255,255,255,.7); }
+    /* FOOTER */
+    .site-footer { background: var(--ink); color: rgba(255,255,255,.45); padding: 6rem 3rem; }
+    .site-footer-inner { max-width: 1280px; margin: 0 auto; }
+    .footer-heading { font-family: 'Fraunces', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 900; font-style: italic; color: var(--white); margin-bottom: 2rem; letter-spacing: -1px; }
+    .footer-sub { font-size: .95rem; margin-bottom: 2.5rem; max-width: 400px; line-height: 1.65; }
+    .footer-cta { display: inline-block; padding: 14px 28px; background: var(--coral); color: var(--white); text-decoration: none; font-size: .8rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; border-radius: 3px; transition: opacity .15s; margin-bottom: 3rem; }
+    .footer-cta:hover { opacity: .85; }
+    .footer-nav { display: flex; gap: 2rem; flex-wrap: wrap; border-top: 1px solid rgba(255,255,255,.1); padding-top: 2rem; margin-top: 1rem; }
+    .footer-nav a { font-size: .78rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.4); text-decoration: none; transition: color .15s; }
+    .footer-nav a:hover { color: rgba(255,255,255,.8); }
   </style>
 </head>
 <body>
 
-<!-- ── Nav ──────────────────────────────────────────────── -->
 <nav class="topnav">
   <div class="topnav-inner">
-    <a href="index.html" class="nav-logo">NA</a>
+    <a href="index.html" class="nav-logo">N<em>A</em></a>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="work.html">Work</a></li>
@@ -267,137 +134,119 @@
   </div>
 </nav>
 
-<!-- ── Page header ───────────────────────────────────────── -->
 <div class="page-header">
-  <div class="page-header-inner">
-    <div class="page-header-label">My Process</div>
-    <h1>How I <em>Work</em></h1>
-    <p class="page-header-sub">The questions I always ask, the two kinds of problems I solve, and the toolkit I bring to every engagement.</p>
+  <div class="page-header-kicker">
+    <span class="page-header-kicker-line"></span>
+    My Process
   </div>
+  <h1>How I<br><em>Work</em></h1>
+  <p class="page-header-sub">The questions I always ask, the two kinds of problems I solve, and the toolkit I bring to every engagement.</p>
 </div>
 
-<!-- ── Body ─────────────────────────────────────────────── -->
-<main class="page">
+<main class="page-body">
 
   <!-- The Questions I Always Ask -->
   <section>
-    <div class="section-h">
-      <h2>The Questions I Always Ask</h2>
-      <span class="section-tag">my diagnostic toolkit</span>
+    <div class="section-heading">
+      <div class="section-kicker">Diagnostic Toolkit</div>
+      <h2>The Questions I Always Ask.</h2>
     </div>
 
-    <!-- Phase 1 -->
-    <div class="q-phase">
-      <div class="q-phase-header">
-        <span class="q-phase-label">Phase 1 — Opening</span>
-        <div class="q-phase-line"></div>
+    <div class="q-phase-label">Phase 1 — Opening</div>
+    <div class="question-grid">
+      <div class="q-card">
+        <div class="q-num" style="color:var(--coral)">01</div>
+        <div class="q-text">It's six months from now. You are really happy. What has changed?</div>
+        <div class="q-note">This is where we start. The answer tells me everything about what actually matters.</div>
       </div>
-      <div class="question-flow">
-        <div class="q-card">
-          <div class="q-num" style="color:var(--coral)">01</div>
-          <div class="q-text">It's six months from now. You are really happy. What has changed?</div>
-          <div class="q-note">This is where we start. The answer tells me everything about what actually matters.</div>
-        </div>
-        <div class="q-card">
-          <div class="q-num" style="color:var(--coral)">02</div>
-          <div class="q-text">What is keeping you from getting your work done?</div>
-          <div class="q-note">Not what you want to build — what's in the way right now.</div>
-        </div>
-        <div class="q-card">
-          <div class="q-num" style="color:var(--coral)">03</div>
-          <div class="q-text">What terrible, manual task do you absolutely hate doing?</div>
-          <div class="q-note">This is where automation and process redesign live.</div>
-        </div>
+      <div class="q-card">
+        <div class="q-num" style="color:var(--coral)">02</div>
+        <div class="q-text">What is keeping you from getting your work done?</div>
+        <div class="q-note">Not what you want to build — what's in the way right now.</div>
+      </div>
+      <div class="q-card">
+        <div class="q-num" style="color:var(--coral)">03</div>
+        <div class="q-text">What terrible, manual task do you absolutely hate doing?</div>
+        <div class="q-note">This is where automation and process redesign live.</div>
       </div>
     </div>
 
-    <!-- Connector -->
-    <div class="q-phase-connector">
-      <div class="connector-badge">↓&nbsp;&nbsp;then I go deeper&nbsp;&nbsp;↓</div>
+    <div class="q-bridge">
+      <span class="q-bridge-text">↓ then I go deeper ↓</span>
     </div>
 
-    <!-- Phase 2 -->
-    <div class="q-phase">
-      <div class="q-phase-header">
-        <span class="q-phase-label">Phase 2 — Diagnosis</span>
-        <div class="q-phase-line"></div>
+    <div class="q-phase-label">Phase 2 — Diagnosis</div>
+    <div class="question-grid">
+      <div class="q-card phase2">
+        <div class="q-num" style="color:var(--lavender)">04</div>
+        <div class="q-text">What's getting in your way?</div>
+        <div class="q-note">Not the work itself — the friction around it. Dependencies, approvals, the things that shouldn't be hard but are.</div>
       </div>
-      <div class="question-flow">
-        <div class="q-card" style="background:var(--lav-lt);border-color:rgba(139,123,200,.25)">
-          <div class="q-num" style="color:var(--lavender)">04</div>
-          <div class="q-text">What's getting in your way?</div>
-          <div class="q-note">Not the work itself — the friction around it. Dependencies, approvals, the things that shouldn't be hard but are.</div>
-        </div>
-        <div class="q-card" style="background:var(--teal-lt);border-color:rgba(45,181,168,.25)">
-          <div class="q-num" style="color:var(--teal)">05</div>
-          <div class="q-text">What do you need to know to fix that?</div>
-          <div class="q-note">I want to understand the information gap, not just the symptom. What data, clarity, or decision is missing?</div>
-        </div>
-        <div class="q-card" style="background:var(--must-lt);border-color:rgba(212,146,10,.25)">
-          <div class="q-num" style="color:var(--mustard)">06</div>
-          <div class="q-text">What does the team already know that executives need to be convinced of?</div>
-          <div class="q-note">Practitioners see the problem clearly. The challenge is making it legible upward — and that's a translation job.</div>
-        </div>
+      <div class="q-card phase2">
+        <div class="q-num" style="color:var(--teal)">05</div>
+        <div class="q-text">What do you need to know to fix that?</div>
+        <div class="q-note">I want to understand the information gap, not just the symptom. What data, clarity, or decision is missing?</div>
+      </div>
+      <div class="q-card phase2">
+        <div class="q-num" style="color:var(--mustard)">06</div>
+        <div class="q-text">What does the team already know that executives need to be convinced of?</div>
+        <div class="q-note">Practitioners see the problem clearly. The challenge is making it legible upward — and that's a translation job.</div>
       </div>
     </div>
   </section>
 
-  <!-- How I Work: Duct Tape / Drano -->
+  <!-- Duct Tape / Drano -->
   <section>
-    <div class="section-h">
-      <h2>How I Work</h2>
-      <span class="section-tag">two kinds of problems</span>
+    <div class="section-heading">
+      <div class="section-kicker">Two Kinds of Problems</div>
+      <h2>How I Work.</h2>
     </div>
     <div class="dt-drano">
       <div class="panel panel-tape">
-        <div class="panel-icon">🩹</div>
+        <div class="panel-emoji">🩹</div>
         <div class="panel-title">Duct Tape</div>
         <div class="panel-sub">When something doesn't hold together — I build the structure</div>
         <div class="panel-tags">
-          <span class="ptag ptag-tape">Siloed teams</span>
-          <span class="ptag ptag-tape">Inconsistent data</span>
-          <span class="ptag ptag-tape">Unclear ownership</span>
-          <span class="ptag ptag-tape">No shared process</span>
-          <span class="ptag ptag-tape">Missing documentation</span>
-          <span class="ptag ptag-tape">Scattered reporting</span>
+          <span class="ptag-tape">Siloed teams</span>
+          <span class="ptag-tape">Inconsistent data</span>
+          <span class="ptag-tape">Unclear ownership</span>
+          <span class="ptag-tape">No shared process</span>
+          <span class="ptag-tape">Missing documentation</span>
+          <span class="ptag-tape">Scattered reporting</span>
         </div>
-        <div class="panel-note">
-          Built processes used by 300+ engineers. Created iCloud's outage tracking system from scratch. Rebuilt kernel update workflow for 500,000 systems.
-        </div>
+        <p class="panel-note">Built processes used by 300+ engineers. Created iCloud's outage tracking system from scratch. Rebuilt kernel update workflow for 500,000 systems.</p>
       </div>
       <div class="panel panel-drain">
-        <div class="panel-icon">🪣</div>
+        <div class="panel-emoji">🪣</div>
         <div class="panel-title">Drano</div>
         <div class="panel-sub">When something isn't moving — I clear the path</div>
         <div class="panel-tags">
-          <span class="ptag ptag-drain">Stuck workflows</span>
-          <span class="ptag ptag-drain">Manual bottlenecks</span>
-          <span class="ptag ptag-drain">Stalled projects</span>
-          <span class="ptag ptag-drain">Buried insights</span>
-          <span class="ptag ptag-drain">Waiting on sign-off</span>
-          <span class="ptag ptag-drain">Technical debt blocking features</span>
+          <span class="ptag-drain">Stuck workflows</span>
+          <span class="ptag-drain">Manual bottlenecks</span>
+          <span class="ptag-drain">Stalled projects</span>
+          <span class="ptag-drain">Buried insights</span>
+          <span class="ptag-drain">Waiting on sign-off</span>
+          <span class="ptag-drain">Technical debt blocking features</span>
         </div>
-        <div class="panel-note">
-          Love going from 0 to 1. That's an infinite increase. Making people's jobs and lives easier is the whole point.
-        </div>
+        <p class="panel-note">Love going from 0 to 1. That's an infinite increase. Making people's jobs and lives easier is the whole point.</p>
       </div>
     </div>
   </section>
 
-  <!-- What I Bring -->
+  <!-- Skill Toolkit -->
   <section>
-    <div class="section-h">
-      <h2>What I Bring</h2>
-      <span class="section-tag">capabilities</span>
+    <div class="section-heading">
+      <div class="section-kicker">Capabilities</div>
+      <h2>What I Bring.</h2>
     </div>
     <div class="toolkit-grid">
 
-      <div class="toolkit-card">
-        <div class="toolkit-card-header">
-          <div class="toolkit-icon" style="background:var(--coral-lt)">📊</div>
+      <div class="toolkit-col">
+        <div class="toolkit-col-header">
+          <span class="toolkit-col-icon">📊</span>
           <div>
-            <div class="toolkit-card-title">Data &amp; Analysis</div>
-            <div class="toolkit-card-sub">Turning numbers into decisions</div>
+            <div class="toolkit-col-title">Data &amp; Analysis</div>
+            <div class="toolkit-col-sub">Turning numbers into decisions</div>
           </div>
         </div>
         <div class="skill-row">
@@ -418,12 +267,12 @@
         </div>
       </div>
 
-      <div class="toolkit-card">
-        <div class="toolkit-card-header">
-          <div class="toolkit-icon" style="background:var(--teal-lt)">🏗️</div>
+      <div class="toolkit-col">
+        <div class="toolkit-col-header">
+          <span class="toolkit-col-icon">🏗️</span>
           <div>
-            <div class="toolkit-card-title">Process &amp; Systems</div>
-            <div class="toolkit-card-sub">Building what doesn't exist yet</div>
+            <div class="toolkit-col-title">Process &amp; Systems</div>
+            <div class="toolkit-col-sub">Building what doesn't exist yet</div>
           </div>
         </div>
         <div class="skill-row">
@@ -444,12 +293,12 @@
         </div>
       </div>
 
-      <div class="toolkit-card">
-        <div class="toolkit-card-header">
-          <div class="toolkit-icon" style="background:var(--lav-lt)">🔄</div>
+      <div class="toolkit-col">
+        <div class="toolkit-col-header">
+          <span class="toolkit-col-icon">🔄</span>
           <div>
-            <div class="toolkit-card-title">Translation &amp; Communication</div>
-            <div class="toolkit-card-sub">Making complexity legible</div>
+            <div class="toolkit-col-title">Translation &amp; Communication</div>
+            <div class="toolkit-col-sub">Making complexity legible</div>
           </div>
         </div>
         <div class="skill-row">
@@ -475,20 +324,22 @@
 
 </main>
 
-<!-- ── Footer ────────────────────────────────────────────── -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-name">If you would like to chat</div>
-    <div style="font-size:.84rem;color:rgba(255,255,255,.45);">Currently: Principal Business Analyst at SFMTA · San Francisco, CA</div>
-    <div class="footer-links">
-      <a href="https://www.linkedin.com/in/narnaoot" target="_blank" class="footer-link primary">Connect on LinkedIn</a>
-      <a href="work.html" class="footer-link soft">See my work →</a>
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="footer-heading">Let's talk.</div>
+    <p class="footer-sub">Currently: Principal Business Analyst at SFMTA · San Francisco, CA</p>
+    <a href="https://www.linkedin.com/in/narnaoot" target="_blank" class="footer-cta">Connect on LinkedIn</a>
+    <div class="footer-nav">
+      <a href="index.html">Home</a>
+      <a href="work.html">Work</a>
+      <a href="method.html">Method</a>
+      <a href="about.html">About</a>
+      <a href="linked_in.html">LinkedIn Profile</a>
     </div>
   </div>
 </footer>
 
 <script>
-// ── Skill bar scroll-in animation ─────────────────────────
 (function () {
   const fills = Array.from(document.querySelectorAll('.skill-fill[data-width]'));
   const observer = new IntersectionObserver(entries => {
