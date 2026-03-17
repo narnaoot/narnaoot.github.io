@@ -6,17 +6,16 @@
   <title>About — Nabil Arnaoot</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <style>
-    /* ── Tokens ─────────────────────────────────────────── */
     :root {
-      --bg:       #FFFBF5;
+      --cream:    #FEFCF3;
       --surface:  #FFFFFF;
+      --ink:      #1F1E1D;
+      --mid:      #6B6660;
+      --border:   #D4C9BC;
       --warm:     #FFF5E8;
       --warm2:    #FDECD6;
-      --text:     #3D2B1F;
-      --muted:    #9A8070;
-      --border:   #E8DDD0;
       --coral:    #E8614F;
       --coral-lt: #FDEAE7;
       --teal:     #2DB5A8;
@@ -27,198 +26,140 @@
       --sage-lt:  #EBF4EE;
       --lavender: #8B7BC8;
       --lav-lt:   #EFECF9;
-      --r: 14px;
+      --yellow:   #FFD93D;
+      --r: 16px;
+      --sh:   4px 4px 0 var(--ink);
+      --sh-lg: 6px 6px 0 var(--ink);
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background: var(--bg); color: var(--text); font-family: 'Nunito', sans-serif; line-height: 1.65; }
+    body { font-family: 'Nunito', sans-serif; background: var(--cream); color: var(--ink); line-height: 1.65; overflow-x: hidden; }
 
-    /* ── Nav ───────────────────────────────────────────── */
-    .topnav {
-      background: var(--surface); border-bottom: 1.5px solid var(--border);
-      position: sticky; top: 0; z-index: 100; height: 56px; display: flex; align-items: center;
-    }
-    .topnav-inner {
-      max-width: 1080px; margin: 0 auto; padding: 0 28px;
-      width: 100%; display: flex; align-items: center; justify-content: space-between;
-    }
-    .nav-logo {
-      font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 900;
-      color: var(--coral); letter-spacing: -0.5px; text-decoration: none;
-    }
+    /* ── Nav ── */
+    .topnav { position: sticky; top: 0; z-index: 100; background: rgba(254,252,243,.96); backdrop-filter: blur(12px); border-bottom: 2px solid var(--border); height: 60px; display: flex; align-items: center; }
+    .topnav-inner { max-width: 1100px; margin: 0 auto; padding: 0 28px; width: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-family: 'Fraunces', serif; font-size: 1.3rem; font-weight: 900; color: var(--ink); text-decoration: none; letter-spacing: -0.5px; }
+    .nav-logo em { font-style: normal; color: var(--coral); }
     .nav-links { display: flex; gap: 4px; list-style: none; }
-    .nav-links a {
-      padding: 6px 14px; font-size: .78rem; font-weight: 800;
-      letter-spacing: .09em; text-transform: uppercase;
-      color: var(--muted); text-decoration: none;
-      border-radius: 8px; transition: color .15s, background .15s;
-    }
-    .nav-links a:hover, .nav-links a.active { color: var(--text); background: var(--warm2); }
-    @media (max-width: 600px) {
-      .nav-links a { padding: 6px 10px; font-size: .72rem; letter-spacing: .06em; }
-    }
+    .nav-links a { padding: 6px 14px; font-size: .78rem; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; color: var(--mid); text-decoration: none; border-radius: 99px; border: 2px solid transparent; transition: background .15s, color .15s, border-color .15s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--ink); background: var(--yellow); border-color: var(--ink); }
+    @media (max-width: 600px) { .nav-links a { padding: 5px 9px; font-size: .7rem; } }
 
-    /* ── Page header ─────────────────────────────────────── */
+    /* ── Page header ── */
     .page-header {
-      background: linear-gradient(135deg, #3D2B1F 0%, var(--lavender) 55%, var(--sage) 100%);
-      padding: 56px 28px 48px; position: relative; overflow: hidden;
+      background: linear-gradient(135deg, var(--ink) 0%, var(--lavender) 55%, var(--sage) 100%);
+      padding: 64px 28px 56px; position: relative; overflow: hidden;
     }
     .page-header::before {
       content: ''; position: absolute; inset: 0;
       background-image: radial-gradient(rgba(255,255,255,.07) 1px, transparent 1px);
-      background-size: 24px 24px;
+      background-size: 28px 28px;
     }
-    .page-header-inner { max-width: 1080px; margin: 0 auto; position: relative; }
-    .page-header-label {
-      font-size: .7rem; font-weight: 800; letter-spacing: .2em;
-      text-transform: uppercase; color: rgba(255,255,255,.55); margin-bottom: 12px;
-    }
-    .page-header h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 5vw, 3.2rem);
-      font-weight: 900; color: #fff; line-height: 1.15; margin-bottom: 14px;
-    }
-    .page-header h1 em { font-style: italic; color: rgba(255,255,255,.6); }
-    .page-header-sub {
-      font-size: 1rem; color: rgba(255,255,255,.65);
-      font-weight: 600; max-width: 560px; line-height: 1.6;
-    }
+    .page-header-inner { max-width: 1100px; margin: 0 auto; position: relative; }
+    .page-header-label { font-size: .7rem; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 12px; }
+    .page-header h1 { font-family: 'Fraunces', serif; font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 900; color: #fff; line-height: 1.1; margin-bottom: 14px; letter-spacing: -1px; }
+    .page-header h1 em { font-style: italic; color: var(--yellow); }
+    .page-header-sub { font-size: 1rem; color: rgba(255,255,255,.65); font-weight: 600; max-width: 520px; line-height: 1.6; }
 
-    /* ── Body ───────────────────────────────────────────── */
-    .page {
-      max-width: 1080px; margin: 0 auto;
-      padding: 64px 28px 80px;
-      display: flex; flex-direction: column; gap: 72px;
-    }
+    /* ── Body ── */
+    .page { max-width: 1100px; margin: 0 auto; padding: 72px 28px 80px; display: flex; flex-direction: column; gap: 80px; }
 
-    /* ── Section heading ─────────────────────────────────── */
-    .section-h {
-      display: flex; align-items: baseline; gap: 16px;
-      margin-bottom: 28px; flex-wrap: wrap;
-    }
-    .section-h h2 {
-      font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 900; color: var(--text);
-    }
-    .section-tag {
-      background: var(--warm2); border: 1.5px solid var(--border);
-      border-radius: 99px; padding: 3px 14px;
-      font-size: .7rem; font-weight: 800; letter-spacing: .12em;
-      text-transform: uppercase; color: var(--muted);
-    }
+    /* ── Section heading ── */
+    .section-h { display: flex; align-items: baseline; gap: 14px; margin-bottom: 32px; flex-wrap: wrap; }
+    .section-h h2 { font-family: 'Fraunces', serif; font-size: 2rem; font-weight: 900; color: var(--ink); letter-spacing: -1px; }
+    .section-tag { background: var(--warm2); border: 2px solid var(--border); border-radius: 99px; padding: 3px 14px; font-size: .68rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--mid); }
 
-    /* ── Personal Data Portrait ──────────────────────────── */
-    .portrait-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;
-    }
+    /* ── Personal Data Portrait ── */
+    .portrait-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 18px; }
+
     .portrait-card {
-      background: var(--surface); border: 1.5px solid var(--border);
-      border-radius: var(--r); padding: 24px 20px;
-      display: flex; flex-direction: column; align-items: flex-start; gap: 10px;
-      transition: transform .2s, box-shadow .2s;
+      background: var(--surface); border: 2px solid var(--ink); border-radius: var(--r);
+      padding: 26px 22px; display: flex; flex-direction: column; align-items: flex-start; gap: 10px;
+      box-shadow: var(--sh); transition: transform .2s, box-shadow .2s;
     }
-    .portrait-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,.07); }
-    .portrait-card .p-icon  { font-size: 1.8rem; line-height: 1; }
-    .portrait-card .p-label { font-size: .68rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
-    .portrait-card .p-value { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--text); line-height: 1.2; }
-    .portrait-card .p-note  { font-size: .78rem; color: var(--muted); line-height: 1.4; }
+    .portrait-card:hover { transform: translate(-3px,-3px); box-shadow: var(--sh-lg); }
+    .portrait-card .p-icon  { font-size: 1.9rem; line-height: 1; }
+    .portrait-card .p-label { font-size: .65rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; color: var(--mid); }
+    .portrait-card .p-value { font-family: 'Fraunces', serif; font-size: 1.45rem; font-weight: 700; color: var(--ink); line-height: 1.2; }
+    .portrait-card .p-note  { font-size: .78rem; color: var(--mid); line-height: 1.5; }
 
     .mini-bar-wrap { width: 100%; }
     .mini-bar-row  { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
-    .mini-bar-label { font-size: .75rem; font-weight: 700; width: 50px; flex-shrink: 0; color: var(--text); }
-    .mini-bar-track { flex: 1; height: 10px; background: var(--border); border-radius: 99px; overflow: hidden; }
+    .mini-bar-label { font-size: .74rem; font-weight: 700; width: 50px; flex-shrink: 0; color: var(--ink); }
+    .mini-bar-track { flex: 1; height: 10px; background: var(--border); border-radius: 99px; overflow: hidden; border: 1px solid rgba(0,0,0,.06); }
     .mini-bar-fill  { height: 100%; border-radius: 99px; }
 
-    .cat-row  { display: flex; gap: 10px; flex-wrap: wrap; }
+    .cat-row  { display: flex; gap: 8px; flex-wrap: wrap; }
     .cat-chip {
-      background: var(--coral-lt); border: 1.5px solid rgba(232,97,79,.25);
-      border-radius: 99px; padding: 5px 14px 5px 10px;
-      font-size: .82rem; font-weight: 700; color: var(--coral);
-      display: flex; align-items: center; gap: 5px;
+      background: var(--coral-lt); border: 2px solid var(--ink); border-radius: 99px;
+      padding: 4px 13px 4px 10px; font-size: .8rem; font-weight: 700; color: var(--coral);
+      display: flex; align-items: center; gap: 5px; box-shadow: 2px 2px 0 var(--ink);
     }
 
-    /* ── Quotes grid ─────────────────────────────────────── */
-    .quotes-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px;
-    }
+    /* ── Quotes grid ── */
+    .quotes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+
     .quote-card {
-      background: var(--surface); border: 1.5px solid var(--border);
-      border-radius: var(--r); padding: 26px 26px 22px;
-      display: flex; flex-direction: column; gap: 14px;
-      transition: transform .2s, box-shadow .2s;
+      background: var(--surface); border: 2px solid var(--ink); border-radius: var(--r);
+      padding: 28px 26px 24px; display: flex; flex-direction: column; gap: 14px;
+      box-shadow: var(--sh); transition: transform .2s, box-shadow .2s;
     }
-    .quote-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,.06); }
-    .quote-card.special { background: var(--warm); border-color: var(--mustard); }
-    .quote-mark {
-      font-family: 'Playfair Display', serif; font-size: 2.4rem;
-      color: var(--coral); line-height: .8; opacity: .6;
-    }
-    .quote-text { font-size: .92rem; color: var(--text); line-height: 1.65; flex: 1; }
-    .quote-attr {
-      font-size: .76rem; font-weight: 800; color: var(--muted);
-      letter-spacing: .05em; text-transform: uppercase;
-      border-top: 1px solid var(--border); padding-top: 12px;
-    }
+    .quote-card:hover { transform: translate(-3px,-3px); box-shadow: var(--sh-lg); }
+    .quote-card.special { background: var(--warm); }
+    .quote-mark { font-family: 'Fraunces', serif; font-size: 2.5rem; color: var(--coral); line-height: .75; opacity: .55; }
+    .quote-text { font-size: .92rem; color: var(--ink); line-height: 1.7; flex: 1; }
+    .quote-attr { font-size: .74rem; font-weight: 800; color: var(--mid); letter-spacing: .06em; text-transform: uppercase; border-top: 1.5px solid var(--border); padding-top: 12px; }
 
-    /* ── Education ───────────────────────────────────────── */
-    .two-col {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
-    }
+    /* ── Education + Certs ── */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; }
     @media (max-width: 700px) { .two-col { grid-template-columns: 1fr; } }
 
     .edu-row { display: flex; flex-direction: column; gap: 14px; }
     .edu-card {
-      background: var(--surface); border: 1.5px solid var(--border);
-      border-left: 4px solid var(--mustard);
-      border-radius: var(--r); padding: 18px 18px 16px;
+      background: var(--surface); border: 2px solid var(--ink);
+      border-left: 5px solid var(--mustard);
+      border-radius: var(--r); padding: 20px 20px 18px;
+      box-shadow: var(--sh); transition: transform .2s, box-shadow .2s;
     }
-    .edu-school { font-weight: 800; font-size: .93rem; margin-bottom: 3px; }
+    .edu-card:hover { transform: translate(-3px,-3px); box-shadow: var(--sh-lg); }
+    .edu-school { font-family: 'Fraunces', serif; font-weight: 700; font-size: .98rem; margin-bottom: 4px; }
     .edu-degree { font-size: .83rem; color: var(--teal); font-weight: 700; margin-bottom: 3px; }
-    .edu-year   { font-size: .75rem; color: var(--muted); }
+    .edu-year   { font-size: .76rem; color: var(--mid); }
     .badge {
       display: inline-block; background: var(--must-lt); color: var(--mustard);
-      border: 1px solid rgba(212,146,10,.3); border-radius: 99px;
-      font-size: .65rem; font-weight: 800; padding: 2px 9px;
+      border: 2px solid var(--ink); border-radius: 99px;
+      font-size: .63rem; font-weight: 800; padding: 2px 9px;
       letter-spacing: .05em; text-transform: uppercase;
-      vertical-align: middle; margin-left: 5px;
+      vertical-align: middle; margin-left: 6px;
+      box-shadow: 1px 1px 0 var(--ink);
     }
 
-    /* ── Certs ───────────────────────────────────────────── */
-    .cert-list { display: flex; flex-direction: column; gap: 10px; }
+    .cert-list { display: flex; flex-direction: column; gap: 12px; }
     .cert-item {
-      background: var(--warm); border: 1.5px solid var(--border);
-      border-radius: 10px; padding: 14px 16px;
-      font-size: .85rem; display: flex; align-items: center; gap: 12px; font-weight: 700;
+      background: var(--warm); border: 2px solid var(--ink); border-radius: var(--r);
+      padding: 16px 18px; font-size: .85rem; display: flex; align-items: center; gap: 14px;
+      font-weight: 700; box-shadow: var(--sh); transition: transform .2s, box-shadow .2s;
     }
-    .cert-item .ci-icon { font-size: 1.1rem; flex-shrink: 0; }
-    .cert-item .ci-sub  { font-size: .74rem; color: var(--muted); font-weight: 600; margin-top: 2px; }
+    .cert-item:hover { transform: translate(-2px,-2px); box-shadow: var(--sh-lg); }
+    .cert-item .ci-icon { font-size: 1.2rem; flex-shrink: 0; }
+    .cert-item .ci-sub  { font-size: .74rem; color: var(--mid); font-weight: 600; margin-top: 2px; }
 
-    /* ── Footer ─────────────────────────────────────────── */
-    footer {
-      background: var(--text); color: rgba(255,255,255,.5);
-      text-align: center; padding: 40px 28px; font-size: .82rem;
-    }
-    footer .footer-inner { max-width: 1080px; margin: 0 auto; }
-    .footer-name {
-      font-family: 'Playfair Display', serif; font-size: 1.4rem;
-      font-weight: 900; color: #fff; margin-bottom: 8px;
-    }
-    .footer-links {
-      display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin: 16px 0;
-    }
-    .footer-link {
-      padding: 6px 18px; border-radius: 99px; text-decoration: none;
-      font-size: .8rem; font-weight: 800; transition: opacity .15s;
-    }
-    .footer-link:hover { opacity: .8; }
-    .footer-link.primary { background: var(--coral); color: #fff; }
-    .footer-link.soft { background: rgba(255,255,255,.1); color: rgba(255,255,255,.7); }
+    /* ── Footer ── */
+    footer { background: var(--ink); border-top: 2px solid var(--ink); text-align: center; padding: 52px 28px; color: rgba(255,255,255,.45); }
+    .footer-inner { max-width: 1100px; margin: 0 auto; }
+    .footer-name { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 900; color: #fff; margin-bottom: 6px; }
+    .footer-sub { font-size: .84rem; color: rgba(255,255,255,.35); margin-bottom: 28px; }
+    .footer-links { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+    .footer-link { padding: 8px 22px; border-radius: 99px; text-decoration: none; font-size: .82rem; font-weight: 800; border: 2px solid transparent; transition: transform .15s; }
+    .footer-link:hover { transform: translate(-2px,-2px); }
+    .footer-link.primary { background: var(--yellow); color: var(--ink); border-color: rgba(255,255,255,.3); }
+    .footer-link.soft { background: rgba(255,255,255,.1); color: rgba(255,255,255,.65); border-color: rgba(255,255,255,.15); }
   </style>
 </head>
 <body>
 
-<!-- ── Nav ──────────────────────────────────────────────── -->
 <nav class="topnav">
   <div class="topnav-inner">
-    <a href="index.html" class="nav-logo">NA</a>
+    <a href="index.html" class="nav-logo">N<em>A</em></a>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="work.html">Work</a></li>
@@ -229,7 +170,6 @@
   </div>
 </nav>
 
-<!-- ── Page header ───────────────────────────────────────── -->
 <div class="page-header">
   <div class="page-header-inner">
     <div class="page-header-label">The Person</div>
@@ -238,7 +178,6 @@
   </div>
 </div>
 
-<!-- ── Body ─────────────────────────────────────────────── -->
 <main class="page">
 
   <!-- Personal Data Portrait -->
@@ -287,7 +226,7 @@
         <div class="p-icon">∞</div>
         <div class="p-label">Favorite kind of project</div>
         <div class="p-value">0 → 1</div>
-        <div class="p-note" style="font-style:italic;color:var(--text)">"0 to 1 is infinite. 1 to a million is less impressive."</div>
+        <div class="p-note" style="font-style:italic;color:var(--ink)">"0 to 1 is infinite. 1 to a million is less impressive."</div>
       </div>
 
       <div class="portrait-card">
@@ -352,7 +291,7 @@
       </div>
 
       <div class="quote-card special">
-        <div class="quote-mark" style="color:var(--mustard);">"</div>
+        <div class="quote-mark" style="color:var(--mustard)">"</div>
         <div class="quote-text">You mentor others — especially women, people of color, shy folks, young people. You pass on knowledge horizontally and vertically. You like shy cats, and you cannot lie.</div>
         <div class="quote-attr" style="border-color:rgba(212,146,10,.3)">Kim Anderson · Colleague &amp; Friend</div>
       </div>
@@ -428,16 +367,14 @@
 
 </main>
 
-<!-- ── Footer ────────────────────────────────────────────── -->
 <footer>
   <div class="footer-inner">
-    <div class="footer-name">If you would like to chat</div>
-    <div style="font-size:.84rem;color:rgba(255,255,255,.45);">Currently: Principal Business Analyst at SFMTA · San Francisco, CA</div>
+    <div class="footer-name">Let's talk.</div>
+    <div class="footer-sub">Currently: Principal Business Analyst at SFMTA · San Francisco, CA</div>
     <div class="footer-links">
       <a href="https://www.linkedin.com/in/narnaoot" target="_blank" class="footer-link primary">Connect on LinkedIn</a>
       <a href="linked_in.html" class="footer-link soft">Full Profile</a>
     </div>
-    <p>Made with curiosity &amp; care</p>
   </div>
 </footer>
 
