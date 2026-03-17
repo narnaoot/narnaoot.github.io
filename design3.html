@@ -3,277 +3,437 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nabil Arnaoot — Data Analytics</title>
+  <title>Nabil Arnaoot — Data Storyteller</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    /* Design 3: Sage Cream — warm editorial, honors the English Literature background */
     :root {
-      --bg: #fdf8f3;
-      --bg2: #f5ede0;
-      --text: #2c1810;
-      --muted: #7a6658;
-      --accent: #c45c26;
-      --light-accent: #e8c8a0;
-      --border: #e0cdb8;
+      --bg:       #F5F0E8;
+      --surface:  #FFFFFF;
+      --surface2: #EDE8DE;
+      --text:     #1C1C18;
+      --muted:    #6B6B5E;
+      --border:   #DDD8CE;
+      --accent:   #3D7A57;
+      --accent-lt:#EBF4EE;
+      --warm:     #C8633A;
     }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: 'Georgia', 'Times New Roman', serif;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.75;
+      font-family: 'DM Sans', sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
     }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
 
-    /* Hero masthead */
-    .masthead {
-      background: var(--text);
-      color: #fdf8f3;
-      padding: 5rem 2rem 4rem;
-      text-align: center;
+    /* Nav */
+    .topnav {
+      height: 58px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      background: rgba(245,240,232,0.96);
+      backdrop-filter: blur(8px);
+      z-index: 100;
     }
-    .masthead-eyebrow {
-      font-size: 0.75rem; font-family: 'Helvetica Neue', sans-serif;
-      letter-spacing: 0.2em; text-transform: uppercase; color: var(--light-accent);
-      margin-bottom: 1.2rem;
-    }
-    .masthead h1 {
-      font-size: clamp(2.5rem, 6vw, 4.5rem);
-      font-weight: normal;
-      letter-spacing: -0.03em;
-      line-height: 1.1;
-      margin-bottom: 1.5rem;
-    }
-    .masthead-desc {
-      max-width: 560px;
+    .topnav-inner {
+      max-width: 1060px;
       margin: 0 auto;
-      color: #c9b8a8;
-      font-size: 1.05rem;
+      padding: 0 32px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
-    .cta-bar {
-      margin-top: 2.5rem;
-      display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;
+    .nav-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.2rem;
+      color: var(--accent);
+      text-decoration: none;
     }
-    .btn {
-      padding: 0.65rem 1.5rem;
+    .nav-links { display: flex; gap: 4px; list-style: none; }
+    .nav-links a {
+      padding: 5px 13px;
+      font-size: .77rem;
+      font-weight: 600;
+      color: var(--muted);
+      text-decoration: none;
       border-radius: 4px;
-      font-family: 'Helvetica Neue', sans-serif;
-      font-size: 0.85rem;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      cursor: pointer;
-      text-transform: uppercase;
+      transition: color .15s, background .15s;
     }
-    .btn-primary {
-      background: var(--accent);
-      color: #fff;
-    }
-    .btn-primary:hover { background: #a84d20; text-decoration: none; }
-    .btn-ghost {
-      border: 1px solid #c9b8a8;
-      color: #c9b8a8;
-    }
-    .btn-ghost:hover { border-color: #fff; color: #fff; text-decoration: none; }
+    .nav-links a:hover { color: var(--text); background: var(--surface2); }
+    .nav-links a.active { color: var(--accent); font-weight: 700; }
 
-    /* Divider */
-    .divider {
-      height: 5px;
-      background: linear-gradient(to right, var(--accent), var(--light-accent), var(--bg2));
+    /* Hero */
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 0 32px;
     }
-
-    /* Content */
-    .container { max-width: 700px; margin: 0 auto; padding: 0 1.5rem; }
-
-    .about-block {
-      padding: 4rem 0 3rem;
+    .hero-inner {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 80px 0 72px;
       display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 3rem;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: end;
+    }
+    @media (max-width: 700px) { .hero-inner { grid-template-columns: 1fr; gap: 32px; } }
+    .hero-left {}
+    .hero-rule {
+      width: 48px;
+      height: 3px;
+      background: var(--accent);
+      margin-bottom: 24px;
+    }
+    .hero-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(3rem, 6vw, 4.8rem);
+      line-height: 1.05;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+    .hero-name em { font-style: italic; color: var(--warm); }
+    .hero-tagline {
+      font-size: .94rem;
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 10px;
+    }
+    .hero-punch {
+      font-family: 'DM Serif Display', serif;
+      font-style: italic;
+      font-size: 1.1rem;
+      color: var(--text);
+      margin-bottom: 32px;
+    }
+    .hero-right {
+      padding-bottom: 8px;
+    }
+    .chip-row { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 6px 14px;
+      font-size: .75rem;
+      font-weight: 600;
+      color: var(--text);
+      text-decoration: none;
+      transition: border-color .15s, background .15s;
+    }
+    .chip:hover { border-color: var(--accent); background: var(--accent-lt); }
+
+    /* Stats */
+    .stats-strip {
+      background: var(--text);
+    }
+    .stats-inner {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 0 32px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .stat {
+      padding: 28px 24px 28px 0;
+      border-right: 1px solid rgba(255,255,255,0.1);
+    }
+    .stat + .stat { padding-left: 24px; }
+    .stat:last-child { border-right: none; }
+    .stat-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.1rem;
+      color: #FFFFFF;
+      line-height: 1;
+      margin-bottom: 5px;
+    }
+    .stat-lbl { font-size: .69rem; font-weight: 600; color: rgba(255,255,255,0.45); }
+    @media (max-width: 600px) {
+      .stats-inner { grid-template-columns: repeat(2, 1fr); }
+      .stat:nth-child(2) { border-right: none; }
+    }
+
+    /* Page body */
+    .page {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 72px 32px 88px;
+      display: flex;
+      flex-direction: column;
+      gap: 80px;
+    }
+
+    /* Section headings */
+    .section-h { margin-bottom: 36px; display: flex; align-items: center; gap: 20px; }
+    .section-h h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2rem;
+      color: var(--text);
+    }
+    .section-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+    .section-tag {
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    /* About */
+    .home-about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
       align-items: start;
     }
-    .about-sidebar {}
-    .about-sidebar h2 {
-      font-family: 'Helvetica Neue', sans-serif;
-      font-size: 0.7rem; font-weight: 700;
-      letter-spacing: 0.15em; text-transform: uppercase;
-      color: var(--accent); margin-bottom: 0.75rem;
+    @media (max-width: 700px) { .home-about { grid-template-columns: 1fr; } }
+    .about-lead {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+      color: var(--text);
+      line-height: 1.4;
+      margin-bottom: 18px;
     }
-    .about-sidebar .meta { font-size: 0.88rem; color: var(--muted); }
-    .about-sidebar .meta p + p { margin-top: 0.4rem; }
-
-    .about-content p { font-size: 1.05rem; }
-    .about-content p + p { margin-top: 0.9rem; }
-    .scifi-note {
-      margin-top: 1.5rem;
-      padding: 1rem 1.25rem;
-      background: var(--bg2);
-      border-left: 3px solid var(--light-accent);
+    .about-lead em { font-style: italic; color: var(--warm); }
+    .about-body { font-size: .9rem; color: var(--muted); line-height: 1.85; margin-top: 14px; }
+    .about-pull {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      padding: 28px 28px 24px;
+    }
+    .about-pull-text {
+      font-family: 'DM Serif Display', serif;
       font-style: italic;
-      font-size: 0.95rem;
-      color: var(--muted);
-      border-radius: 0 4px 4px 0;
+      font-size: 1.1rem;
+      color: var(--text);
+      line-height: 1.6;
+      margin-bottom: 18px;
     }
-
-    /* Work section */
-    .work-section {
-      border-top: 1px solid var(--border);
-      padding: 3.5rem 0;
-    }
-    .work-section h2 {
-      font-family: 'Helvetica Neue', sans-serif;
-      font-size: 0.7rem; font-weight: 700;
-      letter-spacing: 0.15em; text-transform: uppercase;
-      color: var(--accent); margin-bottom: 2rem;
-    }
-
-    .work-item {
-      display: grid;
-      grid-template-columns: 3fr 1fr;
-      gap: 1rem;
-      padding: 1.25rem 0;
-      border-bottom: 1px solid var(--border);
-      align-items: baseline;
-    }
-    .work-item:first-of-type { border-top: 1px solid var(--border); }
-    .work-title { font-size: 1rem; font-weight: normal; color: var(--text); }
-    .work-title:hover { color: var(--accent); }
-    .work-desc { font-size: 0.875rem; color: var(--muted); margin-top: 0.25rem; line-height: 1.55; }
-    .work-tag {
-      text-align: right;
-      font-family: 'Helvetica Neue', sans-serif;
-      font-size: 0.72rem;
-      color: var(--muted);
+    .about-pull-attr {
+      font-size: .7rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: .08em;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
     }
 
+    /* Impact grid */
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    @media (max-width: 700px) { .impact-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 420px) { .impact-grid { grid-template-columns: 1fr; } }
+    .impact-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 26px 22px 22px;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .impact-card:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(0,0,0,.06); }
+    .impact-card .i-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.6rem;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .impact-card .i-desc { font-size: .76rem; color: var(--muted); line-height: 1.5; font-weight: 500; }
+
+    /* Page nav cards */
+    .page-nav-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    @media (max-width: 700px) { .page-nav-grid { grid-template-columns: 1fr; } }
+    .page-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 28px;
+      text-decoration: none;
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: border-color .2s, transform .2s;
+    }
+    .page-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .page-card-icon { font-size: 1.7rem; line-height: 1; }
+    .page-card-label { font-size: .67rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+    .page-card-title { font-family: 'DM Serif Display', serif; font-size: 1.25rem; color: var(--text); }
+    .page-card-desc { font-size: .82rem; color: var(--muted); line-height: 1.65; flex: 1; }
+    .page-card-cta { font-size: .77rem; font-weight: 700; color: var(--accent); }
+
+    /* Footer */
     footer {
-      background: var(--bg2);
-      border-top: 1px solid var(--border);
-      padding: 2.5rem 0;
+      background: var(--text);
+      padding: 56px 32px;
       text-align: center;
-      font-family: 'Helvetica Neue', sans-serif;
-      font-size: 0.85rem;
-      color: var(--muted);
     }
-    footer a { color: var(--muted); }
-    footer a:hover { color: var(--accent); }
-    footer .links { display: flex; justify-content: center; gap: 1.5rem; margin-top: 0.75rem; }
-
-    @media (max-width: 600px) {
-      .about-block { grid-template-columns: 1fr; gap: 1.5rem; }
-      .work-item { grid-template-columns: 1fr; }
-      .work-tag { text-align: left; }
-    }
+    footer .footer-inner { max-width: 1060px; margin: 0 auto; }
+    .footer-name { font-family: 'DM Serif Display', serif; font-size: 1.4rem; color: #fff; margin-bottom: 6px; }
+    .footer-sub { font-size: .8rem; color: rgba(255,255,255,.45); margin-bottom: 24px; }
+    .footer-links { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px; }
+    .footer-link { padding: 10px 24px; border-radius: 4px; text-decoration: none; font-size: .78rem; font-weight: 700; transition: opacity .15s; }
+    .footer-link:hover { opacity: .85; }
+    .footer-link.primary { background: var(--accent); color: #fff; }
+    .footer-link.soft { background: transparent; color: rgba(255,255,255,.55); border: 1px solid rgba(255,255,255,.15); }
+    footer p { font-size: .73rem; color: rgba(255,255,255,.3); }
   </style>
 </head>
 <body>
 
-<div class="masthead">
-  <p class="masthead-eyebrow">Portfolio &amp; Professional Profile</p>
-  <h1>Nabil Arnaoot</h1>
-  <p class="masthead-desc">Business Analytics professional with 20 years in tech — turning data into strategy.</p>
-  <div class="cta-bar">
-    <a href="#projects" class="btn btn-primary">View Projects</a>
-    <a href="https://medium.com/@narnaoot" class="btn btn-ghost" target="_blank">Read on Medium</a>
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="index.html" class="nav-logo">NA</a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="method.html">Method</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="linked_in.html">LinkedIn</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header>
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-rule"></div>
+      <h1 class="hero-name">Nabil <em>Arnaoot</em></h1>
+      <p class="hero-tagline">Business Analyst · Data Storyteller · Translator of Complexity · Builder of What Doesn't Exist Yet</p>
+      <p class="hero-punch">I solve problems so that teams can go.</p>
+    </div>
+    <div class="hero-right">
+      <div class="chip-row">
+        <a class="chip" href="https://www.linkedin.com/in/narnaoot" target="_blank">in Connect on LinkedIn</a>
+        <span class="chip">📍 San Francisco, CA</span>
+        <span class="chip">🍵 Tea, not coffee</span>
+        <span class="chip">🐱 Octavia &amp; Cleopatra</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="stats-strip">
+  <div class="stats-inner">
+    <div class="stat"><div class="stat-num">19+</div><div class="stat-lbl">Years experience</div></div>
+    <div class="stat"><div class="stat-num">300M+</div><div class="stat-lbl">iCloud users at launch</div></div>
+    <div class="stat"><div class="stat-num">300+</div><div class="stat-lbl">Engineers using systems I built</div></div>
+    <div class="stat"><div class="stat-num">40+</div><div class="stat-lbl">Teams collaborated with at Apple</div></div>
   </div>
 </div>
-<div class="divider"></div>
 
-<div class="container">
-  <div class="about-block">
-    <div class="about-sidebar">
-      <h2>Background</h2>
-      <div class="meta">
-        <p>San Francisco, CA</p>
-        <p>MS, Business Analytics</p>
-        <p>Saint Mary's College</p>
-        <p style="margin-top:0.8rem;">20 yrs in tech</p>
-        <p>Business Process Eng.<br>at Apple</p>
-      </div>
-    </div>
-    <div class="about-content">
-      <p>After twenty years in tech, most recently as a Business Process Engineer at Apple, I finished an MS in Business Analytics from Saint Mary's College. My practicum project mapped and analyzed internet access across the US.</p>
-      <p>I like using data to solve problems and guide strategy, and I'm currently looking for work. Drop me a line if you have any cool projects you'd like to collaborate on!</p>
-      <div class="scifi-note">
-        "I'm a passionate reader, and occasional writer, of science fiction — particularly the stuff that explores radically different ways people can live."
-      </div>
-    </div>
-  </div>
+<main class="page">
 
-  <div class="work-section" id="projects">
-    <h2>Data Analytics Projects</h2>
+  <section>
+    <div class="home-about">
+      <div>
+        <p class="about-lead">Data becomes a story. Complexity becomes <em>clarity</em>. Stuck teams get unstuck.</p>
+        <p class="about-body">I'm a business analyst and data storyteller with 19+ years of experience turning messy, ambiguous situations into systems that work — and stories that move people to act.</p>
+        <p class="about-body">I spent seven years at Apple — collaborating with 40+ engineering teams, launching iCloud to 300M+ users, rebuilding kernel update workflows for 500K systems. Now I bring that same approach to San Francisco's transit network at SFMTA.</p>
+        <p class="about-body">University of Chicago, English Literature — that's where the data storytelling instinct was born. MS in Business Analytics (with honors) is where it got sharper.</p>
+      </div>
+      <div class="about-pull">
+        <p class="about-pull-text">"He has the unique ability to walk into an ambiguous situation, quickly grasp the key milestones and action items, identify technical needs that have not been addressed, and get results — all while getting a smile out of everyone in the room."</p>
+        <div class="about-pull-attr">Brianna Gamp · Information Security Leader</div>
+      </div>
+    </div>
+  </section>
 
-    <div class="work-item">
-      <div>
-        <a href="https://public.tableau.com/app/profile/nabil.arnaoot/viz/TheDigitalDivideInternetAccessAcrosstheUS/USAreaswithPoorInternet" target="_blank" class="work-title">The Digital Divide: Internet Access across the US</a>
-        <p class="work-desc">Practicum project for MS degree. Scraped internet plans for all US zip codes, mapped alongside census data for a filterable view of the digital divide.</p>
-      </div>
-      <div class="work-tag">Tableau</div>
+  <section>
+    <div class="section-h">
+      <h2>Impact at a Glance</h2>
+      <div class="section-rule"></div>
+      <span class="section-tag">by the numbers</span>
     </div>
-    <div class="work-item">
-      <div>
-        <a href="https://github.com/narnaoot/explainability/blob/b9040434a80d28159401cdce369c1c43e47e742a/Explainable%20AI.ipynb" target="_blank" class="work-title">Explainability with SHAP</a>
-        <p class="work-desc">Understanding and explaining model predictions using the SHAP package in Python.</p>
-      </div>
-      <div class="work-tag">Python</div>
+    <div class="impact-grid">
+      <div class="impact-card"><div class="i-num" style="color:#C8633A"><span class="count-num" data-count-to="19" data-suffix="+">19+</span></div><div class="i-desc">years of professional experience</div></div>
+      <div class="impact-card"><div class="i-num" style="color:#3D7A57"><span class="count-num" data-count-to="300" data-suffix="M+">300M+</span></div><div class="i-desc">iCloud users supported at launch</div></div>
+      <div class="impact-card"><div class="i-num" style="color:#6A5FA8"><span class="count-num" data-count-to="500" data-suffix="K">500K</span></div><div class="i-desc">systems rebuilt with new kernel update process</div></div>
+      <div class="impact-card"><div class="i-num" style="color:#3D7A57"><span class="count-num" data-count-to="40" data-suffix="+">40+</span></div><div class="i-desc">engineering teams collaborated with at Apple</div></div>
+      <div class="impact-card"><div class="i-num" style="color:#C8633A"><span class="count-num" data-count-to="300" data-suffix="+">300+</span></div><div class="i-desc">engineers using systems I built</div></div>
+      <div class="impact-card"><div class="i-num" style="color:#6A5FA8"><span class="count-num" data-count-to="7" data-suffix="">7</span></div><div class="i-desc">years at Apple across two roles</div></div>
     </div>
-    <div class="work-item">
-      <div>
-        <a href="https://public.tableau.com/app/profile/nabil.arnaoot/viz/SecretGardensofSanFrancisco/SecretGardensofSanFrancisco" target="_blank" class="work-title">Secret Gardens of San Francisco</a>
-        <p class="work-desc">Filterable map and visual exploration of privately-owned public open spaces hidden across the city.</p>
-      </div>
-      <div class="work-tag">Tableau</div>
-    </div>
-    <div class="work-item">
-      <div>
-        <a href="https://github.com/narnaoot/tesla_research/blob/main/TeslaPerceptionsCaseStudy.pdf" target="_blank" class="work-title">Case Study: Perceptions of Tesla</a>
-        <p class="work-desc">Perceptual maps and survey analysis comparing customer perceptions of Tesla's luxury vehicles against competitors.</p>
-      </div>
-      <div class="work-tag">Tableau</div>
-    </div>
-    <div class="work-item">
-      <div>
-        <a href="https://rpubs.com/n4bil/case_study" target="_blank" class="work-title">Case Study: Quality Control with Hypothesis Testing</a>
-        <p class="work-desc">How hypothesis testing maintains quality control in manufacturing. Written in R.</p>
-      </div>
-      <div class="work-tag">R</div>
-    </div>
-  </div>
+  </section>
 
-  <div class="work-section" id="tutorials">
-    <h2>Tutorials</h2>
-    <div class="work-item">
-      <div>
-        <a href="https://medium.com/@narnaoot/mapping-addresses-in-tableau-7e7a6b2e73cf" target="_blank" class="work-title">Mapping Addresses in Tableau</a>
-        <p class="work-desc">Use Tableau Prep to turn street addresses into mappable latitudes and longitudes.</p>
-      </div>
-      <div class="work-tag">Tableau</div>
+  <section>
+    <div class="section-h">
+      <h2>Explore</h2>
+      <div class="section-rule"></div>
+      <span class="section-tag">the full picture</span>
     </div>
-    <div class="work-item">
-      <div>
-        <a href="https://medium.com/@narnaoot/conditional-probability-for-normal-people-139dfcaa9ef8" target="_blank" class="work-title">Conditional Probability for Normal People</a>
-        <p class="work-desc">A clear explanation of one of the trickier concepts in statistics.</p>
-      </div>
-      <div class="work-tag">Statistics</div>
+    <div class="page-nav-grid">
+      <a class="page-card" href="work.html">
+        <div class="page-card-icon">🗂️</div>
+        <div class="page-card-label">Portfolio</div>
+        <div class="page-card-title">Selected Work</div>
+        <div class="page-card-desc">Case studies of real problems solved — from reducing iTunes crashes to mapping San Francisco's secret gardens.</div>
+        <div class="page-card-cta">View work →</div>
+      </a>
+      <a class="page-card" href="method.html">
+        <div class="page-card-icon">🔍</div>
+        <div class="page-card-label">Process</div>
+        <div class="page-card-title">How I Work</div>
+        <div class="page-card-desc">The questions I always ask, the two kinds of problems I solve, and the skills I bring to every engagement.</div>
+        <div class="page-card-cta">See my method →</div>
+      </a>
+      <a class="page-card" href="about.html">
+        <div class="page-card-icon">👤</div>
+        <div class="page-card-label">The Person</div>
+        <div class="page-card-title">About Nabil</div>
+        <div class="page-card-desc">A data portrait of the human behind the analysis — with testimonials, education, and the cats who supervise everything.</div>
+        <div class="page-card-cta">Learn more →</div>
+      </a>
     </div>
-    <div class="work-item">
-      <div>
-        <a href="https://medium.com/@narnaoot" target="_blank" class="work-title">More on Medium →</a>
-        <p class="work-desc"></p>
-      </div>
-      <div class="work-tag"></div>
-    </div>
-  </div>
-</div>
+  </section>
+
+</main>
 
 <footer>
-  <p>Nabil Arnaoot &mdash; San Francisco</p>
-  <div class="links">
-    <a href="https://medium.com/@narnaoot" target="_blank">Medium</a>
-    <a href="https://github.com/narnaoot" target="_blank">GitHub</a>
-    <a href="https://public.tableau.com/app/profile/nabil.arnaoot" target="_blank">Tableau</a>
+  <div class="footer-inner">
+    <div class="footer-name">If you would like to chat</div>
+    <div class="footer-sub">Currently: Principal Business Analyst at SFMTA · San Francisco, CA</div>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/narnaoot" target="_blank" class="footer-link primary">Connect on LinkedIn</a>
+      <a href="linked_in.html" class="footer-link soft">Full Profile</a>
+    </div>
+    <p>Made with curiosity &amp; care</p>
   </div>
 </footer>
 
+<script>
+(function () {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting || entry.target.dataset.counted) return;
+      entry.target.dataset.counted = '1';
+      const target = parseInt(entry.target.dataset.countTo, 10);
+      const suffix = entry.target.dataset.suffix || '';
+      const start = performance.now(), dur = 1400;
+      (function tick(now) {
+        const p = Math.min((now - start) / dur, 1);
+        const e = 1 - Math.pow(1 - p, 3);
+        entry.target.textContent = Math.round(e * target) + suffix;
+        if (p < 1) requestAnimationFrame(tick);
+      })(start);
+    });
+  }, { threshold: 0.4 });
+  document.querySelectorAll('.count-num[data-count-to]').forEach(el => observer.observe(el));
+})();
+</script>
 </body>
 </html>
