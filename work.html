@@ -231,6 +231,25 @@
 <!-- ── Body ─────────────────────────────────────────────── -->
 <main class="page">
 
+  <!-- Career Thread -->
+  <section>
+    <div class="section-h">
+      <h2>Each Role Earned the Next.</h2>
+      <span class="section-tag">career thread</span>
+    </div>
+    <p style="color:var(--muted);font-size:.88rem;margin-bottom:24px;max-width:680px;">
+      Each role contributed something the next one required. Vertical position reflects scope of impact.
+    </p>
+    <div class="chain-outer">
+      <svg id="chainSvg" viewBox="0 0 1010 420" xmlns="http://www.w3.org/2000/svg">
+        <title>Nabil Arnaoot career progression, 2006 to present</title>
+      </svg>
+    </div>
+    <p style="color:var(--muted);font-size:.85rem;margin-top:16px;max-width:680px;font-style:italic;">
+      Managing projects → solving org-wide problems → leading city infrastructure
+    </p>
+  </section>
+
   <!-- Selected Work -->
   <section>
     <div class="section-h">
@@ -341,25 +360,6 @@
     </div>
   </section>
 
-  <!-- Career Thread -->
-  <section>
-    <div class="section-h">
-      <h2>Not a ladder. A through-line.</h2>
-      <span class="section-tag">career thread</span>
-    </div>
-    <p style="color:var(--muted);font-size:.88rem;margin-bottom:24px;max-width:680px;">
-      Each role contributed something the next one required. Vertical position reflects scope of impact.
-    </p>
-    <div class="chain-outer">
-      <svg id="chainSvg" viewBox="0 0 1010 420" xmlns="http://www.w3.org/2000/svg">
-        <title>Nabil Arnaoot career progression, 2006 to present</title>
-      </svg>
-    </div>
-    <p style="color:var(--muted);font-size:.85rem;margin-top:16px;max-width:680px;font-style:italic;">
-      Managing projects → solving org-wide problems → leading city infrastructure
-    </p>
-  </section>
-
 </main>
 
 <!-- ── Footer ────────────────────────────────────────────── -->
@@ -395,9 +395,9 @@
     { x:  102, y: 340, company: 'Elegrity',   title: 'Engr PM',          years: '2006 – 10',              color: '#6A9F7A' },
     { x:  272, y: 308, company: 'eBay',        title: 'Program Mgr',      years: '2010 – 11',              color: '#D4920A' },
     { x:  442, y: 250, company: 'Apple',       title: 'Engr PM',          years: '2011 – 14 · projects',   color: '#4A90D9' },
-    { x:  606, y: 224, company: 'Apple',       title: 'Business Analyst', years: '2014 – 20 · org-wide',   color: '#4A90D9', pivot: true },
+    { x:  606, y: 224, company: 'Apple',       title: 'Process Engineer', years: '2014 – 20 · org-wide',   color: '#4A90D9', pivot: true },
     { x:  778, y: 202, company: "St. Mary's",  title: 'Consultant + MS',  years: '2020 – 24',              color: '#8B7BC8' },
-    { x:  948, y: 116, company: 'SFMTA',       title: 'Principal BA',     years: '2024 – now',             color: '#E8614F', current: true },
+    { x:  948, y: 116, company: 'SFMTA',       title: 'Principal',        title2: 'Business Analyst',      years: '2024 – now', color: '#E8614F', current: true },
   ];
 
   const bridges = [
@@ -477,10 +477,19 @@
     el('rect', { x: lx, y: ty, width: CW, height: CH, rx: '11', fill: 'none', stroke: r.current ? r.color : '#E8DDD0', 'stroke-width': r.current ? '2.5' : '1.5' }, svg);
     const ce = el('text', { x: lx+16, y: ty+28, 'font-family': "'Playfair Display',serif", 'font-size': '18', 'font-weight': '700', fill: '#3D2B1F' }, svg);
     ce.textContent = r.company;
-    const te = el('text', { x: lx+16, y: ty+48, 'font-family': 'Nunito,sans-serif', 'font-size': '13', 'font-weight': '700', fill: '#5A4033' }, svg);
-    te.textContent = r.title;
-    const ye = el('text', { x: lx+16, y: ty+66, 'font-family': 'Nunito,sans-serif', 'font-size': '11', 'font-weight': '600', fill: '#9A8070' }, svg);
-    ye.textContent = r.years;
+    if (r.title2) {
+      const te  = el('text', { x: lx+16, y: ty+43, 'font-family': 'Nunito,sans-serif', 'font-size': '12', 'font-weight': '700', fill: '#5A4033' }, svg);
+      te.textContent = r.title;
+      const te2 = el('text', { x: lx+16, y: ty+57, 'font-family': 'Nunito,sans-serif', 'font-size': '12', 'font-weight': '700', fill: '#5A4033' }, svg);
+      te2.textContent = r.title2;
+      const ye  = el('text', { x: lx+16, y: ty+71, 'font-family': 'Nunito,sans-serif', 'font-size': '10', 'font-weight': '600', fill: '#9A8070' }, svg);
+      ye.textContent = r.years;
+    } else {
+      const te = el('text', { x: lx+16, y: ty+48, 'font-family': 'Nunito,sans-serif', 'font-size': '13', 'font-weight': '700', fill: '#5A4033' }, svg);
+      te.textContent = r.title;
+      const ye = el('text', { x: lx+16, y: ty+66, 'font-family': 'Nunito,sans-serif', 'font-size': '11', 'font-weight': '600', fill: '#9A8070' }, svg);
+      ye.textContent = r.years;
+    }
     if (r.current) {
       el('circle', { cx: lx+CW-16, cy: ty+16, r: '8',  fill: r.color, opacity: '.22' }, svg);
       el('circle', { cx: lx+CW-16, cy: ty+16, r: '4.5', fill: r.color }, svg);
