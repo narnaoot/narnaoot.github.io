@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nabil Arnaoot — Business Analyst & Data Storyteller</title>
+  <title>Nabil Arnaoot — Data Storyteller</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
@@ -29,9 +29,7 @@
       --lav-lt:   #EFECF9;
       --r: 14px;
     }
-
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     body {
       background: var(--bg);
       color: var(--text);
@@ -39,361 +37,356 @@
       line-height: 1.65;
     }
 
-    /* ── Helpers ─────────────────────────────────────────── */
-    .serif { font-family: 'Playfair Display', Georgia, serif; }
-
-    .label {
-      font-size: .7rem;
+    /* ── Top nav ────────────────────────────────────────── */
+    .topnav {
+      background: var(--surface);
+      border-bottom: 1.5px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: 56px;
+      display: flex;
+      align-items: center;
+    }
+    .topnav-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 28px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 900;
+      color: var(--coral);
+      letter-spacing: -0.5px;
+      text-decoration: none;
+    }
+    .nav-links {
+      display: flex;
+      gap: 4px;
+      list-style: none;
+    }
+    .nav-links a {
+      padding: 6px 14px;
+      font-size: .78rem;
       font-weight: 800;
-      letter-spacing: .14em;
+      letter-spacing: .09em;
       text-transform: uppercase;
       color: var(--muted);
-      margin-bottom: 14px;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: color .15s, background .15s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); background: var(--warm2); }
+    @media (max-width: 600px) {
+      .nav-links a { padding: 6px 10px; font-size: .72rem; letter-spacing: .06em; }
     }
 
-    /* ── Layout ─────────────────────────────────────────── */
-    .page { max-width: 1080px; margin: 0 auto; padding: 0 20px 80px; }
-
-    section { margin-top: 64px; }
-
-    .two-col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-    }
-    @media (max-width: 680px) { .two-col { grid-template-columns: 1fr; } }
-
-    /* ── Cards ───────────────────────────────────────────── */
-    .card {
-      background: var(--surface);
-      border: 1.5px solid var(--border);
-      border-radius: var(--r);
-      padding: 28px;
-    }
-
-    /* ── Header ─────────────────────────────────────────── */
+    /* ── Hero ───────────────────────────────────────────── */
     header {
-      background: var(--bg);
-      border-bottom: 1.5px solid var(--border);
-      padding: 56px 20px 52px;
+      background: linear-gradient(160deg, #3D2B1F 0%, #6B3A2A 40%, #B34A38 75%, var(--mustard) 100%);
+      padding: 72px 28px 64px;
       text-align: center;
       position: relative;
+      overflow: hidden;
     }
-    /* subtle dot-grid texture */
     header::before {
       content: '';
       position: absolute; inset: 0;
-      background-image: radial-gradient(var(--border) 1px, transparent 1px);
-      background-size: 24px 24px;
-      opacity: .4;
-      pointer-events: none;
+      background-image: radial-gradient(rgba(255,255,255,.07) 1px, transparent 1px);
+      background-size: 28px 28px;
     }
 
     .avatar-ring {
-      width: 88px; height: 88px;
+      width: 82px; height: 82px;
       border-radius: 50%;
-      background: linear-gradient(135deg, var(--coral), var(--mustard));
+      background: rgba(255,255,255,.12);
+      border: 2.5px solid rgba(255,255,255,.3);
       display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 20px;
-      position: relative;
-    }
-    .avatar-ring span {
+      margin: 0 auto 24px;
       font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      color: #fff;
+      font-size: 1.8rem;
       font-weight: 900;
+      color: rgba(255,255,255,.9);
+      position: relative;
     }
 
     .hero-name {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2.4rem, 6vw, 3.6rem);
+      font-size: clamp(2.6rem, 7vw, 4rem);
       font-weight: 900;
       line-height: 1.1;
-      letter-spacing: -1px;
-      color: var(--text);
-      margin-bottom: 12px;
+      letter-spacing: -1.5px;
+      color: #fff;
+      margin-bottom: 16px;
     }
-    .hero-name em {
-      font-style: italic;
-      color: var(--coral);
-    }
+    .hero-name em { font-style: italic; color: var(--mustard); }
 
     .hero-tagline {
-      font-size: 1rem;
-      color: var(--muted);
-      max-width: 540px;
-      margin: 0 auto 20px;
+      font-size: clamp(.9rem, 2vw, 1.05rem);
+      color: rgba(255,255,255,.75);
       font-weight: 600;
+      max-width: 560px;
+      margin: 0 auto 8px;
+      letter-spacing: .02em;
+    }
+    .hero-punch {
+      font-size: 1rem;
+      color: rgba(255,255,255,.5);
+      font-style: italic;
+      margin-bottom: 32px;
     }
 
     .chip-row {
       display: flex; flex-wrap: wrap;
       gap: 10px; justify-content: center;
-      position: relative;
     }
     .chip {
-      background: var(--surface);
-      border: 1.5px solid var(--border);
+      background: rgba(255,255,255,.12);
+      border: 1.5px solid rgba(255,255,255,.22);
       border-radius: 99px;
-      padding: 5px 16px;
-      font-size: .82rem;
-      font-weight: 700;
-      color: var(--text);
-      text-decoration: none;
-      transition: border-color .2s, background .2s;
-    }
-    .chip:hover { border-color: var(--coral); background: var(--coral-lt); }
-
-    /* ── Career Spiral ───────────────────────────────────── */
-    .spiral-wrap {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    #spiralSvg {
-      width: 100%;
-      max-width: 540px;
-      height: auto;
-    }
-
-    /* ── The Question ────────────────────────────────────── */
-    .question-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 16px;
-    }
-    .q-card {
-      background: var(--warm);
-      border: 1.5px solid var(--border);
-      border-radius: var(--r);
-      padding: 24px;
-      position: relative;
-      overflow: hidden;
-    }
-    .q-card::before {
-      content: '"';
-      font-family: 'Playfair Display', serif;
-      font-size: 6rem;
-      color: var(--coral);
-      opacity: .12;
-      position: absolute;
-      top: -12px; left: 10px;
-      line-height: 1;
-    }
-    .q-text {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.05rem;
-      font-style: italic;
-      color: var(--text);
-      line-height: 1.5;
-      position: relative;
-    }
-    .q-note {
-      font-size: .78rem;
-      color: var(--muted);
-      margin-top: 10px;
-      position: relative;
-    }
-
-    /* ── Duct Tape / Drano ───────────────────────────────── */
-    .dt-drano {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0;
-      border: 1.5px solid var(--border);
-      border-radius: var(--r);
-      overflow: hidden;
-    }
-    @media (max-width: 640px) { .dt-drano { grid-template-columns: 1fr; } }
-
-    .panel {
-      padding: 32px 28px;
-    }
-    .panel-tape { background: var(--coral-lt); }
-    .panel-drain { background: var(--teal-lt); border-left: 1.5px solid var(--border); }
-    @media (max-width: 640px) { .panel-drain { border-left: none; border-top: 1.5px solid var(--border); } }
-
-    .panel-icon { font-size: 2.6rem; margin-bottom: 12px; line-height: 1; }
-
-    .panel-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.45rem;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 4px;
-    }
-    .panel-sub {
-      font-size: .82rem;
-      color: var(--muted);
-      margin-bottom: 16px;
-      font-weight: 700;
-      letter-spacing: .03em;
-    }
-    .panel-tags {
-      display: flex; flex-wrap: wrap; gap: 8px;
-    }
-    .ptag {
-      border-radius: 8px;
-      padding: 5px 12px;
+      padding: 6px 18px;
       font-size: .8rem;
       font-weight: 700;
+      color: rgba(255,255,255,.85);
+      text-decoration: none;
+      transition: background .2s, border-color .2s;
     }
-    .ptag-tape {
-      background: rgba(232,97,79,.14);
-      color: var(--coral);
-      border: 1px solid rgba(232,97,79,.25);
-    }
-    .ptag-drain {
-      background: rgba(45,181,168,.14);
-      color: var(--teal);
-      border: 1px solid rgba(45,181,168,.25);
-    }
-    .panel-note {
-      margin-top: 18px;
-      font-size: .82rem;
-      color: var(--muted);
-      font-style: italic;
-      line-height: 1.5;
-    }
+    .chip:hover { background: rgba(255,255,255,.22); border-color: rgba(255,255,255,.4); }
 
-    /* ── Praise quotes ───────────────────────────────────── */
-    .quotes-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 18px;
-    }
-    .quote-card {
-      background: var(--surface);
-      border: 1.5px solid var(--border);
-      border-radius: var(--r);
-      padding: 24px 24px 20px;
+    /* ── Stats strip ─────────────────────────────────────── */
+    .stats-strip {
+      background: var(--text);
+      padding: 0;
       display: flex;
-      flex-direction: column;
-      gap: 14px;
+      justify-content: center;
     }
-    .quote-mark {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.4rem;
-      color: var(--coral);
-      line-height: .8;
-      opacity: .6;
-    }
-    .quote-text {
-      font-size: .92rem;
-      color: var(--text);
-      line-height: 1.65;
-      flex: 1;
-    }
-    .quote-attr {
-      font-size: .76rem;
-      font-weight: 800;
-      color: var(--muted);
-      letter-spacing: .05em;
-      text-transform: uppercase;
-      border-top: 1px solid var(--border);
-      padding-top: 12px;
-    }
-    .quote-card.special {
-      background: var(--warm);
-      border-color: var(--mustard);
-    }
-
-    /* ── Personal Data Portrait ──────────────────────────── */
-    .portrait-grid {
+    .stats-inner {
+      max-width: 1080px;
+      width: 100%;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 16px;
+      grid-template-columns: repeat(4, 1fr);
     }
-    .portrait-card {
-      background: var(--surface);
-      border: 1.5px solid var(--border);
-      border-radius: var(--r);
+    .stat {
       padding: 22px 20px;
+      text-align: center;
+      border-right: 1px solid rgba(255,255,255,.1);
+    }
+    .stat:last-child { border-right: none; }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--coral);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .stat-lbl {
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.45);
+    }
+    @media (max-width: 600px) {
+      .stats-inner { grid-template-columns: repeat(2, 1fr); }
+      .stat:nth-child(2) { border-right: none; }
+    }
+
+    /* ── Page body ───────────────────────────────────────── */
+    .page {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 60px 28px 80px;
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
-      gap: 10px;
+      gap: 72px;
     }
-    .portrait-card .p-icon { font-size: 1.8rem; line-height: 1; }
-    .portrait-card .p-label {
-      font-size: .68rem;
+
+    /* ── Section headings ────────────────────────────────── */
+    .section-h {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+    }
+    .section-h h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: var(--text);
+    }
+    .section-tag {
+      background: var(--warm2);
+      border: 1.5px solid var(--border);
+      border-radius: 99px;
+      padding: 3px 14px;
+      font-size: .7rem;
       font-weight: 800;
       letter-spacing: .12em;
       text-transform: uppercase;
       color: var(--muted);
     }
-    .portrait-card .p-value {
+
+    /* ── Page nav cards (teasers) ────────────────────────── */
+    .page-nav-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    @media (max-width: 700px) { .page-nav-grid { grid-template-columns: 1fr; } }
+
+    .page-card {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--r);
+      padding: 28px 26px;
+      text-decoration: none;
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      transition: transform .2s, box-shadow .2s, border-color .2s;
+    }
+    .page-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(0,0,0,.08);
+      border-color: var(--coral);
+    }
+    .page-card-icon {
+      font-size: 2rem;
+      line-height: 1;
+    }
+    .page-card-label {
+      font-size: .68rem;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .page-card-title {
       font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       font-weight: 700;
       color: var(--text);
-      line-height: 1.2;
+      line-height: 1.25;
     }
-    .portrait-card .p-note {
-      font-size: .78rem;
+    .page-card-desc {
+      font-size: .84rem;
       color: var(--muted);
-      line-height: 1.4;
+      line-height: 1.6;
+    }
+    .page-card-cta {
+      margin-top: 8px;
+      font-size: .78rem;
+      font-weight: 800;
+      color: var(--coral);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .page-card-accent {
+      height: 4px;
+      border-radius: 99px;
+      margin-bottom: 4px;
     }
 
-    /* Mini bar */
-    .mini-bar-wrap { width: 100%; }
-    .mini-bar-row {
-      display: flex; align-items: center;
-      gap: 8px; margin-bottom: 6px;
+    /* ── About blurb (home) ──────────────────────────────── */
+    .home-about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: center;
     }
-    .mini-bar-label { font-size: .75rem; font-weight: 700; width: 50px; flex-shrink: 0; color: var(--text); }
-    .mini-bar-track {
-      flex: 1; height: 10px;
-      background: var(--border);
-      border-radius: 99px;
+    @media (max-width: 700px) { .home-about { grid-template-columns: 1fr; } }
+
+    .about-lead {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.2rem, 2.5vw, 1.55rem);
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.45;
+      margin-bottom: 18px;
+    }
+    .about-lead em { font-style: italic; color: var(--coral); }
+
+    .about-body {
+      font-size: .92rem;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .about-pull {
+      background: linear-gradient(135deg, var(--coral-lt), var(--must-lt));
+      border: 1.5px solid var(--border);
+      border-radius: var(--r);
+      padding: 36px 32px;
+      position: relative;
       overflow: hidden;
     }
-    .mini-bar-fill {
-      height: 100%;
-      border-radius: 99px;
+    .about-pull::before {
+      content: '"';
+      position: absolute;
+      top: -10px; left: 16px;
+      font-family: 'Playfair Display', serif;
+      font-size: 8rem;
+      color: rgba(232,97,79,.1);
+      line-height: 1;
     }
-
-    /* Cat hearts row */
-    .cat-row {
-      display: flex; gap: 10px; flex-wrap: wrap;
-    }
-    .cat-chip {
-      background: var(--coral-lt);
-      border: 1.5px solid rgba(232,97,79,.25);
-      border-radius: 99px;
-      padding: 5px 14px 5px 10px;
-      font-size: .82rem;
+    .about-pull-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
       font-weight: 700;
-      color: var(--coral);
-      display: flex; align-items: center; gap: 5px;
+      font-style: italic;
+      color: var(--text);
+      line-height: 1.55;
+      position: relative;
+      margin-bottom: 16px;
+    }
+    .about-pull-attr {
+      font-size: .75rem;
+      font-weight: 800;
+      color: var(--muted);
+      letter-spacing: .08em;
+      text-transform: uppercase;
     }
 
-    /* ── Impact ──────────────────────────────────────────── */
+    /* ── Impact counters ─────────────────────────────────── */
     .impact-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 16px;
     }
+    @media (max-width: 700px) { .impact-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 420px) { .impact-grid { grid-template-columns: 1fr; } }
+
     .impact-card {
       background: var(--surface);
       border: 1.5px solid var(--border);
       border-radius: var(--r);
-      padding: 22px 20px 18px;
+      padding: 24px 20px 20px;
       text-align: center;
       position: relative;
       overflow: hidden;
+      transition: transform .2s, box-shadow .2s;
     }
+    .impact-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,.08); }
     .impact-card .i-num {
       font-family: 'Playfair Display', serif;
       font-size: 2.6rem;
       font-weight: 900;
       line-height: 1;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
     }
     .impact-card .i-desc {
-      font-size: .8rem;
+      font-size: .78rem;
       color: var(--muted);
-      line-height: 1.4;
+      line-height: 1.45;
       font-weight: 600;
     }
     .impact-card .i-accent {
@@ -402,635 +395,234 @@
       height: 4px;
     }
 
-    /* ── Education ───────────────────────────────────────── */
-    .edu-row {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 14px;
-    }
-    .edu-card {
-      background: var(--surface);
-      border: 1.5px solid var(--border);
-      border-left: 4px solid var(--mustard);
-      border-radius: var(--r);
-      padding: 18px 18px 16px;
-    }
-    .edu-school { font-weight: 800; font-size: .93rem; margin-bottom: 3px; }
-    .edu-degree { font-size: .83rem; color: var(--teal); font-weight: 700; margin-bottom: 3px; }
-    .edu-year   { font-size: .75rem; color: var(--muted); }
-    .badge {
-      display: inline-block;
-      background: var(--must-lt);
-      color: var(--mustard);
-      border: 1px solid rgba(212,146,10,.3);
-      border-radius: 99px;
-      font-size: .65rem;
-      font-weight: 800;
-      padding: 2px 9px;
-      letter-spacing: .05em;
-      text-transform: uppercase;
-      vertical-align: middle;
-      margin-left: 5px;
-    }
-
-    /* ── Certs ───────────────────────────────────────────── */
-    .cert-list { display: flex; flex-direction: column; gap: 10px; }
-    .cert-item {
-      background: var(--warm);
-      border: 1.5px solid var(--border);
-      border-radius: 10px;
-      padding: 12px 16px;
-      font-size: .85rem;
-      display: flex; align-items: center; gap: 12px;
-      font-weight: 700;
-    }
-    .cert-item .ci-icon { font-size: 1.1rem; }
-    .cert-item .ci-sub { font-size: .74rem; color: var(--muted); font-weight: 600; }
-
     /* ── Footer ──────────────────────────────────────────── */
     footer {
+      background: var(--text);
+      color: rgba(255,255,255,.5);
       text-align: center;
-      padding: 32px 20px;
-      border-top: 1.5px solid var(--border);
-      color: var(--muted);
+      padding: 40px 28px;
       font-size: .82rem;
     }
-    footer a { color: var(--coral); text-decoration: none; font-weight: 700; }
-
-    /* ── Section heading style ───────────────────────────── */
-    .section-h {
-      display: flex;
-      align-items: baseline;
-      gap: 16px;
-      margin-bottom: 22px;
-      flex-wrap: wrap;
-    }
-    .section-h h2 {
+    footer .footer-inner { max-width: 1080px; margin: 0 auto; }
+    .footer-name {
       font-family: 'Playfair Display', serif;
-      font-size: 1.7rem;
+      font-size: 1.4rem;
       font-weight: 900;
-      color: var(--text);
-      line-height: 1.2;
+      color: #fff;
+      margin-bottom: 8px;
     }
-    .section-h .section-tag {
-      background: var(--warm2);
-      border: 1.5px solid var(--border);
+    .footer-links {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 16px 0;
+    }
+    .footer-link {
+      padding: 6px 18px;
       border-radius: 99px;
-      padding: 2px 12px;
-      font-size: .72rem;
+      text-decoration: none;
+      font-size: .8rem;
       font-weight: 800;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      color: var(--muted);
+      transition: opacity .15s;
     }
-
-    /* ── Wavy divider ────────────────────────────────────── */
-    .wave-divider {
-      width: 100%;
-      height: 24px;
-      overflow: hidden;
-      margin: 0;
-      line-height: 0;
-      opacity: .25;
-    }
+    .footer-link:hover { opacity: .8; }
+    .footer-link.primary { background: var(--coral); color: #fff; }
+    .footer-link.soft { background: rgba(255,255,255,.1); color: rgba(255,255,255,.7); }
+    footer p { margin-top: 16px; font-size: .75rem; }
   </style>
 </head>
 <body>
 
-<!-- ════════════════════════════════════════════════════════
-     HEADER
-════════════════════════════════════════════════════════ -->
+<!-- ── Nav ──────────────────────────────────────────────── -->
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="index.html" class="nav-logo">NA</a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="method.html">Method</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="linked_in.html">LinkedIn</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ── Hero ─────────────────────────────────────────────── -->
 <header>
-  <div style="max-width:1080px;margin:0 auto;position:relative;">
-    <div class="avatar-ring"><span>NA</span></div>
-
-    <h1 class="hero-name">
-      Nabil <em>Arnaoot</em>
-    </h1>
-
-    <p class="hero-tagline">
-      Business Analyst &amp; Project Manager · Data Storyteller · Translator of Complexity · Builder of What Doesn't Exist Yet
-    </p>
-    <p class="hero-tagline" style="margin-top:8px; font-style:italic; color:var(--coral);">
-      I solve problems so that teams can go.
-    </p>
-
-    <div class="chip-row">
-      <a class="chip" href="mailto:narnaoot@gmail.com">✉ narnaoot@gmail.com</a>
-      <a class="chip" href="https://www.linkedin.com/in/narnaoot" target="_blank">in LinkedIn</a>
-      <span class="chip" style="pointer-events:none">📍 San Francisco, CA</span>
-      <span class="chip" style="pointer-events:none">🍵 Tea, not coffee</span>
-      <span class="chip" style="pointer-events:none">🐱 Octavia &amp; Cleopatra</span>
-    </div>
+  <div class="avatar-ring">NA</div>
+  <h1 class="hero-name">Nabil <em>Arnaoot</em></h1>
+  <p class="hero-tagline">Business Analyst · Data Storyteller · Translator of Complexity · Builder of What Doesn't Exist Yet</p>
+  <p class="hero-punch">I solve problems so that teams can go.</p>
+  <div class="chip-row">
+    <a class="chip" href="https://www.linkedin.com/in/narnaoot" target="_blank">in Connect on LinkedIn</a>
+    <span class="chip">📍 San Francisco, CA</span>
+    <span class="chip">🍵 Tea, not coffee</span>
+    <span class="chip">🐱 Octavia &amp; Cleopatra</span>
   </div>
 </header>
 
-<!-- ════════════════════════════════════════════════════════
-     MAIN
-════════════════════════════════════════════════════════ -->
-<div class="page">
-
-  <!-- ── The Question ──────────────────────────────────── -->
-  <section>
-    <div class="section-h">
-      <h2>The Question I Always Ask</h2>
-      <span class="section-tag">my signature move</span>
+<!-- ── Stats strip ───────────────────────────────────────── -->
+<div class="stats-strip">
+  <div class="stats-inner">
+    <div class="stat">
+      <div class="stat-num">19+</div>
+      <div class="stat-lbl">Years experience</div>
     </div>
-    <div class="question-cards">
-      <div class="q-card">
-        <div class="q-text">It's six months from now. You are really happy. What has changed?</div>
-        <div class="q-note">This is where we start. The answer tells me everything about what actually matters.</div>
+    <div class="stat">
+      <div class="stat-num">300M+</div>
+      <div class="stat-lbl">iCloud users at launch</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">300+</div>
+      <div class="stat-lbl">Engineers using systems I built</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">40+</div>
+      <div class="stat-lbl">Teams collaborated with at Apple</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Main content ──────────────────────────────────────── -->
+<main class="page">
+
+  <!-- About blurb -->
+  <section>
+    <div class="home-about">
+      <div>
+        <p class="about-lead">Data becomes a story. Complexity becomes <em>clarity</em>. Stuck teams get unstuck.</p>
+        <p class="about-body">
+          I'm a business analyst and data storyteller with 19+ years of experience turning messy, ambiguous situations into systems that work — and stories that move people to act.
+        </p>
+        <p class="about-body" style="margin-top: 14px;">
+          I spent seven years at Apple — collaborating with 40+ engineering teams, launching iCloud to 300M+ users, rebuilding kernel update workflows for 500K systems. Now I bring that same approach to San Francisco's transit network at SFMTA.
+        </p>
+        <p class="about-body" style="margin-top: 14px;">
+          University of Chicago, English Literature — that's where the data storytelling instinct was born. MS in Business Analytics (with honors) is where it got sharper.
+        </p>
       </div>
-      <div class="q-card">
-        <div class="q-text">What is keeping you from getting your work done?</div>
-        <div class="q-note">Not what you want to build — what's in the way right now.</div>
-      </div>
-      <div class="q-card">
-        <div class="q-text">What terrible, manual task do you absolutely hate doing?</div>
-        <div class="q-note">This is where automation and process redesign live.</div>
+      <div class="about-pull">
+        <p class="about-pull-text">"He has the unique ability to walk into an ambiguous situation, quickly grasp the key milestones and action items, identify technical needs that have not been addressed, and get results — all while getting a smile out of everyone in the room."</p>
+        <div class="about-pull-attr">Brianna Gamp · Information Security Leader</div>
       </div>
     </div>
   </section>
 
-  <!-- ── Duct Tape / Drano ──────────────────────────────── -->
-  <section>
-    <div class="section-h">
-      <h2>How I Work</h2>
-      <span class="section-tag">two kinds of problems</span>
-    </div>
-    <div class="dt-drano">
-      <div class="panel panel-tape">
-        <div class="panel-icon">🩹</div>
-        <div class="panel-title">Duct Tape</div>
-        <div class="panel-sub">When something doesn't hold together — I build the structure</div>
-        <div class="panel-tags">
-          <span class="ptag ptag-tape">Siloed teams</span>
-          <span class="ptag ptag-tape">Inconsistent data</span>
-          <span class="ptag ptag-tape">Unclear ownership</span>
-          <span class="ptag ptag-tape">No shared process</span>
-          <span class="ptag ptag-tape">Missing documentation</span>
-          <span class="ptag ptag-tape">Scattered reporting</span>
-        </div>
-        <div class="panel-note">
-          Built processes used by 300+ engineers. Created iCloud's outage tracking system from scratch. Rebuilt kernel update workflow for 500,000 systems.
-        </div>
-      </div>
-      <div class="panel panel-drain">
-        <div class="panel-icon">🪣</div>
-        <div class="panel-title">Drano</div>
-        <div class="panel-sub">When something isn't moving — I clear the path</div>
-        <div class="panel-tags">
-          <span class="ptag ptag-drain">Stuck workflows</span>
-          <span class="ptag ptag-drain">Manual bottlenecks</span>
-          <span class="ptag ptag-drain">Stalled projects</span>
-          <span class="ptag ptag-drain">Buried insights</span>
-          <span class="ptag ptag-drain">Waiting on sign-off</span>
-          <span class="ptag ptag-drain">Technical debt blocking features</span>
-        </div>
-        <div class="panel-note">
-          Love going from 0 to 1. That's an infinite increase. Making people's jobs and lives easier is the whole point.
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── Career Spiral ──────────────────────────────────── -->
-  <section>
-    <div class="section-h">
-      <h2>Career as a Spiral</h2>
-      <span class="section-tag">same themes, deeper each time</span>
-    </div>
-    <p style="color:var(--muted);font-size:.88rem;margin-bottom:24px;max-width:560px;">
-      Leadership, systems, storytelling — they keep reappearing. Each loop is the same conversation at a larger scale.
-    </p>
-    <div class="spiral-wrap card">
-      <svg id="spiralSvg" viewBox="0 0 560 560" xmlns="http://www.w3.org/2000/svg"></svg>
-    </div>
-  </section>
-
-  <!-- ── What People Say ────────────────────────────────── -->
-  <section>
-    <div class="section-h">
-      <h2>What People Say</h2>
-      <span class="section-tag">in their words</span>
-    </div>
-    <div class="quotes-grid">
-
-      <div class="quote-card">
-        <div class="quote-mark">"</div>
-        <div class="quote-text">
-          He has the unique ability to walk into an ambiguous situation, quickly grasp the key milestones and action items, identify technical needs that have not been addressed, and get results — all while getting a smile out of everyone in the room.
-        </div>
-        <div class="quote-attr">Brianna Gamp · Information Security Leader</div>
-      </div>
-
-      <div class="quote-card">
-        <div class="quote-mark">"</div>
-        <div class="quote-text">
-          He's a natural. He takes a large amount of disparate and easily confused data and packages it into an easily understood, easily communicated snapshot of progress. He knows how to ask the right questions and does not relent until he has a clear understanding — but he's not a nuisance to the busy engineer. He has a genuine concern for others.
-        </div>
-        <div class="quote-attr">Robert Mooney · Principal Security Architect</div>
-      </div>
-
-      <div class="quote-card">
-        <div class="quote-mark">"</div>
-        <div class="quote-text">
-          He is an extremely dynamic and versatile program and project manager. Besides being an eloquent speaker and writer, he brings teams together and makes projects successful. If there is a difficult moment in a project, he faces it and resolves it with a unique charm that makes it fun to work with him.
-        </div>
-        <div class="quote-attr">Sneha Phadke · Director, Application Security · eBay</div>
-      </div>
-
-      <div class="quote-card">
-        <div class="quote-mark">"</div>
-        <div class="quote-text">
-          He brought a level of humanity to our team that we sometimes forget. When he leaves, we'll go back to being robots.
-        </div>
-        <div class="quote-attr">Chris Winter · Colleague</div>
-      </div>
-
-      <div class="quote-card">
-        <div class="quote-mark">"</div>
-        <div class="quote-text">
-          A broad-ranging, incisive and inspired mind; relentless passion; bright, glowing kindness; independence of judgment — you don't form your ideas to suit an existing framework, but think the values through until you know what you support deeply.
-        </div>
-        <div class="quote-attr">Frankie Pauncevolt Hill</div>
-      </div>
-
-      <div class="quote-card">
-        <div class="quote-mark">"</div>
-        <div class="quote-text">
-          I really appreciate the way you explain, the way you solve a problem, the way you help us and the way you talk. I've learned a lot of things from you.
-        </div>
-        <div class="quote-attr">Ipsita · MS Cohort, Saint Mary's College</div>
-      </div>
-
-      <div class="quote-card special">
-        <div class="quote-mark" style="color:var(--mustard);">"</div>
-        <div class="quote-text">
-          You mentor others — especially women, people of color, shy folks, young people. You pass on knowledge horizontally and vertically. You like shy cats, and you cannot lie.
-        </div>
-        <div class="quote-attr">Kim · Colleague &amp; Friend</div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ── Personal Data Portrait ─────────────────────────── -->
-  <section>
-    <div class="section-h">
-      <h2>Personal Data Portrait</h2>
-      <span class="section-tag">the human behind the data</span>
-    </div>
-    <div class="portrait-grid">
-
-      <div class="portrait-card">
-        <div class="p-icon">🐱</div>
-        <div class="p-label">Adopted cats</div>
-        <div class="cat-row">
-          <span class="cat-chip">🐾 Octavia</span>
-          <span class="cat-chip">🐾 Cleopatra</span>
-        </div>
-        <div class="p-note">Both started feral. Patience, consistency, and a safe environment make all the difference — for cats and people both.</div>
-      </div>
-
-      <div class="portrait-card">
-        <div class="p-icon">🍵</div>
-        <div class="p-label">Beverage preference</div>
-        <div class="p-value">Tea</div>
-        <div class="mini-bar-wrap">
-          <div class="mini-bar-row">
-            <div class="mini-bar-label">Tea</div>
-            <div class="mini-bar-track">
-              <div class="mini-bar-fill" style="width:100%;background:var(--teal);"></div>
-            </div>
-          </div>
-          <div class="mini-bar-row">
-            <div class="mini-bar-label">Coffee</div>
-            <div class="mini-bar-track">
-              <div class="mini-bar-fill" style="width:0%;background:var(--coral);"></div>
-            </div>
-          </div>
-        </div>
-        <div class="p-note">No contest.</div>
-      </div>
-
-      <div class="portrait-card">
-        <div class="p-icon">📚</div>
-        <div class="p-label">Where I started</div>
-        <div class="p-value">English Lit</div>
-        <div class="p-note">University of Chicago. Structure, voice, audience — I've been thinking about how to tell a good story ever since. Data is just the latest language.</div>
-      </div>
-
-      <div class="portrait-card">
-        <div class="p-icon">∞</div>
-        <div class="p-label">Favorite kind of project</div>
-        <div class="p-value">0 → 1</div>
-        <div class="p-note" style="font-style:italic;color:var(--text);">"0 to 1 is infinite. 1 to a million is less impressive."</div>
-      </div>
-
-      <div class="portrait-card">
-        <div class="p-icon">🌀</div>
-        <div class="p-label">Career shape</div>
-        <div class="p-value">A Spiral</div>
-        <div class="p-note">Leadership, systems, storytelling keep returning — each time at a larger scale and a deeper level.</div>
-      </div>
-
-      <div class="portrait-card">
-        <div class="p-icon">🏙</div>
-        <div class="p-label">Currently making better</div>
-        <div class="p-value">San Francisco's transit</div>
-        <div class="p-note">Business analysis and project management for SFMTA. Proud to work on my city's infrastructure every day.</div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ── Impact ─────────────────────────────────────────── -->
+  <!-- Impact at a Glance -->
   <section>
     <div class="section-h">
       <h2>Impact at a Glance</h2>
+      <span class="section-tag">by the numbers</span>
     </div>
     <div class="impact-grid">
       <div class="impact-card">
-        <div class="i-num" style="color:var(--coral)">19<span style="font-size:1.4rem">+</span></div>
+        <div class="i-num" style="color:var(--coral)"><span class="count-num" data-count-to="19" data-suffix="+">19+</span></div>
         <div class="i-desc">years of professional experience</div>
         <div class="i-accent" style="background:var(--coral)"></div>
       </div>
       <div class="impact-card">
-        <div class="i-num" style="color:var(--teal)">300<span style="font-size:1.4rem">M+</span></div>
+        <div class="i-num" style="color:var(--teal)"><span class="count-num" data-count-to="300" data-suffix="M+">300M+</span></div>
         <div class="i-desc">iCloud users supported at launch</div>
         <div class="i-accent" style="background:var(--teal)"></div>
       </div>
       <div class="impact-card">
-        <div class="i-num" style="color:var(--mustard)">500<span style="font-size:1.4rem">K</span></div>
+        <div class="i-num" style="color:var(--mustard)"><span class="count-num" data-count-to="500" data-suffix="K">500K</span></div>
         <div class="i-desc">systems rebuilt with new kernel update process</div>
         <div class="i-accent" style="background:var(--mustard)"></div>
       </div>
       <div class="impact-card">
-        <div class="i-num" style="color:var(--lavender)">40<span style="font-size:1.4rem">+</span></div>
+        <div class="i-num" style="color:var(--lavender)"><span class="count-num" data-count-to="40" data-suffix="+">40+</span></div>
         <div class="i-desc">engineering teams collaborated with at Apple</div>
         <div class="i-accent" style="background:var(--lavender)"></div>
       </div>
       <div class="impact-card">
-        <div class="i-num" style="color:var(--sage)">300<span style="font-size:1.4rem">+</span></div>
+        <div class="i-num" style="color:var(--sage)"><span class="count-num" data-count-to="300" data-suffix="+">300+</span></div>
         <div class="i-desc">engineers using systems I built</div>
         <div class="i-accent" style="background:var(--sage)"></div>
       </div>
       <div class="impact-card">
-        <div class="i-num" style="color:var(--coral)">7</div>
+        <div class="i-num" style="color:var(--coral)"><span class="count-num" data-count-to="7" data-suffix="">7</span></div>
         <div class="i-desc">years at Apple across two roles</div>
         <div class="i-accent" style="background:var(--coral)"></div>
       </div>
     </div>
   </section>
 
-  <!-- ── Education + Certs ──────────────────────────────── -->
+  <!-- Page navigation cards -->
   <section>
-    <div class="two-col">
+    <div class="section-h">
+      <h2>Explore</h2>
+      <span class="section-tag">the full picture</span>
+    </div>
+    <div class="page-nav-grid">
 
-      <div>
-        <div class="section-h"><h2>Education</h2></div>
-        <div class="edu-row">
-          <div class="edu-card">
-            <div class="edu-school">Saint Mary's College of California <span class="badge">Honors</span></div>
-            <div class="edu-degree">MS, Business Analytics</div>
-            <div class="edu-year">2021 – 2022</div>
-          </div>
-          <div class="edu-card">
-            <div class="edu-school">George Mason University</div>
-            <div class="edu-degree">MS, Information Systems</div>
-            <div class="edu-year"></div>
-          </div>
-          <div class="edu-card">
-            <div class="edu-school">UC Berkeley</div>
-            <div class="edu-degree">Certificate, Data Analytics</div>
-            <div class="edu-year">2018 – 2019</div>
-          </div>
-          <div class="edu-card">
-            <div class="edu-school">University of Chicago</div>
-            <div class="edu-degree">BA, English Literature</div>
-            <div class="edu-year">Where it all began</div>
-          </div>
-        </div>
-      </div>
+      <a class="page-card" href="work.html">
+        <div class="page-card-accent" style="background: linear-gradient(90deg, var(--coral), var(--mustard))"></div>
+        <div class="page-card-icon">🗂️</div>
+        <div class="page-card-label">Portfolio</div>
+        <div class="page-card-title">Selected Work</div>
+        <div class="page-card-desc">Case studies of real problems solved — from reducing iTunes crashes to mapping San Francisco's secret gardens.</div>
+        <div class="page-card-cta">View work →</div>
+      </a>
 
-      <div>
-        <div class="section-h"><h2>Certifications</h2></div>
-        <div class="cert-list">
-          <div class="cert-item">
-            <span class="ci-icon">☁️</span>
-            <div>
-              <div>Google Cloud Essentials</div>
-              <div class="ci-sub">Google Cloud</div>
-            </div>
-          </div>
-          <div class="cert-item">
-            <span class="ci-icon">🤖</span>
-            <div>
-              <div>Baseline: Data, ML &amp; AI</div>
-              <div class="ci-sub">Google</div>
-            </div>
-          </div>
-          <div class="cert-item">
-            <span class="ci-icon">🔬</span>
-            <div>
-              <div>Scientific Data Processing</div>
-              <div class="ci-sub">Microsoft 365</div>
-            </div>
-          </div>
-          <div class="cert-item">
-            <span class="ci-icon">📊</span>
-            <div>
-              <div>Microsoft Excel</div>
-              <div class="ci-sub">Microsoft 365 Apps &amp; Office 2019</div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <a class="page-card" href="method.html">
+        <div class="page-card-accent" style="background: linear-gradient(90deg, var(--teal), var(--lavender))"></div>
+        <div class="page-card-icon">🔍</div>
+        <div class="page-card-label">Process</div>
+        <div class="page-card-title">How I Work</div>
+        <div class="page-card-desc">The questions I always ask, the two kinds of problems I solve, and the skills I bring to every engagement.</div>
+        <div class="page-card-cta">See my method →</div>
+      </a>
+
+      <a class="page-card" href="about.html">
+        <div class="page-card-accent" style="background: linear-gradient(90deg, var(--lavender), var(--sage))"></div>
+        <div class="page-card-icon">👤</div>
+        <div class="page-card-label">The Person</div>
+        <div class="page-card-title">About Nabil</div>
+        <div class="page-card-desc">A data portrait of the human behind the analysis — with testimonials, education, and the cats who supervise everything.</div>
+        <div class="page-card-cta">Learn more →</div>
+      </a>
 
     </div>
   </section>
 
-</div><!-- /page -->
+</main>
 
+<!-- ── Footer ────────────────────────────────────────────── -->
 <footer>
-  Made with curiosity &amp; care ·
-  <a href="https://www.linkedin.com/in/narnaoot" target="_blank">linkedin.com/in/narnaoot</a> ·
-  <a href="mailto:narnaoot@gmail.com">narnaoot@gmail.com</a>
+  <div class="footer-inner">
+    <div class="footer-name">If you would like to chat</div>
+    <div style="font-size:.84rem; color:rgba(255,255,255,.45);">Currently: Principal Business Analyst at SFMTA · San Francisco, CA</div>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/narnaoot" target="_blank" class="footer-link primary">Connect on LinkedIn</a>
+      <a href="linked_in.html" class="footer-link soft">Full Profile</a>
+    </div>
+    <p>Made with curiosity &amp; care</p>
+  </div>
 </footer>
 
-
-<!-- ════════════════════════════════════════════════════════
-     SPIRAL SVG — generated with JavaScript
-════════════════════════════════════════════════════════ -->
 <script>
+// ── Animated impact counters ──────────────────────────────
 (function () {
-  const svg = document.getElementById('spiralSvg');
-  const ns  = 'http://www.w3.org/2000/svg';
-
-  // ── Spiral parameters ─────────────────────────────────
-  const cx = 280, cy = 290;
-  const b  = 21.5;                     // px per radian
-  const T0 = 0.9;                      // start theta (small inner radius)
-  const T1 = 4.65 * Math.PI;           // end theta   (outer edge)
-
-  // ── Year → theta mapping ──────────────────────────────
-  const YEAR_START = 2006;
-  const YEAR_END   = 2026;
-  function yearToTheta(y) {
-    return T0 + (y - YEAR_START) / (YEAR_END - YEAR_START) * (T1 - T0);
-  }
-
-  // ── Theta → SVG point (start at top, grow clockwise) ──
-  function thetaToXY(t) {
-    const r = b * t;
-    // rotate so θ=T0 starts at top
-    const angle = t - Math.PI / 2;
-    return { x: cx + r * Math.cos(angle), y: cy + r * Math.sin(angle) };
-  }
-
-  // ── Draw the spiral path ──────────────────────────────
-  const steps = 600;
-  let d = '';
-  for (let i = 0; i <= steps; i++) {
-    const t = T0 + (T1 - T0) * i / steps;
-    const { x, y } = thetaToXY(t);
-    d += (i === 0 ? `M ${x.toFixed(1)} ${y.toFixed(1)}` : ` L ${x.toFixed(1)} ${y.toFixed(1)}`);
-  }
-
-  const path = document.createElementNS(ns, 'path');
-  path.setAttribute('d', d);
-  path.setAttribute('fill', 'none');
-  path.setAttribute('stroke', '#E8DDD0');
-  path.setAttribute('stroke-width', '2.5');
-  path.setAttribute('stroke-linecap', 'round');
-  svg.appendChild(path);
-
-  // ── Jobs ──────────────────────────────────────────────
-  const jobs = [
-    { year: 2006.9, label: 'Elegrity',    role: 'Engr PM',          color: '#6A9F7A', labelSide: 'right' },
-    { year: 2010.0, label: 'eBay',        role: 'Program Manager',  color: '#D4920A', labelSide: 'left'  },
-    { year: 2011.4, label: 'Apple',       role: 'Engr PM',          color: '#4A90D9', labelSide: 'right' },
-    { year: 2014.8, label: 'Apple',       role: 'BA / BPE',         color: '#4A90D9', labelSide: 'left'  },
-    { year: 2020.0, label: "St. Mary's",  role: 'Consultant + MS ✦', color: '#8B7BC8', labelSide: 'right' },
-    { year: 2024.3, label: 'SFMTA',       role: 'Principal BA',     color: '#E8614F', labelSide: 'left', current: true },
-  ];
-
-  // Recurring themes to annotate along the spiral
-  const themes = [
-    { theta: T0 + (T1-T0)*0.08, text: 'storytelling begins', color: '#9A8070' },
-    { theta: T0 + (T1-T0)*0.3,  text: 'cross-functional',    color: '#9A8070' },
-    { theta: T0 + (T1-T0)*0.5,  text: 'systems thinking',    color: '#9A8070' },
-    { theta: T0 + (T1-T0)*0.72, text: 'data &amp; analysis', color: '#9A8070' },
-    { theta: T0 + (T1-T0)*0.92, text: 'leadership',          color: '#9A8070' },
-  ];
-
-  // Draw theme annotations (small italic text on the spiral itself)
-  themes.forEach(th => {
-    const { x, y } = thetaToXY(th.theta);
-    const tEl = document.createElementNS(ns, 'text');
-    tEl.setAttribute('x', x);
-    tEl.setAttribute('y', y - 9);
-    tEl.setAttribute('font-family', "'Nunito', sans-serif");
-    tEl.setAttribute('font-size', '8');
-    tEl.setAttribute('fill', th.color);
-    tEl.setAttribute('text-anchor', 'middle');
-    tEl.setAttribute('font-style', 'italic');
-    tEl.innerHTML = th.text;
-    svg.appendChild(tEl);
-  });
-
-  // Draw job stops
-  jobs.forEach(job => {
-    const t    = yearToTheta(job.year);
-    const { x, y } = thetaToXY(t);
-    const side = job.labelSide === 'right' ? 1 : -1;
-    const lx   = x + side * 16;
-    const anchor = side > 0 ? 'start' : 'end';
-
-    // Pulse ring for current job
-    if (job.current) {
-      const ring = document.createElementNS(ns, 'circle');
-      ring.setAttribute('cx', x);
-      ring.setAttribute('cy', y);
-      ring.setAttribute('r', '11');
-      ring.setAttribute('fill', 'none');
-      ring.setAttribute('stroke', job.color);
-      ring.setAttribute('stroke-width', '1.5');
-      ring.setAttribute('opacity', '0.4');
-      svg.appendChild(ring);
-    }
-
-    // Dot
-    const dot = document.createElementNS(ns, 'circle');
-    dot.setAttribute('cx', x);
-    dot.setAttribute('cy', y);
-    dot.setAttribute('r', job.current ? '7' : '5.5');
-    dot.setAttribute('fill', job.color);
-    dot.setAttribute('stroke', '#FFFBF5');
-    dot.setAttribute('stroke-width', '2');
-    svg.appendChild(dot);
-
-    // Connector line
-    const line = document.createElementNS(ns, 'line');
-    line.setAttribute('x1', x);
-    line.setAttribute('y1', y);
-    line.setAttribute('x2', x + side * 13);
-    line.setAttribute('y2', y);
-    line.setAttribute('stroke', job.color);
-    line.setAttribute('stroke-width', '1');
-    line.setAttribute('opacity', '0.5');
-    svg.appendChild(line);
-
-    // Company name
-    const nameEl = document.createElementNS(ns, 'text');
-    nameEl.setAttribute('x', lx);
-    nameEl.setAttribute('y', y - 3);
-    nameEl.setAttribute('font-family', "'Playfair Display', serif");
-    nameEl.setAttribute('font-size', job.current ? '13' : '11');
-    nameEl.setAttribute('font-weight', '700');
-    nameEl.setAttribute('fill', job.color);
-    nameEl.setAttribute('text-anchor', anchor);
-    nameEl.textContent = job.label;
-    svg.appendChild(nameEl);
-
-    // Role
-    const roleEl = document.createElementNS(ns, 'text');
-    roleEl.setAttribute('x', lx);
-    roleEl.setAttribute('y', y + 10);
-    roleEl.setAttribute('font-family', "'Nunito', sans-serif");
-    roleEl.setAttribute('font-size', '8.5');
-    roleEl.setAttribute('fill', '#9A8070');
-    roleEl.setAttribute('text-anchor', anchor);
-    roleEl.textContent = job.role;
-    svg.appendChild(roleEl);
-
-    // Year
-    const yearEl = document.createElementNS(ns, 'text');
-    yearEl.setAttribute('x', lx);
-    yearEl.setAttribute('y', y + 21);
-    yearEl.setAttribute('font-family', "'Nunito', sans-serif");
-    yearEl.setAttribute('font-size', '7.5');
-    yearEl.setAttribute('fill', '#BFB0A5');
-    yearEl.setAttribute('text-anchor', anchor);
-    yearEl.textContent = Math.floor(job.year);
-    svg.appendChild(yearEl);
-  });
-
-  // ── Center label ─────────────────────────────────────
-  const cLabel = document.createElementNS(ns, 'text');
-  cLabel.setAttribute('x', cx);
-  cLabel.setAttribute('y', cy + 4);
-  cLabel.setAttribute('font-family', "'Nunito', sans-serif");
-  cLabel.setAttribute('font-size', '9');
-  cLabel.setAttribute('fill', '#BFB0A5');
-  cLabel.setAttribute('text-anchor', 'middle');
-  cLabel.setAttribute('font-style', 'italic');
-  cLabel.textContent = '2006 →';
-  svg.appendChild(cLabel);
-
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting || entry.target.dataset.counted) return;
+      entry.target.dataset.counted = '1';
+      const target = parseInt(entry.target.dataset.countTo, 10);
+      const suffix = entry.target.dataset.suffix || '';
+      const start  = performance.now();
+      const dur    = 1400;
+      (function tick(now) {
+        const p = Math.min((now - start) / dur, 1);
+        const e = 1 - Math.pow(1 - p, 3);
+        entry.target.textContent = Math.round(e * target) + suffix;
+        if (p < 1) requestAnimationFrame(tick);
+      })(start);
+    });
+  }, { threshold: 0.4 });
+  document.querySelectorAll('.count-num[data-count-to]').forEach(el => observer.observe(el));
 })();
 </script>
-
 </body>
 </html>
