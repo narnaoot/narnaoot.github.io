@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Career Depth — Design B: Rising Tides</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #F6F0E8;
+      min-height: 100vh;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      font-family: 'Nunito', sans-serif;
+      padding: 36px 16px;
+    }
+    .badge { background: #4AA888; color: #fff; font-size: .68rem; font-weight: 800;
+      letter-spacing: .1em; text-transform: uppercase; padding: 3px 11px;
+      border-radius: 20px; margin-bottom: 10px; display: inline-block; }
+    h1 { font-family: 'Playfair Display', serif; font-size: 1.7rem; color: #2E2218; margin-bottom: 6px; }
+    .sub { font-size: .87rem; color: #9A8070; max-width: 460px; text-align: center;
+      line-height: 1.6; margin-bottom: 28px; }
+    svg { display: block; max-width: 100%; }
+    .note { font-style: italic; color: #9A8070; font-size: .78rem; margin-top: 12px; text-align: center; }
+  </style>
+</head>
+<body>
+  <span class="badge">Design B</span>
+  <h1>Rising Tides</h1>
+  <p class="sub">Each theme flows as a river band across time. Watch how the shape of the stream shifts — data &amp; analysis rises like a tide, leadership swells in the final years, storytelling remains the constant foundation.</p>
+  <svg id="viz" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" width="640" height="480"></svg>
+  <p class="note">Band height = prominence of that theme in a given year · Total stack = 100%</p>
+
+<script>
+(function () {
+  const svg = document.getElementById('viz');
+  const ns  = 'http://www.w3.org/2000/svg';
+
+  function mk(tag, a) {
+    const e = document.createElementNS(ns, tag);
+    for (const [k,v] of Object.entries(a)) e.setAttribute(k, v);
+    return e;
+  }
+  function ap(p, tag, a) { const e = mk(tag, a); p.appendChild(e); return e; }
+
+  // Chart area
+  const PL = 52, PR = 18, PT = 40, PB = 64;
+  const W  = 640 - PL - PR;  // 570
+  const H  = 480 - PT - PB;  // 376
+
+  const YEARS = [2006, 2008, 2010, 2011, 2013, 2015, 2017, 2019, 2020, 2022, 2024];
+  function xOf(yr) { return PL + (yr - 2006) / (2024 - 2006) * W; }
+  // Stack goes upward: y=PT+H is baseline (bottom), y=PT is top
+  function yOf(pct) { return PT + H - pct / 100 * H; }
+
+  // Theme data — prominence per year (sum to 100 each year)
+  const THEMES = [
+    {
+      label: 'storytelling', color: '#E8A040', opacity: 0.88,
+      //       06  08  10  11  13  15  17  19  20  22  24
+      vals: [  32, 30, 27, 27, 25, 23, 20, 19, 18, 19, 20 ],
+    },
+    {
+      label: 'cross-functional', color: '#4AA888', opacity: 0.85,
+      vals: [  24, 23, 24, 22, 21, 20, 18, 16, 14, 13, 14 ],
+    },
+    {
+      label: 'systems thinking', color: '#4878C8', opacity: 0.85,
+      vals: [  22, 21, 20, 22, 24, 24, 22, 20, 20, 19, 20 ],
+    },
+    {
+      label: 'data & analysis', color: '#9058C8', opacity: 0.88,
+      vals: [  12, 14, 17, 17, 19, 24, 28, 32, 37, 32, 28 ],
+    },
+    {
+      label: 'leadership', color: '#E04848', opacity: 0.88,
+      vals: [  10, 12, 12, 12, 11,  9, 12, 13, 11, 17, 18 ],
+    },
+  ];
+
+  // Compute cumulative stacks
+  const n = YEARS.length;
+  const cum = Array.from({ length: THEMES.length + 1 }, () => new Array(n).fill(0));
+  THEMES.forEach((th, ti) => {
+    th.vals.forEach((v, xi) => { cum[ti+1][xi] = cum[ti][xi] + v; });
+  });
+
+  // Smooth cubic bezier through points (horizontal tension)
+  function smoothLine(pts) {
+    let d = `M ${pts[0].x.toFixed(1)} ${pts[0].y.toFixed(1)}`;
+    for (let i = 0; i < pts.length - 1; i++) {
+      const a = pts[i], b = pts[i+1];
+      const cpx = (a.x + b.x) / 2;
+      d += ` C ${cpx.toFixed(1)} ${a.y.toFixed(1)}, ${cpx.toFixed(1)} ${b.y.toFixed(1)}, ${b.x.toFixed(1)} ${b.y.toFixed(1)}`;
+    }
+    return d;
+  }
+
+  function bandPath(topCum, botCum) {
+    const top = YEARS.map((yr, xi) => ({ x: xOf(yr), y: yOf(topCum[xi]) }));
+    const bot = YEARS.map((yr, xi) => ({ x: xOf(yr), y: yOf(botCum[xi]) })).reverse();
+    return smoothLine(top) + ' L ' + bot.map(p => `${p.x.toFixed(1)} ${p.y.toFixed(1)}`).join(' L ') + ' Z';
+    // Note: bottom edge going backward — use straight lines for the bottom of each band
+    // This gives a cleaner, more readable shape than double smooth
+  }
+
+  // ── Background ─────────────────────────────────────────
+  ap(svg, 'rect', { x: 0, y: 0, width: 640, height: 480, fill: '#EDE4D4', rx: 12 });
+  ap(svg, 'rect', { x: PL, y: PT, width: W, height: H, fill: '#E8E0D0', rx: 4 });
+
+  // ── Draw bands bottom to top ───────────────────────────
+  THEMES.forEach((th, ti) => {
+    // Use smooth top, straight-line bottom (reversed)
+    const top = YEARS.map((yr, xi) => ({ x: xOf(yr), y: yOf(cum[ti+1][xi]) }));
+    const bot = YEARS.map((yr, xi) => ({ x: xOf(yr), y: yOf(cum[ti][xi]) }));
+
+    // Build path: smooth top edge forward, straight lines back along bottom
+    let d = smoothLine(top);
+    d += ` L ${bot[bot.length-1].x.toFixed(1)} ${bot[bot.length-1].y.toFixed(1)}`;
+    for (let i = bot.length - 2; i >= 0; i--) {
+      d += ` C ${((bot[i].x + bot[i+1].x)/2).toFixed(1)} ${bot[i+1].y.toFixed(1)}, ${((bot[i].x + bot[i+1].x)/2).toFixed(1)} ${bot[i].y.toFixed(1)}, ${bot[i].x.toFixed(1)} ${bot[i].y.toFixed(1)}`;
+    }
+    d += ' Z';
+
+    ap(svg, 'path', { d, fill: th.color, opacity: th.opacity });
+    // Subtle top edge highlight
+    ap(svg, 'path', { d: smoothLine(top), fill: 'none', stroke: '#FFFFFF', 'stroke-width': '1.2', opacity: '0.4' });
+  });
+
+  // ── Theme labels (at rightmost x, midpoint of band) ───
+  THEMES.forEach((th, ti) => {
+    const xi = n - 1;
+    const midY = yOf((cum[ti][xi] + cum[ti+1][xi]) / 2);
+    const labelX = PL + W + 6;
+    // Only label if band is tall enough to read
+    const bandH = Math.abs(yOf(cum[ti+1][xi]) - yOf(cum[ti][xi]));
+    if (bandH < 12) return;
+    const lEl = mk('text', {
+      x: (PL + W - 6).toFixed(1), y: midY.toFixed(1),
+      'font-family': "'Nunito', sans-serif",
+      'font-size': bandH > 40 ? '11' : '9',
+      'font-weight': '700',
+      fill: '#FFFFFF',
+      'text-anchor': 'end',
+      'dominant-baseline': 'middle',
+      'paint-order': 'stroke',
+      stroke: 'rgba(0,0,0,0.25)',
+      'stroke-width': '3',
+    });
+    lEl.textContent = th.label;
+    svg.appendChild(lEl);
+  });
+
+  // ── Company milestone lines ────────────────────────────
+  const MILESTONES = [
+    { yr: 2006,   label: 'Elegrity', color: '#6A9F7A' },
+    { yr: 2010,   label: 'eBay',     color: '#D4920A' },
+    { yr: 2011.4, label: 'Apple',    color: '#4A90D9' },
+    { yr: 2014.8, label: 'Apple II', color: '#4A90D9' },
+    { yr: 2020,   label: "St.M's",   color: '#8B7BC8' },
+    { yr: 2024,   label: 'SFMTA',    color: '#E8614F' },
+  ];
+
+  MILESTONES.forEach((m, mi) => {
+    const mx = xOf(m.yr);
+    // Dashed vertical line
+    ap(svg, 'line', {
+      x1: mx.toFixed(1), y1: PT,
+      x2: mx.toFixed(1), y2: (PT + H + 6).toFixed(1),
+      stroke: m.color, 'stroke-width': '1.5',
+      'stroke-dasharray': m.yr === 2024 ? 'none' : '4,3',
+      opacity: '0.7',
+    });
+    // Label below axis
+    const lEl = mk('text', {
+      x: mx.toFixed(1), y: (PT + H + 20).toFixed(1),
+      'font-family': "'Nunito', sans-serif", 'font-size': '9', 'font-weight': '700',
+      fill: m.color, 'text-anchor': 'middle',
+    });
+    lEl.textContent = m.label;
+    svg.appendChild(lEl);
+    const yEl = mk('text', {
+      x: mx.toFixed(1), y: (PT + H + 31).toFixed(1),
+      'font-family': "'Nunito', sans-serif", 'font-size': '7.5',
+      fill: '#9A8070', 'text-anchor': 'middle',
+    });
+    yEl.textContent = Math.floor(m.yr);
+    svg.appendChild(yEl);
+  });
+
+  // ── Y-axis label ───────────────────────────────────────
+  const yAxisEl = mk('text', {
+    x: '14', y: f(PT + H/2),
+    'font-family': "'Nunito', sans-serif", 'font-size': '9',
+    fill: '#9A8070', 'text-anchor': 'middle',
+    transform: `rotate(-90, 14, ${PT + H/2})`,
+    'font-style': 'italic',
+  });
+  yAxisEl.textContent = 'theme prominence →';
+  svg.appendChild(yAxisEl);
+
+  function f(n) { return n.toFixed(1); }
+
+  // ── Depth arrow ───────────────────────────────────────
+  // Gradient bar showing "deepening" at the bottom
+  const defs = mk('defs', {});
+  const grad = mk('linearGradient', { id: 'depthGrad', x1:'0', x2:'1', y1:'0', y2:'0' });
+  const s1 = mk('stop', { offset:'0%',   'stop-color':'#C8C0B0', 'stop-opacity':'0.5' });
+  const s2 = mk('stop', { offset:'100%', 'stop-color':'#6A5848', 'stop-opacity':'0.9' });
+  grad.appendChild(s1); grad.appendChild(s2); defs.appendChild(grad);
+  svg.insertBefore(defs, svg.firstChild);
+
+  ap(svg, 'rect', { x: PL, y: (PT+H+46).toFixed(1), width: W, height: 6, fill: 'url(#depthGrad)', rx: 3 });
+  const depthEl = mk('text', {
+    x: f(PL + W/2), y: (PT+H+60).toFixed(1),
+    'font-family': "'Nunito', sans-serif", 'font-size': '9', 'font-style': 'italic',
+    fill: '#9A8070', 'text-anchor': 'middle',
+  });
+  depthEl.textContent = '← earlier career                    expertise deepens →';
+  svg.appendChild(depthEl);
+
+  // Chart border
+  ap(svg, 'rect', { x: PL, y: PT, width: W, height: H, fill: 'none', stroke: '#D0C4B4', 'stroke-width': '1' });
+
+})();
+</script>
+</body>
+</html>

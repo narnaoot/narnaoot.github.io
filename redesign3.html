@@ -1,0 +1,1646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nabil Arnaoot — n4bil</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:          #141414;
+    --paper:        #F6F2EB;
+    --warm-white:   #FDFAF5;
+    --sidebar-bg:   #141414;
+    --accent:       #C85427;
+    --accent-light: #FDF2EE;
+    --muted:        #888888;
+    --border:       #E0DAD0;
+    --card-bg:      #FFFFFF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    font-family: 'Inter', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    overflow-x: hidden;
+  }
+
+  /* ============================================================
+     LAYOUT
+  ============================================================ */
+  .layout {
+    display: flex;
+    min-height: 100vh;
+  }
+
+  /* ============================================================
+     SIDEBAR
+  ============================================================ */
+  .sidebar {
+    width: 240px;
+    flex-shrink: 0;
+    background: var(--sidebar-bg);
+    color: white;
+    position: fixed;
+    top: 0; left: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 2.5rem 2rem;
+    z-index: 100;
+  }
+
+  .sidebar-brand { margin-bottom: 3rem; }
+
+  .sidebar-logo {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 2rem;
+    color: white;
+    text-decoration: none;
+    letter-spacing: -1px;
+    cursor: pointer;
+    display: block;
+    transition: color 0.2s;
+  }
+  .sidebar-logo:hover { color: var(--accent); }
+
+  .sidebar-tagline {
+    font-size: 0.7rem;
+    color: #666;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-top: 0.35rem;
+  }
+
+  .sidebar-nav {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    flex: 1;
+  }
+
+  .sidebar-nav a {
+    display: block;
+    color: #999;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    padding: 0.45rem 0;
+    border-bottom: 1px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .sidebar-nav a:hover { color: white; border-bottom-color: var(--accent); }
+
+  .sidebar-divider { height: 1px; background: #252525; margin: 1.5rem 0; }
+
+  .sidebar-social {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+  }
+
+  .sidebar-social a {
+    color: #666;
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    transition: color 0.2s;
+  }
+  .sidebar-social a:hover { color: var(--accent); }
+
+  .sidebar-contact {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #252525;
+  }
+
+  .sidebar-email-btn {
+    display: block;
+    background: var(--accent);
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    padding: 0.65rem 1rem;
+    border-radius: 3px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: opacity 0.2s;
+  }
+  .sidebar-email-btn:hover { opacity: 0.82; }
+
+  /* ============================================================
+     MAIN
+  ============================================================ */
+  .main {
+    margin-left: 240px;
+    flex: 1;
+    min-height: 100vh;
+  }
+
+  .page { display: none; }
+  .page.active { display: block; }
+
+  /* ============================================================
+     HERO
+  ============================================================ */
+  .hero {
+    padding: 6rem 5rem 5rem;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 2.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+  .hero-label::after {
+    content: '';
+    display: inline-block;
+    width: 40px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  .hero-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 5.5vw, 5.5rem);
+    font-weight: 900;
+    line-height: 1.05;
+    color: var(--ink);
+    max-width: 780px;
+    margin-bottom: 2.5rem;
+  }
+  .hero-headline em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-bio {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: #555;
+    max-width: 520px;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+  }
+
+  .hero-meta {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .hero-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.82rem;
+    color: var(--muted);
+    font-weight: 500;
+  }
+  .hero-meta-item .dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .hero-scroll-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--ink);
+    cursor: pointer;
+    background: none;
+    border: none;
+    letter-spacing: 1.5px;
+    padding: 0;
+    text-transform: uppercase;
+    transition: gap 0.2s;
+  }
+  .hero-scroll-cta:hover { gap: 1.1rem; }
+  .hero-scroll-cta .arrow-circle {
+    display: inline-flex;
+    width: 34px;
+    height: 34px;
+    border: 1.5px solid var(--ink);
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+    transition: background 0.2s, color 0.2s;
+  }
+  .hero-scroll-cta:hover .arrow-circle {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: white;
+  }
+
+  .hero-bg-text {
+    position: absolute;
+    bottom: -2rem;
+    right: -1rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 18rem;
+    font-weight: 900;
+    color: var(--border);
+    opacity: 0.35;
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  /* ============================================================
+     WORK SECTION & BENTO GRID
+  ============================================================ */
+  .work-section {
+    padding: 4rem 5rem 6rem;
+  }
+
+  .section-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+    max-width: 60px;
+  }
+
+  .bento-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+  }
+
+  /* Row 1: Crashes wide (span 2) + Gardens (span 1) */
+  /* Row 2: SHAP + Unicorns + Probability (all span 1) */
+
+  .bento-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 2rem;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.22s, box-shadow 0.22s, border-color 0.22s;
+    display: flex;
+    flex-direction: column;
+    min-height: 230px;
+  }
+  .bento-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.09);
+    border-color: var(--accent);
+  }
+  .bento-card.wide { grid-column: span 2; }
+
+  .bento-card.dark {
+    background: var(--ink);
+    color: white;
+    border-color: var(--ink);
+  }
+
+  .bento-watermark {
+    position: absolute;
+    top: -1.5rem;
+    right: 0.8rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 9rem;
+    font-weight: 900;
+    color: var(--border);
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+    opacity: 0.5;
+    transition: opacity 0.22s;
+  }
+  .bento-card:hover .bento-watermark { opacity: 0.8; }
+  .bento-card.dark .bento-watermark { color: #2A2A2A; opacity: 0.7; }
+
+  .bento-num {
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: var(--muted);
+    letter-spacing: 1px;
+    margin-bottom: auto;
+  }
+  .bento-card.dark .bento-num { color: #555; }
+
+  .bento-body {
+    margin-top: 2.5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .bento-category {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .bento-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 0.7rem;
+    color: var(--ink);
+  }
+  .bento-card.dark .bento-title { color: white; }
+
+  .bento-desc {
+    font-size: 0.82rem;
+    line-height: 1.65;
+    color: var(--muted);
+    margin-bottom: 1.3rem;
+  }
+  .bento-card.dark .bento-desc { color: #999; }
+
+  .bento-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .bento-tags {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+  }
+
+  .bento-tag {
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 0.18rem 0.5rem;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    color: var(--muted);
+  }
+  .bento-card.dark .bento-tag { border-color: #303030; color: #666; }
+
+  .bento-arrow {
+    width: 30px;
+    height: 30px;
+    border: 1.5px solid var(--border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    color: var(--muted);
+    flex-shrink: 0;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+  }
+  .bento-card:hover .bento-arrow {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+  }
+
+  /* ============================================================
+     HOME CONTACT STRIP
+  ============================================================ */
+  .home-contact {
+    background: var(--ink);
+    color: white;
+    padding: 5rem;
+  }
+
+  .home-contact-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+  }
+
+  .home-contact h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3.5vw, 3.2rem);
+    font-weight: 700;
+    line-height: 1.15;
+    max-width: 560px;
+    margin-bottom: 1.2rem;
+  }
+
+  .home-contact p {
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    max-width: 460px;
+    margin-bottom: 2.5rem;
+    font-weight: 400;
+  }
+
+  .home-contact-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    background: var(--accent);
+    color: white;
+    text-decoration: none;
+    padding: 0.85rem 2rem;
+    border-radius: 3px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    transition: opacity 0.2s;
+  }
+  .home-contact-cta:hover { opacity: 0.82; }
+
+  /* ============================================================
+     PROJECT PAGES
+  ============================================================ */
+  .project-view {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 4rem 3rem 6rem;
+  }
+
+  .proj-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--muted);
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    margin-bottom: 3rem;
+    transition: color 0.2s;
+  }
+  .proj-back:hover { color: var(--accent); }
+
+  .proj-category {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+
+  .proj-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 4vw, 3.4rem);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 1.2rem;
+    color: var(--ink);
+  }
+
+  .proj-lead {
+    font-size: 1.1rem;
+    line-height: 1.75;
+    color: #555;
+    max-width: 640px;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+  }
+
+  .proj-rule {
+    height: 2px;
+    background: var(--border);
+    margin: 2.5rem 0;
+    position: relative;
+  }
+  .proj-rule::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0;
+    height: 2px;
+    width: 72px;
+    background: var(--accent);
+  }
+
+  .proj-body h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.45rem;
+    font-weight: 700;
+    margin: 2.5rem 0 0.8rem;
+    color: var(--ink);
+  }
+
+  .proj-body p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 1rem;
+  }
+
+  .proj-body ul {
+    margin: 0.5rem 0 1rem 1.2rem;
+    line-height: 1.8;
+    color: #444;
+  }
+
+  .proj-body li { margin-bottom: 0.3rem; }
+
+  .proj-body code {
+    background: #F0EBE0;
+    padding: 0.15rem 0.4rem;
+    border-radius: 3px;
+    font-size: 0.9em;
+    font-family: 'Courier New', monospace;
+  }
+
+  .proj-body pre {
+    background: var(--ink);
+    color: #f8f8f2;
+    padding: 1.4rem 1.6rem;
+    border-radius: 3px;
+    overflow-x: auto;
+    margin: 1.2rem 0;
+    font-size: 0.87rem;
+    line-height: 1.65;
+    border-left: 3px solid var(--accent);
+  }
+
+  .proj-body pre code {
+    background: none;
+    padding: 0;
+    color: inherit;
+  }
+
+  .pull-quote {
+    border-left: 3px solid var(--accent);
+    padding: 1rem 1.5rem;
+    margin: 2rem 0;
+    background: var(--accent-light);
+    border-radius: 0 3px 3px 0;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.7;
+    font-size: 0.97rem;
+  }
+
+  .info-box {
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    position: relative;
+    background: var(--warm-white);
+  }
+
+  .info-box-label {
+    position: absolute;
+    top: -10px; left: 1rem;
+    background: var(--accent);
+    color: white;
+    padding: 0.1rem 0.7rem;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-radius: 2px;
+  }
+
+  .data-highlight {
+    display: inline-block;
+    background: var(--ink);
+    color: white;
+    padding: 0.05rem 0.4rem;
+    border-radius: 2px;
+    font-weight: 700;
+    font-size: 0.95em;
+  }
+
+  /* tableau */
+  .tableau-embed {
+    width: 100%;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+    margin: 1.5rem 0;
+  }
+
+  .tableau-embed iframe {
+    width: 100%;
+    height: 500px;
+    border: none;
+    display: block;
+  }
+
+  .tableau-caption {
+    font-size: 0.78rem;
+    color: var(--muted);
+    text-align: center;
+    padding: 0.6rem;
+    background: var(--paper);
+    border-top: 1px solid var(--border);
+  }
+
+  .tableau-caption a {
+    color: var(--accent);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  /* chapter stack (crashes) */
+  .chapter-stack {
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+    margin: 2rem 0;
+  }
+
+  .chapter-row {
+    display: flex;
+    align-items: stretch;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.15s;
+  }
+  .chapter-row:last-child { border-bottom: none; }
+  .chapter-row:hover { background: var(--accent-light); }
+
+  .chapter-num {
+    width: 64px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--accent);
+    background: var(--warm-white);
+    border-right: 1px solid var(--border);
+  }
+
+  .chapter-content { flex: 1; padding: 1.2rem 1.5rem; }
+
+  .chapter-phase {
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.25rem;
+  }
+
+  .chapter-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+    color: var(--ink);
+    line-height: 1.3;
+  }
+
+  .chapter-desc {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: var(--muted);
+  }
+
+  /* population tree */
+  .pop-tree {
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 1.5rem 1rem 1rem;
+    margin: 1.5rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: auto;
+  }
+
+  .pop-node {
+    border-radius: 3px;
+    padding: 0.45rem 0.9rem;
+    text-align: center;
+    border: 1px solid rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .pop-num { font-weight: 700; font-size: 0.88rem; line-height: 1.3; }
+  .pop-sub { font-size: 0.7rem; font-weight: 500; opacity: 0.8; line-height: 1.2; }
+  .pop-total        { background: #4A90D9; color: white; min-width: 200px; }
+  .pop-sick         { background: #C85427; color: white; min-width: 130px; }
+  .pop-healthy      { background: #3D9B6A; color: white; min-width: 160px; }
+  .pop-test-sick-all{ background: #C85427; color: white; min-width: 130px; }
+  .pop-test-sick-fp { background: #E8935A; color: white; min-width: 130px; }
+  .pop-test-healthy { background: #3D9B6A; color: white; min-width: 150px; }
+  .pop-branches     { width: 100%; height: 24px; display: flex; justify-content: center; }
+  .pop-row-2        { display: flex; gap: 1rem; margin-bottom: 0.5rem; flex-wrap: wrap; justify-content: center; }
+  .pop-row-3        { display: flex; gap: 0.6rem; flex-wrap: wrap; justify-content: center; }
+  .pop-caption      { font-size: 0.75rem; color: var(--muted); text-align: center; margin-top: 0.8rem; font-style: italic; }
+
+  /* project nav */
+  .proj-nav {
+    display: flex;
+    gap: 1rem;
+    margin-top: 4rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .proj-nav-btn {
+    flex: 1;
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 1.2rem 1.5rem;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+    text-decoration: none;
+    color: var(--ink);
+  }
+  .proj-nav-btn:hover { border-color: var(--accent); background: var(--accent-light); }
+  .proj-nav-btn.right { text-align: right; }
+  .proj-nav-label { font-size: 0.62rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 0.4rem; }
+  .proj-nav-title { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 0.93rem; line-height: 1.3; }
+
+  /* footer */
+  footer {
+    background: var(--paper);
+    border-top: 1px solid var(--border);
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.78rem;
+    color: var(--muted);
+  }
+
+  /* ============================================================
+     CONTACT PAGE
+  ============================================================ */
+  .contact-view {
+    max-width: 560px;
+    margin: 0 auto;
+    padding: 5rem 2rem 6rem;
+    text-align: center;
+  }
+
+  .contact-icon { font-size: 3.5rem; margin-bottom: 1.2rem; }
+
+  .contact-view h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+  }
+
+  .contact-view p {
+    color: #555;
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    font-weight: 300;
+  }
+
+  .expertise-grid {
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    text-align: left;
+  }
+
+  .expertise-grid-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.8rem;
+    text-align: center;
+  }
+
+  .expertise-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+  }
+
+  .expertise-tag {
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 0.3rem 0.8rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .contact-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    background: var(--accent);
+    color: white;
+    text-decoration: none;
+    padding: 1rem 2.5rem;
+    border-radius: 3px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: opacity 0.2s;
+  }
+  .contact-cta:hover { opacity: 0.82; }
+
+  /* ============================================================
+     MOBILE
+  ============================================================ */
+  @media (max-width: 900px) {
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+      flex-direction: row;
+      align-items: center;
+      padding: 1rem 1.5rem;
+      gap: 1.5rem;
+    }
+    .sidebar-brand { margin-bottom: 0; }
+    .sidebar-logo { font-size: 1.4rem; }
+    .sidebar-tagline { display: none; }
+    .sidebar-nav { flex-direction: row; gap: 1.5rem; flex: 1; }
+    .sidebar-nav a { border-bottom: none; padding: 0; font-size: 0.8rem; }
+    .sidebar-divider,
+    .sidebar-social,
+    .sidebar-contact { display: none; }
+    .main { margin-left: 0; }
+    .layout { flex-direction: column; }
+    .hero { padding: 3rem 2rem; }
+    .work-section { padding: 3rem 2rem 4rem; }
+    .home-contact { padding: 3rem 2rem; }
+    .bento-grid { grid-template-columns: 1fr; }
+    .bento-card.wide { grid-column: span 1; }
+    .project-view { padding: 2rem 1.5rem 4rem; }
+    .hero-bg-text { font-size: 10rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="layout">
+
+<!-- ===== SIDEBAR ===== -->
+<aside class="sidebar">
+  <div class="sidebar-brand">
+    <a class="sidebar-logo" onclick="showPage('home')">n4bil</a>
+    <div class="sidebar-tagline">Nabil Arnaoot</div>
+  </div>
+
+  <ul class="sidebar-nav">
+    <li><a href="#" onclick="showPage('home');return false;">Work</a></li>
+    <li><a href="#" onclick="showPage('contact');return false;">Contact</a></li>
+  </ul>
+
+  <div class="sidebar-divider"></div>
+
+  <div class="sidebar-social">
+    <a href="https://public.tableau.com/app/profile/nabil.arnaoot" target="_blank">Tableau Public ↗</a>
+    <a href="https://medium.com/@narnaoot" target="_blank">Medium ↗</a>
+    <a href="https://www.linkedin.com/in/narnaoot/" target="_blank">LinkedIn ↗</a>
+    <a href="https://github.com/narnaoot" target="_blank">GitHub ↗</a>
+  </div>
+
+  <div class="sidebar-contact">
+    <a class="sidebar-email-btn" href="/cdn-cgi/l/email-protection#d0a7b5b290bee4b2b9bcfeb3bfbd">Get in touch</a>
+  </div>
+</aside>
+
+<!-- ===== MAIN ===== -->
+<main class="main">
+
+<!-- ================================================================
+     HOME PAGE
+================================================================ -->
+<div id="page-home" class="page active">
+
+  <section class="hero">
+    <div class="hero-label">Portfolio — San Francisco</div>
+    <h1 class="hero-headline">
+      Business Analyst.<br>
+      <em>Data Storyteller.</em>
+    </h1>
+    <p class="hero-bio">
+      I'm Nabil. I help teams cut through the noise — turning messy data
+      into decisions, and complicated processes into things that actually work.
+    </p>
+    <div class="hero-meta">
+      <div class="hero-meta-item"><span class="dot"></span> San Francisco</div>
+      <div class="hero-meta-item"><span class="dot"></span> ex-Apple</div>
+      <div class="hero-meta-item"><span class="dot"></span> 20+ years in tech</div>
+    </div>
+    <button class="hero-scroll-cta" onclick="document.querySelector('.work-section').scrollIntoView({behavior:'smooth'})">
+      See my work <span class="arrow-circle">↓</span>
+    </button>
+    <div class="hero-bg-text">N</div>
+  </section>
+
+  <section class="work-section">
+    <div class="section-label">Selected Work</div>
+
+    <div class="bento-grid">
+
+      <!-- 01 Crashes — wide -->
+      <div class="bento-card wide" onclick="showPage('crashes')">
+        <div class="bento-watermark">01</div>
+        <div class="bento-num">01 / 05</div>
+        <div class="bento-body">
+          <div class="bento-category">Business Analysis · Tableau · Apple</div>
+          <h3 class="bento-title">Reducing Crashes for iTunes</h3>
+          <p class="bento-desc">Started with an incomprehensible spreadsheet. Ended with real changes that improved iTunes stability — and teammates who finally slept through the night.</p>
+          <div class="bento-footer">
+            <div class="bento-tags">
+              <span class="bento-tag">Analysis</span>
+              <span class="bento-tag">Tableau</span>
+              <span class="bento-tag">Process</span>
+            </div>
+            <div class="bento-arrow">→</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 02 Gardens -->
+      <div class="bento-card" onclick="showPage('gardens')">
+        <div class="bento-watermark">02</div>
+        <div class="bento-num">02 / 05</div>
+        <div class="bento-body">
+          <div class="bento-category">Visual Storytelling · Tableau</div>
+          <h3 class="bento-title">Secret Gardens of San Francisco</h3>
+          <p class="bento-desc">Mapping the little-known public spaces hidden in downtown SF.</p>
+          <div class="bento-footer">
+            <div class="bento-tags">
+              <span class="bento-tag">Maps</span>
+              <span class="bento-tag">Tableau</span>
+            </div>
+            <div class="bento-arrow">→</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 03 SHAP -->
+      <div class="bento-card" onclick="showPage('shap')">
+        <div class="bento-watermark">03</div>
+        <div class="bento-num">03 / 05</div>
+        <div class="bento-body">
+          <div class="bento-category">ML · Python · Data Science</div>
+          <h3 class="bento-title">Bringing Clarity to ML: SHAP</h3>
+          <p class="bento-desc">A tutorial on making machine learning models understandable — to humans.</p>
+          <div class="bento-footer">
+            <div class="bento-tags">
+              <span class="bento-tag">Python</span>
+              <span class="bento-tag">ML</span>
+            </div>
+            <div class="bento-arrow">→</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 04 Unicorns -->
+      <div class="bento-card" onclick="showPage('unicorns')">
+        <div class="bento-watermark">04</div>
+        <div class="bento-num">04 / 05</div>
+        <div class="bento-body">
+          <div class="bento-category">Data Analysis · Tableau · Pride</div>
+          <h3 class="bento-title">Chasing Unicorns for Pride</h3>
+          <p class="bento-desc">Google search trends for "unicorn" — when, where, and why. The answer surprised me.</p>
+          <div class="bento-footer">
+            <div class="bento-tags">
+              <span class="bento-tag">Trends</span>
+              <span class="bento-tag">Tableau</span>
+            </div>
+            <div class="bento-arrow">→</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 05 Probability — dark card -->
+      <div class="bento-card dark" onclick="showPage('probability')">
+        <div class="bento-watermark">05</div>
+        <div class="bento-num">05 / 05</div>
+        <div class="bento-body">
+          <div class="bento-category">Statistics · Writing</div>
+          <h3 class="bento-title">Conditional Probability for Normal Humans</h3>
+          <p class="bento-desc">If you test positive for malaria, how likely are you actually sick? Most doctors don't know. Here's the intuitive explanation.</p>
+          <div class="bento-footer">
+            <div class="bento-tags">
+              <span class="bento-tag">Statistics</span>
+              <span class="bento-tag">Writing</span>
+            </div>
+            <div class="bento-arrow">→</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="home-contact" id="contact-section">
+    <div class="home-contact-label">Get in touch</div>
+    <h2>Let's work<br><em style="font-style:italic; color:#aaa;">together.</em></h2>
+    <p>Business Analysis · Reports &amp; Dashboards · Project Management · Process Engineering</p>
+    <a class="home-contact-cta" href="/cdn-cgi/l/email-protection#d0a7b5b290bee4b2b9bcfeb3bfbd">
+      Send me a message →
+    </a>
+  </div>
+
+  <footer>n4bil.com — Nabil Arnaoot</footer>
+</div>
+
+<!-- ================================================================
+     PROJECT: CRASHES
+================================================================ -->
+<div id="page-crashes" class="page">
+  <div class="project-view">
+    <button class="proj-back" onclick="showPage('home')">← Back to Work</button>
+
+    <div class="proj-category">🍎 Business Analysis · Tableau</div>
+    <h1 class="proj-title">Reducing Crashes for iTunes</h1>
+    <p class="proj-lead">iTunes was crashing constantly. My teammates carried pagers and woke up in the middle of the night to restore service. There was no consistent way to measure downtime across products or over time. Here's what changed — and how.</p>
+    <div class="proj-rule"></div>
+
+    <div class="proj-body">
+      <div class="chapter-stack">
+        <div class="chapter-row">
+          <div class="chapter-num">01</div>
+          <div class="chapter-content">
+            <div class="chapter-phase">Prototype</div>
+            <div class="chapter-name">Build something — anything — that works.</div>
+            <div class="chapter-desc">Create a MySQL database and Tableau report. Load new data manually every week.</div>
+          </div>
+        </div>
+        <div class="chapter-row">
+          <div class="chapter-num">02</div>
+          <div class="chapter-content">
+            <div class="chapter-phase">Scale</div>
+            <div class="chapter-name">Stop doing it by hand.</div>
+            <div class="chapter-desc">Find the company-wide database system. Modify it to add the data I need.</div>
+          </div>
+        </div>
+        <div class="chapter-row">
+          <div class="chapter-num">03</div>
+          <div class="chapter-content">
+            <div class="chapter-phase">Process</div>
+            <div class="chapter-name">Give crashes a proper home.</div>
+            <div class="chapter-desc">Build a process for iTunes crashes that includes recording the cause in my system. Train the team. Convince everybody to use it.</div>
+          </div>
+        </div>
+        <div class="chapter-row">
+          <div class="chapter-num">04</div>
+          <div class="chapter-content">
+            <div class="chapter-phase">Automate</div>
+            <div class="chapter-name">Make it run itself.</div>
+            <div class="chapter-desc">Lead the web development team in creating a web-based system to handle everything automatically.</div>
+          </div>
+        </div>
+        <div class="chapter-row">
+          <div class="chapter-num">05</div>
+          <div class="chapter-content">
+            <div class="chapter-phase">Analyze</div>
+            <div class="chapter-name">The data finally speaks.</div>
+            <div class="chapter-desc">Discover and present data showing that the main reason iTunes crashes is because of old software bugs.</div>
+          </div>
+        </div>
+        <div class="chapter-row">
+          <div class="chapter-num">06</div>
+          <div class="chapter-content">
+            <div class="chapter-phase">Change</div>
+            <div class="chapter-name">The VP acts. The pagers go quiet.</div>
+            <div class="chapter-desc">The iTunes VP assigns developers to fix old bugs. iTunes stabilizes. On-call teammates sleep through the night. The automated system stands ready to catch anything that comes next.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pull-quote">
+        This is my favorite kind of project: one where cleaning up a mess creates something genuinely useful — and where teammates stop getting woken up at 3am.
+      </div>
+    </div>
+
+    <div class="proj-nav">
+      <div class="proj-nav-btn" onclick="showPage('probability')">
+        <div class="proj-nav-label">← Previous</div>
+        <div class="proj-nav-title">Conditional Probability for Normal Humans</div>
+      </div>
+      <div class="proj-nav-btn right" onclick="showPage('gardens')">
+        <div class="proj-nav-label">Next →</div>
+        <div class="proj-nav-title">Secret Gardens of San Francisco</div>
+      </div>
+    </div>
+  </div>
+  <footer>n4bil.com — Nabil Arnaoot</footer>
+</div>
+
+<!-- ================================================================
+     PROJECT: GARDENS
+================================================================ -->
+<div id="page-gardens" class="page">
+  <div class="project-view">
+    <button class="proj-back" onclick="showPage('home')">← Back to Work</button>
+
+    <div class="proj-category">🌿 Visual Storytelling · Tableau</div>
+    <h1 class="proj-title">Secret Gardens of San Francisco</h1>
+    <p class="proj-lead">For a class on visual storytelling with Tableau, I explored and mapped the little-known public spaces tucked away in downtown San Francisco.</p>
+    <div class="proj-rule"></div>
+
+    <div class="proj-body">
+
+      <div class="tableau-embed">
+        <iframe
+          src="https://public.tableau.com/views/SecretGardensofSanFrancisco/SecretGardensofSanFrancisco?%3Adisplay_count=n&amp;%3Alanguage=en-US&amp;%3Aorigin=viz_share_link?:embed=y&:display_count=yes&:showVizHome=no&:toolbar=no"
+          allowfullscreen>
+        </iframe>
+        <div class="tableau-caption">
+          Original interactive map on <a href="https://public.tableau.com/app/profile/nabil.arnaoot" target="_blank">Tableau Public →</a>
+        </div>
+      </div>
+
+      <h2>The Project</h2>
+      <p>
+        San Francisco's downtown is famous for its density — but hidden within it are dozens of little-known public gardens, plazas, and open spaces that most residents and visitors walk right past. For a visual storytelling class, I set out to find them, document them, and put them on a map.
+      </p>
+
+      <h2>The Approach</h2>
+      <p>
+        I researched and collected data on publicly accessible green spaces in the downtown core, gathering coordinates, descriptions, and access information. I then built an interactive Tableau map that lets viewers explore the spaces by location.
+      </p>
+
+      <div class="pull-quote">
+        The result is a map of unexpected greenery — quiet refuges from the concrete that even many long-time San Franciscans don't know exist.
+      </div>
+
+      <h2>What I Learned</h2>
+      <p>
+        This project was a great exercise in spatial storytelling. Showing data on a map changes the way people relate to it — suddenly abstract coordinates become places you can visit. It also reinforced how much context matters when visualizing data: a good map doesn't just show where things are, it tells you why to care.
+      </p>
+
+    </div>
+
+    <div class="proj-nav">
+      <div class="proj-nav-btn" onclick="showPage('crashes')">
+        <div class="proj-nav-label">← Previous</div>
+        <div class="proj-nav-title">Reducing Crashes for iTunes</div>
+      </div>
+      <div class="proj-nav-btn right" onclick="showPage('shap')">
+        <div class="proj-nav-label">Next →</div>
+        <div class="proj-nav-title">Bringing Clarity to ML: SHAP</div>
+      </div>
+    </div>
+  </div>
+  <footer>n4bil.com — Nabil Arnaoot</footer>
+</div>
+
+<!-- ================================================================
+     PROJECT: SHAP
+================================================================ -->
+<div id="page-shap" class="page">
+  <div class="project-view">
+    <button class="proj-back" onclick="showPage('home')">← Back to Work</button>
+
+    <div class="proj-category">🤖 ML · Python · Data Science</div>
+    <h1 class="proj-title">Bringing Clarity to ML: Explainability with SHAP</h1>
+    <p class="proj-lead">For an independent project, I investigated the SHAP package and put together this guide to explain how it works and how to use it to explain machine learning models.</p>
+    <div class="proj-rule"></div>
+
+    <div class="proj-body">
+
+      <p>SHAP can provide explanations of:</p>
+      <ul>
+        <li>why a model made a particular prediction</li>
+        <li>how relatively important the different variables are</li>
+        <li>and otherwise enable transparency.</li>
+      </ul>
+
+      <p>If you'd like to follow along hands-on, you can create a Jupyter notebook and run the code blocks as you go. Just make sure you have SHAP installed (see below) and import the diabetes dataset from scikit-learn. All the code on this page can be copied directly into your notebook cells.</p>
+
+      <h2>The Problem: Why Do We Need Explainability?</h2>
+
+      <div class="pull-quote">
+        <strong>As AI models play a more and more important role in people's lives, we have to be able to explain how they work.</strong>
+      </div>
+
+      <p>We currently have a lot of models that are making decisions affecting human lives, but it's very difficult to understand what those decisions are based on. For example, many courtrooms are using algorithms to make decisions about sentencing. People using the algorithms to make these life-changing decisions often do not understand why a particular prisoner is granted or denied bail.</p>
+      <p>In some cases the programmer understands how a model works but the end user does not; in other cases nobody knows what variables a model is using.</p>
+      <p>I have two goals for explainability in my own work: 1) to be able to understand why a model makes a particular decision and 2) be able to explain it to other people.</p>
+      <p>This page will walk you through a basic overview of what Shapley values are, and how to use them with the Python SHAP package to help explain your models. It's based on the SHAP documentation, but simplified.</p>
+
+      <h2>Installing SHAP</h2>
+      <p>Before you can run this notebook, install SHAP with either:</p>
+      <pre><code>pip install shap</code></pre>
+      <p>or</p>
+      <pre><code>conda install -c conda-forge shap</code></pre>
+
+      <h2>Starting Simple: Linear Regression</h2>
+      <p>We'll start out with the simplest possible model — a linear regression — and then move on from there.</p>
+      <p>Linear regression creates a model like:</p>
+
+      <div class="info-box">
+        <div class="info-box-label">Example</div>
+        <p style="margin-top:0.5rem;"><strong>housing price = 10,000 + 3 × (age of house in years) + 10 × (rooms in house)</strong></p>
+        <p>In this example, 3 and 10 are the coefficients. They let us predict housing price by plugging in the age of the house and the number of rooms. However, they are not able to tell us how important the age of the house is compared to the number of rooms. The size of the coefficients doesn't tell us how heavily each variable is weighted in making the prediction.</p>
+      </div>
+
+      <p>We'll use the famous diabetes dataset and try to predict the progression of diabetes based on different factors. Some of these coefficients are not clear — here's more information from the scikit documentation on what the variables mean: s1, total serum cholesterol; s2, low-density lipoproteins; s3, high-density lipoproteins; s4, total cholesterol; s5, possibly log of serum triglycerides level; s6, blood sugar level.</p>
+      <p>All of the factors have been normalized — the values may not look as you expect them to.</p>
+
+      <h2>What Are Shapley Values?</h2>
+      <p>You can think of a Shapley value as how much a prediction changes when we add a new variable to the model.</p>
+      <p>The underlying math for Shapley values is extremely complex. However, in the case of linear regressions, they become much simpler to calculate.</p>
+
+      <h2>The Partial Dependence Plot</h2>
+      <p>The first graph shows how we can use the partial dependence plot for a simple prediction:</p>
+
+      <pre><code>shap.partial_dependence_plot("s5", model.predict, X100, ice=False,
+    model_expected_value=True, feature_expected_value=True)</code></pre>
+
+      <div class="pull-quote">
+        <strong>The grey line shows the average progression of diabetes; the blue line shows our predictions.</strong>
+        <ul style="margin-top:0.6rem;">
+          <li>The x axis shows s5, ranging from -0.10 to 0.15.</li>
+          <li>The grey squares along the x axis are a histogram showing the distribution of s5; remember that the numbers have been normalized, so they cluster around 0.</li>
+          <li>The y axis shows progression of diabetes; the higher the number, the worse the diabetes got.</li>
+          <li>The blue line shows predictions. To find the predicted progression for a patient with 0.05 s5, look at that number on the x axis and look up to find the point on the blue line.</li>
+          <li>The grey dotted lines are averages. There is a grey dotted line running across from about 150 — this is the average progression of the disease. The grey dotted line coming up from about 0 shows the average s5 level, which makes sense as it has been normalized to make the average 0.</li>
+        </ul>
+      </div>
+
+      <h2>Computing SHAP Values &amp; Zooming In on a Single Prediction</h2>
+      <p>Now let's zoom in on a single prediction.</p>
+
+      <pre><code># compute the SHAP values for the linear model
+explainer = shap.Explainer(model.predict, X100)
+shap_values = explainer(X)
+
+# make a standard partial dependence plot
+sample_ind = 18
+shap.partial_dependence_plot(
+    "s5", model.predict, X100, model_expected_value=True,
+    feature_expected_value=True, ice=False,
+    shap_values=shap_values[sample_ind:sample_ind+1,:]
+)</code></pre>
+
+      <div class="pull-quote">
+        <strong>The Shapley value for this prediction is the red line: the distance between the average diabetes progression and the progression we are predicting.</strong>
+        <p style="margin-top:0.5rem;">We're looking at the predicted change in diabetes when s5 is -0.02. The black dot on the blue line shows the s5 and diabetes for this particular prediction, and the red line shows how far this value is from the diabetes score across all the patients.</p>
+        <p>Note that this graph only shows predicted values — we are not looking at any actual observations from real-world patients.</p>
+      </div>
+
+      <h2>The Waterfall Plot: How Each Variable Influences a Single Prediction</h2>
+
+      <pre><code># the waterfall_plot shows how we use each variable to make a better prediction
+# than the average across all patients
+shap.plots.waterfall(shap_values[sample_ind], max_display=10)</code></pre>
+
+      <div class="pull-quote">
+        <strong>This graph shows how influential each variable is for a single prediction.</strong>
+        <ul style="margin-top:0.6rem;">
+          <li>The most important variables for this prediction are on top, and they also have the longest bar. For this prediction, s1 (blood sugar) is most important, followed by s5.</li>
+          <li>Red squares mean the variable makes the predicted diabetes score higher than average; blue squares lower than average.</li>
+          <li>The average score for all patients is about 148. Because this patient has a (normalized) age of -0.038, we add 0.37 to the predicted diabetes score.</li>
+          <li>Continuing to move up each row, we can see how our predicted score increases or decreases based on each variable.</li>
+          <li>In the last step, we add 29.54 (due to high blood sugar) and get our prediction of 148.003.</li>
+        </ul>
+      </div>
+
+      <h2>The Bar Chart: Average Variable Importance</h2>
+      <p>So far we've been looking at how variables affect a single prediction. Now let's look at how they affect predictions overall.</p>
+
+      <pre><code>shap.plots.bar(shap_values)</code></pre>
+
+      <p>Looking at the average impact of different variables, we can see that s5 is the most important predictor variable on average. Blood sugar (s6) is still important, but it's not the most important on average.</p>
+      <p>What about if we have a factor that matters a lot for a small number of observations? We can look at the maximum Shapley values instead:</p>
+
+      <pre><code>shap.plots.bar(shap_values.abs.max(0))</code></pre>
+
+      <div class="pull-quote">
+        <strong>This graph will highlight if there is one variable that doesn't influence many observations, but when it does it makes a huge difference.</strong>
+        <p style="margin-top:0.5rem;">In our bail example, we might want prior conviction for murder to work like this. Most people don't have a conviction for murder so it doesn't impact the decision, but in those cases where someone does it should trump other factors and lead to a decision to deny bail.</p>
+      </div>
+
+      <p>There's a lot more out there — Shapley values can be used to explain a lot of different kinds of models.</p>
+
+      <h2>Assumptions and Options</h2>
+      <p><strong>So far we've looked at a very simple model, which makes Shapley values easier to calculate.</strong></p>
+      <p>So far we've been assuming:</p>
+      <ul>
+        <li>We are looking at a linear regression model — which simplifies the math and makes Shapley values easier to calculate.</li>
+        <li>We're assuming every predictor is independent.</li>
+        <li>We're also looking at additive models. In the graphs above, you see that you can add the effect of each variable to get the final prediction.</li>
+      </ul>
+      <p>SHAP can also work with nonlinear models, non-additive models, and correlated features. These are more complicated and require more research. SHAP gets more exciting when it's used on more complicated models.</p>
+
+      <h2>Conclusion</h2>
+      <p>This has been a quick introduction into why we need explainability, what Shapley values are, and how to use the SHAP package in Python to explain your models. As more and more life-changing decisions are made by models that are designed to be incomprehensible, we absolutely must do a better job explaining how our models work.</p>
+      <p>This has just been a start — I've covered only some of the material from the first introduction to the SHAP package documentation at <a href="https://shap.readthedocs.io" style="color:var(--accent);font-weight:600;" target="_blank">shap.readthedocs.io</a>.</p>
+
+      <p style="font-size:0.85rem; color:var(--muted); margin-top:1.5rem;">Originally written by Nabil Arnaoot on 1/8/21 and revised 7/11/2021. You might also find the <a href="https://shap.readthedocs.io" style="color:var(--accent);" target="_blank">SHAP documentation</a> helpful.</p>
+
+    </div>
+
+    <div class="proj-nav">
+      <div class="proj-nav-btn" onclick="showPage('gardens')">
+        <div class="proj-nav-label">← Previous</div>
+        <div class="proj-nav-title">Secret Gardens of San Francisco</div>
+      </div>
+      <div class="proj-nav-btn right" onclick="showPage('unicorns')">
+        <div class="proj-nav-label">Next →</div>
+        <div class="proj-nav-title">Chasing Unicorns for Pride</div>
+      </div>
+    </div>
+  </div>
+  <footer>n4bil.com — Nabil Arnaoot</footer>
+</div>
+
+<!-- ================================================================
+     PROJECT: UNICORNS
+================================================================ -->
+<div id="page-unicorns" class="page">
+  <div class="project-view">
+    <button class="proj-back" onclick="showPage('home')">← Back to Work</button>
+
+    <div class="proj-category">🦄 Data Analysis · Tableau · Pride</div>
+    <h1 class="proj-title">Chasing Unicorns for Pride</h1>
+    <p class="proj-lead">In honor of Pride, I dug into Google search trends for the word "unicorn." When were these searches most popular, where, and why? The answer surprised me.</p>
+    <div class="proj-rule"></div>
+
+    <div class="proj-body">
+
+      <div class="tableau-embed">
+        <iframe
+          src="https://public.tableau.com/views/UnicornChasers/UnicornChasers?:embed=y&:display_count=yes&:showVizHome=no&:toolbar=no">
+        </iframe>
+        <div class="tableau-caption">
+          Original interactive dashboard on <a href="https://public.tableau.com/app/profile/nabil.arnaoot" target="_blank">Tableau Public →</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="proj-nav">
+      <div class="proj-nav-btn" onclick="showPage('shap')">
+        <div class="proj-nav-label">← Previous</div>
+        <div class="proj-nav-title">Bringing Clarity to ML: SHAP</div>
+      </div>
+      <div class="proj-nav-btn right" onclick="showPage('probability')">
+        <div class="proj-nav-label">Next →</div>
+        <div class="proj-nav-title">Conditional Probability for Normal Humans</div>
+      </div>
+    </div>
+  </div>
+  <footer>n4bil.com — Nabil Arnaoot</footer>
+</div>
+
+<!-- ================================================================
+     PROJECT: PROBABILITY
+================================================================ -->
+<div id="page-probability" class="page">
+  <div class="project-view">
+    <button class="proj-back" onclick="showPage('home')">← Back to Work</button>
+
+    <div class="proj-category">🎲 Statistics · Writing</div>
+    <h1 class="proj-title">Conditional Probability for Normal Humans</h1>
+    <p class="proj-lead">If you test positive for malaria, how likely is it that you actually have malaria? Many doctors don't even understand the answer. Here's an explanation without complicated formulas.</p>
+    <div class="proj-rule"></div>
+
+    <div class="proj-body">
+
+      <h2>This Important Concept Is Usually Taught With Horrific Formulas</h2>
+      <p>
+        Conditional probability (also known as Bayes) lets you answer important questions like: given that I tested positive for malaria, how likely is it that I actually have malaria? It's pretty important that doctors and nurses understand how it works.
+      </p>
+      <p>
+        The problem is, most schools teach it in an incoherent way with a terrible formula. So doctors memorize it for a statistics class, then promptly forget it. There's a better way — one that lets you avoid the formulas altogether and get the same results.
+      </p>
+
+      <h2>Here's an Example</h2>
+
+      <div class="info-box">
+        <div class="info-box-label">Assumptions</div>
+        <ul style="margin-top:0.8rem;">
+          <li>About 1% of people have malaria, worldwide.</li>
+          <li>We have an extremely accurate test for malaria.</li>
+          <li>Anyone who has malaria and takes the test will be described as sick. (No false negatives.)</li>
+          <li>Of people who do <em>not</em> have malaria and take the test, 1% will be described as sick even though they're actually healthy.</li>
+        </ul>
+      </div>
+
+      <p><strong>The question:</strong> I just took a malaria test, and it said that I am sick. What are the odds that I actually am sick?</p>
+
+      <div class="pull-quote">
+        Intuitively, I would guess the odds are somewhere around 99%. Actually, it's closer to <span class="data-highlight">50%</span>. Here's how you get there.
+      </div>
+
+      <h2>The Trick: Use Real Numbers</h2>
+      <p>
+        Let's make up an example with specific numbers — the trick is to actually do the math.
+      </p>
+      <p>
+        Here's the breakdown for a group of <strong>1 million people</strong>:
+      </p>
+
+      <!-- MALARIA TREE DIAGRAM -->
+      <div class="pop-tree">
+        <div class="pop-node pop-total">
+          <span class="pop-num">1,000,000 people</span>
+        </div>
+        <div class="pop-branches"></div>
+        <div class="pop-row-2">
+          <div class="pop-node pop-sick">
+            <span class="pop-num">10,000 sick</span>
+            <span class="pop-sub">1% of 1 million</span>
+          </div>
+          <div class="pop-node pop-healthy">
+            <span class="pop-num">990,000 healthy</span>
+            <span class="pop-sub">99% of 1 million</span>
+          </div>
+        </div>
+        <div class="pop-row-3">
+          <div class="pop-node pop-test-sick-all">
+            <span class="pop-num">10,000 test sick</span>
+            <span class="pop-sub">all sick</span>
+          </div>
+          <div class="pop-node pop-test-sick-fp">
+            <span class="pop-num">9,900 test sick</span>
+            <span class="pop-sub">1% of the healthy</span>
+          </div>
+          <div class="pop-node pop-test-healthy">
+            <span class="pop-num">980,100 test healthy</span>
+            <span class="pop-sub">99% of the healthy</span>
+          </div>
+        </div>
+        <p class="pop-caption">Malaria and testing for one million people</p>
+      </div>
+
+      <ul>
+        <li>Since 1% of the population has malaria: <strong>10,000 people are sick</strong>, and 990,000 are healthy.</li>
+        <li>All 10,000 sick people test positive (no false negatives).</li>
+        <li>Of the 990,000 healthy people, 1% test positive: <strong>9,900 false positives</strong>.</li>
+        <li>Total people who test positive: 10,000 + 9,900 = <strong>19,900</strong>.</li>
+      </ul>
+
+      <p>
+        Out of all the people who tested positive, what percentage actually have malaria?
+      </p>
+
+      <div class="pull-quote">
+        10,000 ÷ 19,900 = <span class="data-highlight">50.3%</span> — only a coin flip's chance of actually being sick!
+      </div>
+
+      <h2>Why Such a Strange Result?</h2>
+      <p>
+        It's because the overall percentage of people who have malaria is so low. Because only 1% of the population has malaria, the number on the top of our fraction (10,000) is also relatively low compared to the false positives. The false positives swamp the true positives.
+      </p>
+      <p>
+        Here are the numbers for an illness that <em>half</em> the population has:
+      </p>
+
+      <!-- COMMON DISEASE TREE DIAGRAM -->
+      <div class="pop-tree">
+        <div class="pop-node pop-total">
+          <span class="pop-num">1,000,000 people</span>
+        </div>
+        <div class="pop-branches"></div>
+        <div class="pop-row-2">
+          <div class="pop-node pop-sick">
+            <span class="pop-num">500,000 sick</span>
+            <span class="pop-sub">50% of 1 million</span>
+          </div>
+          <div class="pop-node pop-healthy">
+            <span class="pop-num">500,000 healthy</span>
+            <span class="pop-sub">50% of 1 million</span>
+          </div>
+        </div>
+        <div class="pop-row-3">
+          <div class="pop-node pop-test-sick-all">
+            <span class="pop-num">500,000 test sick</span>
+            <span class="pop-sub">all sick</span>
+          </div>
+          <div class="pop-node pop-test-sick-fp">
+            <span class="pop-num">5,000 test sick</span>
+            <span class="pop-sub">1% of the healthy</span>
+          </div>
+          <div class="pop-node pop-test-healthy">
+            <span class="pop-num">495,000 test healthy</span>
+            <span class="pop-sub">99% of the healthy</span>
+          </div>
+        </div>
+        <p class="pop-caption">Illness and testing for a common disease</p>
+      </div>
+
+      <ul>
+        <li>Total sick people / total people who tested sick</li>
+        <li>500,000 / 505,000 = <span class="data-highlight">99%</span></li>
+      </ul>
+
+      <p>
+        Much more intuitive! When the disease is common, the base rate overwhelms the false positive rate.
+      </p>
+
+      <div class="pull-quote">
+        Congratulations — you now understand test results better than most doctors do. Go forth and enjoy.
+      </div>
+
+      <p style="font-size:0.85rem; color: var(--muted); margin-top: 1rem;">
+        ¹ The facts about malaria in this example are not accurate — we're simplifying to make the logic easier to follow.
+        Also available as a <a href="https://medium.com/@narnaoot" style="color:var(--accent);font-weight:600;" target="_blank">post on Medium →</a>
+      </p>
+
+    </div>
+
+    <div class="proj-nav">
+      <div class="proj-nav-btn" onclick="showPage('unicorns')">
+        <div class="proj-nav-label">← Previous</div>
+        <div class="proj-nav-title">Chasing Unicorns for Pride</div>
+      </div>
+      <div class="proj-nav-btn right" onclick="showPage('crashes')">
+        <div class="proj-nav-label">Next →</div>
+        <div class="proj-nav-title">Reducing Crashes for iTunes</div>
+      </div>
+    </div>
+  </div>
+  <footer>n4bil.com — Nabil Arnaoot</footer>
+</div>
+
+<!-- ================================================================
+     CONTACT PAGE
+================================================================ -->
+<div id="page-contact" class="page">
+  <div class="contact-view">
+    <button class="proj-back" onclick="showPage('home')" style="margin-left:auto;margin-right:auto;display:flex;">← Back</button>
+    <div class="contact-icon">📬</div>
+    <h1>Let's Work Together</h1>
+    <p>
+      I'm Nabil Arnaoot — a business analyst and data storyteller based in San Francisco with 20+ years in tech, most recently as a Business Process Engineer at Apple.
+    </p>
+    <div class="expertise-grid">
+      <div class="expertise-grid-label">Areas of Expertise</div>
+      <div class="expertise-tags">
+        <span class="expertise-tag">Business Analysis</span>
+        <span class="expertise-tag">Reports &amp; Dashboards</span>
+        <span class="expertise-tag">Project Management</span>
+        <span class="expertise-tag">Process Engineering</span>
+      </div>
+    </div>
+    <a class="contact-cta" href="/cdn-cgi/l/email-protection#95e2f0f7d5fba1f7fcf9bbf6faf8">
+      📬 <span class="__cf_email__" data-cfemail="097e6c6b49673d6b6065276a6664">[email&#160;protected]</span>
+    </a>
+  </div>
+  <footer>n4bil.com — Nabil Arnaoot</footer>
+</div>
+
+</main>
+</div>
+
+<script>
+  function showPage(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    const target = document.getElementById('page-' + id);
+    if (target) {
+      target.classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }
+</script>
+
+</body>
+</html>

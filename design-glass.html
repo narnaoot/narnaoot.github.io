@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Career Thread — Nabil Arnaoot</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:      #FFFBF5;
+      --surface: #FFFFFF;
+      --text:    #3D2B1F;
+      --muted:   #9A8070;
+      --border:  #E8DDD0;
+      --r: 14px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Nunito', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 52px 24px;
+    }
+    .section-wrap { width: 100%; max-width: 1160px; }
+    .eyebrow {
+      font-size: .7rem;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      font-weight: 900;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .subtitle {
+      font-size: .92rem;
+      color: var(--muted);
+      font-weight: 600;
+      margin-bottom: 28px;
+    }
+    .chain-outer {
+      border: 1.5px solid var(--border);
+      border-radius: var(--r);
+      background: var(--surface);
+      padding: 24px 20px 18px;
+      overflow-x: auto;
+    }
+    #chainSvg {
+      min-width: 820px;
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+<div class="section-wrap">
+  <p class="eyebrow">Career Thread</p>
+  <h2>Not a ladder. A through-line.</h2>
+  <p class="subtitle">Each role contributed something the next one required. Vertical position reflects scope of impact.</p>
+  <div class="chain-outer">
+    <svg id="chainSvg" viewBox="0 0 1010 420" xmlns="http://www.w3.org/2000/svg">
+      <title>Nabil Arnaoot career progression, 2006 to present</title>
+    </svg>
+  </div>
+</div>
+
+<script>
+(function () {
+  const svg = document.getElementById('chainSvg');
+  const ns  = 'http://www.w3.org/2000/svg';
+
+  function el(tag, attrs, parent) {
+    const e = document.createElementNS(ns, tag);
+    for (const [k, v] of Object.entries(attrs || {})) e.setAttribute(k, v);
+    if (parent) parent.appendChild(e);
+    return e;
+  }
+
+  // ── Layout constants ───────────────────────────────────────
+  const CW = 132, CH = 84, HW = CW / 2, HH = CH / 2;
+
+  // ── Career data ────────────────────────────────────────────
+  // Y values shifted down +40 vs previous version to give breathing room at top for labels
+  const roles = [
+    { x:  102, y: 340, company: 'Elegrity',   title: 'Engr PM',         years: '2006 – 10', color: '#6A9F7A' },
+    { x:  272, y: 308, company: 'eBay',        title: 'Program Mgr',     years: '2010 – 11', color: '#D4920A' },
+    { x:  442, y: 250, company: 'Apple',       title: 'Engr PM',         years: '2011 – 14 · projects',  color: '#4A90D9' },
+    { x:  606, y: 224, company: 'Apple',       title: 'Business Analyst', years: '2014 – 20 · org-wide',  color: '#4A90D9', pivot: true },
+    { x:  778, y: 202, company: "St. Mary's",  title: 'Consultant + MS', years: '2020 – 24', color: '#8B7BC8' },
+    { x:  948, y: 116, company: 'SFMTA',       title: 'Principal BA',    years: '2024 – now',color: '#E8614F', current: true },
+  ];
+
+  // Bridge labels: what carried from the previous role into this one
+  const bridges = [
+    { label: 'relationships',   pivot: false },
+    { label: 'tech fluency',    pivot: false },
+    { label: 'sys → process',  pivot: true  },
+    { label: 'deep analytics',  pivot: false },
+    { label: 'data leadership', pivot: false },
+  ];
+
+  // ── Defs ──────────────────────────────────────────────────
+  const defs = el('defs', {}, svg);
+
+  // Dot grid
+  const pat = el('pattern', { id: 'dg', x: 0, y: 0, width: 24, height: 24, patternUnits: 'userSpaceOnUse' }, defs);
+  el('circle', { cx: 1, cy: 1, r: 1, fill: '#E8DDD0' }, pat);
+
+  // Arrowhead markers
+  function mkMarker(id, color) {
+    const m = el('marker', { id, markerWidth: '10', markerHeight: '10', refX: '9', refY: '3.5', orient: 'auto' }, defs);
+    el('path', { d: 'M0,0 L0,7 L10,3.5 z', fill: color }, m);
+  }
+  mkMarker('arN', '#C0B4A8');
+  mkMarker('arP', '#C4830A');
+  mkMarker('arC', '#D0504A');
+
+  // Bridge paths in defs (reused for <use> stroke and textPath)
+  roles.forEach((r, i) => {
+    if (i >= roles.length - 1) return;
+    const nx = roles[i + 1].x, ny = roles[i + 1].y;
+    const x1 = r.x + HW, y1 = r.y;
+    const x2 = nx - HW,  y2 = ny;
+    const dx = x2 - x1;
+    el('path', {
+      id: `bp${i}`,
+      d: `M${x1},${y1} C${x1 + dx * .42},${y1} ${x2 - dx * .42},${y2} ${x2},${y2}`,
+    }, defs);
+  });
+
+  // ── Background ─────────────────────────────────────────────
+  el('rect', { x: 0, y: 0, width: 1010, height: 420, fill: '#FFFBF5' }, svg);
+  el('rect', { x: 0, y: 0, width: 1010, height: 420, fill: 'url(#dg)', opacity: '.45' }, svg);
+
+  // ── Scope axis ─────────────────────────────────────────────
+  el('line', { x1: 34, y1: 66, x2: 34, y2: 392, stroke: '#DDD0C0', 'stroke-width': '1', 'stroke-dasharray': '2,7' }, svg);
+  el('polygon', { points: '29,61 34,49 39,61', fill: '#CCC0B0' }, svg);
+
+  function axisLbl(text, y) {
+    const e = el('text', {
+      x: 34, y,
+      'text-anchor': 'middle',
+      'font-family': 'Nunito,sans-serif',
+      'font-size': '11',
+      'font-weight': '800',
+      'letter-spacing': '.08em',
+      fill: '#C0B0A0',
+    }, svg);
+    e.textContent = text;
+  }
+  axisLbl('ORG-WIDE', 40);
+  axisLbl('TEAM', 410);
+
+  // Faint horizontal guides
+  [88, 168, 248, 328].forEach(y => {
+    el('line', { x1: 52, y1: y, x2: 990, y2: y, stroke: '#EDE5D8', 'stroke-width': '1', 'stroke-dasharray': '3,14' }, svg);
+  });
+
+  // ── Connectors ────────────────────────────────────────────
+  bridges.forEach((b, i) => {
+    const isLast   = i === bridges.length - 1;
+    const stroke   = b.pivot ? '#C4830A' : isLast ? '#D0504A' : '#C4B8AC';
+    const markerId = b.pivot ? 'arP'     : isLast ? 'arC'     : 'arN';
+
+    el('use', {
+      href: `#bp${i}`,
+      fill: 'none',
+      stroke,
+      'stroke-width': b.pivot ? '2.5' : '2',
+      'stroke-dasharray': b.pivot ? '7,4' : 'none',
+      'marker-end': `url(#${markerId})`,
+    }, svg);
+
+    const r  = roles[i];
+    const nr = roles[i + 1];
+    const mx = (r.x + nr.x) / 2;
+
+    // ── Bridge label: plain horizontal text above the higher card ──
+    // Positioned above min(card tops) so it's always in clear space, never on a curve.
+    if (!b.pivot) {
+      const labelY = Math.min(r.y, nr.y) - HH - 14;
+      const pw = b.label.length * 7.4 + 20;
+      el('rect', {
+        x: mx - pw / 2, y: labelY - 14,
+        width: pw, height: 21,
+        rx: '10',
+        fill: '#F5EFE8',
+        stroke: '#E0D4C4',
+        'stroke-width': '1',
+      }, svg);
+      const lt = el('text', {
+        x: mx, y: labelY,
+        'text-anchor': 'middle',
+        'font-family': 'Nunito,sans-serif',
+        'font-size': '12',
+        'font-weight': '700',
+        fill: '#7A6858',
+      }, svg);
+      lt.textContent = b.label;
+    }
+
+    // ↩ PIVOT badge (replaces label for the Apple→Apple connector)
+    if (b.pivot) {
+      const my = Math.min(r.y, nr.y) - HH - 14;
+      el('rect', { x: mx - 34, y: my - 14, width: 68, height: 21, rx: '10', fill: '#C4830A' }, svg);
+      const bt = el('text', {
+        x: mx, y: my,
+        'text-anchor': 'middle',
+        'font-family': 'Nunito,sans-serif',
+        'font-size': '11',
+        'font-weight': '800',
+        'letter-spacing': '.08em',
+        fill: '#FFF',
+      }, svg);
+      bt.textContent = '↩ PIVOT';
+    }
+  });
+
+  // ── Role cards ────────────────────────────────────────────
+  roles.forEach((r, i) => {
+    const lx = r.x - HW, ty = r.y - HH;
+    const cid = `cc${i}`;
+
+    const cp = el('clipPath', { id: cid }, defs);
+    el('rect', { x: lx, y: ty, width: CW, height: CH, rx: '11' }, cp);
+
+    // Shadow
+    el('rect', { x: lx + 2, y: ty + 3, width: CW, height: CH, rx: '11', fill: 'rgba(61,43,31,.08)' }, svg);
+
+    // Clipped interior
+    const cg = el('g', { 'clip-path': `url(#${cid})` }, svg);
+    el('rect', { x: lx, y: ty, width: CW, height: CH, fill: '#FFF' }, cg);
+    el('rect', { x: lx, y: ty, width: 6, height: CH, fill: r.color }, cg);
+    if (r.current) {
+      el('rect', { x: lx, y: ty, width: CW, height: 8, fill: r.color, opacity: '.15' }, cg);
+    }
+
+    // Border
+    el('rect', {
+      x: lx, y: ty, width: CW, height: CH, rx: '11',
+      fill: 'none',
+      stroke: r.current ? r.color : '#E8DDD0',
+      'stroke-width': r.current ? '2.5' : '1.5',
+    }, svg);
+
+    // Company name — largest text in the card
+    const ce = el('text', {
+      x: lx + 16, y: ty + 28,
+      'font-family': "'Playfair Display',serif",
+      'font-size': '18',
+      'font-weight': '700',
+      fill: '#3D2B1F',
+    }, svg);
+    ce.textContent = r.company;
+
+    // Role title
+    const te = el('text', {
+      x: lx + 16, y: ty + 48,
+      'font-family': 'Nunito,sans-serif',
+      'font-size': '13',
+      'font-weight': '700',
+      fill: '#5A4033',
+    }, svg);
+    te.textContent = r.title;
+
+    // Year range
+    const ye = el('text', {
+      x: lx + 16, y: ty + 66,
+      'font-family': 'Nunito,sans-serif',
+      'font-size': '11',
+      'font-weight': '600',
+      fill: '#9A8070',
+    }, svg);
+    ye.textContent = r.years;
+
+    // Current: pulsing dot
+    if (r.current) {
+      el('circle', { cx: lx + CW - 16, cy: ty + 16, r: '8',  fill: r.color, opacity: '.22' }, svg);
+      el('circle', { cx: lx + CW - 16, cy: ty + 16, r: '4.5', fill: r.color }, svg);
+    }
+  });
+
+})();
+</script>
+</body>
+</html>

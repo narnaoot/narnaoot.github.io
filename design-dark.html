@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Career Depth — Design C: Deepening Radar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #F6F0E8;
+      min-height: 100vh;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      font-family: 'Nunito', sans-serif;
+      padding: 36px 16px;
+    }
+    .badge { background: #9058C8; color: #fff; font-size: .68rem; font-weight: 800;
+      letter-spacing: .1em; text-transform: uppercase; padding: 3px 11px;
+      border-radius: 20px; margin-bottom: 10px; display: inline-block; }
+    h1 { font-family: 'Playfair Display', serif; font-size: 1.7rem; color: #2E2218; margin-bottom: 6px; }
+    .sub { font-size: .87rem; color: #9A8070; max-width: 460px; text-align: center;
+      line-height: 1.6; margin-bottom: 28px; }
+    svg { display: block; max-width: 100%; }
+    .legend { display: flex; flex-wrap: wrap; gap: 8px 20px; justify-content: center; margin-top: 20px; }
+    .li { display: flex; align-items: center; gap: 7px; font-size: .84rem; color: #5A4A3A; font-weight: 600; }
+    .ls { width: 28px; height: 12px; border-radius: 3px; flex-shrink: 0; }
+    .note { font-style: italic; color: #9A8070; font-size: .78rem; margin-top: 10px; text-align: center; }
+  </style>
+</head>
+<body>
+  <span class="badge">Design C</span>
+  <h1>Deepening Radar</h1>
+  <p class="sub">Four snapshots of expertise across five recurring themes. Each polygon is a moment in time — smaller and paler at the start, larger and richer at the end. The final shape fills nearly the whole frame.</p>
+  <svg id="viz" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 560" width="560" height="560"></svg>
+  <div class="legend">
+    <div class="li"><div class="ls" style="background:#D8C8B4; opacity:.8"></div>2006 (start)</div>
+    <div class="li"><div class="ls" style="background:#A0B8D8; opacity:.85"></div>2012</div>
+    <div class="li"><div class="ls" style="background:#6888C0; opacity:.88"></div>2018</div>
+    <div class="li"><div class="ls" style="background:#3858A8"></div>2024 (now)</div>
+  </div>
+  <p class="note">Axes = recurring themes · Polygon size = depth of expertise at that moment</p>
+
+<script>
+(function () {
+  const svg = document.getElementById('viz');
+  const ns  = 'http://www.w3.org/2000/svg';
+  const cx = 280, cy = 285;
+  const MAX_R = 210;  // max polygon radius
+
+  function mk(tag, a) {
+    const e = document.createElementNS(ns, tag);
+    for (const [k,v] of Object.entries(a)) e.setAttribute(k, v);
+    return e;
+  }
+  function ap(p, tag, a) { const e = mk(tag, a); p.appendChild(e); return e; }
+  function f(n) { return n.toFixed(2); }
+
+  // Five theme axes — evenly spaced, starting at top
+  const THEMES = [
+    { label: 'storytelling',     labelLines: ['storytelling']                },
+    { label: 'cross-functional', labelLines: ['cross-', 'functional']        },
+    { label: 'systems thinking', labelLines: ['systems', 'thinking']         },
+    { label: 'data & analysis',  labelLines: ['data &', 'analysis']          },
+    { label: 'leadership',       labelLines: ['leadership']                  },
+  ].map((t, i, arr) => ({
+    ...t,
+    angle: -Math.PI/2 + (i / arr.length) * 2 * Math.PI,
+  }));
+
+  const N = THEMES.length;
+
+  // Four time snapshots — values 0-100 per theme (higher = more developed)
+  const SNAPSHOTS = [
+    {
+      year: '2006', fill: '#C8B89A', stroke: '#A89878',
+      opacity: 0.35,
+      //  story  cross  systems  data  lead
+      vals: [ 38,   32,    40,    16,   22 ],
+    },
+    {
+      year: '2012', fill: '#7AAAD0', stroke: '#5888B8',
+      opacity: 0.45,
+      vals: [ 55,   55,    62,    40,   32 ],
+    },
+    {
+      year: '2018', fill: '#5878C8', stroke: '#3858A8',
+      opacity: 0.52,
+      vals: [ 65,   60,    72,    68,   50 ],
+    },
+    {
+      year: '2024', fill: '#3858A8', stroke: '#2840808',
+      opacity: 0.72,
+      vals: [ 76,   68,    82,    83,   78 ],
+    },
+  ];
+
+  // Compute polygon vertices from values
+  function polygon(vals) {
+    return vals.map((v, i) => {
+      const r = (v / 100) * MAX_R;
+      const a = THEMES[i].angle;
+      return { x: cx + r * Math.cos(a), y: cy + r * Math.sin(a) };
+    });
+  }
+
+  function polyPath(pts) {
+    return pts.map((p, i) => `${i===0?'M':'L'} ${f(p.x)} ${f(p.y)}`).join(' ') + ' Z';
+  }
+
+  // ── Background ─────────────────────────────────────────
+  ap(svg, 'circle', { cx, cy, r: MAX_R + 56, fill: '#EDE4D4' });
+
+  // ── Concentric reference rings (10%, 25%, 50%, 75%, 100%) ──
+  [0.1, 0.25, 0.5, 0.75, 1.0].forEach(frac => {
+    const r = frac * MAX_R;
+    // Draw as pentagon (not circle) matching the theme axes
+    const pts = THEMES.map(t => ({ x: cx + r * Math.cos(t.angle), y: cy + r * Math.sin(t.angle) }));
+    ap(svg, 'path', {
+      d: polyPath(pts),
+      fill: 'none',
+      stroke: frac === 1.0 ? '#C0B0A0' : '#D8CEC0',
+      'stroke-width': frac === 1.0 ? '1.5' : '0.8',
+      'stroke-dasharray': frac === 1.0 ? 'none' : '4,3',
+    });
+    // Percentage label on the right axis
+    if (frac < 1.0) {
+      const lx = cx + r * Math.cos(THEMES[0].angle) + 4;
+      const ly = cy + r * Math.sin(THEMES[0].angle);
+      const el = mk('text', {
+        x: f(lx - 12), y: f(ly),
+        'font-family': "'Nunito', sans-serif", 'font-size': '7.5',
+        fill: '#B0A090', 'text-anchor': 'middle', 'dominant-baseline': 'middle',
+      });
+      el.textContent = Math.round(frac * 100) + '%';
+      svg.appendChild(el);
+    }
+  });
+
+  // ── Axis lines ─────────────────────────────────────────
+  THEMES.forEach(t => {
+    ap(svg, 'line', {
+      x1: f(cx), y1: f(cy),
+      x2: f(cx + MAX_R * Math.cos(t.angle)), y2: f(cy + MAX_R * Math.sin(t.angle)),
+      stroke: '#C8B8A8', 'stroke-width': '1',
+    });
+  });
+
+  // ── Snapshot polygons (back to front = oldest to newest) ──
+  [...SNAPSHOTS].reverse().forEach((snap, ri) => {
+    const pts = polygon(snap.vals);
+    // Fill
+    ap(svg, 'path', {
+      d: polyPath(pts),
+      fill: snap.fill,
+      opacity: snap.opacity,
+    });
+  });
+  // Strokes on top
+  SNAPSHOTS.forEach(snap => {
+    const pts = polygon(snap.vals);
+    ap(svg, 'path', {
+      d: polyPath(pts),
+      fill: 'none',
+      stroke: snap.stroke,
+      'stroke-width': '1.8',
+      opacity: Math.min(1, snap.opacity + 0.25),
+    });
+    // Year label near the top-right vertex
+    const topPt = { x: cx + ((snap.vals[0]/100) * MAX_R) * Math.cos(THEMES[0].angle),
+                    y: cy + ((snap.vals[0]/100) * MAX_R) * Math.sin(THEMES[0].angle) };
+    const yrEl = mk('text', {
+      x: f(topPt.x + 8), y: f(topPt.y - 6),
+      'font-family': "'Nunito', sans-serif", 'font-size': '9.5', 'font-weight': '700',
+      fill: snap.stroke, 'text-anchor': 'start',
+    });
+    yrEl.textContent = snap.year;
+    svg.appendChild(yrEl);
+  });
+
+  // ── Vertex dots on outermost polygon ──────────────────
+  const outerSnap = SNAPSHOTS[SNAPSHOTS.length - 1];
+  polygon(outerSnap.vals).forEach((pt, i) => {
+    ap(svg, 'circle', { cx: f(pt.x), cy: f(pt.y), r: '5', fill: outerSnap.fill, stroke: '#FFFFFF', 'stroke-width': '2' });
+  });
+
+  // ── Theme axis labels ──────────────────────────────────
+  const LABEL_R = MAX_R + 30;
+  THEMES.forEach(t => {
+    const lx = cx + LABEL_R * Math.cos(t.angle);
+    const ly = cy + LABEL_R * Math.sin(t.angle);
+    const anchor = Math.cos(t.angle) > 0.1 ? 'start' : Math.cos(t.angle) < -0.1 ? 'end' : 'middle';
+    t.labelLines.forEach((line, li) => {
+      const el = mk('text', {
+        x: f(lx),
+        y: f(ly + (li - (t.labelLines.length - 1) / 2) * 13),
+        'font-family': "'Nunito', sans-serif",
+        'font-size': '11', 'font-weight': '700',
+        fill: '#4A3C30',
+        'text-anchor': anchor,
+        'dominant-baseline': 'middle',
+      });
+      el.textContent = line;
+      svg.appendChild(el);
+    });
+    // Endpoint dot on axis
+    ap(svg, 'circle', {
+      cx: f(cx + MAX_R * Math.cos(t.angle)),
+      cy: f(cy + MAX_R * Math.sin(t.angle)),
+      r: '3.5', fill: '#C0B0A0',
+    });
+  });
+
+  // ── Center dot ─────────────────────────────────────────
+  ap(svg, 'circle', { cx, cy, r: '4', fill: '#9A8070' });
+
+  // ── Expanding arrows (annotation) ─────────────────────
+  const noteEl = mk('text', {
+    x: f(cx), y: f(cy + MAX_R + 44),
+    'font-family': "'Nunito', sans-serif", 'font-size': '9.5', 'font-style': 'italic',
+    fill: '#9A8070', 'text-anchor': 'middle',
+  });
+  noteEl.textContent = '↑ shape expands as expertise deepens across all themes ↑';
+  svg.appendChild(noteEl);
+
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nabil Arnaoot — Business Analyst & Problem Solver</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Tokens ─────────────────────────────────────────── */
+    :root {
+      --bg:       #FFFBF5;
+      --surface:  #FFFFFF;
+      --warm:     #FFF5E8;
+      --warm2:    #FDECD6;
+      --text:     #3D2B1F;
+      --muted:    #9A8070;
+      --border:   #E8DDD0;
+      --coral:    #E8614F;
+      --coral-lt: #FDEAE7;
+      --teal:     #2DB5A8;
+      --teal-lt:  #E0F5F3;
+      --mustard:  #D4920A;
+      --must-lt:  #FEF4DC;
+      --sage:     #6A9F7A;
+      --sage-lt:  #EBF4EE;
+      --lavender: #8B7BC8;
+      --lav-lt:   #EFECF9;
+      --r: 14px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Nunito', sans-serif;
+      line-height: 1.65;
+    }
+
+    /* ── Hero ───────────────────────────────────────────── */
+    .hero {
+      min-height: 100svh;
+      display: grid;
+      grid-template-rows: 1fr auto;
+      padding: 0 24px 48px;
+      background: var(--bg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Dot grid background */
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: radial-gradient(var(--border) 1px, transparent 1px);
+      background-size: 28px 28px;
+      opacity: .45;
+      pointer-events: none;
+    }
+
+    /* Warm gradient wash */
+    .hero::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 60% 40%, rgba(232,97,79,.07) 0%, transparent 70%),
+                  radial-gradient(ellipse 50% 50% at 20% 80%, rgba(212,146,10,.05) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding-top: clamp(80px, 18vh, 140px);
+      position: relative; z-index: 1;
+    }
+
+    .hero-eyebrow {
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--coral);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .hero-eyebrow::after {
+      content: '';
+      display: inline-block;
+      width: 40px; height: 1.5px;
+      background: var(--coral);
+      opacity: .5;
+    }
+
+    .hero-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 9vw, 6.5rem);
+      font-weight: 900;
+      line-height: .96;
+      letter-spacing: -2px;
+      color: var(--text);
+      margin-bottom: 28px;
+    }
+    .hero-name em {
+      font-style: italic;
+      color: var(--coral);
+    }
+
+    .hero-tagline {
+      font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+      color: var(--muted);
+      font-weight: 600;
+      max-width: 560px;
+      line-height: 1.5;
+      margin-bottom: 8px;
+    }
+
+    .hero-solve {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.1rem, 2.4vw, 1.45rem);
+      font-style: italic;
+      color: var(--coral);
+      font-weight: 700;
+      margin-bottom: 40px;
+    }
+
+    .hero-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .chip {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: 99px;
+      padding: 7px 18px;
+      font-size: .83rem;
+      font-weight: 700;
+      color: var(--text);
+      text-decoration: none;
+      transition: border-color .2s, background .2s;
+      position: relative; z-index: 1;
+    }
+    .chip:hover { border-color: var(--coral); background: var(--coral-lt); }
+
+    /* Scroll hint */
+    .scroll-hint {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      justify-content: center;
+      position: relative; z-index: 1;
+      animation: bob 2.4s ease-in-out infinite;
+    }
+    .scroll-hint svg { opacity: .5; }
+    @keyframes bob {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(5px); }
+    }
+
+    /* ── Page sections ──────────────────────────────────── */
+    .page { max-width: 1080px; margin: 0 auto; padding: 0 24px 100px; }
+    section { margin-top: 96px; }
+
+    .section-h {
+      margin-bottom: 32px;
+    }
+    .section-eyebrow {
+      font-size: .68rem;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .section-h h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+      font-weight: 900;
+      color: var(--text);
+      line-height: 1.15;
+    }
+    .section-h .sub {
+      margin-top: 8px;
+      font-size: .9rem;
+      color: var(--muted);
+      font-weight: 600;
+      max-width: 520px;
+    }
+
+    /* ── Question cards ─────────────────────────────────── */
+    .q-trio {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    @media (max-width: 720px) { .q-trio { grid-template-columns: 1fr; } }
+
+    .q-card {
+      background: var(--warm);
+      border: 1.5px solid var(--border);
+      border-radius: var(--r);
+      padding: 28px 24px 24px;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .q-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,.07); }
+    .q-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 14px;
+      opacity: .18;
+    }
+    .q-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    /* ── Duct Tape / Drano ──────────────────────────────── */
+    .dt-drano {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border: 1.5px solid var(--border);
+      border-radius: var(--r);
+      overflow: hidden;
+    }
+    @media (max-width: 640px) { .dt-drano { grid-template-columns: 1fr; } }
+
+    .panel { padding: 40px 36px; }
+    .panel-tape  { background: var(--coral-lt); }
+    .panel-drain { background: var(--teal-lt); border-left: 1.5px solid var(--border); }
+    @media (max-width: 640px) { .panel-drain { border-left: none; border-top: 1.5px solid var(--border); } }
+
+    .panel-icon  { font-size: 2.8rem; margin-bottom: 16px; line-height: 1; }
+    .panel-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .panel-sub {
+      font-size: .85rem;
+      color: var(--muted);
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+    .panel-tags { display: flex; flex-wrap: wrap; gap: 9px; margin-bottom: 20px; }
+    .ptag {
+      border-radius: 8px;
+      padding: 5px 13px;
+      font-size: .8rem;
+      font-weight: 700;
+    }
+    .ptag-tape  { background: rgba(232,97,79,.14);  color: var(--coral); border: 1px solid rgba(232,97,79,.25); }
+    .ptag-drain { background: rgba(45,181,168,.14); color: var(--teal);  border: 1px solid rgba(45,181,168,.25); }
+    .panel-note {
+      font-size: .84rem;
+      color: var(--muted);
+      font-style: italic;
+      line-height: 1.55;
+    }
+
+    /* ── Career chain ───────────────────────────────────── */
+    .chain-outer {
+      border: 1.5px solid var(--border);
+      border-radius: var(--r);
+      background: var(--surface);
+      padding: 24px 20px 18px;
+      overflow-x: auto;
+    }
+    #chainSvg {
+      min-width: 820px;
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .chain-summary {
+      margin-top: 14px;
+      text-align: center;
+      font-size: .88rem;
+      color: var(--muted);
+      font-style: italic;
+      font-weight: 600;
+    }
+
+    /* ── Impact grid ────────────────────────────────────── */
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 16px;
+    }
+    .impact-card {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--r);
+      padding: 28px 20px 22px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .impact-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,.08); }
+    .impact-card .i-num  {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .impact-card .i-desc {
+      font-size: .78rem;
+      color: var(--muted);
+      line-height: 1.4;
+      font-weight: 600;
+    }
+    .impact-card .i-accent { position: absolute; bottom: 0; left: 0; right: 0; height: 4px; }
+
+    /* ── Quotes ─────────────────────────────────────────── */
+    .quotes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
+    }
+    .quote-card {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--r);
+      padding: 28px 24px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .quote-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,.06); }
+    .quote-mark {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      color: var(--coral);
+      line-height: .8;
+      opacity: .55;
+    }
+    .quote-text {
+      font-size: .92rem;
+      color: var(--text);
+      line-height: 1.68;
+      flex: 1;
+    }
+    .quote-attr {
+      font-size: .73rem;
+      font-weight: 800;
+      color: var(--muted);
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      border-top: 1px solid var(--border);
+      padding-top: 14px;
+    }
+    .quote-card.special { background: var(--warm); border-color: rgba(212,146,10,.35); }
+
+    /* ── CTA / Footer ───────────────────────────────────── */
+    .cta-section {
+      margin-top: 96px;
+      border-top: 1.5px solid var(--border);
+      padding-top: 64px;
+      text-align: center;
+    }
+    .cta-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      font-weight: 900;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+    .cta-section p {
+      font-size: .95rem;
+      color: var(--muted);
+      font-weight: 600;
+      max-width: 440px;
+      margin: 0 auto 32px;
+    }
+    .cta-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: center;
+      align-items: center;
+    }
+    .btn-primary {
+      background: var(--coral);
+      color: #fff;
+      border: none;
+      border-radius: 99px;
+      padding: 14px 32px;
+      font-size: .9rem;
+      font-weight: 800;
+      text-decoration: none;
+      letter-spacing: .03em;
+      cursor: pointer;
+      transition: opacity .2s, transform .2s;
+    }
+    .btn-primary:hover { opacity: .88; transform: translateY(-1px); }
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      border: 1.5px solid var(--border);
+      border-radius: 99px;
+      padding: 13px 28px;
+      font-size: .9rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: border-color .2s, background .2s;
+    }
+    .btn-secondary:hover { border-color: var(--text); background: var(--warm); }
+
+    footer {
+      text-align: center;
+      padding: 28px 20px 40px;
+      color: var(--muted);
+      font-size: .78rem;
+      margin-top: 20px;
+    }
+    footer a { color: var(--coral); text-decoration: none; font-weight: 700; }
+  </style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════════════
+     HERO
+════════════════════════════════════════════════════════ -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Business Analyst &amp; Project Manager</div>
+
+    <h1 class="hero-name">Nabil<br><em>Arnaoot</em></h1>
+
+    <p class="hero-tagline">
+      Data Storyteller · Translator of Complexity · Builder of What Doesn't Exist Yet
+    </p>
+    <p class="hero-solve">I solve problems so that teams can go.</p>
+
+    <div class="hero-chips">
+      <a class="chip" href="mailto:narnaoot@gmail.com">✉ narnaoot@gmail.com</a>
+      <a class="chip" href="https://www.linkedin.com/in/narnaoot" target="_blank">in LinkedIn</a>
+      <span class="chip" style="pointer-events:none">📍 San Francisco, CA</span>
+    </div>
+  </div>
+
+  <div class="scroll-hint">
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M7 2v10M2 8l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    Scroll to explore
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════
+     MAIN
+════════════════════════════════════════════════════════ -->
+<div class="page">
+
+  <!-- ── The Questions ─────────────────────────────────── -->
+  <section>
+    <div class="section-h">
+      <div class="section-eyebrow">How I start every engagement</div>
+      <h2>The Questions I Always Ask</h2>
+      <p class="sub">Every project begins with listening. The frustration is the signal.</p>
+    </div>
+    <div class="q-trio">
+      <div class="q-card">
+        <div class="q-num" style="color:var(--coral)">01</div>
+        <div class="q-text">It's six months from now. Work is awesome. What's changed?</div>
+      </div>
+      <div class="q-card">
+        <div class="q-num" style="color:var(--coral)">02</div>
+        <div class="q-text">What terrible, manual task do you absolutely hate doing?</div>
+      </div>
+      <div class="q-card">
+        <div class="q-num" style="color:var(--coral)">03</div>
+        <div class="q-text">What is keeping you from getting your work done?</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Duct Tape / Drano ──────────────────────────────── -->
+  <section>
+    <div class="section-h">
+      <div class="section-eyebrow">Two kinds of problems</div>
+      <h2>How I Work</h2>
+    </div>
+    <div class="dt-drano">
+      <div class="panel panel-tape">
+        <div class="panel-icon">🩹</div>
+        <div class="panel-title">Duct Tape</div>
+        <div class="panel-sub">When something doesn't hold together — I build the structure</div>
+        <div class="panel-tags">
+          <span class="ptag ptag-tape">Siloed teams</span>
+          <span class="ptag ptag-tape">Inconsistent data</span>
+          <span class="ptag ptag-tape">Unclear ownership</span>
+          <span class="ptag ptag-tape">No shared process</span>
+          <span class="ptag ptag-tape">Scattered reporting</span>
+        </div>
+        <p class="panel-note">
+          Built processes used by 300+ engineers. Created iCloud's outage tracking system from scratch. Rebuilt kernel update workflow for 500,000 systems.
+        </p>
+      </div>
+      <div class="panel panel-drain">
+        <div class="panel-icon">🪣</div>
+        <div class="panel-title">Drano</div>
+        <div class="panel-sub">When something isn't moving — I clear the path</div>
+        <div class="panel-tags">
+          <span class="ptag ptag-drain">Stuck workflows</span>
+          <span class="ptag ptag-drain">Manual bottlenecks</span>
+          <span class="ptag ptag-drain">Stalled projects</span>
+          <span class="ptag ptag-drain">Buried insights</span>
+          <span class="ptag ptag-drain">Waiting on sign-off</span>
+        </div>
+        <p class="panel-note">
+          Love going from 0 to 1. That's an infinite increase. Making people's jobs and lives easier is the whole point.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Career Thread ──────────────────────────────────── -->
+  <section>
+    <div class="section-h">
+      <div class="section-eyebrow">Career Thread</div>
+      <h2>Not a ladder. A through-line.</h2>
+      <p class="sub">Each role contributed something the next one required. Vertical position reflects scope of impact.</p>
+    </div>
+    <div class="chain-outer">
+      <svg id="chainSvg" viewBox="0 0 1010 420" xmlns="http://www.w3.org/2000/svg">
+        <title>Nabil Arnaoot career progression, 2006 to present</title>
+      </svg>
+    </div>
+    <p class="chain-summary">Managing projects → solving org-wide problems</p>
+  </section>
+
+  <!-- ── Impact ─────────────────────────────────────────── -->
+  <section>
+    <div class="section-h">
+      <div class="section-eyebrow">Track record</div>
+      <h2>Impact at a Glance</h2>
+    </div>
+    <div class="impact-grid">
+      <div class="impact-card">
+        <div class="i-num" style="color:var(--coral)"><span class="count-num" data-to="19" data-suffix="+">19+</span></div>
+        <div class="i-desc">years of professional experience</div>
+        <div class="i-accent" style="background:var(--coral)"></div>
+      </div>
+      <div class="impact-card">
+        <div class="i-num" style="color:var(--teal)"><span class="count-num" data-to="300" data-suffix="M+">300M+</span></div>
+        <div class="i-desc">iCloud users supported at launch</div>
+        <div class="i-accent" style="background:var(--teal)"></div>
+      </div>
+      <div class="impact-card">
+        <div class="i-num" style="color:var(--mustard)"><span class="count-num" data-to="500" data-suffix="K">500K</span></div>
+        <div class="i-desc">systems rebuilt with new kernel update process</div>
+        <div class="i-accent" style="background:var(--mustard)"></div>
+      </div>
+      <div class="impact-card">
+        <div class="i-num" style="color:var(--lavender)"><span class="count-num" data-to="40" data-suffix="+">40+</span></div>
+        <div class="i-desc">engineering teams collaborated with at Apple</div>
+        <div class="i-accent" style="background:var(--lavender)"></div>
+      </div>
+      <div class="impact-card">
+        <div class="i-num" style="color:var(--sage)"><span class="count-num" data-to="300" data-suffix="+">300+</span></div>
+        <div class="i-desc">engineers using systems I built</div>
+        <div class="i-accent" style="background:var(--sage)"></div>
+      </div>
+      <div class="impact-card">
+        <div class="i-num" style="color:var(--coral)"><span class="count-num" data-to="7" data-suffix="">7</span></div>
+        <div class="i-desc">years at Apple across two distinct roles</div>
+        <div class="i-accent" style="background:var(--coral)"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Quotes ─────────────────────────────────────────── -->
+  <section>
+    <div class="section-h">
+      <div class="section-eyebrow">In their words</div>
+      <h2>What People Say</h2>
+    </div>
+    <div class="quotes-grid">
+      <div class="quote-card">
+        <div class="quote-mark">"</div>
+        <div class="quote-text">He has the unique ability to walk into an ambiguous situation, quickly grasp the key milestones and action items, identify technical needs that have not been addressed, and get results — all while getting a smile out of everyone in the room.</div>
+        <div class="quote-attr">Brianna Gamp · Information Security Leader</div>
+      </div>
+      <div class="quote-card">
+        <div class="quote-mark">"</div>
+        <div class="quote-text">He takes a large amount of disparate and easily confused data and packages it into an easily understood, easily communicated snapshot of progress. He knows how to ask the right questions and does not relent until he has a clear understanding.</div>
+        <div class="quote-attr">Robert Mooney · Principal Security Architect</div>
+      </div>
+      <div class="quote-card special">
+        <div class="quote-mark" style="color:var(--mustard)">"</div>
+        <div class="quote-text">He is an extremely dynamic and versatile program and project manager. Besides being an eloquent speaker and writer, he brings teams together and makes projects successful. If there is a difficult moment in a project, he faces it and resolves it with a unique charm.</div>
+        <div class="quote-attr">Sneha Phadke · Director, Application Security · eBay</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ────────────────────────────────────────────── -->
+  <div class="cta-section">
+    <h2>Let's work on something together.</h2>
+    <p>I'm currently a Principal Business Analyst at SFMTA. Open to the right conversations.</p>
+    <div class="cta-buttons">
+      <a class="btn-primary" href="mailto:narnaoot@gmail.com">✉ Get in touch</a>
+      <a class="btn-secondary" href="https://www.linkedin.com/in/narnaoot" target="_blank">LinkedIn profile</a>
+      <a class="btn-secondary" href="nabil.html">Full profile →</a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  Made with curiosity &amp; care ·
+  <a href="https://www.linkedin.com/in/narnaoot" target="_blank">linkedin.com/in/narnaoot</a> ·
+  <a href="mailto:narnaoot@gmail.com">narnaoot@gmail.com</a>
+</footer>
+
+<!-- ════════════════════════════════════════════════════════
+     CAREER CHAIN SVG
+════════════════════════════════════════════════════════ -->
+<script>
+(function () {
+  const svg = document.getElementById('chainSvg');
+  const ns  = 'http://www.w3.org/2000/svg';
+
+  function el(tag, attrs, parent) {
+    const e = document.createElementNS(ns, tag);
+    for (const [k, v] of Object.entries(attrs || {})) e.setAttribute(k, v);
+    if (parent) parent.appendChild(e);
+    return e;
+  }
+
+  const CW = 132, CH = 84, HW = CW / 2, HH = CH / 2;
+
+  const roles = [
+    { x:  102, y: 340, company: 'Elegrity',   title: 'Engr PM',          years: '2006 – 10',             color: '#6A9F7A' },
+    { x:  272, y: 308, company: 'eBay',        title: 'Program Manager',  years: '2010 – 11',             color: '#D4920A' },
+    { x:  442, y: 250, company: 'Apple',       title: 'Engr PM',          years: '2011 – 14 · projects',  color: '#4A90D9' },
+    { x:  606, y: 224, company: 'Apple',       title: 'Business Analyst', years: '2014 – 20 · org-wide',  color: '#4A90D9', pivot: true },
+    { x:  778, y: 202, company: "St. Mary's",  title: 'Consultant + MS',  years: '2020 – 24',             color: '#8B7BC8' },
+    { x:  948, y: 116, company: 'SFMTA',       title: 'Principal BA',     years: '2024 – now',            color: '#E8614F', current: true },
+  ];
+
+  const bridges = [
+    { label: 'relationships',   pivot: false },
+    { label: 'tech fluency',    pivot: false },
+    { label: 'sys → process',  pivot: true  },
+    { label: 'deep analytics',  pivot: false },
+    { label: 'data leadership', pivot: false },
+  ];
+
+  const defs = el('defs', {}, svg);
+
+  const pat = el('pattern', { id: 'dg', x: 0, y: 0, width: 24, height: 24, patternUnits: 'userSpaceOnUse' }, defs);
+  el('circle', { cx: 1, cy: 1, r: 1, fill: '#E8DDD0' }, pat);
+
+  function mkMarker(id, color) {
+    const m = el('marker', { id, markerWidth: '10', markerHeight: '10', refX: '9', refY: '3.5', orient: 'auto' }, defs);
+    el('path', { d: 'M0,0 L0,7 L10,3.5 z', fill: color }, m);
+  }
+  mkMarker('arN', '#C0B4A8');
+  mkMarker('arP', '#C4830A');
+  mkMarker('arC', '#D0504A');
+
+  roles.forEach((r, i) => {
+    if (i >= roles.length - 1) return;
+    const nx = roles[i + 1].x, ny = roles[i + 1].y;
+    const x1 = r.x + HW, y1 = r.y;
+    const x2 = nx - HW,  y2 = ny;
+    const dx = x2 - x1;
+    el('path', {
+      id: `bp${i}`,
+      d: `M${x1},${y1} C${x1 + dx * .42},${y1} ${x2 - dx * .42},${y2} ${x2},${y2}`,
+    }, defs);
+  });
+
+  el('rect', { x: 0, y: 0, width: 1010, height: 420, fill: '#FFFBF5' }, svg);
+  el('rect', { x: 0, y: 0, width: 1010, height: 420, fill: 'url(#dg)', opacity: '.45' }, svg);
+
+  el('line', { x1: 34, y1: 66, x2: 34, y2: 392, stroke: '#DDD0C0', 'stroke-width': '1', 'stroke-dasharray': '2,7' }, svg);
+  el('polygon', { points: '29,61 34,49 39,61', fill: '#CCC0B0' }, svg);
+
+  function axisLbl(text, y) {
+    const e = el('text', {
+      x: 34, y,
+      'text-anchor': 'middle',
+      'font-family': 'Nunito,sans-serif',
+      'font-size': '11',
+      'font-weight': '800',
+      'letter-spacing': '.08em',
+      fill: '#C0B0A0',
+    }, svg);
+    e.textContent = text;
+  }
+  axisLbl('ORG-WIDE', 40);
+  axisLbl('TEAM', 410);
+
+  [88, 168, 248, 328].forEach(y => {
+    el('line', { x1: 52, y1: y, x2: 990, y2: y, stroke: '#EDE5D8', 'stroke-width': '1', 'stroke-dasharray': '3,14' }, svg);
+  });
+
+  bridges.forEach((b, i) => {
+    const isLast   = i === bridges.length - 1;
+    const stroke   = b.pivot ? '#C4830A' : isLast ? '#D0504A' : '#C4B8AC';
+    const markerId = b.pivot ? 'arP'     : isLast ? 'arC'     : 'arN';
+
+    el('use', {
+      href: `#bp${i}`,
+      fill: 'none',
+      stroke,
+      'stroke-width': b.pivot ? '2.5' : '2',
+      'stroke-dasharray': b.pivot ? '7,4' : 'none',
+      'marker-end': `url(#${markerId})`,
+    }, svg);
+
+    const r  = roles[i];
+    const nr = roles[i + 1];
+    const mx = (r.x + nr.x) / 2;
+
+    if (!b.pivot) {
+      const labelY = Math.min(r.y, nr.y) - HH - 14;
+      const pw = b.label.length * 7.4 + 20;
+      el('rect', {
+        x: mx - pw / 2, y: labelY - 14,
+        width: pw, height: 21,
+        rx: '10',
+        fill: '#F5EFE8',
+        stroke: '#E0D4C4',
+        'stroke-width': '1',
+      }, svg);
+      const lt = el('text', {
+        x: mx, y: labelY,
+        'text-anchor': 'middle',
+        'font-family': 'Nunito,sans-serif',
+        'font-size': '12',
+        'font-weight': '700',
+        fill: '#7A6858',
+      }, svg);
+      lt.textContent = b.label;
+    }
+
+    if (b.pivot) {
+      const my = Math.min(r.y, nr.y) - HH - 14;
+      el('rect', { x: mx - 34, y: my - 14, width: 68, height: 21, rx: '10', fill: '#C4830A' }, svg);
+      const bt = el('text', {
+        x: mx, y: my,
+        'text-anchor': 'middle',
+        'font-family': 'Nunito,sans-serif',
+        'font-size': '11',
+        'font-weight': '800',
+        'letter-spacing': '.08em',
+        fill: '#FFF',
+      }, svg);
+      bt.textContent = '↩ PIVOT';
+    }
+  });
+
+  roles.forEach((r, i) => {
+    const lx = r.x - HW, ty = r.y - HH;
+    const cid = `cc${i}`;
+
+    const cp = el('clipPath', { id: cid }, defs);
+    el('rect', { x: lx, y: ty, width: CW, height: CH, rx: '11' }, cp);
+
+    el('rect', { x: lx + 2, y: ty + 3, width: CW, height: CH, rx: '11', fill: 'rgba(61,43,31,.08)' }, svg);
+
+    const cg = el('g', { 'clip-path': `url(#${cid})` }, svg);
+    el('rect', { x: lx, y: ty, width: CW, height: CH, fill: '#FFF' }, cg);
+    el('rect', { x: lx, y: ty, width: 6, height: CH, fill: r.color }, cg);
+    if (r.current) {
+      el('rect', { x: lx, y: ty, width: CW, height: 8, fill: r.color, opacity: '.15' }, cg);
+    }
+
+    el('rect', {
+      x: lx, y: ty, width: CW, height: CH, rx: '11',
+      fill: 'none',
+      stroke: r.current ? r.color : '#E8DDD0',
+      'stroke-width': r.current ? '2.5' : '1.5',
+    }, svg);
+
+    const ce = el('text', {
+      x: lx + 16, y: ty + 28,
+      'font-family': "'Playfair Display',serif",
+      'font-size': '18',
+      'font-weight': '700',
+      fill: '#3D2B1F',
+    }, svg);
+    ce.textContent = r.company;
+
+    const te = el('text', {
+      x: lx + 16, y: ty + 48,
+      'font-family': 'Nunito,sans-serif',
+      'font-size': '13',
+      'font-weight': '700',
+      fill: '#5A4033',
+    }, svg);
+    te.textContent = r.title;
+
+    const ye = el('text', {
+      x: lx + 16, y: ty + 66,
+      'font-family': 'Nunito,sans-serif',
+      'font-size': '11',
+      'font-weight': '600',
+      fill: '#9A8070',
+    }, svg);
+    ye.textContent = r.years;
+
+    if (r.current) {
+      el('circle', { cx: lx + CW - 16, cy: ty + 16, r: '8',   fill: r.color, opacity: '.22' }, svg);
+      el('circle', { cx: lx + CW - 16, cy: ty + 16, r: '4.5', fill: r.color }, svg);
+    }
+  });
+})();
+</script>
+
+<!-- ════════════════════════════════════════════════════════
+     COUNT-UP ANIMATION
+════════════════════════════════════════════════════════ -->
+<script>
+(function () {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      const to     = +el.dataset.to;
+      const suffix = el.dataset.suffix || '';
+      const dur    = 1400;
+      const start  = performance.now();
+      (function tick(now) {
+        const t = Math.min((now - start) / dur, 1);
+        const ease = t < .5 ? 2*t*t : -1+(4-2*t)*t;
+        el.textContent = Math.round(ease * to) + suffix;
+        if (t < 1) requestAnimationFrame(tick);
+      })(start);
+      observer.unobserve(el);
+    });
+  }, { threshold: .3 });
+
+  document.querySelectorAll('.count-num').forEach(el => observer.observe(el));
+})();
+</script>
+
+</body>
+</html>
