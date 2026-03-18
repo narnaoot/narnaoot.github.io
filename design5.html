@@ -3,29 +3,42 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nabil Arnaoot — Data Analytics</title>
+  <title>Nabil Arnaoot — Data Analytics · Design 5</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --bg: #f4f4f0;
-      --white: #ffffff;
-      --text: #111111;
-      --muted: #666666;
-      --accent: #00875a;
-      --accent-light: #d4f0e5;
-      --border: #ddddd8;
+      --bg:          #FFFBF5;
+      --surface:     #FFFFFF;
+      --warm:        #FFF5E8;
+      --text:        #3D2B1F;
+      --muted:       #9A8070;
+      --border:      #E8DDD0;
+      /* Primary: Coral */
+      --accent:      #E8614F;
+      --accent-light:#FDEAE7;
+      /* Supporting */
+      --teal:        #2DB5A8;
+      --teal-lt:     #E0F5F3;
+      --mustard:     #D4920A;
+      --must-lt:     #FEF4DC;
+      --lavender:    #8B7BC8;
+      --lav-lt:      #EFECF9;
+      --sage:        #6A9F7A;
     }
     body {
-      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-family: 'Nunito', sans-serif;
       background: var(--bg);
       color: var(--text);
       line-height: 1.5;
     }
     a { color: inherit; text-decoration: none; }
 
-    /* Top bar */
+    /* ── Top bar ─────────────────────────────── */
     .topbar {
-      background: var(--white);
+      background: var(--surface);
       border-bottom: 2px solid var(--text);
       display: flex;
       align-items: center;
@@ -34,20 +47,22 @@
       height: 56px;
     }
     .topbar-name {
-      font-size: 1rem; font-weight: 800;
-      letter-spacing: -0.01em; text-transform: uppercase;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem; font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--accent);
     }
     .topbar-nav { display: flex; gap: 2rem; }
     .topbar-nav a {
-      font-size: 0.8rem; font-weight: 600;
+      font-size: 0.8rem; font-weight: 700;
       text-transform: uppercase; letter-spacing: 0.06em;
       color: var(--muted);
     }
     .topbar-nav a:hover { color: var(--accent); }
 
-    /* Hero */
+    /* ── Hero ────────────────────────────────── */
     .hero {
-      background: var(--white);
+      background: var(--surface);
       border-bottom: 2px solid var(--text);
       padding: 5rem 2rem 4rem;
       display: grid;
@@ -56,30 +71,30 @@
       max-width: 1100px;
       margin: 0 auto;
     }
-    .hero-left {}
     .hero-number {
-      font-size: 0.7rem; font-weight: 700;
+      font-size: 0.7rem; font-weight: 800;
       letter-spacing: 0.15em; text-transform: uppercase;
       color: var(--accent); margin-bottom: 1rem;
     }
     .hero-title {
+      font-family: 'Playfair Display', serif;
       font-size: clamp(2.8rem, 5vw, 5rem);
       font-weight: 900;
       line-height: 1;
-      letter-spacing: -0.04em;
+      letter-spacing: -0.02em;
       margin-bottom: 2rem;
     }
-    .hero-title em { font-style: normal; color: var(--accent); }
+    .hero-title em { font-style: italic; color: var(--accent); }
     .hero-badge {
       display: inline-flex; align-items: center; gap: 0.5rem;
       background: var(--accent-light);
       color: var(--accent);
-      font-weight: 700;
+      font-weight: 800;
       font-size: 0.78rem;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       padding: 0.4rem 0.9rem;
-      border-radius: 2px;
+      border-radius: 3px;
     }
     .hero-badge::before { content: '●'; font-size: 0.5rem; }
 
@@ -92,16 +107,17 @@
       display: flex; gap: 2rem;
       padding-top: 1rem; border-top: 1px solid var(--border);
     }
-    .hero-meta-item {}
     .hero-meta-item .val {
-      font-size: 1.5rem; font-weight: 800; letter-spacing: -0.03em;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem; font-weight: 700; letter-spacing: -0.02em;
+      color: var(--accent);
     }
-    .hero-meta-item .label {
+    .hero-meta-item .lbl {
       font-size: 0.72rem; color: var(--muted); text-transform: uppercase;
       letter-spacing: 0.06em;
     }
 
-    /* Grid content */
+    /* ── Grid ────────────────────────────────── */
     .grid-container {
       max-width: 1100px;
       margin: 3rem auto;
@@ -115,9 +131,9 @@
     .col-12 { grid-column: span 12; }
 
     .block {
-      background: var(--white);
+      background: var(--surface);
       border: 2px solid var(--text);
-      border-radius: 2px;
+      border-radius: 4px;
       padding: 2rem;
     }
     .block-label {
@@ -126,7 +142,7 @@
       color: var(--accent); margin-bottom: 1.25rem;
     }
 
-    /* Project rows */
+    /* ── Project rows ────────────────────────── */
     .proj-row {
       display: flex; align-items: flex-start;
       padding: 1.1rem 0;
@@ -148,26 +164,27 @@
     .proj-tag {
       font-size: 0.68rem; font-weight: 700;
       text-transform: uppercase; letter-spacing: 0.05em;
-      background: var(--bg);
+      background: var(--warm);
       border: 1px solid var(--border);
       padding: 0.2rem 0.5rem;
-      border-radius: 2px;
+      border-radius: 3px;
       white-space: nowrap;
       align-self: flex-start;
       flex-shrink: 0;
       margin-top: 0.1rem;
     }
 
-    /* Quote block */
+    /* ── Quote block ─────────────────────────── */
     .quote-block {
       background: var(--accent);
       border: 2px solid var(--text);
       color: #fff;
       padding: 2rem;
-      border-radius: 2px;
+      border-radius: 4px;
     }
     .quote-block blockquote {
-      font-size: 1rem; line-height: 1.65;
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem; line-height: 1.7;
       font-style: italic;
     }
     .quote-block footer {
@@ -177,23 +194,24 @@
       opacity: 0.8;
     }
 
-    /* Links block */
+    /* ── Links block ─────────────────────────── */
     .links-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
     .links-list a {
       display: flex; align-items: center; justify-content: space-between;
       padding: 0.7rem 0.9rem;
-      background: var(--bg);
+      background: var(--warm);
       border: 1px solid var(--border);
-      border-radius: 2px;
-      font-size: 0.85rem; font-weight: 600;
+      border-radius: 3px;
+      font-size: 0.85rem; font-weight: 700;
       transition: background 0.15s;
     }
     .links-list a:hover { background: var(--accent-light); border-color: var(--accent); color: var(--accent); }
     .links-list a span { font-size: 1.1rem; }
 
+    /* ── Footer ──────────────────────────────── */
     footer.page-footer {
       border-top: 2px solid var(--text);
-      background: var(--white);
+      background: var(--surface);
       padding: 1.5rem 2rem;
       display: flex;
       align-items: center;
@@ -234,15 +252,15 @@
     <div class="hero-meta">
       <div class="hero-meta-item">
         <div class="val">20+</div>
-        <div class="label">Years in tech</div>
+        <div class="lbl">Years in tech</div>
       </div>
       <div class="hero-meta-item">
         <div class="val">5</div>
-        <div class="label">Projects</div>
+        <div class="lbl">Projects</div>
       </div>
       <div class="hero-meta-item">
-        <div class="val">SF</div>
-        <div class="label">Based in</div>
+        <div class="val" style="color:var(--teal);">SF</div>
+        <div class="lbl">Based in</div>
       </div>
     </div>
   </div>
