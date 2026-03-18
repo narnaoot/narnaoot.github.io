@@ -6,65 +6,72 @@
   <title>About — Nabil Arnaoot</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700;1,9..144,900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --white:    #FFFFFF;
-      --off:      #F9F8F6;
-      --ink:      #111110;
-      --mid:      #6B6660;
-      --faint:    #E8E3DC;
-      --rule:     #E0DBD4;
+      --bg:       #FFFBF5;
+      --surface:  #FFFFFF;
+      --warm:     #FFF5E8;
+      --warm2:    #FDECD6;
+      --text:     #3D2B1F;
+      --muted:    #9A8070;
+      --border:   #E8DDD0;
       --coral:    #E8614F;
-      --coral-lt: #FDE8E5;
-      --mustard:  #C98B09;
-      --must-lt:  #FEF3D8;
-      --teal:     #1FA99D;
-      --teal-lt:  #DFF3F1;
+      --coral-lt: #FDEAE7;
+      --teal:     #2DB5A8;
+      --teal-lt:  #E0F5F3;
+      --mustard:  #D4920A;
+      --must-lt:  #FEF4DC;
       --sage:     #6A9F7A;
-      --sage-lt:  #E8F3EB;
-      --lavender: #7B6DC8;
-      --lav-lt:   #ECEAF8;
-      --r: 10px;
+      --sage-lt:  #EBF4EE;
+      --lavender: #8B7BC8;
+      --lav-lt:   #EFECF9;
+      --r: 14px;
+      /* aliases for page-level styles */
+      --white:    #FFFFFF;
+      --off:      #FFFBF5;
+      --ink:      #3D2B1F;
+      --mid:      #9A8070;
+      --faint:    #FDECD6;
+      --rule:     #E8DDD0;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--ink); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    body { font-family: 'Nunito', sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; }
 
     /* NAV */
-    .topnav { position: sticky; top: 0; z-index: 200; background: rgba(255,255,255,.97); backdrop-filter: blur(16px); border-bottom: 1px solid var(--rule); height: 64px; display: flex; align-items: center; }
-    .topnav-inner { max-width: 1280px; margin: 0 auto; padding: 0 3rem; width: 100%; display: flex; align-items: center; justify-content: space-between; }
-    .nav-logo { font-family: 'Fraunces', serif; font-size: 1.05rem; font-weight: 700; letter-spacing: -.3px; color: var(--ink); text-decoration: none; }
-    .nav-logo em { font-style: normal; color: var(--coral); }
-    .nav-links { display: flex; list-style: none; }
-    .nav-links a { padding: 8px 16px; font-size: .72rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--mid); text-decoration: none; transition: color .15s; }
-    .nav-links a:hover, .nav-links a.active { color: var(--coral); }
-    @media (max-width: 640px) { .topnav-inner { padding: 0 1.5rem; } .nav-links a { padding: 8px 9px; font-size: .66rem; } }
+    .topnav { background: var(--surface); border-bottom: 1.5px solid var(--border); position: sticky; top: 0; z-index: 100; height: 56px; display: flex; align-items: center; }
+    .topnav-inner { max-width: 1080px; margin: 0 auto; padding: 0 28px; width: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 900; color: var(--coral); letter-spacing: -0.5px; text-decoration: none; }
+    .nav-links { display: flex; gap: 4px; list-style: none; }
+    .nav-links a { padding: 6px 14px; font-size: .78rem; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; color: var(--muted); text-decoration: none; border-radius: 8px; transition: color .15s, background .15s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); background: var(--warm2); }
+    @media (max-width: 600px) { .nav-links a { padding: 6px 10px; font-size: .72rem; letter-spacing: .06em; } }
 
     /* PAGE HEADER */
-    .page-header { border-bottom: 1px solid var(--rule); padding: 7rem 3rem 5rem; max-width: 1280px; margin: 0 auto; }
+    .page-header { border-bottom: 1.5px solid var(--border); padding: 7rem 3rem 5rem; max-width: 1080px; margin: 0 auto; }
     @media (max-width: 640px) { .page-header { padding: 4rem 1.5rem 3rem; } }
-    .page-header-kicker { display: flex; align-items: center; gap: 16px; font-size: .72rem; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: var(--lavender); margin-bottom: 2rem; }
+    .page-header-kicker { display: flex; align-items: center; gap: 16px; font-size: .72rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; color: var(--lavender); margin-bottom: 2rem; }
     .page-header-kicker-line { width: 56px; height: 1px; background: var(--lavender); flex-shrink: 0; }
-    .page-header h1 { font-family: 'Fraunces', serif; font-size: clamp(2.8rem, 6vw, 5.5rem); font-weight: 900; line-height: .95; letter-spacing: -2px; color: var(--ink); margin-bottom: 1.5rem; }
+    .page-header h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 6vw, 5.5rem); font-weight: 900; line-height: .95; letter-spacing: -2px; color: var(--text); margin-bottom: 1.5rem; }
     .page-header h1 em { font-style: italic; color: var(--lavender); }
-    .page-header-sub { font-size: 1.05rem; color: var(--mid); line-height: 1.65; max-width: 560px; }
+    .page-header-sub { font-size: 1.05rem; color: var(--muted); line-height: 1.65; max-width: 560px; }
 
     /* MAIN BODY */
-    .page-body { max-width: 1280px; margin: 0 auto; padding: 5rem 3rem 7rem; display: flex; flex-direction: column; gap: 7rem; }
+    .page-body { max-width: 1080px; margin: 0 auto; padding: 5rem 3rem 7rem; display: flex; flex-direction: column; gap: 7rem; }
     @media (max-width: 640px) { .page-body { padding: 3rem 1.5rem 5rem; gap: 5rem; } }
 
     /* SECTION HEADING */
     .section-heading { margin-bottom: 3rem; }
-    .section-kicker { font-size: .72rem; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: var(--mid); margin-bottom: .75rem; }
-    .section-heading h2 { font-family: 'Fraunces', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; line-height: 1.0; letter-spacing: -1px; color: var(--ink); }
+    .section-kicker { font-size: .72rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); margin-bottom: .75rem; }
+    .section-heading h2 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; line-height: 1.0; letter-spacing: -1px; color: var(--text); }
 
     /* PERSONAL DATA PORTRAIT — open grid, no borders on cards */
     .portrait-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
     @media (max-width: 760px) { .portrait-grid { grid-template-columns: 1fr 1fr; } }
     @media (max-width: 480px) { .portrait-grid { grid-template-columns: 1fr; } }
 
-    .portrait-item { border-top: 2px solid var(--rule); padding-top: 1.5rem; }
+    .portrait-item { border-top: 2px solid var(--border); padding-top: 1.5rem; }
     .portrait-item.accent-coral { border-top-color: var(--coral); }
     .portrait-item.accent-teal { border-top-color: var(--teal); }
     .portrait-item.accent-lavender { border-top-color: var(--lavender); }
@@ -72,9 +79,9 @@
     .portrait-item.accent-sage { border-top-color: var(--sage); }
 
     .p-icon { font-size: 1.8rem; margin-bottom: .75rem; }
-    .p-label { font-size: .7rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--mid); margin-bottom: .4rem; }
-    .p-value { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700; color: var(--ink); line-height: 1.15; margin-bottom: .5rem; }
-    .p-note { font-size: .84rem; color: var(--mid); line-height: 1.6; }
+    .p-label { font-size: .7rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: .4rem; }
+    .p-value { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--text); line-height: 1.15; margin-bottom: .5rem; }
+    .p-note { font-size: .84rem; color: var(--muted); line-height: 1.6; }
 
     .cat-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: .5rem; }
     .cat-chip { background: var(--coral-lt); border-radius: 3px; padding: 4px 12px; font-size: .8rem; font-weight: 600; color: var(--coral); }
@@ -96,7 +103,7 @@
     .testimonial-body {}
     .testimonial-who { font-size: .78rem; font-weight: 600; color: var(--mid); margin-bottom: 1rem; letter-spacing: .03em; }
     .testimonial-who strong { color: var(--ink); font-weight: 700; }
-    .testimonial-quote { font-family: 'Fraunces', serif; font-size: clamp(1rem, 1.5vw, 1.15rem); font-style: italic; color: var(--ink); line-height: 1.65; }
+    .testimonial-quote { font-family: 'Playfair Display', serif; font-size: clamp(1rem, 1.5vw, 1.15rem); font-style: italic; color: var(--ink); line-height: 1.65; }
     .testimonial-quote.featured { font-size: clamp(1.1rem, 1.8vw, 1.3rem); }
 
     /* EDUCATION & CERTS */
@@ -121,28 +128,27 @@
     .cert-sub { font-size: .76rem; color: var(--mid); margin-top: 2px; }
 
     /* FOOTER */
-    .site-footer { background: var(--ink); color: rgba(255,255,255,.45); padding: 6rem 3rem; }
-    .site-footer-inner { max-width: 1280px; margin: 0 auto; }
-    .footer-heading { font-family: 'Fraunces', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 900; font-style: italic; color: var(--white); margin-bottom: 2rem; letter-spacing: -1px; }
-    .footer-sub { font-size: .95rem; margin-bottom: 2.5rem; max-width: 400px; line-height: 1.65; }
-    .footer-cta { display: inline-block; padding: 14px 28px; background: var(--coral); color: var(--white); text-decoration: none; font-size: .8rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; border-radius: 3px; transition: opacity .15s; margin-bottom: 3rem; }
-    .footer-cta:hover { opacity: .85; }
-    .footer-nav { display: flex; gap: 2rem; flex-wrap: wrap; border-top: 1px solid rgba(255,255,255,.1); padding-top: 2rem; margin-top: 1rem; }
-    .footer-nav a { font-size: .78rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.4); text-decoration: none; transition: color .15s; }
-    .footer-nav a:hover { color: rgba(255,255,255,.8); }
+    footer { text-align: center; padding: 40px 28px; border-top: 1.5px solid var(--border); color: var(--muted); font-size: .82rem; }
+    footer .footer-inner { max-width: 1080px; margin: 0 auto; }
+    .footer-name { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 900; color: var(--text); margin-bottom: 8px; }
+    .footer-links { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin: 16px 0; }
+    .footer-link { padding: 6px 18px; border-radius: 99px; text-decoration: none; font-size: .8rem; font-weight: 800; transition: opacity .15s; }
+    .footer-link:hover { opacity: .8; }
+    .footer-link.primary { background: var(--coral); color: #fff; }
+    .footer-link.soft { background: var(--warm2); color: var(--muted); border: 1.5px solid var(--border); }
+    footer p { margin-top: 16px; font-size: .75rem; color: var(--muted); }
   </style>
 </head>
 <body>
 
 <nav class="topnav">
   <div class="topnav-inner">
-    <a href="index.html" class="nav-logo">N<em>A</em></a>
+    <a href="index.html" class="nav-logo">NA</a>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="work.html">Work</a></li>
       <li><a href="method.html">Method</a></li>
       <li><a href="about.html" class="active">About</a></li>
-      <li><a href="linked_in.html">LinkedIn</a></li>
     </ul>
   </div>
 </nav>
@@ -361,18 +367,14 @@
 
 </main>
 
-<footer class="site-footer">
-  <div class="site-footer-inner">
-    <div class="footer-heading">Let's talk.</div>
-    <p class="footer-sub">Currently: Principal Business Analyst at SFMTA · San Francisco, CA</p>
-    <a href="https://www.linkedin.com/in/narnaoot" target="_blank" class="footer-cta">Connect on LinkedIn</a>
-    <div class="footer-nav">
-      <a href="index.html">Home</a>
-      <a href="work.html">Work</a>
-      <a href="method.html">Method</a>
-      <a href="about.html">About</a>
-      <a href="linked_in.html">LinkedIn Profile</a>
+<footer>
+  <div class="footer-inner">
+    <div class="footer-name">If you would like to chat</div>
+    <div style="font-size:.84rem; color:var(--muted);">Currently: Principal Business Analyst at SFMTA · San Francisco, CA</div>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/narnaoot" target="_blank" class="footer-link primary">Connect on LinkedIn</a>
     </div>
+    <p>Made with curiosity &amp; care</p>
   </div>
 </footer>
 
