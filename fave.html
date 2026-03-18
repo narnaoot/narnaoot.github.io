@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nabil Arnaoot — Data Storyteller</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Tokens ─────────────────────────────────────────── */
+    :root {
+      --bg:       #FFFBF5;
+      --surface:  #FFFFFF;
+      --warm:     #FFF5E8;
+      --warm2:    #FDECD6;
+      --text:     #3D2B1F;
+      --muted:    #9A8070;
+      --border:   #E8DDD0;
+      --coral:    #E8614F;
+      --coral-lt: #FDEAE7;
+      --teal:     #2DB5A8;
+      --teal-lt:  #E0F5F3;
+      --mustard:  #D4920A;
+      --must-lt:  #FEF4DC;
+      --sage:     #6A9F7A;
+      --sage-lt:  #EBF4EE;
+      --lavender: #8B7BC8;
+      --lav-lt:   #EFECF9;
+      --r: 14px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Nunito', sans-serif;
+      line-height: 1.65;
+    }
+
+    /* ── Top nav ────────────────────────────────────────── */
+    .topnav {
+      background: var(--surface);
+      border-bottom: 1.5px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: 56px;
+      display: flex;
+      align-items: center;
+    }
+    .topnav-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 28px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 900;
+      color: var(--coral);
+      letter-spacing: -0.5px;
+      text-decoration: none;
+    }
+    .nav-links {
+      display: flex;
+      gap: 4px;
+      list-style: none;
+    }
+    .nav-links a {
+      padding: 6px 14px;
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      border-radius: 8px;
+      transition: color .15s, background .15s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); background: var(--warm2); }
+    @media (max-width: 600px) {
+      .nav-links a { padding: 6px 10px; font-size: .72rem; letter-spacing: .06em; }
+    }
+
+    /* ── Hero ───────────────────────────────────────────── */
+    header {
+      background: linear-gradient(160deg, #3D2B1F 0%, #6B3A2A 40%, #B34A38 75%, var(--mustard) 100%);
+      padding: 72px 28px 64px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: radial-gradient(rgba(255,255,255,.07) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+
+    .avatar-ring {
+      width: 82px; height: 82px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.12);
+      border: 2.5px solid rgba(255,255,255,.3);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 24px;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: rgba(255,255,255,.9);
+      position: relative;
+    }
+
+    .hero-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.6rem, 7vw, 4rem);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+    .hero-name em { font-style: italic; color: var(--mustard); }
+
+    .hero-tagline {
+      font-size: clamp(.9rem, 2vw, 1.05rem);
+      color: rgba(255,255,255,.75);
+      font-weight: 600;
+      max-width: 560px;
+      margin: 0 auto 8px;
+      letter-spacing: .02em;
+    }
+    .hero-punch {
+      font-size: 1rem;
+      color: rgba(255,255,255,.5);
+      font-style: italic;
+      margin-bottom: 32px;
+    }
+
+    .chip-row {
+      display: flex; flex-wrap: wrap;
+      gap: 10px; justify-content: center;
+    }
+    .chip {
+      background: rgba(255,255,255,.12);
+      border: 1.5px solid rgba(255,255,255,.22);
+      border-radius: 99px;
+      padding: 6px 18px;
+      font-size: .8rem;
+      font-weight: 700;
+      color: rgba(255,255,255,.85);
+      text-decoration: none;
+      transition: background .2s, border-color .2s;
+    }
+    .chip:hover { background: rgba(255,255,255,.22); border-color: rgba(255,255,255,.4); }
+
+    /* ── Stats strip ─────────────────────────────────────── */
+    .stats-strip {
+      background: var(--text);
+      padding: 0;
+      display: flex;
+      justify-content: center;
+    }
+    .stats-inner {
+      max-width: 1080px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .stat {
+      padding: 22px 20px;
+      text-align: center;
+      border-right: 1px solid rgba(255,255,255,.1);
+    }
+    .stat:last-child { border-right: none; }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--coral);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .stat-lbl {
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.45);
+    }
+    @media (max-width: 600px) {
+      .stats-inner { grid-template-columns: repeat(2, 1fr); }
+      .stat:nth-child(2) { border-right: none; }
+    }
+
+    /* ── Page body ───────────────────────────────────────── */
+    .page {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 60px 28px 80px;
+      display: flex;
+      flex-direction: column;
+      gap: 72px;
+    }
+
+    /* ── Section headings ────────────────────────────────── */
+    .section-h {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+    }
+    .section-h h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: var(--text);
+    }
+    .section-tag {
+      background: var(--warm2);
+      border: 1.5px solid var(--border);
+      border-radius: 99px;
+      padding: 3px 14px;
+      font-size: .7rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ── Page nav cards (teasers) ────────────────────────── */
+    .page-nav-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    @media (max-width: 700px) { .page-nav-grid { grid-template-columns: 1fr; } }
+
+    .page-card {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--r);
+      padding: 28px 26px;
+      text-decoration: none;
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      transition: transform .2s, box-shadow .2s, border-color .2s;
+    }
+    .page-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(0,0,0,.08);
+      border-color: var(--coral);
+    }
+    .page-card-icon {
+      font-size: 2rem;
+      line-height: 1;
+    }
+    .page-card-label {
+      font-size: .68rem;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .page-card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.25;
+    }
+    .page-card-desc {
+      font-size: .84rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .page-card-cta {
+      margin-top: 8px;
+      font-size: .78rem;
+      font-weight: 800;
+      color: var(--coral);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .page-card-accent {
+      height: 4px;
+      border-radius: 99px;
+      margin-bottom: 4px;
+    }
+
+    /* ── About blurb (home) ──────────────────────────────── */
+    .home-about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: center;
+    }
+    @media (max-width: 700px) { .home-about { grid-template-columns: 1fr; } }
+
+    .about-lead {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.2rem, 2.5vw, 1.55rem);
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.45;
+      margin-bottom: 18px;
+    }
+    .about-lead em { font-style: italic; color: var(--coral); }
+
+    .about-body {
+      font-size: .92rem;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .about-pull {
+      background: linear-gradient(135deg, var(--coral-lt), var(--must-lt));
+      border: 1.5px solid var(--border);
+      border-radius: var(--r);
+      padding: 36px 32px;
+      position: relative;
+      overflow: hidden;
+    }
+    .about-pull::before {
+      content: '"';
+      position: absolute;
+      top: -10px; left: 16px;
+      font-family: 'Playfair Display', serif;
+      font-size: 8rem;
+      color: rgba(232,97,79,.1);
+      line-height: 1;
+    }
+    .about-pull-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      font-style: italic;
+      color: var(--text);
+      line-height: 1.55;
+      position: relative;
+      margin-bottom: 16px;
+    }
+    .about-pull-attr {
+      font-size: .75rem;
+      font-weight: 800;
+      color: var(--muted);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    /* ── Impact counters ─────────────────────────────────── */
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    @media (max-width: 700px) { .impact-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 420px) { .impact-grid { grid-template-columns: 1fr; } }
+
+    .impact-card {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--r);
+      padding: 24px 20px 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .impact-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,.08); }
+    .impact-card .i-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.6rem;
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .impact-card .i-desc {
+      font-size: .78rem;
+      color: var(--muted);
+      line-height: 1.45;
+      font-weight: 600;
+    }
+    .impact-card .i-accent {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 4px;
+    }
+
+    /* ── Footer ──────────────────────────────────────────── */
+    footer {
+      background: var(--text);
+      color: rgba(255,255,255,.5);
+      text-align: center;
+      padding: 40px 28px;
+      font-size: .82rem;
+    }
+    footer .footer-inner { max-width: 1080px; margin: 0 auto; }
+    .footer-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .footer-links {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 16px 0;
+    }
+    .footer-link {
+      padding: 6px 18px;
+      border-radius: 99px;
+      text-decoration: none;
+      font-size: .8rem;
+      font-weight: 800;
+      transition: opacity .15s;
+    }
+    .footer-link:hover { opacity: .8; }
+    .footer-link.primary { background: var(--coral); color: #fff; }
+    .footer-link.soft { background: rgba(255,255,255,.1); color: rgba(255,255,255,.7); }
+    footer p { margin-top: 16px; font-size: .75rem; }
+  </style>
+</head>
+<body>
+
+<!-- ── Nav ──────────────────────────────────────────────── -->
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="index.html" class="nav-logo">NA</a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="method.html">Method</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="linked_in.html">LinkedIn</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ── Hero ─────────────────────────────────────────────── -->
+<header>
+  <div class="avatar-ring">NA</div>
+  <h1 class="hero-name">Nabil <em>Arnaoot</em></h1>
+  <p class="hero-tagline">Business Analyst · Data Storyteller · Translator of Complexity · Builder of What Doesn't Exist Yet</p>
+  <p class="hero-punch">I solve problems so that teams can go.</p>
+  <div class="chip-row">
+    <a class="chip" href="https://www.linkedin.com/in/narnaoot" target="_blank">in Connect on LinkedIn</a>
+    <span class="chip">📍 San Francisco, CA</span>
+    <span class="chip">🍵 Tea, not coffee</span>
+    <span class="chip">🐱 Octavia &amp; Cleopatra</span>
+  </div>
+</header>
+
+<!-- ── Stats strip ───────────────────────────────────────── -->
+<div class="stats-strip">
+  <div class="stats-inner">
+    <div class="stat">
+      <div class="stat-num">19+</div>
+      <div class="stat-lbl">Years experience</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">300M+</div>
+      <div class="stat-lbl">iCloud users at launch</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">300+</div>
+      <div class="stat-lbl">Engineers using systems I built</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">40+</div>
+      <div class="stat-lbl">Teams collaborated with at Apple</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Main content ──────────────────────────────────────── -->
+<main class="page">
+
+  <!-- About blurb -->
+  <section>
+    <div class="home-about">
+      <div>
+        <p class="about-lead">Data becomes a story. Complexity becomes <em>clarity</em>. Stuck teams get unstuck.</p>
+        <p class="about-body">
+          I'm a business analyst and data storyteller with 19+ years of experience turning messy, ambiguous situations into systems that work — and stories that move people to act.
+        </p>
+        <p class="about-body" style="margin-top: 14px;">
+          I spent seven years at Apple — collaborating with 40+ engineering teams, launching iCloud to 300M+ users, rebuilding kernel update workflows for 500K systems. Now I bring that same approach to San Francisco's transit network at SFMTA.
+        </p>
+        <p class="about-body" style="margin-top: 14px;">
+          University of Chicago, English Literature — that's where the data storytelling instinct was born. MS in Business Analytics (with honors) is where it got sharper.
+        </p>
+      </div>
+      <div class="about-pull">
+        <p class="about-pull-text">"He has the unique ability to walk into an ambiguous situation, quickly grasp the key milestones and action items, identify technical needs that have not been addressed, and get results — all while getting a smile out of everyone in the room."</p>
+        <div class="about-pull-attr">Brianna Gamp · Information Security Leader</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Impact at a Glance -->
+  <section>
+    <div class="section-h">
+      <h2>Impact at a Glance</h2>
+      <span class="section-tag">by the numbers</span>
+    </div>
+    <div class="impact-grid">
+      <div class="impact-card">
+        <div class="i-num" style="color:var(--coral)"><span class="count-num" data-count-to="19" data-suffix="+">19+</span></div>
+        <div class="i-desc">years of professional experience</div>
+        <div class="i-accent" style="background:var(--coral)"></div>
+      </div>
+      <div class="impact-card">
+        <div class="i-num" style="color:var(--teal)"><span class="count-num" data-count-to="300" data-suffix="M+">300M+</span></div>
+        <div class="i-desc">iCloud users supported at launch</div>
+        <div class="i-accent" style="background:var(--teal)"></div>
+      </div>
+      <div class="impact-card">
+        <div class="i-num" style="color:var(--mustard)"><span class="count-num" data-count-to="500" data-suffix="K">500K</span></div>
+        <div class="i-desc">systems rebuilt with new kernel update process</div>
+        <div class="i-accent" style="background:var(--mustard)"></div>
+      </div>
+      <div class="impact-card">
+        <div class="i-num" style="color:var(--lavender)"><span class="count-num" data-count-to="40" data-suffix="+">40+</span></div>
+        <div class="i-desc">engineering teams collaborated with at Apple</div>
+        <div class="i-accent" style="background:var(--lavender)"></div>
+      </div>
+      <div class="impact-card">
+        <div class="i-num" style="color:var(--sage)"><span class="count-num" data-count-to="300" data-suffix="+">300+</span></div>
+        <div class="i-desc">engineers using systems I built</div>
+        <div class="i-accent" style="background:var(--sage)"></div>
+      </div>
+      <div class="impact-card">
+        <div class="i-num" style="color:var(--coral)"><span class="count-num" data-count-to="7" data-suffix="">7</span></div>
+        <div class="i-desc">years at Apple across two roles</div>
+        <div class="i-accent" style="background:var(--coral)"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Page navigation cards -->
+  <section>
+    <div class="section-h">
+      <h2>Explore</h2>
+      <span class="section-tag">the full picture</span>
+    </div>
+    <div class="page-nav-grid">
+
+      <a class="page-card" href="work.html">
+        <div class="page-card-accent" style="background: linear-gradient(90deg, var(--coral), var(--mustard))"></div>
+        <div class="page-card-icon">🗂️</div>
+        <div class="page-card-label">Portfolio</div>
+        <div class="page-card-title">Selected Work</div>
+        <div class="page-card-desc">Case studies of real problems solved — from reducing iTunes crashes to mapping San Francisco's secret gardens.</div>
+        <div class="page-card-cta">View work →</div>
+      </a>
+
+      <a class="page-card" href="method.html">
+        <div class="page-card-accent" style="background: linear-gradient(90deg, var(--teal), var(--lavender))"></div>
+        <div class="page-card-icon">🔍</div>
+        <div class="page-card-label">Process</div>
+        <div class="page-card-title">How I Work</div>
+        <div class="page-card-desc">The questions I always ask, the two kinds of problems I solve, and the skills I bring to every engagement.</div>
+        <div class="page-card-cta">See my method →</div>
+      </a>
+
+      <a class="page-card" href="about.html">
+        <div class="page-card-accent" style="background: linear-gradient(90deg, var(--lavender), var(--sage))"></div>
+        <div class="page-card-icon">👤</div>
+        <div class="page-card-label">The Person</div>
+        <div class="page-card-title">About Nabil</div>
+        <div class="page-card-desc">A data portrait of the human behind the analysis — with testimonials, education, and the cats who supervise everything.</div>
+        <div class="page-card-cta">Learn more →</div>
+      </a>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- ── Footer ────────────────────────────────────────────── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-name">If you would like to chat</div>
+    <div style="font-size:.84rem; color:rgba(255,255,255,.45);">Currently: Principal Business Analyst at SFMTA · San Francisco, CA</div>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/narnaoot" target="_blank" class="footer-link primary">Connect on LinkedIn</a>
+      <a href="linked_in.html" class="footer-link soft">Full Profile</a>
+    </div>
+    <p>Made with curiosity &amp; care</p>
+  </div>
+</footer>
+
+<script>
+// ── Animated impact counters ──────────────────────────────
+(function () {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting || entry.target.dataset.counted) return;
+      entry.target.dataset.counted = '1';
+      const target = parseInt(entry.target.dataset.countTo, 10);
+      const suffix = entry.target.dataset.suffix || '';
+      const start  = performance.now();
+      const dur    = 1400;
+      (function tick(now) {
+        const p = Math.min((now - start) / dur, 1);
+        const e = 1 - Math.pow(1 - p, 3);
+        entry.target.textContent = Math.round(e * target) + suffix;
+        if (p < 1) requestAnimationFrame(tick);
+      })(start);
+    });
+  }, { threshold: 0.4 });
+  document.querySelectorAll('.count-num[data-count-to]').forEach(el => observer.observe(el));
+})();
+</script>
+</body>
+</html>
