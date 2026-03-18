@@ -88,7 +88,8 @@
 
     /* ── Hero ───────────────────────────────────────────── */
     header {
-      background: linear-gradient(160deg, #3D2B1F 0%, #6B3A2A 40%, #B34A38 75%, var(--mustard) 100%);
+      background: var(--bg);
+      border-bottom: 1.5px solid var(--border);
       padding: 72px 28px 64px;
       text-align: center;
       position: relative;
@@ -97,21 +98,22 @@
     header::before {
       content: '';
       position: absolute; inset: 0;
-      background-image: radial-gradient(rgba(255,255,255,.07) 1px, transparent 1px);
-      background-size: 28px 28px;
+      background-image: radial-gradient(var(--border) 1px, transparent 1px);
+      background-size: 24px 24px;
+      opacity: .4;
+      pointer-events: none;
     }
 
     .avatar-ring {
-      width: 82px; height: 82px;
+      width: 88px; height: 88px;
       border-radius: 50%;
-      background: rgba(255,255,255,.12);
-      border: 2.5px solid rgba(255,255,255,.3);
+      background: linear-gradient(135deg, var(--coral), var(--mustard));
       display: flex; align-items: center; justify-content: center;
       margin: 0 auto 24px;
       font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
+      font-size: 2rem;
       font-weight: 900;
-      color: rgba(255,255,255,.9);
+      color: #fff;
       position: relative;
     }
 
@@ -121,14 +123,14 @@
       font-weight: 900;
       line-height: 1.1;
       letter-spacing: -1.5px;
-      color: #fff;
+      color: var(--text);
       margin-bottom: 16px;
     }
-    .hero-name em { font-style: italic; color: var(--mustard); }
+    .hero-name em { font-style: italic; color: var(--coral); }
 
     .hero-tagline {
       font-size: clamp(.9rem, 2vw, 1.05rem);
-      color: rgba(255,255,255,.75);
+      color: var(--muted);
       font-weight: 600;
       max-width: 560px;
       margin: 0 auto 8px;
@@ -136,7 +138,7 @@
     }
     .hero-punch {
       font-size: 1rem;
-      color: rgba(255,255,255,.5);
+      color: var(--coral);
       font-style: italic;
       margin-bottom: 32px;
     }
@@ -146,21 +148,22 @@
       gap: 10px; justify-content: center;
     }
     .chip {
-      background: rgba(255,255,255,.12);
-      border: 1.5px solid rgba(255,255,255,.22);
+      background: var(--surface);
+      border: 1.5px solid var(--border);
       border-radius: 99px;
-      padding: 6px 18px;
-      font-size: .8rem;
+      padding: 5px 16px;
+      font-size: .82rem;
       font-weight: 700;
-      color: rgba(255,255,255,.85);
+      color: var(--text);
       text-decoration: none;
-      transition: background .2s, border-color .2s;
+      transition: border-color .2s, background .2s;
     }
-    .chip:hover { background: rgba(255,255,255,.22); border-color: rgba(255,255,255,.4); }
+    .chip:hover { border-color: var(--coral); background: var(--coral-lt); }
 
     /* ── Stats strip ─────────────────────────────────────── */
     .stats-strip {
-      background: var(--text);
+      background: var(--warm2);
+      border-bottom: 1.5px solid var(--border);
       padding: 0;
       display: flex;
       justify-content: center;
@@ -174,7 +177,7 @@
     .stat {
       padding: 22px 20px;
       text-align: center;
-      border-right: 1px solid rgba(255,255,255,.1);
+      border-right: 1px solid var(--border);
     }
     .stat:last-child { border-right: none; }
     .stat-num {
@@ -190,7 +193,7 @@
       font-weight: 700;
       letter-spacing: .1em;
       text-transform: uppercase;
-      color: rgba(255,255,255,.45);
+      color: var(--muted);
     }
     @media (max-width: 600px) {
       .stats-inner { grid-template-columns: repeat(2, 1fr); }
@@ -397,10 +400,10 @@
 
     /* ── Footer ──────────────────────────────────────────── */
     footer {
-      background: var(--text);
-      color: rgba(255,255,255,.5);
       text-align: center;
       padding: 40px 28px;
+      border-top: 1.5px solid var(--border);
+      color: var(--muted);
       font-size: .82rem;
     }
     footer .footer-inner { max-width: 1080px; margin: 0 auto; }
@@ -408,7 +411,7 @@
       font-family: 'Playfair Display', serif;
       font-size: 1.4rem;
       font-weight: 900;
-      color: #fff;
+      color: var(--text);
       margin-bottom: 8px;
     }
     .footer-links {
@@ -428,8 +431,8 @@
     }
     .footer-link:hover { opacity: .8; }
     .footer-link.primary { background: var(--coral); color: #fff; }
-    .footer-link.soft { background: rgba(255,255,255,.1); color: rgba(255,255,255,.7); }
-    footer p { margin-top: 16px; font-size: .75rem; }
+    .footer-link.soft { background: var(--warm2); color: var(--muted); border: 1.5px solid var(--border); }
+    footer p { margin-top: 16px; font-size: .75rem; color: var(--muted); }
   </style>
 </head>
 <body>
@@ -450,15 +453,17 @@
 
 <!-- ── Hero ─────────────────────────────────────────────── -->
 <header>
-  <div class="avatar-ring">NA</div>
-  <h1 class="hero-name">Nabil <em>Arnaoot</em></h1>
-  <p class="hero-tagline">Business Analyst · Data Storyteller · Translator of Complexity · Builder of What Doesn't Exist Yet</p>
-  <p class="hero-punch">I solve problems so that teams can go.</p>
-  <div class="chip-row">
-    <a class="chip" href="https://www.linkedin.com/in/narnaoot" target="_blank">in Connect on LinkedIn</a>
-    <span class="chip">📍 San Francisco, CA</span>
-    <span class="chip">🍵 Tea, not coffee</span>
-    <span class="chip">🐱 Octavia &amp; Cleopatra</span>
+  <div style="max-width:1080px;margin:0 auto;position:relative;">
+    <div class="avatar-ring">NA</div>
+    <h1 class="hero-name">Nabil <em>Arnaoot</em></h1>
+    <p class="hero-tagline">Business Analyst · Data Storyteller · Translator of Complexity · Builder of What Doesn't Exist Yet</p>
+    <p class="hero-punch">I solve problems so that teams can go.</p>
+    <div class="chip-row">
+      <a class="chip" href="https://www.linkedin.com/in/narnaoot" target="_blank">in Connect on LinkedIn</a>
+      <span class="chip">📍 San Francisco, CA</span>
+      <span class="chip">🍵 Tea, not coffee</span>
+      <span class="chip">🐱 Octavia &amp; Cleopatra</span>
+    </div>
   </div>
 </header>
 
@@ -593,7 +598,7 @@
 <footer>
   <div class="footer-inner">
     <div class="footer-name">If you would like to chat</div>
-    <div style="font-size:.84rem; color:rgba(255,255,255,.45);">Currently: Principal Business Analyst at SFMTA · San Francisco, CA</div>
+    <div style="font-size:.84rem; color:var(--muted);">Currently: Principal Business Analyst at SFMTA · San Francisco, CA</div>
     <div class="footer-links">
       <a href="https://www.linkedin.com/in/narnaoot" target="_blank" class="footer-link primary">Connect on LinkedIn</a>
       <a href="linked_in.html" class="footer-link soft">Full Profile</a>
