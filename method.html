@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How I Work — Nabil Arnaoot</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700;1,9..144,900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --white:    #FFFFFF;
+      --off:      #F9F8F6;
+      --ink:      #111110;
+      --mid:      #6B6660;
+      --faint:    #E8E3DC;
+      --rule:     #E0DBD4;
+      --coral:    #E8614F;
+      --coral-lt: #FDE8E5;
+      --mustard:  #C98B09;
+      --must-lt:  #FEF3D8;
+      --teal:     #1FA99D;
+      --teal-lt:  #DFF3F1;
+      --sage:     #6A9F7A;
+      --sage-lt:  #E8F3EB;
+      --lavender: #7B6DC8;
+      --lav-lt:   #ECEAF8;
+      --r: 10px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--ink); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+    /* NAV */
+    .topnav { position: sticky; top: 0; z-index: 200; background: rgba(255,255,255,.97); backdrop-filter: blur(16px); border-bottom: 1px solid var(--rule); height: 64px; display: flex; align-items: center; }
+    .topnav-inner { max-width: 1280px; margin: 0 auto; padding: 0 3rem; width: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-family: 'Fraunces', serif; font-size: 1.05rem; font-weight: 700; letter-spacing: -.3px; color: var(--ink); text-decoration: none; }
+    .nav-logo em { font-style: normal; color: var(--coral); }
+    .nav-links { display: flex; list-style: none; }
+    .nav-links a { padding: 8px 16px; font-size: .72rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--mid); text-decoration: none; transition: color .15s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--coral); }
+    @media (max-width: 640px) { .topnav-inner { padding: 0 1.5rem; } .nav-links a { padding: 8px 9px; font-size: .66rem; } }
+
+    /* PAGE HEADER */
+    .page-header { border-bottom: 1px solid var(--rule); padding: 7rem 3rem 5rem; max-width: 1280px; margin: 0 auto; }
+    @media (max-width: 640px) { .page-header { padding: 4rem 1.5rem 3rem; } }
+    .page-header-kicker { display: flex; align-items: center; gap: 16px; font-size: .72rem; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: var(--teal); margin-bottom: 2rem; }
+    .page-header-kicker-line { width: 56px; height: 1px; background: var(--teal); flex-shrink: 0; }
+    .page-header h1 { font-family: 'Fraunces', serif; font-size: clamp(2.8rem, 6vw, 5.5rem); font-weight: 900; line-height: .95; letter-spacing: -2px; color: var(--ink); margin-bottom: 1.5rem; }
+    .page-header h1 em { font-style: italic; color: var(--teal); }
+    .page-header-sub { font-size: 1.05rem; color: var(--mid); line-height: 1.65; max-width: 560px; }
+
+    /* MAIN BODY */
+    .page-body { max-width: 1280px; margin: 0 auto; padding: 5rem 3rem 7rem; display: flex; flex-direction: column; gap: 7rem; }
+    @media (max-width: 640px) { .page-body { padding: 3rem 1.5rem 5rem; gap: 5rem; } }
+
+    /* SECTION HEADING */
+    .section-heading { margin-bottom: 3rem; }
+    .section-kicker { font-size: .72rem; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: var(--mid); margin-bottom: .75rem; }
+    .section-heading h2 { font-family: 'Fraunces', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; line-height: 1.0; letter-spacing: -1px; color: var(--ink); }
+
+    /* QUESTIONS — open numbered layout */
+    .q-phase-label { font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--mid); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem; }
+    .q-phase-label::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+
+    .question-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--rule); border: 2px solid var(--rule); border-radius: var(--r); overflow: hidden; margin-bottom: 1.5rem; }
+    @media (max-width: 720px) { .question-grid { grid-template-columns: 1fr; } }
+
+    .q-card { background: var(--white); padding: 2rem; }
+    .q-card.phase2 { background: var(--off); }
+    .q-num { font-family: 'Fraunces', serif; font-size: 3rem; font-weight: 900; line-height: 1; margin-bottom: .75rem; opacity: .18; }
+    .q-text { font-family: 'Fraunces', serif; font-size: 1.05rem; font-style: italic; color: var(--ink); line-height: 1.5; margin-bottom: .75rem; }
+    .q-note { font-size: .8rem; color: var(--mid); line-height: 1.6; }
+
+    .q-bridge { display: flex; align-items: center; gap: 1.5rem; margin: 0 0 1.5rem; }
+    .q-bridge::before, .q-bridge::after { content: ''; flex: 1; border-top: 1.5px dashed var(--rule); }
+    .q-bridge-text { font-size: .78rem; font-weight: 600; color: var(--mid); white-space: nowrap; padding: 6px 16px; border: 1px solid var(--rule); border-radius: 99px; }
+
+    /* DUCT TAPE / DRANO — full-width editorial */
+    .dt-drano { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--rule); border-radius: var(--r); overflow: hidden; }
+    @media (max-width: 640px) { .dt-drano { grid-template-columns: 1fr; } }
+    .panel { padding: 3rem; }
+    .panel-tape { background: var(--coral-lt); }
+    .panel-drain { background: var(--teal-lt); border-left: 1px solid var(--rule); }
+    @media (max-width: 640px) { .panel-drain { border-left: none; border-top: 1px solid var(--rule); } }
+    .panel-emoji { font-size: 2.2rem; margin-bottom: 1rem; }
+    .panel-title { font-family: 'Fraunces', serif; font-size: 1.8rem; font-weight: 700; color: var(--ink); margin-bottom: .4rem; }
+    .panel-sub { font-size: .84rem; color: var(--mid); margin-bottom: 1.5rem; font-weight: 500; }
+    .panel-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .ptag-tape { background: rgba(232,97,79,.12); color: var(--coral); border: 1px solid rgba(232,97,79,.22); border-radius: 3px; padding: 4px 12px; font-size: .75rem; font-weight: 600; }
+    .ptag-drain { background: rgba(31,169,157,.12); color: var(--teal); border: 1px solid rgba(31,169,157,.22); border-radius: 3px; padding: 4px 12px; font-size: .75rem; font-weight: 600; }
+    .panel-note { margin-top: 1.5rem; font-size: .84rem; color: var(--mid); font-style: italic; line-height: 1.6; }
+
+    /* SKILL TOOLKIT */
+    .toolkit-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; }
+    @media (max-width: 720px) { .toolkit-grid { grid-template-columns: 1fr; gap: 2rem; } }
+    .toolkit-col { border-top: 2px solid var(--rule); padding-top: 2rem; }
+    .toolkit-col-header { display: flex; align-items: center; gap: .75rem; margin-bottom: 1.75rem; }
+    .toolkit-col-icon { font-size: 1.4rem; }
+    .toolkit-col-title { font-family: 'Fraunces', serif; font-size: 1.1rem; font-weight: 700; color: var(--ink); }
+    .toolkit-col-sub { font-size: .75rem; color: var(--mid); margin-top: 2px; }
+    .skill-row { margin-bottom: 1rem; }
+    .skill-row:last-child { margin-bottom: 0; }
+    .skill-label-row { display: flex; justify-content: space-between; margin-bottom: 5px; }
+    .skill-label { font-size: .82rem; font-weight: 500; color: var(--ink); }
+    .skill-pct { font-size: .72rem; font-weight: 600; color: var(--mid); }
+    .skill-track { width: 100%; height: 4px; background: var(--rule); border-radius: 99px; overflow: hidden; }
+    .skill-fill { height: 100%; border-radius: 99px; width: 0%; transition: width 1.1s cubic-bezier(.4,0,.2,1); }
+
+    /* FOOTER */
+    .site-footer { background: var(--ink); color: rgba(255,255,255,.45); padding: 6rem 3rem; }
+    .site-footer-inner { max-width: 1280px; margin: 0 auto; }
+    .footer-heading { font-family: 'Fraunces', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 900; font-style: italic; color: var(--white); margin-bottom: 2rem; letter-spacing: -1px; }
+    .footer-sub { font-size: .95rem; margin-bottom: 2.5rem; max-width: 400px; line-height: 1.65; }
+    .footer-cta { display: inline-block; padding: 14px 28px; background: var(--coral); color: var(--white); text-decoration: none; font-size: .8rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; border-radius: 3px; transition: opacity .15s; margin-bottom: 3rem; }
+    .footer-cta:hover { opacity: .85; }
+    .footer-nav { display: flex; gap: 2rem; flex-wrap: wrap; border-top: 1px solid rgba(255,255,255,.1); padding-top: 2rem; margin-top: 1rem; }
+    .footer-nav a { font-size: .78rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.4); text-decoration: none; transition: color .15s; }
+    .footer-nav a:hover { color: rgba(255,255,255,.8); }
+  </style>
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="index.html" class="nav-logo">N<em>A</em></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="method.html" class="active">Method</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="linked_in.html">LinkedIn</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-kicker">
+    <span class="page-header-kicker-line"></span>
+    My Process
+  </div>
+  <h1>How I<br><em>Work</em></h1>
+  <p class="page-header-sub">The questions I always ask, the two kinds of problems I solve, and the toolkit I bring to every engagement.</p>
+</div>
+
+<main class="page-body">
+
+  <!-- The Questions I Always Ask -->
+  <section>
+    <div class="section-heading">
+      <div class="section-kicker">Diagnostic Toolkit</div>
+      <h2>The Questions I Always Ask.</h2>
+    </div>
+
+    <div class="q-phase-label">Phase 1 — Opening</div>
+    <div class="question-grid">
+      <div class="q-card">
+        <div class="q-num" style="color:var(--coral)">01</div>
+        <div class="q-text">It's six months from now. You are really happy. What has changed?</div>
+        <div class="q-note">This is where we start. The answer tells me everything about what actually matters.</div>
+      </div>
+      <div class="q-card">
+        <div class="q-num" style="color:var(--coral)">02</div>
+        <div class="q-text">What is keeping you from getting your work done?</div>
+        <div class="q-note">Not what you want to build — what's in the way right now.</div>
+      </div>
+      <div class="q-card">
+        <div class="q-num" style="color:var(--coral)">03</div>
+        <div class="q-text">What terrible, manual task do you absolutely hate doing?</div>
+        <div class="q-note">This is where automation and process redesign live.</div>
+      </div>
+    </div>
+
+    <div class="q-bridge">
+      <span class="q-bridge-text">↓ then I go deeper ↓</span>
+    </div>
+
+    <div class="q-phase-label">Phase 2 — Diagnosis</div>
+    <div class="question-grid">
+      <div class="q-card phase2">
+        <div class="q-num" style="color:var(--lavender)">04</div>
+        <div class="q-text">What's getting in your way?</div>
+        <div class="q-note">Not the work itself — the friction around it. Dependencies, approvals, the things that shouldn't be hard but are.</div>
+      </div>
+      <div class="q-card phase2">
+        <div class="q-num" style="color:var(--teal)">05</div>
+        <div class="q-text">What do you need to know to fix that?</div>
+        <div class="q-note">I want to understand the information gap, not just the symptom. What data, clarity, or decision is missing?</div>
+      </div>
+      <div class="q-card phase2">
+        <div class="q-num" style="color:var(--mustard)">06</div>
+        <div class="q-text">What does the team already know that executives need to be convinced of?</div>
+        <div class="q-note">Practitioners see the problem clearly. The challenge is making it legible upward — and that's a translation job.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Duct Tape / Drano -->
+  <section>
+    <div class="section-heading">
+      <div class="section-kicker">Two Kinds of Problems</div>
+      <h2>How I Work.</h2>
+    </div>
+    <div class="dt-drano">
+      <div class="panel panel-tape">
+        <div class="panel-emoji">🩹</div>
+        <div class="panel-title">Duct Tape</div>
+        <div class="panel-sub">When something doesn't hold together — I build the structure</div>
+        <div class="panel-tags">
+          <span class="ptag-tape">Siloed teams</span>
+          <span class="ptag-tape">Inconsistent data</span>
+          <span class="ptag-tape">Unclear ownership</span>
+          <span class="ptag-tape">No shared process</span>
+          <span class="ptag-tape">Missing documentation</span>
+          <span class="ptag-tape">Scattered reporting</span>
+        </div>
+        <p class="panel-note">Built processes used by 300+ engineers. Created iCloud's outage tracking system from scratch. Rebuilt kernel update workflow for 500,000 systems.</p>
+      </div>
+      <div class="panel panel-drain">
+        <div class="panel-emoji">🪣</div>
+        <div class="panel-title">Drano</div>
+        <div class="panel-sub">When something isn't moving — I clear the path</div>
+        <div class="panel-tags">
+          <span class="ptag-drain">Stuck workflows</span>
+          <span class="ptag-drain">Manual bottlenecks</span>
+          <span class="ptag-drain">Stalled projects</span>
+          <span class="ptag-drain">Buried insights</span>
+          <span class="ptag-drain">Waiting on sign-off</span>
+          <span class="ptag-drain">Technical debt blocking features</span>
+        </div>
+        <p class="panel-note">Love going from 0 to 1. That's an infinite increase. Making people's jobs and lives easier is the whole point.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skill Toolkit -->
+  <section>
+    <div class="section-heading">
+      <div class="section-kicker">Capabilities</div>
+      <h2>What I Bring.</h2>
+    </div>
+    <div class="toolkit-grid">
+
+      <div class="toolkit-col">
+        <div class="toolkit-col-header">
+          <span class="toolkit-col-icon">📊</span>
+          <div>
+            <div class="toolkit-col-title">Data &amp; Analysis</div>
+            <div class="toolkit-col-sub">Turning numbers into decisions</div>
+          </div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label-row"><span class="skill-label">Data Storytelling</span><span class="skill-pct">97%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-width="97" style="background:var(--coral)"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label-row"><span class="skill-label">SQL / Python / R</span><span class="skill-pct">85%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-width="85" style="background:var(--coral)"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label-row"><span class="skill-label">Visualization</span><span class="skill-pct">90%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-width="90" style="background:var(--coral)"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label-row"><span class="skill-label">Requirements Analysis</span><span class="skill-pct">95%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-width="95" style="background:var(--coral)"></div></div>
+        </div>
+      </div>
+
+      <div class="toolkit-col">
+        <div class="toolkit-col-header">
+          <span class="toolkit-col-icon">🏗️</span>
+          <div>
+            <div class="toolkit-col-title">Process &amp; Systems</div>
+            <div class="toolkit-col-sub">Building what doesn't exist yet</div>
+          </div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label-row"><span class="skill-label">Process Design</span><span class="skill-pct">95%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-width="95" style="background:var(--teal)"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label-row"><span class="skill-label">Project Management</span><span class="skill-pct">92%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-width="92" style="background:var(--teal)"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label-row"><span class="skill-label">Agile / Scrum</span><span class="skill-pct">88%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-width="88" style="background:var(--teal)"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label-row"><span class="skill-label">Gap Analysis</span><span class="skill-pct">96%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-width="96" style="background:var(--teal)"></div></div>
+        </div>
+      </div>
+
+      <div class="toolkit-col">
+        <div class="toolkit-col-header">
+          <span class="toolkit-col-icon">🔄</span>
+          <div>
+            <div class="toolkit-col-title">Translation &amp; Communication</div>
+            <div class="toolkit-col-sub">Making complexity legible</div>
+          </div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label-row"><span class="skill-label">Stakeholder Mgmt</span><span class="skill-pct">98%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-width="98" style="background:var(--lavender)"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label-row"><span class="skill-label">Technical Writing</span><span class="skill-pct">95%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-width="95" style="background:var(--lavender)"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label-row"><span class="skill-label">Cross-functional</span><span class="skill-pct">97%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-width="97" style="background:var(--lavender)"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label-row"><span class="skill-label">Executive Comms</span><span class="skill-pct">93%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-width="93" style="background:var(--lavender)"></div></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="footer-heading">Let's talk.</div>
+    <p class="footer-sub">Currently: Principal Business Analyst at SFMTA · San Francisco, CA</p>
+    <a href="https://www.linkedin.com/in/narnaoot" target="_blank" class="footer-cta">Connect on LinkedIn</a>
+    <div class="footer-nav">
+      <a href="index.html">Home</a>
+      <a href="work.html">Work</a>
+      <a href="method.html">Method</a>
+      <a href="about.html">About</a>
+      <a href="linked_in.html">LinkedIn Profile</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  const fills = Array.from(document.querySelectorAll('.skill-fill[data-width]'));
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting || entry.target.dataset.animated) return;
+      entry.target.dataset.animated = '1';
+      const delay = fills.indexOf(entry.target) % 4 * 80;
+      setTimeout(() => { entry.target.style.width = entry.target.dataset.width + '%'; }, delay);
+    });
+  }, { threshold: 0.3 });
+  fills.forEach(el => observer.observe(el));
+})();
+</script>
+</body>
+</html>

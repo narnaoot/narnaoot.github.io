@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Nabil Arnaoot</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700;1,9..144,900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --white:    #FFFFFF;
+      --off:      #F9F8F6;
+      --ink:      #111110;
+      --mid:      #6B6660;
+      --faint:    #E8E3DC;
+      --rule:     #E0DBD4;
+      --coral:    #E8614F;
+      --coral-lt: #FDE8E5;
+      --mustard:  #C98B09;
+      --must-lt:  #FEF3D8;
+      --teal:     #1FA99D;
+      --teal-lt:  #DFF3F1;
+      --sage:     #6A9F7A;
+      --sage-lt:  #E8F3EB;
+      --lavender: #7B6DC8;
+      --lav-lt:   #ECEAF8;
+      --r: 10px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--ink); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+    /* NAV */
+    .topnav { position: sticky; top: 0; z-index: 200; background: rgba(255,255,255,.97); backdrop-filter: blur(16px); border-bottom: 1px solid var(--rule); height: 64px; display: flex; align-items: center; }
+    .topnav-inner { max-width: 1280px; margin: 0 auto; padding: 0 3rem; width: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-family: 'Fraunces', serif; font-size: 1.05rem; font-weight: 700; letter-spacing: -.3px; color: var(--ink); text-decoration: none; }
+    .nav-logo em { font-style: normal; color: var(--coral); }
+    .nav-links { display: flex; list-style: none; }
+    .nav-links a { padding: 8px 16px; font-size: .72rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--mid); text-decoration: none; transition: color .15s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--coral); }
+    @media (max-width: 640px) { .topnav-inner { padding: 0 1.5rem; } .nav-links a { padding: 8px 9px; font-size: .66rem; } }
+
+    /* PAGE HEADER */
+    .page-header { border-bottom: 1px solid var(--rule); padding: 7rem 3rem 5rem; max-width: 1280px; margin: 0 auto; }
+    @media (max-width: 640px) { .page-header { padding: 4rem 1.5rem 3rem; } }
+    .page-header-kicker { display: flex; align-items: center; gap: 16px; font-size: .72rem; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: var(--lavender); margin-bottom: 2rem; }
+    .page-header-kicker-line { width: 56px; height: 1px; background: var(--lavender); flex-shrink: 0; }
+    .page-header h1 { font-family: 'Fraunces', serif; font-size: clamp(2.8rem, 6vw, 5.5rem); font-weight: 900; line-height: .95; letter-spacing: -2px; color: var(--ink); margin-bottom: 1.5rem; }
+    .page-header h1 em { font-style: italic; color: var(--lavender); }
+    .page-header-sub { font-size: 1.05rem; color: var(--mid); line-height: 1.65; max-width: 560px; }
+
+    /* MAIN BODY */
+    .page-body { max-width: 1280px; margin: 0 auto; padding: 5rem 3rem 7rem; display: flex; flex-direction: column; gap: 7rem; }
+    @media (max-width: 640px) { .page-body { padding: 3rem 1.5rem 5rem; gap: 5rem; } }
+
+    /* SECTION HEADING */
+    .section-heading { margin-bottom: 3rem; }
+    .section-kicker { font-size: .72rem; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: var(--mid); margin-bottom: .75rem; }
+    .section-heading h2 { font-family: 'Fraunces', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; line-height: 1.0; letter-spacing: -1px; color: var(--ink); }
+
+    /* PERSONAL DATA PORTRAIT — open grid, no borders on cards */
+    .portrait-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+    @media (max-width: 760px) { .portrait-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 480px) { .portrait-grid { grid-template-columns: 1fr; } }
+
+    .portrait-item { border-top: 2px solid var(--rule); padding-top: 1.5rem; }
+    .portrait-item.accent-coral { border-top-color: var(--coral); }
+    .portrait-item.accent-teal { border-top-color: var(--teal); }
+    .portrait-item.accent-lavender { border-top-color: var(--lavender); }
+    .portrait-item.accent-mustard { border-top-color: var(--mustard); }
+    .portrait-item.accent-sage { border-top-color: var(--sage); }
+
+    .p-icon { font-size: 1.8rem; margin-bottom: .75rem; }
+    .p-label { font-size: .7rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--mid); margin-bottom: .4rem; }
+    .p-value { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700; color: var(--ink); line-height: 1.15; margin-bottom: .5rem; }
+    .p-note { font-size: .84rem; color: var(--mid); line-height: 1.6; }
+
+    .cat-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: .5rem; }
+    .cat-chip { background: var(--coral-lt); border-radius: 3px; padding: 4px 12px; font-size: .8rem; font-weight: 600; color: var(--coral); }
+
+    .mini-bar-wrap { margin: .5rem 0; }
+    .mini-bar-row { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+    .mini-bar-label { font-size: .75rem; font-weight: 600; width: 52px; flex-shrink: 0; color: var(--ink); }
+    .mini-bar-track { flex: 1; height: 6px; background: var(--rule); border-radius: 99px; overflow: hidden; }
+    .mini-bar-fill { height: 100%; border-radius: 99px; }
+
+    /* TESTIMONIALS — full open list, no card borders */
+    .testimonials-list { display: flex; flex-direction: column; gap: 0; }
+
+    .testimonial-item { padding: 3rem 0; border-bottom: 1px solid var(--rule); display: grid; grid-template-columns: 3rem 1fr; gap: 2rem; }
+    .testimonial-item:last-child { border-bottom: none; }
+    @media (max-width: 640px) { .testimonial-item { grid-template-columns: 1fr; gap: .75rem; } }
+
+    .testimonial-avatar { width: 3rem; height: 3rem; border-radius: 50%; background: var(--off); border: 1px solid var(--rule); display: flex; align-items: center; justify-content: center; font-size: .8rem; font-weight: 700; color: var(--mid); flex-shrink: 0; }
+    .testimonial-body {}
+    .testimonial-who { font-size: .78rem; font-weight: 600; color: var(--mid); margin-bottom: 1rem; letter-spacing: .03em; }
+    .testimonial-who strong { color: var(--ink); font-weight: 700; }
+    .testimonial-quote { font-family: 'Fraunces', serif; font-size: clamp(1rem, 1.5vw, 1.15rem); font-style: italic; color: var(--ink); line-height: 1.65; }
+    .testimonial-quote.featured { font-size: clamp(1.1rem, 1.8vw, 1.3rem); }
+
+    /* EDUCATION & CERTS */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; }
+    @media (max-width: 720px) { .two-col { grid-template-columns: 1fr; gap: 3rem; } }
+
+    .edu-list { display: flex; flex-direction: column; gap: 0; }
+    .edu-item { padding: 1.5rem 0; border-bottom: 1px solid var(--rule); }
+    .edu-item:first-child { padding-top: 0; }
+    .edu-item:last-child { border-bottom: none; }
+    .edu-school { font-size: .95rem; font-weight: 600; color: var(--ink); margin-bottom: .25rem; }
+    .edu-degree { font-size: .84rem; color: var(--teal); font-weight: 600; margin-bottom: .2rem; }
+    .edu-year { font-size: .78rem; color: var(--mid); }
+    .edu-badge { display: inline-block; background: var(--must-lt); color: var(--mustard); border: 1px solid rgba(201,139,9,.25); border-radius: 3px; font-size: .62rem; font-weight: 700; padding: 1px 7px; letter-spacing: .05em; text-transform: uppercase; vertical-align: middle; margin-left: 5px; }
+
+    .cert-list { display: flex; flex-direction: column; gap: 0; }
+    .cert-item { display: flex; align-items: center; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid var(--rule); }
+    .cert-item:first-child { padding-top: 0; }
+    .cert-item:last-child { border-bottom: none; }
+    .cert-icon { font-size: 1.2rem; flex-shrink: 0; }
+    .cert-name { font-size: .9rem; font-weight: 600; color: var(--ink); }
+    .cert-sub { font-size: .76rem; color: var(--mid); margin-top: 2px; }
+
+    /* FOOTER */
+    .site-footer { background: var(--ink); color: rgba(255,255,255,.45); padding: 6rem 3rem; }
+    .site-footer-inner { max-width: 1280px; margin: 0 auto; }
+    .footer-heading { font-family: 'Fraunces', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 900; font-style: italic; color: var(--white); margin-bottom: 2rem; letter-spacing: -1px; }
+    .footer-sub { font-size: .95rem; margin-bottom: 2.5rem; max-width: 400px; line-height: 1.65; }
+    .footer-cta { display: inline-block; padding: 14px 28px; background: var(--coral); color: var(--white); text-decoration: none; font-size: .8rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; border-radius: 3px; transition: opacity .15s; margin-bottom: 3rem; }
+    .footer-cta:hover { opacity: .85; }
+    .footer-nav { display: flex; gap: 2rem; flex-wrap: wrap; border-top: 1px solid rgba(255,255,255,.1); padding-top: 2rem; margin-top: 1rem; }
+    .footer-nav a { font-size: .78rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.4); text-decoration: none; transition: color .15s; }
+    .footer-nav a:hover { color: rgba(255,255,255,.8); }
+  </style>
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="index.html" class="nav-logo">N<em>A</em></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="method.html">Method</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="linked_in.html">LinkedIn</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-kicker">
+    <span class="page-header-kicker-line"></span>
+    The Person
+  </div>
+  <h1>About<br><em>Nabil</em></h1>
+  <p class="page-header-sub">The human behind the data — with a cat problem, a tea preference, and a degree in English Literature that explains everything.</p>
+</div>
+
+<main class="page-body">
+
+  <!-- Personal Data Portrait -->
+  <section>
+    <div class="section-heading">
+      <div class="section-kicker">Personal Data Portrait</div>
+      <h2>The Human Behind the Data.</h2>
+    </div>
+    <div class="portrait-grid">
+
+      <div class="portrait-item accent-coral">
+        <div class="p-icon">🐱</div>
+        <div class="p-label">Adopted cats</div>
+        <div class="cat-chips">
+          <span class="cat-chip">🐾 Octavia</span>
+          <span class="cat-chip">🐾 Cleopatra</span>
+        </div>
+        <p class="p-note">Both started feral. Patience, consistency, and a safe environment make all the difference — for cats and people both.</p>
+      </div>
+
+      <div class="portrait-item accent-teal">
+        <div class="p-icon">🍵</div>
+        <div class="p-label">Beverage preference</div>
+        <div class="p-value">Tea</div>
+        <div class="mini-bar-wrap">
+          <div class="mini-bar-row">
+            <div class="mini-bar-label">Tea</div>
+            <div class="mini-bar-track"><div class="mini-bar-fill" style="width:100%;background:var(--teal)"></div></div>
+          </div>
+          <div class="mini-bar-row">
+            <div class="mini-bar-label">Coffee</div>
+            <div class="mini-bar-track"><div class="mini-bar-fill" style="width:0%;background:var(--coral)"></div></div>
+          </div>
+        </div>
+        <p class="p-note">No contest.</p>
+      </div>
+
+      <div class="portrait-item accent-lavender">
+        <div class="p-icon">📚</div>
+        <div class="p-label">Where I started</div>
+        <div class="p-value">English Lit</div>
+        <p class="p-note">University of Chicago. Structure, voice, audience — I've been thinking about how to tell a good story ever since. Data is just the latest language.</p>
+      </div>
+
+      <div class="portrait-item accent-mustard">
+        <div class="p-icon">∞</div>
+        <div class="p-label">Favorite kind of project</div>
+        <div class="p-value">0 → 1</div>
+        <p class="p-note" style="font-style:italic;color:var(--ink)">"0 to 1 is infinite. 1 to a million is less impressive."</p>
+      </div>
+
+      <div class="portrait-item">
+        <div class="p-icon">→</div>
+        <div class="p-label">Career shape</div>
+        <div class="p-value">A through-line</div>
+        <p class="p-note">Each role contributed something the next one required. Managing projects → solving org-wide problems.</p>
+      </div>
+
+      <div class="portrait-item accent-sage">
+        <div class="p-icon">🏙</div>
+        <div class="p-label">Currently making better</div>
+        <div class="p-value">SF's transit</div>
+        <p class="p-note">Business analysis and project management for SFMTA. Proud to work on my city's infrastructure every day.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- What People Say -->
+  <section>
+    <div class="section-heading">
+      <div class="section-kicker">In Their Words</div>
+      <h2>What People Say.</h2>
+    </div>
+    <div class="testimonials-list">
+
+      <div class="testimonial-item">
+        <div class="testimonial-avatar">BG</div>
+        <div class="testimonial-body">
+          <div class="testimonial-who"><strong>Brianna Gamp</strong> · Information Security Leader</div>
+          <div class="testimonial-quote featured">"He has the unique ability to walk into an ambiguous situation, quickly grasp the key milestones and action items, identify technical needs that have not been addressed, and get results — all while getting a smile out of everyone in the room."</div>
+        </div>
+      </div>
+
+      <div class="testimonial-item">
+        <div class="testimonial-avatar">RM</div>
+        <div class="testimonial-body">
+          <div class="testimonial-who"><strong>Robert Mooney</strong> · Principal Security Architect</div>
+          <div class="testimonial-quote">"He's a natural. He takes a large amount of disparate and easily confused data and packages it into an easily understood, easily communicated snapshot of progress. He knows how to ask the right questions and does not relent until he has a clear understanding — but he's not a nuisance to the busy engineer. He has a genuine concern for others."</div>
+        </div>
+      </div>
+
+      <div class="testimonial-item">
+        <div class="testimonial-avatar">SP</div>
+        <div class="testimonial-body">
+          <div class="testimonial-who"><strong>Sneha Phadke</strong> · Director, Application Security · eBay</div>
+          <div class="testimonial-quote">"He is an extremely dynamic and versatile program and project manager. Besides being an eloquent speaker and writer, he brings teams together and makes projects successful. If there is a difficult moment in a project, he faces it and resolves it with a unique charm that makes it fun to work with him."</div>
+        </div>
+      </div>
+
+      <div class="testimonial-item">
+        <div class="testimonial-avatar">CW</div>
+        <div class="testimonial-body">
+          <div class="testimonial-who"><strong>Chris Winter</strong> · Manager</div>
+          <div class="testimonial-quote featured">"He brought a level of humanity to our team that we sometimes forget. When he leaves, we'll go back to being robots."</div>
+        </div>
+      </div>
+
+      <div class="testimonial-item">
+        <div class="testimonial-avatar">FH</div>
+        <div class="testimonial-body">
+          <div class="testimonial-who"><strong>Frankie Pauncevolt Hill</strong></div>
+          <div class="testimonial-quote">"A broad-ranging, incisive and inspired mind; relentless passion; bright, glowing kindness; independence of judgment — you don't form your ideas to suit an existing framework, but think the values through until you know what you support deeply."</div>
+        </div>
+      </div>
+
+      <div class="testimonial-item">
+        <div class="testimonial-avatar">I</div>
+        <div class="testimonial-body">
+          <div class="testimonial-who"><strong>Ipsita</strong> · MS Cohort, Saint Mary's College</div>
+          <div class="testimonial-quote">"I really appreciate the way you explain, the way you solve a problem, the way you help us and the way you talk. I've learned a lot of things from you."</div>
+        </div>
+      </div>
+
+      <div class="testimonial-item">
+        <div class="testimonial-avatar" style="background:var(--must-lt);color:var(--mustard);border-color:rgba(201,139,9,.25)">KA</div>
+        <div class="testimonial-body">
+          <div class="testimonial-who"><strong>Kim Anderson</strong> · Colleague &amp; Friend</div>
+          <div class="testimonial-quote featured" style="color:var(--mustard)">"You mentor others — especially women, people of color, shy folks, young people. You pass on knowledge horizontally and vertically. You like shy cats, and you cannot lie."</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Education + Certifications -->
+  <section>
+    <div class="section-heading">
+      <div class="section-kicker">Background</div>
+      <h2>Education &amp; Certifications.</h2>
+    </div>
+    <div class="two-col">
+
+      <div>
+        <div class="edu-list">
+          <div class="edu-item">
+            <div class="edu-school">Saint Mary's College of California <span class="edu-badge">Honors</span></div>
+            <div class="edu-degree">MS, Business Analytics</div>
+            <div class="edu-year">2021 – 2022</div>
+          </div>
+          <div class="edu-item">
+            <div class="edu-school">George Mason University</div>
+            <div class="edu-degree">MS, Information Systems</div>
+          </div>
+          <div class="edu-item">
+            <div class="edu-school">UC Berkeley</div>
+            <div class="edu-degree">Certificate, Data Analytics</div>
+            <div class="edu-year">2018 – 2019</div>
+          </div>
+          <div class="edu-item">
+            <div class="edu-school">University of Chicago</div>
+            <div class="edu-degree">BA, English Literature</div>
+            <div class="edu-year">Where it all began.</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="cert-list">
+          <div class="cert-item">
+            <span class="cert-icon">☁️</span>
+            <div>
+              <div class="cert-name">Google Cloud Essentials</div>
+              <div class="cert-sub">Google Cloud</div>
+            </div>
+          </div>
+          <div class="cert-item">
+            <span class="cert-icon">🤖</span>
+            <div>
+              <div class="cert-name">Baseline: Data, ML &amp; AI</div>
+              <div class="cert-sub">Google</div>
+            </div>
+          </div>
+          <div class="cert-item">
+            <span class="cert-icon">🔬</span>
+            <div>
+              <div class="cert-name">Scientific Data Processing</div>
+              <div class="cert-sub">Microsoft 365</div>
+            </div>
+          </div>
+          <div class="cert-item">
+            <span class="cert-icon">📊</span>
+            <div>
+              <div class="cert-name">Microsoft Excel</div>
+              <div class="cert-sub">Microsoft 365 Apps &amp; Office 2019</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="footer-heading">Let's talk.</div>
+    <p class="footer-sub">Currently: Principal Business Analyst at SFMTA · San Francisco, CA</p>
+    <a href="https://www.linkedin.com/in/narnaoot" target="_blank" class="footer-cta">Connect on LinkedIn</a>
+    <div class="footer-nav">
+      <a href="index.html">Home</a>
+      <a href="work.html">Work</a>
+      <a href="method.html">Method</a>
+      <a href="about.html">About</a>
+      <a href="linked_in.html">LinkedIn Profile</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
