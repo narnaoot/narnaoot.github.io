@@ -53,6 +53,33 @@ Five examples shared (screenshots on file):
 
 ---
 
+## Nina Voordes — Design Stories (via Tableau blog)
+**URL:** https://www.tableau.com/blog/bring-your-personality-and-skills-life-stand-out-interactive-resume
+
+Single tall infographic, portrait orientation. Sections top to bottom:
+
+- **About** — circular photo, name/location/birthday, hand-drawn family icons with names
+- **Design Skills** — dot matrix (filled dots = proficiency level per skill)
+- **Software** — hexagonal cluster of tools with star ratings
+- **Tools** — illustrated device icons (laptop, tablet, camera, etc.)
+- **Geography** — pie chart of places lived/worked (Zambia, Mozambique, Amsterdam, etc.)
+- **Social media** — icon list with handles
+- **Timeline** — horizontal bar chart, 1997–2017, stacked rows for concurrent roles
+- **What can I do for you?** — speech-bubble cluster around a self-portrait
+- **Some clients** — simple text list
+- **Things I ♥** — icon grid: family, coffee, home, sunshine, photography, Africa, chocolate, Netflix, flipflops…
+
+**Palette:** mint/teal + charcoal gray + white. Clean, grid-based, no hand-drawn feel.
+**Style:** Classic infographic — polished, structured, icon-heavy. More "designed" than personal.
+
+**What's notable:**
+- The "Things I ♥" icon row at the bottom is charming and humanizing — personality as a footer
+- Dot matrix for skills is a cliché but readable
+- The speech-bubble services cluster is a fun alternative to a bulleted list
+- Geography pie chart is unexpected and tells a story most resumes skip
+
+---
+
 ## Relevance to Nabil
 
 Nabil is literally a data storyteller who translates complexity — this approach is a natural fit.
