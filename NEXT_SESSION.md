@@ -2,9 +2,33 @@
 
 ## What's done
 
-- `Inspiration.md` fully documented with file references, 4 designers analyzed
+- `Inspiration.md` fully documented with file references, 5 designers + Stephen's Game of Life analyzed
 - Site pages exist: index, about, work, method, fave (alternate hero)
 - Branch: `claude/rebuild-index-page-b1pLZ`
+
+## All inspiration files (quick reference)
+
+Full notes on each are in `Inspiration.md`. Every file is in `inspiration_samples/`.
+
+| File | Designer | What it is |
+|------|----------|------------|
+| `Resume+-+13.webp` | Catherine Madden | Career excitement bubble chart — X=time, Y=excitement, bubbles=skills/focus areas |
+| `Resume+-+12.webp` | Catherine Madden | Bell curve — X=creative freedom, Y=job satisfaction; peak = trust/vision/leadership |
+| `Resume+-+11.webp` | Catherine Madden | 2×2 quadrant on dark bg — business vs pleasure × solo vs group; shows change over time |
+| `Resume+-+8.webp` | Catherine Madden | Life stages stacked bar / stream chart — age 0–30, color bands = how time was spent |
+| `Resume+-+14.webp` | Catherine Madden | "My Favorite Tools" — stacked bar by age showing how creative tools evolved |
+| `Emy1.webp` | Catherine Madden | Radial/donut "Inspiration" chart — self-portrait at center, segments = sources |
+| `Emy3.webp` | Catherine Madden | "Books I've Heard Lately" bubble chart — X=fact/fiction, Y=bored/obsessed |
+| `Nina1.webp` | Unknown (Tableau blog) | Dual-track horizontal timeline — career below the line, creative output above |
+| `image4_0.png` | Nina Voordes | Full portrait infographic — dot matrix skills, hex tools, "Things I ♥" icon grid at bottom |
+| `Stephen's Game of Life.png` | Stephen (Tableau blog) | Career as a Game of Life board — winding path, company logos as stops, callout boxes |
+| `JRashVisualResume___.jpg` | Jennifer Rash | 3×3 grid of color-coded circles on black — color = era, diagonal connectors = transitions |
+| `CV  Resume.png` | Samuel Parsons | Dark charcoal, landscape — radial arc timeline + "Core Values" text + bubble cluster of work |
+| `website/inspo1.pdf` | Stefanie Kraus | Portfolio homepage — project cards, long-form testimonials, single CTA |
+| `website/inspo2.pdf` | Stefanie Kraus | "My Process" page — 7 numbered steps with AI woven in naturally |
+| `website/inspo3.pdf` | Stefanie Kraus | Full about page — career origin story, FAQ format, personal interests at bottom |
+
+---
 
 ## What was planned but NOT built yet
 
@@ -82,6 +106,20 @@ Cleaner homepage inspired by Stefanie Kraus (inspo1–3 PDFs):
 - Chris Winter robot quote as a large featured pull quote near the top
 - Projects section (same 3 cards as existing)
 - Single CTA footer
+
+---
+
+### 3. `redesign/career-river.html` (or a section within about) — Animal Crossing River
+
+Inspired by **Stephen's Game of Life** (`inspiration_samples/Stephen's Game of Life.png`):
+- Stephen used an actual Game of Life board — winding path, company logos as stops, callout boxes in margins
+- **Nabil's version:** same concept but as an **Animal Crossing–style river** — Nabil is floating on a tube, drifting downstream past career stops
+- Each stop = a job/era (landmark on the riverbank: Apple = apple tree, SFMTA = cable car stop, Saint Mary's = a little school, etc.)
+- Callout boxes floating near each stop with dates + one-sentence description
+- Tone: warm, playful, slightly whimsical — matches the "nerd and fairy" energy
+- This could be a static SVG illustration OR a simple CSS/HTML layout with a wavy river shape
+
+**Still needs from Nabil:** approval of the concept and any specific landmarks/details he wants per stop
 
 ---
 
