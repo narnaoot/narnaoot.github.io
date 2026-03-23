@@ -2,7 +2,7 @@
 
 ## What's done
 
-- `Inspiration.md` fully documented with file references, 4 designers analyzed
+- `Inspiration.md` fully documented with file references, 5 designers + Stephen's Game of Life analyzed
 - Site pages exist: index, about, work, method, fave (alternate hero)
 - Branch: `claude/rebuild-index-page-b1pLZ`
 
@@ -82,6 +82,20 @@ Cleaner homepage inspired by Stefanie Kraus (inspo1–3 PDFs):
 - Chris Winter robot quote as a large featured pull quote near the top
 - Projects section (same 3 cards as existing)
 - Single CTA footer
+
+---
+
+### 3. `redesign/career-river.html` (or a section within about) — Animal Crossing River
+
+Inspired by **Stephen's Game of Life** (`inspiration_samples/Stephen's Game of Life.png`):
+- Stephen used an actual Game of Life board — winding path, company logos as stops, callout boxes in margins
+- **Nabil's version:** same concept but as an **Animal Crossing–style river** — Nabil is floating on a tube, drifting downstream past career stops
+- Each stop = a job/era (landmark on the riverbank: Apple = apple tree, SFMTA = cable car stop, Saint Mary's = a little school, etc.)
+- Callout boxes floating near each stop with dates + one-sentence description
+- Tone: warm, playful, slightly whimsical — matches the "nerd and fairy" energy
+- This could be a static SVG illustration OR a simple CSS/HTML layout with a wavy river shape
+
+**Still needs from Nabil:** approval of the concept and any specific landmarks/details he wants per stop
 
 ---
 
