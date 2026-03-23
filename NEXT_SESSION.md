@@ -6,6 +6,30 @@
 - Site pages exist: index, about, work, method, fave (alternate hero)
 - Branch: `claude/rebuild-index-page-b1pLZ`
 
+## All inspiration files (quick reference)
+
+Full notes on each are in `Inspiration.md`. Every file is in `inspiration_samples/`.
+
+| File | Designer | What it is |
+|------|----------|------------|
+| `Resume+-+13.webp` | Catherine Madden | Career excitement bubble chart — X=time, Y=excitement, bubbles=skills/focus areas |
+| `Resume+-+12.webp` | Catherine Madden | Bell curve — X=creative freedom, Y=job satisfaction; peak = trust/vision/leadership |
+| `Resume+-+11.webp` | Catherine Madden | 2×2 quadrant on dark bg — business vs pleasure × solo vs group; shows change over time |
+| `Resume+-+8.webp` | Catherine Madden | Life stages stacked bar / stream chart — age 0–30, color bands = how time was spent |
+| `Resume+-+14.webp` | Catherine Madden | "My Favorite Tools" — stacked bar by age showing how creative tools evolved |
+| `Emy1.webp` | Catherine Madden | Radial/donut "Inspiration" chart — self-portrait at center, segments = sources |
+| `Emy3.webp` | Catherine Madden | "Books I've Heard Lately" bubble chart — X=fact/fiction, Y=bored/obsessed |
+| `Nina1.webp` | Unknown (Tableau blog) | Dual-track horizontal timeline — career below the line, creative output above |
+| `image4_0.png` | Nina Voordes | Full portrait infographic — dot matrix skills, hex tools, "Things I ♥" icon grid at bottom |
+| `Stephen's Game of Life.png` | Stephen (Tableau blog) | Career as a Game of Life board — winding path, company logos as stops, callout boxes |
+| `JRashVisualResume___.jpg` | Jennifer Rash | 3×3 grid of color-coded circles on black — color = era, diagonal connectors = transitions |
+| `CV  Resume.png` | Samuel Parsons | Dark charcoal, landscape — radial arc timeline + "Core Values" text + bubble cluster of work |
+| `website/inspo1.pdf` | Stefanie Kraus | Portfolio homepage — project cards, long-form testimonials, single CTA |
+| `website/inspo2.pdf` | Stefanie Kraus | "My Process" page — 7 numbered steps with AI woven in naturally |
+| `website/inspo3.pdf` | Stefanie Kraus | Full about page — career origin story, FAQ format, personal interests at bottom |
+
+---
+
 ## What was planned but NOT built yet
 
 Everything below goes in a **new `redesign/` folder** — do NOT overwrite existing files.
