@@ -137,6 +137,58 @@ Single tall infographic, portrait orientation. Sections top to bottom:
 
 ---
 
+## Stefanie Kraus — UX Design Consultant Portfolio
+**URL:** https://skrausdesign.figma.site
+**Files:** `inspiration_samples/inspo1.pdf`, `inspiration_samples/inspo2.pdf`, `inspiration_samples/inspo3.pdf`
+**Favorite:** inspo1 and inspo2 especially
+
+Three-page Figma site export. Pages: About Me / Projects, My Process, Full About.
+
+### inspo1 — Homepage / About Me
+- Hero: name, one-sentence positioning statement ("good product design starts with empathy and curiosity"), CTA button
+- Selected project cards — brief title + one-line description + "View Case Study →" link
+- Client logos section
+- Long-form testimonials (4 quotes), each attributed to name + title + company
+- Footer: "Contact me on LinkedIn" as the sole CTA + Instagram handle (`skrausdesign`)
+
+**What's notable:**
+- The testimonials are the centerpiece — long, specific, and credible. Not blurbs. Full paragraphs.
+- Single CTA throughout (LinkedIn) — no email, no form, no confusion
+- Project cards are minimal: title + one sentence + link. Zero padding.
+- Navigation is just three words: PROJECTS / MY PROCESS / ABOUT ME
+
+### inspo2 — My Process
+- 7 numbered steps: Discovery & Alignment → Research → Ideation → Interaction Design → Visual Design → Implementation → Launch + Measure
+- Each step: a short paragraph + bullet list of specifics
+- Pull quote in the margin (Alan Cooper: "If we want users to like our software we should design it to behave like a likable person")
+- Mentions AI at almost every stage — not as a buzzword but embedded in the workflow naturally
+
+**What's notable:**
+- Process as a trust signal — showing *how* you work is more persuasive than listing what you've done
+- The pull quote breaks the list rhythm and adds personality without being decorative
+- AI integration woven in without being the headline — shows sophistication, not hype
+
+### inspo3 — Full About Me
+- Opens with a career-origin story: textile designer in Switzerland → question of purpose → UX
+- FAQ format: "Where do I find inspiration?", "What design principles do I follow?", "Which tools do I use?", "How do I charge?"
+- Side panel: recent projects (with roles), past work (company names + context)
+- Closes with personal interests: animals, wildlife photography, volunteering
+
+**What's notable:**
+- The origin story works because it has a turning point — a moment of doubt, then a shift
+- FAQ format for an About page is smart: it's scannable and anticipates client questions
+- "How do I charge?" is on the About page — rare, direct, useful
+- Personal interests at the bottom (animals, photography) humanize without dominating
+
+### Overall — What Makes This Work
+- **Tone:** Warm but professional. First person, plain language, no buzzwords.
+- **Structure:** Each page has one job. No page tries to do everything.
+- **Evidence over claims:** Testimonials > adjectives. Process steps > "I'm collaborative."
+- **Restraint:** One CTA, three nav items, minimal color, no hero animation.
+- **Figma Site:** Clean, fast, no-code feel — feels like a designer's tool, not a template.
+
+---
+
 ## Relevance to Nabil
 
 Nabil is literally a data storyteller who translates complexity — this approach is a natural fit.
