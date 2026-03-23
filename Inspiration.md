@@ -80,6 +80,63 @@ Single tall infographic, portrait orientation. Sections top to bottom:
 
 ---
 
+## Stephen's Game of Life (via Tableau blog)
+**URL:** https://www.tableau.com/blog/bring-your-personality-and-skills-life-stand-out-interactive-resume
+
+- Uses an actual Game of Life board image as the background
+- Winding colored path traces career from graduation to present
+- Company logos dropped directly onto the board at the right point in the path
+- Callout boxes in the margins (left/right) with dates, company, and a sentence of context
+- Lines connect each callout to the logo position on the board
+- Graduate figure at the start, trophy at the end
+- Palette: greens, blues of the board game; callout boxes are clean white
+
+**What's notable:**
+- The path IS the metaphor — career as a journey with turns, not a ladder
+- Immediately legible — anyone who's seen the board game gets it instantly
+- Low information density per stop; relies on the visual to carry weight
+- The trophy ending is cheeky and earned
+
+---
+
+## Jennifer Rash — Strategic Visual Designer (via Tableau blog)
+**URL:** https://www.tableau.com/blog/bring-your-personality-and-skills-life-stand-out-interactive-resume
+
+- Black background; 3×3 grid of large circles
+- Circles transition in color from bright cyan (early career) to magenta/pink (recent) — color = time
+- Diagonal lines connect circles, suggesting non-linear transitions between roles
+- Labels below each circle: year, city, company, title
+- Bottom: simple two-column list of hard skills and soft skills
+- No illustrations, no icons — pure shape and color
+
+**What's notable:**
+- Color progression is the timeline — you feel the career arc before you read a word
+- Stark and confident — trusts the design to do the work
+- The diagonal connectors show that career moves aren't always straight
+- Very high contrast; would look incredible on a screen
+- Skills section is almost an afterthought — the circles are the story
+
+---
+
+## Samuel Parsons — Lead Data Visualisation Developer (via Tableau blog)
+**URL:** https://www.tableau.com/blog/bring-your-personality-and-skills-life-stand-out-interactive-resume
+
+- Dark charcoal background, landscape/wide format
+- **Left:** radial arc timeline — 20 years of experience shown as concentric arcs labeled by focus area (Visualisation, Analysis, Learning, Past, Future, etc.); milestone dots are hoverable
+- **Center:** "My Core Values" — Growth, Community, Creativity — each with a paragraph; Signature Work section below with detailed project description
+- **Center-bottom:** Public Speaking dots (one per event, clickable); Skill Training; Mentoring
+- **Right:** Interactive bubble cluster — Tableau projects (gold), Design blog articles (coral), Other Design work (gray) — "select a circle to find out more"
+- Contact + social links bottom right
+
+**What's notable:**
+- Most complex and interactive of all examples — built in Tableau
+- Radial timeline is striking but dense; requires effort to read
+- Core Values as a structural element is smart — shows character, not just credentials
+- The bubble cluster on the right is elegant for showing output volume without listing everything
+- Note: mouseovers/click interactions not visible in screenshot
+
+---
+
 ## Relevance to Nabil
 
 Nabil is literally a data storyteller who translates complexity — this approach is a natural fit.
