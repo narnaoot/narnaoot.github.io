@@ -3,8 +3,17 @@
 ## What's done
 
 - `Inspiration.md` fully documented with file references, 5 designers + Stephen's Game of Life analyzed
-- Site pages exist: index, about, work, method, fave (alternate hero)
-- Branch: `claude/rebuild-index-page-b1pLZ`
+- Root site pages updated: index, about, work, method — all reframed from "data storyteller" to **Project Leader**
+- Branch: `claude/redesign-personal-website-oIzoy`
+
+### Root page changes made (session 2)
+
+- **index.html**: title/tagline → "Project Leader"; about lead/body copy reframed around PM clarity
+- **about.html**: section headers updated; English Lit note reframed; 9 new PM-focused testimonials added (Wanda Davis, Faron Lyons, Karina Sanz, Salathiel Bluitt, Brianna Gamp, Cliff Winnig, Séain Gutridge, Tom, Laura)
+- **work.html**: iTunes project reframed as PM story (tags: Project Management / Process Design / Cross-functional / Automation); SHAP project reframed toward stakeholder translation; career chain caption updated
+- **method.html**: skill columns reordered — "Project & Program Leadership" leads; "Data & Analysis" → "Analysis & Insight"; "Data Storytelling" → "Translating Complexity"
+
+---
 
 ## All inspiration files (quick reference)
 
@@ -30,15 +39,15 @@ Full notes on each are in `Inspiration.md`. Every file is in `inspiration_sample
 
 ---
 
-## What was planned but NOT built yet
+## What needs building in `redesign/`
 
-Everything below goes in a **new `redesign/` folder** — do NOT overwrite existing files.
+All new files go in a **`redesign/` folder** — do NOT overwrite existing root files.
 
 ---
 
 ### 1. `redesign/about.html`
 
-Start from `about.html` and add these new sections (in this order):
+Start from updated `about.html` and add these new sections (in this order):
 
 **A. Bell Curve — "My Professional Sweet Spot"**
 - Inline SVG, inspired by Catherine Madden inspo `Resume+-+12.webp`
@@ -66,22 +75,7 @@ Start from `about.html` and add these new sections (in this order):
   - Ipsita's full text: "Nabil - I can only say Thank you for everything. But you deserve more. I've learned a lot of things from you. I really appreciate the way you explain, the way you solve a problem, the way you help us and the way you talk."
   - Separately: Nupur said she wants to learn from him how to speak up in the moment — she described a moment in office hours where Nabil calmly but firmly told a dismissive professor "When I ask a question I've already tried to figure it out, I would really like an answer."
 
-**D. Enhanced Testimonials (add to existing)**
-
-Use he/him pronouns and name Nabil throughout (LinkedIn recs use old name Nadya + she/her — adapt them).
-
-New ones to add (in addition to 6 already on the page):
-- **Brianna Gamp** (Info Security Leader): "He has the unique ability to walk into an ambiguous situation, quickly grasp the key milestones and action items, identify technical needs that have not been addressed, and get results — all while getting a smile out of everyone in the room."
-- **Salathiel Bluitt** (Accenture): "He is a hard-working self-starter who invariably understands exactly what a project is all about from the outset, and how to get it done quickly and effectively... I cannot remember an instance in which he missed a major deadline."
-- **Teja** (colleague): "I'm the reason she joined our team — I was her first interview. She really liked our conversation and that I was honest."  ← keep this verbatim, it's a she/her speaker describing her own experience
-- **Cliff Winnig**: "Resilience, empathy, and consistently logical thinking."
-- **Debbie** (friend): Three-part: (1) extraordinarily good at nuanced and complex self-care; (2) self-care skills are why he's so good at caring for others; (3) true lifelong learner — never known him when he wasn't trying to learn or expand a skill.
-- **Tom** (family friend, via Nabil's mom): "You could feel the compassion and love he has for people."
-- **Laura** (friend): "My smarts and my bounce — like Tigger."
-
-Skip (too personal/intimate for site): Heidi's quotes, Sarat's quotes, the "totally hot" quote, Linae's quote, Tekla's romantic quote.
-
-**E. Things I Love — Icon Grid**
+**D. Things I Love — Icon Grid**
 - Inspired by Nina Voordes (image4_0.png bottom section)
 - Simple emoji + label grid, ~4 columns:
   - 🐱 Octavia & Cleopatra
@@ -109,41 +103,37 @@ Cleaner homepage inspired by Stefanie Kraus (inspo1–3 PDFs):
 
 ---
 
-### 3. `redesign/career-river.html` (or a section within about) — Animal Crossing River
+### 3. `redesign/career-river.html` — Animal Crossing River
 
 Inspired by **Stephen's Game of Life** (`inspiration_samples/Stephen's Game of Life.png`):
-- Stephen used an actual Game of Life board — winding path, company logos as stops, callout boxes in margins
-- **Nabil's version:** same concept but as an **Animal Crossing–style river** — Nabil is floating on a tube, drifting downstream past career stops
+- Same concept but as an **Animal Crossing–style river** — Nabil floating on a tube, drifting downstream past career stops
 - Each stop = a job/era (landmark on the riverbank: Apple = apple tree, SFMTA = cable car stop, Saint Mary's = a little school, etc.)
 - Callout boxes floating near each stop with dates + one-sentence description
-- Tone: warm, playful, slightly whimsical — matches the "nerd and fairy" energy
-- This could be a static SVG illustration OR a simple CSS/HTML layout with a wavy river shape
+- Tone: warm, playful, slightly whimsical
+- Static SVG illustration OR simple CSS/HTML layout with a wavy river shape
 
-**Still needs from Nabil:** approval of the concept and any specific landmarks/details he wants per stop
+**Career stops:**
+- Elegrity (2006–2010) · Engineering PM
+- eBay (2010–2011) · Program Manager
+- Apple (2011–2014) · Engineering PM · project-level
+- Apple (2014–2020) · Process Engineer · org-wide
+- St. Mary's / consulting (2020–2024)
+- SFMTA (2024–now) · Principal Business Analyst
 
 ---
 
-## Nabil's questions for you (things that need his input to finish)
+## Nabil's open questions
 
-1. **Career excitement chart** (Catherine Madden #1 style, `Resume+-+13.webp`) — needs excitement levels for each role:
-   - Elegrity (2006–2010)
-   - eBay (2010–2011)
-   - Apple Eng PM (2011–2014)
-   - Apple Process Eng (2014–2020)
-   - St. Mary's / consulting (2020–2024)
-   - SFMTA (2024–now)
-
-2. **Books I've read** — for a Catherine Madden #7 style bubble chart (inspo `Resume+-+14.webp`): what books should be on it?
-
-3. **The "Mary" attribution** — does he want to name her, or keep it as "A friend"?
-
-4. **Teja quote** — she/her speaker, quote references Nabil but uses third person. Fine to include as-is?
+1. **Career excitement chart** (Catherine Madden #1 style) — needs excitement levels per role to build the chart
+2. **Books** — for a bubble chart: which books to include?
+3. **Mary attribution** — name her, or keep as "A friend"?
+4. **Teja quote** — she/her speaker, third person about Nabil. Fine to include as-is?
 
 ---
 
 ## Technical notes
 
 - All new files go in `redesign/` folder only
-- Keep existing files completely untouched
+- Keep existing root files untouched
 - Same CSS tokens and fonts as existing pages
-- Push to `claude/rebuild-index-page-b1pLZ`
+- Push to `claude/redesign-personal-website-oIzoy`
