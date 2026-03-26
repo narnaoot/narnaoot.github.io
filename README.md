@@ -1,16 +1,21 @@
 # narnaoot.github.io — Nabil Arnaoot's Personal Site
 
-A personal portfolio site for Nabil Arnaoot: Principal Business Analyst, data storyteller, translator of complexity. Currently working at SFMTA.
+A personal portfolio site for Nabil Arnaoot: Principal Business Analyst, Project Leader, translator of complexity. Currently working at SFMTA.
+
+## Emphasis
+
+The site foregrounds **project leadership** — Nabil's ability to walk into ambiguous situations, define problems, build cross-functional processes, and deliver results. The "bringing clarity" theme is central, but framed around PM work rather than data storytelling. Data skills remain present as a supporting capability (third skill column on method.html).
 
 ## Site structure
 
 | File | Purpose |
 |------|---------|
 | `index.html` | Homepage — hero, project cards, featured quote |
-| `about.html` | Personal data portrait, testimonials, education |
+| `about.html` | Personal portrait, testimonials (PM-focused), education |
 | `work.html` | Project case studies |
 | `method.html` | How Nabil works |
 | `fave.html` | Alternate homepage concept (dark hero) |
+| `redesign/` | In-progress redesign files (do not overwrite root files) |
 
 ## Design tokens (in every page's `:root`)
 
@@ -38,4 +43,4 @@ Inspiration files: `inspiration_samples/` folder (screenshots + PDFs)
 
 ## Branch
 
-Active development: `claude/rebuild-index-page-b1pLZ`
+Active development: `claude/redesign-personal-website-oIzoy`
