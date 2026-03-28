@@ -58,6 +58,33 @@ Full notes on each are in `Inspiration.md`. Every file is in `inspiration_sample
 
 ---
 
+## Session 5: 14 Visualization Files Built (redesign/)
+
+All 14 HTML visualization files are now committed to `redesign/`. Each is self-contained (CSS inline, SVG inline, no external files).
+
+| File | Description | Placeholder data? |
+|------|-------------|-------------------|
+| `redesign/career-river.html` | Animal Crossing–style SVG river with 6 illustrated career stops, landmarks, hills, clouds | No |
+| `redesign/career-excitement.html` | Bubble chart: X=time, Y=excitement, bubbles=skill focus areas. Hand-drawn feel. | ★ Excitement levels (1–10) need Nabil's confirmation |
+| `redesign/dual-timeline.html` | Horizontal timeline 2006→2025. Career roles below center, personal threads above as arcs | No |
+| `redesign/work-quadrant.html` | Dark charcoal 2×2 quadrant: creative freedom vs social intensity. Energizes vs drains. | No |
+| `redesign/personal-evolution.html` | Stacked bar chart with Sankey-style ribbons. Energy distribution by career era. | Proportions are approximate |
+| `redesign/favorite-tools.html` | Stacked bar chart of tools used per era (Sheets → SQL/Python/Tableau). Primary vehicle row. | No |
+| `redesign/books-bubble.html` | Scatter plot: X=fact↔fiction, Y=put down↔obsessed. Bubble size=page count. 12 books. | ★ All 12 book titles are placeholder — Nabil to confirm his actual reading list |
+| `redesign/inspiration-donut.html` | Radial donut with 10 segments (Cities, Transit, Lit, Cats, etc.). NA monogram center. | No |
+| `redesign/game-of-life.html` | Board game path of career milestones. "You Are Here" at SFMTA. Illustrated SVG. | No |
+| `redesign/gradient-circles.html` | Dark background. 6 gradient circles (one per role), sized by years. Hard+soft skills list. | No |
+| `redesign/dark-arc-timeline.html` | Dark charcoal. Arc spans above horizontal timeline. Core Values strip. 3 impact stats. | No |
+| `redesign/portrait-infographic.html` | Tall single-column: header, dot matrix skills, hex tool grid, timeline strip, services, loves. | No |
+| `redesign/impact-scale.html` | Concentric circle waves showing scale of reach per role. Logarithmic. Dramatic dark bg. | No |
+| `redesign/skills-radar.html` | 8-axis radar chart. Entry 2006 (muted) vs Now 2025 (coral). CSS fade-in animation. Written key. | No |
+
+### Items still needing Nabil's input
+1. **Excitement levels** in `career-excitement.html` — current values are estimates (Elegrity:6, eBay:7, Apple EPM:9, Apple Process:7, St.Mary's:8, SFMTA:8)
+2. **Book titles** in `books-bubble.html` — 12 suggested books; Nabil to confirm actual reading list
+
+---
+
 ## Still open / future sessions
 
 1. **Career excitement chart** (Catherine Madden style) — needs Nabil's excitement levels per role:
