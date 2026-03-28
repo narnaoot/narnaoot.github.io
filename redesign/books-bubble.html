@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Books Bubble — Nabil Arnaoot</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #FFFBF5; --surface: #FFFFFF; --warm2: #FDECD6;
+      --text: #3D2B1F; --muted: #9A8070; --border: #E8DDD0;
+      --coral: #E8614F; --coral-lt: #FDEAE7; --teal: #2DB5A8;
+      --teal-lt: #E0F5F3; --mustard: #D4920A; --must-lt: #FEF4DC;
+      --sage: #6A9F7A; --sage-lt: #EBF4EE; --lavender: #8B7BC8; --lav-lt: #EFECF9;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: 'Nunito', sans-serif; line-height: 1.65; }
+    .topnav { background: var(--surface); border-bottom: 1.5px solid var(--border); position: sticky; top: 0; z-index: 100; height: 56px; display: flex; align-items: center; }
+    .topnav-inner { max-width: 1080px; margin: 0 auto; padding: 0 28px; width: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 900; color: var(--coral); letter-spacing: -0.5px; text-decoration: none; }
+    .nav-links { display: flex; gap: 4px; list-style: none; }
+    .nav-links a { padding: 6px 14px; font-size: .78rem; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; color: var(--muted); text-decoration: none; border-radius: 8px; transition: color .15s, background .15s; }
+    .nav-links a:hover { color: var(--text); background: var(--warm2); }
+    .page-header { padding: 40px 28px 14px; text-align: center; }
+    .page-header h1 { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--text); }
+    .page-header p { color: var(--muted); font-size: 1rem; margin-top: 8px; }
+    .placeholder-note { background: var(--must-lt); border: 1.5px solid var(--mustard); border-radius: 10px; padding: 10px 18px; font-size: .82rem; color: var(--text); text-align: center; margin: 12px auto; max-width: 640px; }
+    .layout { display: flex; gap: 28px; padding: 16px 28px 40px; max-width: 1080px; margin: 0 auto; align-items: flex-start; }
+    .chart-area { flex: 1; }
+    .key-panel { width: 280px; flex-shrink: 0; }
+    .key-panel h3 { font-family: 'Playfair Display', serif; font-size: 1rem; margin-bottom: 12px; color: var(--text); }
+    .book-entry { display: flex; gap: 8px; margin-bottom: 10px; align-items: flex-start; }
+    .book-num { width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: .75rem; font-weight: 800; flex-shrink: 0; color: white; }
+    .book-title { font-size: .8rem; font-weight: 700; color: var(--text); line-height: 1.3; }
+    .book-author { font-size: .75rem; color: var(--muted); }
+    @media (max-width: 700px) { .layout { flex-direction: column; } .key-panel { width: 100%; } }
+  </style>
+</head>
+<body>
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="index.html" class="nav-logo">NA</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="method.html">Method</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page-header">
+  <h1>Books in My World</h1>
+  <p>Mapped by subject matter vs obsession level — bubble size = page count</p>
+</div>
+<div class="placeholder-note">
+  ★ PLACEHOLDER — These 12 books are suggested examples. Nabil needs to confirm his actual reading list.
+</div>
+
+<div class="layout">
+<div class="chart-area">
+<svg viewBox="0 0 680 520" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:680px;height:auto;">
+  <defs>
+    <radialGradient id="bub1" cx="35%" cy="35%"><stop offset="0%" stop-color="#FDEAE7"/><stop offset="100%" stop-color="#E8614F" stop-opacity="0.7"/></radialGradient>
+    <radialGradient id="bub2" cx="35%" cy="35%"><stop offset="0%" stop-color="#E0F5F3"/><stop offset="100%" stop-color="#2DB5A8" stop-opacity="0.7"/></radialGradient>
+    <radialGradient id="bub3" cx="35%" cy="35%"><stop offset="0%" stop-color="#FEF4DC"/><stop offset="100%" stop-color="#D4920A" stop-opacity="0.7"/></radialGradient>
+    <radialGradient id="bub4" cx="35%" cy="35%"><stop offset="0%" stop-color="#EBF4EE"/><stop offset="100%" stop-color="#6A9F7A" stop-opacity="0.7"/></radialGradient>
+    <radialGradient id="bub5" cx="35%" cy="35%"><stop offset="0%" stop-color="#EFECF9"/><stop offset="100%" stop-color="#8B7BC8" stop-opacity="0.7"/></radialGradient>
+  </defs>
+
+  <rect width="680" height="520" fill="#FFFBF5" rx="12"/>
+
+  <!-- Axes -->
+  <!-- X axis y=440, x=60 to 620 -->
+  <line x1="52" y1="440" x2="628" y2="440" stroke="#3D2B1F" stroke-width="2"/>
+  <polygon points="628,436 640,440 628,444" fill="#3D2B1F"/>
+  <polygon points="52,436 40,440 52,444" fill="#3D2B1F"/>
+  <!-- Y axis x=340, y=30 to 448 -->
+  <line x1="340" y1="28" x2="340" y2="448" stroke="#3D2B1F" stroke-width="2"/>
+  <polygon points="336,28 340,16 344,28" fill="#3D2B1F"/>
+  <polygon points="336,448 340,460 344,448" fill="#3D2B1F"/>
+
+  <!-- Axis labels -->
+  <text x="45" y="440" text-anchor="end" font-family="'Nunito',sans-serif" font-size="9.5" font-weight="700" fill="#9A8070">FACT /</text>
+  <text x="45" y="452" text-anchor="end" font-family="'Nunito',sans-serif" font-size="9.5" font-weight="700" fill="#9A8070">LEARNING</text>
+  <text x="635" y="440" font-family="'Nunito',sans-serif" font-size="9.5" font-weight="700" fill="#9A8070">STORY /</text>
+  <text x="635" y="452" font-family="'Nunito',sans-serif" font-size="9.5" font-weight="700" fill="#9A8070">FICTION</text>
+  <text x="340" y="12" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="9.5" font-weight="700" fill="#9A8070">OBSESSED</text>
+  <text x="340" y="468" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="9.5" font-weight="700" fill="#9A8070">PUT IT DOWN</text>
+
+  <!-- Quadrant labels (subtle) -->
+  <text x="100" y="65" font-family="'Nunito',sans-serif" font-size="9" fill="#E8DDD0" font-style="italic">fact + obsessed</text>
+  <text x="480" y="65" font-family="'Nunito',sans-serif" font-size="9" fill="#E8DDD0" font-style="italic">fiction + obsessed</text>
+  <text x="80" y="430" font-family="'Nunito',sans-serif" font-size="9" fill="#E8DDD0" font-style="italic">fact + meh</text>
+  <text x="478" y="430" font-family="'Nunito',sans-serif" font-size="9" fill="#E8DDD0" font-style="italic">fiction + meh</text>
+
+  <!--
+    X: 60=fact, 620=fiction → center=340
+    Y: 30=obsessed, 440=put down → center=235
+    Bubble positions (cx, cy, r) and fill gradient:
+
+    1. Thinking Fast & Slow - fact, obsessed → x=130, y=80, r=26 (499pp) - teal
+    2. Strong Towns - fact, obsessed → x=185, y=120, r=20 (288pp) - mustard
+    3. The Goal (Goldratt) - fact/story, obsessed → x=310, y=95, r=22 (350pp) - coral
+    4. To Kill a Mockingbird - fiction, obsessed → x=540, y=85, r=20 (281pp) - lavender
+    5. Invisible Cities - fiction, obsessed → x=585, y=130, r=18 (165pp) - sage
+    6. How Big Things Get Done - fact, high → x=150, y=175, r=22 (320pp) - coral
+    7. The Fifth Discipline - fact, high → x=220, y=200, r=24 (424pp) - teal
+    8. Educated (Westover) - story, high → x=450, y=155, r=25 (334pp) - lavender
+    9. HBR on Analytical Decision Making - fact, mid → x=130, y=310, r=18 (240pp) - mustard
+    10. The Pragmatic Programmer - fact, mid → x=240, y=285, r=20 (320pp) - sage
+    11. A Gentleman in Moscow - fiction, mid-high → x=520, y=225, r=28 (462pp) - lavender
+    12. The Power Broker - fact/story, top → x=390, y=75, r=30 (1336pp) - coral
+  -->
+
+  <!-- 1 -->
+  <circle cx="130" cy="85" r="26" fill="url(#bub2)" stroke="#2DB5A8" stroke-width="1.5"/>
+  <text x="130" cy="85" y="82" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="10" font-weight="800" fill="#3D2B1F">1</text>
+  <text x="130" y="93" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="7" fill="#3D2B1F">Thinking</text>
+  <text x="130" y="102" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="7" fill="#3D2B1F">Fast &amp; Slow</text>
+
+  <!-- 2 -->
+  <circle cx="200" cy="125" r="20" fill="url(#bub3)" stroke="#D4920A" stroke-width="1.5"/>
+  <text x="200" y="121" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="10" font-weight="800" fill="#3D2B1F">2</text>
+  <text x="200" y="131" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="7" fill="#3D2B1F">Strong Towns</text>
+
+  <!-- 3 -->
+  <circle cx="310" cy="100" r="22" fill="url(#bub1)" stroke="#E8614F" stroke-width="1.5"/>
+  <text x="310" y="96" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="10" font-weight="800" fill="#3D2B1F">3</text>
+  <text x="310" y="107" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="7" fill="#3D2B1F">The Goal</text>
+
+  <!-- 4 -->
+  <circle cx="540" cy="90" r="20" fill="url(#bub5)" stroke="#8B7BC8" stroke-width="1.5"/>
+  <text x="540" y="86" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="10" font-weight="800" fill="#3D2B1F">4</text>
+  <text x="540" y="96" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="7" fill="#3D2B1F">To Kill a</text>
+  <text x="540" y="105" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="7" fill="#3D2B1F">Mockingbird</text>
+
+  <!-- 5 -->
+  <circle cx="585" cy="135" r="17" fill="url(#bub4)" stroke="#6A9F7A" stroke-width="1.5"/>
+  <text x="585" y="131" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="10" font-weight="800" fill="#3D2B1F">5</text>
+  <text x="585" y="142" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="7" fill="#3D2B1F">Invisible Cities</text>
+
+  <!-- 6 -->
+  <circle cx="150" cy="185" r="22" fill="url(#bub1)" stroke="#E8614F" stroke-width="1.5"/>
+  <text x="150" y="181" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="10" font-weight="800" fill="#3D2B1F">6</text>
+  <text x="150" y="192" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="7" fill="#3D2B1F">How Big</text>
+  <text x="150" y="201" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="7" fill="#3D2B1F">Things Get Done</text>
+
+  <!-- 7 -->
+  <circle cx="230" cy="208" r="24" fill="url(#bub2)" stroke="#2DB5A8" stroke-width="1.5"/>
+  <text x="230" y="204" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="10" font-weight="800" fill="#3D2B1F">7</text>
+  <text x="230" y="215" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="7" fill="#3D2B1F">The Fifth</text>
+  <text x="230" y="224" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="7" fill="#3D2B1F">Discipline</text>
+
+  <!-- 8 -->
+  <circle cx="450" cy="160" r="25" fill="url(#bub5)" stroke="#8B7BC8" stroke-width="1.5"/>
+  <text x="450" y="156" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="10" font-weight="800" fill="#3D2B1F">8</text>
+  <text x="450" y="167" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="7" fill="#3D2B1F">Educated</text>
+
+  <!-- 9 -->
+  <circle cx="130" cy="315" r="18" fill="url(#bub3)" stroke="#D4920A" stroke-width="1.5"/>
+  <text x="130" y="311" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="10" font-weight="800" fill="#3D2B1F">9</text>
+  <text x="130" y="322" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="7" fill="#3D2B1F">HBR Analytical</text>
+  <text x="130" y="331" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="7" fill="#3D2B1F">Dec. Making</text>
+
+  <!-- 10 -->
+  <circle cx="248" cy="290" r="20" fill="url(#bub4)" stroke="#6A9F7A" stroke-width="1.5"/>
+  <text x="248" y="286" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="10" font-weight="800" fill="#3D2B1F">10</text>
+  <text x="248" y="297" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="7" fill="#3D2B1F">Pragmatic</text>
+  <text x="248" y="306" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="7" fill="#3D2B1F">Programmer</text>
+
+  <!-- 11 -->
+  <circle cx="520" cy="230" r="28" fill="url(#bub5)" stroke="#8B7BC8" stroke-width="1.5"/>
+  <text x="520" y="226" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="10" font-weight="800" fill="#3D2B1F">11</text>
+  <text x="520" y="237" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="7" fill="#3D2B1F">A Gentleman</text>
+  <text x="520" y="246" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="7" fill="#3D2B1F">in Moscow</text>
+
+  <!-- 12 - The Power Broker (biggest!) -->
+  <circle cx="390" cy="80" r="30" fill="url(#bub1)" stroke="#E8614F" stroke-width="2"/>
+  <text x="390" y="75" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="10" font-weight="800" fill="#3D2B1F">12</text>
+  <text x="390" y="86" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="7.5" font-weight="700" fill="#3D2B1F">The Power</text>
+  <text x="390" y="97" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="7.5" font-weight="700" fill="#3D2B1F">Broker</text>
+
+  <!-- Bubble size legend -->
+  <circle cx="80" cy="490" r="8" fill="none" stroke="#9A8070" stroke-width="1"/>
+  <circle cx="104" cy="490" r="14" fill="none" stroke="#9A8070" stroke-width="1"/>
+  <circle cx="136" cy="490" r="20" fill="none" stroke="#9A8070" stroke-width="1"/>
+  <text x="165" y="494" font-family="'Nunito',sans-serif" font-size="8.5" fill="#9A8070">Bubble size = page count</text>
+
+</svg>
+</div>
+
+<div class="key-panel">
+  <h3>Book Key</h3>
+
+  <div class="book-entry">
+    <span class="book-num" style="background:#2DB5A8;">1</span>
+    <div><div class="book-title">Thinking, Fast and Slow</div><div class="book-author">Daniel Kahneman</div></div>
+  </div>
+  <div class="book-entry">
+    <span class="book-num" style="background:#D4920A;">2</span>
+    <div><div class="book-title">Strong Towns</div><div class="book-author">Charles Marohn</div></div>
+  </div>
+  <div class="book-entry">
+    <span class="book-num" style="background:#E8614F;">3</span>
+    <div><div class="book-title">The Goal</div><div class="book-author">Eliyahu Goldratt</div></div>
+  </div>
+  <div class="book-entry">
+    <span class="book-num" style="background:#8B7BC8;">4</span>
+    <div><div class="book-title">To Kill a Mockingbird</div><div class="book-author">Harper Lee</div></div>
+  </div>
+  <div class="book-entry">
+    <span class="book-num" style="background:#6A9F7A;">5</span>
+    <div><div class="book-title">Invisible Cities</div><div class="book-author">Italo Calvino</div></div>
+  </div>
+  <div class="book-entry">
+    <span class="book-num" style="background:#E8614F;">6</span>
+    <div><div class="book-title">How Big Things Get Done</div><div class="book-author">Bent Flyvbjerg</div></div>
+  </div>
+  <div class="book-entry">
+    <span class="book-num" style="background:#2DB5A8;">7</span>
+    <div><div class="book-title">The Fifth Discipline</div><div class="book-author">Peter Senge</div></div>
+  </div>
+  <div class="book-entry">
+    <span class="book-num" style="background:#8B7BC8;">8</span>
+    <div><div class="book-title">Educated</div><div class="book-author">Tara Westover</div></div>
+  </div>
+  <div class="book-entry">
+    <span class="book-num" style="background:#D4920A;">9</span>
+    <div><div class="book-title">HBR on Analytical Decision Making</div><div class="book-author">Harvard Business Review</div></div>
+  </div>
+  <div class="book-entry">
+    <span class="book-num" style="background:#6A9F7A;">10</span>
+    <div><div class="book-title">The Pragmatic Programmer</div><div class="book-author">Hunt &amp; Thomas</div></div>
+  </div>
+  <div class="book-entry">
+    <span class="book-num" style="background:#8B7BC8;">11</span>
+    <div><div class="book-title">A Gentleman in Moscow</div><div class="book-author">Amor Towles</div></div>
+  </div>
+  <div class="book-entry">
+    <span class="book-num" style="background:#E8614F;">12</span>
+    <div><div class="book-title">The Power Broker</div><div class="book-author">Robert Caro</div></div>
+  </div>
+
+  <p style="margin-top:16px;font-size:.75rem;color:#9A8070;font-style:italic;">★ All titles are placeholder suggestions — Nabil to confirm.</p>
+</div>
+</div>
+
+</body>
+</html>
