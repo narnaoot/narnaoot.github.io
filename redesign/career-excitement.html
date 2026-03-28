@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Career Excitement — Nabil Arnaoot</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #FFFBF5; --surface: #FFFFFF; --warm2: #FDECD6;
+      --text: #3D2B1F; --muted: #9A8070; --border: #E8DDD0;
+      --coral: #E8614F; --coral-lt: #FDEAE7; --teal: #2DB5A8;
+      --teal-lt: #E0F5F3; --mustard: #D4920A; --must-lt: #FEF4DC;
+      --sage: #6A9F7A; --sage-lt: #EBF4EE; --lavender: #8B7BC8; --lav-lt: #EFECF9;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: 'Nunito', sans-serif; line-height: 1.65; }
+    .topnav { background: var(--surface); border-bottom: 1.5px solid var(--border); position: sticky; top: 0; z-index: 100; height: 56px; display: flex; align-items: center; }
+    .topnav-inner { max-width: 1080px; margin: 0 auto; padding: 0 28px; width: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 900; color: var(--coral); letter-spacing: -0.5px; text-decoration: none; }
+    .nav-links { display: flex; gap: 4px; list-style: none; }
+    .nav-links a { padding: 6px 14px; font-size: .78rem; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; color: var(--muted); text-decoration: none; border-radius: 8px; transition: color .15s, background .15s; }
+    .nav-links a:hover { color: var(--text); background: var(--warm2); }
+    .page-header { padding: 40px 28px 10px; text-align: center; max-width: 700px; margin: 0 auto; }
+    .page-header h1 { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--text); }
+    .page-header p { color: var(--muted); font-size: 1rem; margin-top: 8px; }
+    .placeholder-note { background: var(--must-lt); border: 1.5px solid var(--mustard); border-radius: 10px; padding: 10px 18px; font-size: .82rem; color: var(--text); text-align: center; margin: 14px auto; max-width: 600px; }
+    .chart-wrap { overflow-x: auto; padding: 20px 28px 40px; display: flex; justify-content: center; }
+    .legend { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; padding: 0 28px 40px; max-width: 900px; margin: 0 auto; }
+    .legend-item { display: flex; align-items: center; gap: 6px; font-size: .82rem; color: var(--text); }
+    .legend-dot { width: 14px; height: 14px; border-radius: 50%; flex-shrink: 0; }
+  </style>
+</head>
+<body>
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="index.html" class="nav-logo">NA</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="method.html">Method</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page-header">
+  <h1>Excitement Over Time</h1>
+  <p>Skill focus areas and engagement levels across 20 years — bubbles sized by how central each skill was</p>
+</div>
+
+<div class="placeholder-note">
+  ★ Placeholder — excitement levels (1–10) need Nabil's confirmation. Numbers shown are estimates.
+</div>
+
+<div class="chart-wrap">
+<svg viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg" style="width:900px;height:560px;max-width:100%;">
+  <defs>
+    <filter id="sketchy">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="4" result="noise" seed="2"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.5" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <!-- Bubble gradients -->
+    <radialGradient id="gCoral" cx="35%" cy="35%">
+      <stop offset="0%" stop-color="#FDEAE7"/>
+      <stop offset="100%" stop-color="#E8614F" stop-opacity="0.8"/>
+    </radialGradient>
+    <radialGradient id="gTeal" cx="35%" cy="35%">
+      <stop offset="0%" stop-color="#E0F5F3"/>
+      <stop offset="100%" stop-color="#2DB5A8" stop-opacity="0.8"/>
+    </radialGradient>
+    <radialGradient id="gMustard" cx="35%" cy="35%">
+      <stop offset="0%" stop-color="#FEF4DC"/>
+      <stop offset="100%" stop-color="#D4920A" stop-opacity="0.8"/>
+    </radialGradient>
+    <radialGradient id="gSage" cx="35%" cy="35%">
+      <stop offset="0%" stop-color="#EBF4EE"/>
+      <stop offset="100%" stop-color="#6A9F7A" stop-opacity="0.8"/>
+    </radialGradient>
+    <radialGradient id="gLav" cx="35%" cy="35%">
+      <stop offset="0%" stop-color="#EFECF9"/>
+      <stop offset="100%" stop-color="#8B7BC8" stop-opacity="0.8"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="560" fill="#FFFBF5" rx="12"/>
+
+  <!-- Grid lines (slightly wobbly) -->
+  <!-- Y-axis grid lines -->
+  <line x1="80" y1="60" x2="860" y2="62" stroke="#E8DDD0" stroke-width="1" filter="url(#sketchy)"/>
+  <line x1="80" y1="116" x2="860" y2="117" stroke="#E8DDD0" stroke-width="1" filter="url(#sketchy)"/>
+  <line x1="80" y1="172" x2="860" y2="174" stroke="#E8DDD0" stroke-width="1" filter="url(#sketchy)"/>
+  <line x1="80" y1="228" x2="860" y2="229" stroke="#E8DDD0" stroke-width="1" filter="url(#sketchy)"/>
+  <line x1="80" y1="284" x2="860" y2="285" stroke="#E8DDD0" stroke-width="1" filter="url(#sketchy)"/>
+  <line x1="80" y1="340" x2="860" y2="342" stroke="#E8DDD0" stroke-width="1" filter="url(#sketchy)"/>
+  <line x1="80" y1="396" x2="860" y2="397" stroke="#E8DDD0" stroke-width="1" filter="url(#sketchy)"/>
+  <line x1="80" y1="452" x2="860" y2="454" stroke="#E8DDD0" stroke-width="1" filter="url(#sketchy)"/>
+  <line x1="80" y1="500" x2="860" y2="500" stroke="#9A8070" stroke-width="1.5"/>
+
+  <!-- Axes -->
+  <line x1="80" y1="30" x2="80" y2="510" stroke="#3D2B1F" stroke-width="2"/>
+  <line x1="80" y1="500" x2="870" y2="500" stroke="#3D2B1F" stroke-width="2"/>
+  <!-- Arrow heads -->
+  <polygon points="80,28 76,40 84,40" fill="#3D2B1F"/>
+  <polygon points="872,500 860,496 860,504" fill="#3D2B1F"/>
+
+  <!-- Y axis labels -->
+  <text x="72" y="64" text-anchor="end" font-family="'Nunito',sans-serif" font-size="11" fill="#9A8070">10</text>
+  <text x="72" y="120" text-anchor="end" font-family="'Nunito',sans-serif" font-size="11" fill="#9A8070">9</text>
+  <text x="72" y="176" text-anchor="end" font-family="'Nunito',sans-serif" font-size="11" fill="#9A8070">8</text>
+  <text x="72" y="232" text-anchor="end" font-family="'Nunito',sans-serif" font-size="11" fill="#9A8070">7</text>
+  <text x="72" y="288" text-anchor="end" font-family="'Nunito',sans-serif" font-size="11" fill="#9A8070">6</text>
+  <text x="72" y="344" text-anchor="end" font-family="'Nunito',sans-serif" font-size="11" fill="#9A8070">5</text>
+  <text x="72" y="400" text-anchor="end" font-family="'Nunito',sans-serif" font-size="11" fill="#9A8070">4</text>
+  <text x="72" y="456" text-anchor="end" font-family="'Nunito',sans-serif" font-size="11" fill="#9A8070">3</text>
+
+  <!-- Y axis title -->
+  <text transform="translate(20,280) rotate(-90)" text-anchor="middle" font-family="'Playfair Display',serif" font-size="13" font-style="italic" fill="#3D2B1F">Excitement / Engagement</text>
+
+  <!-- X axis era labels -->
+  <text x="155" y="520" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="10" font-weight="700" fill="#3D2B1F">Elegrity</text>
+  <text x="155" y="532" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="9" fill="#9A8070">2006–10</text>
+  <text x="290" y="520" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="10" font-weight="700" fill="#3D2B1F">eBay</text>
+  <text x="290" y="532" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="9" fill="#9A8070">2010–11</text>
+  <text x="415" y="520" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="10" font-weight="700" fill="#3D2B1F">Apple EPM</text>
+  <text x="415" y="532" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="9" fill="#9A8070">2011–14</text>
+  <text x="570" y="520" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="10" font-weight="700" fill="#3D2B1F">Apple Process</text>
+  <text x="570" y="532" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="9" fill="#9A8070">2014–20</text>
+  <text x="710" y="520" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="10" font-weight="700" fill="#3D2B1F">St. Mary's</text>
+  <text x="710" y="532" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="9" fill="#9A8070">2020–24</text>
+  <text x="820" y="520" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="10" font-weight="700" fill="#3D2B1F">SFMTA</text>
+  <text x="820" y="532" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="9" fill="#9A8070">2024–now</text>
+
+  <!-- Era dividers -->
+  <line x1="215" y1="50" x2="215" y2="500" stroke="#E8DDD0" stroke-width="1" stroke-dasharray="4,4"/>
+  <line x1="345" y1="50" x2="345" y2="500" stroke="#E8DDD0" stroke-width="1" stroke-dasharray="4,4"/>
+  <line x1="490" y1="50" x2="490" y2="500" stroke="#E8DDD0" stroke-width="1" stroke-dasharray="4,4"/>
+  <line x1="640" y1="50" x2="640" y2="500" stroke="#E8DDD0" stroke-width="1" stroke-dasharray="4,4"/>
+  <line x1="770" y1="50" x2="770" y2="500" stroke="#E8DDD0" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <!-- ══ BUBBLES ══
+    Y positions: excitement 10=60, 9=116, 8=172, 7=228, 6=284, 5=340, 4=396
+    X era centers: Elegrity=155, eBay=290, Apple EPM=415, Apple Process=570, St.Mary's=710, SFMTA=820
+    Bubble radius = centrality of skill (12–36px)
+  -->
+
+  <!-- ELEGRITY (excitement ~6 = y≈284) -->
+  <!-- Project Management - large bubble, central -->
+  <circle cx="145" cy="290" r="30" fill="url(#gCoral)" stroke="#E8614F" stroke-width="1.5" opacity="0.9"/>
+  <text x="145" y="287" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="8.5" font-weight="700" fill="#3D2B1F">Project</text>
+  <text x="145" y="298" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="8.5" font-weight="700" fill="#3D2B1F">Mgmt</text>
+  <!-- Technical Admin - medium -->
+  <circle cx="175" cy="248" r="20" fill="url(#gTeal)" stroke="#2DB5A8" stroke-width="1.5" opacity="0.85"/>
+  <text x="175" y="245" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="7.5" fill="#3D2B1F">Tech</text>
+  <text x="175" y="255" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="7.5" fill="#3D2B1F">Admin</text>
+  <!-- Learning - smaller -->
+  <circle cx="125" cy="230" r="14" fill="url(#gMustard)" stroke="#D4920A" stroke-width="1.5" opacity="0.85"/>
+  <text x="125" y="234" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="7" fill="#3D2B1F">Learn</text>
+
+  <!-- eBay (excitement ~7 = y≈228) -->
+  <circle cx="285" cy="228" r="24" fill="url(#gMustard)" stroke="#D4920A" stroke-width="1.5" opacity="0.9"/>
+  <text x="285" y="225" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="8" font-weight="700" fill="#3D2B1F">Cross-</text>
+  <text x="285" y="236" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="8" font-weight="700" fill="#3D2B1F">Functional</text>
+  <circle cx="318" cy="260" r="16" fill="url(#gCoral)" stroke="#E8614F" stroke-width="1.5" opacity="0.85"/>
+  <text x="318" y="257" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="7.5" fill="#3D2B1F">Security</text>
+  <text x="318" y="267" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="7.5" fill="#3D2B1F">PM</text>
+  <circle cx="262" cy="268" r="13" fill="url(#gSage)" stroke="#6A9F7A" stroke-width="1.5" opacity="0.85"/>
+  <text x="262" y="272" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="7" fill="#3D2B1F">Pace</text>
+
+  <!-- Apple EPM (excitement ~9 = y≈116) -->
+  <circle cx="405" cy="116" r="34" fill="url(#gLav)" stroke="#8B7BC8" stroke-width="2" opacity="0.95"/>
+  <text x="405" y="113" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="9" font-weight="700" fill="#3D2B1F">Program</text>
+  <text x="405" y="124" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="9" font-weight="700" fill="#3D2B1F">Leadership</text>
+  <circle cx="448" cy="155" r="22" fill="url(#gCoral)" stroke="#E8614F" stroke-width="1.5" opacity="0.9"/>
+  <text x="448" y="152" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="8" fill="#3D2B1F">40+ Team</text>
+  <text x="448" y="162" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="8" fill="#3D2B1F">Coord.</text>
+  <circle cx="380" cy="172" r="18" fill="url(#gTeal)" stroke="#2DB5A8" stroke-width="1.5" opacity="0.85"/>
+  <text x="380" y="169" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="7.5" fill="#3D2B1F">iCloud</text>
+  <text x="380" y="179" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="7.5" fill="#3D2B1F">Scale</text>
+  <circle cx="440" cy="96" r="14" fill="url(#gMustard)" stroke="#D4920A" stroke-width="1.5" opacity="0.85"/>
+  <text x="440" y="100" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="7" fill="#3D2B1F">Strat.</text>
+
+  <!-- Apple Process (excitement ~7 = y≈228) -->
+  <circle cx="558" cy="200" r="32" fill="url(#gTeal)" stroke="#2DB5A8" stroke-width="2" opacity="0.9"/>
+  <text x="558" y="197" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="9" font-weight="700" fill="#3D2B1F">Systems</text>
+  <text x="558" y="208" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="9" font-weight="700" fill="#3D2B1F">Design</text>
+  <circle cx="596" cy="240" r="24" fill="url(#gLav)" stroke="#8B7BC8" stroke-width="1.5" opacity="0.9"/>
+  <text x="596" y="237" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="8" fill="#3D2B1F">Process</text>
+  <text x="596" y="248" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="8" fill="#3D2B1F">Craft</text>
+  <circle cx="530" cy="252" r="16" fill="url(#gSage)" stroke="#6A9F7A" stroke-width="1.5" opacity="0.85"/>
+  <text x="530" y="249" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="7.5" fill="#3D2B1F">Deep</text>
+  <text x="530" y="259" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="7.5" fill="#3D2B1F">Work</text>
+
+  <!-- St. Mary's (excitement ~8 = y≈172) -->
+  <circle cx="700" cy="172" r="30" fill="url(#gSage)" stroke="#6A9F7A" stroke-width="2" opacity="0.9"/>
+  <text x="700" y="169" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="9" font-weight="700" fill="#3D2B1F">Teaching</text>
+  <text x="700" y="180" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="9" font-weight="700" fill="#3D2B1F">& Mentoring</text>
+  <circle cx="740" cy="210" r="22" fill="url(#gMustard)" stroke="#D4920A" stroke-width="1.5" opacity="0.9"/>
+  <text x="740" y="207" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="8" fill="#3D2B1F">Data</text>
+  <text x="740" y="218" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="8" fill="#3D2B1F">Analytics</text>
+  <circle cx="672" cy="215" r="16" fill="url(#gCoral)" stroke="#E8614F" stroke-width="1.5" opacity="0.85"/>
+  <text x="672" y="212" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="7.5" fill="#3D2B1F">Reinvent</text>
+  <text x="672" y="222" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="7.5" fill="#3D2B1F">-ion</text>
+  <circle cx="710" cy="140" r="12" fill="url(#gLav)" stroke="#8B7BC8" stroke-width="1.5" opacity="0.85"/>
+  <text x="710" y="144" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="7" fill="#3D2B1F">Consult</text>
+
+  <!-- SFMTA (excitement ~8 = y≈172) -->
+  <circle cx="816" cy="172" r="28" fill="url(#gTeal)" stroke="#2DB5A8" stroke-width="2" opacity="0.95"/>
+  <text x="816" y="169" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="8.5" font-weight="700" fill="#3D2B1F">Civic</text>
+  <text x="816" y="180" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="8.5" font-weight="700" fill="#3D2B1F">Impact</text>
+  <circle cx="848" cy="215" r="18" fill="url(#gCoral)" stroke="#E8614F" stroke-width="1.5" opacity="0.9"/>
+  <text x="848" y="212" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="7.5" fill="#3D2B1F">Data</text>
+  <text x="848" y="222" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="7.5" fill="#3D2B1F">Strategy</text>
+  <circle cx="793" cy="218" r="14" fill="url(#gSage)" stroke="#6A9F7A" stroke-width="1.5" opacity="0.85"/>
+  <text x="793" y="222" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="7" fill="#3D2B1F">Transit</text>
+
+  <!-- Annotation arrows — hand-drawn style -->
+  <!-- Apple EPM annotation -->
+  <path d="M470 80 Q500 70 480 95" stroke="#8B7BC8" stroke-width="1.5" fill="none" stroke-dasharray="3,2"/>
+  <polygon points="478,95 482,87 486,96" fill="#8B7BC8" opacity="0.8"/>
+  <text x="474" y="75" font-family="'Nunito',sans-serif" font-size="9" font-style="italic" fill="#8B7BC8">iCloud! 300M+ users</text>
+
+  <!-- Process annotation -->
+  <path d="M620 175 Q655 165 645 190" stroke="#2DB5A8" stroke-width="1.5" fill="none" stroke-dasharray="3,2"/>
+  <polygon points="643,190 647,182 651,191" fill="#2DB5A8" opacity="0.8"/>
+  <text x="625" y="170" font-family="'Nunito',sans-serif" font-size="9" font-style="italic" fill="#2DB5A8">Deep craft era</text>
+
+  <!-- SFMTA annotation -->
+  <path d="M860 145 Q875 130 845 150" stroke="#E8614F" stroke-width="1.5" fill="none" stroke-dasharray="3,2"/>
+  <polygon points="843,151 848,143 851,152" fill="#E8614F" opacity="0.8"/>
+  <text x="862" y="142" font-family="'Nunito',sans-serif" font-size="9" font-style="italic" fill="#E8614F">Purpose!</text>
+
+  <!-- Excitement level marker dots on y=500 baseline -->
+  <!-- These are the actual excitement score dots -->
+  <circle cx="155" cy="286" r="4" fill="#3D2B1F" opacity="0.4"/>
+  <circle cx="290" cy="230" r="4" fill="#3D2B1F" opacity="0.4"/>
+  <circle cx="415" cy="118" r="4" fill="#3D2B1F" opacity="0.4"/>
+  <circle cx="570" cy="230" r="4" fill="#3D2B1F" opacity="0.4"/>
+  <circle cx="710" cy="174" r="4" fill="#3D2B1F" opacity="0.4"/>
+  <circle cx="820" cy="174" r="4" fill="#3D2B1F" opacity="0.4"/>
+
+  <!-- Excitement trend line -->
+  <path d="M155 286 C200 260 240 235 290 230 C340 225 375 130 415 118 C455 106 510 215 570 230 C620 242 665 178 710 174 C750 170 790 172 820 174"
+        stroke="#9A8070" stroke-width="1.5" fill="none" stroke-dasharray="5,3" opacity="0.5"/>
+
+  <!-- X axis label -->
+  <text x="880" y="504" font-family="'Nunito',sans-serif" font-size="11" fill="#9A8070">time →</text>
+</svg>
+</div>
+
+<div class="legend">
+  <div class="legend-item"><span class="legend-dot" style="background:#E8614F;"></span> Project / Program Mgmt</div>
+  <div class="legend-item"><span class="legend-dot" style="background:#2DB5A8;"></span> Systems & Process</div>
+  <div class="legend-item"><span class="legend-dot" style="background:#D4920A;"></span> Strategy & Analytics</div>
+  <div class="legend-item"><span class="legend-dot" style="background:#6A9F7A;"></span> Teaching & People</div>
+  <div class="legend-item"><span class="legend-dot" style="background:#8B7BC8;"></span> Cross-functional Leadership</div>
+  <div style="width:100%;text-align:center;font-size:.8rem;color:#9A8070;margin-top:6px;">Bubble size = how central that skill was to the role</div>
+</div>
+
+</body>
+</html>
