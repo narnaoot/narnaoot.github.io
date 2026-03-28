@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gradient Circles — Nabil Arnaoot</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #FFFBF5; --surface: #FFFFFF; --warm2: #FDECD6;
+      --text: #3D2B1F; --muted: #9A8070; --border: #E8DDD0;
+      --coral: #E8614F; --coral-lt: #FDEAE7; --teal: #2DB5A8;
+      --teal-lt: #E0F5F3; --mustard: #D4920A; --must-lt: #FEF4DC;
+      --sage: #6A9F7A; --sage-lt: #EBF4EE; --lavender: #8B7BC8; --lav-lt: #EFECF9;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #1A1210; color: #F5EDE3; font-family: 'Nunito', sans-serif; line-height: 1.65; }
+    .topnav { background: #100C0B; border-bottom: 1.5px solid #3D2B1F; position: sticky; top: 0; z-index: 100; height: 56px; display: flex; align-items: center; }
+    .topnav-inner { max-width: 1080px; margin: 0 auto; padding: 0 28px; width: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 900; color: #E8614F; letter-spacing: -0.5px; text-decoration: none; }
+    .nav-links { display: flex; gap: 4px; list-style: none; }
+    .nav-links a { padding: 6px 14px; font-size: .78rem; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; color: #9A8070; text-decoration: none; border-radius: 8px; transition: color .15s, background .15s; }
+    .nav-links a:hover { color: #F5EDE3; background: #3D2B1F; }
+    .page-header { padding: 40px 28px 20px; text-align: center; }
+    .page-header h1 { font-family: 'Playfair Display', serif; font-size: 2.4rem; color: #F5EDE3; }
+    .page-header p { color: #9A8070; font-size: 1rem; margin-top: 8px; }
+    .chart-wrap { display: flex; justify-content: center; padding: 20px 28px 20px; }
+    .skills-bar { max-width: 900px; margin: 0 auto; padding: 20px 40px 50px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+    .skill-col h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #E8614F; margin-bottom: 14px; letter-spacing: 0.04em; }
+    .skill-list { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
+    .skill-tag { background: #2A1E1C; border: 1px solid #4A3830; color: #B8A898; padding: 5px 12px; border-radius: 20px; font-size: .82rem; }
+    .skill-tag.hard { border-color: #2DB5A8; color: #2DB5A8; }
+  </style>
+</head>
+<body>
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="index.html" class="nav-logo">NA</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="method.html">Method</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page-header">
+  <h1>Six Stops, Six Worlds</h1>
+  <p>Each career chapter as a gradient circle — size reflects years in role</p>
+</div>
+
+<div class="chart-wrap">
+<svg viewBox="0 0 900 480" xmlns="http://www.w3.org/2000/svg" style="width:900px;height:480px;max-width:100%;">
+  <defs>
+    <!-- Elegrity: coral → mustard -->
+    <radialGradient id="gElegrity" cx="35%" cy="30%">
+      <stop offset="0%" stop-color="#FDEAE7"/>
+      <stop offset="50%" stop-color="#E8614F"/>
+      <stop offset="100%" stop-color="#8B1A0A"/>
+    </radialGradient>
+    <!-- eBay: mustard → sage -->
+    <radialGradient id="gEbay" cx="35%" cy="30%">
+      <stop offset="0%" stop-color="#FEF4DC"/>
+      <stop offset="50%" stop-color="#D4920A"/>
+      <stop offset="100%" stop-color="#7A5500"/>
+    </radialGradient>
+    <!-- Apple EPM: lavender → coral -->
+    <radialGradient id="gAppleEPM" cx="35%" cy="30%">
+      <stop offset="0%" stop-color="#EFECF9"/>
+      <stop offset="40%" stop-color="#8B7BC8"/>
+      <stop offset="100%" stop-color="#E8614F"/>
+    </radialGradient>
+    <!-- Apple Process: lavender → teal -->
+    <radialGradient id="gAppleProc" cx="35%" cy="30%">
+      <stop offset="0%" stop-color="#E0F5F3"/>
+      <stop offset="40%" stop-color="#8B7BC8"/>
+      <stop offset="100%" stop-color="#0A5A54"/>
+    </radialGradient>
+    <!-- St Marys: sage → mustard -->
+    <radialGradient id="gStMarys" cx="35%" cy="30%">
+      <stop offset="0%" stop-color="#EBF4EE"/>
+      <stop offset="50%" stop-color="#6A9F7A"/>
+      <stop offset="100%" stop-color="#2A5A34"/>
+    </radialGradient>
+    <!-- SFMTA: teal → lavender -->
+    <radialGradient id="gSFMTA" cx="35%" cy="30%">
+      <stop offset="0%" stop-color="#E0F5F3"/>
+      <stop offset="40%" stop-color="#2DB5A8"/>
+      <stop offset="100%" stop-color="#8B7BC8"/>
+    </radialGradient>
+    <!-- Glow filter -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <rect width="900" height="480" fill="#1A1210" rx="12"/>
+
+  <!-- Connecting lines -->
+  <line x1="88" y1="170" x2="218" y2="170" stroke="#4A3830" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="252" y1="170" x2="378" y2="170" stroke="#4A3830" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="422" y1="170" x2="538" y2="170" stroke="#4A3830" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="150" y1="350" x2="278" y2="350" stroke="#4A3830" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="322" y1="350" x2="438" y2="350" stroke="#4A3830" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="482" y1="350" x2="598" y2="350" stroke="#4A3830" stroke-width="1" stroke-dasharray="4,3"/>
+  <!-- Cross connections between rows -->
+  <line x1="88" y1="214" x2="150" y2="302" stroke="#4A3830" stroke-width="1" stroke-dasharray="3,4" opacity="0.5"/>
+  <line x1="575" y1="214" x2="640" y2="302" stroke="#4A3830" stroke-width="1" stroke-dasharray="3,4" opacity="0.5"/>
+
+  <!-- Row 1: Elegrity(r=52), eBay(r=36), Apple EPM(r=52) -->
+  <!-- Elegrity: 4 years → r=52 -->
+  <circle cx="88" cy="170" r="62" fill="#2A1E1C" opacity="0.4"/>
+  <circle cx="88" cy="170" r="52" fill="url(#gElegrity)" filter="url(#glow)"/>
+  <text x="88" y="162" text-anchor="middle" font-family="'Playfair Display',serif" font-size="11" font-weight="700" fill="white">Elegrity</text>
+  <text x="88" y="176" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="8.5" fill="rgba(255,255,255,0.8)">2006–2010</text>
+  <!-- stat -->
+  <text x="88" y="242" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="9" fill="#9A8070">App Admin → PM</text>
+  <text x="88" y="255" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="8.5" fill="#6A5048">First professional home</text>
+
+  <!-- eBay: 1 year → r=30 -->
+  <circle cx="235" cy="170" r="36" fill="#2A1E1C" opacity="0.4"/>
+  <circle cx="235" cy="170" r="30" fill="url(#gEbay)" filter="url(#glow)"/>
+  <text x="235" y="166" text-anchor="middle" font-family="'Playfair Display',serif" font-size="10" font-weight="700" fill="white">eBay</text>
+  <text x="235" y="178" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="8" fill="rgba(255,255,255,0.8)">2010–11</text>
+  <text x="235" y="218" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="9" fill="#9A8070">PM, Security Arch.</text>
+  <text x="235" y="231" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="8" fill="#6A5048">Fast-paced &amp; cross-functional</text>
+
+  <!-- Apple EPM: 3 years → r=48 -->
+  <circle cx="395" cy="170" r="58" fill="#2A1E1C" opacity="0.4"/>
+  <circle cx="395" cy="170" r="48" fill="url(#gAppleEPM)" filter="url(#glow)"/>
+  <text x="395" y="162" text-anchor="middle" font-family="'Playfair Display',serif" font-size="11" font-weight="700" fill="white">Apple</text>
+  <text x="395" y="175" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="8.5" fill="rgba(255,255,255,0.85)">Eng PM 2011–14</text>
+  <text x="395" y="240" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="9" fill="#D4920A">300M+ iCloud users</text>
+  <text x="395" y="253" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="8.5" fill="#6A5048">40+ engineering teams</text>
+
+  <!-- Row 2: Apple Process(r=70), St Marys(r=52), SFMTA(r=22 growing) -->
+  <!-- Apple Process: 6 years → r=64 (biggest) -->
+  <circle cx="150" cy="350" r="78" fill="#2A1E1C" opacity="0.4"/>
+  <circle cx="150" cy="350" r="64" fill="url(#gAppleProc)" filter="url(#glow)"/>
+  <text x="150" y="342" text-anchor="middle" font-family="'Playfair Display',serif" font-size="11" font-weight="700" fill="white">Apple</text>
+  <text x="150" y="356" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="8.5" fill="rgba(255,255,255,0.85)">Process 2014–20</text>
+  <text x="150" y="432" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="9" fill="#8B7BC8">Systems for 300+ engineers</text>
+  <text x="150" y="445" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="8.5" fill="#6A5048">Deep craft era</text>
+
+  <!-- St. Mary's: 4 years → r=52 -->
+  <circle cx="365" cy="350" r="62" fill="#2A1E1C" opacity="0.4"/>
+  <circle cx="365" cy="350" r="52" fill="url(#gStMarys)" filter="url(#glow)"/>
+  <text x="365" y="342" text-anchor="middle" font-family="'Playfair Display',serif" font-size="11" font-weight="700" fill="white">St. Mary's</text>
+  <text x="365" y="356" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="8.5" fill="rgba(255,255,255,0.85)">2020–2024</text>
+  <text x="365" y="416" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="9" fill="#6A9F7A">MS Analytics (Honors)</text>
+  <text x="365" y="429" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="8.5" fill="#6A5048">Reinvention &amp; teaching</text>
+
+  <!-- SFMTA: 1+ years growing → r=35 (with dashed expanding ring) -->
+  <circle cx="565" cy="350" r="60" fill="none" stroke="#2DB5A8" stroke-width="1" stroke-dasharray="4,3" opacity="0.4"/>
+  <circle cx="565" cy="350" r="42" fill="#2A1E1C" opacity="0.4"/>
+  <circle cx="565" cy="350" r="35" fill="url(#gSFMTA)" filter="url(#glow)"/>
+  <text x="565" y="344" text-anchor="middle" font-family="'Playfair Display',serif" font-size="11" font-weight="700" fill="white">SFMTA</text>
+  <text x="565" y="358" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="8.5" fill="rgba(255,255,255,0.85)">2024–now</text>
+  <text x="565" y="402" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="9" fill="#2DB5A8">Principal Business Analyst</text>
+  <text x="565" y="415" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="8.5" fill="#6A5048">Moving San Francisco daily</text>
+  <!-- Growing arrows -->
+  <text x="605" y="326" font-family="'Nunito',sans-serif" font-size="10" fill="#2DB5A8" opacity="0.6">↗ growing</text>
+
+  <!-- Legend: circle size = years -->
+  <text x="680" y="100" font-family="'Nunito',sans-serif" font-size="10" font-weight="700" fill="#6A5048">circle size</text>
+  <text x="680" y="114" font-family="'Nunito',sans-serif" font-size="9" fill="#6A5048">= years in role</text>
+  <circle cx="692" cy="135" r="10" fill="none" stroke="#6A5048" stroke-width="1.5"/>
+  <text x="706" y="139" font-family="'Nunito',sans-serif" font-size="8.5" fill="#6A5048">1 yr</text>
+  <circle cx="692" cy="158" r="16" fill="none" stroke="#6A5048" stroke-width="1.5"/>
+  <text x="712" y="162" font-family="'Nunito',sans-serif" font-size="8.5" fill="#6A5048">3 yrs</text>
+  <circle cx="692" cy="190" r="24" fill="none" stroke="#6A5048" stroke-width="1.5"/>
+  <text x="720" y="194" font-family="'Nunito',sans-serif" font-size="8.5" fill="#6A5048">6 yrs</text>
+
+  <!-- Title -->
+  <text x="550" y="35" text-anchor="middle" font-family="'Playfair Display',serif" font-size="14" font-weight="700" fill="#F5EDE3">N A B I L  A R N A O O T</text>
+  <text x="550" y="52" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="9.5" fill="#9A8070" letter-spacing="0.1em">PROGRAM MANAGER · PROCESS ENGINEER · DATA STRATEGIST</text>
+
+</svg>
+</div>
+
+<div class="skills-bar">
+  <div class="skill-col">
+    <h3>Hard Skills</h3>
+    <ul class="skill-list">
+      <li class="skill-tag hard">SQL</li>
+      <li class="skill-tag hard">Tableau</li>
+      <li class="skill-tag hard">Python</li>
+      <li class="skill-tag hard">R</li>
+      <li class="skill-tag hard">Jira / Confluence</li>
+      <li class="skill-tag hard">Process Mapping</li>
+      <li class="skill-tag hard">Data Modeling</li>
+      <li class="skill-tag hard">Root Cause Analysis</li>
+      <li class="skill-tag hard">Requirements Writing</li>
+      <li class="skill-tag hard">Business Intelligence</li>
+    </ul>
+  </div>
+  <div class="skill-col">
+    <h3>Soft Skills</h3>
+    <ul class="skill-list">
+      <li class="skill-tag">Stakeholder Communication</li>
+      <li class="skill-tag">Systems Thinking</li>
+      <li class="skill-tag">Ambiguity Navigation</li>
+      <li class="skill-tag">Teaching &amp; Mentoring</li>
+      <li class="skill-tag">Cross-functional Leadership</li>
+      <li class="skill-tag">Strategic Facilitation</li>
+      <li class="skill-tag">Program Management</li>
+      <li class="skill-tag">Analytical Storytelling</li>
+    </ul>
+  </div>
+</div>
+
+</body>
+</html>
