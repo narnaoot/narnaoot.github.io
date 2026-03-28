@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inspiration Donut — Nabil Arnaoot</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #FFFBF5; --surface: #FFFFFF; --warm2: #FDECD6;
+      --text: #3D2B1F; --muted: #9A8070; --border: #E8DDD0;
+      --coral: #E8614F; --coral-lt: #FDEAE7; --teal: #2DB5A8;
+      --teal-lt: #E0F5F3; --mustard: #D4920A; --must-lt: #FEF4DC;
+      --sage: #6A9F7A; --sage-lt: #EBF4EE; --lavender: #8B7BC8; --lav-lt: #EFECF9;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: 'Nunito', sans-serif; line-height: 1.65; }
+    .topnav { background: var(--surface); border-bottom: 1.5px solid var(--border); position: sticky; top: 0; z-index: 100; height: 56px; display: flex; align-items: center; }
+    .topnav-inner { max-width: 1080px; margin: 0 auto; padding: 0 28px; width: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 900; color: var(--coral); letter-spacing: -0.5px; text-decoration: none; }
+    .nav-links { display: flex; gap: 4px; list-style: none; }
+    .nav-links a { padding: 6px 14px; font-size: .78rem; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; color: var(--muted); text-decoration: none; border-radius: 8px; transition: color .15s, background .15s; }
+    .nav-links a:hover { color: var(--text); background: var(--warm2); }
+    .page-header { padding: 40px 28px 20px; text-align: center; }
+    .page-header h1 { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--text); }
+    .page-header p { color: var(--muted); font-size: 1rem; margin-top: 8px; }
+    .chart-wrap { display: flex; justify-content: center; padding: 20px 28px 50px; }
+  </style>
+</head>
+<body>
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="index.html" class="nav-logo">NA</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="method.html">Method</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page-header">
+  <h1>What Inspires Me</h1>
+  <p>The sources of creative energy — radiating outward</p>
+</div>
+
+<div class="chart-wrap">
+<svg id="donut-chart" viewBox="0 0 700 700" xmlns="http://www.w3.org/2000/svg" style="width:700px;height:700px;max-width:100%;">
+  <!--
+    10 segments, equal angles (36° each):
+    1. Cities
+    2. Transit Systems
+    3. English Literature
+    4. Students & Mentees
+    5. Cats (seriously)
+    6. Data Visualizations
+    7. Difficult Problems
+    8. San Francisco
+    9. Systems Thinking
+    10. People Who Fight for Things
+
+    Center: 350,350
+    Inner radius: 100  Outer radius: 200
+    Each segment = 36° = 0.6283 rad
+    Rotation starts at -90° (top)
+
+    SVG arc helper — using path with A command
+    Segment i starts at angle = -90 + 36*i  degrees
+  -->
+
+  <rect width="700" height="700" fill="#FFFBF5"/>
+
+  <!-- Outer decorative ring -->
+  <circle cx="350" cy="350" r="230" fill="none" stroke="#E8DDD0" stroke-width="1" stroke-dasharray="4,4"/>
+  <circle cx="350" cy="350" r="215" fill="none" stroke="#E8DDD0" stroke-width="0.5"/>
+
+  <!-- ══ PIE SEGMENTS (donut ring: inner=100, outer=200) ══ -->
+  <!--
+    Segment 1: Cities — angle -90° to -54°  → start=-90, end=-54
+    Using SVG path: M at outer start → A outer arc → L inner end → A inner arc back → Z
+    cos/sin: start_deg, end_deg
+    All coords: cx=350, cy=350
+
+    Pre-computed outer/inner arc points (r=200, r=100):
+    Segment angles: i=0..9, start = -90 + 36*i, end = -90 + 36*(i+1)
+
+    i=0: -90° → -54°   (Cities)
+    i=1: -54° → -18°   (Transit Systems)
+    i=2: -18° → +18°   (English Literature)
+    i=3: +18° → +54°   (Students & Mentees)
+    i=4: +54° → +90°   (Cats)
+    i=5: +90° → +126°  (Data Viz)
+    i=6: +126° → +162° (Difficult Problems)
+    i=7: +162° → +198° (San Francisco)
+    i=8: +198° → +234° (Systems Thinking)
+    i=9: +234° → +270° (People Who Fight)
+
+    Arc points for outer (r=200) and inner (r=100):
+    (cx + r*cos(deg*π/180), cy + r*sin(deg*π/180))
+
+    Precomputed (x = 350+r*cos, y = 350+r*sin):
+    deg -90: (350,150) outer / (350,250) inner
+    deg -54: (350+200*0.5878, 350-200*0.809) = (467.6,188.2) / (350+100*0.5878,350-100*0.809) = (408.8,269.1)
+    deg -18: (350+200*0.951, 350-200*0.309) = (540.2,288.2) / (445.1,319.1)
+    deg +18: (540.2,411.8) / (445.1,380.9)
+    deg +54: (467.6,511.8) / (408.8,430.9)
+    deg +90: (350,550) / (350,450)
+    deg +126: (232.4,511.8) / (291.2,430.9)
+    deg +162: (159.8,411.8) / (254.9,380.9)
+    deg +198: (159.8,288.2) / (254.9,319.1)
+    deg +234: (232.4,188.2) / (291.2,269.1)
+    deg +270: (350,150) / (350,250)  (= -90)
+  -->
+
+  <!-- Segment 1: Cities (#E8614F) -90° to -54° -->
+  <path d="M350,150 A200,200 0 0,1 467.6,188.2 L408.8,269.1 A100,100 0 0,0 350,250 Z"
+        fill="#E8614F" stroke="#FFFBF5" stroke-width="2"/>
+
+  <!-- Segment 2: Transit Systems (#2DB5A8) -54° to -18° -->
+  <path d="M467.6,188.2 A200,200 0 0,1 540.2,288.2 L445.1,319.1 A100,100 0 0,0 408.8,269.1 Z"
+        fill="#2DB5A8" stroke="#FFFBF5" stroke-width="2"/>
+
+  <!-- Segment 3: English Literature (#8B7BC8) -18° to +18° -->
+  <path d="M540.2,288.2 A200,200 0 0,1 540.2,411.8 L445.1,380.9 A100,100 0 0,0 445.1,319.1 Z"
+        fill="#8B7BC8" stroke="#FFFBF5" stroke-width="2"/>
+
+  <!-- Segment 4: Students & Mentees (#6A9F7A) +18° to +54° -->
+  <path d="M540.2,411.8 A200,200 0 0,1 467.6,511.8 L408.8,430.9 A100,100 0 0,0 445.1,380.9 Z"
+        fill="#6A9F7A" stroke="#FFFBF5" stroke-width="2"/>
+
+  <!-- Segment 5: Cats (#D4920A) +54° to +90° -->
+  <path d="M467.6,511.8 A200,200 0 0,1 350,550 L350,450 A100,100 0 0,0 408.8,430.9 Z"
+        fill="#D4920A" stroke="#FFFBF5" stroke-width="2"/>
+
+  <!-- Segment 6: Data Visualizations (#E8914F - warm orange) +90° to +126° -->
+  <path d="M350,550 A200,200 0 0,1 232.4,511.8 L291.2,430.9 A100,100 0 0,0 350,450 Z"
+        fill="#C4895A" stroke="#FFFBF5" stroke-width="2"/>
+
+  <!-- Segment 7: Difficult Problems (#B85C82) +126° to +162° -->
+  <path d="M232.4,511.8 A200,200 0 0,1 159.8,411.8 L254.9,380.9 A100,100 0 0,0 291.2,430.9 Z"
+        fill="#B85C82" stroke="#FFFBF5" stroke-width="2"/>
+
+  <!-- Segment 8: San Francisco (#4A8A9C) +162° to +198° -->
+  <path d="M159.8,411.8 A200,200 0 0,1 159.8,288.2 L254.9,319.1 A100,100 0 0,0 254.9,380.9 Z"
+        fill="#4A8A9C" stroke="#FFFBF5" stroke-width="2"/>
+
+  <!-- Segment 9: Systems Thinking (#9A6B3A) +198° to +234° -->
+  <path d="M159.8,288.2 A200,200 0 0,1 232.4,188.2 L291.2,269.1 A100,100 0 0,0 254.9,319.1 Z"
+        fill="#9A6B3A" stroke="#FFFBF5" stroke-width="2"/>
+
+  <!-- Segment 10: People Who Fight (#7A6CBD) +234° to +270° (-90°) -->
+  <path d="M232.4,188.2 A200,200 0 0,1 350,150 L350,250 A100,100 0 0,0 291.2,269.1 Z"
+        fill="#7A6CBD" stroke="#FFFBF5" stroke-width="2"/>
+
+  <!-- Center hole fill and monogram -->
+  <circle cx="350" cy="350" r="98" fill="#FFFBF5"/>
+  <circle cx="350" cy="350" r="96" fill="none" stroke="#E8DDD0" stroke-width="1.5"/>
+  <text x="350" y="340" text-anchor="middle" font-family="'Playfair Display',serif" font-size="32" font-weight="900" fill="#3D2B1F">NA</text>
+  <text x="350" y="360" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="9" fill="#9A8070">inspires me</text>
+
+  <!-- ══ LABELS RADIATING OUTWARD (at r=240, midpoint of each segment) ══ -->
+  <!--
+    Label angles (midpoint of each segment):
+    1. -72° → (350+240*cos(-72°), 350+240*sin(-72°)) = (350+74.1, 350-228.2) = (424.1,121.8)
+    2. -36° → (350+194.1, 350-141.1) = (544.1,208.9)
+    3. 0°   → (590, 350)
+    4. +36° → (544.1,491.1)
+    5. +72° → (424.1,578.2)
+    6. +108° → (275.9,578.2)
+    7. +144° → (155.9,491.1)
+    8. +180° → (110,350)
+    9. +216° → (155.9,208.9)
+    10. +252° → (275.9,121.8)
+  -->
+  <g font-family="'Nunito',sans-serif" font-size="11" font-weight="700">
+    <!-- 1 Cities -->
+    <line x1="392" y1="169" x2="420" y2="130" stroke="#E8614F" stroke-width="1" opacity="0.5"/>
+    <text x="424" y="126" text-anchor="middle" fill="#E8614F">Cities</text>
+
+    <!-- 2 Transit Systems -->
+    <line x1="490" y1="238" x2="530" y2="210" stroke="#2DB5A8" stroke-width="1" opacity="0.5"/>
+    <text x="548" y="207" text-anchor="start" fill="#2DB5A8">Transit</text>
+    <text x="548" y="220" text-anchor="start" fill="#2DB5A8">Systems</text>
+
+    <!-- 3 English Literature -->
+    <line x1="540" y1="350" x2="580" y2="350" stroke="#8B7BC8" stroke-width="1" opacity="0.5"/>
+    <text x="584" y="346" text-anchor="start" fill="#8B7BC8">English</text>
+    <text x="584" y="359" text-anchor="start" fill="#8B7BC8">Literature</text>
+
+    <!-- 4 Students & Mentees -->
+    <line x1="490" y1="462" x2="528" y2="490" stroke="#6A9F7A" stroke-width="1" opacity="0.5"/>
+    <text x="532" y="487" text-anchor="start" fill="#6A9F7A">Students &amp;</text>
+    <text x="532" y="500" text-anchor="start" fill="#6A9F7A">Mentees</text>
+
+    <!-- 5 Cats -->
+    <line x1="400" y1="528" x2="420" y2="562" stroke="#D4920A" stroke-width="1" opacity="0.5"/>
+    <text x="424" y="576" text-anchor="middle" fill="#D4920A">Cats 🐱</text>
+    <text x="424" y="589" text-anchor="middle" fill="#9A8070" font-size="9" font-weight="400">(seriously)</text>
+
+    <!-- 6 Data Viz -->
+    <line x1="300" y1="528" x2="278" y2="562" stroke="#C4895A" stroke-width="1" opacity="0.5"/>
+    <text x="276" y="576" text-anchor="middle" fill="#C4895A">Data Viz</text>
+
+    <!-- 7 Difficult Problems -->
+    <line x1="210" y1="462" x2="168" y2="490" stroke="#B85C82" stroke-width="1" opacity="0.5"/>
+    <text x="164" y="487" text-anchor="end" fill="#B85C82">Difficult</text>
+    <text x="164" y="500" text-anchor="end" fill="#B85C82">Problems</text>
+
+    <!-- 8 San Francisco -->
+    <line x1="160" y1="350" x2="120" y2="350" stroke="#4A8A9C" stroke-width="1" opacity="0.5"/>
+    <text x="116" y="346" text-anchor="end" fill="#4A8A9C">San</text>
+    <text x="116" y="359" text-anchor="end" fill="#4A8A9C">Francisco</text>
+
+    <!-- 9 Systems Thinking -->
+    <line x1="210" y1="238" x2="168" y2="210" stroke="#9A6B3A" stroke-width="1" opacity="0.5"/>
+    <text x="164" y="207" text-anchor="end" fill="#9A6B3A">Systems</text>
+    <text x="164" y="220" text-anchor="end" fill="#9A6B3A">Thinking</text>
+
+    <!-- 10 People Who Fight -->
+    <line x1="308" y1="169" x2="278" y2="130" stroke="#7A6CBD" stroke-width="1" opacity="0.5"/>
+    <text x="276" y="122" text-anchor="middle" fill="#7A6CBD">People Who</text>
+    <text x="276" y="135" text-anchor="middle" fill="#7A6CBD">Fight for Things</text>
+  </g>
+
+</svg>
+</div>
+
+</body>
+</html>
