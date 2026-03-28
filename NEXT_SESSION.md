@@ -17,8 +17,20 @@
 ### redesign/ folder (session 3)
 
 - **redesign/index.html**: Stefanie Kraus-inspired homepage — warmer hero, stats strip kept, Brianna Gamp as featured pull quote, 3 project cards, single CTA footer
-- **redesign/about.html**: full about page + bell curve SVG ("My Professional Sweet Spot"), Three Pillars (attributed to Mary Salome), Teaching Vignette, Things I Love grid
 - **redesign/career-river.html**: Animal Crossing–style river, fully illustrated SVG, 6 career stops with whimsical landmarks
+
+### redesign/about.html (session 4 — branch: claude/fix-about-page-timeout-PmOOO)
+
+Built incrementally (7 commits) to avoid timeouts. Sections in order:
+
+1. **Hero** — lavender kicker, "About Nabil" heading, short sub
+2. **Personal Portrait** — 6-item grid: cats (Octavia & Cleopatra), tea, English Lit, 0→1 problems, career through-line, SFMTA
+3. **Three Pillars** — Mary Salome's exact words: Networked Intelligence / Fierce Advocacy / Incorruptible Practicality
+4. **Teaching Vignette** — Saint Mary's cohort story, anchored by Ipsita's quote
+5. **Things I Love** — 10-item Nina Voordes-style icon grid
+6. **Bell Curve SVG** — "My Professional Sweet Spot" (Catherine Madden-inspired; X=creative freedom, Y=job satisfaction; peak = Trust/Vision/Leadership)
+7. **Testimonials** — all 15, Brianna Gamp featured first
+8. **Education & Certifications**
 
 ---
 
@@ -66,4 +78,5 @@ Full notes on each are in `Inspiration.md`. Every file is in `inspiration_sample
 
 - All redesign work lives in `redesign/` — root files untouched
 - Same CSS tokens and fonts as root pages
-- Push to `claude/redesign-personal-website-oIzoy`
+- Push to `claude/redesign-personal-website-oIzoy` (earlier sessions) or `claude/fix-about-page-timeout-PmOOO` (about.html work)
+- **Timeout strategy**: build large pages section-by-section with a commit after each chunk — never write a full page in one shot
