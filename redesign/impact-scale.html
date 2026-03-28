@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Impact Scale — Nabil Arnaoot</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #FFFBF5; --surface: #FFFFFF; --warm2: #FDECD6;
+      --text: #3D2B1F; --muted: #9A8070; --border: #E8DDD0;
+      --coral: #E8614F; --coral-lt: #FDEAE7; --teal: #2DB5A8;
+      --teal-lt: #E0F5F3; --mustard: #D4920A; --must-lt: #FEF4DC;
+      --sage: #6A9F7A; --sage-lt: #EBF4EE; --lavender: #8B7BC8; --lav-lt: #EFECF9;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #100C0A; color: #F5EDE3; font-family: 'Nunito', sans-serif; line-height: 1.65; }
+    .topnav { background: #0A0806; border-bottom: 1.5px solid #3D2B1F; position: sticky; top: 0; z-index: 100; height: 56px; display: flex; align-items: center; }
+    .topnav-inner { max-width: 1200px; margin: 0 auto; padding: 0 28px; width: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 900; color: #E8614F; letter-spacing: -0.5px; text-decoration: none; }
+    .nav-links { display: flex; gap: 4px; list-style: none; }
+    .nav-links a { padding: 6px 14px; font-size: .78rem; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; color: #9A8070; text-decoration: none; border-radius: 8px; transition: color .15s, background .15s; }
+    .nav-links a:hover { color: #F5EDE3; background: #3D2B1F; }
+    .page-header { padding: 40px 28px 20px; text-align: center; }
+    .page-header h1 { font-family: 'Playfair Display', serif; font-size: 2.4rem; color: #F5EDE3; }
+    .page-header p { color: #9A8070; font-size: 1rem; margin-top: 8px; }
+    .chart-wrap { overflow-x: auto; padding: 20px 28px 50px; display: flex; justify-content: center; }
+    @keyframes pulse { 0% { opacity: 0.6; } 50% { opacity: 1; } 100% { opacity: 0.6; } }
+    .pulse-ring { animation: pulse 3s ease-in-out infinite; }
+  </style>
+</head>
+<body>
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="index.html" class="nav-logo">NA</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="method.html">Method</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page-header">
+  <h1>Scale of Impact</h1>
+  <p>From small teams to 300 million users — the reach of each role</p>
+</div>
+
+<div class="chart-wrap">
+<svg viewBox="0 0 1100 620" xmlns="http://www.w3.org/2000/svg" style="width:1100px;height:620px;max-width:100%;">
+  <defs>
+    <!-- Wave gradients per role -->
+    <radialGradient id="wEleg" cx="50%" cy="50%">
+      <stop offset="0%" stop-color="#E8614F" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#E8614F" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="wEbay" cx="50%" cy="50%">
+      <stop offset="0%" stop-color="#D4920A" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#D4920A" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="wAppleEPM" cx="50%" cy="50%">
+      <stop offset="0%" stop-color="#8B7BC8" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#E8614F" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="wAppleProc" cx="50%" cy="50%">
+      <stop offset="0%" stop-color="#8B7BC8" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#2DB5A8" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="wStM" cx="50%" cy="50%">
+      <stop offset="0%" stop-color="#6A9F7A" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#6A9F7A" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="wSFMTA" cx="50%" cy="50%">
+      <stop offset="0%" stop-color="#2DB5A8" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#8B7BC8" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <filter id="glow2">
+      <feGaussianBlur stdDeviation="3"/>
+    </filter>
+  </defs>
+
+  <rect width="1100" height="620" fill="#100C0A" rx="12"/>
+
+  <!-- Faint grid rings for scale reference -->
+  <circle cx="550" cy="340" r="50" fill="none" stroke="#2A1E1C" stroke-width="0.5"/>
+  <circle cx="550" cy="340" r="100" fill="none" stroke="#2A1E1C" stroke-width="0.5"/>
+  <circle cx="550" cy="340" r="150" fill="none" stroke="#2A1E1C" stroke-width="0.5"/>
+  <circle cx="550" cy="340" r="200" fill="none" stroke="#2A1E1C" stroke-width="0.5"/>
+  <circle cx="550" cy="340" r="250" fill="none" stroke="#2A1E1C" stroke-width="0.5"/>
+
+  <!--
+    Impact scale (logarithmic):
+    Elegrity:     ~20 people      → r=35
+    eBay:         millions users  → r=90 (security PM for millions)
+    Apple EPM:    300M+ users     → r=220 (iCloud)
+    Apple Process: 300+ engineers → r=60
+    St. Mary's:   100s students   → r=45
+    SFMTA:        700K+ riders/day → r=130
+
+    But we want to show them as expanding rings, not overlapping.
+    Layout: 6 nodes spread across canvas.
+    Each has: center, inner dot, concentric rings (expanding).
+    Below each: role name, reach stat.
+  -->
+
+  <!-- ════ Elegrity (x=130, y=180) ════ -->
+  <!-- Core dot -->
+  <circle cx="130" cy="180" r="18" fill="#E8614F" filter="url(#softGlow)"/>
+  <circle cx="130" cy="180" r="12" fill="#E8614F"/>
+  <!-- Rings -->
+  <circle cx="130" cy="180" r="28" fill="none" stroke="#E8614F" stroke-width="1.5" opacity="0.6"/>
+  <circle cx="130" cy="180" r="38" fill="none" stroke="#E8614F" stroke-width="1" opacity="0.4"/>
+  <circle cx="130" cy="180" r="48" fill="none" stroke="#E8614F" stroke-width="0.7" opacity="0.25"/>
+  <!-- Filled wave -->
+  <circle cx="130" cy="180" r="35" fill="url(#wEleg)" opacity="0.35"/>
+  <!-- Labels -->
+  <text x="130" y="244" text-anchor="middle" font-family="'Playfair Display',serif" font-size="12" font-weight="700" fill="#E8614F">Elegrity</text>
+  <text x="130" y="259" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="9" fill="#9A8070">2006–2010</text>
+  <text x="130" y="274" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="10" font-weight="800" fill="#E8614F">~20 people</text>
+  <text x="130" y="288" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="8.5" fill="#6A5048">Small team, huge learning</text>
+
+  <!-- ════ eBay (x=330, y=170) ════ -->
+  <circle cx="330" cy="170" r="28" fill="#D4920A" filter="url(#softGlow)"/>
+  <circle cx="330" cy="170" r="20" fill="#D4920A"/>
+  <circle cx="330" cy="170" r="44" fill="none" stroke="#D4920A" stroke-width="1.5" opacity="0.55"/>
+  <circle cx="330" cy="170" r="60" fill="none" stroke="#D4920A" stroke-width="1" opacity="0.38"/>
+  <circle cx="330" cy="170" r="76" fill="none" stroke="#D4920A" stroke-width="0.7" opacity="0.22"/>
+  <circle cx="330" cy="170" r="90" fill="none" stroke="#D4920A" stroke-width="0.5" opacity="0.12"/>
+  <circle cx="330" cy="170" r="90" fill="url(#wEbay)" opacity="0.22"/>
+  <text x="330" y="278" text-anchor="middle" font-family="'Playfair Display',serif" font-size="12" font-weight="700" fill="#D4920A">eBay</text>
+  <text x="330" y="293" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="9" fill="#9A8070">2010–2011</text>
+  <text x="330" y="308" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="10" font-weight="800" fill="#D4920A">Millions of users</text>
+  <text x="330" y="322" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="8.5" fill="#6A5048">Security architecture scope</text>
+
+  <!-- ════ Apple EPM (x=600, y=290) — LARGEST ════ -->
+  <circle cx="600" cy="290" r="220" fill="url(#wAppleEPM)" opacity="0.12" class="pulse-ring"/>
+  <circle cx="600" cy="290" r="180" fill="none" stroke="#8B7BC8" stroke-width="0.5" opacity="0.15"/>
+  <circle cx="600" cy="290" r="140" fill="none" stroke="#8B7BC8" stroke-width="0.7" opacity="0.2"/>
+  <circle cx="600" cy="290" r="100" fill="none" stroke="#8B7BC8" stroke-width="1" opacity="0.3"/>
+  <circle cx="600" cy="290" r="65" fill="none" stroke="#8B7BC8" stroke-width="1.5" opacity="0.45"/>
+  <circle cx="600" cy="290" r="38" fill="url(#wAppleEPM)" opacity="0.6"/>
+  <circle cx="600" cy="290" r="22" fill="#8B7BC8" filter="url(#softGlow)"/>
+  <circle cx="600" cy="290" r="14" fill="#E8614F"/>
+  <!-- Label: positioned above to avoid overlap -->
+  <text x="600" y="112" text-anchor="middle" font-family="'Playfair Display',serif" font-size="15" font-weight="700" fill="#8B7BC8">Apple</text>
+  <text x="600" y="129" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="10" fill="#9A8070">Eng. Program Manager 2011–2014</text>
+  <text x="600" y="147" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="18" font-weight="800" fill="#8B7BC8">300M+</text>
+  <text x="600" y="164" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="10" fill="#9A8070">iCloud users · 40+ engineering teams</text>
+  <!-- Annotation arrow -->
+  <line x1="600" y1="170" x2="600" y2="253" stroke="#8B7BC8" stroke-width="1" stroke-dasharray="3,3" opacity="0.5"/>
+  <polygon points="597,253 600,262 603,253" fill="#8B7BC8" opacity="0.5"/>
+
+  <!-- ════ Apple Process (x=200, y=430) ════ -->
+  <circle cx="200" cy="430" r="50" fill="url(#wAppleProc)" opacity="0.35"/>
+  <circle cx="200" cy="430" r="36" fill="none" stroke="#8B7BC8" stroke-width="1.5" opacity="0.5"/>
+  <circle cx="200" cy="430" r="48" fill="none" stroke="#8B7BC8" stroke-width="1" opacity="0.3"/>
+  <circle cx="200" cy="430" r="60" fill="none" stroke="#2DB5A8" stroke-width="0.7" opacity="0.2"/>
+  <circle cx="200" cy="430" r="20" fill="#8B7BC8" filter="url(#softGlow)"/>
+  <circle cx="200" cy="430" r="14" fill="#2DB5A8"/>
+  <text x="200" y="502" text-anchor="middle" font-family="'Playfair Display',serif" font-size="12" font-weight="700" fill="#2DB5A8">Apple Process</text>
+  <text x="200" y="516" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="9" fill="#9A8070">2014–2020</text>
+  <text x="200" y="531" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="11" font-weight="800" fill="#2DB5A8">300+</text>
+  <text x="200" y="546" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="8.5" fill="#6A5048">Engineers on Nabil's systems</text>
+
+  <!-- ════ St. Mary's (x=850, y=165) ════ -->
+  <circle cx="850" cy="165" r="42" fill="url(#wStM)" opacity="0.35"/>
+  <circle cx="850" cy="165" r="30" fill="none" stroke="#6A9F7A" stroke-width="1.5" opacity="0.55"/>
+  <circle cx="850" cy="165" r="42" fill="none" stroke="#6A9F7A" stroke-width="1" opacity="0.35"/>
+  <circle cx="850" cy="165" r="54" fill="none" stroke="#6A9F7A" stroke-width="0.7" opacity="0.2"/>
+  <circle cx="850" cy="165" r="16" fill="#6A9F7A" filter="url(#softGlow)"/>
+  <circle cx="850" cy="165" r="10" fill="#6A9F7A"/>
+  <text x="850" y="234" text-anchor="middle" font-family="'Playfair Display',serif" font-size="12" font-weight="700" fill="#6A9F7A">St. Mary's</text>
+  <text x="850" y="249" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="9" fill="#9A8070">2020–2024</text>
+  <text x="850" y="264" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="10" font-weight="800" fill="#6A9F7A">100s of</text>
+  <text x="850" y="278" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="10" font-weight="800" fill="#6A9F7A">students</text>
+  <text x="850" y="292" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="8.5" fill="#6A5048">+ consulting clients</text>
+
+  <!-- ════ SFMTA (x=880, y=440) ════ -->
+  <circle cx="880" cy="440" r="130" fill="url(#wSFMTA)" opacity="0.18" class="pulse-ring"/>
+  <circle cx="880" cy="440" r="100" fill="none" stroke="#2DB5A8" stroke-width="0.7" opacity="0.2"/>
+  <circle cx="880" cy="440" r="75" fill="none" stroke="#2DB5A8" stroke-width="1" opacity="0.28"/>
+  <circle cx="880" cy="440" r="52" fill="none" stroke="#2DB5A8" stroke-width="1.5" opacity="0.42"/>
+  <circle cx="880" cy="440" r="30" fill="url(#wSFMTA)" opacity="0.5"/>
+  <circle cx="880" cy="440" r="18" fill="#2DB5A8" filter="url(#softGlow)"/>
+  <circle cx="880" cy="440" r="12" fill="#2DB5A8"/>
+  <text x="880" y="590" text-anchor="middle" font-family="'Playfair Display',serif" font-size="13" font-weight="700" fill="#2DB5A8">SFMTA</text>
+  <text x="880" y="604" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="9" fill="#9A8070">2024–now</text>
+  <!-- Stat label inside -->
+  <text x="880" y="436" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="8" font-weight="800" fill="white">700K+</text>
+  <text x="880" y="448" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="7.5" fill="rgba(255,255,255,0.7)">daily riders</text>
+
+  <!-- Title & scale note -->
+  <text x="55" y="590" font-family="'Nunito',sans-serif" font-size="9" fill="#6A5048">Ring size = scale of reach. Apple EPM shown at proportional scale.</text>
+
+</svg>
+</div>
+</body>
+</html>
