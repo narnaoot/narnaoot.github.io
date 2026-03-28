@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Career River — Nabil Arnaoot</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #FFFBF5; --surface: #FFFFFF; --warm2: #FDECD6;
+      --text: #3D2B1F; --muted: #9A8070; --border: #E8DDD0;
+      --coral: #E8614F; --coral-lt: #FDEAE7; --teal: #2DB5A8;
+      --teal-lt: #E0F5F3; --mustard: #D4920A; --must-lt: #FEF4DC;
+      --sage: #6A9F7A; --sage-lt: #EBF4EE; --lavender: #8B7BC8; --lav-lt: #EFECF9;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: 'Nunito', sans-serif; line-height: 1.65; }
+    .topnav { background: var(--surface); border-bottom: 1.5px solid var(--border); position: sticky; top: 0; z-index: 100; height: 56px; display: flex; align-items: center; }
+    .topnav-inner { max-width: 1200px; margin: 0 auto; padding: 0 28px; width: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 900; color: var(--coral); letter-spacing: -0.5px; text-decoration: none; }
+    .nav-links { display: flex; gap: 4px; list-style: none; }
+    .nav-links a { padding: 6px 14px; font-size: .78rem; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; color: var(--muted); text-decoration: none; border-radius: 8px; transition: color .15s, background .15s; }
+    .nav-links a:hover { color: var(--text); background: var(--warm2); }
+    .page-header { padding: 40px 28px 20px; text-align: center; }
+    .page-header h1 { font-family: 'Playfair Display', serif; font-size: 2.4rem; color: var(--text); }
+    .page-header p { color: var(--muted); font-size: 1rem; margin-top: 8px; }
+    .river-wrap { overflow-x: auto; padding: 20px 28px 60px; }
+    .river-wrap svg { display: block; min-width: 1200px; }
+    .stop-label { font-family: 'Nunito', sans-serif; }
+    .stop-title { font-family: 'Playfair Display', serif; font-weight: 700; }
+  </style>
+</head>
+<body>
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="index.html" class="nav-logo">NA</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="method.html">Method</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page-header">
+  <h1>The Career River</h1>
+  <p>A journey through six professional homes, 2006 → present</p>
+</div>
+
+<div class="river-wrap">
+<svg viewBox="0 0 1200 520" xmlns="http://www.w3.org/2000/svg" style="width:1200px;height:520px;font-family:'Nunito',sans-serif;">
+  <defs>
+    <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#D6EEFF"/>
+      <stop offset="100%" stop-color="#FFFBF5"/>
+    </linearGradient>
+    <linearGradient id="riverGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#2DB5A8" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#6A9F7A" stop-opacity="0.7"/>
+    </linearGradient>
+    <filter id="wobble">
+      <feTurbulence type="turbulence" baseFrequency="0.015" numOctaves="3" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+
+  <!-- Sky background -->
+  <rect width="1200" height="520" fill="url(#skyGrad)"/>
+
+  <!-- Rolling hills back -->
+  <ellipse cx="200" cy="420" rx="180" ry="60" fill="#C8E6C9" opacity="0.5"/>
+  <ellipse cx="500" cy="430" rx="220" ry="55" fill="#A5D6A7" opacity="0.4"/>
+  <ellipse cx="800" cy="415" rx="200" ry="65" fill="#C8E6C9" opacity="0.5"/>
+  <ellipse cx="1100" cy="425" rx="180" ry="55" fill="#A5D6A7" opacity="0.4"/>
+
+  <!-- Rolling hills front -->
+  <path d="M0 470 Q150 430 300 460 Q450 490 600 450 Q750 410 900 455 Q1050 490 1200 460 L1200 520 L0 520 Z" fill="#6A9F7A" opacity="0.5"/>
+  <path d="M0 490 Q200 460 400 480 Q600 500 800 470 Q1000 440 1200 480 L1200 520 L0 520 Z" fill="#6A9F7A" opacity="0.7"/>
+
+  <!-- River path (winding) -->
+  <path d="M0 310 C80 295 120 340 200 325 C280 310 300 270 380 285 C460 300 480 350 560 330 C640 310 660 265 740 280 C820 295 840 345 920 325 C1000 305 1020 260 1100 278 C1150 288 1180 305 1200 300
+           L1200 360 C1180 350 1150 340 1100 330 C1020 312 1000 360 920 380 C840 400 820 350 740 335 C660 320 640 370 560 385 C480 400 460 355 380 340 C300 325 280 365 200 378 C120 392 80 348 0 362 Z"
+        fill="url(#riverGrad)" filter="url(#wobble)"/>
+
+  <!-- River shimmer lines -->
+  <path d="M50 330 Q150 320 250 333" stroke="white" stroke-width="1.5" fill="none" opacity="0.4"/>
+  <path d="M300 308 Q400 298 500 315" stroke="white" stroke-width="1.5" fill="none" opacity="0.4"/>
+  <path d="M600 320 Q700 308 800 322" stroke="white" stroke-width="1.5" fill="none" opacity="0.4"/>
+  <path d="M900 300 Q1000 290 1100 305" stroke="white" stroke-width="1.5" fill="none" opacity="0.4"/>
+
+  <!-- ═══ STOP 1: Elegrity 2006–2010 ═══ -->
+  <!-- Building icon -->
+  <rect x="78" y="230" width="44" height="50" rx="3" fill="#E8614F" opacity="0.9"/>
+  <rect x="82" y="238" width="10" height="12" rx="1" fill="white" opacity="0.8"/>
+  <rect x="96" y="238" width="10" height="12" rx="1" fill="white" opacity="0.8"/>
+  <rect x="110" y="238" width="8" height="12" rx="1" fill="white" opacity="0.8"/>
+  <rect x="88" y="254" width="16" height="26" rx="2" fill="#FDEAE7"/>
+  <polygon points="78,230 100,210 122,230" fill="#C0392B" opacity="0.9"/>
+  <!-- Pin to river -->
+  <line x1="100" y1="280" x2="100" y2="320" stroke="#E8614F" stroke-width="2" stroke-dasharray="4,3"/>
+  <circle cx="100" cy="323" r="5" fill="#E8614F"/>
+  <!-- Label below river -->
+  <text x="100" y="395" text-anchor="middle" font-family="'Playfair Display',serif" font-size="13" font-weight="700" fill="#3D2B1F">Elegrity</text>
+  <text x="100" y="411" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="10" fill="#9A8070">2006–2010</text>
+  <text x="100" y="425" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="9.5" fill="#3D2B1F">App Admin → PM</text>
+  <text x="100" y="438" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="9" fill="#9A8070">First professional home</text>
+
+  <!-- ═══ STOP 2: eBay 2010–2011 ═══ -->
+  <rect x="278" y="240" width="44" height="46" rx="3" fill="#D4920A" opacity="0.9"/>
+  <rect x="282" y="248" width="9" height="9" rx="1" fill="white" opacity="0.8"/>
+  <rect x="295" y="248" width="9" height="9" rx="1" fill="white" opacity="0.8"/>
+  <rect x="308" y="248" width="9" height="9" rx="1" fill="white" opacity="0.8"/>
+  <rect x="282" y="262" width="9" height="9" rx="1" fill="white" opacity="0.8"/>
+  <rect x="295" y="262" width="9" height="9" rx="1" fill="white" opacity="0.8"/>
+  <rect x="288" y="272" width="14" height="14" rx="2" fill="#FEF4DC"/>
+  <polygon points="278,240 300,218 322,240" fill="#A0690A" opacity="0.9"/>
+  <line x1="300" y1="286" x2="300" y2="308" stroke="#D4920A" stroke-width="2" stroke-dasharray="4,3"/>
+  <circle cx="300" cy="311" r="5" fill="#D4920A"/>
+  <text x="300" y="385" text-anchor="middle" font-family="'Playfair Display',serif" font-size="13" font-weight="700" fill="#3D2B1F">eBay</text>
+  <text x="300" y="401" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="10" fill="#9A8070">2010–2011</text>
+  <text x="300" y="415" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="9.5" fill="#3D2B1F">PM, Security Arch.</text>
+  <text x="300" y="428" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="9" fill="#9A8070">Fast-paced, cross-functional</text>
+
+  <!-- ═══ STOP 3: Apple Eng PM 2011–2014 ═══ -->
+  <!-- Apple-inspired geometric icon -->
+  <circle cx="500" cy="247" r="28" fill="#8B7BC8" opacity="0.9"/>
+  <text x="500" y="253" text-anchor="middle" font-family="'Playfair Display',serif" font-size="22" fill="white"></text>
+  <polygon points="486,222 500,205 514,222" fill="#6B5BA8" opacity="0.9"/>
+  <circle cx="500" cy="206" r="4" fill="#6B5BA8"/>
+  <line x1="500" y1="275" x2="500" y2="302" stroke="#8B7BC8" stroke-width="2" stroke-dasharray="4,3"/>
+  <circle cx="500" cy="305" r="5" fill="#8B7BC8"/>
+  <text x="500" y="378" text-anchor="middle" font-family="'Playfair Display',serif" font-size="13" font-weight="700" fill="#3D2B1F">Apple</text>
+  <text x="500" y="392" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="10" fill="#9A8070">2011–2014</text>
+  <text x="500" y="406" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="9.5" fill="#3D2B1F">Eng. Program Manager</text>
+  <text x="500" y="419" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="9" fill="#9A8070">iCloud launch · 300M+ users</text>
+  <!-- Star for big impact -->
+  <text x="530" y="389" font-size="12" fill="#D4920A">★</text>
+
+  <!-- ═══ STOP 4: Apple Process Eng 2014–2020 ═══ -->
+  <circle cx="700" cy="252" r="28" fill="#8B7BC8" opacity="0.75"/>
+  <!-- Gear icon -->
+  <circle cx="700" cy="252" r="14" fill="none" stroke="white" stroke-width="3"/>
+  <circle cx="700" cy="252" r="6" fill="white"/>
+  <rect x="696" y="234" width="8" height="8" rx="2" fill="white"/>
+  <rect x="696" y="262" width="8" height="8" rx="2" fill="white"/>
+  <rect x="682" y="248" width="8" height="8" rx="2" fill="white"/>
+  <rect x="710" y="248" width="8" height="8" rx="2" fill="white"/>
+  <polygon points="686,222 700,205 714,222" fill="#6B5BA8" opacity="0.7"/>
+  <line x1="700" y1="280" x2="700" y2="316" stroke="#8B7BC8" stroke-width="2" stroke-dasharray="4,3"/>
+  <circle cx="700" cy="319" r="5" fill="#8B7BC8"/>
+  <text x="700" y="388" text-anchor="middle" font-family="'Playfair Display',serif" font-size="13" font-weight="700" fill="#3D2B1F">Apple</text>
+  <text x="700" y="402" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="10" fill="#9A8070">2014–2020</text>
+  <text x="700" y="416" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="9.5" fill="#3D2B1F">Process Engineering</text>
+  <text x="700" y="429" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="9" fill="#9A8070">Systems for 300+ engineers</text>
+
+  <!-- ═══ STOP 5: St. Mary's 2020–2024 ═══ -->
+  <!-- Academic building -->
+  <rect x="878" y="232" width="44" height="52" rx="2" fill="#6A9F7A" opacity="0.9"/>
+  <rect x="885" y="240" width="9" height="10" rx="1" fill="white" opacity="0.8"/>
+  <rect x="898" y="240" width="9" height="10" rx="1" fill="white" opacity="0.8"/>
+  <rect x="912" y="240" width="7" height="10" rx="1" fill="white" opacity="0.8"/>
+  <rect x="885" y="254" width="9" height="10" rx="1" fill="white" opacity="0.8"/>
+  <rect x="898" y="254" width="9" height="10" rx="1" fill="white" opacity="0.8"/>
+  <rect x="893" y="265" width="14" height="19" rx="2" fill="#EBF4EE"/>
+  <!-- Cross on top -->
+  <rect x="897" y="220" width="4" height="14" rx="1" fill="#4A8060"/>
+  <rect x="893" y="225" width="12" height="4" rx="1" fill="#4A8060"/>
+  <polygon points="878,232 900,212 922,232" fill="#4A8060" opacity="0.9"/>
+  <line x1="900" y1="284" x2="900" y2="320" stroke="#6A9F7A" stroke-width="2" stroke-dasharray="4,3"/>
+  <circle cx="900" cy="323" r="5" fill="#6A9F7A"/>
+  <text x="900" y="393" text-anchor="middle" font-family="'Playfair Display',serif" font-size="13" font-weight="700" fill="#3D2B1F">St. Mary's</text>
+  <text x="900" y="407" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="10" fill="#9A8070">2020–2024</text>
+  <text x="900" y="421" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="9.5" fill="#3D2B1F">MS Analytics · Teaching</text>
+  <text x="900" y="434" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="9" fill="#9A8070">Reinvention + consulting</text>
+
+  <!-- ═══ STOP 6: SFMTA 2024–now ═══ -->
+  <!-- Transit icon (bus/tram) -->
+  <rect x="1075" y="228" width="50" height="36" rx="8" fill="#2DB5A8" opacity="0.95"/>
+  <rect x="1080" y="234" width="12" height="10" rx="2" fill="white" opacity="0.9"/>
+  <rect x="1096" y="234" width="12" height="10" rx="2" fill="white" opacity="0.9"/>
+  <rect x="1112" y="234" width="10" height="10" rx="2" fill="white" opacity="0.9"/>
+  <rect x="1075" y="256" width="50" height="4" rx="2" fill="#1A8A80"/>
+  <circle cx="1087" cy="265" r="5" fill="#1A8A80"/>
+  <circle cx="1115" cy="265" r="5" fill="#1A8A80"/>
+  <!-- "You Are Here" banner -->
+  <rect x="1055" y="195" width="90" height="22" rx="11" fill="#E8614F"/>
+  <text x="1100" y="210" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="10" font-weight="800" fill="white">✦ YOU ARE HERE</text>
+  <line x1="1100" y1="217" x2="1100" y2="228" stroke="#E8614F" stroke-width="2"/>
+  <line x1="1100" y1="271" x2="1100" y2="306" stroke="#2DB5A8" stroke-width="2" stroke-dasharray="4,3"/>
+  <circle cx="1100" cy="309" r="5" fill="#2DB5A8"/>
+  <text x="1100" y="380" text-anchor="middle" font-family="'Playfair Display',serif" font-size="13" font-weight="700" fill="#3D2B1F">SFMTA</text>
+  <text x="1100" y="394" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="10" fill="#9A8070">2024–now</text>
+  <text x="1100" y="408" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="9.5" fill="#3D2B1F">Principal Business Analyst</text>
+  <text x="1100" y="421" text-anchor="middle" font-family="'Nunito',sans-serif" font-size="9" fill="#9A8070">Moving San Francisco daily</text>
+
+  <!-- Trees scattered -->
+  <g opacity="0.7">
+    <!-- Tree set 1 -->
+    <polygon points="155,285 165,260 175,285" fill="#4A8060"/>
+    <rect x="163" y="285" width="4" height="8" fill="#7B5E3A"/>
+    <!-- Tree set 2 -->
+    <polygon points="230,275 242,248 254,275" fill="#6A9F7A"/>
+    <rect x="239" y="275" width="5" height="9" fill="#7B5E3A"/>
+    <!-- Tree set 3 -->
+    <polygon points="410,270 422,243 434,270" fill="#4A8060"/>
+    <rect x="419" y="270" width="5" height="9" fill="#7B5E3A"/>
+    <!-- Tree set 4 -->
+    <polygon points="610,278 622,250 634,278" fill="#6A9F7A"/>
+    <rect x="619" y="278" width="5" height="10" fill="#7B5E3A"/>
+    <!-- Tree set 5 -->
+    <polygon points="785,268 798,240 811,268" fill="#4A8060"/>
+    <rect x="795" y="268" width="5" height="10" fill="#7B5E3A"/>
+    <!-- Tree set 6 -->
+    <polygon points="975,272 988,244 1001,272" fill="#6A9F7A"/>
+    <rect x="985" y="272" width="5" height="10" fill="#7B5E3A"/>
+    <!-- Tree set 7 -->
+    <polygon points="1040,280 1053,252 1066,280" fill="#4A8060"/>
+    <rect x="1050" y="280" width="5" height="10" fill="#7B5E3A"/>
+  </g>
+
+  <!-- Clouds -->
+  <g opacity="0.6" fill="white">
+    <ellipse cx="180" cy="60" rx="40" ry="18"/>
+    <ellipse cx="205" cy="55" rx="30" ry="14"/>
+    <ellipse cx="155" cy="65" rx="28" ry="14"/>
+    <ellipse cx="650" cy="45" rx="45" ry="18"/>
+    <ellipse cx="678" cy="40" rx="32" ry="14"/>
+    <ellipse cx="622" cy="50" rx="30" ry="14"/>
+    <ellipse cx="1000" cy="55" rx="38" ry="16"/>
+    <ellipse cx="1025" cy="50" rx="28" ry="12"/>
+  </g>
+
+  <!-- Sun -->
+  <circle cx="1150" cy="50" r="32" fill="#FEF4DC" opacity="0.9"/>
+  <circle cx="1150" cy="50" r="22" fill="#D4920A" opacity="0.8"/>
+  <line x1="1150" y1="10" x2="1150" y2="18" stroke="#D4920A" stroke-width="2.5" opacity="0.7"/>
+  <line x1="1150" y1="82" x2="1150" y2="90" stroke="#D4920A" stroke-width="2.5" opacity="0.7"/>
+  <line x1="1110" y1="50" x2="1118" y2="50" stroke="#D4920A" stroke-width="2.5" opacity="0.7"/>
+  <line x1="1182" y1="50" x2="1190" y2="50" stroke="#D4920A" stroke-width="2.5" opacity="0.7"/>
+  <line x1="1122" y1="22" x2="1128" y2="28" stroke="#D4920A" stroke-width="2.5" opacity="0.7"/>
+  <line x1="1172" y1="72" x2="1178" y2="78" stroke="#D4920A" stroke-width="2.5" opacity="0.7"/>
+  <line x1="1178" y1="22" x2="1172" y2="28" stroke="#D4920A" stroke-width="2.5" opacity="0.7"/>
+  <line x1="1122" y1="78" x2="1128" y2="72" stroke="#D4920A" stroke-width="2.5" opacity="0.7"/>
+
+  <!-- Time label -->
+  <text x="30" y="510" font-family="'Nunito',sans-serif" font-size="10" fill="#9A8070">2006</text>
+  <text x="1160" y="510" font-family="'Nunito',sans-serif" font-size="10" fill="#9A8070">2025+</text>
+  <line x1="50" y1="504" x2="1180" y2="504" stroke="#E8DDD0" stroke-width="1"/>
+  <polygon points="1180,500 1192,504 1180,508" fill="#E8DDD0"/>
+</svg>
+</div>
+
+<div style="text-align:center;padding:16px;color:#9A8070;font-size:.85rem;">
+  A winding journey from enterprise admin to civic impact — the river keeps flowing.
+</div>
+
+</body>
+</html>
