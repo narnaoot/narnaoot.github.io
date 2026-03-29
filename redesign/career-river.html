@@ -174,7 +174,116 @@
   <path d="M650,88 Q653,84 656,88"/>
 </g>
 
-<!-- ═══ RIVER, STOPS, PERSON ADDED IN SUBSEQUENT COMMITS ═══ -->
+<!-- ══════════════════════════════════════════════
+     RIVER — winding S-curve, top-left to bottom-right
+     The river bends at each career stop:
+       Start  (80,155)  → eBay bend (780,215)
+       →  Apple PM bend (825,390)
+       →  Apple Process bend (350,478)
+       →  St Mary's bend (168,654)
+       →  SFMTA end (805,960)
+
+     3D bank technique:
+       1. Wide dark-green stroke = earth/bank depth (cliff edge)
+       2. Medium blue stroke    = water surface
+       3. Narrow light stroke   = shimmer/highlight
+     ══════════════════════════════════════════════ -->
+
+<!-- The shared river centerline path (reused 3×) -->
+<!-- Layer 1: Bank depth — dark green, widest, drawn first -->
+<path
+  d="M 80,155
+     C 260,108 598,122 778,216
+     C 852,256 872,346 826,392
+     C 784,436 478,452 348,480
+     C 218,508 143,574 166,656
+     C 190,728 428,764 604,780
+     C 742,792 822,842 806,962"
+  fill="none"
+  stroke="#2A7030"
+  stroke-width="114"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+/>
+
+<!-- Layer 2: Water surface — bright blue, slightly narrower -->
+<path
+  d="M 80,155
+     C 260,108 598,122 778,216
+     C 852,256 872,346 826,392
+     C 784,436 478,452 348,480
+     C 218,508 143,574 166,656
+     C 190,728 428,764 604,780
+     C 742,792 822,842 806,962"
+  fill="none"
+  stroke="#38B6E0"
+  stroke-width="90"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+/>
+
+<!-- Layer 3: Shimmer band — lighter, narrower -->
+<path
+  d="M 80,155
+     C 260,108 598,122 778,216
+     C 852,256 872,346 826,392
+     C 784,436 478,452 348,480
+     C 218,508 143,574 166,656
+     C 190,728 428,764 604,780
+     C 742,792 822,842 806,962"
+  fill="none"
+  stroke="#72D8F2"
+  stroke-width="52"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  opacity="0.45"
+/>
+
+<!-- River highlight (top-lit glint, very narrow) -->
+<path
+  d="M 80,155
+     C 260,108 598,122 778,216
+     C 852,256 872,346 826,392
+     C 784,436 478,452 348,480
+     C 218,508 143,574 166,656
+     C 190,728 428,764 604,780
+     C 742,792 822,842 806,962"
+  fill="none"
+  stroke="white"
+  stroke-width="18"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  opacity="0.22"
+/>
+
+<!-- ── Flowing wave details (short strokes across the river) ── -->
+<!-- Upper stretch, left-to-right flow -->
+<path d="M 160,145 Q 240,136 320,150" fill="none" stroke="white" stroke-width="2.5" opacity="0.45" stroke-linecap="round"/>
+<path d="M 380,140 Q 460,133 540,148" fill="none" stroke="white" stroke-width="2.5" opacity="0.4"  stroke-linecap="round"/>
+<path d="M 590,148 Q 660,140 730,158" fill="none" stroke="white" stroke-width="2"   opacity="0.35" stroke-linecap="round"/>
+<!-- Right bend, top-down flow -->
+<path d="M 836,255 Q 848,300 840,348" fill="none" stroke="white" stroke-width="2"   opacity="0.38" stroke-linecap="round"/>
+<!-- Middle stretch, right-to-left flow -->
+<path d="M 770,430 Q 680,442 580,450" fill="none" stroke="white" stroke-width="2.5" opacity="0.42" stroke-linecap="round"/>
+<path d="M 520,454 Q 435,462 355,472" fill="none" stroke="white" stroke-width="2.5" opacity="0.4"  stroke-linecap="round"/>
+<!-- Left bend, top-down flow -->
+<path d="M 155,582 Q 152,618 162,655" fill="none" stroke="white" stroke-width="2"   opacity="0.38" stroke-linecap="round"/>
+<!-- Lower stretch, left-to-right flow -->
+<path d="M 228,742 Q 360,756 488,768" fill="none" stroke="white" stroke-width="2.5" opacity="0.42" stroke-linecap="round"/>
+<path d="M 544,772 Q 636,778 714,788" fill="none" stroke="white" stroke-width="2"   opacity="0.38" stroke-linecap="round"/>
+<!-- Final stretch down-right -->
+<path d="M 786,840 Q 802,888 806,930" fill="none" stroke="white" stroke-width="2"   opacity="0.35" stroke-linecap="round"/>
+
+<!-- ══════════════════════════════════════════════
+     NEAR-BANK GRASS EDGE (3D cliff lip)
+     A thin darker-green strip overlaid on the near
+     edge of each bank to reinforce the depth illusion.
+     ══════════════════════════════════════════════ -->
+<!-- Achieved naturally by the 24px difference between
+     the dark-green (114) and blue (90) stroke widths.
+     The visible dark edges ARE the cliff. No extra work needed. -->
+
+<!-- ═══ STOPS AND PERSON ADDED IN SUBSEQUENT COMMITS ═══ -->
 
 </svg>
 </div>
