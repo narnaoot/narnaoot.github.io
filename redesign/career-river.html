@@ -99,7 +99,82 @@
   </filter>
 </defs>
 
-<!-- ═══ BACKGROUND, RIVER, STOPS ADDED IN SUBSEQUENT COMMITS ═══ -->
+<!-- ══════════════════════════════════════════════
+     BACKGROUND: sky + grass
+     ══════════════════════════════════════════════ -->
+<rect width="900" height="1000" fill="url(#skyGrad)"/>
+<rect y="200" width="900" height="800" fill="url(#grassGrad)"/>
+<!-- Horizon softener -->
+<rect y="190" width="900" height="28" fill="#A0D860" opacity="0.45"/>
+
+<!-- Distant hills (behind everything) -->
+<ellipse cx="120" cy="210" rx="160" ry="38" fill="#90C840" opacity="0.55"/>
+<ellipse cx="400" cy="205" rx="200" ry="34" fill="#98D048" opacity="0.5"/>
+<ellipse cx="680" cy="208" rx="180" ry="36" fill="#90C840" opacity="0.55"/>
+<ellipse cx="870" cy="215" rx="130" ry="30" fill="#98D048" opacity="0.45"/>
+
+<!-- Ground texture strips (subtle depth) -->
+<rect y="580" width="900" height="420" fill="#4A9020" opacity="0.18"/>
+<rect y="780" width="900" height="220" fill="#3A7818" opacity="0.14"/>
+
+<!-- ══════════════════════════════════════════════
+     CLOUDS
+     ══════════════════════════════════════════════ -->
+<!-- Cloud 1 — upper left -->
+<g fill="white" opacity="0.88">
+  <ellipse cx="155" cy="52" rx="50" ry="21"/>
+  <ellipse cx="190" cy="44" rx="38" ry="17"/>
+  <ellipse cx="120" cy="58" rx="34" ry="16"/>
+  <ellipse cx="162" cy="36" rx="30" ry="15"/>
+</g>
+<!-- Cloud 2 — upper center -->
+<g fill="white" opacity="0.82">
+  <ellipse cx="490" cy="40" rx="52" ry="19"/>
+  <ellipse cx="528" cy="33" rx="38" ry="15"/>
+  <ellipse cx="454" cy="46" rx="34" ry="15"/>
+  <ellipse cx="496" cy="26" rx="26" ry="13"/>
+</g>
+<!-- Cloud 3 — upper right -->
+<g fill="white" opacity="0.78">
+  <ellipse cx="790" cy="58" rx="44" ry="18"/>
+  <ellipse cx="822" cy="51" rx="32" ry="14"/>
+  <ellipse cx="760" cy="64" rx="30" ry="14"/>
+</g>
+<!-- Cloud 4 — mid right (partial, wispy) -->
+<g fill="white" opacity="0.55">
+  <ellipse cx="870" cy="130" rx="36" ry="14"/>
+  <ellipse cx="895" cy="124" rx="24" ry="11"/>
+</g>
+
+<!-- ══════════════════════════════════════════════
+     SUN — upper left corner
+     ══════════════════════════════════════════════ -->
+<circle cx="60" cy="55" r="30" fill="#FEF4DC" opacity="0.95"/>
+<circle cx="60" cy="55" r="22" fill="#D4920A" opacity="0.9"/>
+<!-- Rays -->
+<line x1="60" y1="16" x2="60" y2="25"  stroke="#D4920A" stroke-width="3" opacity="0.7" stroke-linecap="round"/>
+<line x1="60" y1="85" x2="60" y2="94"  stroke="#D4920A" stroke-width="3" opacity="0.7" stroke-linecap="round"/>
+<line x1="21"  y1="55" x2="30"  y2="55" stroke="#D4920A" stroke-width="3" opacity="0.7" stroke-linecap="round"/>
+<line x1="90"  y1="55" x2="99"  y2="55" stroke="#D4920A" stroke-width="3" opacity="0.7" stroke-linecap="round"/>
+<line x1="33" y1="28" x2="39" y2="34"  stroke="#D4920A" stroke-width="2.5" opacity="0.6" stroke-linecap="round"/>
+<line x1="81" y1="76" x2="87" y2="82"  stroke="#D4920A" stroke-width="2.5" opacity="0.6" stroke-linecap="round"/>
+<line x1="87" y1="28" x2="81" y2="34"  stroke="#D4920A" stroke-width="2.5" opacity="0.6" stroke-linecap="round"/>
+<line x1="33" y1="82" x2="39" y2="76"  stroke="#D4920A" stroke-width="2.5" opacity="0.6" stroke-linecap="round"/>
+
+<!-- ══════════════════════════════════════════════
+     BIRDS (simple V shapes, adds life to sky)
+     ══════════════════════════════════════════════ -->
+<g stroke="#5A8AB0" stroke-width="1.5" fill="none" opacity="0.5" stroke-linecap="round">
+  <path d="M340,75 Q344,70 348,75"/>
+  <path d="M355,68 Q359,63 363,68"/>
+  <path d="M368,78 Q372,73 376,78"/>
+</g>
+<g stroke="#5A8AB0" stroke-width="1.5" fill="none" opacity="0.4" stroke-linecap="round">
+  <path d="M640,95 Q643,91 646,95"/>
+  <path d="M650,88 Q653,84 656,88"/>
+</g>
+
+<!-- ═══ RIVER, STOPS, PERSON ADDED IN SUBSEQUENT COMMITS ═══ -->
 
 </svg>
 </div>
