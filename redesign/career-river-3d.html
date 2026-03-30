@@ -330,6 +330,72 @@ const bankMesh = new THREE.Mesh(bankGeo,
 bankMesh.receiveShadow = true;
 scene.add(bankMesh);
 
+// ═══════════════════════════════════════════════════════════
+//  CHUNK 3 — Trees: round AC-style canopies + trunks
+// ═══════════════════════════════════════════════════════════
+
+function makeTree(x, z, scale = 1) {
+  const g = new THREE.Group();
+
+  // Trunk
+  const trunkGeo = new THREE.CylinderGeometry(0.12*scale, 0.18*scale, 0.9*scale, 7);
+  const trunkMat = new THREE.MeshLambertMaterial({ color: 0x8B5E2A });
+  const trunk = new THREE.Mesh(trunkGeo, trunkMat);
+  trunk.position.y = 0.45 * scale;
+  trunk.castShadow = true;
+  g.add(trunk);
+
+  // Canopy — 3 overlapping spheres for that AC puffy look
+  const canopyMat  = new THREE.MeshLambertMaterial({ color: 0x52A830 });
+  const canopyMat2 = new THREE.MeshLambertMaterial({ color: 0x40941E }); // slightly darker lower sphere
+  const canopyMat3 = new THREE.MeshLambertMaterial({ color: 0x68C040 }); // lighter top
+
+  const makeBlob = (r, cx, cy, cz, mat) => {
+    const m = new THREE.Mesh(new THREE.SphereGeometry(r, 9, 7), mat);
+    m.position.set(cx, cy, cz);
+    m.castShadow = true;
+    g.add(m);
+  };
+
+  const base = 0.9 * scale;
+  makeBlob(0.72*scale, 0,           base + 0.58*scale, 0,           canopyMat);
+  makeBlob(0.58*scale,-0.4*scale,   base + 0.28*scale, 0.1*scale,   canopyMat2);
+  makeBlob(0.58*scale, 0.38*scale,  base + 0.28*scale,-0.1*scale,   canopyMat2);
+  makeBlob(0.46*scale, 0,           base + 1.08*scale, 0,           canopyMat3);
+
+  // Terrain height at this position (approximate — just sample Y=0 since valley is flat)
+  g.position.set(x, 0, z);
+  scene.add(g);
+  return g;
+}
+
+// Place trees along the river banks, offset so they don't overlap the water.
+// We sample points on the curve and step perpendicular to place trees.
+const treePositions = [
+  // Left bank of upper stretch
+  [-7.5, -10.5], [-5, -9.5], [-2, -8.5],
+  // Right bank of upper stretch
+  [ 3, -9], [ 6, -7], [ 8.5, -5.5],
+  // Right bank right bend
+  [10.5, -2.5], [10.5, 0.5],
+  // Upper left bank after bend
+  [ 3.5, 4], [ 1, 4.5],
+  // Lower left bank
+  [-3.5, 4.5], [-7, 5.5], [-10.5, 5],
+  // Below lower-left bend
+  [-10.5, 7.5], [-8, 9.5], [-6, 10.5],
+  // Right side lower stretch
+  [ 2, 10.5], [ 6, 10.5],
+  // Extra scattered
+  [-11, -6], [-11, -2], [ 11, 3], [ 11, 6],
+  [-4, -11], [ 1, -11], [ 8, -8],
+];
+
+treePositions.forEach(([x, z], i) => {
+  const s = 0.75 + Math.random() * 0.55;
+  makeTree(x + (Math.random()-0.5)*0.4, z + (Math.random()-0.5)*0.4, s);
+});
+
 // ── Resize handling ────────────────────────────────────────
 window.addEventListener('resize', () => {
   const w = container.clientWidth;
