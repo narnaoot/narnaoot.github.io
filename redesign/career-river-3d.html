@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Career River — Nabil Arnaoot</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #87C8E8; font-family: 'Nunito', sans-serif; overflow: hidden; }
+
+    /* Nav */
+    .topnav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: white; border-bottom: 1.5px solid #E8DDD0;
+      height: 56px; display: flex; align-items: center;
+    }
+    .topnav-inner {
+      max-width: 1080px; margin: 0 auto; padding: 0 28px;
+      width: 100%; display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif; font-size: 1.25rem;
+      font-weight: 900; color: #E8614F; letter-spacing: -0.5px; text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 4px; list-style: none; }
+    .nav-links a {
+      padding: 6px 14px; font-size: .78rem; font-weight: 800;
+      letter-spacing: .09em; text-transform: uppercase; color: #9A8070;
+      text-decoration: none; border-radius: 8px;
+    }
+    .nav-links a:hover { color: #3D2B1F; background: #FDECD6; }
+
+    /* Three.js canvas container */
+    #canvas-wrap {
+      position: fixed; top: 56px; left: 0; right: 0;
+      bottom: 0; width: 100%; height: calc(100vh - 56px);
+    }
+    #canvas-wrap canvas { display: block; width: 100% !important; height: 100% !important; }
+
+    /* HTML labels layer — sits on top of canvas, pointer-events:none */
+    #labels {
+      position: fixed; top: 56px; left: 0; right: 0; bottom: 0;
+      pointer-events: none; overflow: hidden;
+    }
+    .stop-label {
+      position: absolute;
+      background: rgba(255,255,255,0.93);
+      border-radius: 10px;
+      padding: 8px 14px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.15);
+      transform: translate(-50%, -100%);
+      white-space: nowrap;
+      pointer-events: none;
+    }
+    .stop-label .name {
+      font-family: 'Playfair Display', serif;
+      font-size: 13px; font-weight: 700; color: #3D2B1F;
+      display: block;
+    }
+    .stop-label .dates {
+      font-size: 10px; color: #9A8070; display: block; margin-top: 1px;
+    }
+    .stop-label .role {
+      font-size: 10px; font-weight: 800; display: block; margin-top: 2px;
+    }
+
+    /* Title card */
+    #title-card {
+      position: fixed; top: 72px; left: 50%; transform: translateX(-50%);
+      background: rgba(255,255,255,0.93);
+      border-radius: 26px; padding: 10px 28px 12px;
+      box-shadow: 0 3px 16px rgba(0,0,0,0.13);
+      text-align: center; pointer-events: none; z-index: 50;
+    }
+    #title-card h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem; font-weight: 900; color: #3D2B1F;
+    }
+    #title-card p { font-size: .82rem; color: #9A8070; margin-top: 2px; }
+  </style>
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="index.html" class="nav-logo">NA</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="method.html">Method</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div id="canvas-wrap"></div>
+<div id="labels"></div>
+
+<div id="title-card">
+  <h1>The Career River</h1>
+  <p>Six stops · Nineteen years · One winding ride — 2006 → present</p>
+</div>
+
+<!-- Three.js r160 -->
+<script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+
+<script>
+// ═══════════════════════════════════════════════════════════
+//  CHUNK 1 — Scene foundation: camera, lighting, terrain
+// ═══════════════════════════════════════════════════════════
+
+const container = document.getElementById('canvas-wrap');
+
+// ── Renderer ──────────────────────────────────────────────
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setPixelRatio(window.devicePixelRatio);
+renderer.setSize(container.clientWidth, container.clientHeight);
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.1;
+container.appendChild(renderer.domElement);
+
+// ── Scene ──────────────────────────────────────────────────
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x87C8E8); // AC sky blue
+scene.fog = new THREE.FogExp2(0xA8D8F0, 0.022);
+
+// ── Camera: orthographic isometric (like Animal Crossing) ──
+//    Looking from upper-left-back, down at ~35°
+const W = container.clientWidth;
+const H = container.clientHeight;
+const aspect = W / H;
+const camSize = 14;
+const camera = new THREE.OrthographicCamera(
+  -camSize * aspect,  camSize * aspect,
+   camSize,          -camSize,
+  0.1, 200
+);
+// Isometric position: equal X, Y, Z offset → classic 45° iso view
+camera.position.set(-20, 20, 20);
+camera.lookAt(0, 0, 0);
+
+// ── Lighting ───────────────────────────────────────────────
+// Hemisphere light: sky colour top, ground colour bottom
+const hemi = new THREE.HemisphereLight(0xB8E0FF, 0x6BAD30, 0.65);
+scene.add(hemi);
+
+// Main sun: warm directional light with shadows
+const sun = new THREE.DirectionalLight(0xFFF8E0, 1.3);
+sun.position.set(12, 28, 8);
+sun.castShadow = true;
+sun.shadow.mapSize.set(2048, 2048);
+sun.shadow.camera.near = 1;
+sun.shadow.camera.far  = 80;
+sun.shadow.camera.left   = -22;
+sun.shadow.camera.right  =  22;
+sun.shadow.camera.top    =  22;
+sun.shadow.camera.bottom = -22;
+sun.shadow.bias = -0.0008;
+scene.add(sun);
+
+// Fill light from the opposite side (softens shadows like AC)
+const fill = new THREE.DirectionalLight(0xD0E8FF, 0.4);
+fill.position.set(-10, 10, -10);
+scene.add(fill);
+
+// ── Terrain ────────────────────────────────────────────────
+// A 50×50 unit plane, subdivided so we can add hills at edges
+const terrainGeo = new THREE.PlaneGeometry(50, 50, 48, 48);
+terrainGeo.rotateX(-Math.PI / 2); // Lay flat on XZ
+
+// Gently raise edges to form rolling hills; keep river valley flat
+const pos = terrainGeo.attributes.position;
+for (let i = 0; i < pos.count; i++) {
+  const x = pos.getX(i);
+  const z = pos.getZ(i);
+  // Distance from centre
+  const r = Math.sqrt(x * x + z * z);
+  // Hill height only kicks in outside radius 10; gentle sine bumps
+  const hill  = Math.max(0, (r - 9) * 0.12);
+  const bumps = Math.sin(x * 0.45) * Math.cos(z * 0.45) * 0.28;
+  pos.setY(i, hill + bumps * Math.min(1, r / 8));
+}
+terrainGeo.computeVertexNormals();
+
+const terrainMat = new THREE.MeshLambertMaterial({ color: 0x72BB3A });
+const terrain = new THREE.Mesh(terrainGeo, terrainMat);
+terrain.receiveShadow = true;
+scene.add(terrain);
+
+// Slightly darker inner ground ring (the flat valley floor)
+const valleyGeo = new THREE.CircleGeometry(10, 64);
+valleyGeo.rotateX(-Math.PI / 2);
+const valleyMat = new THREE.MeshLambertMaterial({ color: 0x7BC842 });
+const valley = new THREE.Mesh(valleyGeo, valleyMat);
+valley.position.y = 0.01;
+valley.receiveShadow = true;
+scene.add(valley);
+
+// ── Clouds (simple flat ellipsoids high in the scene) ─────
+function makeCloud(x, y, z) {
+  const g = new THREE.Group();
+  const mat = new THREE.MeshLambertMaterial({ color: 0xFFFFFF });
+  [[0,0,0,2.2,1,2.2],[1.8,0.3,0,1.8,0.85,1.8],[-1.8,0.3,0,1.8,0.85,1.8],[0,0.5,0,1.4,0.8,1.4]]
+    .forEach(([cx,cy,cz,sx,sy,sz]) => {
+      const m = new THREE.Mesh(new THREE.SphereGeometry(1, 8, 6), mat);
+      m.position.set(cx,cy,cz); m.scale.set(sx,sy,sz);
+      g.add(m);
+    });
+  g.position.set(x, y, z);
+  g.scale.set(0.9, 0.9, 0.9);
+  scene.add(g);
+  return g;
+}
+const clouds = [
+  makeCloud(-12, 14,  -8),
+  makeCloud(  6, 16, -12),
+  makeCloud( 14, 13,   4),
+  makeCloud( -8, 15,  10),
+];
+
+// ── Resize handling ────────────────────────────────────────
+window.addEventListener('resize', () => {
+  const w = container.clientWidth;
+  const h = container.clientHeight;
+  const a = w / h;
+  camera.left   = -camSize * a;
+  camera.right  =  camSize * a;
+  camera.updateProjectionMatrix();
+  renderer.setSize(w, h);
+});
+
+// ═══════════════════════════════════════════════════════════
+//  ANIMATION LOOP (chunks will add more to this)
+// ═══════════════════════════════════════════════════════════
+const clock = new THREE.Clock();
+
+function animate() {
+  requestAnimationFrame(animate);
+  const t = clock.getElapsedTime();
+
+  // Slowly drift clouds
+  clouds.forEach((c, i) => {
+    c.position.x += 0.003 * (i % 2 === 0 ? 1 : -0.6);
+  });
+
+  renderer.render(scene, camera);
+}
+animate();
+</script>
+
+</body>
+</html>
