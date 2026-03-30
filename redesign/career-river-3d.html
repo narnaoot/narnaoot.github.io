@@ -487,6 +487,54 @@ stopDefs.forEach((def) => {
   stopObjects.push({ group: g, def, worldPos: new THREE.Vector3(bx, bodyH, bz) });
 });
 
+// ═══════════════════════════════════════════════════════════
+//  CHUNK 5 — Character in a tube floating down the river
+//  Torus (inner tube) + Sphere (head) + Sphere (body)
+//  Travels along the river curve, bobs gently
+// ═══════════════════════════════════════════════════════════
+
+// Character group
+const character = new THREE.Group();
+scene.add(character);
+
+// Inner tube — flat torus lying horizontal
+const tubeGeo = new THREE.TorusGeometry(0.42, 0.14, 8, 24);
+const tubeMat = new THREE.MeshPhongMaterial({ color: 0xF4A040, shininess: 60 });
+const tube    = new THREE.Mesh(tubeGeo, tubeMat);
+tube.rotation.x = Math.PI / 2;
+tube.castShadow = true;
+character.add(tube);
+
+// Body — sphere sitting in the tube
+const bodyGeo2 = new THREE.SphereGeometry(0.24, 10, 10);
+const bodyMat2 = new THREE.MeshLambertMaterial({ color: 0x4A90D9 }); // blue shirt
+const bodyMesh = new THREE.Mesh(bodyGeo2, bodyMat2);
+bodyMesh.position.y = 0.18;
+bodyMesh.castShadow = true;
+character.add(bodyMesh);
+
+// Head
+const headGeo = new THREE.SphereGeometry(0.18, 10, 10);
+const headMat = new THREE.MeshLambertMaterial({ color: 0xF5CBA7 }); // skin tone
+const headMesh = new THREE.Mesh(headGeo, headMat);
+headMesh.position.y = 0.52;
+headMesh.castShadow = true;
+character.add(headMesh);
+
+// Arms — two small capsule-ish spheres draped over tube sides
+[[-0.44, 0.12, 0], [0.44, 0.12, 0]].forEach(([ax, ay, az]) => {
+  const armGeo = new THREE.SphereGeometry(0.1, 6, 6);
+  const armMat = new THREE.MeshLambertMaterial({ color: 0x4A90D9 });
+  const arm    = new THREE.Mesh(armGeo, armMat);
+  arm.position.set(ax, ay, az);
+  arm.castShadow = true;
+  character.add(arm);
+});
+
+// The character travels along the river curve over time
+// We'll advance a t parameter slowly, looping 0→1
+let charT = 0.05; // start just after beginning
+
 // ── Resize handling ────────────────────────────────────────
 window.addEventListener('resize', () => {
   const w = container.clientWidth;
@@ -511,6 +559,21 @@ function animate() {
   clouds.forEach((c, i) => {
     c.position.x += 0.003 * (i % 2 === 0 ? 1 : -0.6);
   });
+
+  // Advance character along river (full loop every ~40 s)
+  charT = (charT + 0.0004) % 1;
+  const charPos  = riverCurve.getPointAt(charT);
+  const charTan  = riverCurve.getTangentAt(charT);
+
+  // Place character on water surface with gentle bob
+  character.position.set(charPos.x, 0.18 + Math.sin(t * 2.2) * 0.04, charPos.z);
+
+  // Face along direction of travel
+  const angle = Math.atan2(charTan.x, charTan.z);
+  character.rotation.y = angle;
+
+  // Gentle rock side-to-side
+  character.rotation.z = Math.sin(t * 3.1) * 0.08;
 
   renderer.render(scene, camera);
 }
