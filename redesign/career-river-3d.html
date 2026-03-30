@@ -396,6 +396,97 @@ treePositions.forEach(([x, z], i) => {
   makeTree(x + (Math.random()-0.5)*0.4, z + (Math.random()-0.5)*0.4, s);
 });
 
+// ═══════════════════════════════════════════════════════════
+//  CHUNK 4 — Career stop buildings
+//  Each stop: a coloured box body + contrasting roof prism
+//  Positions are beside the river bends (riverPoints indices)
+// ═══════════════════════════════════════════════════════════
+
+// stop index in riverPoints → world offset from the curve
+const stopDefs = [
+  { idx: 0,  side: -1, name: 'Elegrity',     bodyColor: 0xE8614F, roofColor: 0xC03828 },
+  { idx: 3,  side:  1, name: 'eBay',         bodyColor: 0xD4920A, roofColor: 0xA06808 },
+  { idx: 5,  side:  1, name: 'Apple PM',     bodyColor: 0x8B7BC8, roofColor: 0x5A4A98 },
+  { idx: 8,  side: -1, name: 'Apple Process',bodyColor: 0x7B6BC8, roofColor: 0x4A3A88 },
+  { idx: 10, side: -1, name: "St. Mary's",   bodyColor: 0x6A9F7A, roofColor: 0x3A6A4A },
+  { idx: 13, side:  1, name: 'SFMTA',        bodyColor: 0x2DB5A8, roofColor: 0x1A8070 },
+];
+
+// Keep refs for label projection later
+const stopObjects = [];
+
+stopDefs.forEach((def) => {
+  const pt = riverPoints[def.idx];
+
+  // Perpendicular direction at this curve point
+  const nextPt = riverPoints[Math.min(def.idx + 1, riverPoints.length - 1)];
+  const prevPt = riverPoints[Math.max(def.idx - 1, 0)];
+  const tx = nextPt.x - prevPt.x;
+  const tz = nextPt.z - prevPt.z;
+  const len = Math.sqrt(tx*tx + tz*tz) || 1;
+  // Perpendicular (rotate 90°)
+  const px = -tz / len;
+  const pz =  tx / len;
+
+  const offset = 2.4; // distance from river edge
+  const bx = pt.x + px * def.side * offset;
+  const bz = pt.z + pz * def.side * offset;
+
+  const g = new THREE.Group();
+  g.position.set(bx, 0, bz);
+
+  // ── Body ──────────────────────────────────────────────
+  const bodyH = def.name === 'Apple PM' ? 1.6 : 1.1; // Apple PM a bit taller
+  const bodyGeo = new THREE.BoxGeometry(1.4, bodyH, 1.4);
+  const bodyMat = new THREE.MeshLambertMaterial({ color: def.bodyColor });
+  const body    = new THREE.Mesh(bodyGeo, bodyMat);
+  body.position.y = bodyH / 2;
+  body.castShadow = true;
+  body.receiveShadow = true;
+  g.add(body);
+
+  // ── Roof (triangular prism) ────────────────────────────
+  const roofGeo = new THREE.ConeGeometry(1.1, 0.7, 4);
+  const roofMat = new THREE.MeshLambertMaterial({ color: def.roofColor });
+  const roof    = new THREE.Mesh(roofGeo, roofMat);
+  roof.position.y = bodyH + 0.35;
+  roof.rotation.y = Math.PI / 4; // align flat edges with building
+  roof.castShadow = true;
+  g.add(roof);
+
+  // ── Windows (small lighter boxes on front face) ────────
+  const winMat = new THREE.MeshLambertMaterial({ color: 0xFFF8E8, emissive: 0x403020 });
+  [[-0.35, bodyH*0.6], [0.35, bodyH*0.6], [0, bodyH*0.25]].forEach(([wx, wy]) => {
+    const wm = new THREE.Mesh(new THREE.BoxGeometry(0.22, 0.22, 0.05), winMat);
+    wm.position.set(wx, wy, 0.73);
+    g.add(wm);
+  });
+
+  // ── SFMTA special: add a tiny cable car on top ─────────
+  if (def.name === 'SFMTA') {
+    const carGeo = new THREE.BoxGeometry(0.55, 0.28, 0.28);
+    const carMat = new THREE.MeshLambertMaterial({ color: 0xE8614F });
+    const car    = new THREE.Mesh(carGeo, carMat);
+    car.position.y = bodyH + 0.8;
+    car.castShadow = true;
+    g.add(car);
+  }
+
+  // ── Apple PM special: concentric ring on top ───────────
+  if (def.name === 'Apple PM') {
+    const ringGeo = new THREE.TorusGeometry(0.55, 0.08, 6, 20);
+    const ringMat = new THREE.MeshLambertMaterial({ color: 0xC0B0F0 });
+    const ring    = new THREE.Mesh(ringGeo, ringMat);
+    ring.position.y = 0.2;
+    ring.rotation.x = Math.PI / 2;
+    ring.castShadow = true;
+    g.add(ring);
+  }
+
+  scene.add(g);
+  stopObjects.push({ group: g, def, worldPos: new THREE.Vector3(bx, bodyH, bz) });
+});
+
 // ── Resize handling ────────────────────────────────────────
 window.addEventListener('resize', () => {
   const w = container.clientWidth;
