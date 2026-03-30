@@ -535,6 +535,52 @@ character.add(headMesh);
 // We'll advance a t parameter slowly, looping 0→1
 let charT = 0.05; // start just after beginning
 
+// ═══════════════════════════════════════════════════════════
+//  CHUNK 6 — HTML labels, water shimmer, final polish
+// ═══════════════════════════════════════════════════════════
+
+// Stop metadata for labels
+const stopMeta = [
+  { name: 'Elegrity',      dates: '2006 – 2010', role: 'Analyst / PM',          color: '#E8614F' },
+  { name: 'eBay',          dates: '2010 – 2011', role: 'Program Manager',        color: '#D4920A' },
+  { name: 'Apple (PM)',    dates: '2011 – 2014', role: 'Engineering PM',         color: '#8B7BC8' },
+  { name: 'Apple (Ops)',   dates: '2014 – 2020', role: 'Process Engineer',       color: '#7B6BC8' },
+  { name: "St. Mary's",    dates: '2020 – 2024', role: 'Instructor / Consultant',color: '#6A9F7A' },
+  { name: 'SFMTA',         dates: '2024 – now',  role: 'Sr. Program Analyst',    color: '#2DB5A8' },
+];
+
+// Build label DOM elements
+const labelsEl = document.getElementById('labels');
+const labelEls = stopObjects.map((stop, i) => {
+  const meta = stopMeta[i];
+  const el = document.createElement('div');
+  el.className = 'stop-label';
+  el.innerHTML = `
+    <span class="name" style="color:${meta.color}">${meta.name}</span>
+    <span class="role">${meta.role}</span>
+    <span class="dates">${meta.dates}</span>
+  `;
+  labelsEl.appendChild(el);
+  return el;
+});
+
+// Water shimmer: animate the river material's emissive to pulse
+// riverMesh was built in chunk 2
+const _waterBaseEmissive = new THREE.Color(0x0A2A50);
+const _waterShimmer      = new THREE.Color(0x1A4A80);
+
+// Helper: project a 3D world position into label's CSS px coords
+const _projVec = new THREE.Vector3();
+function projectToScreen(worldPos) {
+  _projVec.copy(worldPos);
+  _projVec.project(camera);
+  const rect = container.getBoundingClientRect();
+  return {
+    x: (_projVec.x * 0.5 + 0.5) * rect.width,
+    y: (-_projVec.y * 0.5 + 0.5) * rect.height,
+  };
+}
+
 // ── Resize handling ────────────────────────────────────────
 window.addEventListener('resize', () => {
   const w = container.clientWidth;
@@ -547,7 +593,7 @@ window.addEventListener('resize', () => {
 });
 
 // ═══════════════════════════════════════════════════════════
-//  ANIMATION LOOP (chunks will add more to this)
+//  ANIMATION LOOP
 // ═══════════════════════════════════════════════════════════
 const clock = new THREE.Clock();
 
@@ -575,7 +621,21 @@ function animate() {
   // Gentle rock side-to-side
   character.rotation.z = Math.sin(t * 3.1) * 0.08;
 
+  // Water shimmer — pulse emissive intensity
+  const shimmer = 0.5 + 0.5 * Math.sin(t * 1.8);
+  riverMesh.material.emissive.lerpColors(_waterBaseEmissive, _waterShimmer, shimmer * 0.35);
+  riverMesh.material.emissiveIntensity = 0.25 + shimmer * 0.15;
+
+  // Render first so camera matrices are fresh for projection
   renderer.render(scene, camera);
+
+  // Project stop buildings to screen and position labels above them
+  stopObjects.forEach((stop, i) => {
+    const sc = projectToScreen(stop.worldPos);
+    const el = labelEls[i];
+    el.style.left = sc.x + 'px';
+    el.style.top  = (sc.y - 8) + 'px';
+  });
 }
 animate();
 </script>
