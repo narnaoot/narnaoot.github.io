@@ -222,6 +222,114 @@ const clouds = [
   makeCloud( -8, 15,  10),
 ];
 
+// ═══════════════════════════════════════════════════════════
+//  CHUNK 2 — River: ribbon mesh along winding S-curve
+// ═══════════════════════════════════════════════════════════
+
+// River control points — S-curve winding through the scene.
+// These also define where career stops sit (at the bends).
+const riverPoints = [
+  new THREE.Vector3(-9,  0, -9),   // 0 — Elegrity (start, top-left)
+  new THREE.Vector3(-4,  0, -8),
+  new THREE.Vector3( 2,  0, -7),
+  new THREE.Vector3( 7,  0, -5),   // 3 — eBay (upper-right bend)
+  new THREE.Vector3( 9,  0, -2),
+  new THREE.Vector3( 8,  0,  1),   // 5 — Apple Eng PM (right bend)
+  new THREE.Vector3( 5,  0,  2),
+  new THREE.Vector3( 0,  0,  2.5),
+  new THREE.Vector3(-5,  0,  3),   // 8 — Apple Process (centre-left)
+  new THREE.Vector3(-8,  0,  4),
+  new THREE.Vector3(-9,  0,  6.5), // 10 — St Mary's (lower-left bend)
+  new THREE.Vector3(-7,  0,  8),
+  new THREE.Vector3(-3,  0,  9),
+  new THREE.Vector3( 4,  0,  9.5), // 13 — SFMTA (lower-right, end)
+];
+
+const riverCurve = new THREE.CatmullRomCurve3(riverPoints, false, 'catmullrom', 0.5);
+
+// ── Build ribbon mesh ──────────────────────────────────────
+// Sample the curve densely, then create a flat strip RIVER_W wide.
+const RIVER_W  = 2.2;   // river width in world units
+const N_SEGS   = 180;   // smoothness
+
+const curvePts  = riverCurve.getSpacedPoints(N_SEGS);
+const verts     = [];
+const uvs       = [];
+const indices   = [];
+
+for (let i = 0; i < curvePts.length; i++) {
+  const p = curvePts[i];
+
+  // Tangent direction along the curve (horizontal only)
+  let tx, tz;
+  if (i < curvePts.length - 1) {
+    tx = curvePts[i+1].x - p.x;
+    tz = curvePts[i+1].z - p.z;
+  } else {
+    tx = p.x - curvePts[i-1].x;
+    tz = p.z - curvePts[i-1].z;
+  }
+  const len = Math.sqrt(tx*tx + tz*tz) || 1;
+  tx /= len; tz /= len;
+  // Perpendicular (rotate 90° in XZ)
+  const px = -tz, pz = tx;
+
+  const u = i / (curvePts.length - 1);
+  // Left bank vertex
+  verts.push(p.x - px * RIVER_W/2, 0.02, p.z - pz * RIVER_W/2);
+  uvs.push(0, u);
+  // Right bank vertex
+  verts.push(p.x + px * RIVER_W/2, 0.02, p.z + pz * RIVER_W/2);
+  uvs.push(1, u);
+
+  if (i > 0) {
+    const b = (i-1) * 2;
+    indices.push(b, b+1, b+2, b+1, b+3, b+2);
+  }
+}
+
+const riverGeo = new THREE.BufferGeometry();
+riverGeo.setAttribute('position', new THREE.Float32BufferAttribute(verts, 3));
+riverGeo.setAttribute('uv',       new THREE.Float32BufferAttribute(uvs, 2));
+riverGeo.setIndex(indices);
+riverGeo.computeVertexNormals();
+
+// Dark AC-style navy-blue water material, slightly shiny
+const riverMat = new THREE.MeshPhongMaterial({
+  color:     0x1A4F82,
+  emissive:  0x0A2040,
+  specular:  0x4080C0,
+  shininess: 60,
+});
+const riverMesh = new THREE.Mesh(riverGeo, riverMat);
+riverMesh.receiveShadow = true;
+scene.add(riverMesh);
+
+// ── Bank strips: slightly darker grass edging the river ───
+// Widen the same curve a bit more, placed just under the river
+const BANK_W = RIVER_W + 1.0;
+const bankVerts = [];
+const bankIdx   = [];
+for (let i = 0; i < curvePts.length; i++) {
+  const p = curvePts[i];
+  let tx, tz;
+  if (i < curvePts.length - 1) { tx = curvePts[i+1].x-p.x; tz = curvePts[i+1].z-p.z; }
+  else                          { tx = p.x-curvePts[i-1].x; tz = p.z-curvePts[i-1].z; }
+  const len = Math.sqrt(tx*tx+tz*tz)||1; tx/=len; tz/=len;
+  const px = -tz, pz = tx;
+  bankVerts.push(p.x - px*BANK_W/2, 0.005, p.z - pz*BANK_W/2);
+  bankVerts.push(p.x + px*BANK_W/2, 0.005, p.z + pz*BANK_W/2);
+  if (i > 0) { const b=(i-1)*2; bankIdx.push(b,b+1,b+2,b+1,b+3,b+2); }
+}
+const bankGeo = new THREE.BufferGeometry();
+bankGeo.setAttribute('position', new THREE.Float32BufferAttribute(bankVerts, 3));
+bankGeo.setIndex(bankIdx);
+bankGeo.computeVertexNormals();
+const bankMesh = new THREE.Mesh(bankGeo,
+  new THREE.MeshLambertMaterial({ color: 0x4A9020 })); // darker bank green
+bankMesh.receiveShadow = true;
+scene.add(bankMesh);
+
 // ── Resize handling ────────────────────────────────────────
 window.addEventListener('resize', () => {
   const w = container.clientWidth;
