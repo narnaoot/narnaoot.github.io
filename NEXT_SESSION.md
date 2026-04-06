@@ -100,6 +100,25 @@ All 14 HTML visualization files are now committed to `redesign/`. Each is self-c
 
 ---
 
+## Image pipeline — Nabil creates, Claude embeds
+
+These are agreed-upon AC-style images for Nabil to generate. When an image is ready, drop it in `inspiration_samples/` and tell Claude which one it is. Claude will handle the embed.
+
+### High priority
+
+| Suggested filename | Dimensions | Where it goes | What to generate |
+|--------------------|-----------|---------------|------------------|
+| `AboutHero.png` | ~1400×400px, wide landscape | `redesign/about.html` hero background | Outdoor/island AC scene — a desk under a cherry blossom tree or cozy outdoor workspace, wide and cinematic, same illustrated style as ProfilePicture |
+| `TeachingScene.png` | ~600×300px | `redesign/about.html` Teaching Vignette section | Classroom or small-group scene in AC style — chalkboard, students, warm light |
+| `SFMTAScene.png` | ~600×300px | `redesign/about.html` or a work card | Transit/city scene — AC-style streetcar or bus stop, San Francisco feel |
+| `LoveIcons.png` (or 10 individual files) | ~120×120px each | `redesign/about.html` "Things I Love" grid | 10 AC-style icons: teacup, cat, open book, city skyline, transit map, English Lit scroll, laptop, data chart, globe/travel, cat (second one) |
+
+### Lower priority (Claude can generate programmatically — no image needed)
+
+- Data viz pages: skills radar, books bubble, career excitement, etc. — already visual SVG/HTML
+
+---
+
 ## Still open / future sessions
 
 1. **Career excitement chart** (Catherine Madden style) — needs Nabil's excitement levels per role:
