@@ -1,11 +1,20 @@
 # Next Session Handoff
 
+## Visual direction: Animal Crossing theme
+
+The redesign has committed to an **Animal Crossing visual theme**. The hero and career journey both now use illustrated AC-style images of Nabil. All source images are in `inspiration_samples/`.
+
+| Image | Where used |
+|-------|-----------|
+| `inspiration_samples/ProfilePicture.jpeg` | `redesign/index.html` hero — full-body AC character portrait, two-column layout |
+| `inspiration_samples/CareerRiver.png` | `redesign/career-river.html` — Nabil in inner tube floating past 4 career sign posts |
+
 ## What's done
 
 - `Inspiration.md` fully documented with file references, 5 designers + Stephen's Game of Life analyzed
 - Root site pages updated: index, about, work, method — all reframed from "data storyteller" to **Project Leader**
-- `redesign/` folder built: index.html, about.html, career-river.html
-- Branch: `claude/redesign-personal-website-oIzoy`
+- `redesign/` folder built with AC visual theme applied to hero + career journey
+- Branch: `claude/update-redesign-direction-RQr7R`
 
 ### Root page changes (session 2)
 
@@ -17,7 +26,13 @@
 ### redesign/ folder (session 3)
 
 - **redesign/index.html**: Stefanie Kraus-inspired homepage — warmer hero, stats strip kept, Brianna Gamp as featured pull quote, 3 project cards, single CTA footer
-- **redesign/career-river.html**: Animal Crossing–style river, fully illustrated SVG, 6 career stops with whimsical landmarks
+- **redesign/career-river.html**: Shows `CareerRiver.png` — Nabil floating past 4 wooden career signs (eBay 2006-2011, Apple 2011-2020, St. Mary's 2020-2024, SFMTA 2024-Now)
+
+### redesign/index.html hero (session 6 — AC theme)
+
+- Replaced 80px avatar circle with full `ProfilePicture.jpeg` in a two-column grid layout
+- Hero background updated to soft green gradient (`#e0f0d8 → --bg`) to evoke AC nature theme
+- `.hero-portrait` image is 260px wide on desktop, stacks on mobile (max-width 200px centered)
 
 ### redesign/about.html (session 4 — branch: claude/fix-about-page-timeout-PmOOO)
 
@@ -85,6 +100,37 @@ All 14 HTML visualization files are now committed to `redesign/`. Each is self-c
 
 ---
 
+## Image pipeline — Nabil generates in Copilot, Claude embeds
+
+All images generated at **1792×1024** in Copilot Image Creator, then cropped to a **~1400×260 horizontal banner strip** before dropping into `inspiration_samples/`. Claude will embed each as a section background image in `redesign/about.html`.
+
+When images are ready: drop them all into `inspiration_samples/` using the filenames below, then tell Claude. Claude will crop/size in CSS and wire all of them in at once.
+
+### Six section banners for redesign/about.html
+
+| Filename to use | About.html section | Copilot prompt |
+|-----------------|-------------------|----------------|
+| `AboutHero.png` | "The Human Behind the Projects" (first content section) | Animal Crossing New Horizons style 3D render, cozy wide landscape scene, no characters. A warm afternoon on a personal island: on the left, a low wooden table with a steaming mug of tea, an open book, and reading glasses. In the center, a grassy clearing with soft dappled sunlight and small yellow flowers. On the right, a fat tabby cat curled up asleep on a cushion near a potted succulent. Stone path tiles wind through the scene. Soft warm golden light, long shadows, vibrant saturated colors, chunky rounded cartoon proportions, ultra-wide panoramic composition, sky visible at top. |
+| `ThreePillars.png` | "Three Things I Always Bring" (curiosity, vision, connection) | Animal Crossing New Horizons style 3D render, wide panoramic scene, no characters. Three distinct cozy vignettes side by side on a grassy island path: on the left, a glowing lantern and magnifying glass on a mossy log (curiosity); in the center, a hand-drawn map pinned to a wooden post with a compass and telescope (vision); on the right, two wooden chairs facing each other with a small table and two teacups between them (connection). Warm afternoon light, soft shadows, vibrant colors, chunky rounded cartoon proportions. |
+| `TeachingScene.png` | "One More Thing" / Teaching vignette | Animal Crossing New Horizons style 3D render, wide panoramic scene, no characters. A cozy outdoor classroom on a grassy island: small wooden desks arranged in a semicircle facing a chalkboard on a post, chalk writing and diagrams visible on the board, apple on the teacher's desk, potted plants around the edges, afternoon golden light filtering through apple trees. Warm, inviting, vibrant saturated colors, chunky rounded cartoon proportions. |
+| `ThingsILove.png` | "Things I Love" grid section | Animal Crossing New Horizons style 3D render, wide panoramic scene, no characters. A cheerful flat-lay spread across a grassy island clearing: an open book, a steaming teacup, a small orange tabby cat figurine, a vinyl record, a soccer ball, a trowel with a small potted plant, a fishing rod, a Chicago skyline snow globe, and a tiny graduation cap. Items arranged loosely on soft green grass with small flowers between them. Bright midday light, vibrant colors, chunky rounded cartoon proportions. |
+| `Testimonials.png` | "What People Say" / Testimonials | Animal Crossing New Horizons style 3D render, wide panoramic scene, no characters. A warm village square on a grassy island: several wooden bulletin boards on posts with pinned notes and letters, a community mailbox overflowing with envelopes, string lights hanging between posts, small flower gardens in between. Late afternoon golden light, long soft shadows, vibrant colors, chunky rounded cartoon proportions. |
+| `Education.png` | "Education & Certifications" | Animal Crossing New Horizons style 3D render, wide panoramic scene, no characters. A small island library corner outdoors: a wooden bookshelf filled with colorful books, a stack of diplomas and rolled certificates tied with ribbon on a low table, an owl figurine perched on top, ivy growing up the shelf sides, stone path leading to it. Dappled light through apple tree leaves, vibrant colors, chunky rounded cartoon proportions. |
+
+### CSS treatment (Claude will apply this when embedding)
+
+Each image becomes a `background-image` banner at the top of its section:
+- `background-size: cover; background-position: center center;`
+- Banner div height: `260px` (cropped from 1024px tall source = roughly center third of image)
+- Subtle dark overlay (`rgba(0,0,0,0.18)`) so any text placed over it stays legible
+- Full-bleed edge to edge across the section, with content below (not on top of) the banner
+
+### Lower priority (Claude generates programmatically — no image needed)
+
+- Data viz pages: skills radar, books bubble, career excitement, etc. — already visual SVG/HTML
+
+---
+
 ## Still open / future sessions
 
 1. **Career excitement chart** (Catherine Madden style) — needs Nabil's excitement levels per role:
@@ -105,5 +151,5 @@ All 14 HTML visualization files are now committed to `redesign/`. Each is self-c
 
 - All redesign work lives in `redesign/` — root files untouched
 - Same CSS tokens and fonts as root pages
-- Push to `claude/redesign-personal-website-oIzoy` (earlier sessions) or `claude/fix-about-page-timeout-PmOOO` (about.html work)
+- Push to `claude/update-redesign-direction-RQr7R` (current branch)
 - **Timeout strategy**: build large pages section-by-section with a commit after each chunk — never write a full page in one shot
