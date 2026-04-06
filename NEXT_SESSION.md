@@ -1,11 +1,20 @@
 # Next Session Handoff
 
+## Visual direction: Animal Crossing theme
+
+The redesign has committed to an **Animal Crossing visual theme**. The hero and career journey both now use illustrated AC-style images of Nabil. All source images are in `inspiration_samples/`.
+
+| Image | Where used |
+|-------|-----------|
+| `inspiration_samples/ProfilePicture.jpeg` | `redesign/index.html` hero — full-body AC character portrait, two-column layout |
+| `inspiration_samples/CareerRiver.png` | `redesign/career-river.html` — Nabil in inner tube floating past 4 career sign posts |
+
 ## What's done
 
 - `Inspiration.md` fully documented with file references, 5 designers + Stephen's Game of Life analyzed
 - Root site pages updated: index, about, work, method — all reframed from "data storyteller" to **Project Leader**
-- `redesign/` folder built: index.html, about.html, career-river.html
-- Branch: `claude/redesign-personal-website-oIzoy`
+- `redesign/` folder built with AC visual theme applied to hero + career journey
+- Branch: `claude/update-redesign-direction-RQr7R`
 
 ### Root page changes (session 2)
 
@@ -17,7 +26,13 @@
 ### redesign/ folder (session 3)
 
 - **redesign/index.html**: Stefanie Kraus-inspired homepage — warmer hero, stats strip kept, Brianna Gamp as featured pull quote, 3 project cards, single CTA footer
-- **redesign/career-river.html**: Animal Crossing–style river, fully illustrated SVG, 6 career stops with whimsical landmarks
+- **redesign/career-river.html**: Shows `CareerRiver.png` — Nabil floating past 4 wooden career signs (eBay 2006-2011, Apple 2011-2020, St. Mary's 2020-2024, SFMTA 2024-Now)
+
+### redesign/index.html hero (session 6 — AC theme)
+
+- Replaced 80px avatar circle with full `ProfilePicture.jpeg` in a two-column grid layout
+- Hero background updated to soft green gradient (`#e0f0d8 → --bg`) to evoke AC nature theme
+- `.hero-portrait` image is 260px wide on desktop, stacks on mobile (max-width 200px centered)
 
 ### redesign/about.html (session 4 — branch: claude/fix-about-page-timeout-PmOOO)
 
@@ -105,5 +120,5 @@ All 14 HTML visualization files are now committed to `redesign/`. Each is self-c
 
 - All redesign work lives in `redesign/` — root files untouched
 - Same CSS tokens and fonts as root pages
-- Push to `claude/redesign-personal-website-oIzoy` (earlier sessions) or `claude/fix-about-page-timeout-PmOOO` (about.html work)
+- Push to `claude/update-redesign-direction-RQr7R` (current branch)
 - **Timeout strategy**: build large pages section-by-section with a commit after each chunk — never write a full page in one shot

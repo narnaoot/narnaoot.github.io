@@ -41,6 +41,15 @@ See `Inspiration.md` for full notes. Key reference designers:
 
 Inspiration files: `inspiration_samples/` folder (screenshots + PDFs)
 
+## Visual theme
+
+The redesign uses an **Animal Crossing** visual theme — illustrated character portraits, hand-drawn-style river scenes with wooden career signs, and soft green nature gradients in the hero. All AC imagery lives in `inspiration_samples/` and is referenced by relative path from `redesign/`.
+
+| File | Use |
+|------|-----|
+| `inspiration_samples/ProfilePicture.jpeg` | Hero portrait — full-body AC character illustration of Nabil |
+| `inspiration_samples/CareerRiver.png` | Career River page — Nabil floating downstream past 4 career-stop signs |
+
 ## Branch
 
-Active development: `claude/redesign-personal-website-oIzoy`
+Active development: `claude/update-redesign-direction-RQr7R`
