@@ -100,20 +100,32 @@ All 14 HTML visualization files are now committed to `redesign/`. Each is self-c
 
 ---
 
-## Image pipeline — Nabil creates, Claude embeds
+## Image pipeline — Nabil generates in Copilot, Claude embeds
 
-These are agreed-upon AC-style images for Nabil to generate. When an image is ready, drop it in `inspiration_samples/` and tell Claude which one it is. Claude will handle the embed.
+All images generated at **1792×1024** in Copilot Image Creator, then cropped to a **~1400×260 horizontal banner strip** before dropping into `inspiration_samples/`. Claude will embed each as a section background image in `redesign/about.html`.
 
-### High priority
+When images are ready: drop them all into `inspiration_samples/` using the filenames below, then tell Claude. Claude will crop/size in CSS and wire all of them in at once.
 
-| Suggested filename | Dimensions | Where it goes | What to generate |
-|--------------------|-----------|---------------|------------------|
-| `AboutHero.png` | ~1400×400px, wide landscape | `redesign/about.html` hero background | Outdoor/island AC scene — a desk under a cherry blossom tree or cozy outdoor workspace, wide and cinematic, same illustrated style as ProfilePicture |
-| `TeachingScene.png` | ~600×300px | `redesign/about.html` Teaching Vignette section | Classroom or small-group scene in AC style — chalkboard, students, warm light |
-| `SFMTAScene.png` | ~600×300px | `redesign/about.html` or a work card | Transit/city scene — AC-style streetcar or bus stop, San Francisco feel |
-| `LoveIcons.png` (or 10 individual files) | ~120×120px each | `redesign/about.html` "Things I Love" grid | 10 AC-style icons: teacup, cat, open book, city skyline, transit map, English Lit scroll, laptop, data chart, globe/travel, cat (second one) |
+### Six section banners for redesign/about.html
 
-### Lower priority (Claude can generate programmatically — no image needed)
+| Filename to use | About.html section | Copilot prompt |
+|-----------------|-------------------|----------------|
+| `AboutHero.png` | "The Human Behind the Projects" (first content section) | Animal Crossing New Horizons style 3D render, cozy wide landscape scene, no characters. A warm afternoon on a personal island: on the left, a low wooden table with a steaming mug of tea, an open book, and reading glasses. In the center, a grassy clearing with soft dappled sunlight and small yellow flowers. On the right, a fat tabby cat curled up asleep on a cushion near a potted succulent. Stone path tiles wind through the scene. Soft warm golden light, long shadows, vibrant saturated colors, chunky rounded cartoon proportions, ultra-wide panoramic composition, sky visible at top. |
+| `ThreePillars.png` | "Three Things I Always Bring" (curiosity, vision, connection) | Animal Crossing New Horizons style 3D render, wide panoramic scene, no characters. Three distinct cozy vignettes side by side on a grassy island path: on the left, a glowing lantern and magnifying glass on a mossy log (curiosity); in the center, a hand-drawn map pinned to a wooden post with a compass and telescope (vision); on the right, two wooden chairs facing each other with a small table and two teacups between them (connection). Warm afternoon light, soft shadows, vibrant colors, chunky rounded cartoon proportions. |
+| `TeachingScene.png` | "One More Thing" / Teaching vignette | Animal Crossing New Horizons style 3D render, wide panoramic scene, no characters. A cozy outdoor classroom on a grassy island: small wooden desks arranged in a semicircle facing a chalkboard on a post, chalk writing and diagrams visible on the board, apple on the teacher's desk, potted plants around the edges, afternoon golden light filtering through apple trees. Warm, inviting, vibrant saturated colors, chunky rounded cartoon proportions. |
+| `ThingsILove.png` | "Things I Love" grid section | Animal Crossing New Horizons style 3D render, wide panoramic scene, no characters. A cheerful flat-lay spread across a grassy island clearing: an open book, a steaming teacup, a small orange tabby cat figurine, a vinyl record, a soccer ball, a trowel with a small potted plant, a fishing rod, a Chicago skyline snow globe, and a tiny graduation cap. Items arranged loosely on soft green grass with small flowers between them. Bright midday light, vibrant colors, chunky rounded cartoon proportions. |
+| `Testimonials.png` | "What People Say" / Testimonials | Animal Crossing New Horizons style 3D render, wide panoramic scene, no characters. A warm village square on a grassy island: several wooden bulletin boards on posts with pinned notes and letters, a community mailbox overflowing with envelopes, string lights hanging between posts, small flower gardens in between. Late afternoon golden light, long soft shadows, vibrant colors, chunky rounded cartoon proportions. |
+| `Education.png` | "Education & Certifications" | Animal Crossing New Horizons style 3D render, wide panoramic scene, no characters. A small island library corner outdoors: a wooden bookshelf filled with colorful books, a stack of diplomas and rolled certificates tied with ribbon on a low table, an owl figurine perched on top, ivy growing up the shelf sides, stone path leading to it. Dappled light through apple tree leaves, vibrant colors, chunky rounded cartoon proportions. |
+
+### CSS treatment (Claude will apply this when embedding)
+
+Each image becomes a `background-image` banner at the top of its section:
+- `background-size: cover; background-position: center center;`
+- Banner div height: `260px` (cropped from 1024px tall source = roughly center third of image)
+- Subtle dark overlay (`rgba(0,0,0,0.18)`) so any text placed over it stays legible
+- Full-bleed edge to edge across the section, with content below (not on top of) the banner
+
+### Lower priority (Claude generates programmatically — no image needed)
 
 - Data viz pages: skills radar, books bubble, career excitement, etc. — already visual SVG/HTML
 
