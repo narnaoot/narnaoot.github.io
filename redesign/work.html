@@ -138,32 +138,6 @@
 
 <main class="page">
 
-  <!-- Career Journey -->
-  <section>
-    <div class="section-h">
-      <h2>Career Journey</h2>
-      <span class="section-tag">the arc</span>
-    </div>
-
-    <img src="../inspiration_samples/CareerRiver.png" alt="Career River illustration" style="width:100%;border-radius:12px;margin:0 0 36px;display:block;">
-
-    <div class="river-cta">
-      <div class="river-cta-text">
-        <div class="river-cta-kicker">Interactive Story</div>
-        <div class="river-cta-title">The Career River</div>
-        <div class="river-cta-sub">Six career stops, one current. Follow Nabil downstream from Elegrity in 2006 to SFMTA today — each wooden sign a chapter in the story.</div>
-      </div>
-      <a href="career-river.html" class="river-cta-btn">See the full story →</a>
-    </div>
-
-    <div class="chain-outer">
-      <svg id="chainSvg" viewBox="0 0 1010 420" xmlns="http://www.w3.org/2000/svg">
-        <title>Nabil Arnaoot career progression, 2006 to present</title>
-      </svg>
-    </div>
-    <p class="chain-caption">Project-level delivery → org-wide process leadership → city infrastructure</p>
-  </section>
-
   <!-- Projects -->
   <section>
     <div class="section-h">
@@ -250,105 +224,6 @@
     <p class="footer-copy">Made with curiosity &amp; care</p>
   </div>
 </footer>
-
-<script>
-(function () {
-  const svg = document.getElementById('chainSvg');
-  const ns  = 'http://www.w3.org/2000/svg';
-  function el(tag, attrs, parent) {
-    const e = document.createElementNS(ns, tag);
-    for (const [k, v] of Object.entries(attrs || {})) e.setAttribute(k, v);
-    if (parent) parent.appendChild(e);
-    return e;
-  }
-  const CW = 132, CH = 84, HW = CW / 2, HH = CH / 2;
-  const roles = [
-    { x:  102, y: 340, company: 'Elegrity',   title: 'Engr PM',          years: '2006 – 10',            color: '#6A9F7A' },
-    { x:  272, y: 308, company: 'eBay',        title: 'Program Mgr',      years: '2010 – 11',            color: '#D4920A' },
-    { x:  442, y: 250, company: 'Apple',       title: 'Engr PM',          years: '2011 – 14 · projects', color: '#4A90D9' },
-    { x:  606, y: 224, company: 'Apple',       title: 'Process Engineer', years: '2014 – 20 · org-wide', color: '#4A90D9', pivot: true },
-    { x:  778, y: 202, company: "St. Mary's",  title: 'Consultant + MS',  years: '2020 – 24',            color: '#7B6DC8' },
-    { x:  948, y: 116, company: 'SFMTA',       title: 'Principal',        title2: 'Business Analyst',    years: '2024 – now', color: '#E8614F', current: true },
-  ];
-  const bridges = [
-    { label: 'relationships',   pivot: false },
-    { label: 'tech fluency',    pivot: false },
-    { label: 'sys → process',   pivot: true  },
-    { label: 'deep analytics',  pivot: false },
-    { label: 'data leadership', pivot: false },
-  ];
-  const defs = el('defs', {}, svg);
-  const pat = el('pattern', { id: 'dg', x: 0, y: 0, width: 24, height: 24, patternUnits: 'userSpaceOnUse' }, defs);
-  el('circle', { cx: 1, cy: 1, r: 1, fill: '#E8DDD0' }, pat);
-  function mkMarker(id, color) {
-    const m = el('marker', { id, markerWidth: '10', markerHeight: '10', refX: '9', refY: '3.5', orient: 'auto' }, defs);
-    el('path', { d: 'M0,0 L0,7 L10,3.5 z', fill: color }, m);
-  }
-  mkMarker('arN', '#B0A8A0'); mkMarker('arP', '#D4920A'); mkMarker('arC', '#E8614F');
-  roles.forEach((r, i) => {
-    if (i >= roles.length - 1) return;
-    const nx = roles[i+1].x, ny = roles[i+1].y;
-    const x1 = r.x + HW, y1 = r.y, x2 = nx - HW, y2 = ny, dx = x2 - x1;
-    el('path', { id: `bp${i}`, d: `M${x1},${y1} C${x1+dx*.42},${y1} ${x2-dx*.42},${y2} ${x2},${y2}` }, defs);
-  });
-  el('rect', { x: 0, y: 0, width: 1010, height: 420, fill: '#FFFBF5' }, svg);
-  el('rect', { x: 0, y: 0, width: 1010, height: 420, fill: 'url(#dg)', opacity: '.4' }, svg);
-  el('line', { x1: 34, y1: 66, x2: 34, y2: 392, stroke: '#C8B8A8', 'stroke-width': '1', 'stroke-dasharray': '2,7' }, svg);
-  el('polygon', { points: '29,61 34,49 39,61', fill: '#B8A898' }, svg);
-  function axisLbl(text, y) {
-    const e = el('text', { x: 34, y, 'text-anchor': 'middle', 'font-family': 'Nunito,sans-serif', 'font-size': '10', 'font-weight': '600', 'letter-spacing': '.1em', fill: '#9A8070' }, svg);
-    e.textContent = text;
-  }
-  axisLbl('ORG-WIDE', 40); axisLbl('TEAM', 410);
-  [88, 168, 248, 328].forEach(y => {
-    el('line', { x1: 52, y1: y, x2: 990, y2: y, stroke: '#E8DDD0', 'stroke-width': '1', 'stroke-dasharray': '3,14' }, svg);
-  });
-  bridges.forEach((b, i) => {
-    const isLast = i === bridges.length - 1;
-    const stroke = b.pivot ? '#C98B09' : isLast ? '#E8614F' : '#B0A8A0';
-    el('use', { href: `#bp${i}`, fill: 'none', stroke, 'stroke-width': b.pivot ? '2.5' : '2', 'stroke-dasharray': b.pivot ? '7,4' : 'none', 'marker-end': `url(#${b.pivot ? 'arP' : isLast ? 'arC' : 'arN'})` }, svg);
-    const r = roles[i], nr = roles[i+1], mx = (r.x + nr.x) / 2;
-    if (!b.pivot) {
-      const labelY = Math.min(r.y, nr.y) - HH - 14;
-      const pw = b.label.length * 7.0 + 20;
-      el('rect', { x: mx - pw/2, y: labelY - 14, width: pw, height: 21, rx: '4', fill: '#FFFFFF', stroke: '#E8DDD0', 'stroke-width': '1' }, svg);
-      const lt = el('text', { x: mx, y: labelY, 'text-anchor': 'middle', 'font-family': 'Nunito,sans-serif', 'font-size': '11', 'font-weight': '600', fill: '#9A8070' }, svg);
-      lt.textContent = b.label;
-    }
-    if (b.pivot) {
-      const my = Math.min(r.y, nr.y) - HH - 14;
-      el('rect', { x: mx - 34, y: my - 14, width: 68, height: 21, rx: '4', fill: '#D4920A' }, svg);
-      const bt = el('text', { x: mx, y: my, 'text-anchor': 'middle', 'font-family': 'Nunito,sans-serif', 'font-size': '10', 'font-weight': '700', 'letter-spacing': '.08em', fill: '#FFF' }, svg);
-      bt.textContent = '↩ PIVOT';
-    }
-  });
-  roles.forEach((r, i) => {
-    const lx = r.x - HW, ty = r.y - HH, cid = `cc${i}`;
-    const cp = el('clipPath', { id: cid }, defs);
-    el('rect', { x: lx, y: ty, width: CW, height: CH, rx: '8' }, cp);
-    el('rect', { x: lx+2, y: ty+3, width: CW, height: CH, rx: '8', fill: 'rgba(61,43,31,.06)' }, svg);
-    const cg = el('g', { 'clip-path': `url(#${cid})` }, svg);
-    el('rect', { x: lx, y: ty, width: CW, height: CH, fill: '#FFFFFF' }, cg);
-    el('rect', { x: lx, y: ty, width: 5, height: CH, fill: r.color }, cg);
-    if (r.current) el('rect', { x: lx, y: ty, width: CW, height: 7, fill: r.color, opacity: '.12' }, cg);
-    el('rect', { x: lx, y: ty, width: CW, height: CH, rx: '8', fill: 'none', stroke: r.current ? r.color : '#E8DDD0', 'stroke-width': r.current ? '2' : '1' }, svg);
-    const ce = el('text', { x: lx+14, y: ty+26, 'font-family': "'Playfair Display',serif", 'font-size': '17', 'font-weight': '700', fill: '#3D2B1F' }, svg);
-    ce.textContent = r.company;
-    if (r.title2) {
-      el('text', { x: lx+14, y: ty+42, 'font-family': 'Nunito,sans-serif', 'font-size': '11', 'font-weight': '600', fill: '#3D2B1F' }, svg).textContent = r.title;
-      el('text', { x: lx+14, y: ty+56, 'font-family': 'Nunito,sans-serif', 'font-size': '11', 'font-weight': '600', fill: '#3D2B1F' }, svg).textContent = r.title2;
-      el('text', { x: lx+14, y: ty+70, 'font-family': 'Nunito,sans-serif', 'font-size': '9.5', 'font-weight': '500', fill: '#9A8070' }, svg).textContent = r.years;
-    } else {
-      el('text', { x: lx+14, y: ty+46, 'font-family': 'Nunito,sans-serif', 'font-size': '12', 'font-weight': '600', fill: '#3D2B1F' }, svg).textContent = r.title;
-      el('text', { x: lx+14, y: ty+63, 'font-family': 'Nunito,sans-serif', 'font-size': '10', 'font-weight': '500', fill: '#9A8070' }, svg).textContent = r.years;
-    }
-    if (r.current) {
-      el('circle', { cx: lx+CW-14, cy: ty+14, r: '7', fill: r.color, opacity: '.2' }, svg);
-      el('circle', { cx: lx+CW-14, cy: ty+14, r: '4', fill: r.color }, svg);
-    }
-  });
-})();
-</script>
 
 </body>
 </html>
