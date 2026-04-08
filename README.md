@@ -8,14 +8,37 @@ The site foregrounds **project leadership** — Nabil's ability to walk into amb
 
 ## Site structure
 
+### Root (live site)
+
 | File | Purpose |
 |------|---------|
 | `index.html` | Homepage — hero, project cards, featured quote |
 | `about.html` | Personal portrait, testimonials (PM-focused), education |
 | `work.html` | Project case studies |
 | `method.html` | How Nabil works |
-| `fave.html` | Alternate homepage concept (dark hero) |
-| `redesign/` | In-progress redesign files (do not overwrite root files) |
+
+### redesign/ (in-progress — do not overwrite root files)
+
+| File | Purpose |
+|------|---------|
+| `redesign/index.html` | AC-themed homepage — portrait hero, stats, 3 project cards |
+| `redesign/work.html` | Career River banner + CTA, career chain SVG, 4 case studies |
+| `redesign/method.html` | 6 diagnostic questions, Duct Tape/Drano, animated skill bars |
+| `redesign/about.html` | 8-section page with all 6 AC section banners |
+| `redesign/career-river.html` | AC river illustration — 4 career stops |
+| `redesign/career-excitement.html` | Bubble chart: excitement per role |
+| `redesign/dual-timeline.html` | Horizontal dual-track timeline |
+| `redesign/work-quadrant.html` | 2×2 quadrant: creative freedom vs social intensity |
+| `redesign/personal-evolution.html` | Stacked bar: energy by career era |
+| `redesign/favorite-tools.html` | Stacked bar: tools used per era |
+| `redesign/books-bubble.html` | Scatter: books by genre vs engagement |
+| `redesign/inspiration-donut.html` | Radial donut: inspiration segments |
+| `redesign/game-of-life.html` | Board game path of career milestones |
+| `redesign/gradient-circles.html` | Circles sized by years per role |
+| `redesign/dark-arc-timeline.html` | Dark charcoal arc timeline |
+| `redesign/portrait-infographic.html` | Tall single-column infographic |
+| `redesign/impact-scale.html` | Concentric circles: reach per role |
+| `redesign/skills-radar.html` | 8-axis radar: 2006 vs now |
 
 ## Design tokens (in every page's `:root`)
 
@@ -31,6 +54,23 @@ The site foregrounds **project leadership** — Nabil's ability to walk into amb
 
 Fonts: **Playfair Display** (headings, serif) + **Nunito** (body, sans)
 
+## Visual theme
+
+The redesign uses an **Animal Crossing** visual theme — illustrated character portrait, section banner images, and an AC-style career river. All AC imagery lives in `inspiration_samples/`.
+
+### Key images
+
+| File | Use |
+|------|-----|
+| `inspiration_samples/ProfilePicture.jpeg` | Hero portrait — full-body AC character illustration of Nabil |
+| `inspiration_samples/CareerRiver.png` | Career River page + work.html banner |
+| `inspiration_samples/AboutHero.png` | about.html — "The Human Behind the Projects" banner |
+| `inspiration_samples/ThreePillars5.png` | about.html — "Three Things I Always Bring" banner (cherry blossom) |
+| `inspiration_samples/TeachingScene2.png` | about.html — "One More Thing" banner |
+| `inspiration_samples/ThingsILove3.png` | about.html — "Things I Love" banner (black cat) |
+| `inspiration_samples/Testimonials2.png` | about.html — "What People Say" banner |
+| `inspiration_samples/Education3.png` | about.html — "Education & Certifications" banner |
+
 ## Inspiration research
 
 See `Inspiration.md` for full notes. Key reference designers:
@@ -43,4 +83,4 @@ Inspiration files: `inspiration_samples/` folder (screenshots + PDFs)
 
 ## Branch
 
-Active development: `claude/redesign-personal-website-oIzoy`
+Active development: `claude/review-project-status-Ru30x`
