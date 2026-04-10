@@ -51,9 +51,9 @@ Section thumbnails live in `redesign/` (same folder as HTML). Referenced with si
 | `redesign/ThreePillars.png` | about.html — "Three Things I Always Bring" |
 | `redesign/ThingsILove.png` | about.html — "Things I Love" |
 | `redesign/Testimonials.png` | testimonials.html — "What People Say" |
-| `redesign/Education.png` | testimonials.html — "Education & Certifications" (PENDING upload) |
-| `redesign/TeachingScene.png` | about.html — "One More Thing" (PENDING upload) |
-| `inspiration_samples/ProfilePicture.jpeg` | about.html hero avatar (needs to move to redesign/) |
+| `redesign/Education.png` | testimonials.html — "Education & Certifications" |
+| `redesign/TeachingScene.png` | about.html — "One More Thing" |
+| `redesign/ProfilePicture.jpeg` | about.html hero avatar |
 | `inspiration_samples/CareerRiver.png` | work.html career river illustration |
 
 ## Inspiration research
