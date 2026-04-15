@@ -59,19 +59,19 @@
     .section-h h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.7rem, 3.5vw, 2.4rem); font-weight: 900; color: var(--text); }
     .section-tag { background: var(--warm2); border: 1.5px solid var(--border); border-radius: 99px; padding: 3px 14px; font-size: .7rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
 
-    /* ── Questions ────────────────────────────────────────── */
-    .q-phase-label { font-size: .72rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem; }
-    .q-phase-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-    .question-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--border); border: 2px solid var(--border); border-radius: var(--r); overflow: hidden; margin-bottom: 1.5rem; }
-    @media (max-width: 720px) { .question-grid { grid-template-columns: 1fr; } }
-    .q-card { background: var(--surface); padding: 2rem; }
-    .q-card.phase2 { background: var(--warm); }
-    .q-num { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 900; line-height: 1; margin-bottom: .75rem; opacity: .18; }
-    .q-text { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-style: italic; color: var(--text); line-height: 1.5; margin-bottom: .75rem; }
-    .q-note { font-size: .8rem; color: var(--muted); line-height: 1.6; }
-    .q-bridge { display: flex; align-items: center; gap: 1.5rem; margin: 0 0 1.5rem; }
-    .q-bridge::before, .q-bridge::after { content: ''; flex: 1; border-top: 1.5px dashed var(--border); }
-    .q-bridge-text { font-size: .78rem; font-weight: 700; color: var(--muted); white-space: nowrap; padding: 6px 16px; border: 1px solid var(--border); border-radius: 99px; }
+    /* ── Diagnostic Funnel ─────────────────────────────────── */
+    .funnel { display: flex; flex-direction: column; align-items: center; gap: 0; max-width: 740px; margin: 0 auto; }
+    .funnel-step { position: relative; width: 100%; display: grid; grid-template-columns: 3.5rem 1fr; gap: 0; }
+    .funnel-rail { display: flex; flex-direction: column; align-items: center; }
+    .funnel-dot { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: .85rem; font-weight: 900; color: #fff; flex-shrink: 0; }
+    .funnel-line { flex: 1; width: 2px; background: var(--border); }
+    .funnel-step:last-child .funnel-line { background: transparent; }
+    .funnel-content { padding: 4px 0 32px 20px; }
+    .funnel-q { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-style: italic; font-weight: 700; color: var(--text); line-height: 1.45; margin-bottom: 6px; }
+    .funnel-note { font-size: .82rem; color: var(--muted); line-height: 1.6; }
+    .funnel-arrow { text-align: center; padding: 4px 0 8px; }
+    .funnel-arrow-text { font-size: .72rem; font-weight: 700; color: var(--muted); letter-spacing: .1em; text-transform: uppercase; padding: 5px 16px; border: 1px solid var(--border); border-radius: 99px; display: inline-block; }
+    @media (max-width: 600px) { .funnel-content { padding: 4px 0 24px 14px; } }
 
     /* ── Duct Tape / Drano ────────────────────────────────── */
     .dt-drano { display: grid; grid-template-columns: 1fr 1fr; border: 1.5px solid var(--border); border-radius: var(--r); overflow: hidden; }
@@ -139,53 +139,72 @@
 
 <main class="page">
 
-  <!-- The Questions I Always Ask -->
+  <!-- The Questions I Always Ask — Diagnostic Funnel -->
   <section>
     <div class="section-h">
       <h2>The Questions I Always Ask.</h2>
-      <span class="section-tag">diagnostic toolkit</span>
+      <span class="section-tag">diagnostic funnel</span>
     </div>
 
-    <div class="q-phase-label">Phase 1 — Opening</div>
-    <div class="question-grid">
-      <div class="q-card">
-        <div class="q-num" style="color:var(--coral)">01</div>
-        <div class="q-text">It's six months from now. You are really happy. What has changed?</div>
-        <div class="q-note">This is where we start. The answer tells me everything about what actually matters.</div>
-      </div>
-      <div class="q-card">
-        <div class="q-num" style="color:var(--coral)">02</div>
-        <div class="q-text">What is keeping you from getting your work done?</div>
-        <div class="q-note">Not what you want to build — what's in the way right now.</div>
-      </div>
-      <div class="q-card">
-        <div class="q-num" style="color:var(--coral)">03</div>
-        <div class="q-text">What terrible, manual task do you absolutely hate doing?</div>
-        <div class="q-note">This is where automation and process redesign live.</div>
-      </div>
-    </div>
+    <div class="funnel">
 
-    <div class="q-bridge">
-      <span class="q-bridge-text">↓ then I go deeper ↓</span>
-    </div>
+      <div class="funnel-step">
+        <div class="funnel-rail">
+          <div class="funnel-dot" style="background:var(--coral)">1</div>
+          <div class="funnel-line"></div>
+        </div>
+        <div class="funnel-content">
+          <div class="funnel-q">It's six months from now. You are really happy. What has changed?</div>
+          <div class="funnel-note">This is where we start. The answer tells me everything about what actually matters.</div>
+        </div>
+      </div>
 
-    <div class="q-phase-label">Phase 2 — Diagnosis</div>
-    <div class="question-grid">
-      <div class="q-card phase2">
-        <div class="q-num" style="color:var(--lavender)">04</div>
-        <div class="q-text">What's getting in your way?</div>
-        <div class="q-note">Not the work itself — the friction around it. Dependencies, approvals, the things that shouldn't be hard but are.</div>
+      <div class="funnel-step">
+        <div class="funnel-rail">
+          <div class="funnel-dot" style="background:var(--coral)">2</div>
+          <div class="funnel-line"></div>
+        </div>
+        <div class="funnel-content">
+          <div class="funnel-q">What's in your way — and what makes it hard?</div>
+          <div class="funnel-note">Not what you want to build — what's blocking you right now. Dependencies, approvals, friction that shouldn't be there.</div>
+        </div>
       </div>
-      <div class="q-card phase2">
-        <div class="q-num" style="color:var(--teal)">05</div>
-        <div class="q-text">What do you need to know to fix that?</div>
-        <div class="q-note">I want to understand the information gap, not just the symptom. What data, clarity, or decision is missing?</div>
+
+      <div class="funnel-step">
+        <div class="funnel-rail">
+          <div class="funnel-dot" style="background:var(--mustard)">3</div>
+          <div class="funnel-line"></div>
+        </div>
+        <div class="funnel-content">
+          <div class="funnel-q">What terrible, manual task do you absolutely hate doing?</div>
+          <div class="funnel-note">This is where automation and process redesign live.</div>
+        </div>
       </div>
-      <div class="q-card phase2">
-        <div class="q-num" style="color:var(--mustard)">06</div>
-        <div class="q-text">What does the team already know that executives need to be convinced of?</div>
-        <div class="q-note">Practitioners see the problem clearly. The challenge is making it legible upward — and that's a translation job.</div>
+
+      <div class="funnel-arrow"><span class="funnel-arrow-text">then I go deeper</span></div>
+
+      <div class="funnel-step">
+        <div class="funnel-rail">
+          <div class="funnel-dot" style="background:var(--teal)">4</div>
+          <div class="funnel-line"></div>
+        </div>
+        <div class="funnel-content">
+          <div class="funnel-q">What do you need to know to fix that?</div>
+          <div class="funnel-note">I want to understand the information gap, not just the symptom. What data, clarity, or decision is missing?</div>
+        </div>
       </div>
+
+      <div class="funnel-step">
+        <div class="funnel-rail">
+          <div class="funnel-dot" style="background:var(--lavender)">5</div>
+          <div class="funnel-line"></div>
+        </div>
+        <div class="funnel-content">
+          <div class="funnel-q">What does the team already know that leadership needs to hear?</div>
+          <div class="funnel-note">Practitioners see the problem clearly. The challenge is making it legible upward — and that's a translation job.</div>
+        </div>
+      </div>
+
     </div>
   </section>
 
