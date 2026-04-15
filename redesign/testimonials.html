@@ -134,25 +134,6 @@
     .t-quote { font-size: clamp(.9rem, 1.5vw, 1.02rem); font-weight: 600; color: var(--text); line-height: 1.75; }
     .t-quote.featured { font-family: 'Playfair Display', serif; font-size: clamp(1rem, 1.8vw, 1.15rem); font-weight: 700; font-style: italic; }
 
-    /* ── Education / Certs ────────────────────────────────── */
-    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; }
-    @media (max-width: 720px) { .two-col { grid-template-columns: 1fr; gap: 40px; } }
-    .col-label { font-size: .7rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-bottom: 20px; }
-    .edu-list, .cert-list { display: flex; flex-direction: column; gap: 0; }
-    .edu-item { padding: 16px 0; border-bottom: 1px solid var(--border); }
-    .edu-item:first-child { padding-top: 0; }
-    .edu-item:last-child { border-bottom: none; }
-    .edu-school { font-size: .94rem; font-weight: 700; color: var(--text); margin-bottom: 3px; }
-    .edu-degree { font-size: .84rem; color: var(--teal); font-weight: 600; margin-bottom: 2px; }
-    .edu-year { font-size: .76rem; color: var(--muted); }
-    .edu-badge { display: inline-block; background: var(--must-lt); color: var(--mustard); border: 1px solid rgba(212,146,10,.25); border-radius: 3px; font-size: .6rem; font-weight: 700; padding: 1px 6px; letter-spacing: .06em; text-transform: uppercase; vertical-align: middle; margin-left: 4px; }
-    .cert-item { display: flex; align-items: flex-start; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--border); }
-    .cert-item:first-child { padding-top: 0; }
-    .cert-item:last-child { border-bottom: none; }
-    .cert-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 1px; }
-    .cert-name { font-size: .9rem; font-weight: 700; color: var(--text); }
-    .cert-sub { font-size: .76rem; color: var(--muted); margin-top: 2px; }
-
     /* ── Footer ───────────────────────────────────────────── */
     footer { border-top: 1.5px solid var(--border); padding: 60px 28px; text-align: center; }
     .footer-inner { max-width: 560px; margin: 0 auto; }
@@ -183,7 +164,7 @@
   <div class="hero-inner">
     <div class="hero-kicker"><span class="hero-kicker-line"></span>In Their Words</div>
     <h1 class="hero-title">What People <em>Say</em></h1>
-    <p class="hero-sub">From colleagues, managers, and friends — across twenty years and half a dozen roles. Plus the education and credentials behind the work.</p>
+    <p class="hero-sub">From colleagues, managers, and friends — across twenty years and half a dozen roles.</p>
   </div>
 </section>
 
@@ -201,18 +182,18 @@
     <div class="testimonials-list">
 
       <div class="t-item">
-        <div class="t-avatar">BG</div>
+        <div class="t-avatar">RM</div>
         <div>
-          <div class="t-who"><strong>Brianna Gamp</strong> · Information Security Leader</div>
-          <div class="t-quote featured">"He has the unique ability to walk into an ambiguous situation, quickly grasp the key milestones and action items, identify technical needs that have not been addressed, and get results — all while getting a smile out of everyone in the room."</div>
+          <div class="t-who"><strong>Robert Mooney</strong> · Principal Security Architect</div>
+          <div class="t-quote featured">"He's a natural. He takes a large amount of disparate and easily confused data and packages it into an easily understood, easily communicated snapshot of progress. He knows how to ask the right questions and does not relent until he has a clear understanding — but he's not a nuisance to the busy engineer. He has a genuine concern for others."</div>
         </div>
       </div>
 
       <div class="t-item">
-        <div class="t-avatar">RM</div>
+        <div class="t-avatar">CW</div>
         <div>
-          <div class="t-who"><strong>Robert Mooney</strong> · Principal Security Architect</div>
-          <div class="t-quote">"He's a natural. He takes a large amount of disparate and easily confused data and packages it into an easily understood, easily communicated snapshot of progress. He knows how to ask the right questions and does not relent until he has a clear understanding — but he's not a nuisance to the busy engineer. He has a genuine concern for others."</div>
+          <div class="t-who"><strong>Chris Winter</strong> · Manager</div>
+          <div class="t-quote featured">"He brought a level of humanity to our team that we sometimes forget. When he leaves, we'll go back to being robots."</div>
         </div>
       </div>
 
@@ -225,10 +206,10 @@
       </div>
 
       <div class="t-item">
-        <div class="t-avatar">CW</div>
+        <div class="t-avatar">FL</div>
         <div>
-          <div class="t-who"><strong>Chris Winter</strong> · Manager</div>
-          <div class="t-quote featured">"He brought a level of humanity to our team that we sometimes forget. When he leaves, we'll go back to being robots."</div>
+          <div class="t-who"><strong>Faron Lyons</strong> · Enterprise Account Manager</div>
+          <div class="t-quote">"Nabil does much more than translate geek speak; he is able to lead. My experience with him has left me confident that any project under his responsibility will end successfully."</div>
         </div>
       </div>
 
@@ -249,54 +230,6 @@
       </div>
 
       <div class="t-item">
-        <div class="t-avatar">WD</div>
-        <div>
-          <div class="t-who"><strong>Wanda Davis</strong> · Senior Technical Writer · eBay</div>
-          <div class="t-quote">"He was an excellent Project Manager for the Security Information Architecture Team at eBay. He promoted departmental services by participating on several cross-functional teams to ensure that security architecture was built into new agile developer projects and services. As a result, he was well connected as a Project Manager to gather resources when they were needed as subject matter experts or as volunteers for new projects."</div>
-        </div>
-      </div>
-
-      <div class="t-item">
-        <div class="t-avatar">FL</div>
-        <div>
-          <div class="t-who"><strong>Faron Lyons</strong> · Enterprise Account Manager</div>
-          <div class="t-quote">"Nabil does much more than translate geek speak; he is able to lead. My experience with him has left me confident that any project under his responsibility will end successfully."</div>
-        </div>
-      </div>
-
-      <div class="t-item">
-        <div class="t-avatar">KS</div>
-        <div>
-          <div class="t-who"><strong>Karina Sanz</strong> · Senior Product Manager</div>
-          <div class="t-quote">"A knowledgeable Product/Program Manager with a sense of ownership. He has broad experience transforming business and design requirements into product specifications. He is organized with extremely high attention to detail, able to manage multiple time-sensitive projects. He has demonstrated success managing priorities and personalities in cross-functional teams."</div>
-        </div>
-      </div>
-
-      <div class="t-item">
-        <div class="t-avatar">SB</div>
-        <div>
-          <div class="t-who"><strong>Salathiel Bluitt</strong> · Program and Operations Specialist · Accenture</div>
-          <div class="t-quote">"He is a hard-working self-starter who invariably understands exactly what a project is all about from the outset, and how to get it done quickly and effectively. He is a resourceful, creative, and solution-oriented person who was frequently able to come up with new and innovative approaches to his assigned projects. In his two years as Enterprise Application Administrator, I cannot remember an instance in which he missed a major deadline."</div>
-        </div>
-      </div>
-
-      <div class="t-item">
-        <div class="t-avatar">CW</div>
-        <div>
-          <div class="t-who"><strong>Cliff Winnig</strong></div>
-          <div class="t-quote">"Resilience, empathy, and consistently logical thinking."</div>
-        </div>
-      </div>
-
-      <div class="t-item">
-        <div class="t-avatar">SG</div>
-        <div>
-          <div class="t-who"><strong>Séain Gutridge</strong></div>
-          <div class="t-quote">"You're very excellent at seeing things in ways that others do not. You have logic down cold. You are good at objectivity."</div>
-        </div>
-      </div>
-
-      <div class="t-item">
         <div class="t-avatar">I</div>
         <div>
           <div class="t-who"><strong>Ipsita</strong> · MS Cohort, Saint Mary's College</div>
@@ -304,97 +237,9 @@
         </div>
       </div>
 
-      <div class="t-item">
-        <div class="t-avatar">T</div>
-        <div>
-          <div class="t-who"><strong>Tom</strong> · Family friend</div>
-          <div class="t-quote">"You could feel the compassion and love he has for people."</div>
-        </div>
-      </div>
-
-      <div class="t-item">
-        <div class="t-avatar">L</div>
-        <div>
-          <div class="t-who"><strong>Laura</strong> · Friend</div>
-          <div class="t-quote">"My smarts and my bounce — like Tigger."</div>
-        </div>
-      </div>
-
     </div>
   </section>
 
-  <!-- Education & Certifications -->
-  <section>
-    <div class="section-intro">
-      <div class="section-h">
-        <h2>Education &amp; Certifications</h2>
-        <span class="section-tag">background</span>
-      </div>
-      <img class="section-thumb" src="Education.png" alt="Education and Certifications">
-    </div>
-    <div class="two-col">
-
-      <div>
-        <div class="col-label">Education</div>
-        <div class="edu-list">
-          <div class="edu-item">
-            <div class="edu-school">Saint Mary's College of California <span class="edu-badge">Honors</span></div>
-            <div class="edu-degree">MS, Business Analytics</div>
-            <div class="edu-year">2021 – 2022</div>
-          </div>
-          <div class="edu-item">
-            <div class="edu-school">George Mason University</div>
-            <div class="edu-degree">MS, Information Systems</div>
-          </div>
-          <div class="edu-item">
-            <div class="edu-school">UC Berkeley</div>
-            <div class="edu-degree">Certificate, Data Analytics</div>
-            <div class="edu-year">2018 – 2019</div>
-          </div>
-          <div class="edu-item">
-            <div class="edu-school">University of Chicago</div>
-            <div class="edu-degree">BA, English Literature</div>
-            <div class="edu-year">Where it all began.</div>
-          </div>
-        </div>
-      </div>
-
-      <div>
-        <div class="col-label">Certifications</div>
-        <div class="cert-list">
-          <div class="cert-item">
-            <span class="cert-icon">☁️</span>
-            <div>
-              <div class="cert-name">Google Cloud Essentials</div>
-              <div class="cert-sub">Google Cloud</div>
-            </div>
-          </div>
-          <div class="cert-item">
-            <span class="cert-icon">🤖</span>
-            <div>
-              <div class="cert-name">Baseline: Data, ML &amp; AI</div>
-              <div class="cert-sub">Google</div>
-            </div>
-          </div>
-          <div class="cert-item">
-            <span class="cert-icon">🔬</span>
-            <div>
-              <div class="cert-name">Scientific Data Processing</div>
-              <div class="cert-sub">Microsoft 365</div>
-            </div>
-          </div>
-          <div class="cert-item">
-            <span class="cert-icon">📊</span>
-            <div>
-              <div class="cert-name">Microsoft Excel</div>
-              <div class="cert-sub">Microsoft 365 Apps &amp; Office 2019</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
 
 </main>
 
