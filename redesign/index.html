@@ -183,6 +183,12 @@
     .section-h h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 900; color: var(--text); }
     .section-tag { background: var(--warm2); border: 1.5px solid var(--border); border-radius: 99px; padding: 3px 14px; font-size: .7rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
 
+    /* ── Section thumbnails ───────────────────────────────── */
+    .section-intro { display: flex; align-items: flex-start; gap: 24px; margin-bottom: 32px; }
+    .section-intro .section-h { flex: 1; margin-bottom: 0; }
+    .section-thumb { width: 200px; height: auto; border-radius: 12px; box-shadow: 0 3px 16px rgba(0,0,0,0.13); flex-shrink: 0; }
+    @media (max-width: 640px) { .section-intro { flex-direction: column-reverse; } .section-thumb { width: 100%; } }
+
     /* ── About blurb ─────────────────────────────────────── */
     .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
     @media (max-width: 700px) { .about-grid { grid-template-columns: 1fr; gap: 32px; } }
@@ -311,9 +317,12 @@
 
   <!-- About -->
   <section>
-    <div class="section-h">
-      <h2>The work, briefly</h2>
-      <span class="section-tag">background</span>
+    <div class="section-intro">
+      <div class="section-h">
+        <h2>The work, briefly</h2>
+        <span class="section-tag">background</span>
+      </div>
+      <img class="section-thumb" src="ThingsILove.png" alt="Things Nabil loves — cats, tea, books, San Francisco">
     </div>
     <div class="about-grid">
       <div>
