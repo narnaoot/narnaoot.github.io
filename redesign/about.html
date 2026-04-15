@@ -198,26 +198,6 @@
     }
     .vignette-text em { font-style: italic; color: var(--lavender); }
 
-    /* ── Things I Love grid ───────────────────────────────── */
-    .love-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
-    @media (max-width: 780px) { .love-grid { grid-template-columns: repeat(3, 1fr); } }
-    @media (max-width: 480px) { .love-grid { grid-template-columns: repeat(2, 1fr); } }
-    .love-item {
-      background: var(--surface);
-      border: 1.5px solid var(--border);
-      border-radius: var(--r);
-      padding: 20px 16px;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-      transition: transform .2s, box-shadow .2s;
-    }
-    .love-item:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,.07); }
-    .love-icon { font-size: 2rem; line-height: 1; }
-    .love-label { font-size: .75rem; font-weight: 700; color: var(--text); line-height: 1.3; }
-
     /* ── Testimonials ─────────────────────────────────────── */
     .testimonials-list { display: flex; flex-direction: column; gap: 0; }
     .t-item { padding: 36px 0; border-bottom: 1px solid var(--border); display: grid; grid-template-columns: 3rem 1fr; gap: 24px; }
@@ -427,34 +407,8 @@
         While earning my MS in Business Analytics, I ended up becoming as much a teacher as a student.
         Cohort members would find me before exams, after lectures, in the spaces between.
         Not because I had all the answers — but because I had a way of <em>re-asking the question</em>
-        until the concept clicked. "I really appreciate the way you explain,
-        the way you solve a problem, the way you help us and the way you talk.
-        I've learned a lot of things from you."
-        — Ipsita, MS cohort member
+        until the concept clicked. That instinct — translating complexity until it lands — is the same one I bring to every project.
       </p>
-    </div>
-  </section>
-
-  <!-- Things I Love -->
-  <section>
-    <div class="section-intro">
-      <div class="section-h">
-        <h2>Things I Love</h2>
-        <span class="section-tag">the person</span>
-      </div>
-      <img class="section-thumb" src="ThingsILove.png" alt="Things I Love">
-    </div>
-    <div class="love-grid">
-      <div class="love-item"><div class="love-icon">🐱</div><div class="love-label">Feral cats who learn to trust</div></div>
-      <div class="love-item"><div class="love-icon">🍵</div><div class="love-label">Tea (always)</div></div>
-      <div class="love-item"><div class="love-icon">📚</div><div class="love-label">Books that reframe things</div></div>
-      <div class="love-item"><div class="love-icon">🌉</div><div class="love-label">San Francisco</div></div>
-      <div class="love-item"><div class="love-icon">✏️</div><div class="love-label">A blank whiteboard</div></div>
-      <div class="love-item"><div class="love-icon">🚌</div><div class="love-label">Public transit systems</div></div>
-      <div class="love-item"><div class="love-icon">🎯</div><div class="love-label">The right question</div></div>
-      <div class="love-item"><div class="love-icon">🗣️</div><div class="love-label">A room that just clicked</div></div>
-      <div class="love-item"><div class="love-icon">🌱</div><div class="love-label">Watching people grow</div></div>
-      <div class="love-item"><div class="love-icon">∞</div><div class="love-label">0 → 1 problems</div></div>
     </div>
   </section>
 
