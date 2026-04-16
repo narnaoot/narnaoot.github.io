@@ -66,12 +66,11 @@
     .funnel-dot { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: .85rem; font-weight: 900; color: #fff; flex-shrink: 0; }
     .funnel-line { flex: 1; width: 2px; background: var(--border); }
     .funnel-step:last-child .funnel-line { background: transparent; }
-    .funnel-content { padding: 4px 0 32px 20px; }
-    .funnel-q { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-style: italic; font-weight: 700; color: var(--text); line-height: 1.45; margin-bottom: 6px; }
-    .funnel-note { font-size: .82rem; color: var(--muted); line-height: 1.6; }
-    .funnel-arrow { text-align: center; padding: 4px 0 8px; }
-    .funnel-arrow-text { font-size: .72rem; font-weight: 700; color: var(--muted); letter-spacing: .1em; text-transform: uppercase; padding: 5px 16px; border: 1px solid var(--border); border-radius: 99px; display: inline-block; }
-    @media (max-width: 600px) { .funnel-content { padding: 4px 0 24px 14px; } }
+    .funnel-content { padding: 4px 0 40px 20px; }
+    .funnel-label { font-size: .68rem; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+    .funnel-q { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-style: italic; font-weight: 700; color: var(--text); line-height: 1.5; margin-bottom: 8px; }
+    .funnel-note { font-size: .88rem; color: var(--muted); line-height: 1.65; }
+    @media (max-width: 600px) { .funnel-content { padding: 4px 0 32px 14px; } }
 
     /* ── Duct Tape / Drano ────────────────────────────────── */
     .dt-drano { display: grid; grid-template-columns: 1fr 1fr; border: 1.5px solid var(--border); border-radius: var(--r); overflow: hidden; }
@@ -119,9 +118,7 @@
     .toolkit-col-sub { font-size: .75rem; color: var(--muted); margin-top: 2px; }
     .skill-row { margin-bottom: 1rem; }
     .skill-row:last-child { margin-bottom: 0; }
-    .skill-label-row { display: flex; justify-content: space-between; margin-bottom: 5px; }
-    .skill-label { font-size: .82rem; font-weight: 600; color: var(--text); }
-    .skill-pct { font-size: .72rem; font-weight: 700; color: var(--muted); }
+    .skill-label { font-size: .85rem; font-weight: 700; color: var(--text); margin-bottom: 6px; }
     .skill-track { width: 100%; height: 4px; background: var(--border); border-radius: 99px; overflow: hidden; }
     .skill-fill { height: 100%; border-radius: 99px; width: 0%; transition: width 1.1s cubic-bezier(.4,0,.2,1); }
 
@@ -154,17 +151,17 @@
   <div class="hero-inner">
     <div class="hero-kicker"><span class="hero-kicker-line"></span>My Process</div>
     <h1 class="hero-title">How I <em>Work</em></h1>
-    <p class="hero-sub">The questions I always ask, the two kinds of projects I tackle, and the toolkit I bring to every engagement.</p>
+    <p class="hero-sub">The same pattern, project after project: ask until the real problem surfaces, pick the right tool, know when I'm in the zone.</p>
   </div>
 </section>
 
 <main class="page">
 
-  <!-- The Questions I Always Ask — Diagnostic Funnel -->
+  <!-- Three Moves — Diagnostic Funnel -->
   <section>
     <div class="section-h">
-      <h2>The Questions I Always Ask.</h2>
-      <span class="section-tag">diagnostic funnel</span>
+      <h2>Three Moves, Every Time.</h2>
+      <span class="section-tag">diagnostic</span>
     </div>
 
     <div class="funnel">
@@ -175,54 +172,33 @@
           <div class="funnel-line"></div>
         </div>
         <div class="funnel-content">
-          <div class="funnel-q">It's six months from now. You are really happy. What has changed?</div>
-          <div class="funnel-note">This is where we start. The answer tells me everything about what actually matters.</div>
+          <div class="funnel-label">Define</div>
+          <div class="funnel-q">"It's six months from now. You are really happy. What has changed?"</div>
+          <div class="funnel-note">The answer reveals what actually matters — not the problem that was handed to me, the one worth solving.</div>
         </div>
       </div>
 
       <div class="funnel-step">
         <div class="funnel-rail">
-          <div class="funnel-dot" style="background:var(--coral)">2</div>
+          <div class="funnel-dot" style="background:var(--mustard)">2</div>
           <div class="funnel-line"></div>
         </div>
         <div class="funnel-content">
-          <div class="funnel-q">What's in your way — and what makes it hard?</div>
-          <div class="funnel-note">Not what you want to build — what's blocking you right now. Dependencies, approvals, friction that shouldn't be there.</div>
+          <div class="funnel-label">Diagnose</div>
+          <div class="funnel-q">"What's actually in your way? The manual task you dread, the approval stuck somewhere, the data you don't have?"</div>
+          <div class="funnel-note">Stated blockers are rarely the real ones. I keep asking until the friction surfaces — because that's where process, automation, and information gaps hide.</div>
         </div>
       </div>
 
       <div class="funnel-step">
         <div class="funnel-rail">
-          <div class="funnel-dot" style="background:var(--mustard)">3</div>
+          <div class="funnel-dot" style="background:var(--lavender)">3</div>
           <div class="funnel-line"></div>
         </div>
         <div class="funnel-content">
-          <div class="funnel-q">What terrible, manual task do you absolutely hate doing?</div>
-          <div class="funnel-note">This is where automation and process redesign live.</div>
-        </div>
-      </div>
-
-      <div class="funnel-arrow"><span class="funnel-arrow-text">then I go deeper</span></div>
-
-      <div class="funnel-step">
-        <div class="funnel-rail">
-          <div class="funnel-dot" style="background:var(--teal)">4</div>
-          <div class="funnel-line"></div>
-        </div>
-        <div class="funnel-content">
-          <div class="funnel-q">What do you need to know to fix that?</div>
-          <div class="funnel-note">I want to understand the information gap, not just the symptom. What data, clarity, or decision is missing?</div>
-        </div>
-      </div>
-
-      <div class="funnel-step">
-        <div class="funnel-rail">
-          <div class="funnel-dot" style="background:var(--lavender)">5</div>
-          <div class="funnel-line"></div>
-        </div>
-        <div class="funnel-content">
-          <div class="funnel-q">What does the team already know that leadership needs to hear?</div>
-          <div class="funnel-note">Practitioners see the problem clearly. The challenge is making it legible upward — and that's a translation job.</div>
+          <div class="funnel-label">Translate</div>
+          <div class="funnel-q">"What does the team already know that leadership needs to hear?"</div>
+          <div class="funnel-note">Practitioners see the problem clearly. Making it legible upward — and legible across functions — is where most of my value lands.</div>
         </div>
       </div>
 
@@ -320,19 +296,19 @@
           </div>
         </div>
         <div class="skill-row">
-          <div class="skill-label-row"><span class="skill-label">Project Management</span><span class="skill-pct">92%</span></div>
+          <div class="skill-label">Project Management</div>
           <div class="skill-track"><div class="skill-fill" data-width="92" style="background:var(--teal)"></div></div>
         </div>
         <div class="skill-row">
-          <div class="skill-label-row"><span class="skill-label">Process Design</span><span class="skill-pct">95%</span></div>
+          <div class="skill-label">Process Design</div>
           <div class="skill-track"><div class="skill-fill" data-width="95" style="background:var(--teal)"></div></div>
         </div>
         <div class="skill-row">
-          <div class="skill-label-row"><span class="skill-label">Agile / Scrum</span><span class="skill-pct">88%</span></div>
+          <div class="skill-label">Agile / Scrum</div>
           <div class="skill-track"><div class="skill-fill" data-width="88" style="background:var(--teal)"></div></div>
         </div>
         <div class="skill-row">
-          <div class="skill-label-row"><span class="skill-label">Gap Analysis</span><span class="skill-pct">96%</span></div>
+          <div class="skill-label">Gap Analysis</div>
           <div class="skill-track"><div class="skill-fill" data-width="96" style="background:var(--teal)"></div></div>
         </div>
       </div>
@@ -346,19 +322,19 @@
           </div>
         </div>
         <div class="skill-row">
-          <div class="skill-label-row"><span class="skill-label">Stakeholder Mgmt</span><span class="skill-pct">98%</span></div>
+          <div class="skill-label">Stakeholder Mgmt</div>
           <div class="skill-track"><div class="skill-fill" data-width="98" style="background:var(--lavender)"></div></div>
         </div>
         <div class="skill-row">
-          <div class="skill-label-row"><span class="skill-label">Technical Writing</span><span class="skill-pct">95%</span></div>
+          <div class="skill-label">Technical Writing</div>
           <div class="skill-track"><div class="skill-fill" data-width="95" style="background:var(--lavender)"></div></div>
         </div>
         <div class="skill-row">
-          <div class="skill-label-row"><span class="skill-label">Cross-functional</span><span class="skill-pct">97%</span></div>
+          <div class="skill-label">Cross-functional</div>
           <div class="skill-track"><div class="skill-fill" data-width="97" style="background:var(--lavender)"></div></div>
         </div>
         <div class="skill-row">
-          <div class="skill-label-row"><span class="skill-label">Executive Comms</span><span class="skill-pct">93%</span></div>
+          <div class="skill-label">Executive Comms</div>
           <div class="skill-track"><div class="skill-fill" data-width="93" style="background:var(--lavender)"></div></div>
         </div>
       </div>
@@ -372,19 +348,19 @@
           </div>
         </div>
         <div class="skill-row">
-          <div class="skill-label-row"><span class="skill-label">Translating Complexity</span><span class="skill-pct">97%</span></div>
+          <div class="skill-label">Translating Complexity</div>
           <div class="skill-track"><div class="skill-fill" data-width="97" style="background:var(--coral)"></div></div>
         </div>
         <div class="skill-row">
-          <div class="skill-label-row"><span class="skill-label">Requirements Analysis</span><span class="skill-pct">95%</span></div>
+          <div class="skill-label">Requirements Analysis</div>
           <div class="skill-track"><div class="skill-fill" data-width="95" style="background:var(--coral)"></div></div>
         </div>
         <div class="skill-row">
-          <div class="skill-label-row"><span class="skill-label">SQL / Python / R</span><span class="skill-pct">85%</span></div>
+          <div class="skill-label">SQL / Python / R</div>
           <div class="skill-track"><div class="skill-fill" data-width="85" style="background:var(--coral)"></div></div>
         </div>
         <div class="skill-row">
-          <div class="skill-label-row"><span class="skill-label">Visualization</span><span class="skill-pct">90%</span></div>
+          <div class="skill-label">Visualization</div>
           <div class="skill-track"><div class="skill-fill" data-width="90" style="background:var(--coral)"></div></div>
         </div>
       </div>
