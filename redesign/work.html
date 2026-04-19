@@ -77,10 +77,52 @@
     .river-cta-btn { display: inline-block; background: var(--teal); color: #fff; font-size: .82rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; padding: 12px 28px; border-radius: 99px; text-decoration: none; white-space: nowrap; transition: opacity .15s; flex-shrink: 0; }
     .river-cta-btn:hover { opacity: .85; }
 
-    /* ── Career chain ─────────────────────────────────────── */
-    .chain-outer { border: 1.5px solid var(--border); border-radius: var(--r); background: var(--bg); padding: 24px 20px 18px; overflow-x: auto; margin-bottom: 12px; }
-    #chainSvg { min-width: 820px; width: 100%; height: auto; display: block; }
-    .chain-caption { font-size: .84rem; color: var(--muted); font-style: italic; }
+    /* ── Career timeline ──────────────────────────────────── */
+    .career-timeline {
+      border: 1.5px solid var(--border);
+      border-radius: var(--r);
+      background: var(--bg);
+      padding: 36px 28px 28px;
+      overflow-x: auto;
+    }
+    .ct-rail {
+      display: flex;
+      align-items: flex-start;
+      min-width: 680px;
+      position: relative;
+    }
+    .ct-rail::before {
+      content: '';
+      position: absolute;
+      top: 22px; left: 22px; right: 22px;
+      height: 2px;
+      background: var(--border);
+      z-index: 0;
+    }
+    .ct-node {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      flex: 1;
+      position: relative;
+      z-index: 1;
+    }
+    .ct-dot {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+      margin-bottom: 14px;
+      border: 3px solid var(--bg);
+      box-shadow: 0 2px 10px rgba(0,0,0,.12);
+      flex-shrink: 0;
+    }
+    .ct-dot.current { box-shadow: 0 0 0 4px rgba(45,181,168,.25), 0 2px 10px rgba(0,0,0,.12); }
+    .ct-company { font-family: 'Playfair Display', serif; font-size: .95rem; font-weight: 700; color: var(--text); margin-bottom: 3px; }
+    .ct-role { font-size: .72rem; color: var(--muted); line-height: 1.4; margin-bottom: 5px; max-width: 110px; }
+    .ct-yrs { font-size: .65rem; font-weight: 800; letter-spacing: .08em; color: var(--muted); text-transform: uppercase; }
+    .ct-badge { display: inline-block; background: var(--teal); color: #fff; font-size: .55rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; border-radius: 99px; padding: 1px 7px; margin-top: 4px; }
 
     /* ── Project list ─────────────────────────────────────── */
     .project-list { display: flex; flex-direction: column; gap: 0; }
@@ -145,8 +187,49 @@
       <span class="section-tag">the arc</span>
     </div>
 
-    <img src="../inspiration_samples/CareerRiver.png" alt="Career River illustration" style="max-width:520px;width:100%;border-radius:12px;margin:0 auto 36px;display:block;">
+    <img src="../inspiration_samples/CareerRiver.png" alt="Career River illustration" style="max-width:520px;width:100%;border-radius:12px;margin:0 auto 40px;display:block;">
 
+    <div class="career-timeline">
+      <div class="ct-rail">
+
+        <div class="ct-node">
+          <div class="ct-dot" style="background:var(--sage)">🏗️</div>
+          <div class="ct-company">Elegrity</div>
+          <div class="ct-role">Engineering Project Manager</div>
+          <div class="ct-yrs">2006 – 2009</div>
+        </div>
+
+        <div class="ct-node">
+          <div class="ct-dot" style="background:var(--mustard)">🛒</div>
+          <div class="ct-company">eBay</div>
+          <div class="ct-role">Program Manager</div>
+          <div class="ct-yrs">2009 – 2011</div>
+        </div>
+
+        <div class="ct-node">
+          <div class="ct-dot" style="background:var(--coral)">🍎</div>
+          <div class="ct-company">Apple</div>
+          <div class="ct-role">EPM → Business Analyst &amp; Process Engineer</div>
+          <div class="ct-yrs">2011 – 2018</div>
+        </div>
+
+        <div class="ct-node">
+          <div class="ct-dot" style="background:var(--lavender)">📊</div>
+          <div class="ct-company">SMC Consulting</div>
+          <div class="ct-role">Data Analysis for Nonprofits</div>
+          <div class="ct-yrs">2020 – 2024</div>
+        </div>
+
+        <div class="ct-node">
+          <div class="ct-dot current" style="background:var(--teal)">🚌</div>
+          <div class="ct-company">SFMTA</div>
+          <div class="ct-role">Principal Business Analyst</div>
+          <div class="ct-yrs">2024 – present</div>
+          <div class="ct-badge">Now</div>
+        </div>
+
+      </div>
+    </div>
 
   </section>
 
