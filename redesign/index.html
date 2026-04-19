@@ -205,8 +205,15 @@
     .side-fact.t { border-left-color: var(--teal); }
     .side-fact.m { border-left-color: var(--mustard); }
     .side-fact.l { border-left-color: var(--lavender); }
-    .side-fact-label { font-size: .68rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 3px; }
+    .side-fact-label { font-size: .68rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
     .side-fact-value { font-size: .92rem; font-weight: 700; color: var(--text); }
+    /* tenure bars */
+    .tenure-list { display: flex; flex-direction: column; gap: 6px; }
+    .tenure-row { display: flex; align-items: center; gap: 8px; }
+    .tenure-name { font-size: .76rem; font-weight: 700; color: var(--text); width: 58px; flex-shrink: 0; }
+    .tenure-track { flex: 1; height: 6px; background: var(--border); border-radius: 99px; overflow: hidden; }
+    .tenure-bar { height: 100%; border-radius: 99px; }
+    .tenure-yrs { font-size: .64rem; color: var(--muted); font-weight: 700; width: 28px; text-align: right; flex-shrink: 0; }
 
     /* ── Project cards ───────────────────────────────────── */
     .project-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
@@ -332,8 +339,29 @@
           <div class="side-fact-value">Principal Business Analyst, SFMTA</div>
         </div>
         <div class="side-fact t">
-          <div class="side-fact-label">Background</div>
-          <div class="side-fact-value">Apple (7 yrs) · eBay · Elegrity</div>
+          <div class="side-fact-label">Before SFMTA</div>
+          <div class="tenure-list">
+            <div class="tenure-row">
+              <div class="tenure-name">Apple</div>
+              <div class="tenure-track"><div class="tenure-bar" style="width:100%;background:var(--coral)"></div></div>
+              <div class="tenure-yrs">7 yrs</div>
+            </div>
+            <div class="tenure-row">
+              <div class="tenure-name">SMC</div>
+              <div class="tenure-track"><div class="tenure-bar" style="width:57%;background:var(--lavender)"></div></div>
+              <div class="tenure-yrs">4 yrs</div>
+            </div>
+            <div class="tenure-row">
+              <div class="tenure-name">Elegrity</div>
+              <div class="tenure-track"><div class="tenure-bar" style="width:41%;background:var(--sage)"></div></div>
+              <div class="tenure-yrs">3 yrs</div>
+            </div>
+            <div class="tenure-row">
+              <div class="tenure-name">eBay</div>
+              <div class="tenure-track"><div class="tenure-bar" style="width:21%;background:var(--mustard)"></div></div>
+              <div class="tenure-yrs">1.5 yrs</div>
+            </div>
+          </div>
         </div>
         <div class="side-fact m">
           <div class="side-fact-label">Education</div>
