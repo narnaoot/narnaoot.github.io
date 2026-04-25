@@ -65,6 +65,8 @@ Section thumbnails live in the root alongside the HTML files.
   - iTunes "Pagers Going Quiet" line chart (could be coded SVG)
 - **Education Through-Line** — `EducationWalkPainted.png` is live ✅; `Education.png` is now orphaned and can be deleted
 - **Copy & content edits** — see "Copy & content suggestions" section in NEXT_SESSION.md for full list
+- **"Now" strip on home** (optional) — what's on the workbench at SFMTA, what you're reading, current tea. Reinforces "not job-hunting, just available for conversation."
+- **Cat cameo** (optional) — a small line in the footer or hero ("Reviewed by Octavia") for memorable whimsy
 
 ## Inspiration research
 
