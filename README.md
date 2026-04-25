@@ -51,9 +51,9 @@ Section thumbnails live in the root alongside the HTML files.
 | `TeachingScene.png` | about.html — "One More Thing" |
 | `ThingsILove.png` | index.html — "The work, briefly" section thumbnail |
 | `Testimonials.png` | about.html — "What People Say" |
-| `Education.png` | about.html — "Education & Certifications" |
+| `EducationWalkPainted.png` | about.html — "Education & Certifications" |
 | `ProfilePicture.jpeg` | about.html hero avatar + index.html hero |
-| `CareerRiver.png` | work.html — career journey illustration |
+| `CareerJourneyPainted.png` | work.html — career journey illustration |
 
 ## Still to do
 

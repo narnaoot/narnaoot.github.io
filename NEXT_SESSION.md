@@ -147,9 +147,16 @@ The iTunes case study has a strong narrative but no visual anchor beyond the emo
 ## Still open
 
 - **Browser QA** on all 4 pages (especially About's new 4-col grid + testimonials themes row wrapping on narrow screens).
-- **Orphan prototype files** in `redesign/` (15 of them): `books-bubble.html`, `career-excitement.html`, `career-river-3d.html`, `career-river.html`, `dark-arc-timeline.html`, `dual-timeline.html`, `favorite-tools.html`, `game-of-life.html`, `gradient-circles.html`, `impact-scale.html`, `inspiration-donut.html`, `personal-evolution.html`, `portrait-infographic.html`, `skills-radar.html`, `work-quadrant.html`. None linked from live pages. Candidates for deletion.
-- **Images**: the 5 descriptions above — Nabil to create externally and drop in.
-- **Promote `redesign/` to root**: when ready, replace the root site.
+- **Images still needed** (3 remaining — Nabil to create externally and drop in):
+  - Three Pillars illustration (replace `ThreePillars.png`)
+  - Kernel Updates before/after dot-grid (for work.html case study — no image yet)
+  - Testimonial word cloud (replace `Testimonials.png`)
+
+### Images — done
+| File | Use |
+|------|-----|
+| `CareerJourneyPainted.png` | work.html — career journey illustration ✅ |
+| `EducationWalkPainted.png` | about.html — Education & Certifications ✅ |
 
 ---
 
