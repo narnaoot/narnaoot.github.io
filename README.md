@@ -64,6 +64,8 @@ Section thumbnails live in the root alongside the HTML files.
   - Kernel Updates before/after dot-grid (for work.html case study)
   - Testimonial word cloud (replace `Testimonials.png`)
   - iTunes "Pagers Going Quiet" line chart (could be coded SVG)
+- **"Now" strip on home** (optional) — what's on the workbench at SFMTA, what you're reading, current tea. Reinforces "not job-hunting, just available for conversation."
+- **Cat cameo** (optional) — a small line in the footer or hero ("Reviewed by Octavia") for memorable whimsy
 
 ## Inspiration research
 
