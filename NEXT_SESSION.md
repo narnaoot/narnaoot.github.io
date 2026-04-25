@@ -162,6 +162,9 @@ Currently mismatched: index + about say "Let's talk about your next project." (j
 **2. "Six stories, told in steps." on home — fix count and framing**
 index.html Selected Work card currently says "Six stories, told in steps." Work page has 7 projects, and only iTunes/iCloud/Kernel have step-by-step treatment. Two fixes: (a) update the count, (b) reframe the description so it doesn't oversell the lighter pieces.
 
+**5. Hero image path inconsistency**
+index.html (line 269) references `inspiration_samples/ProfilePicture.jpeg`; about.html references `ProfilePicture.jpeg` at root. Both files probably exist but it's a maintenance smell. Pick one location and point both pages to it.
+
 **6. Honors label drift — index.html line 368**
 index.html still reads "MS Business Analytics (Honors) · UChicago BA, English Lit". The Honors flag was removed from the Saint Mary's entry on About. These should match.
 
@@ -178,6 +181,11 @@ Currently 7 case studies in one undifferentiated list. The first 3 (iTunes, iClo
 **7. Stats strip — too Apple-heavy**
 Three of the four stats are Apple-flavored (300M+ iCloud users, 300+ engineers, 40+ teams). With 19 years of experience this makes the rest of the career invisible. Options: swap one for an SFMTA stat, a teaching/mentorship stat ("4 years teaching at Saint Mary's"), or something whimsical ("2 cats rehabilitated") to match the site's voice. The stats currently read like a resume, at odds with the relaxed tone everywhere else.
 
+**8. Skill bars on method.html — two remaining issues**
+The `redesign/` version dropped the fake percentages (done ✅). Two sub-points still open for the bars redesign:
+- "SQL / Python / R" as a single bar row is confusing — either split into separate rows or rename to something like "Working in code"
+- Consider replacing bars entirely with chips grouped by "what I love using" / "what I'm sharpening" — more honest and fits the playful tone better than a visual that implies false precision
+
 **9. Career chip strip on work.html — consider removing**
 work.html has: painted illustration → 5-node career timeline → chip-arrow strip (Elegrity → eBay → Apple → MS Business Analytics · 2022 → SFMTA). That's three views of the same arc. The chip strip also drops the consulting period and substitutes "MS Business Analytics · 2022" as a career stop, which is odd. The timeline already carries this; the chip strip adds noise.
 
@@ -190,6 +198,9 @@ method.html bell curve peak is labeled "Trust / Vision / Leadership" — abstrac
 **12. Brianna pull quote — trim for punch**
 index.html quote: "He has the unique ability to walk into an ambiguous situation, quickly grasp the key milestones and action items, identify technical needs that have not been addressed, and get results — all while getting a smile out of everyone in the room."
 Middle clause ("quickly grasp the key milestones and action items") dilutes it. Suggested trim: "He walks into ambiguous situations, identifies what hasn't been addressed, and gets results — all while getting a smile out of everyone in the room."
+
+**13. Teaching vignette — separate teaching from consulting**
+The `redesign/` version rewritten to reflect 4-year Saint Mary's arc (done ✅). One remaining editorial note: the vignette currently slides from "I taught my MS cohort" to "I consulted for community nonprofits" as if the consulting was formally tied to Saint Mary's — it wasn't. Worth splitting into two crisp sentences: one about the teaching instinct (cohort), one about where that instinct was applied (consulting for nonprofits independently).
 
 ### Lower priority / additive
 
