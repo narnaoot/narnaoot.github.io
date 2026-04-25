@@ -52,18 +52,19 @@ Section thumbnails live in the root alongside the HTML files.
 | `ThingsILove.png` | index.html — "The work, briefly" section thumbnail |
 | `Testimonials.png` | about.html — "What People Say" |
 | `EducationWalkPainted.png` | about.html — "Education & Certifications" |
-| `ProfilePicture.jpeg` | about.html hero avatar + index.html hero |
+| `ProfilePicture.jpeg` | about.html hero avatar (root path); index.html references `inspiration_samples/ProfilePicture.jpeg` — ⚠️ path inconsistency, see NEXT_SESSION.md #5 |
 | `CareerJourneyPainted.png` | work.html — career journey illustration |
 
 ## Still to do
 
 - **Browser QA** on all 4 pages, especially the career/education timelines on mobile
-- **New illustrations** (Nabil to create — see NEXT_SESSION.md for descriptions):
-  - Education Through-Line (replace `Education.png`)
+- **Illustrations still needed** (Nabil to create — see NEXT_SESSION.md for descriptions):
   - Three Pillars illustration (replace `ThreePillars.png`)
   - Kernel Updates before/after dot-grid (for work.html case study)
   - Testimonial word cloud (replace `Testimonials.png`)
   - iTunes "Pagers Going Quiet" line chart (could be coded SVG)
+- **Education Through-Line** — `EducationWalkPainted.png` is live ✅; `Education.png` is now orphaned and can be deleted
+- **Copy & content edits** — see "Copy & content suggestions" section in NEXT_SESSION.md for full list
 - **"Now" strip on home** (optional) — what's on the workbench at SFMTA, what you're reading, current tea. Reinforces "not job-hunting, just available for conversation."
 - **Cat cameo** (optional) — a small line in the footer or hero ("Reviewed by Octavia") for memorable whimsy
 
