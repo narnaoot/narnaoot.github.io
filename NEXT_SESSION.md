@@ -1,8 +1,8 @@
 # Next Session Handoff
 
-## Current branch
+## Current state
 
-`claude/review-website-docs-P8MwH` — redundancy/reorganization + LinkedIn content + visualizations pass. Not yet merged to master.
+All prior branches have been merged to master. Redesign/ folder has been promoted to root — the four live files are now `index.html`, `about.html`, `work.html`, `method.html` at repo root. Several further fixes were applied after the initial promotion (Honors removal, UC Berkeley removal, George Mason arc label update, duplicate career illustration removed).
 
 ---
 
@@ -58,13 +58,12 @@
 
 Five ideas where Nabil's hand-drawn / illustrative style (per CareerRiver.png) could replace or strengthen text-heavy sections. Descriptions are specific enough to hand to an illustrator or generate externally.
 
-### 1. Education Through-Line (**priority — matches existing visual language**)
-Companion piece to `CareerRiver.png`. A meandering path or river representing the learning arc, with 4 milestones as stations along the way:
-- **University of Chicago — BA, English Literature** (earliest, dimmer/smaller — "where it all began")
-- **George Mason University — MS, Information Systems**
-- **UC Berkeley — Data Analytics Certificate (2018–19)**
-- **Saint Mary's College — MS, Business Analytics, Honors (2021–22)** — brightest, largest, with a small laurel or honors flourish
-Tone: hand-drawn, warm, same palette as CareerRiver (coral / teal / mustard / sage on cream background). Could be horizontal or vertical. Would replace the current `Education.png` section thumbnail with something that *tells the story* rather than decorates it.
+### 1. Education Through-Line — ✅ EducationWalkPainted.png is live
+`EducationWalkPainted.png` is already in use on about.html. The live education timeline now has 3 stops (UC Berkeley was removed):
+- **University of Chicago — BA, English Literature** — arc label: "Rigorous storytelling"
+- **George Mason University — MS, Information Systems** — arc label: "From novels to databases"
+- **Saint Mary's College — MS, Business Analytics** (no Honors marker) — arc label: "Bringing it all together"
+If a new painted illustration is created, it should match these 3 stops. Note: `Education.png` is now orphaned and can be deleted.
 
 ### 2. Three Pillars illustration
 The About page's "Three Things I Always Bring" has three long text paragraphs from Mary Salome. Hard to scan. A single image would let the eye land first:
@@ -93,54 +92,47 @@ The iTunes case study has a strong narrative but no visual anchor beyond the emo
 
 ---
 
-## In-code viz changes I already made this session
+## Visualizations in the live site
 
-| Page | File | Sections |
-|------|------|----------|
-| Home | `redesign/index.html` | Hero, stats strip, Brianna pull-quote, about blurb w/ ThingsILove thumbnail + tenure bar chart side-facts, 3 project cards |
-| Work | `redesign/work.html` | CareerRiver image + career timeline viz, 6 case studies (3 professional, 3 personal/academic) |
-| Method | `redesign/method.html` | 5-question diagnostic funnel, Duct Tape/Drano, Bell Curve SVG, animated skill toolkit |
-| About | `redesign/about.html` | Portrait grid, Three Pillars, teaching vignette (+ nonprofit consulting), education timeline + cert badges, CTA to Praise |
-| Praise | `redesign/testimonials.html` | 7 curated testimonials |
-
-### Visualizations inventory
 | Viz | Page | Type |
 |-----|------|------|
-| Stats strip | index | 4 big numbers |
-| Tenure bar chart | index | horizontal mini-bars |
-| Brianna pull-quote | index | styled blockquote |
-| Bell curve (job satisfaction) | method | inline SVG |
-| Diagnostic funnel | method | vertical CSS rail + colored dots |
-| Animated skill bars | method | CSS bars + IntersectionObserver |
-| Duct Tape / Drano panels | method | two-panel card |
-| Career timeline | work | horizontal CSS rail + colored dots |
-| Education timeline | about | vertical CSS rail + dots |
-| Cert badges | about | 2×2 card grid |
-| Portrait mini-bars (tea) | about | tiny CSS bars |
-| CareerRiver image | work | PNG illustration |
+| Stats strip | index.html | 4 big numbers |
+| Tenure bar chart | index.html | horizontal mini-bars (side facts) |
+| Brianna pull-quote | index.html | styled blockquote |
+| Bell curve (job satisfaction) | method.html | inline SVG |
+| 3-Move diagnostic funnel | method.html | vertical CSS rail + colored dots |
+| Animated skill bars | method.html | CSS bars + IntersectionObserver (data-width still drives widths — see suggestion #8) |
+| Duct Tape / Drano panels | method.html | two-panel card |
+| Career timeline | work.html | horizontal CSS rail + colored dots |
+| Career chip strip | work.html | chip-arrow row (see suggestion #9 — candidate for removal) |
+| Education timeline | about.html | vertical CSS rail + 3 stops (UChicago, George Mason, Saint Mary's) |
+| Cert badges | about.html | 2×2 card grid (see suggestion #10 — Excel badge candidate for removal) |
+| Portrait mini-bars (tea) | about.html | tiny CSS bars |
+| Testimonials themes row | about.html | colored chip strip |
 
-### Images — all accounted for
-| File | Use |
-|------|-----|
-| `AboutHero.png` | about.html — "The Human Behind the Projects" |
-| `ThreePillars.png` | about.html — "Three Things I Always Bring" |
-| `TeachingScene.png` | about.html — "One More Thing" |
-| `ThingsILove.png` | index.html — "The work, briefly" section thumbnail |
-| `Testimonials.png` | testimonials.html — "What People Say" |
-| `Education.png` | about.html — "Education & Certifications" |
-| `ProfilePicture.jpeg` | about.html hero avatar + index.html hero |
-| `CareerRiver.png` | work.html — career journey |
+### Images — current state
+| File | Used by | Notes |
+|------|---------|-------|
+| `AboutHero.png` | about.html | "The Human Behind the Projects" |
+| `CareerJourneyPainted.png` | work.html | career journey illustration |
+| `EducationWalkPainted.png` | about.html | "Education & Certifications" |
+| `ThreePillars.png` | about.html | "Three Things I Always Bring" — placeholder pending new illustration |
+| `TeachingScene.png` | about.html | "One More Thing" |
+| `ThingsILove.png` | index.html | "The work, briefly" section thumbnail |
+| `Testimonials.png` | about.html | "What People Say" — placeholder pending word cloud |
+| `ProfilePicture.jpeg` | about.html (root path) | hero avatar |
+| `Education.png` | **nobody** | orphaned — safe to delete |
+| `ProfilePicture.jpeg` (in inspiration_samples/) | index.html | ⚠️ path inconsistency — see suggestion #5 |
 
 ---
 
 ## Still open
 
 - **Browser QA** on all 4 pages (especially About's new 4-col grid + testimonials themes row wrapping on narrow screens).
-- **Images still needed** (3 remaining — Nabil to create externally and drop in):
+- **Images still needed** (Nabil to create externally and drop in):
   - Three Pillars illustration (replace `ThreePillars.png`)
   - Kernel Updates before/after dot-grid (for work.html case study — no image yet)
   - Testimonial word cloud (replace `Testimonials.png`)
-- Decide if/when to promote `redesign/` to replace the root site
 
 ### Images — done
 | File | Use |
@@ -181,10 +173,11 @@ Currently 7 case studies in one undifferentiated list. The first 3 (iTunes, iClo
 **7. Stats strip — too Apple-heavy**
 Three of the four stats are Apple-flavored (300M+ iCloud users, 300+ engineers, 40+ teams). With 19 years of experience this makes the rest of the career invisible. Options: swap one for an SFMTA stat, a teaching/mentorship stat ("4 years teaching at Saint Mary's"), or something whimsical ("2 cats rehabilitated") to match the site's voice. The stats currently read like a resume, at odds with the relaxed tone everywhere else.
 
-**8. Skill bars on method.html — two remaining issues**
-The `redesign/` version dropped the fake percentages (done ✅). Two sub-points still open for the bars redesign:
-- "SQL / Python / R" as a single bar row is confusing — either split into separate rows or rename to something like "Working in code"
-- Consider replacing bars entirely with chips grouped by "what I love using" / "what I'm sharpening" — more honest and fits the playful tone better than a visual that implies false precision
+**8. Skill bars on method.html — still open**
+The bars animate to specific percentage widths (88–98%) via `data-width` attributes — no text labels are shown, but the visual still implies false precision (Stakeholder Mgmt bar visibly wider than Agile bar). Three open options:
+- Drop the varying widths; make all bars uniformly full so they're purely visual rhythm
+- "SQL / Python / R" as a single bar row is confusing — either split into separate rows or rename to "Working in code"
+- Consider replacing bars entirely with chips grouped by "what I love using" / "what I'm sharpening" — more honest and fits the playful tone better
 
 **9. Career chip strip on work.html — consider removing**
 work.html has: painted illustration → 5-node career timeline → chip-arrow strip (Elegrity → eBay → Apple → MS Business Analytics · 2022 → SFMTA). That's three views of the same arc. The chip strip also drops the consulting period and substitutes "MS Business Analytics · 2022" as a career stop, which is odd. The timeline already carries this; the chip strip adds noise.
@@ -215,14 +208,14 @@ work.html contains unused `.section-banner` and `.river-cta` CSS rules. Worth re
 
 ---
 
-## Current page structure (after this session)
+## Current page structure
 
 | Page | File | Sections |
 |------|------|----------|
-| Home | `redesign/index.html` | Hero · Stats strip · Brianna pull-quote · "The work, briefly" · Selected work (3 cards → Work, Method, About) |
-| Work | `redesign/work.html` | "A Through-Line" (caption + CareerRiver + chip timeline) · 7 case studies (iTunes, iCloud, **Kernel Updates NEW**, eBay, SHAP, Secret Gardens, Conditional Probability) |
-| Method | `redesign/method.html` | 3 Moves (Define / Diagnose / Translate) · Duct Tape/Drano · Bell Curve · Skill toolkit |
-| About | `redesign/about.html` | Portrait grid (4 cells) · Three Pillars · Teaching vignette (4-year Saint Mary's) · **#praise: What People Say** (recurring-words chips + 7 testimonials) · Education & Certs |
+| Home | `index.html` | Hero · Stats strip · Brianna pull-quote · "The work, briefly" · Selected work (3 cards → Work, Method, About) |
+| Work | `work.html` | "A Through-Line" (CareerJourneyPainted.png + career timeline + chip strip) · 7 case studies (iTunes, iCloud, Kernel Updates, eBay, SHAP, Secret Gardens, Conditional Probability) |
+| Method | `method.html` | 3 Moves (Define / Diagnose / Translate) · Duct Tape/Drano · Bell Curve · Skill toolkit |
+| About | `about.html` | Portrait grid (4 cells) · Three Pillars · Teaching vignette · #praise (recurring-words chips + 7 testimonials) · Education & Certs (3 stops + 4 cert badges) |
 
 Nav on all 4 pages: Home · Work · Method · About
 
