@@ -1,5 +1,4 @@
 # narnaoot.github.io — Nabil Arnaoot's Personal Site
-# Check the folders to see earlier versions of the website Claude designed for me.
 
 A personal portfolio site for Nabil Arnaoot: Principal Business Analyst, Project Leader, translator of complexity. Currently working at SFMTA.
 
@@ -9,24 +8,23 @@ The site foregrounds **project leadership** — Nabil's ability to walk into amb
 
 ## Site structure
 
-### Root (live site — do not touch)
+### Root (live site)
 
 | File | Purpose |
 |------|---------|
 | `index.html` | Homepage |
-| `about.html` | Personal portrait, testimonials, education |
-| `work.html` | Project case studies |
-| `method.html` | How Nabil works |
+| `about.html` | Personal portrait, three pillars, teaching vignette, testimonials, education & certs |
+| `work.html` | Career river, chip timeline, 7 case studies |
+| `method.html` | 3 Moves (Define / Diagnose / Translate), Duct Tape/Drano, Bell Curve, skill toolkit |
 
-### redesign/ (active development)
+Nav on all 4 pages: Home · Work · Method · About
 
-| File | Purpose |
-|------|---------|
-| `redesign/index.html` | Homepage |
-| `redesign/work.html` | CareerRiver image, 4 case studies |
-| `redesign/method.html` | 6 diagnostic questions, Duct Tape/Drano, animated skill bars |
-| `redesign/about.html` | 4 sections: personal portrait, three pillars, teaching vignette, things I love |
-| `redesign/testimonials.html` | "Praise" page — 15 testimonials + education & certifications |
+### Archive folders
+
+| Folder | Contents |
+|--------|---------|
+| `old/` | Earlier prototype explorations — ignore |
+| `original_version/` | Pre-redesign root files — ignore |
 
 ## Design tokens (in every page's `:root`)
 
@@ -35,7 +33,7 @@ The site foregrounds **project leadership** — Nabil's ability to walk into amb
 | `--coral` | `#E8614F` | Primary accent, nav logo |
 | `--teal` | `#2DB5A8` | Secondary accent |
 | `--mustard` | `#D4920A` | Tertiary |
-| `--lavender` | `#8B7BC8` | About/Praise hero kicker + accents |
+| `--lavender` | `#8B7BC8` | About hero kicker + accents |
 | `--sage` | `#6A9F7A` | Soft accent |
 | `--bg` | `#FFFBF5` | Page background (warm cream) |
 | `--text` | `#3D2B1F` | Body text (dark brown) |
@@ -44,18 +42,28 @@ Fonts: **Playfair Display** (headings) + **Nunito** (body)
 
 ## Images
 
-Section thumbnails live in `redesign/` (same folder as HTML). Referenced with simple relative paths (e.g. `src="AboutHero.png"`).
+Section thumbnails live in the root alongside the HTML files.
 
 | File | Use |
 |------|-----|
-| `redesign/AboutHero.png` | about.html — "The Human Behind the Projects" |
-| `redesign/ThreePillars.png` | about.html — "Three Things I Always Bring" |
-| `redesign/ThingsILove.png` | about.html — "Things I Love" |
-| `redesign/Testimonials.png` | testimonials.html — "What People Say" |
-| `redesign/Education.png` | testimonials.html — "Education & Certifications" |
-| `redesign/TeachingScene.png` | about.html — "One More Thing" |
-| `redesign/ProfilePicture.jpeg` | about.html hero avatar |
-| `inspiration_samples/CareerRiver.png` | work.html career river illustration |
+| `AboutHero.png` | about.html — "The Human Behind the Projects" |
+| `ThreePillars.png` | about.html — "Three Things I Always Bring" |
+| `TeachingScene.png` | about.html — "One More Thing" |
+| `ThingsILove.png` | index.html — "The work, briefly" section thumbnail |
+| `Testimonials.png` | about.html — "What People Say" |
+| `Education.png` | about.html — "Education & Certifications" |
+| `ProfilePicture.jpeg` | about.html hero avatar + index.html hero |
+| `CareerRiver.png` | work.html — career journey illustration |
+
+## Still to do
+
+- **Browser QA** on all 4 pages, especially the career/education timelines on mobile
+- **New illustrations** (Nabil to create — see NEXT_SESSION.md for descriptions):
+  - Education Through-Line (replace `Education.png`)
+  - Three Pillars illustration (replace `ThreePillars.png`)
+  - Kernel Updates before/after dot-grid (for work.html case study)
+  - Testimonial word cloud (replace `Testimonials.png`)
+  - iTunes "Pagers Going Quiet" line chart (could be coded SVG)
 
 ## Inspiration research
 
