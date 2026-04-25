@@ -1,4 +1,5 @@
 # narnaoot.github.io — Nabil Arnaoot's Personal Site
+# Check the folders to see earlier versions of the website Claude designed for me.
 
 A personal portfolio site for Nabil Arnaoot: Principal Business Analyst, Project Leader, translator of complexity. Currently working at SFMTA.
 
