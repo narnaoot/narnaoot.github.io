@@ -278,3 +278,60 @@ All planned illustrations are live. No images currently needed.
 - `Education.png` is orphaned (not referenced in any live page). Safe to delete.
 - Dead CSS in work.html: `.section-banner` and `.river-cta` classes remain in the style block but are not used in the page body. Safe to trim on a cleanup pass.
 - Design tokens, fonts, and nav unchanged across all pages.
+
+---
+
+## Review — April 26 2026 (whimsy-allowed pass)
+
+Full re-read of all 4 pages with the brief: "I'm not job-hunting, I can afford to be whimsical." Findings ordered by impact. None implemented yet.
+
+### High impact
+
+**R1. method.html — skill bars are all 100%.**
+All twelve `data-width` values were normalized to 100 in a prior pass (see "What changed this session" → method.html). Visually this means twelve full bars. The intent ("visual rhythm, not measurement") doesn't survive contact with a reader: twelve full bars reads as "I rated myself 10/10 on everything," which is the one moment on an otherwise self-aware site where credibility wobbles. Two clean exits:
+- Calibrate honestly (e.g. PM 95, Process Design 95, Agile 80, Gap Analysis 85, Working in code 65). Honest variance is more persuasive than uniform mastery.
+- Or drop the bars entirely and use the same chip/pill style the site already uses elsewhere — keeps the playfulness without making a quantitative claim.
+
+**R2. work.html — "Notes, Essays & Side Quests" don't link anywhere.**
+Conditional Probability for Normal Humans, Secret Gardens of San Francisco, and Making ML Explainable with SHAP are described as if a reader could read or see them, but no `<a>` tags. Either link them out (Tableau Public for Secret Gardens; blog/Medium for the writing) or reframe as "pieces I've made" rather than "lighter reads."
+
+**R3. index.html — "300M+ iCloud users at launch" is an Apple stat, not a Nabil stat.**
+Readers feel the difference. Replace with a personal-impact number (e.g. dashboards still in use, hours reclaimed) or rephrase to "300M users on systems I supported." Note: this dovetails with the still-open suggestion #7 ("Stats strip — too Apple-heavy") above.
+
+**R4. Wire up the iCloud illustration.**
+`ConstellationPainted.png` is sitting in the repo root, unreferenced. Per the "Still open" notes above, it was the in-progress iCloud illustration (chaotic night sky → constellation lines revealing root causes). Kernel Updates has an illustration; iCloud doesn't, which makes the Case Studies section visually asymmetric. Drop it into the iCloud project-item between project-lead and project-tags, mirroring the `KernelCleanupPainted.png` placement at work.html:255.
+
+### Medium impact
+
+**R5. eBay Site Security feels miscategorized as a "lighter read."**
+It's framed as serious work (security architecture, decision support model) but lives under "four lighter reads" with only an outcome and no steps. Either promote it to a third case study with steps, or trim it to genuinely match the lighter tone of the others (SHAP, Secret Gardens, Bayes).
+
+**R6. work.html — the 2018 → 2020 gap on the career timeline is unaddressed.**
+Apple ends 2018, Independent Consulting starts 2020. Two-year gap reads as an unanswered question. The whimsical-because-not-job-hunting brief invites owning it directly — a small node ("between roles · reading, traveling, recovering from Apple," or whatever's true) would land better than the silence.
+
+**R7. about.html — "as described by Mary Salome" needs context.**
+Who is she? Friend, mentor, manager? Currently lives only as a section tag. A four-word descriptor in the section-h or a single intro sentence above the pillars ("a longtime friend who once told me…") would make this land. Earlier work removed the per-card attribution (good); this is the remaining residue.
+
+**R8. method.html — Drano example duplicates Duct Tape example.**
+Both panels reference the kernel update project. Pick a different Drano-flavored case so the contrast actually contrasts. The "spreadsheet nobody could read → automated crash-tracking" line in the same panel is good and could carry it alone.
+
+### Small / polish
+
+- **method.html bell curve label.** "In need of constraints" reads ambiguously (does it mean *you* need them?). "Needs structure" or "Too unstructured" parallels "Too stuck in status quo" cleanly.
+- **method.html funnel question 2** is two questions stacked. Trim to: "What's actually in your way — the manual task you dread, the approval stuck somewhere, the data you don't have?"
+- **index.html hero alt text** ("Animal Crossing character portrait standing in a village") is a great whimsical detail but only screen-reader users see it. A small visible caption or one-line "what is this?" hover would let everyone in on the joke. First-time visitors may genuinely wonder if it's a stylized photo or a game character.
+- **Cat cameo expansion.** "Inspected by Cleo" in the footer is perfect. Per the open optional-additions list, a rotating second cat ("Inspected by Cleo · Audited by Octavia") would honor both rescues.
+- **"Now" strip on home** (already in the optional/whimsy backlog above) is the single highest-leverage addition for reinforcing the not-job-hunting posture. No other change communicates that posture as directly.
+
+### What's working well — leave alone
+
+- Color palette + Playfair/Nunito pairing — confident and warm.
+- Painted illustrations as section thumbnails — distinctive and personal.
+- Catherine Madden bell curve, Duct Tape/Drano framing, Three Pillars — all memorable structures that beat the standard skills/projects/contact template.
+- Testimonials with the "recurring words" chip strip on top — gives skim-readers a thesis before the quotes.
+- "Six months from now, you are really happy. What has changed?" is the strongest single line on the site. Don't touch.
+- Footer "Inspected by Cleo" with the photo — perfect tone.
+
+### Suggested implementation order
+
+If picking changes off one at a time: R1 (skill bars) → R4 (wire up constellation illustration) → R3 (de-Apple the stats strip) → R2 (link the lighter pieces). These four together address every "credibility wobble" without touching anything that's already working.
