@@ -153,7 +153,7 @@ All changes implement the recommendations from the April 2026 suggestions review
 - **Testimonial word cloud** ✅ — `WordClouds Painted.png` live on about.html. Dream Suite aesthetic (deep indigo/purple sky, floating cloud word-bubbles, character sitting upright on a cloud).
 - **iTunes case study removed** ✅ — consolidated into iCloud. `QuietedPagersPainted.png` intentionally archived (not deleted, not referenced). index.html work card updated to 6 projects, 2 in depth.
 - **Cat cameo** ✅ — `CleoInspects.png` in footer of all 4 pages as "Inspected by Cleo."
-- **iCloud illustration** — in progress. Constellation metaphor: chaotic night sky (left) → same stars connected by chalk constellation lines revealing root causes (right). Prompt ready.
+- **iCloud illustration** ✅ — `ConstellationPainted.png` live on work.html iCloud case study.
 - **All case studies need a full rewrite** — copy has gotten distorted over multiple editing passes. Start fresh from source material (LinkedIn, memory) rather than editing what's there. Affects all projects on work.html: iCloud, Kernel Updates, eBay, SHAP, Secret Gardens, Conditional Probability. iCloud in particular needs to reflect the correct story: Apple's properties (iCloud, iTunes, Maps) had no shared way to track downtime and root causes over time; built a consistent measurement framework across all of them.
 
 ### Images — done

@@ -49,6 +49,7 @@ Section thumbnails live in the root alongside the HTML files.
 | `AboutHero.png` | about.html — "The Human Behind the Projects" |
 | `ThreePillarsPainted.png` | about.html — "Three Things I Always Bring" ✅ |
 | `KernelCleanupPainted.png` | work.html — Kernel Updates case study illustration ✅ |
+| `ConstellationPainted.png` | work.html — iCloud case study illustration ✅ |
 | `TeachingScene.png` | about.html — "One More Thing" |
 | `ThingsILove.png` | index.html — "The work, briefly" section thumbnail |
 | `WordClouds Painted.png` | about.html — "What People Say" ✅ |
@@ -63,7 +64,7 @@ Section thumbnails live in the root alongside the HTML files.
 
 - **Browser QA** on all 4 pages, especially the career/education timelines on mobile
 - **Testimonial word cloud** ✅ — `WordClouds Painted.png` live on about.html.
-- **iCloud illustration** — in progress (constellation metaphor, prompt ready)
+- **iCloud illustration** ✅ — `ConstellationPainted.png` live on work.html
 - **All case studies need a full rewrite** — copy has gotten distorted over multiple passes. Rewrite from source material, not by editing what's there. See NEXT_SESSION.md for details.
 - **"Now" strip on home** (optional) — what's on the workbench at SFMTA, what you're reading, current tea. Reinforces "not job-hunting, just available for conversation."
 - **Cat cameo** (optional) — a small line in the footer or hero ("Reviewed by Octavia") for memorable whimsy
