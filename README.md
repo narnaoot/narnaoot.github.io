@@ -59,17 +59,18 @@ Section thumbnails live in the root alongside the HTML files.
 | `QuietedPagersPainted.png` | intentionally archived — not referenced in any live page |
 | `CleoInspects.png` | footer on all 4 pages — "Inspected by Cleo" ✅ |
 | `CareerJourneyPainted.png` | work.html — career journey illustration ✅ |
-| `ConstellationPainted.png` | work.html — iCloud case study illustration ✅ |
 
 ## Still to do
 
 - **Browser QA** on all 4 pages, especially the career/education timelines on mobile
 - **Testimonial word cloud** ✅ — `WordClouds Painted.png` live on about.html.
 - **iCloud illustration** ✅ — `ConstellationPainted.png` wired up on work.html between project lead and tags.
-- **iCloud illustration** ✅ — `ConstellationPainted.png` live on work.html
+- **Case study images shrunk** ✅ — `KernelCleanupPainted.png` and `ConstellationPainted.png` capped at 420px so they no longer overpower the text.
 - **All case studies need a full rewrite** — copy has gotten distorted over multiple passes. Rewrite from source material, not by editing what's there. See NEXT_SESSION.md for details.
 - **Skill bars on method.html** ✅ — Replaced with color-coded chip pills. See NEXT_SESSION.md for an AC illustration idea for this section.
-- **Links for lighter reads on work.html** — "Secret Gardens," "Making ML Explainable with SHAP," and "Conditional Probability for Normal Humans" have no outbound links. Need URLs (Tableau Public for Secret Gardens; blog/post URLs for the others).
+- **Links for lighter reads on work.html** ✅ — Secret Gardens (`/work/gardens`), Conditional Probability (`/work/probability`), and Chasing Unicorns (`/work/unicorns`) all linked. SHAP dropped (felt outdated).
+- **"Chasing Unicorns for Pride" added** ✅ — new lighter read with teal accent (work.html). Links to `https://n4bil.com/work/unicorns`.
+- **SHAP lighter read removed** ✅ — dropped as outdated.
 - **2018–2020 gap on career timeline** ✅ — "Sabbatical · Deliberate pause" node added between Apple and Independent Consulting.
 - **"Now" strip on home** (optional) — what's on the workbench at SFMTA, what you're reading, current tea. Reinforces "not job-hunting, just available for conversation."
 - **Cat cameo** ✅ — "Inspected by Cleo" with photo in footer of all 4 pages.
