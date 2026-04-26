@@ -223,8 +223,7 @@ A small strip (Derek Sivers /now-page convention) showing what's currently on th
 **15c. Cat cameo in footer or hero**
 Cats currently appear in chips and the portrait grid. A single candid line somewhere — e.g. "Reviewed by Octavia" in the footer, or a one-liner in the hero — is the kind of whimsy that makes a site memorable without taking up space.
 
-**16b. Dead CSS in work.html — clean up**
-work.html contains unused `.section-banner` and `.river-cta` CSS rules. Worth removing once the redesign is promoted to root.
+**16b. Dead CSS in work.html** ✅ — `.section-banner` and `.river-cta` rules removed.
 
 ---
 
