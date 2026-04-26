@@ -152,6 +152,7 @@ All changes implement the recommendations from the April 2026 suggestions review
 - **Browser QA** on all 4 pages (especially About's new 4-col grid + testimonials themes row wrapping on narrow screens).
 - **Testimonial word cloud** ✅ — `WordClouds Painted.png` live on about.html. Dream Suite aesthetic (deep indigo/purple sky, floating cloud word-bubbles, character sitting upright on a cloud).
 - **iTunes case study removed** ✅ — consolidated into iCloud. `QuietedPagersPainted.png` intentionally archived (not deleted, not referenced). index.html work card updated to 6 projects, 2 in depth.
+- **Cat cameo** ✅ — `CleoInspects.png` in footer of all 4 pages as "Inspected by Cleo."
 - **iCloud illustration** — in progress. Constellation metaphor: chaotic night sky (left) → same stars connected by chalk constellation lines revealing root causes (right). Prompt ready.
 - **iCloud case study copy** — needs updating to reflect: consistent metrics, root cause identification, tracking progress over time (before the system, no way to know if things were improving).
 
