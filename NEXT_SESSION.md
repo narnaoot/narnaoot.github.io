@@ -154,7 +154,7 @@ All changes implement the recommendations from the April 2026 suggestions review
 - **Cat cameo** ✅ — `CleoInspects.png` in footer of all 4 pages as "Inspected by Cleo."
 - **iCloud illustration** ✅ — `ConstellationPainted.png` live on work.html (between project lead and tags on the iCloud case study). Constellation metaphor: chaotic night sky → stars connected into root-cause constellations.
 - **iCloud illustration** ✅ — `ConstellationPainted.png` live on work.html iCloud case study.
-- **All case studies need a full rewrite** — copy has gotten distorted over multiple editing passes. Start fresh from source material (LinkedIn, memory) rather than editing what's there. Affects all projects on work.html: iCloud, Kernel Updates, eBay, SHAP, Secret Gardens, Conditional Probability. iCloud in particular needs to reflect the correct story: Apple's properties (iCloud, iTunes, Maps) had no shared way to track downtime and root causes over time; built a consistent measurement framework across all of them.
+- **All case studies need a full rewrite** — copy has gotten distorted over multiple editing passes. Start fresh from source material (LinkedIn, memory) rather than editing what's there. Affects: iCloud, Kernel Updates, eBay on work.html. iCloud in particular needs to reflect the correct story: Apple's properties (iCloud, iTunes, Maps) had no shared way to track downtime and root causes over time; built a consistent measurement framework across all of them.
 
 ### Images — done
 | File | Use |
@@ -305,8 +305,8 @@ All changes implement findings from the April 26 review below. One task per comm
 ### Still open / needs Nabil input
 - **Skill bars → chips** ✅ — Replaced all 12 bars with color-coded chip pills. IntersectionObserver JS removed.
   - **AC illustration idea for this section:** character at the ACNH crafting table with three labeled "recipe cards" spread out (one per column), each with the skill names hand-lettered on them in the ACNH style. Could replace the three-column grid entirely or sit above it.
-- **Links for lighter reads (work.html)** ✅ — Secret Gardens, Conditional Probability, and the new Chasing Unicorns for Pride all linked to `n4bil.com/work/<slug>`. SHAP removed (outdated). eBay still has no outbound link (no public security-program page exists, so likely staying linkless).
-- **"Chasing Unicorns for Pride" added** ✅ — new lighter read (🦄, teal accent), linked to `https://n4bil.com/work/unicorns`. Section tag still reads "four lighter reads" because SHAP was dropped at the same time.
+- **Dedicated note pages** ✅ — `probability.html` (full Conditional Probability essay, mustard accent, two reconstructed HTML tables), `gardens.html` (Secret Gardens Tableau embed, sage accent), `unicorns.html` (Unicorns Tableau embed, teal accent). All use site nav, footer, and design tokens. work.html lighter reads trimmed to teasers linking to local pages.
+- **"Chasing Unicorns for Pride" added** ✅ — new lighter read (🦄, teal accent). Section tag reads "four lighter reads" because SHAP was dropped at the same time.
 - **SHAP lighter read removed** ✅ — dropped per Nabil ("feels outdated now").
 - **Case study images shrunk** ✅ — `KernelCleanupPainted.png` and `ConstellationPainted.png` capped at 420px (was full-width). Centered with `margin: 16px auto 24px`. Duplicate ConstellationPainted img tag on iCloud case study removed at the same time.
 - **2018–2020 gap** ✅ — Added "Sabbatical · Deliberate pause · 2018–2020" node (sage color, 🌿) between Apple and Independent Consulting.
@@ -329,7 +329,7 @@ All twelve `data-width` values were normalized to 100 in a prior pass (see "What
 - Or drop the bars entirely and use the same chip/pill style the site already uses elsewhere — keeps the playfulness without making a quantitative claim.
 
 **R2. work.html — "Notes, Essays & Side Quests" don't link anywhere.** ✅ Resolved.
-Secret Gardens, Conditional Probability, and Chasing Unicorns for Pride all link to `n4bil.com/work/<slug>` (title underline + CTA below the outcome). SHAP removed as outdated. eBay still has no outbound link — likely staying that way.
+Secret Gardens, Conditional Probability, and Chasing Unicorns for Pride each have a dedicated local page (`gardens.html`, `probability.html`, `unicorns.html`). work.html entries are teasers linking to those pages. SHAP removed as outdated. eBay has no dedicated page — linkless by design.
 
 **R3. index.html — "300M+ iCloud users at launch" is an Apple stat, not a Nabil stat.**
 Readers feel the difference. Replace with a personal-impact number (e.g. dashboards still in use, hours reclaimed) or rephrase to "300M users on systems I supported." Note: this dovetails with the still-open suggestion #7 ("Stats strip — too Apple-heavy") above.
