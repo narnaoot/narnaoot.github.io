@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chasing Unicorns for Pride — Nabil Arnaoot</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:       #FFFBF5;
+      --surface:  #FFFFFF;
+      --warm:     #FFF5E8;
+      --warm2:    #FDECD6;
+      --text:     #3D2B1F;
+      --muted:    #9A8070;
+      --border:   #E8DDD0;
+      --coral:    #E8614F;
+      --coral-lt: #FDEAE7;
+      --teal:     #2DB5A8;
+      --teal-lt:  #E0F5F3;
+      --mustard:  #D4920A;
+      --must-lt:  #FEF4DC;
+      --sage:     #6A9F7A;
+      --sage-lt:  #EBF4EE;
+      --lavender: #8B7BC8;
+      --lav-lt:   #EFECF9;
+      --r: 14px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: 'Nunito', sans-serif; line-height: 1.65; }
+
+    /* ── Nav ─────────────────────────────────────────────── */
+    .topnav { background: var(--surface); border-bottom: 1.5px solid var(--border); position: sticky; top: 0; z-index: 100; height: 56px; display: flex; align-items: center; }
+    .topnav-inner { max-width: 1080px; margin: 0 auto; padding: 0 28px; width: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 900; color: var(--coral); letter-spacing: -0.5px; text-decoration: none; }
+    .nav-links { display: flex; gap: 4px; list-style: none; }
+    .nav-links a { padding: 6px 14px; font-size: .78rem; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; color: var(--muted); text-decoration: none; border-radius: 8px; transition: color .15s, background .15s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); background: var(--warm2); }
+    @media (max-width: 600px) { .nav-links a { padding: 6px 10px; font-size: .72rem; } }
+
+    /* ── Hero ────────────────────────────────────────────── */
+    .note-hero { background: var(--bg); border-bottom: 1.5px solid var(--border); padding: 64px 28px 56px; }
+    .note-hero-inner { max-width: 720px; margin: 0 auto; }
+    .hero-kicker { display: flex; align-items: center; gap: 14px; font-size: .72rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; color: var(--teal); margin-bottom: 20px; }
+    .hero-kicker-line { width: 40px; height: 1.5px; background: var(--teal); flex-shrink: 0; }
+    .note-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3rem); font-weight: 900; line-height: 1.15; color: var(--text); margin-bottom: 20px; }
+    .note-hero h1 em { font-style: italic; color: var(--teal); }
+    .note-lead { font-size: 1.05rem; color: var(--muted); max-width: 600px; line-height: 1.75; }
+
+    /* ── Viz section ─────────────────────────────────────── */
+    .viz-section { max-width: 1080px; margin: 0 auto; padding: 48px 28px 80px; }
+    .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: .82rem; font-weight: 800; color: var(--teal); text-decoration: none; margin-bottom: 2.5rem; }
+    .back-link:hover { opacity: .8; }
+    .tableau-wrap { overflow-x: auto; border-radius: 12px; border: 1.5px solid var(--border); background: var(--surface); }
+    .tableau-cta { margin-top: 1.5rem; font-size: .82rem; color: var(--muted); }
+    .tableau-cta a { color: var(--teal); font-weight: 800; text-decoration: none; }
+    .tableau-cta a:hover { opacity: .8; }
+
+    /* ── Footer ──────────────────────────────────────────── */
+    footer { border-top: 1.5px solid var(--border); padding: 60px 28px; text-align: center; }
+    .footer-inner { max-width: 1080px; margin: 0 auto; }
+    .footer-name { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 900; color: var(--text); margin-bottom: 8px; }
+    .footer-sub { font-size: .84rem; color: var(--muted); margin-bottom: 24px; }
+    .footer-btn { display: inline-block; background: var(--coral); color: #fff; font-size: .82rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; padding: 12px 32px; border-radius: 99px; text-decoration: none; transition: opacity .15s; }
+    .footer-btn:hover { opacity: .85; }
+  </style>
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="index.html" class="nav-logo">NA</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="work.html" class="active">Work</a></li>
+      <li><a href="method.html">Method</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="note-hero">
+  <div class="note-hero-inner">
+    <div class="hero-kicker"><span class="hero-kicker-line"></span>Data Analysis · Personal Project · Pride</div>
+    <h1>Chasing unicorns<br><em>for Pride</em></h1>
+    <p class="note-lead">In honor of Pride, I dug into Google searches for the word "unicorn." When were these searches most popular, where, and why? The answer surprised me.</p>
+  </div>
+</header>
+
+<main>
+  <div class="viz-section">
+    <a href="work.html" class="back-link">← Back to Work</a>
+
+    <div class="tableau-wrap">
+      <div class='tableauPlaceholder' id='viz1687887924425' style='position: relative'>
+        <noscript>
+          <a href='https://public.tableau.com/app/profile/nabil.arnaoot/viz/UnicornChasers/UnicornChasers'>
+            <img alt='Chasing Unicorns for Pride' src='https://public.tableau.com/static/images/Un/UnicornChasers/UnicornChasers/1.png' style='border: none' />
+          </a>
+        </noscript>
+        <object class='tableauViz' style='display:none;'>
+          <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+          <param name='embed_code_version' value='3' />
+          <param name='site_root' value='' />
+          <param name='name' value='UnicornChasers/UnicornChasers' />
+          <param name='tabs' value='no' />
+          <param name='toolbar' value='yes' />
+          <param name='static_image' value='https://public.tableau.com/static/images/Un/UnicornChasers/UnicornChasers/1.png' />
+          <param name='animate_transition' value='yes' />
+          <param name='display_static_image' value='yes' />
+          <param name='display_spinner' value='yes' />
+          <param name='display_overlay' value='yes' />
+          <param name='display_count' value='yes' />
+          <param name='language' value='en-US' />
+          <param name='filter' value='publish=yes' />
+        </object>
+      </div>
+      <script type='text/javascript'>
+        var divElement = document.getElementById('viz1687887924425');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1450px'; vizElement.style.height='4027px'; }
+        else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='100%'; vizElement.style.height='4127px'; }
+        else { vizElement.style.width='100%'; vizElement.style.height='5527px'; }
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+      </script>
+    </div>
+
+    <p class="tableau-cta">
+      <a href="https://public.tableau.com/app/profile/nabil.arnaoot/viz/UnicornChasers/UnicornChasers" target="_blank">Original dashboard on Tableau Public →</a>
+    </p>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-name">Always up for a good conversation.</div>
+    <div class="footer-sub">Currently: Principal Business Analyst at SFMTA · San Francisco, CA</div>
+    <a href="https://www.linkedin.com/in/narnaoot" target="_blank" class="footer-btn">Connect on LinkedIn</a>
+    <p style="margin-top:12px;font-size:.75rem;color:var(--muted);"><img src="CleoInspects.png" alt="Cleo" style="height:36px;border-radius:50%;vertical-align:middle;margin-right:6px;">Inspected by Cleo</p>
+  </div>
+</footer>
+
+</body>
+</html>
