@@ -65,27 +65,14 @@ Five ideas where Nabil's hand-drawn / illustrative style (per CareerRiver.png) c
 - **Saint Mary's College — MS, Business Analytics** (no Honors marker) — arc label: "Bringing it all together"
 If a new painted illustration is created, it should match these 3 stops. Note: `Education.png` is now orphaned and can be deleted.
 
-### 2. Three Pillars illustration
-The About page's "Three Things I Always Bring" has three long text paragraphs from Mary Salome. Hard to scan. A single image would let the eye land first:
-A central illustrated motif (could be Nabil's Animal Crossing avatar, or a simple abstract figure) with three radiating elements — a branching diagram, three interlocking shapes, or three "petals" around a center. Each labeled with one keyword:
-- **Networked Intelligence** (icon: branching nodes or constellation)
-- **Fierce Advocacy** (icon: shield or raised hand)
-- **Incorruptible Practicality** (icon: scales balanced, or a sturdy tool)
-Use lavender accent (already the section's color). Would go as the section thumbnail replacing `ThreePillars.png`.
+### 2. Three Pillars illustration — ✅ ThreePillarsPainted.png is live
+ACNH museum interior scene. Character (canonical chibi) stands left of frame gesturing toward three display pedestals. Each pedestal holds a symbolic artifact (framed constellation painting, golden shield, brass balance scale) with a large readable label card. Amber gallery lighting, parquet floor. Replaced `ThreePillars.png` on about.html.
 
-### 3. Kernel Updates scale illustration (**biggest impact per pixel**)
-For the new "Kernel Updates for 500,000 Systems" case study on Work. The numbers are huge and abstract; an image can make them visceral:
-- Left half: **Before** — a scatter of disconnected dots (500K systems), some red/warning-colored, with scattered disconnected clusters (40+ teams), chaotic arrows.
-- Right half: **After** — the same dots/clusters, now in tidy orderly flows, a single dashboard-like panel at the top showing status, arrows flowing cleanly.
-- Style: grid of tiny dots like a pointillist grid. Could be quite small (300×200px inline) and still readable.
-This case study has no step-chain image currently; this would anchor it.
+### 3. Kernel Updates illustration — ✅ KernelCleanupPainted.png is live
+ACNH outdoor garden scene. Character crouched center-frame pulling weeds, looking back at the transformed right side. Left half: overgrown weeds, crooked corkboard with illegible crumpled tickets. Right half: neat blooming garden, clean bulletin board with organized status. Small wooden "Before / After" signs with readable subtitles. Added to work.html between project-lead and project-tags on the Kernel Updates case study.
 
-### 4. Testimonial Themes word cloud
-The "Recurring words" chip row I added on About is a tame version of this. A hand-drawn / illustrated word cloud could make it feel more personal:
-- Largest/boldest: **asks the right questions**, **translates complexity**, **humanity**
-- Medium: **mentors generously**, **charm**, **kindness**, **gets results**, **incisive mind**
-- Smaller: **eloquent**, **genuine concern**, **relentless passion**, **cannot lie**, **fun to work with**
-Could use the site's accent palette and Playfair italics for the big words. Could replace the `Testimonials.png` section thumbnail.
+### 4. Testimonial word cloud — ✅ WordClouds Painted.png is live
+ACNH Dream Suite aesthetic. Deep indigo-purple night sky, pink and lavender floating clouds, warm golden stars. Character sitting upright (not sleeping) on a large central cloud, reaching out to touch one of the floating word-bubbles. Ten word-bubbles in varying sizes and site accent colors: largest in coral/teal ("asks the right questions," "translates complexity," "humanity"), medium in mustard/lavender, smaller in sage. Replaced `Testimonials.png` on about.html.
 
 ### 5. iTunes "Pagers Going Quiet" before/after mini chart
 The iTunes case study has a strong narrative but no visual anchor beyond the emoji. A simple line/bar chart showing pager events dropping week-over-week as the crash-tracking system came online would make the outcome visceral. This one could be a coded SVG rather than an illustration.
@@ -116,13 +103,15 @@ The iTunes case study has a strong narrative but no visual anchor beyond the emo
 | `AboutHero.png` | about.html | "The Human Behind the Projects" |
 | `CareerJourneyPainted.png` | work.html | career journey illustration |
 | `EducationWalkPainted.png` | about.html | "Education & Certifications" |
-| `ThreePillars.png` | about.html | "Three Things I Always Bring" — placeholder pending new illustration |
+| `ThreePillarsPainted.png` | about.html | "Three Things I Always Bring" ✅ |
+| `KernelCleanupPainted.png` | work.html | Kernel Updates case study illustration ✅ |
+| `WordClouds Painted.png` | about.html | "What People Say" — in progress |
 | `TeachingScene.png` | about.html | "One More Thing" |
 | `ThingsILove.png` | index.html | "The work, briefly" section thumbnail |
-| `Testimonials.png` | about.html | "What People Say" — placeholder pending word cloud |
-| `ProfilePicture.jpeg` | about.html (root path) | hero avatar |
+| `Testimonials.png` | **nobody** | orphaned once WordCloudsPainted is wired in — safe to delete |
+| `ProfilePicture.jpeg` | about.html + index.html | hero avatar (both at root path — consistent) |
+| `ThreePillars.png` | **nobody** | orphaned — safe to delete |
 | `Education.png` | **nobody** | orphaned — safe to delete |
-| `ProfilePicture.jpeg` (in inspiration_samples/) | index.html | ⚠️ path inconsistency — see suggestion #5 |
 `claude/update-website-markdown-LfNXM` — comprehensive copy, consistency, and tone pass across all 4 pages.
 
 ---
@@ -164,16 +153,16 @@ All changes implement the recommendations from the April 2026 suggestions review
 ## Still open
 
 - **Browser QA** on all 4 pages (especially About's new 4-col grid + testimonials themes row wrapping on narrow screens).
-- **Images still needed** (Nabil to create externally and drop in):
-  - Three Pillars illustration (replace `ThreePillars.png`)
-  - Kernel Updates before/after dot-grid (for work.html case study — no image yet)
-  - Testimonial word cloud (replace `Testimonials.png`)
+- **Testimonial word cloud** ✅ — `WordClouds Painted.png` live on about.html. Dream Suite aesthetic (deep indigo/purple sky, floating cloud word-bubbles, character sitting upright on a cloud).
+- **Orphaned files to delete**: `ThreePillars.png`, `Education.png`
 
 ### Images — done
 | File | Use |
 |------|-----|
 | `CareerJourneyPainted.png` | work.html — career journey illustration ✅ |
 | `EducationWalkPainted.png` | about.html — Education & Certifications ✅ |
+| `ThreePillarsPainted.png` | about.html — "Three Things I Always Bring" ✅ (replaced ThreePillars.png) |
+| `KernelCleanupPainted.png` | work.html — Kernel Updates case study, between project-lead and tags ✅ |
 
 ---
 
@@ -253,10 +242,7 @@ work.html contains unused `.section-banner` and `.river-cta` CSS rules. Worth re
 | About | `about.html` | Portrait grid (4 cells) · Three Pillars · Teaching vignette · #praise (recurring-words chips + 7 testimonials) · Education & Certs (3 stops + 4 cert badges) |
 
 ### Images still needed (Nabil to create externally)
-- Three Pillars illustration (replace `ThreePillars.png`)
-- Kernel Updates before/after dot-grid (no image for this case study yet)
-- Testimonial word cloud (replace `Testimonials.png`)
-- Education Through-Line to replace `Education.png` (now orphaned — `EducationWalkPainted.png` in use)
+- iTunes "Pagers Going Quiet" line chart (optional — could be coded SVG instead)
 
 ### Optional additions (whimsy budget)
 - **"Now" strip on home** — what's on the workbench at SFMTA (anonymized), what you're reading, current tea. Derek Sivers /now-page convention. Reinforces not-job-hunting stance.
