@@ -14,7 +14,7 @@ The site foregrounds **project leadership** — Nabil's ability to walk into amb
 |------|---------|
 | `index.html` | Homepage |
 | `about.html` | Personal portrait, three pillars, teaching vignette, testimonials, education & certs |
-| `work.html` | Career river, chip timeline, 7 case studies |
+| `work.html` | Career river, 6 projects (iCloud + Kernel as deep case studies, 4 lighter pieces) |
 | `method.html` | 3 Moves (Define / Diagnose / Translate), Duct Tape/Drano, Bell Curve, skill toolkit |
 
 Nav on all 4 pages: Home · Work · Method · About
@@ -64,7 +64,6 @@ Section thumbnails live in the root alongside the HTML files.
 - **Testimonial word cloud** ✅ — `WordClouds Painted.png` live on about.html.
 - **iCloud illustration** — in progress (constellation metaphor, prompt ready)
 - **iCloud case study copy** — needs updating once illustration is in place
-- **iTunes "Pagers Going Quiet" line chart** (optional) — coded SVG showing pager events dropping as crash-tracking came online
 - **"Now" strip on home** (optional) — what's on the workbench at SFMTA, what you're reading, current tea. Reinforces "not job-hunting, just available for conversation."
 - **Cat cameo** (optional) — a small line in the footer or hero ("Reviewed by Octavia") for memorable whimsy
 

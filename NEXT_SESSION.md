@@ -235,7 +235,7 @@ Cats currently appear in chips and the portrait grid. A single candid line somew
 | Page | File | Sections |
 |------|------|----------|
 | Home | `index.html` | Hero · Stats strip · Brianna pull-quote · "The work, briefly" · Selected work (3 cards → Work, Method, About) |
-| Work | `work.html` | "A Through-Line" (CareerJourneyPainted.png + career timeline + chip strip) · 7 case studies (iTunes, iCloud, Kernel Updates, eBay, SHAP, Secret Gardens, Conditional Probability) |
+| Work | `work.html` | "A Through-Line" (CareerJourneyPainted.png + career timeline) · 6 projects: iCloud + Kernel (deep case studies) · eBay, SHAP, Secret Gardens, Conditional Probability (lighter pieces) |
 | Method | `method.html` | 3 Moves (Define / Diagnose / Translate) · Duct Tape/Drano · Bell Curve · Skill toolkit |
 | About | `about.html` | Portrait grid (4 cells) · Three Pillars · Teaching vignette · #praise (recurring-words chips + 7 testimonials) · Education & Certs (3 stops + 4 cert badges) |
 
@@ -245,7 +245,6 @@ All planned illustrations are live. No images currently needed.
 ### Optional additions (whimsy budget)
 - **"Now" strip on home** — what's on the workbench at SFMTA (anonymized), what you're reading, current tea. Derek Sivers /now-page convention. Reinforces not-job-hunting stance.
 - **Cat cameo** — a small line in the footer or hero ("Reviewed by Octavia") for the kind of whimsy that makes a site memorable.
-- **iTunes "Pagers Going Quiet" line chart** — coded SVG showing pager events dropping as crash-tracking came online. Stronger than the current outcome text alone.
 
 ### QA
 - Browser QA on all 4 pages, especially career and education timelines on mobile.
