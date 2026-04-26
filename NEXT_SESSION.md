@@ -153,6 +153,7 @@ All changes implement the recommendations from the April 2026 suggestions review
 - **Testimonial word cloud** ✅ — `WordClouds Painted.png` live on about.html. Dream Suite aesthetic (deep indigo/purple sky, floating cloud word-bubbles, character sitting upright on a cloud).
 - **iTunes case study removed** ✅ — consolidated into iCloud. `QuietedPagersPainted.png` intentionally archived (not deleted, not referenced). index.html work card updated to 6 projects, 2 in depth.
 - **Cat cameo** ✅ — `CleoInspects.png` in footer of all 4 pages as "Inspected by Cleo."
+- **iCloud illustration** ✅ — `ConstellationPainted.png` live on work.html (between project lead and tags on the iCloud case study). Constellation metaphor: chaotic night sky → stars connected into root-cause constellations.
 - **iCloud illustration** ✅ — `ConstellationPainted.png` live on work.html iCloud case study.
 - **All case studies need a full rewrite** — copy has gotten distorted over multiple editing passes. Start fresh from source material (LinkedIn, memory) rather than editing what's there. Affects all projects on work.html: iCloud, Kernel Updates, eBay, SHAP, Secret Gardens, Conditional Probability. iCloud in particular needs to reflect the correct story: Apple's properties (iCloud, iTunes, Maps) had no shared way to track downtime and root causes over time; built a consistent measurement framework across all of them.
 
@@ -243,6 +244,10 @@ Cats currently appear in chips and the portrait grid. A single candid line somew
 ### Images — all done ✅
 All planned illustrations are live. No images currently needed.
 
+| File | Use |
+|------|-----|
+| `ConstellationPainted.png` | work.html — iCloud case study illustration ✅ |
+
 ### Optional additions (whimsy budget)
 - **"Now" strip on home** — what's on the workbench at SFMTA (anonymized), what you're reading, current tea. Derek Sivers /now-page convention. Reinforces not-job-hunting stance.
 - **Cat cameo** — a small line in the footer or hero ("Reviewed by Octavia") for the kind of whimsy that makes a site memorable.
@@ -278,6 +283,36 @@ All planned illustrations are live. No images currently needed.
 - `Education.png` is orphaned (not referenced in any live page). Safe to delete.
 - Dead CSS in work.html: `.section-banner` and `.river-cta` classes remain in the style block but are not used in the page body. Safe to trim on a cleanup pass.
 - Design tokens, fonts, and nav unchanged across all pages.
+
+---
+
+## What changed this session (April 26 2026 — review implementation pass)
+
+All changes implement findings from the April 26 review below. One task per commit.
+
+### Footer cleanup (committed separately before this pass)
+- **"Made with curiosity & care" removed** from all 4 pages — line was redundant with the footer headline.
+- **Cleo image enlarged** from `height:22px` to `height:36px` on all 4 pages.
+
+### Review items completed
+- **iCloud illustration wired up** — `ConstellationPainted.png` added to work.html between the iCloud project lead and tags, matching `KernelCleanupPainted.png` placement on the Kernel case study. ✅
+- **Stats strip reframed** — "iCloud users at launch" changed to "iCloud users whose outages I tracked" so the 300M number reads as Nabil's contribution, not Apple's. ✅
+- **Bell curve right-side label** — "In need of constraints" → "Too unstructured" (parallels "Too stuck in status quo" on the left). Caption updated to match. ✅
+- **Funnel question 2 trimmed** — Two stacked questions merged with an em-dash into one fluid question. ✅
+- **Drano panel duplicate removed** — Both Duct Tape and Drano referenced the kernel project. Replaced the Drano instance with the eBay security backlog example (surfacing a buried queue = Drano). ✅
+- **Mary Salome attribution** — "as described by Mary Salome" → "as described by Mary Salome, a longtime friend." ✅
+- **Cert badges grid** — 3 badges in a 2-column grid left a blank cell. Switched to 3-column grid with a 1-col mobile fallback. ✅
+- **Unclosed div** — `career-timeline` div in work.html was opened but never explicitly closed. Fixed. ✅
+
+### Still open / needs Nabil input
+- **Skill bars → chips** ✅ — Replaced all 12 bars with color-coded chip pills. IntersectionObserver JS removed.
+  - **AC illustration idea for this section:** character at the ACNH crafting table with three labeled "recipe cards" spread out (one per column), each with the skill names hand-lettered on them in the ACNH style. Could replace the three-column grid entirely or sit above it.
+- **Links for lighter reads (work.html)** — "Conditional Probability for Normal Humans," "Secret Gardens of San Francisco," and "Making ML Explainable with SHAP" have no outbound links. Need URLs (Tableau Public for Secret Gardens; blog/post for the others).
+- **2018–2020 gap** ✅ — Added "Sabbatical · Deliberate pause · 2018–2020" node (sage color, 🌿) between Apple and Independent Consulting.
+- **Mary Salome attribution** ✅ — Updated to "a longtime friend and collaborator."
+- **Case studies full rewrite** — still needed. Copy has drifted. Start from LinkedIn + memory, not by editing what's there.
+- **"Now" strip on home** — needs content from Nabil (SFMTA workbench item, current read, current tea).
+- **Browser QA** — especially About's 4-col portrait grid and testimonials themes row on mobile.
 
 ---
 

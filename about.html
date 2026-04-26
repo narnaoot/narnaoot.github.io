@@ -208,7 +208,8 @@
     .edu-arc-label { font-size: .72rem; color: var(--muted); font-style: italic; margin-top: 2px; }
 
     /* Cert badges */
-    .cert-badges { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .cert-badges { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    @media (max-width: 520px) { .cert-badges { grid-template-columns: 1fr; } }
     .cert-badge {
       background: var(--surface);
       border: 1.5px solid var(--border);
@@ -340,7 +341,7 @@
     <div class="section-intro">
       <div class="section-h">
         <h2>Three Things I Always Bring</h2>
-        <span class="section-tag">as described by Mary Salome</span>
+        <span class="section-tag">as described by Mary Salome, a longtime friend and collaborator</span>
       </div>
       <img class="section-thumb" src="ThreePillarsPainted.png" alt="Three Things I Always Bring">
     </div>
