@@ -47,26 +47,26 @@ Section thumbnails live in the root alongside the HTML files.
 | File | Use |
 |------|-----|
 | `AboutHero.png` | about.html — "The Human Behind the Projects" |
-| `ThreePillars.png` | about.html — "Three Things I Always Bring" |
+| `ThreePillarsPainted.png` | about.html — "Three Things I Always Bring" ✅ |
+| `KernelCleanupPainted.png` | work.html — Kernel Updates case study illustration ✅ |
 | `TeachingScene.png` | about.html — "One More Thing" |
 | `ThingsILove.png` | index.html — "The work, briefly" section thumbnail |
-| `Testimonials.png` | about.html — "What People Say" |
-| `EducationWalkPainted.png` | about.html — "Education & Certifications" |
-| `ProfilePicture.jpeg` | about.html hero avatar (root path); index.html references `inspiration_samples/ProfilePicture.jpeg` — ⚠️ path inconsistency, see NEXT_SESSION.md #5 |
-| `CareerJourneyPainted.png` | work.html — career journey illustration |
+| `WordClouds Painted.png` | about.html — "What People Say" ✅ |
+| `Testimonials.png` | **nobody** — orphaned, safe to delete |
+| `EducationWalkPainted.png` | about.html — "Education & Certifications" ✅ |
+| `ProfilePicture.jpeg` | about.html + index.html — hero avatar (both now at root path) |
+| `CareerJourneyPainted.png` | work.html — career journey illustration ✅ |
+| `ThreePillars.png` | **nobody** — orphaned, safe to delete |
+| `Education.png` | **nobody** — orphaned, safe to delete |
 
 ## Still to do
 
 - **Browser QA** on all 4 pages, especially the career/education timelines on mobile
-- **Illustrations still needed** (Nabil to create — see NEXT_SESSION.md for descriptions):
-  - Three Pillars illustration (replace `ThreePillars.png`)
-  - Kernel Updates before/after dot-grid (for work.html case study)
-  - Testimonial word cloud (replace `Testimonials.png`)
-  - iTunes "Pagers Going Quiet" line chart (could be coded SVG)
-- **Education Through-Line** — `EducationWalkPainted.png` is live ✅; `Education.png` is now orphaned and can be deleted
-- **Copy & content edits** — see "Copy & content suggestions" section in NEXT_SESSION.md for full list
+- **Testimonial word cloud** ✅ — `WordClouds Painted.png` live on about.html.
+- **iTunes "Pagers Going Quiet" line chart** (optional) — coded SVG showing pager events dropping as crash-tracking came online
 - **"Now" strip on home** (optional) — what's on the workbench at SFMTA, what you're reading, current tea. Reinforces "not job-hunting, just available for conversation."
 - **Cat cameo** (optional) — a small line in the footer or hero ("Reviewed by Octavia") for memorable whimsy
+- **Orphaned files to delete** — `ThreePillars.png`, `Education.png`
 
 ## Inspiration research
 
