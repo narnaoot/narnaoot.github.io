@@ -56,6 +56,7 @@ Section thumbnails live in the root alongside the HTML files.
 | `EducationWalkPainted.png` | about.html — "Education & Certifications" ✅ |
 | `ProfilePicture.jpeg` | about.html + index.html — hero avatar (both now at root path) |
 | `QuietedPagersPainted.png` | intentionally archived — not referenced in any live page |
+| `CleoInspects.png` | footer on all 4 pages — "Inspected by Cleo" ✅ |
 | `CareerJourneyPainted.png` | work.html — career journey illustration ✅ |
 
 ## Still to do
