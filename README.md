@@ -55,6 +55,7 @@ Section thumbnails live in the root alongside the HTML files.
 | `Testimonials.png` | **nobody** — orphaned, safe to delete |
 | `EducationWalkPainted.png` | about.html — "Education & Certifications" ✅ |
 | `ProfilePicture.jpeg` | about.html + index.html — hero avatar (both now at root path) |
+| `QuietedPagersPainted.png` | work.html — iTunes case study illustration ✅ |
 | `CareerJourneyPainted.png` | work.html — career journey illustration ✅ |
 
 ## Still to do
