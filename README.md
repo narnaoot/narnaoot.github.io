@@ -56,8 +56,6 @@ Section thumbnails live in the root alongside the HTML files.
 | `EducationWalkPainted.png` | about.html — "Education & Certifications" ✅ |
 | `ProfilePicture.jpeg` | about.html + index.html — hero avatar (both now at root path) |
 | `CareerJourneyPainted.png` | work.html — career journey illustration ✅ |
-| `ThreePillars.png` | **nobody** — orphaned, safe to delete |
-| `Education.png` | **nobody** — orphaned, safe to delete |
 
 ## Still to do
 
@@ -66,7 +64,6 @@ Section thumbnails live in the root alongside the HTML files.
 - **iTunes "Pagers Going Quiet" line chart** (optional) — coded SVG showing pager events dropping as crash-tracking came online
 - **"Now" strip on home** (optional) — what's on the workbench at SFMTA, what you're reading, current tea. Reinforces "not job-hunting, just available for conversation."
 - **Cat cameo** (optional) — a small line in the footer or hero ("Reviewed by Octavia") for memorable whimsy
-- **Orphaned files to delete** — `ThreePillars.png`, `Education.png`
 
 ## Inspiration research
 

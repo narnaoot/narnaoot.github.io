@@ -108,10 +108,7 @@ The iTunes case study has a strong narrative but no visual anchor beyond the emo
 | `WordClouds Painted.png` | about.html | "What People Say" — in progress |
 | `TeachingScene.png` | about.html | "One More Thing" |
 | `ThingsILove.png` | index.html | "The work, briefly" section thumbnail |
-| `Testimonials.png` | **nobody** | orphaned once WordCloudsPainted is wired in — safe to delete |
 | `ProfilePicture.jpeg` | about.html + index.html | hero avatar (both at root path — consistent) |
-| `ThreePillars.png` | **nobody** | orphaned — safe to delete |
-| `Education.png` | **nobody** | orphaned — safe to delete |
 `claude/update-website-markdown-LfNXM` — comprehensive copy, consistency, and tone pass across all 4 pages.
 
 ---
@@ -154,7 +151,6 @@ All changes implement the recommendations from the April 2026 suggestions review
 
 - **Browser QA** on all 4 pages (especially About's new 4-col grid + testimonials themes row wrapping on narrow screens).
 - **Testimonial word cloud** ✅ — `WordClouds Painted.png` live on about.html. Dream Suite aesthetic (deep indigo/purple sky, floating cloud word-bubbles, character sitting upright on a cloud).
-- **Orphaned files to delete**: `ThreePillars.png`, `Education.png`
 
 ### Images — done
 | File | Use |
