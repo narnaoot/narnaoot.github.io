@@ -134,8 +134,8 @@ All changes implement the recommendations from the April 2026 suggestions review
 - **Career chip strip removed**: the chip-arrow strip duplicating the horizontal timeline (Elegrity → eBay → Apple → MS Business Analytics · 2022 → SFMTA) is gone. It duplicated the timeline, dropped the consulting period, and inserted "MS Business Analytics · 2022" as a career stop (not accurate). Timeline carries the arc cleanly.
 - **Projects split into two sections**:
   - **"Case Studies"** (three in depth) — iTunes, iCloud, Kernel Updates. Full step-by-step treatment.
-  - **"Notes, Essays & Side Quests"** (four lighter reads) — eBay, SHAP, Secret Gardens, Conditional Probability. Framed honestly as lighter pieces.
-- **Outcome lines added to all 4 lighter projects**: each now ends with a `step-outcome` block summarizing the result — eBay (security reviews became proactive), SHAP (default translation layer for model outputs), Secret Gardens (public Tableau dashboard of POPOS), Conditional Probability (first time Bayes makes sense).
+  - **"Notes, Essays & Side Quests"** (four lighter reads) — eBay, Secret Gardens, Conditional Probability, Chasing Unicorns for Pride. Framed honestly as lighter pieces. (SHAP removed as outdated.)
+- **Outcome lines added to all 4 lighter projects**: each now ends with a `step-outcome` block summarizing the result — eBay (security reviews became proactive), Secret Gardens (public Tableau dashboard of POPOS), Conditional Probability (first time Bayes makes sense), Unicorns (data story that ends somewhere unexpected).
 - **Footer unified**: "Always up for a good conversation." (was "If you would like to chat").
 
 ### method.html
@@ -236,7 +236,7 @@ Cats currently appear in chips and the portrait grid. A single candid line somew
 | Page | File | Sections |
 |------|------|----------|
 | Home | `index.html` | Hero · Stats strip · Brianna pull-quote · "The work, briefly" · Selected work (3 cards → Work, Method, About) |
-| Work | `work.html` | "A Through-Line" (CareerJourneyPainted.png + career timeline) · 6 projects: iCloud + Kernel (deep case studies) · eBay, SHAP, Secret Gardens, Conditional Probability (lighter pieces) |
+| Work | `work.html` | "A Through-Line" (CareerJourneyPainted.png + career timeline) · 6 projects: iCloud + Kernel (deep case studies) · eBay, Secret Gardens, Conditional Probability, Chasing Unicorns (lighter pieces) |
 | Method | `method.html` | 3 Moves (Define / Diagnose / Translate) · Duct Tape/Drano · Bell Curve · Skill toolkit |
 | About | `about.html` | Portrait grid (4 cells) · Three Pillars · Teaching vignette · #praise (recurring-words chips + 7 testimonials) · Education & Certs (3 stops + 3 cert badges) |
 
@@ -263,7 +263,7 @@ All planned illustrations are live. No images currently needed.
 | Page | Sections |
 |------|----------|
 | **index.html** | Hero · Stats strip (4 yrs Saint Mary's replaces Apple teams) · Brianna pull-quote (trimmed) · "The work, briefly" · 3 project cards |
-| **work.html** | "A Through-Line" (caption + CareerJourneyPainted + timeline) · "Case Studies" (iCloud, Kernel — 2 deep) · "Notes, Essays & Side Quests" (eBay, SHAP, Secret Gardens, Conditional Probability — all with outcome lines) |
+| **work.html** | "A Through-Line" (caption + CareerJourneyPainted + timeline) · "Case Studies" (iCloud, Kernel — 2 deep) · "Notes, Essays & Side Quests" (eBay, Secret Gardens, Conditional Probability, Chasing Unicorns — all with outcome lines) |
 | **method.html** | 3 Moves · Duct Tape/Drano · Bell Curve (updated callout) · Skill toolkit (color-coded chips, no JS) |
 | **about.html** | Portrait grid · Three Pillars (no per-card attribution) · Teaching vignette (teaching + consulting separated) · What People Say · Education & Certs (3 badges, Excel dropped) |
 
@@ -305,7 +305,10 @@ All changes implement findings from the April 26 review below. One task per comm
 ### Still open / needs Nabil input
 - **Skill bars → chips** ✅ — Replaced all 12 bars with color-coded chip pills. IntersectionObserver JS removed.
   - **AC illustration idea for this section:** character at the ACNH crafting table with three labeled "recipe cards" spread out (one per column), each with the skill names hand-lettered on them in the ACNH style. Could replace the three-column grid entirely or sit above it.
-- **Links for lighter reads (work.html)** — "Conditional Probability for Normal Humans," "Secret Gardens of San Francisco," and "Making ML Explainable with SHAP" have no outbound links. Need URLs (Tableau Public for Secret Gardens; blog/post for the others).
+- **Links for lighter reads (work.html)** ✅ — Secret Gardens, Conditional Probability, and the new Chasing Unicorns for Pride all linked to `n4bil.com/work/<slug>`. SHAP removed (outdated). eBay still has no outbound link (no public security-program page exists, so likely staying linkless).
+- **"Chasing Unicorns for Pride" added** ✅ — new lighter read (🦄, teal accent), linked to `https://n4bil.com/work/unicorns`. Section tag still reads "four lighter reads" because SHAP was dropped at the same time.
+- **SHAP lighter read removed** ✅ — dropped per Nabil ("feels outdated now").
+- **Case study images shrunk** ✅ — `KernelCleanupPainted.png` and `ConstellationPainted.png` capped at 420px (was full-width). Centered with `margin: 16px auto 24px`. Duplicate ConstellationPainted img tag on iCloud case study removed at the same time.
 - **2018–2020 gap** ✅ — Added "Sabbatical · Deliberate pause · 2018–2020" node (sage color, 🌿) between Apple and Independent Consulting.
 - **Mary Salome attribution** ✅ — Updated to "a longtime friend and collaborator."
 - **Case studies full rewrite** — still needed. Copy has drifted. Start from LinkedIn + memory, not by editing what's there.
@@ -325,8 +328,8 @@ All twelve `data-width` values were normalized to 100 in a prior pass (see "What
 - Calibrate honestly (e.g. PM 95, Process Design 95, Agile 80, Gap Analysis 85, Working in code 65). Honest variance is more persuasive than uniform mastery.
 - Or drop the bars entirely and use the same chip/pill style the site already uses elsewhere — keeps the playfulness without making a quantitative claim.
 
-**R2. work.html — "Notes, Essays & Side Quests" don't link anywhere.**
-Conditional Probability for Normal Humans, Secret Gardens of San Francisco, and Making ML Explainable with SHAP are described as if a reader could read or see them, but no `<a>` tags. Either link them out (Tableau Public for Secret Gardens; blog/Medium for the writing) or reframe as "pieces I've made" rather than "lighter reads."
+**R2. work.html — "Notes, Essays & Side Quests" don't link anywhere.** ✅ Resolved.
+Secret Gardens, Conditional Probability, and Chasing Unicorns for Pride all link to `n4bil.com/work/<slug>` (title underline + CTA below the outcome). SHAP removed as outdated. eBay still has no outbound link — likely staying that way.
 
 **R3. index.html — "300M+ iCloud users at launch" is an Apple stat, not a Nabil stat.**
 Readers feel the difference. Replace with a personal-impact number (e.g. dashboards still in use, hours reclaimed) or rephrase to "300M users on systems I supported." Note: this dovetails with the still-open suggestion #7 ("Stats strip — too Apple-heavy") above.
