@@ -59,6 +59,7 @@ Section thumbnails live in the root alongside the HTML files.
 | `QuietedPagersPainted.png` | intentionally archived — not referenced in any live page |
 | `CleoInspects.png` | footer on all 4 pages — "Inspected by Cleo" ✅ |
 | `CareerJourneyPainted.png` | work.html — career journey illustration ✅ |
+| `ConstellationPainted.png` | work.html — iCloud case study illustration ✅ |
 
 ## Still to do
 

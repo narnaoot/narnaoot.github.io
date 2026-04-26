@@ -88,12 +88,11 @@ The iTunes case study has a strong narrative but no visual anchor beyond the emo
 | Brianna pull-quote | index.html | styled blockquote |
 | Bell curve (job satisfaction) | method.html | inline SVG |
 | 3-Move diagnostic funnel | method.html | vertical CSS rail + colored dots |
-| Animated skill bars | method.html | CSS bars + IntersectionObserver (data-width still drives widths — see suggestion #8) |
+| Skill chips | method.html | color-coded pill tags (teal/lavender/coral) — replaced bars ✅ |
 | Duct Tape / Drano panels | method.html | two-panel card |
-| Career timeline | work.html | horizontal CSS rail + colored dots |
-| Career chip strip | work.html | chip-arrow row (see suggestion #9 — candidate for removal) |
+| Career timeline | work.html | horizontal CSS rail + 6 colored dots (incl. Sabbatical node ✅) |
 | Education timeline | about.html | vertical CSS rail + 3 stops (UChicago, George Mason, Saint Mary's) |
-| Cert badges | about.html | 2×2 card grid (see suggestion #10 — Excel badge candidate for removal) |
+| Cert badges | about.html | 3-column card grid (Excel removed ✅) |
 | Portrait mini-bars (tea) | about.html | tiny CSS bars |
 | Testimonials themes row | about.html | colored chip strip |
 
@@ -239,7 +238,7 @@ Cats currently appear in chips and the portrait grid. A single candid line somew
 | Home | `index.html` | Hero · Stats strip · Brianna pull-quote · "The work, briefly" · Selected work (3 cards → Work, Method, About) |
 | Work | `work.html` | "A Through-Line" (CareerJourneyPainted.png + career timeline) · 6 projects: iCloud + Kernel (deep case studies) · eBay, SHAP, Secret Gardens, Conditional Probability (lighter pieces) |
 | Method | `method.html` | 3 Moves (Define / Diagnose / Translate) · Duct Tape/Drano · Bell Curve · Skill toolkit |
-| About | `about.html` | Portrait grid (4 cells) · Three Pillars · Teaching vignette · #praise (recurring-words chips + 7 testimonials) · Education & Certs (3 stops + 4 cert badges) |
+| About | `about.html` | Portrait grid (4 cells) · Three Pillars · Teaching vignette · #praise (recurring-words chips + 7 testimonials) · Education & Certs (3 stops + 3 cert badges) |
 
 ### Images — all done ✅
 All planned illustrations are live. No images currently needed.
@@ -255,7 +254,7 @@ All planned illustrations are live. No images currently needed.
 ### QA
 - Browser QA on all 4 pages, especially career and education timelines on mobile.
 - Verify `ProfilePicture.jpeg` loads correctly from root in index.html (path fixed this session).
-- Check cert badge 2×2 grid with 3 items (Excel removed) — last cell is empty, confirm layout looks fine or switch to 3-col.
+- Cert badge grid switched to 3-col ✅ — no blank cell.
 
 ---
 
@@ -265,7 +264,7 @@ All planned illustrations are live. No images currently needed.
 |------|----------|
 | **index.html** | Hero · Stats strip (4 yrs Saint Mary's replaces Apple teams) · Brianna pull-quote (trimmed) · "The work, briefly" · 3 project cards |
 | **work.html** | "A Through-Line" (caption + CareerJourneyPainted + timeline) · "Case Studies" (iCloud, Kernel — 2 deep) · "Notes, Essays & Side Quests" (eBay, SHAP, Secret Gardens, Conditional Probability — all with outcome lines) |
-| **method.html** | 3 Moves · Duct Tape/Drano · Bell Curve (updated callout) · Skill toolkit (uniform bars, "Working in code" label) |
+| **method.html** | 3 Moves · Duct Tape/Drano · Bell Curve (updated callout) · Skill toolkit (color-coded chips, no JS) |
 | **about.html** | Portrait grid · Three Pillars (no per-card attribution) · Teaching vignette (teaching + consulting separated) · What People Say · Education & Certs (3 badges, Excel dropped) |
 
 ---
@@ -276,12 +275,11 @@ All planned illustrations are live. No images currently needed.
 - Fonts: Playfair Display (headings) + Nunito (body)
 - Hero kicker color: `--coral` on Home/Work · `--teal` on Method · `--lavender` on About
 - Nav is self-contained within `redesign/`
-- Home hero portrait + Work CareerRiver reference `../inspiration_samples/` — not moved
 - LinkedIn profile PDF in repo root (`linked_in_profile.pdf`)
-- All 4 pages share footer copy: "Always up for a good conversation." + "If there's an interesting problem in the room, I want to hear about it."
-- Hero image path: `ProfilePicture.jpeg` (root) on both index.html and about.html — consistent now.
+- All 4 pages share footer copy: "Always up for a good conversation." + "If there's an interesting problem in the room, I want to hear about it." Footer tagline "Made with curiosity & care" removed.
+- Hero image path: `ProfilePicture.jpeg` (root) on both index.html and about.html — consistent.
 - `Education.png` is orphaned (not referenced in any live page). Safe to delete.
-- Dead CSS in work.html: `.section-banner` and `.river-cta` classes remain in the style block but are not used in the page body. Safe to trim on a cleanup pass.
+- Dead CSS in work.html (`.section-banner`, `.river-cta`) ✅ — removed per suggestion #16b.
 - Design tokens, fonts, and nav unchanged across all pages.
 
 ---
