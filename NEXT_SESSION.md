@@ -304,9 +304,11 @@ All changes implement findings from the April 26 review below. One task per comm
 - **Unclosed div** — `career-timeline` div in work.html was opened but never explicitly closed. Fixed. ✅
 
 ### Still open / needs Nabil input
-- **Skill bars (method.html)** — All 12 `data-width` values are 100%. Twelve full bars reads as self-rating everything 10/10. Options: (a) calibrate with honest relative percentages (need Nabil's input), or (b) drop bars entirely and use chips. Cannot do without input.
-- **Links for lighter reads (work.html)** — "Conditional Probability for Normal Humans," "Secret Gardens of San Francisco," and "Making ML Explainable with SHAP" are described as readable pieces but have no links. Need URLs (Tableau Public for Secret Gardens; blog/post for the others).
-- **2018–2020 gap on career timeline (work.html)** — Apple ends 2018, Independent Consulting starts 2020. Two silent years. A brief node ("between roles · …") would be better than the gap. Need Nabil's input on what to say.
+- **Skill bars → chips** ✅ — Replaced all 12 bars with color-coded chip pills. IntersectionObserver JS removed.
+  - **AC illustration idea for this section:** character at the ACNH crafting table with three labeled "recipe cards" spread out (one per column), each with the skill names hand-lettered on them in the ACNH style. Could replace the three-column grid entirely or sit above it.
+- **Links for lighter reads (work.html)** — "Conditional Probability for Normal Humans," "Secret Gardens of San Francisco," and "Making ML Explainable with SHAP" have no outbound links. Need URLs (Tableau Public for Secret Gardens; blog/post for the others).
+- **2018–2020 gap** ✅ — Added "Sabbatical · Deliberate pause · 2018–2020" node (sage color, 🌿) between Apple and Independent Consulting.
+- **Mary Salome attribution** ✅ — Updated to "a longtime friend and collaborator."
 - **Case studies full rewrite** — still needed. Copy has drifted. Start from LinkedIn + memory, not by editing what's there.
 - **"Now" strip on home** — needs content from Nabil (SFMTA workbench item, current read, current tea).
 - **Browser QA** — especially About's 4-col portrait grid and testimonials themes row on mobile.
