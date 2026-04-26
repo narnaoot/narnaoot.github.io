@@ -14,7 +14,10 @@ The site foregrounds **project leadership** — Nabil's ability to walk into amb
 |------|---------|
 | `index.html` | Homepage |
 | `about.html` | Personal portrait, three pillars, teaching vignette, testimonials, education & certs |
-| `work.html` | Career river, 6 projects (iCloud + Kernel as deep case studies, 4 lighter pieces) |
+| `work.html` | Career river, 6 projects (iCloud + Kernel as deep case studies, 4 lighter pieces — 3 link to dedicated note pages) |
+| `probability.html` | Conditional Probability for Normal Humans — full essay with tables |
+| `gardens.html` | Secret Gardens of San Francisco — Tableau Public viz embed |
+| `unicorns.html` | Chasing Unicorns for Pride — Tableau Public viz embed |
 | `method.html` | 3 Moves (Define / Diagnose / Translate), Duct Tape/Drano, Bell Curve, skill toolkit |
 
 Nav on all 4 pages: Home · Work · Method · About
@@ -68,8 +71,8 @@ Section thumbnails live in the root alongside the HTML files.
 - **Case study images shrunk** ✅ — `KernelCleanupPainted.png` and `ConstellationPainted.png` capped at 420px so they no longer overpower the text.
 - **All case studies need a full rewrite** — copy has gotten distorted over multiple passes. Rewrite from source material, not by editing what's there. See NEXT_SESSION.md for details.
 - **Skill bars on method.html** ✅ — Replaced with color-coded chip pills. See NEXT_SESSION.md for an AC illustration idea for this section.
-- **Links for lighter reads on work.html** ✅ — Secret Gardens (`/work/gardens`), Conditional Probability (`/work/probability`), and Chasing Unicorns (`/work/unicorns`) all linked. SHAP dropped (felt outdated).
-- **"Chasing Unicorns for Pride" added** ✅ — new lighter read with teal accent (work.html). Links to `https://n4bil.com/work/unicorns`.
+- **Dedicated note pages** ✅ — `probability.html`, `gardens.html`, `unicorns.html` created in site style. Lighter reads on work.html trimmed to teasers (emoji + title link + 2-line lead + CTA), linking to local pages.
+- **"Chasing Unicorns for Pride" added** ✅ — new lighter read with teal accent (work.html → unicorns.html).
 - **SHAP lighter read removed** ✅ — dropped as outdated.
 - **2018–2020 gap on career timeline** ✅ — "Sabbatical · Deliberate pause" node added between Apple and Independent Consulting.
 - **"Now" strip on home** (optional) — what's on the workbench at SFMTA, what you're reading, current tea. Reinforces "not job-hunting, just available for conversation."
