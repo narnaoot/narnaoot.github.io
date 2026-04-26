@@ -63,10 +63,13 @@ Section thumbnails live in the root alongside the HTML files.
 
 - **Browser QA** on all 4 pages, especially the career/education timelines on mobile
 - **Testimonial word cloud** ✅ — `WordClouds Painted.png` live on about.html.
-- **iCloud illustration** — in progress (constellation metaphor, prompt ready)
+- **iCloud illustration** ✅ — `ConstellationPainted.png` wired up on work.html between project lead and tags.
 - **All case studies need a full rewrite** — copy has gotten distorted over multiple passes. Rewrite from source material, not by editing what's there. See NEXT_SESSION.md for details.
+- **Skill bars on method.html** — all currently at 100%. Need Nabil's input: calibrate with honest relative percentages, or drop bars for chips? See NEXT_SESSION.md.
+- **Links for lighter reads on work.html** — "Secret Gardens," "Making ML Explainable with SHAP," and "Conditional Probability for Normal Humans" have no outbound links. Need URLs (Tableau Public for Secret Gardens; blog/post URLs for the others).
+- **2018–2020 gap on career timeline** — Apple ends 2018, consulting starts 2020. Two silent years. A brief node ("between roles · …") would be better than a gap. Need Nabil's input on what to say.
 - **"Now" strip on home** (optional) — what's on the workbench at SFMTA, what you're reading, current tea. Reinforces "not job-hunting, just available for conversation."
-- **Cat cameo** (optional) — a small line in the footer or hero ("Reviewed by Octavia") for memorable whimsy
+- **Cat cameo** ✅ — "Inspected by Cleo" with photo in footer of all 4 pages.
 
 ## Inspiration research
 
