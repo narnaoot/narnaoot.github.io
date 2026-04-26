@@ -237,8 +237,8 @@ work.html contains unused `.section-banner` and `.river-cta` CSS rules. Worth re
 | Method | `method.html` | 3 Moves (Define / Diagnose / Translate) · Duct Tape/Drano · Bell Curve · Skill toolkit |
 | About | `about.html` | Portrait grid (4 cells) · Three Pillars · Teaching vignette · #praise (recurring-words chips + 7 testimonials) · Education & Certs (3 stops + 4 cert badges) |
 
-### Images still needed (Nabil to create externally)
-- iTunes "Pagers Going Quiet" line chart (optional — could be coded SVG instead)
+### Images — all done ✅
+All planned illustrations are live. No images currently needed.
 
 ### Optional additions (whimsy budget)
 - **"Now" strip on home** — what's on the workbench at SFMTA (anonymized), what you're reading, current tea. Derek Sivers /now-page convention. Reinforces not-job-hunting stance.
