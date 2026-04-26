@@ -55,13 +55,15 @@ Section thumbnails live in the root alongside the HTML files.
 | `Testimonials.png` | **nobody** — orphaned, safe to delete |
 | `EducationWalkPainted.png` | about.html — "Education & Certifications" ✅ |
 | `ProfilePicture.jpeg` | about.html + index.html — hero avatar (both now at root path) |
-| `QuietedPagersPainted.png` | work.html — iTunes case study illustration ✅ |
+| `QuietedPagersPainted.png` | intentionally archived — not referenced in any live page |
 | `CareerJourneyPainted.png` | work.html — career journey illustration ✅ |
 
 ## Still to do
 
 - **Browser QA** on all 4 pages, especially the career/education timelines on mobile
 - **Testimonial word cloud** ✅ — `WordClouds Painted.png` live on about.html.
+- **iCloud illustration** — in progress (constellation metaphor, prompt ready)
+- **iCloud case study copy** — needs updating once illustration is in place
 - **iTunes "Pagers Going Quiet" line chart** (optional) — coded SVG showing pager events dropping as crash-tracking came online
 - **"Now" strip on home** (optional) — what's on the workbench at SFMTA, what you're reading, current tea. Reinforces "not job-hunting, just available for conversation."
 - **Cat cameo** (optional) — a small line in the footer or hero ("Reviewed by Octavia") for memorable whimsy

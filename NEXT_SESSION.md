@@ -151,6 +151,9 @@ All changes implement the recommendations from the April 2026 suggestions review
 
 - **Browser QA** on all 4 pages (especially About's new 4-col grid + testimonials themes row wrapping on narrow screens).
 - **Testimonial word cloud** ✅ — `WordClouds Painted.png` live on about.html. Dream Suite aesthetic (deep indigo/purple sky, floating cloud word-bubbles, character sitting upright on a cloud).
+- **iTunes case study removed** ✅ — consolidated into iCloud. `QuietedPagersPainted.png` intentionally archived (not deleted, not referenced). index.html work card updated to 6 projects, 2 in depth.
+- **iCloud illustration** — in progress. Constellation metaphor: chaotic night sky (left) → same stars connected by chalk constellation lines revealing root causes (right). Prompt ready.
+- **iCloud case study copy** — needs updating to reflect: consistent metrics, root cause identification, tracking progress over time (before the system, no way to know if things were improving).
 
 ### Images — done
 | File | Use |
@@ -256,7 +259,7 @@ All planned illustrations are live. No images currently needed.
 | Page | Sections |
 |------|----------|
 | **index.html** | Hero · Stats strip (4 yrs Saint Mary's replaces Apple teams) · Brianna pull-quote (trimmed) · "The work, briefly" · 3 project cards |
-| **work.html** | "A Through-Line" (caption + CareerJourneyPainted + timeline, no chip strip) · "Case Studies" (iTunes, iCloud, Kernel — 3 deep) · "Notes, Essays & Side Quests" (eBay, SHAP, Secret Gardens, Conditional Probability — all with outcome lines) |
+| **work.html** | "A Through-Line" (caption + CareerJourneyPainted + timeline) · "Case Studies" (iCloud, Kernel — 2 deep) · "Notes, Essays & Side Quests" (eBay, SHAP, Secret Gardens, Conditional Probability — all with outcome lines) |
 | **method.html** | 3 Moves · Duct Tape/Drano · Bell Curve (updated callout) · Skill toolkit (uniform bars, "Working in code" label) |
 | **about.html** | Portrait grid · Three Pillars (no per-card attribution) · Teaching vignette (teaching + consulting separated) · What People Say · Education & Certs (3 badges, Excel dropped) |
 
