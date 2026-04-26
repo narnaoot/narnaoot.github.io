@@ -208,7 +208,8 @@
     .edu-arc-label { font-size: .72rem; color: var(--muted); font-style: italic; margin-top: 2px; }
 
     /* Cert badges */
-    .cert-badges { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .cert-badges { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    @media (max-width: 520px) { .cert-badges { grid-template-columns: 1fr; } }
     .cert-badge {
       background: var(--surface);
       border: 1.5px solid var(--border);
