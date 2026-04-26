@@ -49,6 +49,7 @@ Section thumbnails live in the root alongside the HTML files.
 | `AboutHero.png` | about.html — "The Human Behind the Projects" |
 | `ThreePillarsPainted.png` | about.html — "Three Things I Always Bring" ✅ |
 | `KernelCleanupPainted.png` | work.html — Kernel Updates case study illustration ✅ |
+| `ConstellationPainted.png` | work.html — iCloud case study illustration ✅ |
 | `TeachingScene.png` | about.html — "One More Thing" |
 | `ThingsILove.png` | index.html — "The work, briefly" section thumbnail |
 | `WordClouds Painted.png` | about.html — "What People Say" ✅ |
@@ -64,6 +65,7 @@ Section thumbnails live in the root alongside the HTML files.
 - **Browser QA** on all 4 pages, especially the career/education timelines on mobile
 - **Testimonial word cloud** ✅ — `WordClouds Painted.png` live on about.html.
 - **iCloud illustration** ✅ — `ConstellationPainted.png` wired up on work.html between project lead and tags.
+- **iCloud illustration** ✅ — `ConstellationPainted.png` live on work.html
 - **All case studies need a full rewrite** — copy has gotten distorted over multiple passes. Rewrite from source material, not by editing what's there. See NEXT_SESSION.md for details.
 - **Skill bars on method.html** ✅ — Replaced with color-coded chip pills. See NEXT_SESSION.md for an AC illustration idea for this section.
 - **Links for lighter reads on work.html** — "Secret Gardens," "Making ML Explainable with SHAP," and "Conditional Probability for Normal Humans" have no outbound links. Need URLs (Tableau Public for Secret Gardens; blog/post URLs for the others).
