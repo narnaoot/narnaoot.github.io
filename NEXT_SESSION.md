@@ -394,13 +394,16 @@ Hero says "Nineteen years of building the process that didn't exist yet." About-
 
 ### Medium impact
 
-**S5. work.html — eBay Site Security is miscategorized.** ⏸
-(Restates R5 from April 26.) It's a real program-management story sandwiched among teasers under "Notes, Essays & Side Quests." Two clean fixes: (a) promote back into the Case Studies list with steps, or (b) rename the section umbrella ("Other Work & Side Quests") so it can hold both registers without false equivalence.
+**S5. work.html — eBay Site Security is miscategorized.** ✅
+(Restates R5 from April 26.) Resolved via promotion (option a). eBay is now the first of three case studies in chronological order (eBay 2009–11 → iCloud 2011–18 → Kernel 2014–18), matching the career timeline directly above. Lead and steps rewritten from source material Nabil provided rather than by editing the prior copy: roadmap (transparency), kick-started intake questionnaire, engagement processes for internal-consultant operating mode, cross-company discussion group with PayPal security. Tags switched from lavender (lighter-reads palette) to teal (case-study palette). Section tags updated: "two in depth" → "three in depth"; "four lighter reads" → "three lighter reads."
 
 ### Declined / decided against
 
 **S6. "Now" strip on home (currently reading / current tea / etc.).** ✗
 Already on the optional backlog above. Recommended *against* implementing on this pass: ages fast, requires maintenance, and the Cleo cameo + "Tea, not coffee" chip already do the same vibe-work without dating. If a Now strip ever lands, it should be the *only* dated content on the page so it's easy to keep fresh.
+
+**S7. method.html — Duct Tape/Drano panel notes named specific projects, redundantly with case studies.** ✅
+At Nabil's flag: the metaphor itself (Duct Tape = pulling disconnected things together, Drano = unclogging stuck things) is what should land in this section. Naming iCloud / kernel updates / eBay backlog in the panel notes (a) duplicated the case studies one page over and (b) buried the metaphor under project trivia. Rewrote both notes as italicized vignettes of the kind of dysfunction each panel describes — no project names, no numbers, just the shape of the problem and what Nabil does about it. Tags untouched (already abstract problem-types). Resolves the residual issue from R8 (which only addressed kernel-duplication across panels, not project-naming itself).
 
 ### Things to leave alone (working well)
 
