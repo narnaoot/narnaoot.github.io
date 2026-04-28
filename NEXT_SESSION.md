@@ -402,6 +402,9 @@ Hero says "Nineteen years of building the process that didn't exist yet." About-
 **S6. "Now" strip on home (currently reading / current tea / etc.).** ✗
 Already on the optional backlog above. Recommended *against* implementing on this pass: ages fast, requires maintenance, and the Cleo cameo + "Tea, not coffee" chip already do the same vibe-work without dating. If a Now strip ever lands, it should be the *only* dated content on the page so it's easy to keep fresh.
 
+**S7. method.html — Duct Tape/Drano panel notes named specific projects, redundantly with case studies.** ✅
+At Nabil's flag: the metaphor itself (Duct Tape = pulling disconnected things together, Drano = unclogging stuck things) is what should land in this section. Naming iCloud / kernel updates / eBay backlog in the panel notes (a) duplicated the case studies one page over and (b) buried the metaphor under project trivia. Rewrote both notes as italicized vignettes of the kind of dysfunction each panel describes — no project names, no numbers, just the shape of the problem and what Nabil does about it. Tags untouched (already abstract problem-types). Resolves the residual issue from R8 (which only addressed kernel-duplication across panels, not project-naming itself).
+
 ### Things to leave alone (working well)
 
 - Brianna Gamp pull quote on home — the strongest single asset on the site. Don't move, don't trim.
