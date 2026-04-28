@@ -13,7 +13,7 @@ The site foregrounds **project leadership** — Nabil's ability to walk into amb
 | File | Purpose |
 |------|---------|
 | `index.html` | Homepage |
-| `about.html` | Personal portrait, three pillars, teaching vignette, testimonials, education & certs |
+| `about.html` | Personal portrait, three pillars, teaching vignette, off-the-clock (feminist SF), testimonials, education & certs |
 | `work.html` | Career river, 6 projects (iCloud + Kernel as deep case studies, 4 lighter pieces — 3 link to dedicated note pages) |
 | `probability.html` | Conditional Probability for Normal Humans — full essay with tables |
 | `gardens.html` | Secret Gardens of San Francisco — Tableau Public viz embed |
