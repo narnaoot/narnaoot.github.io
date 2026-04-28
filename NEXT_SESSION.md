@@ -394,8 +394,8 @@ Hero says "Nineteen years of building the process that didn't exist yet." About-
 
 ### Medium impact
 
-**S5. work.html — eBay Site Security is miscategorized.** ⏸
-(Restates R5 from April 26.) It's a real program-management story sandwiched among teasers under "Notes, Essays & Side Quests." Two clean fixes: (a) promote back into the Case Studies list with steps, or (b) rename the section umbrella ("Other Work & Side Quests") so it can hold both registers without false equivalence.
+**S5. work.html — eBay Site Security is miscategorized.** ✅
+(Restates R5 from April 26.) Resolved via promotion (option a). eBay is now the first of three case studies in chronological order (eBay 2009–11 → iCloud 2011–18 → Kernel 2014–18), matching the career timeline directly above. Lead and steps rewritten from source material Nabil provided rather than by editing the prior copy: roadmap (transparency), kick-started intake questionnaire, engagement processes for internal-consultant operating mode, cross-company discussion group with PayPal security. Tags switched from lavender (lighter-reads palette) to teal (case-study palette). Section tags updated: "two in depth" → "three in depth"; "four lighter reads" → "three lighter reads."
 
 ### Declined / decided against
 
