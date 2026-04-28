@@ -371,3 +371,42 @@ Both panels reference the kernel update project. Pick a different Drano-flavored
 ### Suggested implementation order
 
 If picking changes off one at a time: R1 (skill bars) → R4 (wire up constellation illustration) → R3 (de-Apple the stats strip) → R2 (link the lighter pieces). These four together address every "credibility wobble" without touching anything that's already working.
+
+---
+
+## Review — April 28 2026 (second whimsy pass · feminist-SF round)
+
+Brief: "Not job-hunting, but want to keep my hand in. Could we work feminist SF in anywhere?" Status legend: ✅ done · → in progress this session · ⏸ deferred · ✗ declined.
+
+### High impact
+
+**S1. about.html — no reading/writing life shown anywhere.** ✅
+The English-Lit-major / "translates complexity" through-line was never carried into the off-duty register. Added an "Off the Clock — the other writing life" vignette between the Teaching Vignette and Testimonials, naming feminist SF as the genre, Octavia E. Butler as the cat's namesake, and an anchor author "on the nightstand." Uses sage→teal gradient on the existing `.vignette` so it pairs with but doesn't duplicate the lavender→mustard teaching vignette directly above it. Confirmed by Nabil: Octavia *is* named for Butler. Anchor author corrected from Le Guin → **Samuel R. Delany** at Nabil's request.
+
+**S2. index.html — hero kicker still wears a tie.** →
+"Principal Business Analyst · SFMTA · Since April 2024" reads CV-formal in the one place on the site that should set the whimsy tone. With the "not job-hunting" brief, options like *"At SFMTA since April 2024 · Not job-hunting, just curious"* or *"Currently at SFMTA · Tea-fueled · Up for a good problem"* fit the rest of the page better.
+
+**S3. about.html — testimonial "Recurring words" chip strip is over-decorated.** →
+7 chips in 5 colors reads as ornament rather than thesis. Tightening to 4–5 chips in 2–3 colors would make the recurring themes scan harder.
+
+**S4. index.html — hero body and "The work, briefly" echo each other.** →
+Hero says "Nineteen years of building the process that didn't exist yet." About-lead says "The process didn't exist yet — so I built it." Same beat, twice in 200 vertical pixels. Either differentiate the two (hero = career stat, about-lead = orientation) or replace the about-lead with a different beat entirely (e.g. what's on the workbench now).
+
+### Medium impact
+
+**S5. work.html — eBay Site Security is miscategorized.** ⏸
+(Restates R5 from April 26.) It's a real program-management story sandwiched among teasers under "Notes, Essays & Side Quests." Two clean fixes: (a) promote back into the Case Studies list with steps, or (b) rename the section umbrella ("Other Work & Side Quests") so it can hold both registers without false equivalence.
+
+### Declined / decided against
+
+**S6. "Now" strip on home (currently reading / current tea / etc.).** ✗
+Already on the optional backlog above. Recommended *against* implementing on this pass: ages fast, requires maintenance, and the Cleo cameo + "Tea, not coffee" chip already do the same vibe-work without dating. If a Now strip ever lands, it should be the *only* dated content on the page so it's easy to keep fresh.
+
+### Things to leave alone (working well)
+
+- Brianna Gamp pull quote on home — the strongest single asset on the site. Don't move, don't trim.
+- Three Pillars on About (Mary Salome's words). Specific, attributed, unimitable. Unchanged.
+- Sabbatical node on the career timeline — the confidence move reads as confidence. Keep.
+- Education arc labels ("Rigorous storytelling" → "From novels to databases" → "Bringing it all together") — beautiful. Untouched.
+- Method bell-curve caption ("Hand me the vision, get out of the way") — quotable. Keep.
+- Footer "Inspected by Cleo" with photo — perfect tone, perfect dose.

@@ -65,6 +65,7 @@ Section thumbnails live in the root alongside the HTML files.
 
 ## Still to do
 
+- **April 28 review (S1–S6)** — see `NEXT_SESSION.md` for the second whimsy pass. S1 (Off the Clock vignette) ✅ landed. S2 (hero kicker), S3 (chip strip), S4 (home echo) in progress this session. S5 (eBay miscategorized) deferred. S6 (Now strip) declined.
 - **Browser QA** on all 4 pages, especially the career/education timelines on mobile
 - **Testimonial word cloud** ✅ — `WordClouds Painted.png` live on about.html.
 - **iCloud illustration** ✅ — `ConstellationPainted.png` wired up on work.html between project lead and tags.
