@@ -405,6 +405,25 @@ Already on the optional backlog above. Recommended *against* implementing on thi
 **S7. method.html — Duct Tape/Drano panel notes named specific projects, redundantly with case studies.** ✅
 At Nabil's flag: the metaphor itself (Duct Tape = pulling disconnected things together, Drano = unclogging stuck things) is what should land in this section. Naming iCloud / kernel updates / eBay backlog in the panel notes (a) duplicated the case studies one page over and (b) buried the metaphor under project trivia. Rewrote both notes as italicized vignettes of the kind of dysfunction each panel describes — no project names, no numbers, just the shape of the problem and what Nabil does about it. Tags untouched (already abstract problem-types). Resolves the residual issue from R8 (which only addressed kernel-duplication across panels, not project-naming itself).
 
+**S9. Method page renamed: "How I Work" → "Patterns."** ✅
+Follow-on from S8. With the funnel gone (S8) and the metaphor section softened (S7), the page is closer to "patterns I notice in myself" than "my method." Renamed to **Patterns** across all visible labels — the file is still `method.html` (cheaper, no broken external links). Updated:
+- Nav label "Method" → "Patterns" on all 7 pages (4 main + 3 lighter-read pages)
+- method.html `<title>`: "How I Work" → "Patterns"
+- method.html hero kicker: "My Process" → "Practice"
+- method.html hero title: "How I _Work_" → "Some _Patterns_" (matches the section heading "Some of My Favorite Questions" in tone)
+- Home card: label "Process" → "Practice", title "How I Work" → "Patterns", desc tightened ("the questions I keep asking, the two kinds of problems that keep showing up..."), CTA "See my method →" → "See the patterns →"
+- README.md updated (nav line, file table description)
+The hero sub ("The same pattern, project after project: ask until the real problem surfaces, pick the right tool, know when I'm in the zone") was already pattern-flavored and now reads as the perfect setup line — left untouched.
+
+**S8. method.html — "Three Moves, Every Time" reframed as "Some of My Favorite Questions."** ✅
+At Nabil's flag: "I never loved the method piece." The Define/Diagnose/Translate funnel framed the questions as a method he runs. He'd rather they read as questions he likes — less prescriptive, more characterful, fits the not-job-hunting brief. Refactored:
+- Section heading "Three Moves, Every Time." → "Some of My Favorite Questions"
+- Section tag "diagnostic" → "asked early, often"
+- Funnel CSS removed; replaced with `.fav-questions` / `.fav-q` styling that mirrors the side-fact pattern from index.html (colored vertical bar + Playfair italic question, no labels, no commentary notes)
+- Added a fourth question: **"What are you reading?"** Placed last as the punchline — pivots from work-shaped to person-shaped, reinforces the new Off the Clock thread on About without restating it.
+- Color bars: coral / mustard / lavender / teal across the four questions
+The Method-page hero sub ("ask until the real problem surfaces, pick the right tool, know when I'm in the zone") still parses fine without the funnel underneath it; left untouched.
+
 ### Things to leave alone (working well)
 
 - Brianna Gamp pull quote on home — the strongest single asset on the site. Don't move, don't trim.

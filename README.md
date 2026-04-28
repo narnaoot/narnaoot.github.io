@@ -18,9 +18,9 @@ The site foregrounds **project leadership** — Nabil's ability to walk into amb
 | `probability.html` | Conditional Probability for Normal Humans — full essay with tables |
 | `gardens.html` | Secret Gardens of San Francisco — Tableau Public viz embed |
 | `unicorns.html` | Chasing Unicorns for Pride — Tableau Public viz embed |
-| `method.html` | 3 Moves (Define / Diagnose / Translate), Duct Tape/Drano, Bell Curve, skill toolkit |
+| `method.html` | "Some Patterns" — favorite questions (incl. "What are you reading?"), Duct Tape/Drano, bell-curve sweet spot, skill toolkit. (File still named `method.html`; visible label is "Patterns.") |
 
-Nav on all 4 pages: Home · Work · Method · About
+Nav on all 4 pages: Home · Work · Patterns · About
 
 ### Archive folders
 
