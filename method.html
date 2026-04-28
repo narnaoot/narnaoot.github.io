@@ -59,18 +59,14 @@
     .section-h h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.7rem, 3.5vw, 2.4rem); font-weight: 900; color: var(--text); }
     .section-tag { background: var(--warm2); border: 1.5px solid var(--border); border-radius: 99px; padding: 3px 14px; font-size: .7rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
 
-    /* ── Diagnostic Funnel ─────────────────────────────────── */
-    .funnel { display: flex; flex-direction: column; align-items: center; gap: 0; max-width: 740px; margin: 0 auto; }
-    .funnel-step { position: relative; width: 100%; display: grid; grid-template-columns: 3.5rem 1fr; gap: 0; }
-    .funnel-rail { display: flex; flex-direction: column; align-items: center; }
-    .funnel-dot { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: .85rem; font-weight: 900; color: #fff; flex-shrink: 0; }
-    .funnel-line { flex: 1; width: 2px; background: var(--border); }
-    .funnel-step:last-child .funnel-line { background: transparent; }
-    .funnel-content { padding: 4px 0 40px 20px; }
-    .funnel-label { font-size: .68rem; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
-    .funnel-q { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-style: italic; font-weight: 700; color: var(--text); line-height: 1.5; margin-bottom: 8px; }
-    .funnel-note { font-size: .88rem; color: var(--muted); line-height: 1.65; }
-    @media (max-width: 600px) { .funnel-content { padding: 4px 0 32px 14px; } }
+    /* ── Favorite Questions ──────────────────────────────── */
+    .fav-questions { display: flex; flex-direction: column; gap: 28px; max-width: 740px; margin: 0 auto; }
+    .fav-q { padding: 8px 0 8px 24px; border-left: 3px solid var(--coral); }
+    .fav-q.q1 { border-left-color: var(--coral); }
+    .fav-q.q2 { border-left-color: var(--mustard); }
+    .fav-q.q3 { border-left-color: var(--lavender); }
+    .fav-q.q4 { border-left-color: var(--teal); }
+    .fav-q-text { font-family: 'Playfair Display', serif; font-size: clamp(1.05rem, 2vw, 1.3rem); font-style: italic; font-weight: 700; color: var(--text); line-height: 1.55; }
 
     /* ── Duct Tape / Drano ────────────────────────────────── */
     .dt-drano { display: grid; grid-template-columns: 1fr 1fr; border: 1.5px solid var(--border); border-radius: var(--r); overflow: hidden; }
@@ -156,51 +152,26 @@
 
 <main class="page">
 
-  <!-- Three Moves — Diagnostic Funnel -->
+  <!-- Some of My Favorite Questions -->
   <section>
     <div class="section-h">
-      <h2>Three Moves, Every Time.</h2>
-      <span class="section-tag">diagnostic</span>
+      <h2>Some of My Favorite Questions</h2>
+      <span class="section-tag">asked early, often</span>
     </div>
 
-    <div class="funnel">
-
-      <div class="funnel-step">
-        <div class="funnel-rail">
-          <div class="funnel-dot" style="background:var(--coral)">1</div>
-          <div class="funnel-line"></div>
-        </div>
-        <div class="funnel-content">
-          <div class="funnel-label">Define</div>
-          <div class="funnel-q">"It's six months from now. You are really happy. What has changed?"</div>
-          <div class="funnel-note">The answer reveals what actually matters — not the problem that was handed to me, the one worth solving.</div>
-        </div>
+    <div class="fav-questions">
+      <div class="fav-q q1">
+        <p class="fav-q-text">"It's six months from now. You are really happy. What has changed?"</p>
       </div>
-
-      <div class="funnel-step">
-        <div class="funnel-rail">
-          <div class="funnel-dot" style="background:var(--mustard)">2</div>
-          <div class="funnel-line"></div>
-        </div>
-        <div class="funnel-content">
-          <div class="funnel-label">Diagnose</div>
-          <div class="funnel-q">"What's actually in your way — the manual task you dread, the approval stuck somewhere, the data you don't have?"</div>
-          <div class="funnel-note">Stated blockers are rarely the real ones. I keep asking until the friction surfaces — because that's where process, automation, and information gaps hide.</div>
-        </div>
+      <div class="fav-q q2">
+        <p class="fav-q-text">"What's actually in your way — the manual task you dread, the approval stuck somewhere, the data you don't have?"</p>
       </div>
-
-      <div class="funnel-step">
-        <div class="funnel-rail">
-          <div class="funnel-dot" style="background:var(--lavender)">3</div>
-          <div class="funnel-line"></div>
-        </div>
-        <div class="funnel-content">
-          <div class="funnel-label">Translate</div>
-          <div class="funnel-q">"What does the team already know that leadership needs to hear?"</div>
-          <div class="funnel-note">Practitioners see the problem clearly. Making it legible upward — and legible across functions — is where most of my value lands.</div>
-        </div>
+      <div class="fav-q q3">
+        <p class="fav-q-text">"What does the team already know that leadership needs to hear?"</p>
       </div>
-
+      <div class="fav-q q4">
+        <p class="fav-q-text">"What are you reading?"</p>
+      </div>
     </div>
   </section>
 
