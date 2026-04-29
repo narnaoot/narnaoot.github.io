@@ -28,6 +28,7 @@ Nav on all 4 pages: Home · Work · Patterns · About
 |--------|---------|
 | `old/` | Earlier prototype explorations — ignore |
 | `original_version/` | Pre-redesign root files — ignore |
+| `plan/` | Working notes — `NEXT_SESSION.md` (review log), `Inspiration.md` (research) |
 
 ## Design tokens (in every page's `:root`)
 
@@ -65,13 +66,13 @@ Section thumbnails live in the root alongside the HTML files.
 
 ## Still to do
 
-- **April 28 review (S1–S6)** — see `old/NEXT_SESSION.md` for the second whimsy pass. S1 (Off the Clock vignette) ✅ landed. S2 (hero kicker), S3 (chip strip), S4 (home echo) in progress this session. S5 (eBay miscategorized) deferred. S6 (Now strip) declined.
+- **April 28 review (S1–S6)** — see `plan/NEXT_SESSION.md` for the second whimsy pass. S1 (Off the Clock vignette) ✅ landed. S2 (hero kicker), S3 (chip strip), S4 (home echo) in progress this session. S5 (eBay miscategorized) deferred. S6 (Now strip) declined.
 - **Browser QA** on all 4 pages, especially the career/education timelines on mobile
 - **Testimonial word cloud** ✅ — `WordClouds Painted.png` live on about.html.
 - **iCloud illustration** ✅ — `ConstellationPainted.png` wired up on work.html between project lead and tags.
 - **Case study images shrunk** ✅ — `KernelCleanupPainted.png` and `ConstellationPainted.png` capped at 420px so they no longer overpower the text.
-- **All case studies need a full rewrite** — copy has gotten distorted over multiple passes. Rewrite from source material, not by editing what's there. See old/NEXT_SESSION.md for details.
-- **Skill bars on method.html** ✅ — Replaced with color-coded chip pills. See old/NEXT_SESSION.md for an AC illustration idea for this section.
+- **All case studies need a full rewrite** — copy has gotten distorted over multiple passes. Rewrite from source material, not by editing what's there. See plan/NEXT_SESSION.md for details.
+- **Skill bars on method.html** ✅ — Replaced with color-coded chip pills. See plan/NEXT_SESSION.md for an AC illustration idea for this section.
 - **Dedicated note pages** ✅ — `probability.html`, `gardens.html`, `unicorns.html` created in site style. Lighter reads on work.html trimmed to teasers (emoji + title link + 2-line lead + CTA), linking to local pages.
 - **"Chasing Unicorns for Pride" added** ✅ — new lighter read with teal accent (work.html → unicorns.html).
 - **SHAP lighter read removed** ✅ — dropped as outdated.
@@ -81,7 +82,7 @@ Section thumbnails live in the root alongside the HTML files.
 
 ## Inspiration research
 
-See `old/Inspiration.md` for full notes. Key reference designers:
+See `plan/Inspiration.md` for full notes. Key reference designers:
 - **Catherine Madden** — data viz as personality expression
 - **Stefanie Kraus** — clean, warm, testimonial-forward portfolio
 - **Nina Voordes** — dual-track timeline, icon grids
