@@ -87,7 +87,7 @@ The iTunes case study has a strong narrative but no visual anchor beyond the emo
 | Tenure bar chart | index.html | horizontal mini-bars (side facts) |
 | Brianna pull-quote | index.html | styled blockquote |
 | Bell curve (job satisfaction) | method.html | inline SVG |
-| 3-Move diagnostic funnel | method.html | vertical CSS rail + colored dots |
+| Favorite questions | method.html | colored vertical bars + Playfair italic — replaced 3-Move funnel ✅ |
 | Skill chips | method.html | color-coded pill tags (teal/lavender/coral) — replaced bars ✅ |
 | Duct Tape / Drano panels | method.html | two-panel card |
 | Career timeline | work.html | horizontal CSS rail + 6 colored dots (incl. Sabbatical node ✅) |
@@ -235,10 +235,10 @@ Cats currently appear in chips and the portrait grid. A single candid line somew
 
 | Page | File | Sections |
 |------|------|----------|
-| Home | `index.html` | Hero · Stats strip · Brianna pull-quote · "The work, briefly" · Selected work (3 cards → Work, Method, About) |
-| Work | `work.html` | "A Through-Line" (CareerJourneyPainted.png + career timeline) · 6 projects: iCloud + Kernel (deep case studies) · eBay, Secret Gardens, Conditional Probability, Chasing Unicorns (lighter pieces) |
-| Method | `method.html` | 3 Moves (Define / Diagnose / Translate) · Duct Tape/Drano · Bell Curve · Skill toolkit |
-| About | `about.html` | Portrait grid (4 cells) · Three Pillars · Teaching vignette · #praise (recurring-words chips + 7 testimonials) · Education & Certs (3 stops + 3 cert badges) |
+| Home | `index.html` | Hero · Stats strip · Brianna pull-quote · "The work, briefly" (English-major-in-disguise framing) · Selected work (3 cards → Work, Patterns, About) |
+| Work | `work.html` | "A Through-Line" (CareerJourneyPainted.png + career timeline) · 6 projects: eBay + iCloud + Kernel (deep case studies) · Secret Gardens, Conditional Probability, Chasing Unicorns (lighter pieces, link to dedicated note pages) |
+| Patterns | `method.html` | Some of My Favorite Questions (incl. "What are you reading?") · Two Kinds of Problems (Duct Tape / Drano) · Bell Curve sweet spot · Skill toolkit |
+| About | `about.html` | Portrait grid (4 cells) · Three Pillars · Teaching vignette · Off the Clock (feminist SF — Butler / Delany) · #praise (recurring-words chips, 4 chips/2 colors + 7 testimonials) · Education & Certs (3 stops + 3 cert badges) |
 
 ### Images — all done ✅
 All planned illustrations are live. No images currently needed.
@@ -262,10 +262,10 @@ All planned illustrations are live. No images currently needed.
 
 | Page | Sections |
 |------|----------|
-| **index.html** | Hero · Stats strip (4 yrs Saint Mary's replaces Apple teams) · Brianna pull-quote (trimmed) · "The work, briefly" · 3 project cards |
-| **work.html** | "A Through-Line" (caption + CareerJourneyPainted + timeline) · "Case Studies" (iCloud, Kernel — 2 deep) · "Notes, Essays & Side Quests" (eBay, Secret Gardens, Conditional Probability, Chasing Unicorns — all with outcome lines) |
-| **method.html** | 3 Moves · Duct Tape/Drano · Bell Curve (updated callout) · Skill toolkit (color-coded chips, no JS) |
-| **about.html** | Portrait grid · Three Pillars (no per-card attribution) · Teaching vignette (teaching + consulting separated) · What People Say · Education & Certs (3 badges, Excel dropped) |
+| **index.html** | Hero (kicker softened: "At SFMTA since April 2024 · Always up for a good problem") · Stats strip · Brianna pull-quote · "The work, briefly" (English-major-in-disguise) · 3 project cards (Work / Patterns / About) |
+| **work.html** | "A Through-Line" (caption + CareerJourneyPainted + timeline) · "Case Studies" (eBay, iCloud, Kernel — 3 deep, chronological) · "Notes, Essays & Side Quests" (Secret Gardens, Conditional Probability, Chasing Unicorns — link to dedicated note pages) |
+| **method.html** (Patterns) | "Some of My Favorite Questions" (4 incl. "What are you reading?") · Two Kinds of Problems (Duct Tape/Drano, project-name-free notes) · Bell Curve sweet spot · Skill toolkit (color-coded chips, no JS) |
+| **about.html** | Portrait grid · Three Pillars · Teaching vignette · Off the Clock (feminist SF) · What People Say (4 chips/2 colors) · Education & Certs (3 badges) |
 
 ---
 
@@ -273,7 +273,7 @@ All planned illustrations are live. No images currently needed.
 - All redesign work lives in `redesign/` — root files untouched
 - Design tokens: `--coral`, `--teal`, `--mustard`, `--lavender`, `--sage`
 - Fonts: Playfair Display (headings) + Nunito (body)
-- Hero kicker color: `--coral` on Home/Work · `--teal` on Method · `--lavender` on About
+- Hero kicker color: `--coral` on Home/Work · `--teal` on Patterns · `--lavender` on About
 - Nav is self-contained within `redesign/`
 - LinkedIn profile PDF in repo root (`linked_in_profile.pdf`)
 - All 4 pages share footer copy: "Always up for a good conversation." + "If there's an interesting problem in the room, I want to hear about it." Footer tagline "Made with curiosity & care" removed.
@@ -422,7 +422,7 @@ At Nabil's flag: "I never loved the method piece." The Define/Diagnose/Translate
 - Funnel CSS removed; replaced with `.fav-questions` / `.fav-q` styling that mirrors the side-fact pattern from index.html (colored vertical bar + Playfair italic question, no labels, no commentary notes)
 - Added a fourth question: **"What are you reading?"** Placed last as the punchline — pivots from work-shaped to person-shaped, reinforces the new Off the Clock thread on About without restating it.
 - Color bars: coral / mustard / lavender / teal across the four questions
-The Method-page hero sub ("ask until the real problem surfaces, pick the right tool, know when I'm in the zone") still parses fine without the funnel underneath it; left untouched.
+The Patterns-page hero sub ("ask until the real problem surfaces, pick the right tool, know when I'm in the zone") still parses fine without the funnel underneath it; left untouched. (Note: page subsequently renamed Method → Patterns in S9.)
 
 ### Things to leave alone (working well)
 
@@ -430,5 +430,5 @@ The Method-page hero sub ("ask until the real problem surfaces, pick the right t
 - Three Pillars on About (Mary Salome's words). Specific, attributed, unimitable. Unchanged.
 - Sabbatical node on the career timeline — the confidence move reads as confidence. Keep.
 - Education arc labels ("Rigorous storytelling" → "From novels to databases" → "Bringing it all together") — beautiful. Untouched.
-- Method bell-curve caption ("Hand me the vision, get out of the way") — quotable. Keep.
+- Patterns-page bell-curve caption ("Hand me the vision, get out of the way") — quotable. Keep.
 - Footer "Inspected by Cleo" with photo — perfect tone, perfect dose.
