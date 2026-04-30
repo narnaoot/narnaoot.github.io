@@ -26,7 +26,6 @@ Nav on all 4 pages: Home · Work · Patterns · About
 
 | Folder | Contents |
 |--------|---------|
-| `old/` | Earlier prototype explorations — ignore |
 | `original_version/` | Pre-redesign root files — ignore |
 | `plan/` | Working notes — `NEXT_SESSION.md` (review log), `Inspiration.md` (research) |
 
