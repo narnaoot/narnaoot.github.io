@@ -242,3 +242,14 @@ Possible adaptations:
 - Quadrant of problem types he loves vs. tolerates
 
 Not looking for a job → lean into the fun, personal, "here's how my brain works" framing.
+
+---
+
+## April 30 2026 — off-the-clock thread
+
+Nabil is a fanatical reader and writer of feminist SF. The April 28 pass landed an "Off the Clock" vignette on About; the April 30 pass surfaced it on the home hero (chip) and gave it author touchstones below the vignette.
+
+Future inspiration directions if/when the thread grows further (see `NEXT_SESSION.md` T8):
+- **A "what I'm reading" radial or shelf chart** — like Catherine Madden #5 (Inspiration donut), but the segments are authors / subgenres / decades rather than information sources. Sized by re-read count.
+- **A "defamiliarize" essay page** — a fourth Notes/Side Quest, same chassis as `probability.html` and `gardens.html`. Connects feminist-SF reading practice to the *"why do we do it this way?"* instinct. The thesis sentence is already on About; an essay would let it stretch.
+- **Stefanie Kraus parallel** — Kraus puts personal interests at the bottom of her About without dominating it (per the design notes above). The Touchstones chip strip mirrors that move: present, attributed, declarative, doesn't try to be the headline.

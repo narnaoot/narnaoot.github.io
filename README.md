@@ -65,18 +65,26 @@ Section thumbnails live in the root alongside the HTML files.
 
 ## Still to do
 
-- **April 28 review (S1–S6)** — see `plan/NEXT_SESSION.md` for the second whimsy pass. S1 (Off the Clock vignette) ✅ landed. S2 (hero kicker), S3 (chip strip), S4 (home echo) in progress this session. S5 (eBay miscategorized) deferred. S6 (Now strip) declined.
-- **Browser QA** on all 4 pages, especially the career/education timelines on mobile
-- **Testimonial word cloud** ✅ — `WordClouds Painted.png` live on about.html.
+- **April 30 review (T1–T9)** — see `plan/NEXT_SESSION.md` for the luxury-of-whimsy pass (second feminist-SF round). T1 (home-hero feminist-SF chip) ✅ pushed. T2 (Touchstones chip strip on About) ✅ pushed. T3–T9 are open recommendations — case study rewrite, recurring-words decision, toolkit column move, project-card variety, stats-strip phrasing, optional feminist-SF essay, browser QA. See review for suggested implementation order.
+- **April 28 review (S1–S9)** — second whimsy pass. S1 (Off the Clock vignette) ✅, S5 (eBay promoted to case study) ✅, S7 (Duct Tape/Drano notes rewritten) ✅, S8 (favorite questions) ✅, S9 ("Patterns" rename) ✅. S2 (hero kicker), S3 (chip strip tightening), S4 (home echo) still open. S6 (Now strip) declined.
+- **All case studies need a full rewrite** — copy has gotten distorted over multiple passes. Rewrite from source material, not by editing what's there. eBay was rewritten this way (S5); iCloud and Kernel still need it. See plan/NEXT_SESSION.md T3 for shape suggestions.
+- **Browser QA** on all 4 pages, especially the career/education timelines on mobile, About's 4-col portrait grid, and the testimonials themes row on narrow screens.
+- **Recurring-words chip strip on About** — needs a decision: real word cloud, or demote to a one-line caption above the testimonials. (T4)
+- **"Translating Complexity" in wrong toolkit column on Patterns** — belongs under Translation & Communication, not Analysis & Insight. (T5)
+- **Stats-strip phrasing on home** — "300M+ iCloud users whose outages I tracked" is grammatically tangled. (T7)
+- **Selected-work cards on home** — three same-shape cards reads as redundant; consider differentiating. (T6)
+- **Feminist-SF essay** as a fourth Notes/Side Quest (optional whimsy). (T8)
+- **Touchstones chip strip on About** ✅ — six authors below the Off the Clock vignette: Butler, Le Guin, Delany, Russ, Tiptree, Jemisin. Easy to swap if any don't belong.
+- **Feminist-SF chip on home hero** ✅ — `📚 Reads & writes feminist SF`.
+- **Testimonial word cloud illustration** ✅ — `WordClouds Painted.png` live on about.html.
 - **iCloud illustration** ✅ — `ConstellationPainted.png` wired up on work.html between project lead and tags.
 - **Case study images shrunk** ✅ — `KernelCleanupPainted.png` and `ConstellationPainted.png` capped at 420px so they no longer overpower the text.
-- **All case studies need a full rewrite** — copy has gotten distorted over multiple passes. Rewrite from source material, not by editing what's there. See plan/NEXT_SESSION.md for details.
 - **Skill bars on method.html** ✅ — Replaced with color-coded chip pills. See plan/NEXT_SESSION.md for an AC illustration idea for this section.
-- **Dedicated note pages** ✅ — `probability.html`, `gardens.html`, `unicorns.html` created in site style. Lighter reads on work.html trimmed to teasers (emoji + title link + 2-line lead + CTA), linking to local pages.
+- **Dedicated note pages** ✅ — `probability.html`, `gardens.html`, `unicorns.html` created in site style. Lighter reads on work.html trimmed to teasers linking to local pages.
 - **"Chasing Unicorns for Pride" added** ✅ — new lighter read with teal accent (work.html → unicorns.html).
 - **SHAP lighter read removed** ✅ — dropped as outdated.
 - **2018–2020 gap on career timeline** ✅ — "Sabbatical · Deliberate pause" node added between Apple and Independent Consulting.
-- **"Now" strip on home** (optional) — what's on the workbench at SFMTA, what you're reading, current tea. Reinforces "not job-hunting, just available for conversation."
+- **"Now" strip on home** ✗ declined — see plan/NEXT_SESSION.md S6 for rationale (ages fast, requires maintenance, Cleo + tea chip already do the vibe-work).
 - **Cat cameo** ✅ — "Inspected by Cleo" with photo in footer of all 4 pages.
 
 ## Inspiration research

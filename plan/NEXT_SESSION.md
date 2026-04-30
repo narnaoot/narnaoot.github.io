@@ -432,3 +432,64 @@ The Method-page hero sub ("ask until the real problem surfaces, pick the right t
 - Education arc labels ("Rigorous storytelling" → "From novels to databases" → "Bringing it all together") — beautiful. Untouched.
 - Method bell-curve caption ("Hand me the vision, get out of the way") — quotable. Keep.
 - Footer "Inspected by Cleo" with photo — perfect tone, perfect dose.
+
+---
+
+## Review — April 30 2026 (luxury-of-whimsy pass · second feminist-SF round)
+
+Brief: *"I'm not job-hunting right now, so I have the luxury of whimsy. But I do want to keep my hand in. What works? What doesn't? Could we work feminist SF in anywhere?"* Status legend: ✅ done · → in progress · ⏸ deferred · ✗ declined.
+
+### Pushed this session ✅
+
+**T1. index.html — feminist-SF chip on home hero.** ✅ (commit `5b8a5c3`)
+Added `📚 Reads & writes feminist SF` as a fourth chip alongside `📍 SF`, `🍵 Tea`, and `🐱 Octavia & Cleopatra`. Same register as the others — declarative, not cute. Surfaces the off-the-clock thread on the home page so a reader who never makes it to About still feels it.
+
+**T2. about.html — Touchstones chip strip below Off the Clock vignette.** ✅ (commit `5b8a5c3`)
+Added six author chips below the existing reading-and-writing paragraph: **Octavia E. Butler · Ursula K. Le Guin · Samuel R. Delany · Joanna Russ · James Tiptree Jr. · N. K. Jemisin**. Butler and Delany were already named in the prose; the four additions are canonical feminist-SF picks made under Nabil's "take your best guess" license. Easy to swap if any don't belong on Nabil's list — Tiptree and Jemisin are the most likely candidates for adjustment. Existing prose left untouched (the "same instinct" sentence is doing the real thesis work).
+
+### What's working — leave alone
+
+- *"An English major's career, in disguise"* — the strongest line on the site, full stop.
+- Brianna Gamp pull quote on home.
+- Patterns page (Duct Tape / Drano + Bell Curve sweet spot + favorite questions) — original, distinctive.
+- *"What are you reading?"* as the fourth favorite question — already does the connective work between SF and the work without flagging itself. Don't over-explain.
+- Mary Salome Three Pillars.
+- Off the Clock vignette prose — deliberately not edited on this pass; the touchstones chips sit below it.
+- Cleo footer.
+- Career timeline including the Sabbatical node.
+
+### Recommendations — high impact
+
+**T3. work.html — case studies still need a full rewrite from source material.**
+Restates the still-open ask from April 26 (R-series) and April 28 (S5). The eBay rewrite (S5) demonstrated the right model: start from source, not from the prior copy. iCloud and Kernel case studies still read like outline-bullets-converted-to-prose. Two specific shape problems across all three:
+
+- *Step naming collisions* — "Make the invisible visible" / "Make the work visible" / "Define the problem nobody owned" all sound like the same step in different sweatshirts.
+- *Abstract outcomes* — "Engineers get their time back" / "Leadership could finally see the tradeoffs" want a number, a quote, or a moment.
+
+Suggested structure for each: the moment you walked in → the question that surfaced the real problem → one concrete change → what got better that you can name.
+
+**T4. about.html — recurring-words chip strip is doing two jobs and committing to neither.**
+Four phrases in flat boxes, sitting next to a thumbnail called "WordClouds Painted." Either the chips should be a real word cloud (sized by frequency, with more words) or they should demote to a single-line caption above the testimonials. As-is they compete with the testimonials underneath, which are the real heat. (Prior review S3 also flagged this; T4 names a decision rather than just a tightening.)
+
+### Recommendations — medium impact
+
+**T5. method.html — "Translating Complexity" is in the wrong toolkit column.**
+It sits under **Analysis & Insight** but every other place on the site argues it belongs under **Translation & Communication**. Tiny thing, but the column headings are doing load-bearing work for someone skimming. Thirty seconds of work.
+
+**T6. index.html — three project cards, three same-shape cards.**
+The "Selected work" cards all link to other pages of the same site (Work / Patterns / About) and use the same layout, same CTA. Reads as redundant rather than as three different invitations. If two became full-bleed teaser strips and one stayed as a card, the eye would have something to do.
+
+**T7. index.html — stats strip phrasing.**
+"300M+ iCloud users whose outages I tracked" is grammatically tangled. Cleaner: *"300M+ users covered by the outage system I built"* or just *"300M+ user reach."* (Same observation as April 26 R3, now with a phrasing suggestion.)
+
+### Recommendations — lower priority / additive
+
+**T8. A feminist-SF essay as a fourth Notes/Side Quest.**
+Whimsy budget — purely optional. Same shape as `probability.html`, `gardens.html`, `unicorns.html`: a short piece on what one Butler novel taught about systems, or what feminist SF taught about asking *"why do we do it this way."* Would give the off-the-clock thread a destination on the site rather than just a mention, and would test whether a regular essay practice fits the tone. Title candidates if useful: *"Defamiliarize: what feminist SF taught me about asking why we do it this way"* / *"Reading Octavia Butler at the office."*
+
+**T9. Browser QA still pending.**
+Carried over from prior reviews. Especially: career and education timelines on mobile, About's 4-col portrait grid, testimonials themes row wrapping on narrow screens.
+
+### Suggested implementation order
+
+If picking changes off one at a time: **T3** (case-study rewrite — biggest credibility lift) → **T4** (recurring-words decision — quickest visual cleanup) → **T5** (toolkit column move — 30 seconds) → **T7** (stats phrasing). **T6** and **T8** are larger structural moves to consider on a future whimsy-budget pass. **T9** can interleave with any of them.
