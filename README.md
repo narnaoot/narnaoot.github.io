@@ -14,7 +14,7 @@ The site foregrounds **project leadership** — Nabil's ability to walk into amb
 |------|---------|
 | `index.html` | Homepage |
 | `about.html` | Personal portrait, three pillars, teaching vignette, off-the-clock (feminist SF), testimonials, education & certs |
-| `work.html` | Career river, 6 projects (eBay + iCloud + Kernel as deep case studies, 3 lighter pieces linking to dedicated note pages) |
+| `work.html` | Career river, 6 projects (eBay + iTunes + Kernel as deep case studies, 3 lighter pieces linking to dedicated note pages) |
 | `probability.html` | Conditional Probability for Normal Humans — full essay with tables |
 | `gardens.html` | Secret Gardens of San Francisco — Tableau Public viz embed |
 | `unicorns.html` | Chasing Unicorns for Pride — Tableau Public viz embed |
@@ -52,14 +52,14 @@ Section thumbnails live in the root alongside the HTML files.
 | `AboutHero.png` | about.html — "The Human Behind the Projects" |
 | `ThreePillarsPainted.png` | about.html — "Three Things I Always Bring" ✅ |
 | `KernelCleanupPainted.png` | work.html — Kernel Updates case study illustration ✅ |
-| `ConstellationPainted.png` | work.html — iCloud case study illustration ✅ |
+| `ConstellationPainted.png` | intentionally archived — was the iCloud case study illustration before iTunes replaced that slot |
 | `TeachingScene.png` | about.html — "One More Thing" |
 | `ThingsILove.png` | index.html — "The work, briefly" section thumbnail |
 | `WordClouds Painted.png` | about.html — "What People Say" ✅ |
 | `Testimonials.png` | **nobody** — orphaned, safe to delete |
 | `EducationWalkPainted.png` | about.html — "Education & Certifications" ✅ |
 | `ProfilePicture.jpeg` | about.html + index.html — hero avatar (both now at root path) |
-| `QuietedPagersPainted.png` | intentionally archived — not referenced in any live page |
+| `QuietedPagersPainted.png` | work.html — iTunes case study illustration ✅ |
 | `CleoInspects.png` | footer on all 4 pages — "Inspected by Cleo" ✅ |
 | `CareerJourneyPainted.png` | work.html — career journey illustration ✅ |
 

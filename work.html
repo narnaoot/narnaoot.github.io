@@ -254,12 +254,12 @@
       </div>
 
       <div class="project-item">
-        <div class="project-emoji">☁️</div>
+        <div class="project-emoji">🎵</div>
         <div>
           <div class="project-meta"><span>Engineering Project Manager → Business Analyst</span><span>Apple · 2011–2018</span></div>
-          <h3 class="project-title">Building iCloud's Outage Tracking from Scratch</h3>
-          <p class="project-lead">iCloud launched to 300 million users with no system for tracking outages across its services. I built the whole thing — incident reporting, root cause identification, live dashboards, and the process that made it all run.</p>
-          <img src="ConstellationPainted.png" alt="Before and after: scattered outage data becomes a connected constellation of root causes mapped across iCloud services" style="max-width:420px;width:100%;border-radius:12px;margin:16px auto 24px;display:block;">
+          <h3 class="project-title">Making iTunes' Crashes Countable</h3>
+          <p class="project-lead">iTunes was crashing constantly, and my team — the site reliability engineers carrying the pagers — knew exactly why. New features kept shipping, bugs kept accruing, technical debt kept growing. We held post-mortems, but the results lived in Word documents nobody could aggregate or compare. Even the basic question, <em>is downtime getting better or worse?</em>, had no answer: every property measured it differently, every year measured it differently. Leadership kept prioritizing features over bug fixes because the conversation couldn't land on the bugs. The team knew. There was no data backing us up yet.</p>
+          <img src="QuietedPagersPainted.png" alt="Before and after: SRE pagers going off through the night, then quiet pagers at rest" style="max-width:420px;width:100%;border-radius:12px;margin:16px auto 24px;display:block;">
           <div class="project-tags">
             <span class="ptag" style="background:var(--teal-lt);color:var(--teal)">Incident Management</span>
             <span class="ptag" style="background:var(--teal-lt);color:var(--teal)">Dashboard Design</span>
@@ -267,11 +267,11 @@
             <span class="ptag" style="background:var(--teal-lt);color:var(--teal)">Business Intelligence</span>
           </div>
           <div class="steps-list">
-            <div class="step"><div class="step-head"><span class="step-num">01</span><span class="step-title">Define the problem nobody owned</span></div><div class="step-desc">Multiple services, no shared incident tracking, no root cause process.</div></div>
-            <div class="step"><div class="step-head"><span class="step-num">02</span><span class="step-title">Build the system</span></div><div class="step-desc">Incident reporting, root cause analysis, database, live Tableau dashboards.</div></div>
-            <div class="step"><div class="step-head"><span class="step-num">03</span><span class="step-title">Harden the backbone</span></div><div class="step-desc">Drove disaster recovery: strategy, extensive testing, documentation, architecture improvements to keep iCloud's operating system and backbone healthy.</div></div>
-            <div class="step"><div class="step-head"><span class="step-num">04</span><span class="step-title">Guide strategy</span></div><div class="step-desc">Data showed where new features vs. technical debt needed balance. Leadership could finally see the tradeoffs.</div></div>
-            <div class="step-outcome">From zero visibility to a system that guided resource allocation across iCloud's engineering org.</div>
+            <div class="step"><div class="step-head"><span class="step-num">01</span><span class="step-title">Get the root causes captured consistently</span></div><div class="step-desc">Found a web-based outage system the team could use. Talked the owners into letting me add the fields we actually needed. Trained the SREs and convinced them — one at a time — to use it. Suddenly there was a record of <em>why</em> outages happened, not just that they had.</div></div>
+            <div class="step"><div class="step-head"><span class="step-num">02</span><span class="step-title">Build the data pipeline — on a discarded machine</span></div><div class="step-desc">Stood up a MySQL prototype on a spare box, hooked it to Tableau, started shipping regular reports to management. Iterated on the format until it worked for the readers. Then rebuilt the whole thing properly online, using everything the prototype had taught me.</div></div>
+            <div class="step"><div class="step-head"><span class="step-num">03</span><span class="step-title">Show leadership what the team already knew</span></div><div class="step-desc">Provided the visualizations for the monthly downtime reviews. The data said what the SREs had been saying for years: the majority of iTunes downtime came from bugs that were already tracked, just not fixed.</div></div>
+            <div class="step"><div class="step-head"><span class="step-num">04</span><span class="step-title">The screenshot that changed the roadmap</span></div><div class="step-desc">A friend called from the iTunes offsite with a screenshot — one of my visualizations, up on the VP's slide. The VP was using it to tell the engineers that bug fixes were going to start coming before new features. It was a triumph.</div></div>
+            <div class="step-outcome">I left Apple before the new roadmap played out, so there's no tidy number to point at. But iTunes crashes a lot less these days than it did when I was carrying a pager.</div>
           </div>
         </div>
       </div>
