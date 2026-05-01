@@ -236,16 +236,17 @@ Cats currently appear in chips and the portrait grid. A single candid line somew
 | Page | File | Sections |
 |------|------|----------|
 | Home | `index.html` | Hero · Stats strip · Brianna pull-quote · "The work, briefly" (English-major-in-disguise framing) · Selected work (3 cards → Work, Patterns, About) |
-| Work | `work.html` | "A Through-Line" (CareerJourneyPainted.png + career timeline) · 6 projects: eBay + iCloud + Kernel (deep case studies) · Secret Gardens, Conditional Probability, Chasing Unicorns (lighter pieces, link to dedicated note pages) |
-| Patterns | `method.html` | Some of My Favorite Questions (incl. "What are you reading?") · Two Kinds of Problems (Duct Tape / Drano) · Bell Curve sweet spot · Skill toolkit |
-| About | `about.html` | Portrait grid (4 cells) · Three Pillars · Teaching vignette · Off the Clock (feminist SF — Butler / Delany) · #praise (recurring-words chips, 4 chips/2 colors + 7 testimonials) · Education & Certs (3 stops + 3 cert badges) |
+| Work | `work.html` | "A Through-Line" (CareerJourneyPainted.png + career timeline) · 6 projects: eBay + iTunes + Kernel (deep case studies, all rewritten from source) · Secret Gardens, Conditional Probability, Chasing Unicorns (lighter pieces, link to dedicated note pages) |
+| Patterns | `method.html` | Some of My Favorite Questions (incl. "What are you reading?") · Two Kinds of Problems (Duct Tape / Drano) · Bell Curve sweet spot · Skill toolkit (Translating Complexity in Communication column) |
+| About | `about.html` | Portrait grid (4 cells, section-intro alignment fixed) · Three Pillars · Teaching vignette · Off the Clock (feminist SF — Butler / Delany + Touchstones chip strip) · What People Say (testimonials lead — recurring-words chip strip removed) · Education & Certs (3 stops + 3 cert badges) |
 
 ### Images — all done ✅
 All planned illustrations are live. No images currently needed.
 
 | File | Use |
 |------|-----|
-| `ConstellationPainted.png` | work.html — iCloud case study illustration ✅ |
+| `QuietedPagersPainted.png` | work.html — iTunes case study illustration ✅ (restored from archive when iTunes replaced iCloud) |
+| `ConstellationPainted.png` | intentionally archived — was the iCloud case study illustration before iTunes replaced that slot |
 
 ### Optional additions (whimsy budget)
 - **"Now" strip on home** — what's on the workbench at SFMTA (anonymized), what you're reading, current tea. Derek Sivers /now-page convention. Reinforces not-job-hunting stance.
@@ -263,9 +264,9 @@ All planned illustrations are live. No images currently needed.
 | Page | Sections |
 |------|----------|
 | **index.html** | Hero (kicker softened: "At SFMTA since April 2024 · Always up for a good problem") · Stats strip · Brianna pull-quote · "The work, briefly" (English-major-in-disguise) · 3 project cards (Work / Patterns / About) |
-| **work.html** | "A Through-Line" (caption + CareerJourneyPainted + timeline) · "Case Studies" (eBay, iCloud, Kernel — 3 deep, chronological) · "Notes, Essays & Side Quests" (Secret Gardens, Conditional Probability, Chasing Unicorns — link to dedicated note pages) |
-| **method.html** (Patterns) | "Some of My Favorite Questions" (4 incl. "What are you reading?") · Two Kinds of Problems (Duct Tape/Drano, project-name-free notes) · Bell Curve sweet spot · Skill toolkit (color-coded chips, no JS) |
-| **about.html** | Portrait grid · Three Pillars · Teaching vignette · Off the Clock (feminist SF) · What People Say (4 chips/2 colors) · Education & Certs (3 badges) |
+| **work.html** | "A Through-Line" (caption + CareerJourneyPainted + timeline) · "Case Studies" (eBay, iTunes, Kernel — 3 deep, all rewritten from source — chronological) · "Notes, Essays & Side Quests" (Secret Gardens, Conditional Probability, Chasing Unicorns — link to dedicated note pages) |
+| **method.html** (Patterns) | "Some of My Favorite Questions" (4 incl. "What are you reading?") · Two Kinds of Problems (Duct Tape/Drano, project-name-free notes) · Bell Curve sweet spot · Skill toolkit (color-coded chips, no JS — Translating Complexity now in Communication column) |
+| **about.html** | Portrait grid (section-intro thumbs center-aligned at 180px) · Three Pillars · Teaching vignette · Off the Clock (feminist SF + Touchstones) · What People Say (testimonials lead — chip strip removed) · Education & Certs (3 badges) |
 
 ---
 
@@ -460,36 +461,35 @@ Added six author chips below the existing reading-and-writing paragraph: **Octav
 
 ### Recommendations — high impact
 
-**T3. work.html — case studies still need a full rewrite from source material.**
-Restates the still-open ask from April 26 (R-series) and April 28 (S5). The eBay rewrite (S5) demonstrated the right model: start from source, not from the prior copy. iCloud and Kernel case studies still read like outline-bullets-converted-to-prose. Two specific shape problems across all three:
+**T3. work.html — case studies need a full rewrite from source material.** ✅
+All three deep case studies are now rewritten from source per the suggested shape (the moment walked in → the question that surfaced the real problem → concrete moves → what got better that you can name). eBay was already rewritten in S5. **Kernel** rewritten next: three concurrent threads (surface-what-tickets-buried / automate-the-work / renegotiate-the-bar with infosec), outcome leans on Nabil's "reverse burnout" phrasing. **iTunes** then replaced the iCloud slot entirely (Nabil: "this story is more compelling") — power-shift narrative about making bugs countable: SREs knew the cause, post-mortems sat in Word docs nobody could aggregate, MySQL prototype on a discarded box, monthly downtime reviews, the friend's call from the iTunes offsite with a screenshot of one of Nabil's vizzes on the VP's slide. Illustration swap: `ConstellationPainted.png` archived, `QuietedPagersPainted.png` restored from archive (it was always the right pairing).
 
-- *Step naming collisions* — "Make the invisible visible" / "Make the work visible" / "Define the problem nobody owned" all sound like the same step in different sweatshirts.
-- *Abstract outcomes* — "Engineers get their time back" / "Leadership could finally see the tradeoffs" want a number, a quote, or a moment.
-
-Suggested structure for each: the moment you walked in → the question that surfaced the real problem → one concrete change → what got better that you can name.
-
-**T4. about.html — recurring-words chip strip is doing two jobs and committing to neither.**
-Four phrases in flat boxes, sitting next to a thumbnail called "WordClouds Painted." Either the chips should be a real word cloud (sized by frequency, with more words) or they should demote to a single-line caption above the testimonials. As-is they compete with the testimonials underneath, which are the real heat. (Prior review S3 also flagged this; T4 names a decision rather than just a tightening.)
+**T4. about.html — recurring-words chip strip is doing two jobs and committing to neither.** ✅
+Decision: kill it. The four-chip `t-themes` block above the testimonials is gone. Testimonials now lead the section directly without a warm-up.
 
 ### Recommendations — medium impact
 
-**T5. method.html — "Translating Complexity" is in the wrong toolkit column.**
-It sits under **Analysis & Insight** but every other place on the site argues it belongs under **Translation & Communication**. Tiny thing, but the column headings are doing load-bearing work for someone skimming. Thirty seconds of work.
+**T5. method.html — "Translating Complexity" is in the wrong toolkit column.** ✅
+Moved to Translation & Communication (sc-lav, lavender), placed first in that column so it pairs with the subtitle "Making complexity legible." Communication now has 5 chips, Analysis 3 — feels right for someone whose headline is the translating, not the analyzing.
 
 **T6. index.html — three project cards, three same-shape cards.**
-The "Selected work" cards all link to other pages of the same site (Work / Patterns / About) and use the same layout, same CTA. Reads as redundant rather than as three different invitations. If two became full-bleed teaser strips and one stayed as a card, the eye would have something to do.
+Still open. The "Selected work" cards all link to other pages of the same site (Work / Patterns / About) and use the same layout, same CTA. Reads as redundant rather than as three different invitations. If two became full-bleed teaser strips and one stayed as a card, the eye would have something to do.
 
 **T7. index.html — stats strip phrasing.**
-"300M+ iCloud users whose outages I tracked" is grammatically tangled. Cleaner: *"300M+ users covered by the outage system I built"* or just *"300M+ user reach."* (Same observation as April 26 R3, now with a phrasing suggestion.)
+Still open. "300M+ iCloud users whose outages I tracked" is grammatically tangled, *and* the iCloud reference is now slightly orphaned (the case-study slot is iTunes-shaped after T3). Two cleanup options worth considering together: (a) repoint to iTunes scale, (b) just rephrase ("300M+ user reach"). (Same observation as April 26 R3.)
 
 ### Recommendations — lower priority / additive
 
 **T8. A feminist-SF essay as a fourth Notes/Side Quest.**
-Whimsy budget — purely optional. Same shape as `probability.html`, `gardens.html`, `unicorns.html`: a short piece on what one Butler novel taught about systems, or what feminist SF taught about asking *"why do we do it this way."* Would give the off-the-clock thread a destination on the site rather than just a mention, and would test whether a regular essay practice fits the tone. Title candidates if useful: *"Defamiliarize: what feminist SF taught me about asking why we do it this way"* / *"Reading Octavia Butler at the office."*
+Still open. Whimsy budget — purely optional. Same shape as `probability.html`, `gardens.html`, `unicorns.html`: a short piece on what one Butler novel taught about systems, or what feminist SF taught about asking *"why do we do it this way."* Would give the off-the-clock thread a destination on the site rather than just a mention, and would test whether a regular essay practice fits the tone. Title candidates if useful: *"Defamiliarize: what feminist SF taught me about asking why we do it this way"* / *"Reading Octavia Butler at the office."*
 
 **T9. Browser QA still pending.**
-Carried over from prior reviews. Especially: career and education timelines on mobile, About's 4-col portrait grid, testimonials themes row wrapping on narrow screens.
+Carried over from prior reviews. Especially: career and education timelines on mobile, About's 4-col portrait grid, **and the new About `.section-intro` thumbnail alignment after the gap fix** (`align-items: flex-start` → `center`, thumb 220px → 180px) — eyeball the five sections that use this pattern.
+
+### Bonus item that landed alongside the T-series
+
+**About-page section thumbnail alignment.** The five `.section-intro` rows on About had a structural gap problem: `align-items: flex-start` with a 220px-tall thumbnail beside a one-line heading meant the flex row's height was driven by the image, so content underneath only began after the image ended — leaving an L-shaped void below each heading. Fixed via `align-items: center` (heading vertically pairs with thumbnail) + thumb 220px → 180px (proportionally shorter row). Two-line CSS change. Mobile breakpoint untouched.
 
 ### Suggested implementation order
 
-If picking changes off one at a time: **T3** (case-study rewrite — biggest credibility lift) → **T4** (recurring-words decision — quickest visual cleanup) → **T5** (toolkit column move — 30 seconds) → **T7** (stats phrasing). **T6** and **T8** are larger structural moves to consider on a future whimsy-budget pass. **T9** can interleave with any of them.
+T3 / T4 / T5 / About-thumb-alignment all landed. **Still open: T6 (project-card variety), T7 (stats-strip phrasing — paired with iCloud-reference cleanup), T8 (optional feminist-SF essay), T9 (browser QA).** T7 has the smallest delta and now has a small extra reason to land (the orphaned iCloud reference). T6 is the largest structural move; T8 is purely additive whimsy.
