@@ -65,7 +65,8 @@ Section thumbnails live in the root alongside the HTML files.
 
 ## Still to do
 
-- **April 30 review (T1–T9)** — see `plan/NEXT_SESSION.md`. T1 (home-hero feminist-SF chip) ✅, T2 (Touchstones chip strip on About) ✅, T3 (case-study rewrites — Kernel ✅, iTunes ✅ replacing iCloud, eBay was already done in S5) ✅, T4 (recurring-words chip strip killed) ✅, T5 (Translating Complexity moved to Communication column) ✅. Still open: T6 (project-card variety), T7 (stats-strip phrasing), T8 (optional feminist-SF essay), T9 (browser QA).
+- **May 1 review (R1–R5)** — see `plan/NEXT_SESSION.md`. R1 (home Selected Work → teaser strip + 2 cards) ✅, R2 (Tiptree nomination replaces Apple-engineers stat) ✅, R3 (About hero sub ends on personal beat) ✅, R4 (Saint Mary's honors-dot styling dropped) ✅, R5 (Patterns toolkit subtitles promoted to titles) ✅. Tiptree mention also added to About > Off the Clock vignette. Still open: T8 (optional feminist-SF essay), T9 (browser QA).
+- **April 30 review (T1–T9)** — see `plan/NEXT_SESSION.md`. T1 (home-hero feminist-SF chip) ✅, T2 (Touchstones chip strip on About) ✅, T3 (case-study rewrites — Kernel ✅, iTunes ✅ replacing iCloud, eBay was already done in S5) ✅, T4 (recurring-words chip strip killed) ✅, T5 (Translating Complexity moved to Communication column) ✅, T6 (project-card variety) ✅ resolved by R1, T7 (stats-strip phrasing) ✅ resolved by R2 + the iCloud→iTunes fix.
 - **April 28 review (S1–S9)** — second whimsy pass. S1 (Off the Clock vignette) ✅, S5 (eBay promoted to case study) ✅, S7 (Duct Tape/Drano notes rewritten) ✅, S8 (favorite questions) ✅, S9 ("Patterns" rename) ✅. S2 (hero kicker), S3 (chip strip tightening — superseded by T4), S4 (home echo) still open. S6 (Now strip) declined.
 - **iTunes case study replaces iCloud** ✅ — work.html slot rewritten from source as "Making iTunes' Crashes Countable." Illustration swapped: `ConstellationPainted.png` archived, `QuietedPagersPainted.png` restored to live use. Emoji ☁️ → 🎵.
 - **Kernel case study rewritten** ✅ — work.html "Kernel Updates for 500,000 Systems" rewritten from source per T3 shape (moment → real problem → moves → outcome). Three concurrent threads: surface what tickets buried, automate the work, renegotiate the bar with infosec.
@@ -73,8 +74,8 @@ Section thumbnails live in the root alongside the HTML files.
 - **Recurring-words chip strip on About** ✅ — removed (T4). Testimonials lead the section directly.
 - **"Translating Complexity" toolkit column** ✅ — moved from Analysis & Insight to Translation & Communication on Patterns (T5). Now leads the Communication column.
 - **About-page section thumbnail alignment** ✅ — fixed the orphaned-heading gap in the five `.section-intro` rows. `align-items: flex-start` → `center`, thumbnail width 220px → 180px.
-- **Stats-strip phrasing on home** — "300M+ iCloud users whose outages I tracked" is grammatically tangled, and the iCloud reference is now slightly orphaned (no iCloud case study). Could repoint to iTunes scale or rephrase. (T7)
-- **Selected-work cards on home** — three same-shape cards reads as redundant; consider differentiating. (T6)
+- **Stats-strip on home** ✅ — orphaned iCloud reference repaired (now `iTunes users behind the dashboards`); 4th stat reframed as `1 Tiptree Award nominee · feminist SF` (R2 + Tiptree request).
+- **Selected-work cards on home** ✅ — restructured as one full-bleed teaser strip (with `QuietedPagersPainted.png`) leading into two smaller cards for Patterns + About. The asymmetry gives the eye somewhere to land. (R1, resolves T6.)
 - **Feminist-SF essay** as a fourth Notes/Side Quest (optional whimsy). (T8)
 - **Browser QA** on all 4 pages, especially the career/education timelines on mobile, About's 4-col portrait grid, and the new About thumbnail alignment after the section-intro change. (T9)
 - **Touchstones chip strip on About** ✅ — six authors below the Off the Clock vignette: Butler, Le Guin, Delany, Russ, Tiptree, Jemisin. Easy to swap if any don't belong.

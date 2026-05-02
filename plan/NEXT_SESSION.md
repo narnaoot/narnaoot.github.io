@@ -492,4 +492,62 @@ Carried over from prior reviews. Especially: career and education timelines on m
 
 ### Suggested implementation order
 
-T3 / T4 / T5 / About-thumb-alignment all landed. **Still open: T6 (project-card variety), T7 (stats-strip phrasing — paired with iCloud-reference cleanup), T8 (optional feminist-SF essay), T9 (browser QA).** T7 has the smallest delta and now has a small extra reason to land (the orphaned iCloud reference). T6 is the largest structural move; T8 is purely additive whimsy.
+T3 / T4 / T5 / About-thumb-alignment all landed. **T6 + T7 resolved in the May 1 pass below** alongside R-series recommendations. **Still open: T8 (optional feminist-SF essay), T9 (browser QA).**
+
+---
+
+## Review — May 1 2026 (luxury-of-whimsy pass · third feminist-SF round)
+
+Brief: *"Not job-hunting, luxury of whimsy. What works? What doesn't? Could we work feminist SF in anywhere?"* Same brief as the April 30 pass, fresh eye. Status legend: ✅ done · → in progress · ⏸ deferred · ✗ declined.
+
+### Bug-tier fixes pushed first (commit `3b68baa`)
+
+- **Duplicate hero chip on home** ✅ — `📚 Reading feminist SF` (older) and `📚 Reads & writes feminist SF` (T1) both lived on the hero. T1 should have replaced the older chip; instead it appended. Removed the duplicate.
+- **Stats-strip orphaned iCloud reference** ✅ — `300M+ iCloud users behind the dashboards` repointed to `iTunes users` (the case-study slot is iTunes-shaped after T3). Smaller delta than R2 below, applied first as a bug fix.
+- **Selected Work card on home — orphaned iCloud reference** ✅ — `iCloud outage systems, kernel updates...` updated to lead with the actual iTunes case study: `Making iTunes' crashes countable, kernel updates...`.
+- **Bell-curve aria-label on Patterns** ✅ — still said `peaks at trust, vision, and leadership` (old peak copy from before that text was rewritten). Updated to match the visible `Hand me the vision, get out of the way.` peak label.
+
+### R-series — recommendations pushed this session ✅
+
+**R1. index.html — three same-shape Selected Work cards.** ✅
+T6 from the April 30 pass, finally addressed. Restructured: one full-bleed teaser strip (image left, text right, coral→mustard gradient) leading the section, with `QuietedPagersPainted.png` as the visual anchor and a project-flavored title (*"Making iTunes' crashes countable, and other stories."*). Below it, a 2-col secondary grid with the Patterns + About cards (kept in their existing pcard style). The asymmetry gives the eye a hierarchy — *here is the work; here is the rest of the site* — instead of three flat invitations. Mobile collapses the teaser to single-column, image above text.
+
+**R2. Stats strip — too Apple-heavy, no whimsy.** ✅
+Replaced the 4th stat (`300+ Engineers using systems I built` — most generic of the four) with `1 Tiptree Award nominee · feminist SF`. Both fulfills the standing recommendation that the strip needed *one* whimsy stat among three serious ones, *and* lands the user-requested Tiptree mention in the highest-visibility location on the site. (Tiptree Award was renamed Otherwise Award in 2019; preserved user's original phrasing — easy swap if user prefers Otherwise.)
+
+**R3. about.html — hero sub still hooks to colleague-testimony.** ✅
+*"How an English-literature degree, two feral cats, and a stubbornly curious mind add up to **the kind of professional my colleagues describe below**."* — the closing clause was a 2024-job-hunt artifact. Rewritten: *"…add up to **a person who reads Octavia Butler at lunch and asks 'why do we do it this way?' before standup**."* Tells visitors what kind of room they're walking into; carries the feminist-SF thread + the favorite-question motif into the About hero.
+
+**R4. about.html — Saint Mary's edu-dot still styled as honors.** ✅
+The `edu-dot honors` class added a mustard ring + emoji 🏅 originally signalling MS Honors. The Honors *label* was removed in earlier work, but the dot kept its visual privilege — making Saint Mary's read as "the special one" of three. Dropped the `honors` class; emoji 🏅 → 🎓 to match the academic register of the other dots. All three stops now visually equivalent.
+
+**R5. method.html — toolkit column titles read like LinkedIn headers.** ✅
+*Project & Program Leadership / Translation & Communication / Analysis & Insight* with subtitles *Building what doesn't exist yet / Making complexity legible / Turning numbers into decisions*. Promoted the subtitles to titles; dropped the LinkedIn-flavored top line entirely. The new titles can stand alone — and match the voice of the rest of the page.
+
+### User-requested addition
+
+**Tiptree Award nomination mentioned in two places:**
+1. **Stats strip on home** — as `1 Tiptree Award nominee · feminist SF` (R2 above). Highest-visibility surface.
+2. **About > Off the Clock vignette** — added a sentence to the existing prose: *"…The drafts live in a different folder than the dashboards — one of them was nominated for the **Tiptree Award**."* Gives the stats-strip number narrative context for visitors who scroll into About.
+
+### What's working — leave alone
+
+Same list as April 30, with one addition:
+- **The new home teaser strip** — the QuietedPagers painting was always the right visual to lead with on Selected Work. Don't fall back to three same-shape cards.
+
+### Image audit (per user question)
+
+**Kernel Updates already has its illustration** — `KernelCleanupPainted.png` is live on work.html line 285 (between project lead and tags). It's the painted before/after garden scene. No action needed; the user may have forgotten it's there.
+
+Surfaces that could plausibly use an illustration but currently don't:
+- **About > Off the Clock vignette.** No section thumbnail (the section uses the inline-vignette pattern, not the section-intro pattern). Could add one — a painted scene of the character reading on a couch with a stack of SF paperbacks, or at a writing desk — but the prose + Touchstones chips are already carrying the section. **Verdict: not necessary.**
+- **About > Education & Certifications.** Has `EducationWalkPainted.png`. Already done.
+- **Method/Patterns > "What I Bring" toolkit.** The 3-column chip grid has no illustration. There's a dormant idea in this file (Round 4 image suggestion) about a crafting-table scene with three recipe cards. **Verdict: optional, no urgency. The chips are doing their job.**
+- **Patterns > Two Kinds of Problems (Duct Tape/Drano).** No illustration. The 🩹/🪣 emoji + colored panels carry the metaphor. **Verdict: leave alone.**
+
+**Recommendation: no new images required.** Kernel already has its illustration; everywhere else, what's there is sufficient. The whimsy-budget would be better spent on T8 (the feminist-SF essay) than on additional illustrations.
+
+### Still open
+
+- **T8 — feminist-SF essay** as a fourth Notes/Side Quest. Carried forward.
+- **T9 — browser QA.** Carried forward, with one new surface to eyeball: the **R1 home teaser strip** at the 720px breakpoint (collapses image-above-text, image capped at 240px) and on narrow mobile.
