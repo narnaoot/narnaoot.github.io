@@ -539,15 +539,22 @@ Same list as April 30, with one addition:
 
 **Kernel Updates already has its illustration** — `KernelCleanupPainted.png` is live on work.html line 285 (between project lead and tags). It's the painted before/after garden scene. No action needed; the user may have forgotten it's there.
 
+**eBay Site Security Program is the asymmetric one.** ⏸ open. The other two deep case studies have painted illustrations between project-lead and project-tags (iTunes: `QuietedPagersPainted.png`; Kernel: `KernelCleanupPainted.png`). eBay has only the 🔐 emoji. The case study is now a peer of the other two (promoted in S5, three-in-depth tag), so the missing illustration reads as visual asymmetry. Concept handed to user for commissioning:
+
+> **"Map for the Maze."** ACNH outdoor scene, character at wooden noticeboard. Left half (before): chaotic tangle — loose scrolls scattered, corkboard strings going every direction, a confused villager clutching a question mark. Right half (after): same noticeboard, now organized — single shared roadmap pinned at center, tidy "Intake" desk with a small queue forming, a second character (PayPal-coded, different palette) walking up to a bridge between two islands in the background. Small wooden "Before / After" signs with readable subtitles, matching `KernelCleanupPainted.png`'s lettering. Teal accent palette to match the case-study tag color. Captures the two strongest beats of the case study: *making the work visible* (left→right), and *opening the cross-company conversation* (bridge / PayPal character).
+
+When the file lands, drop it into work.html at the same placement pattern as the other two — between project-lead and project-tags on the eBay project-item — capped at 420px width like the others. Suggested filename to match the existing convention: `eBaySecurityPainted.png`.
+
 Surfaces that could plausibly use an illustration but currently don't:
 - **About > Off the Clock vignette.** No section thumbnail (the section uses the inline-vignette pattern, not the section-intro pattern). Could add one — a painted scene of the character reading on a couch with a stack of SF paperbacks, or at a writing desk — but the prose + Touchstones chips are already carrying the section. **Verdict: not necessary.**
 - **About > Education & Certifications.** Has `EducationWalkPainted.png`. Already done.
 - **Method/Patterns > "What I Bring" toolkit.** The 3-column chip grid has no illustration. There's a dormant idea in this file (Round 4 image suggestion) about a crafting-table scene with three recipe cards. **Verdict: optional, no urgency. The chips are doing their job.**
 - **Patterns > Two Kinds of Problems (Duct Tape/Drano).** No illustration. The 🩹/🪣 emoji + colored panels carry the metaphor. **Verdict: leave alone.**
 
-**Recommendation: no new images required.** Kernel already has its illustration; everywhere else, what's there is sufficient. The whimsy-budget would be better spent on T8 (the feminist-SF essay) than on additional illustrations.
+**Recommendation: one new image needed (eBay).** Kernel already has its illustration; everywhere else, what's there is sufficient.
 
 ### Still open
 
+- **eBay illustration** ⏸ — see Image audit above. `eBaySecurityPainted.png` (Map for the Maze concept) needs to be commissioned + added to work.html eBay case study to match the iTunes/Kernel pattern.
 - **T8 — feminist-SF essay** as a fourth Notes/Side Quest. Carried forward.
 - **T9 — browser QA.** Carried forward, with one new surface to eyeball: the **R1 home teaser strip** at the 720px breakpoint (collapses image-above-text, image capped at 240px) and on narrow mobile.
