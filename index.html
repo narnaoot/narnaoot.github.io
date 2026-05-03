@@ -220,6 +220,37 @@
     @media (max-width: 780px) { .project-grid { grid-template-columns: 1fr 1fr; } }
     @media (max-width: 520px) { .project-grid { grid-template-columns: 1fr; } }
 
+    /* Featured teaser strip (asymmetric — leads the section) */
+    .work-teaser {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 36px;
+      align-items: center;
+      background: linear-gradient(135deg, var(--coral-lt), var(--must-lt));
+      border: 1.5px solid var(--border);
+      border-radius: var(--r);
+      padding: 32px 36px;
+      margin-bottom: 20px;
+      text-decoration: none;
+      color: var(--text);
+      transition: transform .2s, box-shadow .2s, border-color .2s;
+    }
+    .work-teaser:hover { transform: translateY(-4px); box-shadow: 0 14px 36px rgba(0,0,0,.10); border-color: var(--coral); }
+    .work-teaser img { width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 18px rgba(0,0,0,.14); display: block; }
+    .work-teaser-body { display: flex; flex-direction: column; gap: 10px; }
+    .work-teaser-label { font-size: .68rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--coral); }
+    .work-teaser-title { font-family: 'Playfair Display', serif; font-size: clamp(1.4rem, 2.6vw, 1.85rem); font-weight: 900; line-height: 1.15; letter-spacing: -.5px; }
+    .work-teaser-title em { font-style: italic; color: var(--coral); }
+    .work-teaser-desc { font-size: .92rem; color: var(--text); line-height: 1.65; opacity: .82; }
+    .work-teaser-cta { font-size: .82rem; font-weight: 800; color: var(--coral); margin-top: 4px; }
+    @media (max-width: 720px) {
+      .work-teaser { grid-template-columns: 1fr; gap: 20px; padding: 24px; }
+      .work-teaser img { max-width: 240px; margin: 0 auto; }
+    }
+
+    .secondary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    @media (max-width: 520px) { .secondary-grid { grid-template-columns: 1fr; } }
+
     .pcard {
       background: var(--surface);
       border: 1.5px solid var(--border);
@@ -302,12 +333,12 @@
       <div class="stat-lbl">iTunes users behind the dashboards</div>
     </div>
     <div class="stat">
-      <div class="stat-num">300+</div>
-      <div class="stat-lbl">Engineers using systems I built</div>
-    </div>
-    <div class="stat">
       <div class="stat-num">4 yrs</div>
       <div class="stat-lbl">Teaching &amp; consulting · Saint Mary's</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">1</div>
+      <div class="stat-lbl">Tiptree Award nominee · feminist SF</div>
     </div>
   </div>
 </div>
@@ -381,16 +412,17 @@
       <h2>Selected work</h2>
       <span class="section-tag">portfolio</span>
     </div>
-    <div class="project-grid">
+    <a class="work-teaser" href="work.html">
+      <img src="QuietedPagersPainted.png" alt="Pagers going quiet — iTunes crash-tracking case study" />
+      <div class="work-teaser-body">
+        <div class="work-teaser-label">Portfolio · three told in depth</div>
+        <h3 class="work-teaser-title">Making iTunes' crashes <em>countable</em>, and other stories.</h3>
+        <p class="work-teaser-desc">Six projects: from quieting the SRE pagers at iTunes, to kernel updates across 500,000 systems, to building an internal-consulting motion for eBay site security — plus three lighter pieces on probability, public gardens, and unicorns.</p>
+        <div class="work-teaser-cta">Read the stories →</div>
+      </div>
+    </a>
 
-      <a class="pcard" href="work.html">
-        <div class="pcard-bar" style="background:linear-gradient(90deg,var(--coral),var(--mustard))"></div>
-        <div class="pcard-icon">📁</div>
-        <div class="pcard-label">Portfolio</div>
-        <div class="pcard-title">Selected Work</div>
-        <div class="pcard-desc">Making iTunes' crashes countable, kernel updates for 500,000 systems, eBay site security — plus a few side quests. Six projects, three told in depth.</div>
-        <div class="pcard-cta">Read the stories →</div>
-      </a>
+    <div class="secondary-grid">
 
       <a class="pcard" href="method.html">
         <div class="pcard-bar" style="background:linear-gradient(90deg,var(--teal),var(--lavender))"></div>
@@ -406,7 +438,7 @@
         <div class="pcard-icon">👤</div>
         <div class="pcard-label">The Person</div>
         <div class="pcard-title">About Nabil</div>
-        <div class="pcard-desc">Cats, tea, English literature, three pillars as described by Mary Salome, and twenty years of testimonials from colleagues, managers, and students.</div>
+        <div class="pcard-desc">Cats, tea, English literature, three pillars as described by Mary Salome, feminist science fiction off the clock, and twenty years of testimonials.</div>
         <div class="pcard-cta">Meet Nabil →</div>
       </a>
 
