@@ -18,7 +18,7 @@ The site foregrounds **project leadership** — Nabil's ability to walk into amb
 | `probability.html` | Conditional Probability for Normal Humans — full essay with tables |
 | `gardens.html` | Secret Gardens of San Francisco — Tableau Public viz embed |
 | `unicorns.html` | Chasing Unicorns for Pride — Tableau Public viz embed |
-| `method.html` | "Some Patterns" — favorite questions (incl. "What are you reading?"), Duct Tape/Drano, bell-curve sweet spot, skill toolkit. (File still named `method.html`; visible label is "Patterns.") |
+| `patterns.html` | "Some Patterns" — favorite questions (incl. "What are you reading?"), Duct Tape/Drano, bell-curve sweet spot, skill toolkit. (Renamed from `method.html` on 2026-05-04.) |
 
 Nav on all 4 pages: Home · Work · Patterns · About
 
@@ -45,25 +45,26 @@ Fonts: **Playfair Display** (headings) + **Nunito** (body)
 
 ## Images
 
-Section thumbnails live in the root alongside the HTML files.
+Section thumbnails live in the root alongside the HTML files. As of 2026-05-04 the live painted assets are WebP at ~900px wide (1100px for the career illustration), down from 31.5 MB of source PNG/JPEG to ~0.9 MB total. The original PNG/JPEG sources were removed from the working tree but remain in git history.
 
 | File | Use |
 |------|-----|
-| `AboutHero.png` | about.html — "The Human Behind the Projects" |
-| `ThreePillarsPainted.png` | about.html — "Three Things I Always Bring" ✅ |
-| `KernelCleanupPainted.png` | work.html — Kernel Updates case study illustration ✅ |
-| `ConstellationPainted.png` | intentionally archived — was the iCloud case study illustration before iTunes replaced that slot |
-| `TeachingScene.png` | about.html — "One More Thing" |
-| `ThingsILove.png` | index.html — "The work, briefly" section thumbnail |
-| `WordClouds Painted.png` | about.html — "What People Say" ✅ |
-| `Testimonials.png` | **nobody** — orphaned, safe to delete |
-| `EducationWalkPainted.png` | about.html — "Education & Certifications" ✅ |
-| `ProfilePicture.jpeg` | about.html + index.html — hero avatar (both now at root path) |
-| `QuietedPagersPainted.png` | work.html — iTunes case study illustration ✅ |
-| `CleoInspects.png` | footer on all 4 pages — "Inspected by Cleo" ✅ |
-| `CareerJourneyPainted.png` | work.html — career journey illustration ✅ |
-| `LighthousePainted.png` | work.html — eBay Site Security case study illustration ✅ (lighthouse before/after with peer-lighthouse beams crossing) |
-| `lighthouse.png` | runner-up draft from the eBay illustration round — character turned away, face not canonical. Safe to delete. |
+| `AboutHero.webp` | about.html — "The Human Behind the Projects" |
+| `ThreePillarsPainted.webp` | about.html — "Three Things I Always Bring" |
+| `KernelCleanupPainted.webp` | work.html — Kernel Updates case study illustration |
+| `TeachingScene.webp` | about.html — "One More Thing" |
+| `WordCloudsPainted.webp` | about.html — "What People Say" (was `WordClouds Painted.png`; space removed in the rename) |
+| `EducationWalkPainted.webp` | about.html — "Education & Certifications" |
+| `ProfilePicture.webp` | about.html + index.html — hero avatar |
+| `QuietedPagersPainted.webp` | work.html — iTunes case study illustration; also the work-teaser thumbnail on index.html |
+| `CleoInspects.webp` | footer on all pages — "Inspected by Cleo" |
+| `CareerJourneyPainted.webp` | work.html — career journey illustration |
+| `LighthousePainted.webp` | work.html — eBay Site Security case study illustration (lighthouse before/after with peer-lighthouse beams crossing) |
+| `ConstellationPainted.png` | intentionally archived (still PNG, not in HTML) — was the iCloud case study illustration before iTunes replaced that slot |
+| `Testimonials.png` | orphaned PNG, safe to delete |
+| `ThingsILove.png` | orphaned PNG (former index thumbnail, superseded by the QuietedPagers teaser strip), safe to delete |
+| `lighthouse.png` | runner-up draft from the eBay illustration round, safe to delete |
+| `avatar.png`, `ac-river-scene.png` | unreferenced legacy assets (already small) |
 
 ## Still to do
 
