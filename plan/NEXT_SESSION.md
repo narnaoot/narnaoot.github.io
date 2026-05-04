@@ -1,6 +1,20 @@
 # Next Session Handoff
 
-## Current state
+## Current state (May 4 2026)
+
+Live root files: `index.html`, `about.html`, `work.html`, `patterns.html` (renamed this session from `method.html`). Note pages: `probability.html`, `gardens.html`, `unicorns.html`. Nav: Home · Work · Patterns · About.
+
+**Rename:** `method.html` → `patterns.html` this session. All seven HTML files updated; the home project card pointing to the page was caught too. No redirect stub — the page hadn't been broadly published under the old URL. README updated; older entries in this file still say `method.html` because they describe past sessions accurately, not current state.
+
+**Image re-encode:** all eleven painted assets the live site references were converted from PNG/JPEG to WebP (quality 82, capped at 900px wide; 1100 for the career illustration; 560 for the profile; 200 for the footer Cleo). Total live asset weight 31.5 MB → 0.9 MB (about 97% reduction). Originals removed from working tree but preserved in git history. `WordClouds Painted.png` lost its space in the rename → `WordCloudsPainted.webp`. Retained-as-PNG: `ConstellationPainted.png` (intentionally archived), and the orphans `Testimonials.png` / `ThingsILove.png` / `lighthouse.png` / `avatar.png` / `ac-river-scene.png` (still flagged safe-to-delete in README).
+
+**Other improvements this session:** every below-the-fold image got `loading="lazy"`; meta descriptions added to all seven pages; the redundant inline italic labels on the bell-curve SVG (`Too stuck in status quo` / `Too unstructured`) were dropped — the captions below the SVG already say it.
+
+**Open items I flagged but didn't change** (editorial calls left for Nabil): home stats-strip slot 2 ("300M+ iTunes users behind the dashboards") reads as a borrowed number; Brianna's pull-quote on home doesn't appear in the About testimonials; hero body and pull-quote on home overlap thematically; "Education" side-fact uses `·` as both within-entry and between-entry separator; Patterns toolkit columns are uneven (4/5/3 chips) and "Working in Code" is the most generic chip; tenure bar says "Consulting" while career timeline says "Independent Consulting." Browser QA was not possible from this session.
+
+---
+
+## Current state (older snapshots below — historical)
 
 All prior branches have been merged to master. Redesign/ folder has been promoted to root — the four live files are now `index.html`, `about.html`, `work.html`, `method.html` at repo root. Several further fixes were applied after the initial promotion (Honors removal, UC Berkeley removal, George Mason arc label update, duplicate career illustration removed).
 
