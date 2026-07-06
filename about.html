@@ -27,6 +27,14 @@
       --sage-lt:  #EBF4EE;
       --lavender: #8B7BC8;
       --lav-lt:   #EFECF9;
+      --denim:    #4A82B0;
+      --denim-lt: #E7F0F7;
+      --blush:    #D56A92;
+      --blush-lt: #FBE8F0;
+      --citron:   #97A24E;
+      --citron-lt: #F1F3DE;
+      --orchid:   #A75FA0;
+      --orchid-lt: #F4E8F2;
       --r: 14px;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -49,14 +57,6 @@
       padding: 64px 28px 56px;
       position: relative;
       overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute; inset: 0;
-      background-image: radial-gradient(var(--border) 1px, transparent 1px);
-      background-size: 24px 24px;
-      opacity: .35;
-      pointer-events: none;
     }
     .hero-inner {
       max-width: 680px;
@@ -111,18 +111,18 @@
     .portrait-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
     @media (max-width: 900px) { .portrait-grid { grid-template-columns: 1fr 1fr; } }
     @media (max-width: 480px) { .portrait-grid { grid-template-columns: 1fr; } }
-    .portrait-item { border-top: 2.5px solid var(--border); padding-top: 20px; }
-    .portrait-item.c { border-top-color: var(--coral); }
-    .portrait-item.t { border-top-color: var(--teal); }
-    .portrait-item.l { border-top-color: var(--lavender); }
-    .portrait-item.m { border-top-color: var(--mustard); }
-    .portrait-item.s { border-top-color: var(--sage); }
+    .portrait-item { border-radius: var(--r); padding: 20px; }
+    .portrait-item.c { background: var(--coral-lt); }
+    .portrait-item.t { background: var(--teal-lt); }
+    .portrait-item.l { background: var(--lav-lt); }
+    .portrait-item.m { background: var(--must-lt); }
+    .portrait-item.s { background: var(--sage-lt); }
     .p-icon { font-size: 1.8rem; margin-bottom: 10px; }
     .p-label { font-size: .68rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; color: var(--muted); margin-bottom: 5px; }
     .p-value { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--text); line-height: 1.15; margin-bottom: 8px; }
     .p-note { font-size: .84rem; color: var(--muted); line-height: 1.6; }
     .cat-chips { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 8px; }
-    .cat-chip { background: var(--coral-lt); border-radius: 4px; padding: 3px 12px; font-size: .8rem; font-weight: 700; color: var(--coral); }
+    .cat-chip { background: var(--surface); border-radius: 4px; padding: 3px 12px; font-size: .8rem; font-weight: 700; color: var(--coral); }
     .mini-bar-wrap { margin: 6px 0; }
     .mini-bar-row { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
     .mini-bar-lbl { font-size: .74rem; font-weight: 700; width: 52px; flex-shrink: 0; color: var(--text); }
@@ -141,9 +141,10 @@
       flex-direction: column;
       gap: 12px;
     }
-    .pillar.p1 { border-top: 4px solid var(--coral); }
-    .pillar.p2 { border-top: 4px solid var(--teal); }
-    .pillar.p3 { border-top: 4px solid var(--lavender); }
+    .pillar.p1 { background: var(--coral-lt); --dot: var(--coral); }
+    .pillar.p2 { background: var(--teal-lt); --dot: var(--teal); }
+    .pillar.p3 { background: var(--lav-lt); --dot: var(--lavender); }
+    .pillar-title::before { content: ''; display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: var(--dot, var(--muted)); margin-right: 10px; }
     .pillar-num { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 900; line-height: 1; opacity: .15; }
     .pillar-title { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--text); line-height: 1.25; }
     .pillar-body { font-size: .88rem; color: var(--muted); line-height: 1.7; flex: 1; }
@@ -160,10 +161,11 @@
       overflow: hidden;
     }
     .vignette::before {
-      content: '✦';
+      content: '"';
       position: absolute;
-      top: -10px; right: 24px;
-      font-size: 8rem;
+      top: -20px; right: 24px;
+      font-family: 'Playfair Display', serif;
+      font-size: 10rem;
       color: rgba(139,123,200,.07);
       line-height: 1;
       pointer-events: none;

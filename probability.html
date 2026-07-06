@@ -27,6 +27,14 @@
       --sage-lt:  #EBF4EE;
       --lavender: #8B7BC8;
       --lav-lt:   #EFECF9;
+      --denim:    #4A82B0;
+      --denim-lt: #E7F0F7;
+      --blush:    #D56A92;
+      --blush-lt: #FBE8F0;
+      --citron:   #97A24E;
+      --citron-lt: #F1F3DE;
+      --orchid:   #A75FA0;
+      --orchid-lt: #F4E8F2;
       --r: 14px;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -59,7 +67,8 @@
     .note-body h2 { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: var(--text); margin: 2.5rem 0 1rem; }
     .note-body ul { margin: .5rem 0 1.4rem 1.5rem; }
     .note-body li { margin-bottom: .7rem; line-height: 1.75; }
-    .callout { background: var(--must-lt); border-left: 3px solid var(--mustard); padding: 1rem 1.25rem; border-radius: 0 8px 8px 0; margin: 1.5rem 0 1.75rem; font-size: .97rem; line-height: 1.7; }
+    .callout { background: var(--must-lt); padding: 1rem 1.25rem; border-radius: 8px; margin: 1.5rem 0 1.75rem; font-size: .97rem; line-height: 1.7; }
+    .callout::before { content: ''; display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: var(--mustard); margin-right: 10px; }
 
     /* ── Tables ──────────────────────────────────────────── */
     .table-wrap { overflow-x: auto; margin: 1.25rem 0 2rem; border-radius: 10px; border: 1.5px solid var(--border); }
