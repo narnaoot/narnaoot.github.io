@@ -27,6 +27,14 @@
       --sage-lt:  #EBF4EE;
       --lavender: #8B7BC8;
       --lav-lt:   #EFECF9;
+      --denim:    #4A82B0;
+      --denim-lt: #E7F0F7;
+      --blush:    #D56A92;
+      --blush-lt: #FBE8F0;
+      --citron:   #97A24E;
+      --citron-lt: #F1F3DE;
+      --orchid:   #A75FA0;
+      --orchid-lt: #F4E8F2;
       --r: 14px;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -44,7 +52,6 @@
 
     /* ── Hero ─────────────────────────────────────────────── */
     .hero { background: var(--bg); border-bottom: 1.5px solid var(--border); padding: 64px 28px 56px; position: relative; overflow: hidden; }
-    .hero::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(var(--border) 1px, transparent 1px); background-size: 24px 24px; opacity: .35; pointer-events: none; }
     .hero-inner { max-width: 680px; margin: 0 auto; position: relative; display: flex; flex-direction: column; gap: 16px; }
     .hero-kicker { display: flex; align-items: center; gap: 14px; font-size: .72rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; color: var(--teal); }
     .hero-kicker-line { width: 40px; height: 1.5px; background: var(--teal); flex-shrink: 0; }
@@ -62,11 +69,12 @@
 
     /* ── Favorite Questions ──────────────────────────────── */
     .fav-questions { display: flex; flex-direction: column; gap: 28px; max-width: 740px; margin: 0 auto; }
-    .fav-q { padding: 8px 0 8px 24px; border-left: 3px solid var(--coral); }
-    .fav-q.q1 { border-left-color: var(--coral); }
-    .fav-q.q2 { border-left-color: var(--mustard); }
-    .fav-q.q3 { border-left-color: var(--lavender); }
-    .fav-q.q4 { border-left-color: var(--teal); }
+    .fav-q { position: relative; padding: 18px 22px 18px 46px; border-radius: 8px; }
+    .fav-q::before { content: ''; position: absolute; left: 22px; top: 30px; width: 9px; height: 9px; border-radius: 50%; background: var(--dot, var(--muted)); }
+    .fav-q.q1 { background: var(--coral-lt); --dot: var(--coral); }
+    .fav-q.q2 { background: var(--must-lt); --dot: var(--mustard); }
+    .fav-q.q3 { background: var(--lav-lt); --dot: var(--lavender); }
+    .fav-q.q4 { background: var(--teal-lt); --dot: var(--teal); }
     .fav-q-text { font-family: 'Playfair Display', serif; font-size: clamp(1.05rem, 2vw, 1.3rem); font-style: italic; font-weight: 700; color: var(--text); line-height: 1.55; }
 
     /* ── Duct Tape / Drano ────────────────────────────────── */

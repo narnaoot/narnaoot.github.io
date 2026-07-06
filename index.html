@@ -27,6 +27,14 @@
       --sage-lt:  #EBF4EE;
       --lavender: #8B7BC8;
       --lav-lt:   #EFECF9;
+      --denim:    #4A82B0;
+      --denim-lt: #E7F0F7;
+      --blush:    #D56A92;
+      --blush-lt: #FBE8F0;
+      --citron:   #97A24E;
+      --citron-lt: #F1F3DE;
+      --orchid:   #A75FA0;
+      --orchid-lt: #F4E8F2;
       --r: 14px;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -44,19 +52,11 @@
 
     /* ── Hero ────────────────────────────────────────────── */
     .hero {
-      background: linear-gradient(135deg, #e0f0d8 0%, var(--bg) 55%);
+      background: var(--bg);
       border-bottom: 1.5px solid var(--border);
       padding: 48px 28px 48px;
       position: relative;
       overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute; inset: 0;
-      background-image: radial-gradient(var(--border) 1px, transparent 1px);
-      background-size: 24px 24px;
-      opacity: .22;
-      pointer-events: none;
     }
     .hero-inner {
       max-width: 1080px;
@@ -201,12 +201,13 @@
     .about-cta:hover { opacity: .85; }
 
     .side-facts { display: flex; flex-direction: column; gap: 20px; }
-    .side-fact { border-left: 3px solid var(--border); padding: 4px 0 4px 20px; }
-    .side-fact.c { border-left-color: var(--coral); }
-    .side-fact.t { border-left-color: var(--teal); }
-    .side-fact.m { border-left-color: var(--mustard); }
-    .side-fact.l { border-left-color: var(--lavender); }
+    .side-fact { border-radius: var(--r); padding: 16px 20px; }
+    .side-fact.c { background: var(--coral-lt); --dot: var(--coral); }
+    .side-fact.t { background: var(--teal-lt); --dot: var(--teal); }
+    .side-fact.m { background: var(--must-lt); --dot: var(--mustard); }
+    .side-fact.l { background: var(--lav-lt); --dot: var(--lavender); }
     .side-fact-label { font-size: .68rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+    .side-fact-label::before { content: ''; display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: var(--dot, var(--muted)); margin-right: 8px; }
     .side-fact-value { font-size: .92rem; font-weight: 700; color: var(--text); }
     /* tenure bars */
     .tenure-list { display: flex; flex-direction: column; gap: 6px; }
@@ -262,7 +263,6 @@
       transition: transform .2s, box-shadow .2s, border-color .2s;
     }
     .pcard:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,.08); border-color: var(--coral); }
-    .pcard-bar { height: 4px; border-radius: 99px; }
     .pcard-icon { font-size: 2rem; line-height: 1; }
     .pcard-label { font-size: .68rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
     .pcard-title { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 700; line-height: 1.25; }
@@ -426,7 +426,6 @@
     <div class="secondary-grid">
 
       <a class="pcard" href="patterns.html">
-        <div class="pcard-bar" style="background:linear-gradient(90deg,var(--teal),var(--lavender))"></div>
         <div class="pcard-icon">🔍</div>
         <div class="pcard-label">Practice</div>
         <div class="pcard-title">Patterns</div>
@@ -435,7 +434,6 @@
       </a>
 
       <a class="pcard" href="about.html">
-        <div class="pcard-bar" style="background:linear-gradient(90deg,var(--lavender),var(--sage))"></div>
         <div class="pcard-icon">👤</div>
         <div class="pcard-label">The Person</div>
         <div class="pcard-title">About Nabil</div>
