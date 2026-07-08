@@ -7,7 +7,7 @@
   <meta name="description" content="If you test positive for malaria, how likely is it you actually have malaria? Many doctors get this wrong. An explanation without formulas." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@900&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <style>
     :root {
       --bg:       #FFFBF5;
@@ -35,6 +35,11 @@
       --citron-lt: #F1F3DE;
       --orchid:   #A75FA0;
       --orchid-lt: #F4E8F2;
+      --coral-dk: #C94B3B;
+      --teal-dk:  #1E7C72;
+      --must-dk:  #A87407;
+      --sage-dk:  #4A7C5A;
+      --lav-dk:   #5F4E9C;
       --r: 14px;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -55,8 +60,8 @@
     .note-hero-inner { max-width: 720px; margin: 0 auto; }
     .hero-kicker { display: flex; align-items: center; gap: 14px; font-size: .72rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; color: var(--mustard); margin-bottom: 20px; }
     .hero-kicker-line { width: 40px; height: 1.5px; background: var(--mustard); flex-shrink: 0; }
-    .note-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3rem); font-weight: 900; line-height: 1.15; color: var(--text); margin-bottom: 20px; }
-    .note-hero h1 em { font-style: italic; color: var(--mustard); }
+    .note-hero h1 { font-family: 'Libre Caslon Text', Georgia, serif; font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; line-height: 1.15; letter-spacing: -1px; color: var(--text); margin-bottom: 20px; }
+    .note-hero h1 em { font-style: normal; font-weight: 700; color: var(--mustard); }
     .note-lead { font-size: 1.05rem; color: var(--muted); max-width: 600px; line-height: 1.75; }
 
     /* ── Article body ────────────────────────────────────── */
@@ -64,11 +69,10 @@
     .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: .82rem; font-weight: 800; color: var(--mustard); text-decoration: none; margin-bottom: 2.5rem; }
     .back-link:hover { opacity: .8; }
     .note-body p { margin-bottom: 1.4rem; font-size: 1rem; line-height: 1.8; }
-    .note-body h2 { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: var(--text); margin: 2.5rem 0 1rem; }
+    .note-body h2 { font-family: 'Libre Caslon Text', Georgia, serif; font-size: 1.3rem; font-weight: 700; letter-spacing: -.5px; color: var(--text); margin: 2.5rem 0 1rem; }
     .note-body ul { margin: .5rem 0 1.4rem 1.5rem; }
     .note-body li { margin-bottom: .7rem; line-height: 1.75; }
     .callout { background: var(--must-lt); padding: 1rem 1.25rem; border-radius: 8px; margin: 1.5rem 0 1.75rem; font-size: .97rem; line-height: 1.7; }
-    .callout::before { content: ''; display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: var(--mustard); margin-right: 10px; }
 
     /* ── Tables ──────────────────────────────────────────── */
     .table-wrap { overflow-x: auto; margin: 1.25rem 0 2rem; border-radius: 10px; border: 1.5px solid var(--border); }
@@ -87,7 +91,7 @@
     /* ── Footer ──────────────────────────────────────────── */
     footer { border-top: 1.5px solid var(--border); padding: 60px 28px; text-align: center; }
     .footer-inner { max-width: 1080px; margin: 0 auto; }
-    .footer-name { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 900; color: var(--text); margin-bottom: 8px; }
+    .footer-name { font-family: 'Libre Caslon Text', Georgia, serif; font-size: 1.6rem; font-weight: 700; letter-spacing: -.5px; color: var(--text); margin-bottom: 8px; }
     .footer-sub { font-size: .84rem; color: var(--muted); margin-bottom: 24px; }
     .footer-btn { display: inline-block; background: var(--coral); color: #fff; font-size: .82rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; padding: 12px 32px; border-radius: 99px; text-decoration: none; transition: opacity .15s; }
     .footer-btn:hover { opacity: .85; }

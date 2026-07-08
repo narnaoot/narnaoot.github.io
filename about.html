@@ -7,7 +7,7 @@
   <meta name="description" content="The person behind the projects: cats, tea, English literature, three pillars described by a longtime friend, feminist science fiction off the clock, and twenty years of testimonials." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@900&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <style>
     :root {
       --bg:       #FFFBF5;
@@ -35,6 +35,11 @@
       --citron-lt: #F1F3DE;
       --orchid:   #A75FA0;
       --orchid-lt: #F4E8F2;
+      --coral-dk: #C94B3B;
+      --teal-dk:  #1E7C72;
+      --must-dk:  #A87407;
+      --sage-dk:  #4A7C5A;
+      --lav-dk:   #5F4E9C;
       --r: 14px;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -84,14 +89,14 @@
     }
     .hero-kicker-line { width: 40px; height: 1.5px; background: var(--lavender); flex-shrink: 0; }
     .hero-title {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Libre Caslon Text', Georgia, serif;
       font-size: clamp(2.4rem, 6vw, 3.8rem);
-      font-weight: 900;
+      font-weight: 700;
       line-height: 1.0;
-      letter-spacing: -2px;
+      letter-spacing: -1px;
       color: var(--text);
     }
-    .hero-title em { font-style: italic; color: var(--lavender); }
+    .hero-title em { font-style: normal; font-weight: 700; color: var(--lavender); }
     .hero-sub {
       font-size: clamp(.95rem, 1.8vw, 1.1rem);
       color: var(--muted);
@@ -104,7 +109,7 @@
 
     /* ── Section headings ─────────────────────────────────── */
     .section-h { display: flex; align-items: baseline; gap: 16px; margin-bottom: 36px; flex-wrap: wrap; }
-    .section-h h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.7rem, 3.5vw, 2.4rem); font-weight: 900; color: var(--text); }
+    .section-h h2 { font-family: 'Libre Caslon Text', Georgia, serif; font-size: clamp(1.7rem, 3.5vw, 2.4rem); font-weight: 700; letter-spacing: -.5px; color: var(--text); }
     .section-tag { background: var(--warm2); border: 1.5px solid var(--border); border-radius: 99px; padding: 3px 14px; font-size: .7rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
 
     /* ── Portrait grid ────────────────────────────────────── */
@@ -112,14 +117,13 @@
     @media (max-width: 900px) { .portrait-grid { grid-template-columns: 1fr 1fr; } }
     @media (max-width: 480px) { .portrait-grid { grid-template-columns: 1fr; } }
     .portrait-item { border-radius: var(--r); padding: 20px; }
-    .portrait-item.c { background: var(--coral-lt); }
-    .portrait-item.t { background: var(--teal-lt); }
-    .portrait-item.l { background: var(--lav-lt); }
-    .portrait-item.m { background: var(--must-lt); }
-    .portrait-item.s { background: var(--sage-lt); }
-    .p-icon { font-size: 1.8rem; margin-bottom: 10px; }
-    .p-label { font-size: .68rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; color: var(--muted); margin-bottom: 5px; }
-    .p-value { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--text); line-height: 1.15; margin-bottom: 8px; }
+    .portrait-item.c { background: var(--coral-lt); --title: var(--coral-dk); }
+    .portrait-item.t { background: var(--teal-lt); --title: var(--teal-dk); }
+    .portrait-item.l { background: var(--lav-lt); --title: var(--lav-dk); }
+    .portrait-item.m { background: var(--must-lt); --title: var(--must-dk); }
+    .portrait-item.s { background: var(--sage-lt); --title: var(--sage-dk); }
+    .p-label { font-size: .68rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; color: var(--title, var(--muted)); margin-bottom: 5px; }
+    .p-value { font-family: 'Libre Caslon Text', Georgia, serif; font-size: 1.4rem; font-weight: 700; color: var(--text); line-height: 1.15; margin-bottom: 8px; }
     .p-note { font-size: .84rem; color: var(--muted); line-height: 1.6; }
     .cat-chips { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 8px; }
     .cat-chip { background: var(--surface); border-radius: 4px; padding: 3px 12px; font-size: .8rem; font-weight: 700; color: var(--coral); }
@@ -141,12 +145,11 @@
       flex-direction: column;
       gap: 12px;
     }
-    .pillar.p1 { background: var(--coral-lt); --dot: var(--coral); }
-    .pillar.p2 { background: var(--teal-lt); --dot: var(--teal); }
-    .pillar.p3 { background: var(--lav-lt); --dot: var(--lavender); }
-    .pillar-title::before { content: ''; display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: var(--dot, var(--muted)); margin-right: 10px; }
-    .pillar-num { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 900; line-height: 1; opacity: .15; }
-    .pillar-title { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--text); line-height: 1.25; }
+    .pillar.p1 { background: var(--coral-lt); --dot: var(--coral-dk); }
+    .pillar.p2 { background: var(--teal-lt); --dot: var(--teal-dk); }
+    .pillar.p3 { background: var(--lav-lt); --dot: var(--lav-dk); }
+    .pillar-num { font-family: 'Libre Caslon Text', Georgia, serif; font-size: 2.2rem; font-weight: 700; line-height: 1; opacity: .15; }
+    .pillar-title { font-family: 'Libre Caslon Text', Georgia, serif; font-size: 1.2rem; font-weight: 700; color: var(--dot, var(--text)); line-height: 1.25; }
     .pillar-body { font-size: .88rem; color: var(--muted); line-height: 1.7; flex: 1; }
     .pillar-attr { font-size: .7rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-top: 4px; }
 
@@ -164,7 +167,7 @@
       content: '"';
       position: absolute;
       top: -20px; right: 24px;
-      font-family: 'Playfair Display', serif;
+      font-family: 'Libre Caslon Text', Georgia, serif;
       font-size: 10rem;
       color: rgba(139,123,200,.07);
       line-height: 1;
@@ -172,13 +175,13 @@
     }
     .vignette-label { font-size: .7rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--lavender); margin-bottom: 16px; }
     .vignette-text {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Libre Caslon Text', Georgia, serif;
       font-size: clamp(1rem, 1.9vw, 1.25rem);
       font-weight: 700;
       color: var(--text);
       line-height: 1.65;
     }
-    .vignette-text em { font-style: italic; color: var(--lavender); }
+    .vignette-text em { font-style: normal; font-weight: 700; color: var(--lavender); }
 
     /* ── Testimonials ─────────────────────────────────────── */
     .testimonials-list { display: flex; flex-direction: column; gap: 0; }
@@ -189,7 +192,7 @@
     .t-who { font-size: .76rem; font-weight: 700; color: var(--muted); margin-bottom: 10px; letter-spacing: .03em; }
     .t-who strong { color: var(--text); font-weight: 800; }
     .t-quote { font-size: clamp(.9rem, 1.5vw, 1.02rem); font-weight: 600; color: var(--text); line-height: 1.75; }
-    .t-quote.featured { font-family: 'Playfair Display', serif; font-size: clamp(1rem, 1.8vw, 1.15rem); font-weight: 700; font-style: italic; }
+    .t-quote.featured { font-family: 'Libre Caslon Text', Georgia, serif; font-size: clamp(1rem, 1.8vw, 1.15rem); font-weight: 700; font-style: normal; }
 
     /* ── Education / Certs ────────────────────────────────── */
     .edu-certs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; }
@@ -221,7 +224,6 @@
       display: flex; flex-direction: column; align-items: center; gap: 8px;
       text-align: center;
     }
-    .cert-badge-icon { font-size: 1.6rem; line-height: 1; }
     .cert-badge-name { font-size: .78rem; font-weight: 700; color: var(--text); line-height: 1.3; }
     .cert-badge-issuer { font-size: .66rem; color: var(--muted); font-weight: 600; }
 
@@ -251,8 +253,8 @@
     /* ── Footer ───────────────────────────────────────────── */
     footer { border-top: 1.5px solid var(--border); padding: 60px 28px; text-align: center; }
     .footer-inner { max-width: 560px; margin: 0 auto; }
-    .footer-head { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 900; color: var(--text); line-height: 1.2; margin-bottom: 16px; }
-    .footer-head em { font-style: italic; color: var(--coral); }
+    .footer-head { font-family: 'Libre Caslon Text', Georgia, serif; font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 700; letter-spacing: -1px; color: var(--text); line-height: 1.2; margin-bottom: 16px; }
+    .footer-head em { font-style: normal; font-weight: 700; color: var(--coral); }
     .footer-sub { font-size: .9rem; color: var(--muted); margin-bottom: 28px; line-height: 1.6; }
     .footer-btn { display: inline-block; padding: 13px 32px; background: var(--coral); color: #fff; border-radius: 99px; font-size: .88rem; font-weight: 800; text-decoration: none; transition: opacity .15s; }
     .footer-btn:hover { opacity: .85; }
@@ -296,17 +298,15 @@
     <div class="portrait-grid">
 
       <div class="portrait-item c">
-        <div class="p-icon">🐱</div>
         <div class="p-label">Adopted cats</div>
         <div class="cat-chips">
-          <span class="cat-chip">🐾 Octavia</span>
-          <span class="cat-chip">🐾 Cleopatra</span>
+          <span class="cat-chip">Octavia</span>
+          <span class="cat-chip">Cleopatra</span>
         </div>
         <p class="p-note">Both started feral. Patience, consistency, and a safe environment make all the difference — for cats and people both.</p>
       </div>
 
       <div class="portrait-item t">
-        <div class="p-icon">🍵</div>
         <div class="p-label">Beverage preference</div>
         <div class="p-value">Tea</div>
         <div class="mini-bar-wrap">
@@ -323,14 +323,12 @@
       </div>
 
       <div class="portrait-item l">
-        <div class="p-icon">📚</div>
         <div class="p-label">Where I started</div>
         <div class="p-value">English Lit</div>
         <p class="p-note">University of Chicago. Structure, voice, audience — I've been thinking about how to make complexity legible ever since.</p>
       </div>
 
       <div class="portrait-item s">
-        <div class="p-icon">🏙️</div>
         <div class="p-label">My city</div>
         <div class="p-value">San Francisco</div>
         <p class="p-note">Making its transit better by day. Finding its hidden public gardens on the weekend. Proud to live and work here.</p>
@@ -466,7 +464,7 @@
         <div class="t-avatar">KA</div>
         <div>
           <div class="t-who"><strong>Kim Anderson</strong> · Colleague &amp; Friend</div>
-          <div class="t-quote" style="color:var(--mustard);font-style:italic">"You mentor others — especially women, people of color, shy folks, young people. You pass on knowledge horizontally and vertically. You like shy cats, and you cannot lie."</div>
+          <div class="t-quote" style="color:var(--mustard);font-style:normal">"You mentor others — especially women, people of color, shy folks, young people. You pass on knowledge horizontally and vertically. You like shy cats, and you cannot lie."</div>
         </div>
       </div>
 
@@ -505,7 +503,7 @@
         <div class="edu-timeline">
 
           <div class="edu-stop">
-            <div class="edu-dot">📖</div>
+            <div class="edu-dot"></div>
             <div class="edu-body">
               <div class="edu-school">University of Chicago</div>
               <div class="edu-degree">BA, English Literature</div>
@@ -514,7 +512,7 @@
           </div>
 
           <div class="edu-stop">
-            <div class="edu-dot">💻</div>
+            <div class="edu-dot"></div>
             <div class="edu-body">
               <div class="edu-school">George Mason University</div>
               <div class="edu-degree">MS, Information Systems</div>
@@ -523,7 +521,7 @@
           </div>
 
 <div class="edu-stop">
-            <div class="edu-dot">🎓</div>
+            <div class="edu-dot"></div>
             <div class="edu-body">
               <div class="edu-school">Saint Mary's College</div>
               <div class="edu-degree">MS, Business Analytics</div>
@@ -538,17 +536,14 @@
         <div class="col-label">Certifications</div>
         <div class="cert-badges">
           <div class="cert-badge">
-            <div class="cert-badge-icon">☁️</div>
             <div class="cert-badge-name">Google Cloud Essentials</div>
             <div class="cert-badge-issuer">Google Cloud</div>
           </div>
           <div class="cert-badge">
-            <div class="cert-badge-icon">🤖</div>
             <div class="cert-badge-name">Data, ML &amp; AI Baseline</div>
             <div class="cert-badge-issuer">Google</div>
           </div>
           <div class="cert-badge">
-            <div class="cert-badge-icon">🔬</div>
             <div class="cert-badge-name">Scientific Data Processing</div>
             <div class="cert-badge-issuer">Microsoft 365</div>
           </div>
