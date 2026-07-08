@@ -7,7 +7,7 @@
   <meta name="description" content="Nabil Arnaoot — Principal Business Analyst at SFMTA. Nineteen years of building the process that didn't exist yet, including seven at Apple. English-major roots, business-analyst present, stubbornly curious throughout." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@900&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <style>
     :root {
       --bg:       #FFFBF5;
@@ -35,6 +35,11 @@
       --citron-lt: #F1F3DE;
       --orchid:   #A75FA0;
       --orchid-lt: #F4E8F2;
+      --coral-dk: #C94B3B;
+      --teal-dk:  #1E7C72;
+      --must-dk:  #A87407;
+      --sage-dk:  #4A7C5A;
+      --lav-dk:   #5F4E9C;
       --r: 14px;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -86,14 +91,14 @@
     .hero-kicker-line { width: 40px; height: 1.5px; background: var(--coral); flex-shrink: 0; }
     .hero-name-row { display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; }
     .hero-name {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Libre Caslon Text', Georgia, serif;
       font-size: clamp(2.4rem, 6vw, 3.8rem);
-      font-weight: 900;
+      font-weight: 700;
       line-height: 1.0;
-      letter-spacing: -2px;
+      letter-spacing: -1px;
       color: var(--text);
     }
-    .hero-name em { font-style: italic; color: var(--coral); }
+    .hero-name em { font-style: normal; font-weight: 700; color: var(--coral); }
     .hero-role {
       font-size: .8rem;
       font-weight: 800;
@@ -132,7 +137,7 @@
     .stats-inner { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); }
     .stat { padding: 22px 20px; text-align: center; border-right: 1px solid var(--border); }
     .stat:last-child { border-right: none; }
-    .stat-num { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 900; color: var(--coral); line-height: 1; margin-bottom: 4px; }
+    .stat-num { font-family: 'Libre Caslon Text', Georgia, serif; font-size: 2rem; font-weight: 700; color: var(--coral); line-height: 1; margin-bottom: 4px; }
     .stat-lbl { font-size: .7rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
     @media (max-width: 600px) { .stats-inner { grid-template-columns: repeat(2, 1fr); } .stat:nth-child(2) { border-right: none; } }
 
@@ -155,17 +160,17 @@
       content: '"';
       position: absolute;
       top: -20px; left: 24px;
-      font-family: 'Playfair Display', serif;
+      font-family: 'Libre Caslon Text', Georgia, serif;
       font-size: 10rem;
       color: rgba(232,97,79,.08);
       line-height: 1;
       pointer-events: none;
     }
     .pull-quote-text {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Libre Caslon Text', Georgia, serif;
       font-size: clamp(1.1rem, 2vw, 1.35rem);
-      font-style: italic;
-      font-weight: 700;
+      font-style: normal;
+      font-weight: 400;
       color: var(--text);
       line-height: 1.6;
       position: relative;
@@ -181,7 +186,7 @@
 
     /* ── Section headings ────────────────────────────────── */
     .section-h { display: flex; align-items: baseline; gap: 16px; margin-bottom: 32px; flex-wrap: wrap; }
-    .section-h h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 900; color: var(--text); }
+    .section-h h2 { font-family: 'Libre Caslon Text', Georgia, serif; font-size: 1.8rem; font-weight: 700; letter-spacing: -.5px; color: var(--text); }
     .section-tag { background: var(--warm2); border: 1.5px solid var(--border); border-radius: 99px; padding: 3px 14px; font-size: .7rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
 
     /* ── Section thumbnails ───────────────────────────────── */
@@ -193,8 +198,8 @@
     /* ── About blurb ─────────────────────────────────────── */
     .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
     @media (max-width: 700px) { .about-grid { grid-template-columns: 1fr; gap: 32px; } }
-    .about-lead { font-family: 'Playfair Display', serif; font-size: clamp(1.2rem, 2.2vw, 1.5rem); font-weight: 700; color: var(--text); line-height: 1.45; margin-bottom: 18px; }
-    .about-lead em { font-style: italic; color: var(--coral); }
+    .about-lead { font-family: 'Libre Caslon Text', Georgia, serif; font-size: clamp(1.2rem, 2.2vw, 1.5rem); font-weight: 700; color: var(--text); line-height: 1.45; margin-bottom: 18px; }
+    .about-lead em { font-style: normal; font-weight: 700; color: var(--coral); }
     .about-body { font-size: .92rem; color: var(--muted); line-height: 1.75; }
     .about-body + .about-body { margin-top: 14px; }
     .about-cta { margin-top: 24px; display: inline-block; padding: 10px 24px; background: var(--coral); color: #fff; border-radius: 99px; font-size: .82rem; font-weight: 800; text-decoration: none; transition: opacity .15s; }
@@ -202,12 +207,11 @@
 
     .side-facts { display: flex; flex-direction: column; gap: 20px; }
     .side-fact { border-radius: var(--r); padding: 16px 20px; }
-    .side-fact.c { background: var(--coral-lt); --dot: var(--coral); }
-    .side-fact.t { background: var(--teal-lt); --dot: var(--teal); }
-    .side-fact.m { background: var(--must-lt); --dot: var(--mustard); }
-    .side-fact.l { background: var(--lav-lt); --dot: var(--lavender); }
-    .side-fact-label { font-size: .68rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
-    .side-fact-label::before { content: ''; display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: var(--dot, var(--muted)); margin-right: 8px; }
+    .side-fact.c { background: var(--coral-lt); --dot: var(--coral-dk); }
+    .side-fact.t { background: var(--teal-lt); --dot: var(--teal-dk); }
+    .side-fact.m { background: var(--must-lt); --dot: var(--must-dk); }
+    .side-fact.l { background: var(--lav-lt); --dot: var(--lav-dk); }
+    .side-fact-label { font-size: .68rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--dot, var(--muted)); margin-bottom: 6px; }
     .side-fact-value { font-size: .92rem; font-weight: 700; color: var(--text); }
     /* tenure bars */
     .tenure-list { display: flex; flex-direction: column; gap: 6px; }
@@ -241,8 +245,8 @@
     .work-teaser img { width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 18px rgba(0,0,0,.14); display: block; }
     .work-teaser-body { display: flex; flex-direction: column; gap: 10px; }
     .work-teaser-label { font-size: .68rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--coral); }
-    .work-teaser-title { font-family: 'Playfair Display', serif; font-size: clamp(1.4rem, 2.6vw, 1.85rem); font-weight: 900; line-height: 1.15; letter-spacing: -.5px; }
-    .work-teaser-title em { font-style: italic; color: var(--coral); }
+    .work-teaser-title { font-family: 'Libre Caslon Text', Georgia, serif; font-size: clamp(1.4rem, 2.6vw, 1.85rem); font-weight: 700; line-height: 1.15; letter-spacing: -.5px; }
+    .work-teaser-title em { font-style: normal; font-weight: 700; color: var(--coral); }
     .work-teaser-desc { font-size: .92rem; color: var(--text); line-height: 1.65; opacity: .82; }
     .work-teaser-cta { font-size: .82rem; font-weight: 800; color: var(--coral); margin-top: 4px; }
     @media (max-width: 720px) {
@@ -263,17 +267,16 @@
       transition: transform .2s, box-shadow .2s, border-color .2s;
     }
     .pcard:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,.08); border-color: var(--coral); }
-    .pcard-icon { font-size: 2rem; line-height: 1; }
     .pcard-label { font-size: .68rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
-    .pcard-title { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 700; line-height: 1.25; }
+    .pcard-title { font-family: 'Libre Caslon Text', Georgia, serif; font-size: 1.25rem; font-weight: 700; line-height: 1.25; }
     .pcard-desc { font-size: .84rem; color: var(--muted); line-height: 1.6; flex: 1; }
     .pcard-cta { font-size: .78rem; font-weight: 800; color: var(--coral); margin-top: 4px; }
 
     /* ── Footer ──────────────────────────────────────────── */
     footer { border-top: 1.5px solid var(--border); padding: 60px 28px; text-align: center; }
     .footer-inner { max-width: 560px; margin: 0 auto; }
-    .footer-head { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 900; color: var(--text); line-height: 1.2; margin-bottom: 16px; }
-    .footer-head em { font-style: italic; color: var(--coral); }
+    .footer-head { font-family: 'Libre Caslon Text', Georgia, serif; font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 700; letter-spacing: -1px; color: var(--text); line-height: 1.2; margin-bottom: 16px; }
+    .footer-head em { font-style: normal; font-weight: 700; color: var(--coral); }
     .footer-sub { font-size: .9rem; color: var(--muted); margin-bottom: 28px; line-height: 1.6; }
     .footer-btn { display: inline-block; padding: 13px 32px; background: var(--coral); color: #fff; border-radius: 99px; font-size: .88rem; font-weight: 800; text-decoration: none; transition: opacity .15s; }
     .footer-btn:hover { opacity: .85; }
@@ -426,7 +429,6 @@
     <div class="secondary-grid">
 
       <a class="pcard" href="patterns.html">
-        <div class="pcard-icon">🔍</div>
         <div class="pcard-label">Practice</div>
         <div class="pcard-title">Patterns</div>
         <div class="pcard-desc">The questions I keep asking, the two kinds of problems that keep showing up, and the sweet spot where I do my best work.</div>
@@ -434,7 +436,6 @@
       </a>
 
       <a class="pcard" href="about.html">
-        <div class="pcard-icon">👤</div>
         <div class="pcard-label">The Person</div>
         <div class="pcard-title">About Nabil</div>
         <div class="pcard-desc">Cats, tea, English literature, three pillars as described by Mary Salome, feminist science fiction off the clock, and twenty years of testimonials.</div>

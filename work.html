@@ -7,7 +7,7 @@
   <meta name="description" content="Selected work: the eBay site security program, making iTunes' crashes countable, kernel updates for 500,000 systems — plus three lighter reads on probability, public gardens, and unicorns." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@900&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <style>
     :root {
       --bg:       #FFFBF5;
@@ -35,6 +35,11 @@
       --citron-lt: #F1F3DE;
       --orchid:   #A75FA0;
       --orchid-lt: #F4E8F2;
+      --coral-dk: #C94B3B;
+      --teal-dk:  #1E7C72;
+      --must-dk:  #A87407;
+      --sage-dk:  #4A7C5A;
+      --lav-dk:   #5F4E9C;
       --r: 14px;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -55,8 +60,8 @@
     .hero-inner { max-width: 680px; margin: 0 auto; position: relative; display: flex; flex-direction: column; gap: 16px; }
     .hero-kicker { display: flex; align-items: center; gap: 14px; font-size: .72rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; color: var(--coral); }
     .hero-kicker-line { width: 40px; height: 1.5px; background: var(--coral); flex-shrink: 0; }
-    .hero-title { font-family: 'Playfair Display', serif; font-size: clamp(2.4rem, 6vw, 3.8rem); font-weight: 900; line-height: 1.0; letter-spacing: -2px; color: var(--text); }
-    .hero-title em { font-style: italic; color: var(--coral); }
+    .hero-title { font-family: 'Libre Caslon Text', Georgia, serif; font-size: clamp(2.4rem, 6vw, 3.8rem); font-weight: 700; line-height: 1.0; letter-spacing: -1px; color: var(--text); }
+    .hero-title em { font-style: normal; font-weight: 700; color: var(--coral); }
     .hero-sub { font-size: clamp(.95rem, 1.8vw, 1.1rem); color: var(--muted); line-height: 1.75; max-width: 560px; }
 
     /* ── Page body ────────────────────────────────────────── */
@@ -64,7 +69,7 @@
 
     /* ── Section headings ─────────────────────────────────── */
     .section-h { display: flex; align-items: baseline; gap: 16px; margin-bottom: 36px; flex-wrap: wrap; }
-    .section-h h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.7rem, 3.5vw, 2.4rem); font-weight: 900; color: var(--text); }
+    .section-h h2 { font-family: 'Libre Caslon Text', Georgia, serif; font-size: clamp(1.7rem, 3.5vw, 2.4rem); font-weight: 700; letter-spacing: -.5px; color: var(--text); }
     .section-tag { background: var(--warm2); border: 1.5px solid var(--border); border-radius: 99px; padding: 3px 14px; font-size: .7rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
 
 
@@ -110,19 +115,18 @@
       flex-shrink: 0;
     }
     .ct-dot.current { box-shadow: 0 0 0 4px rgba(45,181,168,.25), 0 2px 10px rgba(0,0,0,.12); }
-    .ct-company { font-family: 'Playfair Display', serif; font-size: .95rem; font-weight: 700; color: var(--text); margin-bottom: 3px; }
+    .ct-company { font-family: 'Libre Caslon Text', Georgia, serif; font-size: .95rem; font-weight: 700; color: var(--text); margin-bottom: 3px; }
     .ct-role { font-size: .72rem; color: var(--muted); line-height: 1.4; margin-bottom: 5px; max-width: 110px; }
     .ct-yrs { font-size: .65rem; font-weight: 800; letter-spacing: .08em; color: var(--muted); text-transform: uppercase; }
     .ct-badge { display: inline-block; background: var(--teal); color: #fff; font-size: .55rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; border-radius: 99px; padding: 1px 7px; margin-top: 4px; }
 
     /* ── Project list ─────────────────────────────────────── */
     .project-list { display: flex; flex-direction: column; gap: 0; }
-    .project-item { display: grid; grid-template-columns: 4rem 1fr; gap: 2rem; padding: 3rem 0; border-bottom: 1.5px solid var(--border); }
+    .project-item { display: grid; grid-template-columns: 1fr; gap: 2rem; padding: 3rem 0; border-bottom: 1.5px solid var(--border); }
     .project-item:last-child { border-bottom: none; }
     @media (max-width: 720px) { .project-item { grid-template-columns: 1fr; gap: 1rem; } }
-    .project-emoji { font-size: 2rem; line-height: 1; padding-top: .25rem; }
     .project-meta { font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: .6rem; display: flex; gap: 1rem; flex-wrap: wrap; }
-    .project-title { font-family: 'Playfair Display', serif; font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 700; line-height: 1.15; letter-spacing: -.5px; color: var(--text); margin-bottom: 1rem; }
+    .project-title { font-family: 'Libre Caslon Text', Georgia, serif; font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 700; line-height: 1.15; letter-spacing: -.5px; color: var(--text); margin-bottom: 1rem; }
     .project-lead { font-size: 1rem; color: var(--muted); line-height: 1.7; margin-bottom: 1.5rem; max-width: 680px; }
     .project-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 1.5rem; }
     .ptag { font-size: .72rem; font-weight: 600; letter-spacing: .04em; padding: 4px 12px; border-radius: 3px; }
@@ -135,12 +139,11 @@
     .step-title { font-size: .88rem; font-weight: 700; color: var(--text); }
     .step-desc { font-size: .82rem; color: var(--muted); line-height: 1.55; padding-left: 2.25rem; }
     .step-outcome { background: var(--coral-lt); border-radius: 8px; padding: .7rem 1rem; margin-top: .8rem; font-size: .88rem; font-weight: 700; color: var(--text); }
-    .step-outcome::before { content: ''; display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: var(--coral); margin-right: 10px; }
 
     /* ── Footer ───────────────────────────────────────────── */
     footer { border-top: 1.5px solid var(--border); padding: 60px 28px; text-align: center; }
     .footer-inner { max-width: 1080px; margin: 0 auto; }
-    .footer-name { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 900; color: var(--text); margin-bottom: 8px; }
+    .footer-name { font-family: 'Libre Caslon Text', Georgia, serif; font-size: 1.6rem; font-weight: 700; letter-spacing: -.5px; color: var(--text); margin-bottom: 8px; }
     .footer-sub { font-size: .84rem; color: var(--muted); margin-bottom: 24px; }
     .footer-btn { display: inline-block; background: var(--coral); color: #fff; font-size: .82rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; padding: 12px 32px; border-radius: 99px; text-decoration: none; transition: opacity .15s; }
     .footer-btn:hover { opacity: .85; }
@@ -184,42 +187,42 @@
       <div class="ct-rail">
 
         <div class="ct-node">
-          <div class="ct-dot" style="background:var(--sage)">🏗️</div>
+          <div class="ct-dot" style="background:var(--sage)"></div>
           <div class="ct-company">Elegrity</div>
           <div class="ct-role">Engineering Project Manager</div>
           <div class="ct-yrs">2006 – 2009</div>
         </div>
 
         <div class="ct-node">
-          <div class="ct-dot" style="background:var(--mustard)">🛒</div>
+          <div class="ct-dot" style="background:var(--mustard)"></div>
           <div class="ct-company">eBay</div>
           <div class="ct-role">Program Manager</div>
           <div class="ct-yrs">2009 – 2011</div>
         </div>
 
         <div class="ct-node">
-          <div class="ct-dot" style="background:var(--coral)">🍎</div>
+          <div class="ct-dot" style="background:var(--coral)"></div>
           <div class="ct-company">Apple</div>
           <div class="ct-role">EPM → Business Analyst &amp; Process Engineer</div>
           <div class="ct-yrs">2011 – 2018</div>
         </div>
 
         <div class="ct-node">
-          <div class="ct-dot" style="background:var(--sage)">🌿</div>
+          <div class="ct-dot" style="background:var(--sage)"></div>
           <div class="ct-company">Sabbatical</div>
           <div class="ct-role">Deliberate pause</div>
           <div class="ct-yrs">2018 – 2020</div>
         </div>
 
         <div class="ct-node">
-          <div class="ct-dot" style="background:var(--lavender)">📊</div>
+          <div class="ct-dot" style="background:var(--lavender)"></div>
           <div class="ct-company">Independent Consulting</div>
           <div class="ct-role">Data Analysis for Community Nonprofits</div>
           <div class="ct-yrs">2020 – 2024</div>
         </div>
 
         <div class="ct-node">
-          <div class="ct-dot current" style="background:var(--teal)">🚌</div>
+          <div class="ct-dot current" style="background:var(--teal)"></div>
           <div class="ct-company">SFMTA</div>
           <div class="ct-role">Principal Business Analyst</div>
           <div class="ct-yrs">2024 – present</div>
@@ -228,7 +231,7 @@
 
       </div>
     </div>
-    <p style="max-width:600px;margin:0 auto 28px;text-align:center;font-family:'Playfair Display',serif;font-size:1.15rem;font-style:italic;color:var(--text);line-height:1.55;">Each role contributed something the next one required. Managing projects&nbsp;→&nbsp;solving org-wide problems&nbsp;→&nbsp;translating complexity at scale. <span style="color:var(--coral);">Nothing wasted.</span></p>
+    <p style="max-width:600px;margin:0 auto 28px;text-align:center;font-family:'Libre Caslon Text',Georgia,serif;font-size:1.15rem;color:var(--text);line-height:1.55;">Each role contributed something the next one required. Managing projects&nbsp;→&nbsp;solving org-wide problems&nbsp;→&nbsp;translating complexity at scale. <span style="color:var(--coral);font-weight:700;">Nothing wasted.</span></p>
 
   </section>
 
@@ -241,7 +244,6 @@
     <div class="project-list">
 
       <div class="project-item">
-        <div class="project-emoji">🔐</div>
         <div>
           <div class="project-meta"><span>Program Manager</span><span>eBay · 2009–2011</span></div>
           <h3 class="project-title">eBay Site Security Program</h3>
@@ -264,7 +266,6 @@
       </div>
 
       <div class="project-item">
-        <div class="project-emoji">🎵</div>
         <div>
           <div class="project-meta"><span>Engineering Project Manager → Business Analyst</span><span>Apple · 2011–2018</span></div>
           <h3 class="project-title">Making iTunes' Crashes Countable</h3>
@@ -287,7 +288,6 @@
       </div>
 
       <div class="project-item">
-        <div class="project-emoji">⚙️</div>
         <div>
           <div class="project-meta"><span>Business Analyst / Process Engineer</span><span>Apple · 2014–2018</span></div>
           <h3 class="project-title">Kernel Updates for 500,000 Systems</h3>
@@ -320,7 +320,6 @@
     <div class="project-list">
 
       <div class="project-item">
-        <div class="project-emoji">🌿</div>
         <div>
           <h3 class="project-title"><a href="gardens.html" style="color:inherit;text-decoration:none;border-bottom:2px solid var(--sage);">Secret Gardens of San Francisco</a></h3>
           <p class="project-lead">Exploring and mapping the little-known public spaces hidden in downtown San Francisco. A love letter to the city — because understanding a place is its own kind of project management.</p>
@@ -329,7 +328,6 @@
       </div>
 
       <div class="project-item">
-        <div class="project-emoji">🎲</div>
         <div>
           <h3 class="project-title"><a href="probability.html" style="color:inherit;text-decoration:none;border-bottom:2px solid var(--mustard);">Conditional Probability for Normal Humans</a></h3>
           <p class="project-lead">If you test positive for malaria, how likely is it you actually have malaria? Many doctors get this wrong. An explanation without formulas — because making complex ideas accessible to decision-makers is the job.</p>
@@ -338,7 +336,6 @@
       </div>
 
       <div class="project-item">
-        <div class="project-emoji">🦄</div>
         <div>
           <h3 class="project-title"><a href="unicorns.html" style="color:inherit;text-decoration:none;border-bottom:2px solid var(--teal);">Chasing Unicorns for Pride</a></h3>
           <p class="project-lead">In honor of Pride, I dug into Google searches for the word "unicorn." When were these searches most popular, where, and why? The answer surprised me.</p>

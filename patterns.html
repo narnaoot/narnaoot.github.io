@@ -7,7 +7,7 @@
   <meta name="description" content="The questions I keep asking, the two kinds of problems that keep showing up (Duct Tape and Drano), the bell-curve sweet spot, and the toolkit I bring to every project." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@900&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <style>
     :root {
       --bg:       #FFFBF5;
@@ -35,6 +35,11 @@
       --citron-lt: #F1F3DE;
       --orchid:   #A75FA0;
       --orchid-lt: #F4E8F2;
+      --coral-dk: #C94B3B;
+      --teal-dk:  #1E7C72;
+      --must-dk:  #A87407;
+      --sage-dk:  #4A7C5A;
+      --lav-dk:   #5F4E9C;
       --r: 14px;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -55,8 +60,8 @@
     .hero-inner { max-width: 680px; margin: 0 auto; position: relative; display: flex; flex-direction: column; gap: 16px; }
     .hero-kicker { display: flex; align-items: center; gap: 14px; font-size: .72rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; color: var(--teal); }
     .hero-kicker-line { width: 40px; height: 1.5px; background: var(--teal); flex-shrink: 0; }
-    .hero-title { font-family: 'Playfair Display', serif; font-size: clamp(2.4rem, 6vw, 3.8rem); font-weight: 900; line-height: 1.0; letter-spacing: -2px; color: var(--text); }
-    .hero-title em { font-style: italic; color: var(--teal); }
+    .hero-title { font-family: 'Libre Caslon Text', Georgia, serif; font-size: clamp(2.4rem, 6vw, 3.8rem); font-weight: 700; line-height: 1.0; letter-spacing: -1px; color: var(--text); }
+    .hero-title em { font-style: normal; font-weight: 700; color: var(--teal); }
     .hero-sub { font-size: clamp(.95rem, 1.8vw, 1.1rem); color: var(--muted); line-height: 1.75; max-width: 560px; }
 
     /* ── Page body ────────────────────────────────────────── */
@@ -64,18 +69,17 @@
 
     /* ── Section headings ─────────────────────────────────── */
     .section-h { display: flex; align-items: baseline; gap: 16px; margin-bottom: 36px; flex-wrap: wrap; }
-    .section-h h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.7rem, 3.5vw, 2.4rem); font-weight: 900; color: var(--text); }
+    .section-h h2 { font-family: 'Libre Caslon Text', Georgia, serif; font-size: clamp(1.7rem, 3.5vw, 2.4rem); font-weight: 700; letter-spacing: -.5px; color: var(--text); }
     .section-tag { background: var(--warm2); border: 1.5px solid var(--border); border-radius: 99px; padding: 3px 14px; font-size: .7rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
 
     /* ── Favorite Questions ──────────────────────────────── */
     .fav-questions { display: flex; flex-direction: column; gap: 28px; max-width: 740px; margin: 0 auto; }
-    .fav-q { position: relative; padding: 18px 22px 18px 46px; border-radius: 8px; }
-    .fav-q::before { content: ''; position: absolute; left: 22px; top: 30px; width: 9px; height: 9px; border-radius: 50%; background: var(--dot, var(--muted)); }
+    .fav-q { position: relative; padding: 18px 22px; border-radius: 8px; }
     .fav-q.q1 { background: var(--coral-lt); --dot: var(--coral); }
     .fav-q.q2 { background: var(--must-lt); --dot: var(--mustard); }
     .fav-q.q3 { background: var(--lav-lt); --dot: var(--lavender); }
     .fav-q.q4 { background: var(--teal-lt); --dot: var(--teal); }
-    .fav-q-text { font-family: 'Playfair Display', serif; font-size: clamp(1.05rem, 2vw, 1.3rem); font-style: italic; font-weight: 700; color: var(--text); line-height: 1.55; }
+    .fav-q-text { font-family: 'Libre Caslon Text', Georgia, serif; font-size: clamp(1.05rem, 2vw, 1.3rem); font-style: normal; font-weight: 700; color: var(--text); line-height: 1.55; }
 
     /* ── Duct Tape / Drano ────────────────────────────────── */
     .dt-drano { display: grid; grid-template-columns: 1fr 1fr; border: 1.5px solid var(--border); border-radius: var(--r); overflow: hidden; }
@@ -84,8 +88,9 @@
     .panel-tape { background: var(--coral-lt); }
     .panel-drain { background: var(--teal-lt); border-left: 1.5px solid var(--border); }
     @media (max-width: 640px) { .panel-drain { border-left: none; border-top: 1.5px solid var(--border); } }
-    .panel-emoji { font-size: 2.2rem; margin-bottom: 1rem; }
-    .panel-title { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; color: var(--text); margin-bottom: .4rem; }
+    .panel-title { font-family: 'Libre Caslon Text', Georgia, serif; font-size: 1.8rem; font-weight: 700; color: var(--text); margin-bottom: .4rem; }
+    .panel-tape .panel-title { color: var(--coral-dk); }
+    .panel-drain .panel-title { color: var(--teal-dk); }
     .panel-sub { font-size: .84rem; color: var(--muted); margin-bottom: 1.5rem; font-weight: 600; }
     .panel-tags { display: flex; flex-wrap: wrap; gap: 8px; }
     .ptag-tape { background: rgba(232,97,79,.12); color: var(--coral); border: 1px solid rgba(232,97,79,.22); border-radius: 3px; padding: 4px 12px; font-size: .75rem; font-weight: 600; }
@@ -118,8 +123,7 @@
     @media (max-width: 720px) { .toolkit-grid { grid-template-columns: 1fr; gap: 2rem; } }
     .toolkit-col { border-top: 2px solid var(--border); padding-top: 2rem; }
     .toolkit-col-header { display: flex; align-items: center; gap: .75rem; margin-bottom: 1.75rem; }
-    .toolkit-col-icon { font-size: 1.4rem; }
-    .toolkit-col-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--text); }
+    .toolkit-col-title { font-family: 'Libre Caslon Text', Georgia, serif; font-size: 1.1rem; font-weight: 700; color: var(--text); }
     .toolkit-col-sub { font-size: .75rem; color: var(--muted); margin-top: 2px; }
     .skill-chips { display: flex; flex-wrap: wrap; gap: 8px; }
     .skill-chip { border-radius: 99px; padding: 5px 16px; font-size: .82rem; font-weight: 700; border: 1px solid transparent; }
@@ -130,7 +134,7 @@
     /* ── Footer ───────────────────────────────────────────── */
     footer { border-top: 1.5px solid var(--border); padding: 60px 28px; text-align: center; }
     .footer-inner { max-width: 1080px; margin: 0 auto; }
-    .footer-name { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 900; color: var(--text); margin-bottom: 8px; }
+    .footer-name { font-family: 'Libre Caslon Text', Georgia, serif; font-size: 1.6rem; font-weight: 700; letter-spacing: -.5px; color: var(--text); margin-bottom: 8px; }
     .footer-sub { font-size: .84rem; color: var(--muted); margin-bottom: 24px; }
     .footer-btn { display: inline-block; background: var(--coral); color: #fff; font-size: .82rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; padding: 12px 32px; border-radius: 99px; text-decoration: none; transition: opacity .15s; }
     .footer-btn:hover { opacity: .85; }
@@ -192,7 +196,6 @@
     </div>
     <div class="dt-drano">
       <div class="panel panel-tape">
-        <div class="panel-emoji">🩹</div>
         <div class="panel-title">Duct Tape</div>
         <div class="panel-sub">When something doesn't hold together — I build the structure</div>
         <div class="panel-tags">
@@ -206,7 +209,6 @@
         <p class="panel-note">The pieces are real. The seams aren't. Three teams running parallel and not talking, five spreadsheets answering one question five ways. I build the seams: shared definitions, operating rhythm, one map everyone agrees on.</p>
       </div>
       <div class="panel panel-drain">
-        <div class="panel-emoji">🪣</div>
         <div class="panel-title">Drano</div>
         <div class="panel-sub">When something isn't moving — I clear the path</div>
         <div class="panel-tags">
@@ -241,8 +243,8 @@
         <path d="M 80,238 C 120,238 150,235 180,225 C 210,215 230,195 250,175 C 270,155 290,110 320,60 C 335,38 350,26 365,26 C 380,26 395,38 410,60 C 440,110 460,155 480,175 C 500,195 520,215 550,225 C 580,235 610,238 650,238 L 650,240 L 80,240 Z" fill="rgba(45,181,168,0.12)"/>
         <path d="M 290,110 C 310,70 330,40 365,26 C 380,26 395,38 410,60 C 440,100 460,155 480,175 L 480,240 L 290,240 Z" fill="rgba(45,181,168,0.18)"/>
         <rect x="275" y="6" width="180" height="44" rx="8" fill="rgba(45,181,168,0.12)" stroke="#2DB5A8" stroke-width="1.2"/>
-        <text x="365" y="24" text-anchor="middle" font-family="Playfair Display,serif" font-size="11" fill="#2DB5A8" font-weight="700" font-style="italic">Hand me the vision,</text>
-        <text x="365" y="41" text-anchor="middle" font-family="Playfair Display,serif" font-size="11" fill="#2DB5A8" font-weight="700" font-style="italic">get out of the way.</text>
+        <text x="365" y="24" text-anchor="middle" font-family="Libre Caslon Text,Georgia,serif" font-size="11" fill="#2DB5A8" font-weight="700">Hand me the vision,</text>
+        <text x="365" y="41" text-anchor="middle" font-family="Libre Caslon Text,Georgia,serif" font-size="11" fill="#2DB5A8" font-weight="700">get out of the way.</text>
         <text x="360" y="270" text-anchor="middle" font-family="Nunito,sans-serif" font-size="10" fill="#9A8070" font-weight="700" letter-spacing="1">CREATIVE FREEDOM</text>
         <text x="75" y="258" font-family="Nunito,sans-serif" font-size="9" fill="#9A8070">&lt; Less</text>
         <text x="618" y="258" font-family="Nunito,sans-serif" font-size="9" fill="#9A8070">More &gt;</text>
@@ -265,7 +267,6 @@
 
       <div class="toolkit-col">
         <div class="toolkit-col-header">
-          <span class="toolkit-col-icon">🗂️</span>
           <div>
             <div class="toolkit-col-title">Building what doesn't exist yet</div>
           </div>
@@ -280,7 +281,6 @@
 
       <div class="toolkit-col">
         <div class="toolkit-col-header">
-          <span class="toolkit-col-icon">🔄</span>
           <div>
             <div class="toolkit-col-title">Making complexity legible</div>
           </div>
@@ -296,7 +296,6 @@
 
       <div class="toolkit-col">
         <div class="toolkit-col-header">
-          <span class="toolkit-col-icon">📊</span>
           <div>
             <div class="toolkit-col-title">Turning numbers into decisions</div>
           </div>

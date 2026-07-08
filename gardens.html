@@ -7,7 +7,7 @@
   <meta name="description" content="Mapping the little-known public spaces hidden in downtown San Francisco — a love letter to the city, because understanding a place is its own kind of project management." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@900&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <style>
     :root {
       --bg:       #FFFBF5;
@@ -35,6 +35,11 @@
       --citron-lt: #F1F3DE;
       --orchid:   #A75FA0;
       --orchid-lt: #F4E8F2;
+      --coral-dk: #C94B3B;
+      --teal-dk:  #1E7C72;
+      --must-dk:  #A87407;
+      --sage-dk:  #4A7C5A;
+      --lav-dk:   #5F4E9C;
       --r: 14px;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -55,8 +60,8 @@
     .note-hero-inner { max-width: 720px; margin: 0 auto; }
     .hero-kicker { display: flex; align-items: center; gap: 14px; font-size: .72rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; color: var(--sage); margin-bottom: 20px; }
     .hero-kicker-line { width: 40px; height: 1.5px; background: var(--sage); flex-shrink: 0; }
-    .note-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3rem); font-weight: 900; line-height: 1.15; color: var(--text); margin-bottom: 20px; }
-    .note-hero h1 em { font-style: italic; color: var(--sage); }
+    .note-hero h1 { font-family: 'Libre Caslon Text', Georgia, serif; font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; line-height: 1.15; letter-spacing: -1px; color: var(--text); margin-bottom: 20px; }
+    .note-hero h1 em { font-style: normal; font-weight: 700; color: var(--sage); }
     .note-lead { font-size: 1.05rem; color: var(--muted); max-width: 600px; line-height: 1.75; }
 
     /* ── Viz section ─────────────────────────────────────── */
@@ -71,7 +76,7 @@
     /* ── Footer ──────────────────────────────────────────── */
     footer { border-top: 1.5px solid var(--border); padding: 60px 28px; text-align: center; }
     .footer-inner { max-width: 1080px; margin: 0 auto; }
-    .footer-name { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 900; color: var(--text); margin-bottom: 8px; }
+    .footer-name { font-family: 'Libre Caslon Text', Georgia, serif; font-size: 1.6rem; font-weight: 700; letter-spacing: -.5px; color: var(--text); margin-bottom: 8px; }
     .footer-sub { font-size: .84rem; color: var(--muted); margin-bottom: 24px; }
     .footer-btn { display: inline-block; background: var(--coral); color: #fff; font-size: .82rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; padding: 12px 32px; border-radius: 99px; text-decoration: none; transition: opacity .15s; }
     .footer-btn:hover { opacity: .85; }
