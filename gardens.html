@@ -47,14 +47,22 @@
     body { background: var(--bg); color: var(--text); font-family: 'Nunito', sans-serif; line-height: 1.65; }
 
     /* ── Nav ─────────────────────────────────────────────── */
-    .topnav { background: var(--surface); border-bottom: 1.5px solid var(--border); position: sticky; top: 0; z-index: 100; height: 56px; display: flex; align-items: center; }
-    .topnav-inner { max-width: 1080px; margin: 0 auto; padding: 0 28px; width: 100%; display: flex; align-items: center; justify-content: space-between; }
-    .nav-logo { display: inline-flex; align-items: center; text-decoration: none; }
-    .nav-logo img { display: block; height: 36px; width: auto; }
-    .nav-links { display: flex; gap: 4px; list-style: none; }
-    .nav-links a { padding: 6px 14px; font-size: .78rem; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; color: var(--muted); text-decoration: none; border-radius: 8px; transition: color .15s, background .15s; }
-    .nav-links a:hover, .nav-links a.active { color: var(--text); background: var(--warm2); }
-    @media (max-width: 600px) { .nav-links a { padding: 6px 10px; font-size: .72rem; } }
+    .masthead { background: #fff; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+    .masthead-inner { max-width: 1080px; margin: 0 auto; padding: 10px 28px; width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .masthead-brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; }
+    .masthead-brand img { display: block; height: 40px; width: auto; }
+    .masthead-name { font-family: 'Libre Caslon Text', Georgia, serif; font-size: 1.35rem; font-weight: 700; color: var(--text); letter-spacing: -.01em; white-space: nowrap; }
+    .masthead-name .last { color: var(--coral); }
+    .masthead-nav { display: flex; gap: 26px; list-style: none; }
+    .masthead-nav a { position: relative; padding: 4px 0; font-size: .78rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color .18s; }
+    .masthead-nav a::after { content: ""; position: absolute; left: 0; bottom: -2px; height: 2px; width: 100%; background: var(--coral); transform: scaleX(0); transform-origin: left; transition: transform .28s ease; }
+    .masthead-nav a:hover { color: var(--text); }
+    .masthead-nav a:hover::after, .masthead-nav a.active::after { transform: scaleX(1); }
+    .masthead-nav a.active { color: var(--text); }
+    @media (max-width: 640px) {
+      .masthead-inner { flex-direction: column; gap: 10px; padding: 12px 20px; }
+      .masthead-nav { flex-wrap: wrap; justify-content: center; gap: 18px; }
+    }
 
     /* ── Hero ────────────────────────────────────────────── */
     .note-hero { background: var(--bg); border-bottom: 1.5px solid var(--border); padding: 64px 28px 56px; }
@@ -85,17 +93,20 @@
 </head>
 <body>
 
-<nav class="topnav">
-  <div class="topnav-inner">
-    <a href="index.html" class="nav-logo"><img src="Monogram.svg" alt="Nabil Arnaoot" /></a>
-    <ul class="nav-links">
+<header class="masthead">
+  <div class="masthead-inner">
+    <a href="index.html" class="masthead-brand">
+      <img src="Monogram.svg" alt="Nabil Arnaoot monogram" />
+      <span class="masthead-name">Nabil <span class="last">Arnaoot</span></span>
+    </a>
+    <ul class="masthead-nav">
       <li><a href="index.html">Home</a></li>
       <li><a href="work.html" class="active">Work</a></li>
       <li><a href="patterns.html">Patterns</a></li>
       <li><a href="about.html">About</a></li>
     </ul>
   </div>
-</nav>
+</header>
 
 <header class="note-hero">
   <div class="note-hero-inner">
