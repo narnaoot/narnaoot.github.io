@@ -128,6 +128,9 @@
     .hero-body strong { color: var(--text); font-weight: 700; }
     .hero-chips { display: flex; flex-wrap: wrap; gap: 8px; }
     .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
       background: var(--surface);
       border: 1.5px solid var(--border);
       border-radius: 99px;
@@ -136,6 +139,7 @@
       font-weight: 700;
       color: var(--text);
     }
+    .chip-icon { width: 1.15em; height: 1.15em; object-fit: contain; flex: none; }
     @media (max-width: 700px) {
       .hero-inner { grid-template-columns: 1fr; gap: 28px; }
       .hero-portrait { max-width: 200px; margin: 0 auto; }
@@ -328,10 +332,10 @@
         Nineteen years of building the process that didn't exist yet — at Apple for seven, now at SFMTA. <strong>Projects that nobody owned, turned into systems that run themselves.</strong>
       </p>
       <div class="hero-chips">
-        <span class="chip">📍 San Francisco, CA</span>
-        <span class="chip">🍵 Tea, not coffee</span>
-        <span class="chip">🐱 Octavia &amp; Cleopatra</span>
-        <span class="chip">📚 Reads &amp; writes feminist SF</span>
+        <span class="chip"><img class="chip-icon" src="icons/house.png" alt="" aria-hidden="true"> San Francisco, CA</span>
+        <span class="chip"><img class="chip-icon" src="icons/tea.png" alt="" aria-hidden="true"> Tea, not coffee</span>
+        <span class="chip"><img class="chip-icon" src="icons/cats.png" alt="" aria-hidden="true"> Octavia &amp; Cleopatra</span>
+        <span class="chip"><img class="chip-icon" src="icons/book.png" alt="" aria-hidden="true"> Reads &amp; writes feminist SF</span>
       </div>
     </div>
   </div>
