@@ -65,24 +65,24 @@
     }
 
     /* ── Hero ─────────────────────────────────────────────── */
-    .hero { background: var(--bg); border-bottom: 1.5px solid var(--border); padding: 64px 28px 56px; position: relative; overflow: hidden; }
-    .hero-inner { max-width: 680px; margin: 0 auto; position: relative; display: flex; flex-direction: column; gap: 16px; }
+    .hero { background: var(--bg); padding: 44px 28px 40px; position: relative; overflow: hidden; }
+    .hero-inner { max-width: 1080px; margin: 0 auto; position: relative; display: flex; flex-direction: row; align-items: flex-start; justify-content: space-between; gap: 48px; flex-wrap: wrap; }
     .hero-kicker { display: flex; align-items: center; gap: 14px; font-size: .72rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; color: var(--teal); }
     .hero-kicker-line { width: 40px; height: 1.5px; background: var(--teal); flex-shrink: 0; }
-    .hero-title { font-family: 'Libre Caslon Text', Georgia, serif; font-size: clamp(2.4rem, 6vw, 3.8rem); font-weight: 700; line-height: 1.0; letter-spacing: -1px; color: var(--text); }
+    .hero-title { font-family: 'Libre Caslon Text', Georgia, serif; font-size: clamp(2.4rem, 6vw, 3.8rem); font-weight: 700; line-height: 1.0; letter-spacing: -1px; color: var(--text); flex: 0 1 auto; white-space: nowrap; }
     .hero-title em { font-style: normal; font-weight: 700; color: var(--teal); }
-    .hero-sub { font-size: clamp(.95rem, 1.8vw, 1.1rem); color: var(--muted); line-height: 1.75; max-width: 560px; }
+    .hero-sub { font-size: clamp(.95rem, 1.8vw, 1.1rem); color: var(--muted); line-height: 1.65; max-width: 460px; flex: 1 1 300px; padding-bottom: 6px; }
 
     /* ── Page body ────────────────────────────────────────── */
-    .page { max-width: 1080px; margin: 0 auto; padding: 72px 28px 80px; display: flex; flex-direction: column; gap: 80px; }
+    .page { max-width: 1080px; margin: 0 auto; padding: 40px 28px 80px; display: flex; flex-direction: column; gap: 60px; }
 
     /* ── Section headings ─────────────────────────────────── */
-    .section-h { display: flex; align-items: baseline; gap: 16px; margin-bottom: 36px; flex-wrap: wrap; }
+    .section-h { display: flex; align-items: baseline; gap: 16px; margin-bottom: 28px; flex-wrap: wrap; }
     .section-h h2 { font-family: 'Libre Caslon Text', Georgia, serif; font-size: clamp(1.7rem, 3.5vw, 2.4rem); font-weight: 700; letter-spacing: -.5px; color: var(--text); }
     .section-tag { background: var(--warm2); border: 1.5px solid var(--border); border-radius: 99px; padding: 3px 14px; font-size: .7rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
 
     /* ── Favorite Questions ──────────────────────────────── */
-    .fav-questions { display: flex; flex-direction: column; gap: 28px; max-width: 740px; margin: 0 auto; }
+    .fav-questions { display: flex; flex-direction: column; gap: 28px; max-width: 740px; margin: 0; }
     .fav-q { position: relative; padding: 18px 22px; border-radius: 8px; }
     .fav-q.q1 { background: var(--coral-lt); --dot: var(--coral); }
     .fav-q.q2 { background: var(--must-lt); --dot: var(--mustard); }
@@ -169,7 +169,6 @@
 
 <section class="hero">
   <div class="hero-inner">
-    <div class="hero-kicker"><span class="hero-kicker-line"></span>Practice</div>
     <h1 class="hero-title">Some <em>Patterns</em></h1>
     <p class="hero-sub">The same pattern, project after project: ask until the real problem surfaces, pick the right tool, know when I'm in the zone.</p>
   </div>

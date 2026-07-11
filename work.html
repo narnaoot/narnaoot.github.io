@@ -65,22 +65,40 @@
     }
 
     /* ── Hero ─────────────────────────────────────────────── */
-    .hero { background: var(--bg); border-bottom: 1.5px solid var(--border); padding: 64px 28px 56px; position: relative; overflow: hidden; }
-    .hero-inner { max-width: 680px; margin: 0 auto; position: relative; display: flex; flex-direction: column; gap: 16px; }
+    .hero { background: var(--bg); padding: 44px 28px 40px; position: relative; overflow: hidden; }
+    .hero-inner { max-width: 1080px; margin: 0 auto; position: relative; display: flex; flex-direction: row; align-items: flex-start; justify-content: space-between; gap: 48px; flex-wrap: wrap; }
     .hero-kicker { display: flex; align-items: center; gap: 14px; font-size: .72rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; color: var(--coral); }
     .hero-kicker-line { width: 40px; height: 1.5px; background: var(--coral); flex-shrink: 0; }
-    .hero-title { font-family: 'Libre Caslon Text', Georgia, serif; font-size: clamp(2.4rem, 6vw, 3.8rem); font-weight: 700; line-height: 1.0; letter-spacing: -1px; color: var(--text); }
+    .hero-title { font-family: 'Libre Caslon Text', Georgia, serif; font-size: clamp(2.4rem, 6vw, 3.8rem); font-weight: 700; line-height: 1.0; letter-spacing: -1px; color: var(--text); flex: 0 1 auto; white-space: nowrap; }
     .hero-title em { font-style: normal; font-weight: 700; color: var(--coral); }
-    .hero-sub { font-size: clamp(.95rem, 1.8vw, 1.1rem); color: var(--muted); line-height: 1.75; max-width: 560px; }
+    .hero-sub { font-size: clamp(.95rem, 1.8vw, 1.1rem); color: var(--muted); line-height: 1.65; max-width: 460px; flex: 1 1 300px; padding-bottom: 6px; }
 
     /* ── Page body ────────────────────────────────────────── */
-    .page { max-width: 1080px; margin: 0 auto; padding: 72px 28px 80px; display: flex; flex-direction: column; gap: 80px; }
+    .page { max-width: 1080px; margin: 0 auto; padding: 40px 28px 80px; display: flex; flex-direction: column; gap: 60px; }
 
     /* ── Section headings ─────────────────────────────────── */
-    .section-h { display: flex; align-items: baseline; gap: 16px; margin-bottom: 36px; flex-wrap: wrap; }
+    .section-h { display: flex; align-items: baseline; gap: 16px; margin-bottom: 28px; flex-wrap: wrap; }
     .section-h h2 { font-family: 'Libre Caslon Text', Georgia, serif; font-size: clamp(1.7rem, 3.5vw, 2.4rem); font-weight: 700; letter-spacing: -.5px; color: var(--text); }
     .section-tag { background: var(--warm2); border: 1.5px solid var(--border); border-radius: 99px; padding: 3px 14px; font-size: .7rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
 
+    /* ── Career arc (image + throughline) ─────────────────── */
+    .arc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 52px; align-items: center; }
+    @media (max-width: 720px) { .arc-grid { grid-template-columns: 1fr; gap: 28px; } }
+    .arc-img { width: 100%; height: auto; border-radius: 12px; display: block; box-shadow: 0 3px 16px rgba(0,0,0,0.13); }
+    .arc-lead { font-size: .95rem; color: var(--muted); line-height: 1.7; margin-bottom: 20px; }
+    .arc-path { font-family: 'Libre Caslon Text', Georgia, serif; font-size: clamp(1.3rem, 2.4vw, 1.7rem); font-weight: 700; color: var(--text); line-height: 1.45; letter-spacing: -.3px; }
+    .arc-path .arrow { color: var(--coral); font-weight: 700; padding: 0 3px; }
+    .arc-close { margin-top: 20px; font-family: 'Libre Caslon Text', Georgia, serif; font-size: 1.35rem; font-weight: 700; color: var(--coral); }
+
+    /* ── Case study: intro beside image ───────────────────── */
+    .case-top { display: grid; grid-template-columns: 1fr 400px; gap: 44px; align-items: start; margin-bottom: 1.75rem; }
+    @media (max-width: 760px) { .case-top { grid-template-columns: 1fr; gap: 20px; } }
+    .case-figure { margin: 0; }
+    .case-figure img { width: 100%; height: auto; border-radius: 12px; display: block; box-shadow: 0 3px 16px rgba(0,0,0,0.13); }
+    .case-top.flip { grid-template-columns: 400px 1fr; }
+    .case-top.flip .case-figure { order: 1; }
+    .case-top.flip .case-intro { order: 2; }
+    @media (max-width: 760px) { .case-top.flip .case-figure, .case-top.flip .case-intro { order: 0; } }
 
     /* ── Career timeline ──────────────────────────────────── */
     .career-timeline {
@@ -178,7 +196,6 @@
 
 <section class="hero">
   <div class="hero-inner">
-    <div class="hero-kicker"><span class="hero-kicker-line"></span>Portfolio</div>
     <h1 class="hero-title">Selected <em>Work</em></h1>
     <p class="hero-sub">Real problems solved — through clear thinking, process design, and a good question or two. Each project tells a story.</p>
   </div>
@@ -193,57 +210,13 @@
       <span class="section-tag">the arc</span>
     </div>
 
-    <img src="CareerJourneyPainted.webp" alt="Career Journey illustration" loading="lazy" style="max-width:520px;width:100%;border-radius:12px;margin:0 auto 40px;display:block;">
-
-    <div class="career-timeline">
-      <div class="ct-rail">
-
-        <div class="ct-node">
-          <div class="ct-dot" style="background:var(--sage)"></div>
-          <div class="ct-company">Elegrity</div>
-          <div class="ct-role">Engineering Project Manager</div>
-          <div class="ct-yrs">2006 – 2009</div>
-        </div>
-
-        <div class="ct-node">
-          <div class="ct-dot" style="background:var(--mustard)"></div>
-          <div class="ct-company">eBay</div>
-          <div class="ct-role">Program Manager</div>
-          <div class="ct-yrs">2009 – 2011</div>
-        </div>
-
-        <div class="ct-node">
-          <div class="ct-dot" style="background:var(--coral)"></div>
-          <div class="ct-company">Apple</div>
-          <div class="ct-role">EPM → Business Analyst &amp; Process Engineer</div>
-          <div class="ct-yrs">2011 – 2018</div>
-        </div>
-
-        <div class="ct-node">
-          <div class="ct-dot" style="background:var(--sage)"></div>
-          <div class="ct-company">Sabbatical</div>
-          <div class="ct-role">Deliberate pause</div>
-          <div class="ct-yrs">2018 – 2020</div>
-        </div>
-
-        <div class="ct-node">
-          <div class="ct-dot" style="background:var(--lavender)"></div>
-          <div class="ct-company">Independent Consulting</div>
-          <div class="ct-role">Data Analysis for Community Nonprofits</div>
-          <div class="ct-yrs">2020 – 2024</div>
-        </div>
-
-        <div class="ct-node">
-          <div class="ct-dot current" style="background:var(--teal)"></div>
-          <div class="ct-company">SFMTA</div>
-          <div class="ct-role">Principal Business Analyst</div>
-          <div class="ct-yrs">2024 – present</div>
-          <div class="ct-badge">Now</div>
-        </div>
-
+    <div class="arc-grid">
+      <img class="arc-img" src="CareerJourneyPainted.webp" alt="A painted career path winding past signposts — Elegrity, eBay, Apple, consulting, and SFMTA" loading="lazy">
+      <div class="arc-copy">
+        <p class="arc-path">Managing projects <span class="arrow">→</span> solving org-wide problems <span class="arrow">→</span> putting it all into public service.</p>
+        <p class="arc-close">Nothing wasted.</p>
       </div>
     </div>
-    <p style="max-width:600px;margin:0 auto 28px;text-align:center;font-family:'Libre Caslon Text',Georgia,serif;font-size:1.15rem;color:var(--text);line-height:1.55;">Each role contributed something the next one required. Managing projects&nbsp;→&nbsp;solving org-wide problems&nbsp;→&nbsp;translating complexity at scale. <span style="color:var(--coral);font-weight:700;">Nothing wasted.</span></p>
 
   </section>
 
@@ -257,15 +230,21 @@
 
       <div class="project-item">
         <div>
-          <div class="project-meta"><span>Program Manager</span><span>eBay · 2009–2011</span></div>
-          <h3 class="project-title">eBay Site Security Program</h3>
-          <p class="project-lead">eBay Marketplaces' Site Security team had the right people but no shared map — no view of what was being worked on, no way for product teams to know when they needed a security review, no operating rhythm that scaled. I built the map, unblocked the intake, designed how the team showed up as internal consultants — and opened a cross-company conversation with PayPal's security org.</p>
-          <img src="LighthousePainted.webp" alt="Before and after: a foggy harbor with a dark lighthouse, then the same lighthouse lit with its beam crossing a second lighthouse's beam over the water" loading="lazy" style="max-width:420px;width:100%;border-radius:12px;margin:16px auto 24px;display:block;">
-          <div class="project-tags">
-            <span class="ptag" style="background:var(--teal-lt);color:var(--teal)">Process Design</span>
-            <span class="ptag" style="background:var(--teal-lt);color:var(--teal)">Intake &amp; Triage</span>
-            <span class="ptag" style="background:var(--teal-lt);color:var(--teal)">Internal Consulting</span>
-            <span class="ptag" style="background:var(--teal-lt);color:var(--teal)">Cross-org Collaboration</span>
+          <div class="case-top">
+            <div class="case-intro">
+              <div class="project-meta"><span>Program Manager</span><span>eBay · 2009–2011</span></div>
+              <h3 class="project-title">eBay Site Security Program</h3>
+              <p class="project-lead">eBay Marketplaces' Site Security team had the right people but no shared map — no view of what was being worked on, no way for product teams to know when they needed a security review, no operating rhythm that scaled. I built the map, unblocked the intake, designed how the team showed up as internal consultants — and opened a cross-company conversation with PayPal's security org.</p>
+              <div class="project-tags">
+                <span class="ptag" style="background:var(--teal-lt);color:var(--teal)">Process Design</span>
+                <span class="ptag" style="background:var(--teal-lt);color:var(--teal)">Intake &amp; Triage</span>
+                <span class="ptag" style="background:var(--teal-lt);color:var(--teal)">Internal Consulting</span>
+                <span class="ptag" style="background:var(--teal-lt);color:var(--teal)">Cross-org Collaboration</span>
+              </div>
+            </div>
+            <figure class="case-figure">
+              <img src="LighthousePainted.webp" alt="Before and after: a foggy harbor with a dark lighthouse, then the same lighthouse lit with its beam crossing a second lighthouse's beam over the water" loading="lazy">
+            </figure>
           </div>
           <div class="steps-list">
             <div class="step"><div class="step-head"><span class="step-num">01</span><span class="step-title">Make the work visible</span></div><div class="step-desc">Built a roadmap so the team and its stakeholders could see what was on deck and when. Transparency turned out to be the missing prerequisite for everything that came after.</div></div>
@@ -279,15 +258,21 @@
 
       <div class="project-item">
         <div>
-          <div class="project-meta"><span>Engineering Project Manager → Business Analyst</span><span>Apple · 2011–2018</span></div>
-          <h3 class="project-title">Making iTunes' Crashes Countable</h3>
-          <p class="project-lead">iTunes was crashing constantly, and my team — the site reliability engineers carrying the pagers — knew exactly why. New features kept shipping, bugs kept accruing, technical debt kept growing. We held post-mortems, but the results lived in Word documents nobody could aggregate or compare. Even the basic question, <em>is downtime getting better or worse?</em>, had no answer: every property measured it differently, every year measured it differently. Leadership kept prioritizing features over bug fixes because the conversation couldn't land on the bugs. The team knew. There was no data backing us up yet.</p>
-          <img src="QuietedPagersPainted.webp" alt="Before and after: SRE pagers going off through the night, then quiet pagers at rest" loading="lazy" style="max-width:420px;width:100%;border-radius:12px;margin:16px auto 24px;display:block;">
-          <div class="project-tags">
-            <span class="ptag" style="background:var(--teal-lt);color:var(--teal)">Incident Management</span>
-            <span class="ptag" style="background:var(--teal-lt);color:var(--teal)">Dashboard Design</span>
-            <span class="ptag" style="background:var(--teal-lt);color:var(--teal)">Process Creation</span>
-            <span class="ptag" style="background:var(--teal-lt);color:var(--teal)">Business Intelligence</span>
+          <div class="case-top flip">
+            <div class="case-intro">
+              <div class="project-meta"><span>Engineering Project Manager → Business Analyst</span><span>Apple · 2011–2018</span></div>
+              <h3 class="project-title">Making iTunes' Crashes Countable</h3>
+              <p class="project-lead">iTunes was crashing constantly, and my team — the site reliability engineers carrying the pagers — knew exactly why. New features kept shipping, bugs kept accruing, technical debt kept growing. We held post-mortems, but the results lived in Word documents nobody could aggregate or compare. Even the basic question, <em>is downtime getting better or worse?</em>, had no answer: every property measured it differently, every year measured it differently. Leadership kept prioritizing features over bug fixes because the conversation couldn't land on the bugs. The team knew. There was no data backing us up yet.</p>
+              <div class="project-tags">
+                <span class="ptag" style="background:var(--teal-lt);color:var(--teal)">Incident Management</span>
+                <span class="ptag" style="background:var(--teal-lt);color:var(--teal)">Dashboard Design</span>
+                <span class="ptag" style="background:var(--teal-lt);color:var(--teal)">Process Creation</span>
+                <span class="ptag" style="background:var(--teal-lt);color:var(--teal)">Business Intelligence</span>
+              </div>
+            </div>
+            <figure class="case-figure">
+              <img src="QuietedPagersPainted.webp" alt="Before and after: SRE pagers going off through the night, then quiet pagers at rest" loading="lazy">
+            </figure>
           </div>
           <div class="steps-list">
             <div class="step"><div class="step-head"><span class="step-num">01</span><span class="step-title">Get the root causes captured consistently</span></div><div class="step-desc">Found a web-based outage system the team could use. Talked the owners into letting me add the fields we actually needed. Trained the SREs and convinced them — one at a time — to use it. Suddenly there was a record of <em>why</em> outages happened, not just that they had.</div></div>
@@ -301,15 +286,21 @@
 
       <div class="project-item">
         <div>
-          <div class="project-meta"><span>Business Analyst / Process Engineer</span><span>Apple · 2014–2018</span></div>
-          <h3 class="project-title">Kernel Updates for 500,000 Systems</h3>
-          <p class="project-lead">At Apple, kernel-update tickets generated themselves by the hundred every day. The information that mattered lived inside spreadsheets attached to each ticket — outdated by the time anyone opened them, impossible to scan. Most managers had given up trying to act on them. Across 500,000 systems and 40+ engineering groups, the work was happening in the dark, and the people responsible for it were burnt out. I pulled on three threads at once.</p>
-          <img src="KernelCleanupPainted.webp" alt="Before and after: from overgrown chaos to an organized garden" loading="lazy" style="max-width:420px;width:100%;border-radius:12px;margin:16px auto 24px;display:block;">
-          <div class="project-tags">
-            <span class="ptag" style="background:var(--teal-lt);color:var(--teal)">Process Reinvention</span>
-            <span class="ptag" style="background:var(--teal-lt);color:var(--teal)">Automation</span>
-            <span class="ptag" style="background:var(--teal-lt);color:var(--teal)">Business Intelligence</span>
-            <span class="ptag" style="background:var(--teal-lt);color:var(--teal)">Cross-functional Teams</span>
+          <div class="case-top">
+            <div class="case-intro">
+              <div class="project-meta"><span>Business Analyst / Process Engineer</span><span>Apple · 2014–2018</span></div>
+              <h3 class="project-title">Kernel Updates for 500,000 Systems</h3>
+              <p class="project-lead">At Apple, kernel-update tickets generated themselves by the hundred every day. The information that mattered lived inside spreadsheets attached to each ticket — outdated by the time anyone opened them, impossible to scan. Most managers had given up trying to act on them. Across 500,000 systems and 40+ engineering groups, the work was happening in the dark, and the people responsible for it were burnt out. I pulled on three threads at once.</p>
+              <div class="project-tags">
+                <span class="ptag" style="background:var(--teal-lt);color:var(--teal)">Process Reinvention</span>
+                <span class="ptag" style="background:var(--teal-lt);color:var(--teal)">Automation</span>
+                <span class="ptag" style="background:var(--teal-lt);color:var(--teal)">Business Intelligence</span>
+                <span class="ptag" style="background:var(--teal-lt);color:var(--teal)">Cross-functional Teams</span>
+              </div>
+            </div>
+            <figure class="case-figure">
+              <img src="KernelCleanupPainted.webp" alt="Before and after: from overgrown chaos to an organized garden" loading="lazy">
+            </figure>
           </div>
           <div class="steps-list">
             <div class="step"><div class="step-head"><span class="step-num">01</span><span class="step-title">Surface what the tickets buried</span></div><div class="step-desc">A live dashboard pulled the at-a-glance state — what needed updating, what was failing, where the risk concentrated — out of the spreadsheet attachments and onto a single screen managers could actually read.</div></div>
