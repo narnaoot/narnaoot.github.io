@@ -67,13 +67,12 @@
     /* ── Hero ─────────────────────────────────────────────── */
     .hero {
       background: var(--bg);
-      border-bottom: 1.5px solid var(--border);
-      padding: 64px 28px 56px;
+      padding: 44px 28px 40px;
       position: relative;
       overflow: hidden;
     }
     .hero-inner {
-      max-width: 680px;
+      max-width: 1080px;
       margin: 0 auto;
       position: relative;
       display: flex;
@@ -97,6 +96,7 @@
       color: var(--lavender);
     }
     .hero-kicker-line { width: 40px; height: 1.5px; background: var(--lavender); flex-shrink: 0; }
+    .hero-headline { display: flex; flex-direction: row; align-items: flex-start; justify-content: space-between; gap: 48px; flex-wrap: wrap; }
     .hero-title {
       font-family: 'Libre Caslon Text', Georgia, serif;
       font-size: clamp(2.4rem, 6vw, 3.8rem);
@@ -104,20 +104,24 @@
       line-height: 1.0;
       letter-spacing: -1px;
       color: var(--text);
+      flex: 0 1 auto;
+      white-space: nowrap;
     }
     .hero-title em { font-style: normal; font-weight: 700; color: var(--lavender); }
     .hero-sub {
       font-size: clamp(.95rem, 1.8vw, 1.1rem);
       color: var(--muted);
-      line-height: 1.75;
-      max-width: 560px;
+      line-height: 1.65;
+      max-width: 460px;
+      flex: 1 1 300px;
+      padding-bottom: 6px;
     }
 
     /* ── Page body ────────────────────────────────────────── */
-    .page { max-width: 1080px; margin: 0 auto; padding: 72px 28px 80px; display: flex; flex-direction: column; gap: 80px; }
+    .page { max-width: 1080px; margin: 0 auto; padding: 40px 28px 80px; display: flex; flex-direction: column; gap: 60px; }
 
     /* ── Section headings ─────────────────────────────────── */
-    .section-h { display: flex; align-items: baseline; gap: 16px; margin-bottom: 36px; flex-wrap: wrap; }
+    .section-h { display: flex; align-items: baseline; gap: 16px; margin-bottom: 28px; flex-wrap: wrap; }
     .section-h h2 { font-family: 'Libre Caslon Text', Georgia, serif; font-size: clamp(1.7rem, 3.5vw, 2.4rem); font-weight: 700; letter-spacing: -.5px; color: var(--text); }
     .section-tag { background: var(--warm2); border: 1.5px solid var(--border); border-radius: 99px; padding: 3px 14px; font-size: .7rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
 
@@ -241,7 +245,7 @@
       display: flex;
       align-items: center;
       gap: 24px;
-      margin-bottom: 36px;
+      margin-bottom: 28px;
     }
     .section-intro .section-h {
       flex: 1;
@@ -258,6 +262,53 @@
       .section-intro { flex-direction: column-reverse; }
       .section-thumb { width: 100%; }
     }
+
+    /* ── Career timeline (résumé view) ───────────────────── */
+    .career-timeline {
+      border: 1.5px solid var(--border);
+      border-radius: var(--r);
+      background: var(--bg);
+      padding: 36px 28px 28px;
+      overflow-x: auto;
+    }
+    .ct-rail {
+      display: flex;
+      align-items: flex-start;
+      min-width: 680px;
+      position: relative;
+    }
+    .ct-rail::before {
+      content: '';
+      position: absolute;
+      top: 22px; left: 22px; right: 22px;
+      height: 2px;
+      background: var(--border);
+      z-index: 0;
+    }
+    .ct-node {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      flex: 1;
+      position: relative;
+      z-index: 1;
+    }
+    .ct-dot {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+      margin-bottom: 14px;
+      border: 3px solid var(--bg);
+      box-shadow: 0 2px 10px rgba(0,0,0,.12);
+      flex-shrink: 0;
+    }
+    .ct-dot.current { box-shadow: 0 0 0 4px rgba(45,181,168,.25), 0 2px 10px rgba(0,0,0,.12); }
+    .ct-company { font-family: 'Libre Caslon Text', Georgia, serif; font-size: .95rem; font-weight: 700; color: var(--text); margin-bottom: 3px; }
+    .ct-role { font-size: .72rem; color: var(--muted); line-height: 1.4; margin-bottom: 5px; max-width: 110px; }
+    .ct-yrs { font-size: .65rem; font-weight: 800; letter-spacing: .08em; color: var(--muted); text-transform: uppercase; }
+    .ct-badge { display: inline-block; background: var(--teal); color: #fff; font-size: .55rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; border-radius: 99px; padding: 1px 7px; margin-top: 4px; }
 
     /* ── Footer ───────────────────────────────────────────── */
     footer { border-top: 1.5px solid var(--border); padding: 60px 28px; text-align: center; }
@@ -291,9 +342,10 @@
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-avatar-lg"><img src="ProfilePicture.webp" alt="Nabil Arnaoot — Animal Crossing character portrait" /></div>
-    <div class="hero-kicker"><span class="hero-kicker-line"></span>The Person</div>
-    <h1 class="hero-title">About <em>Nabil</em></h1>
-    <p class="hero-sub">How an English-literature degree, two feral cats, and a stubbornly curious mind add up to a person who reads Octavia Butler at lunch and asks <em>"why do we do it this way?"</em> before standup.</p>
+    <div class="hero-headline">
+      <h1 class="hero-title">About <em>Nabil</em></h1>
+      <p class="hero-sub">How an English-literature degree, two feral cats, and a stubbornly curious mind add up to a person who reads Octavia Butler at lunch and asks <em>"why do we do it this way?"</em> before standup.</p>
+    </div>
   </div>
 </section>
 
@@ -565,6 +617,61 @@
     </div>
   </section>
 
+  <!-- Career Timeline (the résumé view) -->
+  <section>
+    <div class="section-h">
+      <h2>Career Timeline</h2>
+      <span class="section-tag">roles &amp; years</span>
+    </div>
+    <div class="career-timeline">
+      <div class="ct-rail">
+
+        <div class="ct-node">
+          <div class="ct-dot" style="background:var(--sage)"></div>
+          <div class="ct-company">Elegrity</div>
+          <div class="ct-role">Engineering Project Manager</div>
+          <div class="ct-yrs">2006 – 2009</div>
+        </div>
+
+        <div class="ct-node">
+          <div class="ct-dot" style="background:var(--mustard)"></div>
+          <div class="ct-company">eBay</div>
+          <div class="ct-role">Program Manager</div>
+          <div class="ct-yrs">2009 – 2011</div>
+        </div>
+
+        <div class="ct-node">
+          <div class="ct-dot" style="background:var(--coral)"></div>
+          <div class="ct-company">Apple</div>
+          <div class="ct-role">EPM → Business Analyst &amp; Process Engineer</div>
+          <div class="ct-yrs">2011 – 2018</div>
+        </div>
+
+        <div class="ct-node">
+          <div class="ct-dot" style="background:var(--sage)"></div>
+          <div class="ct-company">Sabbatical</div>
+          <div class="ct-role">Deliberate pause</div>
+          <div class="ct-yrs">2018 – 2020</div>
+        </div>
+
+        <div class="ct-node">
+          <div class="ct-dot" style="background:var(--lavender)"></div>
+          <div class="ct-company">Independent Consulting</div>
+          <div class="ct-role">Data Analysis for Community Nonprofits</div>
+          <div class="ct-yrs">2020 – 2024</div>
+        </div>
+
+        <div class="ct-node">
+          <div class="ct-dot current" style="background:var(--teal)"></div>
+          <div class="ct-company">SFMTA</div>
+          <div class="ct-role">Principal Business Analyst</div>
+          <div class="ct-yrs">2024 – present</div>
+          <div class="ct-badge">Now</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
 
 </main>
 
