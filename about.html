@@ -125,11 +125,6 @@
     .section-h h2 { font-family: 'Libre Caslon Text', Georgia, serif; font-size: clamp(1.7rem, 3.5vw, 2.4rem); font-weight: 700; letter-spacing: -.5px; color: var(--text); }
     .section-tag { background: var(--warm2); border: 1.5px solid var(--border); border-radius: 99px; padding: 3px 14px; font-size: .7rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
 
-    /* ── Personal chips (mirrors the front page) ──────────── */
-    .hero-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
-    .chip { display: inline-flex; align-items: center; gap: 7px; background: var(--surface); border: 1.5px solid var(--border); border-radius: 99px; padding: 5px 16px; font-size: .82rem; font-weight: 700; color: var(--text); }
-    .chip-icon { width: 1.5em; height: 1.5em; object-fit: contain; flex: none; }
-
     /* ── Portrait grid ────────────────────────────────────── */
     .portrait-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
     @media (max-width: 900px) { .portrait-grid { grid-template-columns: 1fr 1fr; } }
@@ -140,7 +135,10 @@
     .portrait-item.l { background: var(--lav-lt); --title: var(--lav-dk); }
     .portrait-item.m { background: var(--must-lt); --title: var(--must-dk); }
     .portrait-item.s { background: var(--sage-lt); --title: var(--sage-dk); }
+    .p-head { display: flex; align-items: center; gap: 9px; margin-bottom: 8px; }
+    .p-icon { width: 30px; height: 30px; object-fit: contain; flex: none; }
     .p-label { font-size: .68rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; color: var(--title, var(--muted)); margin-bottom: 5px; }
+    .p-head .p-label { margin-bottom: 0; }
     .p-value { font-family: 'Libre Caslon Text', Georgia, serif; font-size: 1.4rem; font-weight: 700; color: var(--text); line-height: 1.15; margin-bottom: 8px; }
     .p-note { font-size: .84rem; color: var(--muted); line-height: 1.6; }
     .cat-chips { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 8px; }
@@ -364,16 +362,10 @@
       </div>
       <img class="section-thumb" src="AboutHero.webp" alt="The Human Behind the Projects" loading="lazy">
     </div>
-    <div class="hero-chips">
-      <span class="chip"><img class="chip-icon" src="icons/house.png" alt="" aria-hidden="true"> San Francisco, CA</span>
-      <span class="chip"><img class="chip-icon" src="icons/tea.png" alt="" aria-hidden="true"> Tea, not coffee</span>
-      <span class="chip"><img class="chip-icon" src="icons/cats.png" alt="" aria-hidden="true"> Octavia &amp; Cleopatra</span>
-      <span class="chip"><img class="chip-icon" src="icons/book.png" alt="" aria-hidden="true"> Reads &amp; writes feminist SF</span>
-    </div>
     <div class="portrait-grid">
 
       <div class="portrait-item c">
-        <div class="p-label">Adopted cats</div>
+        <div class="p-head"><img class="p-icon" src="icons/cats.png" alt="" aria-hidden="true"><div class="p-label">Adopted cats</div></div>
         <div class="cat-chips">
           <span class="cat-chip">Octavia</span>
           <span class="cat-chip">Cleopatra</span>
@@ -382,7 +374,7 @@
       </div>
 
       <div class="portrait-item t">
-        <div class="p-label">Beverage preference</div>
+        <div class="p-head"><img class="p-icon" src="icons/tea.png" alt="" aria-hidden="true"><div class="p-label">Beverage preference</div></div>
         <div class="p-value">Tea</div>
         <div class="mini-bar-wrap">
           <div class="mini-bar-row">
@@ -398,13 +390,13 @@
       </div>
 
       <div class="portrait-item l">
-        <div class="p-label">Where I started</div>
+        <div class="p-head"><img class="p-icon" src="icons/book.png" alt="" aria-hidden="true"><div class="p-label">Where I started</div></div>
         <div class="p-value">English Lit</div>
         <p class="p-note">University of Chicago. Structure, voice, audience — I've been thinking about how to make complexity legible ever since.</p>
       </div>
 
       <div class="portrait-item s">
-        <div class="p-label">My city</div>
+        <div class="p-head"><img class="p-icon" src="icons/house.png" alt="" aria-hidden="true"><div class="p-label">My city</div></div>
         <div class="p-value">San Francisco</div>
         <p class="p-note">Making its transit better by day. Finding its hidden public gardens on the weekend. Proud to live and work here.</p>
       </div>
