@@ -125,6 +125,11 @@
     .section-h h2 { font-family: 'Libre Caslon Text', Georgia, serif; font-size: clamp(1.7rem, 3.5vw, 2.4rem); font-weight: 700; letter-spacing: -.5px; color: var(--text); }
     .section-tag { background: var(--warm2); border: 1.5px solid var(--border); border-radius: 99px; padding: 3px 14px; font-size: .7rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
 
+    /* ── Personal chips (mirrors the front page) ──────────── */
+    .hero-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
+    .chip { display: inline-flex; align-items: center; gap: 7px; background: var(--surface); border: 1.5px solid var(--border); border-radius: 99px; padding: 5px 16px; font-size: .82rem; font-weight: 700; color: var(--text); }
+    .chip-icon { width: 1.5em; height: 1.5em; object-fit: contain; flex: none; }
+
     /* ── Portrait grid ────────────────────────────────────── */
     .portrait-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
     @media (max-width: 900px) { .portrait-grid { grid-template-columns: 1fr 1fr; } }
@@ -358,6 +363,12 @@
         <span class="section-tag">personal portrait</span>
       </div>
       <img class="section-thumb" src="AboutHero.webp" alt="The Human Behind the Projects" loading="lazy">
+    </div>
+    <div class="hero-chips">
+      <span class="chip"><img class="chip-icon" src="icons/house.png" alt="" aria-hidden="true"> San Francisco, CA</span>
+      <span class="chip"><img class="chip-icon" src="icons/tea.png" alt="" aria-hidden="true"> Tea, not coffee</span>
+      <span class="chip"><img class="chip-icon" src="icons/cats.png" alt="" aria-hidden="true"> Octavia &amp; Cleopatra</span>
+      <span class="chip"><img class="chip-icon" src="icons/book.png" alt="" aria-hidden="true"> Reads &amp; writes feminist SF</span>
     </div>
     <div class="portrait-grid">
 
