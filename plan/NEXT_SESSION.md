@@ -12,7 +12,7 @@ Accuracy and polish pass across all four live pages (merged via PRs #94–#99).
 
 **patterns.html.** Two Kinds of Problems: removed the "The pieces are real…" / "The work is real…" `panel-note` paragraphs from both panels · My Professional Sweet Spot: the "Hand me the vision, get out of the way." callout was bumping the bell curve; added SVG headroom (`viewBox="0 -36 700 316"`) and raised the callout box + text ~36px so it clears the peak. Verified by screenshot.
 
-**about.html.** "Both started feral" → "I specialize in ferals" (Adopted Cats note) · added the four front-page personal chips (San Francisco, tea, cats, feminist SF) plus matching `.hero-chips`/`.chip`/`.chip-icon` CSS to "The Human Behind the Projects". Verified by screenshot.
+**about.html.** "Both started feral" → "I specialize in ferals" (Adopted Cats note) · brought the four front-page icons into "The Human Behind the Projects" — placed *inside* the existing portrait boxes, one per box beside its label (cats→Adopted Cats, tea→Beverage Preference, book→Where I Started, house→My City), via a `.p-head` flex wrapper + `.p-icon` (30px). Note: an earlier pass added them as a separate `.hero-chips` pill row above the boxes (merged in #99); that was replaced by the in-box placement per Nabil's preference. Verified by screenshot.
 
 **Reviewed, left as-is.** The About "teaching" vignette ("as much a teacher as a student", "teaching instinct", four years close to the Saint Mary's cohort) is accurate — Nabil was an informal TA in at least one class and the program head invited him back to teach (timing didn't work out). Only the *stat* overstated it as a formal role, and that's now fixed.
 
