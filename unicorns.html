@@ -77,7 +77,10 @@
     .viz-section { max-width: 1080px; margin: 0 auto; padding: 48px 28px 80px; }
     .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: .82rem; font-weight: 800; color: var(--teal); text-decoration: none; margin-bottom: 2.5rem; }
     .back-link:hover { opacity: .8; }
-    .tableau-wrap { overflow-x: auto; border-radius: 12px; border: 1.5px solid var(--border); background: var(--surface); }
+    .tableau-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 12px; border: 1.5px solid var(--border); background: var(--surface);
+      /* Break out of the 1080px text column so the fixed-width (1450px) dashboard
+         has room on wide screens; falls back to horizontal scroll when narrower. */
+      width: min(1450px, calc(100vw - 32px)); margin-left: 50%; transform: translateX(-50%); }
     .tableau-cta { margin-top: 1.5rem; font-size: .82rem; color: var(--muted); }
     .tableau-cta a { color: var(--teal); font-weight: 800; text-decoration: none; }
     .tableau-cta a:hover { opacity: .8; }
