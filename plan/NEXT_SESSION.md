@@ -1,5 +1,25 @@
 # Next Session Handoff
 
+## Current state (Jul 15 2026)
+
+Accuracy and polish pass across all four live pages (merged via PRs #94–#99).
+
+**index.html — stats strip.** Removed the inaccurate "4 yrs · Teaching & consulting · Saint Mary's" stat (Nabil was never a formal teacher). Replaced it with **"3 of 3 · Sectors worked · corporate, nonprofit & government"** — true across the career (corporate: Elegrity/eBay/Apple; nonprofit: 2020–2024 community-nonprofit consulting; government: SFMTA). Wording iterated All 3 → 3 out of 3 → **3 of 3** (final: most compact + legible next to `19+ / 300M+ / 1`).
+
+**work.html.** A Through-Line: dropped "Nothing wasted." · iTunes "Making Crashes Countable" Step 02: rephrased so the production build is credited to the team (Nabil handed off the prototype/logic/data model and led them building it online) — the prototype-on-a-spare-box first half is unchanged · same case study's outcome line: "when I was carrying a pager" → "when my people carried pagers" · Kernel Updates Step 02: "Led the design" → "Led the deployment".
+
+**unicorns.html.** The Chasing Unicorns Tableau dashboard is authored at a fixed 1450px width but sat in the 1080px text column, clipping its right edge. `.tableau-wrap` now breaks out of the column up to 1450px on wide screens (`width: min(1450px, calc(100vw - 32px))` + centered), falling back to horizontal scroll on narrower viewports. Verified no page-level horizontal overflow at 1600/1440/1200/900/600/375px.
+
+**patterns.html.** Two Kinds of Problems: removed the "The pieces are real…" / "The work is real…" `panel-note` paragraphs from both panels · My Professional Sweet Spot: the "Hand me the vision, get out of the way." callout was bumping the bell curve; added SVG headroom (`viewBox="0 -36 700 316"`) and raised the callout box + text ~36px so it clears the peak. Verified by screenshot.
+
+**about.html.** "Both started feral" → "I specialize in ferals" (Adopted Cats note) · added the four front-page personal chips (San Francisco, tea, cats, feminist SF) plus matching `.hero-chips`/`.chip`/`.chip-icon` CSS to "The Human Behind the Projects". Verified by screenshot.
+
+**Reviewed, left as-is.** The About "teaching" vignette ("as much a teacher as a student", "teaching instinct", four years close to the Saint Mary's cohort) is accurate — Nabil was an informal TA in at least one class and the program head invited him back to teach (timing didn't work out). Only the *stat* overstated it as a formal role, and that's now fixed.
+
+**To verify on the live site (couldn't render externally-loaded content in the sandbox):** the Unicorns Tableau dashboard's right edge is now fully reachable, and the new About chips wrap cleanly on a real mobile width.
+
+---
+
 ## Current state (May 4 2026)
 
 Live root files: `index.html`, `about.html`, `work.html`, `patterns.html` (renamed this session from `method.html`). Note pages: `probability.html`, `gardens.html`, `unicorns.html`. Nav: Home · Work · Patterns · About.
