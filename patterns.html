@@ -15,30 +15,31 @@
       --warm:     #FFF5E8;
       --warm2:    #FDECD6;
       --text:     #3D2B1F;
-      --muted:    #9A8070;
+      --muted:    #7C6151;
       --border:   #E8DDD0;
-      --coral:    #E8614F;
-      --coral-lt: #FDEAE7;
-      --teal:     #2DB5A8;
-      --teal-lt:  #E0F5F3;
-      --mustard:  #D4920A;
-      --must-lt:  #FEF4DC;
-      --sage:     #6A9F7A;
-      --sage-lt:  #EBF4EE;
-      --lavender: #8B7BC8;
-      --lav-lt:   #EFECF9;
+      --coral:    #F5563F;
+      --coral-lt: #FBD5CE;
+      --teal:     #12C2B0;
+      --teal-lt:  #C2EFEA;
+      --mustard:  #F0A500;
+      --must-lt:  #FCE7B8;
+      --sage:     #4FB870;
+      --sage-lt:  #CDEBD6;
+      --lavender: #9B6DE8;
+      --lav-lt:   #E4D8F8;
       --denim:    #4A82B0;
-      --denim-lt: #E7F0F7;
+      --denim-lt: #D5E4EF;
       --blush:    #D56A92;
-      --blush-lt: #FBE8F0;
+      --blush-lt: #F7D8E4;
       --citron:   #97A24E;
-      --citron-lt: #F1F3DE;
+      --citron-lt: #E6EAC7;
       --orchid:   #A75FA0;
-      --orchid-lt: #F4E8F2;
-      --coral-dk: #C94B3B;
-      --teal-dk:  #1E7C72;
-      --must-dk:  #A87407;
-      --sage-dk:  #4A7C5A;
+      --orchid-lt: #EAD6E7;
+      --orchid-dk: #7E3F78;
+      --coral-dk: #9B3323;
+      --teal-dk:  #14655D;
+      --must-dk:  #7A5400;
+      --sage-dk:  #3C6349;
       --lav-dk:   #5F4E9C;
       --r: 14px;
     }
@@ -52,10 +53,10 @@
     .masthead-brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; }
     .masthead-brand img { display: block; height: 40px; width: auto; }
     .masthead-name { font-family: 'Libre Caslon Text', Georgia, serif; font-size: 1.35rem; font-weight: 700; color: var(--text); letter-spacing: -.01em; white-space: nowrap; }
-    .masthead-name .last { color: var(--coral); }
+    .masthead-name .last { color: var(--teal-dk); }
     .masthead-nav { display: flex; gap: 26px; list-style: none; }
     .masthead-nav a { position: relative; padding: 4px 0; font-size: .78rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color .18s; }
-    .masthead-nav a::after { content: ""; position: absolute; left: 0; bottom: -2px; height: 2px; width: 100%; background: var(--coral); transform: scaleX(0); transform-origin: left; transition: transform .28s ease; }
+    .masthead-nav a::after { content: ""; position: absolute; left: 0; bottom: -2px; height: 2px; width: 100%; background: var(--teal); transform: scaleX(0); transform-origin: left; transition: transform .28s ease; }
     .masthead-nav a:hover { color: var(--text); }
     .masthead-nav a:hover::after, .masthead-nav a.active::after { transform: scaleX(1); }
     .masthead-nav a.active { color: var(--text); }
@@ -65,12 +66,12 @@
     }
 
     /* ── Hero ─────────────────────────────────────────────── */
-    .hero { background: var(--bg); padding: 44px 28px 40px; position: relative; overflow: hidden; }
-    .hero-inner { max-width: 1080px; margin: 0 auto; position: relative; display: flex; flex-direction: row; align-items: flex-start; justify-content: space-between; gap: 48px; flex-wrap: wrap; }
-    .hero-kicker { display: flex; align-items: center; gap: 14px; font-size: .72rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; color: var(--teal); }
+    .hero { background: var(--bg); padding: 44px 0 40px; position: relative; overflow: hidden; }
+    .hero-inner { max-width: 1080px; margin: 0 auto; padding: 0 28px; position: relative; display: flex; flex-direction: row; align-items: flex-start; justify-content: space-between; gap: 48px; flex-wrap: wrap; }
+    .hero-kicker { display: flex; align-items: center; gap: 14px; font-size: .72rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; color: var(--teal-dk); }
     .hero-kicker-line { width: 40px; height: 1.5px; background: var(--teal); flex-shrink: 0; }
     .hero-title { font-family: 'Libre Caslon Text', Georgia, serif; font-size: clamp(2.4rem, 6vw, 3.8rem); font-weight: 700; line-height: 1.0; letter-spacing: -1px; color: var(--text); flex: 0 1 auto; white-space: nowrap; }
-    .hero-title em { font-style: normal; font-weight: 700; color: var(--teal); }
+    .hero-title em { font-style: normal; font-weight: 700; color: var(--teal-dk); }
     .hero-sub { font-size: clamp(.95rem, 1.8vw, 1.1rem); color: var(--muted); line-height: 1.65; max-width: 460px; flex: 1 1 300px; padding-bottom: 6px; }
 
     /* ── Page body ────────────────────────────────────────── */
@@ -84,7 +85,7 @@
     /* ── Favorite Questions ──────────────────────────────── */
     .fav-questions { display: flex; flex-direction: column; gap: 28px; max-width: 740px; margin: 0; }
     .fav-q { position: relative; padding: 18px 22px; border-radius: 8px; }
-    .fav-q.q1 { background: var(--coral-lt); --dot: var(--coral); }
+    .fav-q.q1 { background: var(--teal-lt); --dot: var(--teal); }
     .fav-q.q2 { background: var(--must-lt); --dot: var(--mustard); }
     .fav-q.q3 { background: var(--lav-lt); --dot: var(--lavender); }
     .fav-q.q4 { background: var(--teal-lt); --dot: var(--teal); }
@@ -94,16 +95,16 @@
     .dt-drano { display: grid; grid-template-columns: 1fr 1fr; border: 1.5px solid var(--border); border-radius: var(--r); overflow: hidden; }
     @media (max-width: 640px) { .dt-drano { grid-template-columns: 1fr; } }
     .panel { padding: 3rem; }
-    .panel-tape { background: var(--coral-lt); }
+    .panel-tape { background: var(--teal-lt); }
     .panel-drain { background: var(--teal-lt); border-left: 1.5px solid var(--border); }
     @media (max-width: 640px) { .panel-drain { border-left: none; border-top: 1.5px solid var(--border); } }
     .panel-title { font-family: 'Libre Caslon Text', Georgia, serif; font-size: 1.8rem; font-weight: 700; color: var(--text); margin-bottom: .4rem; }
-    .panel-tape .panel-title { color: var(--coral-dk); }
+    .panel-tape .panel-title { color: var(--teal-dk); }
     .panel-drain .panel-title { color: var(--teal-dk); }
     .panel-sub { font-size: .84rem; color: var(--muted); margin-bottom: 1.5rem; font-weight: 600; }
     .panel-tags { display: flex; flex-wrap: wrap; gap: 8px; }
-    .ptag-tape { background: rgba(232,97,79,.12); color: var(--coral); border: 1px solid rgba(232,97,79,.22); border-radius: 3px; padding: 4px 12px; font-size: .75rem; font-weight: 600; }
-    .ptag-drain { background: rgba(45,181,168,.12); color: var(--teal); border: 1px solid rgba(45,181,168,.22); border-radius: 3px; padding: 4px 12px; font-size: .75rem; font-weight: 600; }
+    .ptag-tape { background: rgba(18,194,176,.12); color: var(--teal-dk); border: 1px solid rgba(18,194,176,.22); border-radius: 3px; padding: 4px 12px; font-size: .75rem; font-weight: 600; }
+    .ptag-drain { background: rgba(18,194,176,.12); color: var(--teal-dk); border: 1px solid rgba(18,194,176,.22); border-radius: 3px; padding: 4px 12px; font-size: .75rem; font-weight: 600; }
     .panel-note { margin-top: 1.5rem; font-size: .84rem; color: var(--muted); font-style: italic; line-height: 1.6; }
 
     /* ── Bell curve section ───────────────────────────────── */
@@ -123,7 +124,7 @@
       text-align: center;
     }
     .bell-caption-side { font-size: .78rem; color: var(--muted); line-height: 1.5; }
-    .bell-caption-peak { font-size: .78rem; color: var(--teal); font-weight: 700; line-height: 1.5; }
+    .bell-caption-peak { font-size: .78rem; color: var(--teal-dk); font-weight: 700; line-height: 1.5; }
     .bell-caption-side:first-child { text-align: left; }
     .bell-caption-side:last-child { text-align: right; }
 
@@ -136,16 +137,16 @@
     .toolkit-col-sub { font-size: .75rem; color: var(--muted); margin-top: 2px; }
     .skill-chips { display: flex; flex-wrap: wrap; gap: 8px; }
     .skill-chip { border-radius: 99px; padding: 5px 16px; font-size: .82rem; font-weight: 700; border: 1px solid transparent; }
-    .sc-teal    { background: var(--teal-lt);  color: var(--teal);     border-color: rgba(45,181,168,.3); }
-    .sc-lav     { background: var(--lav-lt);   color: var(--lavender); border-color: rgba(139,123,200,.3); }
-    .sc-coral   { background: var(--coral-lt); color: var(--coral);    border-color: rgba(232,97,79,.3); }
+    .sc-teal    { background: var(--teal-lt);  color: var(--teal-dk);     border-color: rgba(18,194,176,.3); }
+    .sc-lav     { background: var(--lav-lt);   color: var(--lav-dk); border-color: rgba(155,109,232,.3); }
+    .sc-coral   { background: var(--teal-lt); color: var(--teal-dk);    border-color: rgba(18,194,176,.3); }
 
     /* ── Footer ───────────────────────────────────────────── */
     footer { border-top: 1.5px solid var(--border); padding: 60px 28px; text-align: center; }
     .footer-inner { max-width: 1080px; margin: 0 auto; }
     .footer-name { font-family: 'Libre Caslon Text', Georgia, serif; font-size: 1.6rem; font-weight: 700; letter-spacing: -.5px; color: var(--text); margin-bottom: 8px; }
     .footer-sub { font-size: .84rem; color: var(--muted); margin-bottom: 24px; }
-    .footer-btn { display: inline-block; background: var(--coral); color: #fff; font-size: .82rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; padding: 12px 32px; border-radius: 99px; text-decoration: none; transition: opacity .15s; }
+    .footer-btn { display: inline-block; background: var(--teal-dk); color: #fff; font-size: .82rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; padding: 12px 32px; border-radius: 99px; text-decoration: none; transition: opacity .15s; }
     .footer-btn:hover { opacity: .85; }
     .footer-copy { margin-top: 24px; font-size: .75rem; color: var(--muted); }
   </style>
@@ -247,16 +248,16 @@
         <line x1="60" y1="80" x2="56" y2="80" stroke="#E8DDD0" stroke-width="1"/>
         <line x1="60" y1="140" x2="56" y2="140" stroke="#E8DDD0" stroke-width="1"/>
         <line x1="60" y1="200" x2="56" y2="200" stroke="#E8DDD0" stroke-width="1"/>
-        <text transform="rotate(-90)" x="-140" y="18" font-family="Nunito,sans-serif" font-size="10" fill="#9A8070" font-weight="700" letter-spacing="1">JOB SATISFACTION</text>
-        <path d="M 80,238 C 120,238 150,235 180,225 C 210,215 230,195 250,175 C 270,155 290,110 320,60 C 335,38 350,26 365,26 C 380,26 395,38 410,60 C 440,110 460,155 480,175 C 500,195 520,215 550,225 C 580,235 610,238 650,238" fill="none" stroke="#2DB5A8" stroke-width="3" stroke-linecap="round"/>
-        <path d="M 80,238 C 120,238 150,235 180,225 C 210,215 230,195 250,175 C 270,155 290,110 320,60 C 335,38 350,26 365,26 C 380,26 395,38 410,60 C 440,110 460,155 480,175 C 500,195 520,215 550,225 C 580,235 610,238 650,238 L 650,240 L 80,240 Z" fill="rgba(45,181,168,0.12)"/>
-        <path d="M 290,110 C 310,70 330,40 365,26 C 380,26 395,38 410,60 C 440,100 460,155 480,175 L 480,240 L 290,240 Z" fill="rgba(45,181,168,0.18)"/>
-        <rect x="275" y="-30" width="180" height="44" rx="8" fill="rgba(45,181,168,0.12)" stroke="#2DB5A8" stroke-width="1.2"/>
-        <text x="365" y="-12" text-anchor="middle" font-family="Libre Caslon Text,Georgia,serif" font-size="11" fill="#2DB5A8" font-weight="700">Hand me the vision,</text>
-        <text x="365" y="5" text-anchor="middle" font-family="Libre Caslon Text,Georgia,serif" font-size="11" fill="#2DB5A8" font-weight="700">get out of the way.</text>
-        <text x="360" y="270" text-anchor="middle" font-family="Nunito,sans-serif" font-size="10" fill="#9A8070" font-weight="700" letter-spacing="1">CREATIVE FREEDOM</text>
-        <text x="75" y="258" font-family="Nunito,sans-serif" font-size="9" fill="#9A8070">&lt; Less</text>
-        <text x="618" y="258" font-family="Nunito,sans-serif" font-size="9" fill="#9A8070">More &gt;</text>
+        <text transform="rotate(-90)" x="-140" y="18" font-family="Nunito,sans-serif" font-size="10" fill="#7C6151" font-weight="700" letter-spacing="1">JOB SATISFACTION</text>
+        <path d="M 80,238 C 120,238 150,235 180,225 C 210,215 230,195 250,175 C 270,155 290,110 320,60 C 335,38 350,26 365,26 C 380,26 395,38 410,60 C 440,110 460,155 480,175 C 500,195 520,215 550,225 C 580,235 610,238 650,238" fill="none" stroke="#12C2B0" stroke-width="3" stroke-linecap="round"/>
+        <path d="M 80,238 C 120,238 150,235 180,225 C 210,215 230,195 250,175 C 270,155 290,110 320,60 C 335,38 350,26 365,26 C 380,26 395,38 410,60 C 440,110 460,155 480,175 C 500,195 520,215 550,225 C 580,235 610,238 650,238 L 650,240 L 80,240 Z" fill="rgba(18,194,176,0.12)"/>
+        <path d="M 290,110 C 310,70 330,40 365,26 C 380,26 395,38 410,60 C 440,100 460,155 480,175 L 480,240 L 290,240 Z" fill="rgba(18,194,176,0.18)"/>
+        <rect x="275" y="-30" width="180" height="44" rx="8" fill="rgba(18,194,176,0.12)" stroke="#12C2B0" stroke-width="1.2"/>
+        <text x="365" y="-12" text-anchor="middle" font-family="Libre Caslon Text,Georgia,serif" font-size="11" fill="#12C2B0" font-weight="700">Hand me the vision,</text>
+        <text x="365" y="5" text-anchor="middle" font-family="Libre Caslon Text,Georgia,serif" font-size="11" fill="#12C2B0" font-weight="700">get out of the way.</text>
+        <text x="360" y="270" text-anchor="middle" font-family="Nunito,sans-serif" font-size="10" fill="#7C6151" font-weight="700" letter-spacing="1">CREATIVE FREEDOM</text>
+        <text x="75" y="258" font-family="Nunito,sans-serif" font-size="9" fill="#7C6151">&lt; Less</text>
+        <text x="618" y="258" font-family="Nunito,sans-serif" font-size="9" fill="#7C6151">More &gt;</text>
       </svg>
       <div class="bell-caption">
         <div class="bell-caption-side">Overspecified, over-constrained.<br>Process for its own sake.</div>
@@ -329,7 +330,6 @@
     <p style="margin-top:12px;font-size:.75rem;color:var(--muted);"><img src="CleoInspects.webp" alt="Cleo" loading="lazy" style="height:36px;border-radius:50%;vertical-align:middle;margin-right:6px;">Inspected by Cleo</p>
   </div>
 </footer>
-
 
 </body>
 </html>

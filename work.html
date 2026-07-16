@@ -15,30 +15,31 @@
       --warm:     #FFF5E8;
       --warm2:    #FDECD6;
       --text:     #3D2B1F;
-      --muted:    #9A8070;
+      --muted:    #7C6151;
       --border:   #E8DDD0;
-      --coral:    #E8614F;
-      --coral-lt: #FDEAE7;
-      --teal:     #2DB5A8;
-      --teal-lt:  #E0F5F3;
-      --mustard:  #D4920A;
-      --must-lt:  #FEF4DC;
-      --sage:     #6A9F7A;
-      --sage-lt:  #EBF4EE;
-      --lavender: #8B7BC8;
-      --lav-lt:   #EFECF9;
+      --coral:    #F5563F;
+      --coral-lt: #FBD5CE;
+      --teal:     #12C2B0;
+      --teal-lt:  #C2EFEA;
+      --mustard:  #F0A500;
+      --must-lt:  #FCE7B8;
+      --sage:     #4FB870;
+      --sage-lt:  #CDEBD6;
+      --lavender: #9B6DE8;
+      --lav-lt:   #E4D8F8;
       --denim:    #4A82B0;
-      --denim-lt: #E7F0F7;
+      --denim-lt: #D5E4EF;
       --blush:    #D56A92;
-      --blush-lt: #FBE8F0;
+      --blush-lt: #F7D8E4;
       --citron:   #97A24E;
-      --citron-lt: #F1F3DE;
+      --citron-lt: #E6EAC7;
       --orchid:   #A75FA0;
-      --orchid-lt: #F4E8F2;
-      --coral-dk: #C94B3B;
-      --teal-dk:  #1E7C72;
-      --must-dk:  #A87407;
-      --sage-dk:  #4A7C5A;
+      --orchid-lt: #EAD6E7;
+      --orchid-dk: #7E3F78;
+      --coral-dk: #9B3323;
+      --teal-dk:  #14655D;
+      --must-dk:  #7A5400;
+      --sage-dk:  #3C6349;
       --lav-dk:   #5F4E9C;
       --r: 14px;
     }
@@ -65,9 +66,9 @@
     }
 
     /* ── Hero ─────────────────────────────────────────────── */
-    .hero { background: var(--bg); padding: 44px 28px 40px; position: relative; overflow: hidden; }
-    .hero-inner { max-width: 1080px; margin: 0 auto; position: relative; display: flex; flex-direction: row; align-items: flex-start; justify-content: space-between; gap: 48px; flex-wrap: wrap; }
-    .hero-kicker { display: flex; align-items: center; gap: 14px; font-size: .72rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; color: var(--coral); }
+    .hero { background: var(--bg); padding: 44px 0 40px; position: relative; overflow: hidden; }
+    .hero-inner { max-width: 1080px; margin: 0 auto; padding: 0 28px; position: relative; display: flex; flex-direction: row; align-items: flex-start; justify-content: space-between; gap: 48px; flex-wrap: wrap; }
+    .hero-kicker { display: flex; align-items: center; gap: 14px; font-size: .72rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; color: var(--coral-dk); }
     .hero-kicker-line { width: 40px; height: 1.5px; background: var(--coral); flex-shrink: 0; }
     .hero-title { font-family: 'Libre Caslon Text', Georgia, serif; font-size: clamp(2.4rem, 6vw, 3.8rem); font-weight: 700; line-height: 1.0; letter-spacing: -1px; color: var(--text); flex: 0 1 auto; white-space: nowrap; }
     .hero-title em { font-style: normal; font-weight: 700; color: var(--coral); }
@@ -141,7 +142,7 @@
       box-shadow: 0 2px 10px rgba(0,0,0,.12);
       flex-shrink: 0;
     }
-    .ct-dot.current { box-shadow: 0 0 0 4px rgba(45,181,168,.25), 0 2px 10px rgba(0,0,0,.12); }
+    .ct-dot.current { box-shadow: 0 0 0 4px rgba(18,194,176,.25), 0 2px 10px rgba(0,0,0,.12); }
     .ct-company { font-family: 'Libre Caslon Text', Georgia, serif; font-size: .95rem; font-weight: 700; color: var(--text); margin-bottom: 3px; }
     .ct-role { font-size: .72rem; color: var(--muted); line-height: 1.4; margin-bottom: 5px; max-width: 110px; }
     .ct-yrs { font-size: .65rem; font-weight: 800; letter-spacing: .08em; color: var(--muted); text-transform: uppercase; }
@@ -162,7 +163,7 @@
     .steps-list { display: flex; flex-direction: column; gap: 0; border-left: 2px solid var(--border); padding-left: 1.5rem; }
     .step { padding: .7rem 0; }
     .step-head { display: flex; align-items: baseline; gap: .75rem; margin-bottom: .2rem; }
-    .step-num { font-size: .65rem; font-weight: 700; letter-spacing: .12em; color: var(--coral); width: 1.5rem; flex-shrink: 0; }
+    .step-num { font-size: .65rem; font-weight: 700; letter-spacing: .12em; color: var(--coral-dk); width: 1.5rem; flex-shrink: 0; }
     .step-title { font-size: .88rem; font-weight: 700; color: var(--text); }
     .step-desc { font-size: .82rem; color: var(--muted); line-height: 1.55; padding-left: 2.25rem; }
     .step-outcome { background: var(--coral-lt); border-radius: 8px; padding: .7rem 1rem; margin-top: .8rem; font-size: .88rem; font-weight: 700; color: var(--text); }
@@ -235,10 +236,10 @@
               <h3 class="project-title">eBay Site Security Program</h3>
               <p class="project-lead">eBay Marketplaces' Site Security team had the right people but no shared map — no view of what was being worked on, no way for product teams to know when they needed a security review, no operating rhythm that scaled. I built the map, unblocked the intake, designed how the team showed up as internal consultants — and opened a cross-company conversation with PayPal's security org.</p>
               <div class="project-tags">
-                <span class="ptag" style="background:var(--teal-lt);color:var(--teal)">Process Design</span>
-                <span class="ptag" style="background:var(--teal-lt);color:var(--teal)">Intake &amp; Triage</span>
-                <span class="ptag" style="background:var(--teal-lt);color:var(--teal)">Internal Consulting</span>
-                <span class="ptag" style="background:var(--teal-lt);color:var(--teal)">Cross-org Collaboration</span>
+                <span class="ptag" style="background:var(--teal-lt);color:var(--teal-dk)">Process Design</span>
+                <span class="ptag" style="background:var(--teal-lt);color:var(--teal-dk)">Intake &amp; Triage</span>
+                <span class="ptag" style="background:var(--teal-lt);color:var(--teal-dk)">Internal Consulting</span>
+                <span class="ptag" style="background:var(--teal-lt);color:var(--teal-dk)">Cross-org Collaboration</span>
               </div>
             </div>
             <figure class="case-figure">
@@ -263,10 +264,10 @@
               <h3 class="project-title">Making iTunes' Crashes Countable</h3>
               <p class="project-lead">iTunes was crashing constantly, and my team — the site reliability engineers carrying the pagers — knew exactly why. New features kept shipping, bugs kept accruing, technical debt kept growing. We held post-mortems, but the results lived in Word documents nobody could aggregate or compare. Even the basic question, <em>is downtime getting better or worse?</em>, had no answer: every property measured it differently, every year measured it differently. Leadership kept prioritizing features over bug fixes because the conversation couldn't land on the bugs. The team knew. There was no data backing us up yet.</p>
               <div class="project-tags">
-                <span class="ptag" style="background:var(--teal-lt);color:var(--teal)">Incident Management</span>
-                <span class="ptag" style="background:var(--teal-lt);color:var(--teal)">Dashboard Design</span>
-                <span class="ptag" style="background:var(--teal-lt);color:var(--teal)">Process Creation</span>
-                <span class="ptag" style="background:var(--teal-lt);color:var(--teal)">Business Intelligence</span>
+                <span class="ptag" style="background:var(--teal-lt);color:var(--teal-dk)">Incident Management</span>
+                <span class="ptag" style="background:var(--teal-lt);color:var(--teal-dk)">Dashboard Design</span>
+                <span class="ptag" style="background:var(--teal-lt);color:var(--teal-dk)">Process Creation</span>
+                <span class="ptag" style="background:var(--teal-lt);color:var(--teal-dk)">Business Intelligence</span>
               </div>
             </div>
             <figure class="case-figure">
@@ -291,10 +292,10 @@
               <h3 class="project-title">Kernel Updates for 500,000 Systems</h3>
               <p class="project-lead">At Apple, kernel-update tickets generated themselves by the hundred every day. The information that mattered lived inside spreadsheets attached to each ticket — outdated by the time anyone opened them, impossible to scan. Most managers had given up trying to act on them. Across 500,000 systems and 40+ engineering groups, the work was happening in the dark, and the people responsible for it were burnt out. I pulled on three threads at once.</p>
               <div class="project-tags">
-                <span class="ptag" style="background:var(--teal-lt);color:var(--teal)">Process Reinvention</span>
-                <span class="ptag" style="background:var(--teal-lt);color:var(--teal)">Automation</span>
-                <span class="ptag" style="background:var(--teal-lt);color:var(--teal)">Business Intelligence</span>
-                <span class="ptag" style="background:var(--teal-lt);color:var(--teal)">Cross-functional Teams</span>
+                <span class="ptag" style="background:var(--teal-lt);color:var(--teal-dk)">Process Reinvention</span>
+                <span class="ptag" style="background:var(--teal-lt);color:var(--teal-dk)">Automation</span>
+                <span class="ptag" style="background:var(--teal-lt);color:var(--teal-dk)">Business Intelligence</span>
+                <span class="ptag" style="background:var(--teal-lt);color:var(--teal-dk)">Cross-functional Teams</span>
               </div>
             </div>
             <figure class="case-figure">
@@ -325,7 +326,7 @@
         <div>
           <h3 class="project-title"><a href="gardens.html" style="color:inherit;text-decoration:none;border-bottom:2px solid var(--sage);">Secret Gardens of San Francisco</a></h3>
           <p class="project-lead">Exploring and mapping the little-known public spaces hidden in downtown San Francisco. A love letter to the city — because understanding a place is its own kind of project management.</p>
-          <a href="gardens.html" style="display:inline-block;margin-top:.75rem;font-size:.82rem;font-weight:800;color:var(--sage);text-decoration:none;">Explore the map →</a>
+          <a href="gardens.html" style="display:inline-block;margin-top:.75rem;font-size:.82rem;font-weight:800;color:var(--sage-dk);text-decoration:none;">Explore the map →</a>
         </div>
       </div>
 
@@ -333,7 +334,7 @@
         <div>
           <h3 class="project-title"><a href="probability.html" style="color:inherit;text-decoration:none;border-bottom:2px solid var(--mustard);">Conditional Probability for Normal Humans</a></h3>
           <p class="project-lead">If you test positive for malaria, how likely is it you actually have malaria? Many doctors get this wrong. An explanation without formulas — because making complex ideas accessible to decision-makers is the job.</p>
-          <a href="probability.html" style="display:inline-block;margin-top:.75rem;font-size:.82rem;font-weight:800;color:var(--mustard);text-decoration:none;">Read the explainer →</a>
+          <a href="probability.html" style="display:inline-block;margin-top:.75rem;font-size:.82rem;font-weight:800;color:var(--must-dk);text-decoration:none;">Read the explainer →</a>
         </div>
       </div>
 
@@ -341,7 +342,7 @@
         <div>
           <h3 class="project-title"><a href="unicorns.html" style="color:inherit;text-decoration:none;border-bottom:2px solid var(--teal);">Chasing Unicorns for Pride</a></h3>
           <p class="project-lead">In honor of Pride, I dug into Google searches for the word "unicorn." When were these searches most popular, where, and why? The answer surprised me.</p>
-          <a href="unicorns.html" style="display:inline-block;margin-top:.75rem;font-size:.82rem;font-weight:800;color:var(--teal);text-decoration:none;">Follow the search →</a>
+          <a href="unicorns.html" style="display:inline-block;margin-top:.75rem;font-size:.82rem;font-weight:800;color:var(--teal-dk);text-decoration:none;">Follow the search →</a>
         </div>
       </div>
 
