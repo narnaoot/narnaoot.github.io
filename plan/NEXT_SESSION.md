@@ -1,5 +1,31 @@
 # Next Session Handoff
 
+## ⚠️ PAUSED (Jul 16, usage) — deploy lag + repo cleanup
+
+### 1. patterns.html deploy is stuck one commit behind
+- **master is correct** — verified `git show origin/master:patterns.html` has NO bell curve (`sweet spot`/`bell-wrap`/`Catherine Madden` absent) and DOES have `<h2>Microchipping Sheep</h2>`. The work is safe; commit `151737c` has it.
+- **Symptom:** both n4bil.com and narnaoot.github.io still show the old "My Professional Sweet Spot" bell curve on Patterns, **while every other change from today IS live.**
+- **Diagnosis:** NOT a Jekyll/build failure (other changes deployed) and NOT browser cache (persists in incognito). The GitHub Pages deploy is stuck at an earlier commit — almost certainly `68045e2` (the whiteboard-photo commit, which still had the bell curve; the curve wasn't removed until the next commit `151737c`). So the last commit's deploy hasn't propagated / that one build lagged.
+- **Env facts:** custom domain CNAME = `n4bil.com`; no `_config.yml`, no `.nojekyll` (plain static site, Jekyll running by default but building fine). From the sandbox the egress proxy 403s direct fetches of the live site and the GitHub Actions API 503s, so build status must be checked from a browser.
+- **Next steps (in order):**
+  1. This doc commit re-triggers a Pages build of latest master — after it lands, hard-refresh Patterns; the Microchipping section should appear.
+  2. If not: repo → **Settings → Pages** (confirm source = Deploy from branch `master` /root) and **Actions** tab → the "pages build and deployment" run for `151737c` — **Re-run** it if failed/stuck.
+  3. If it recurs, add a root **`.nojekyll`** file (correct config for this static HTML site) to take Jekyll out of the path.
+
+### 2. Repo cleanup — audit done, ready to execute (do NOT rewrite history)
+Repo is **45 MB**; the live site (7 HTML + 14 webp + `Monogram.svg` + `icons/` + `CNAME`) is only ~2–3 MB. Everything below is unused by the site and stays recoverable in git history after deletion.
+- **Tier 1 (safe to delete — junk/superseded, unreferenced):**
+  - `pages_with_links/` — 2.6 MB, 5 files (old LinkedIn HTML exports; also the colon/em-dash filenames).
+  - `original_version/` — 316 KB, 11 files (pre-redesign site versions).
+  - Root orphan PNGs — 8.8 MB: `ConstellationPainted.png`, `ThingsILove.png`, `lighthouse.png`, `ac-river-scene.png`, `avatar.png`.
+- **Tier 2 (Nabil's call — source/reference, unused by site):**
+  - `inspiration_samples/` — **32 MB**, 46 files (reference imagery + hi-res sources of the painted illustrations; site uses the webp versions).
+  - `inspiration_scenes/` (4 KB), `linked_in_profile.pdf` (60 KB).
+- **Keep:** 7 live HTML, all 14 referenced `.webp`, `Monogram.svg`, `icons/`, `CNAME`, `README.md`, `plan/`.
+- **Method when resuming:** grep each candidate against the live HTML to confirm it's unreferenced, delete in logical commits on master (one per group). The live site is unaffected because nothing referenced is touched. Tier 1 + Tier 2 takes the tree from 45 MB → ~2–3 MB.
+
+---
+
 ## AI-cliché copy pass (Jul 16 2026 — in progress)
 
 Going through the live site's prose to soften LLM/AI tells (over-tidy rhetoric, stacked triads, staccato fragments, forced thematic refrains, em-dash overuse, buzzy abstractions). Working one item at a time; each fix is its own commit (code + this log entry) pushed straight to `master`.
