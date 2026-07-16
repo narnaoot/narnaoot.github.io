@@ -1,5 +1,16 @@
 # Next Session Handoff
 
+## AI-cliché copy pass (Jul 16 2026 — in progress)
+
+Going through the live site's prose to soften LLM/AI tells (over-tidy rhetoric, stacked triads, staccato fragments, forced thematic refrains, em-dash overuse, buzzy abstractions). Working one item at a time; each fix is its own commit (code + this log entry) pushed straight to `master`.
+
+**The tells inventory (from the review):** (1) "not because A, but because B" reversal · (2) stacked rule-of-three triads · (3) anaphora · (4) staccato fragments · (5) recurring "instinct" through-line · (6) "translate/make complexity legible" repetition · (7) "0 → 1" startup jargon + "Building what doesn't exist yet" signature phrase · (8) em-dash as default connective · (9) blog clichés ("a love letter to [X]", "is its own kind of [X]", "is the job") · (10) "[adverb] curious" trait · (11) filler mic-drop closers ("Each project tells a story.", "It was a triumph.", "Go forth and enjoy.") · (12) buzzy verb phrases ("unblocked the intake", "operating rhythm that scaled", "reverse burnout"). Left alone by design: the Brianna pull-quote (attributed testimonial) and the Mary Salome pillars.
+
+**Done:**
+- **#1 — "not because A, but because B" (About teaching vignette).** ✅ commit `1b5cc10`. Rewrote the "One More Thing" vignette from the abstract construction into a concrete method (build a hands-on exercise that starts simple and layers up) with two real examples — the hour-long intro to SQL for the Saint Mary's cohort, and the SFMTA Power BI power user group (row-level access controls demo). Reframed so teaching reads as an informal, recurring practice, not a formal role ("I've never had 'teacher' in a job title, but…"), and added the standing invitation to teach in the program (honestly noted as not-yet-taken). This also removed the #5 "translating complexity until it lands" instance and the #5-adjacent "instinct" refrain from that section. Dropped along the way: the inner vignette label, the nonprofit-consulting aside, and the four-years line.
+
+---
+
 ## Current state (Jul 16 2026)
 
 Palette-brightening + readability pass across all seven live pages (design handed off from Claude Design; merged to master, commit `d9b3435`).
