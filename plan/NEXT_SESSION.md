@@ -12,17 +12,18 @@
   2. If not: repo → **Settings → Pages** (confirm source = Deploy from branch `master` /root) and **Actions** tab → the "pages build and deployment" run for `151737c` — **Re-run** it if failed/stuck.
   3. If it recurs, add a root **`.nojekyll`** file (correct config for this static HTML site) to take Jekyll out of the path.
 
-### 2. Repo cleanup — audit done, ready to execute (do NOT rewrite history)
-Repo is **45 MB**; the live site (7 HTML + 14 webp + `Monogram.svg` + `icons/` + `CNAME`) is only ~2–3 MB. Everything below is unused by the site and stays recoverable in git history after deletion.
-- **Tier 1 (safe to delete — junk/superseded, unreferenced):**
-  - `pages_with_links/` — 2.6 MB, 5 files (old LinkedIn HTML exports; also the colon/em-dash filenames).
-  - `original_version/` — 316 KB, 11 files (pre-redesign site versions).
-  - Root orphan PNGs — 8.8 MB: `ConstellationPainted.png`, `ThingsILove.png`, `lighthouse.png`, `ac-river-scene.png`, `avatar.png`.
-- **Tier 2 (Nabil's call — source/reference, unused by site):**
-  - `inspiration_samples/` — **32 MB**, 46 files (reference imagery + hi-res sources of the painted illustrations; site uses the webp versions).
-  - `inspiration_scenes/` (4 KB), `linked_in_profile.pdf` (60 KB).
-- **Keep:** 7 live HTML, all 14 referenced `.webp`, `Monogram.svg`, `icons/`, `CNAME`, `README.md`, `plan/`.
-- **Method when resuming:** grep each candidate against the live HTML to confirm it's unreferenced, delete in logical commits on master (one per group). The live site is unaffected because nothing referenced is touched. Tier 1 + Tier 2 takes the tree from 45 MB → ~2–3 MB.
+### 2. Repo cleanup — Tier 1 DONE; Tier 2 kept by judgment
+Repo went **45 MB → 34 MB**. Live site verified intact after each removal (all referenced `.webp`/`Monogram.svg`/`icons/`/`CNAME` present). Do NOT rewrite history.
+- **Tier 1 — DONE** (commits `42ece32`, `b16cd58`, `264ffe7`, each grepped-safe + pushed):
+  - removed `pages_with_links/` (2.6 MB, old LinkedIn HTML exports incl. the colon/em-dash filenames),
+  - removed `original_version/` (316 KB, pre-redesign site versions),
+  - removed 5 root orphan PNGs (8.8 MB): `ConstellationPainted.png`, `ThingsILove.png`, `lighthouse.png`, `ac-river-scene.png`, `avatar.png`.
+  - All recoverable from git history.
+- **Tier 2 — KEPT (Nabil stepped away, used my judgment to leave it):**
+  - `inspiration_samples/` (**32 MB**, 46 files — hi-res SOURCE art for the painted illustrations + reference imagery), `inspiration_scenes/` (4 KB), `linked_in_profile.pdf` (60 KB).
+  - Why kept: these are Nabil's own irreplaceable source files (not mine to delete), the site doesn't need them but there's no real cost to 32 MB in a personal repo, and unilaterally deleting source art while he's away is the wrong trade even with history preserving it. Wants his eyes.
+  - To finish if confirmed: `git rm -r --quiet inspiration_samples inspiration_scenes && git rm --quiet linked_in_profile.pdf && git commit && git push` → tree drops to ~2 MB. NOTE: several `inspiration_samples/` files are the hi-res originals behind the live webp (CareerRiver→CareerJourneyPainted, AboutHero, ThreePillars, Testimonials→WordClouds, Education→EducationWalkPainted, ProfilePicture.jpeg→ProfilePicture) — those at least stay in history.
+- **Keep (essential):** 7 live HTML, all 14 referenced `.webp`, `Monogram.svg`, `icons/`, `CNAME`, `README.md`, `plan/`.
 
 ---
 
