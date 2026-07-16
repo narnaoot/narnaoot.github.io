@@ -41,6 +41,7 @@
       --must-dk:  #7A5400;
       --sage-dk:  #3C6349;
       --lav-dk:   #5F4E9C;
+      --blush-dk: #8E3455;
       --r: 14px;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -96,15 +97,18 @@
     @media (max-width: 640px) { .dt-drano { grid-template-columns: 1fr; } }
     .panel { padding: 3rem; }
     .panel-tape { background: var(--teal-lt); }
-    .panel-drain { background: var(--teal-lt); border-left: 1.5px solid var(--border); }
+    .panel-drain { background: var(--blush-lt); border-left: 1.5px solid var(--border); }
     @media (max-width: 640px) { .panel-drain { border-left: none; border-top: 1.5px solid var(--border); } }
-    .panel-title { font-family: 'Libre Caslon Text', Georgia, serif; font-size: 1.8rem; font-weight: 700; color: var(--text); margin-bottom: .4rem; }
+    .panel-head { display: flex; align-items: center; justify-content: space-between; gap: 1.25rem; margin-bottom: 1.5rem; }
+    .panel-img { width: 120px; height: auto; flex: none; display: block; }
+    @media (max-width: 560px) { .panel-head { flex-direction: column; align-items: flex-start; gap: 1rem; } .panel-img { width: 96px; } }
+    .panel-title { font-family: 'Libre Caslon Text', Georgia, serif; font-size: 1.8rem; font-weight: 700; color: var(--text); margin-bottom: .3rem; }
     .panel-tape .panel-title { color: var(--teal-dk); }
-    .panel-drain .panel-title { color: var(--teal-dk); }
-    .panel-sub { font-size: .84rem; color: var(--muted); margin-bottom: 1.5rem; font-weight: 600; }
+    .panel-drain .panel-title { color: var(--blush-dk); }
+    .panel-sub { font-size: .84rem; color: var(--muted); margin-bottom: 0; font-weight: 600; }
     .panel-tags { display: flex; flex-wrap: wrap; gap: 8px; }
     .ptag-tape { background: rgba(18,194,176,.12); color: var(--teal-dk); border: 1px solid rgba(18,194,176,.22); border-radius: 3px; padding: 4px 12px; font-size: .75rem; font-weight: 600; }
-    .ptag-drain { background: rgba(18,194,176,.12); color: var(--teal-dk); border: 1px solid rgba(18,194,176,.22); border-radius: 3px; padding: 4px 12px; font-size: .75rem; font-weight: 600; }
+    .ptag-drain { background: rgba(213,106,146,.14); color: var(--blush-dk); border: 1px solid rgba(213,106,146,.30); border-radius: 3px; padding: 4px 12px; font-size: .75rem; font-weight: 600; }
     .panel-note { margin-top: 1.5rem; font-size: .84rem; color: var(--muted); font-style: italic; line-height: 1.6; }
 
     /* ── Whiteboard ───────────────────────────────────────── */
@@ -215,8 +219,13 @@
     </div>
     <div class="dt-drano">
       <div class="panel panel-tape">
-        <div class="panel-title">Duct Tape</div>
-        <div class="panel-sub">When something doesn't hold together — I build the structure</div>
+        <div class="panel-head">
+          <div>
+            <div class="panel-title">Duct Tape</div>
+            <div class="panel-sub">When something doesn't hold together — I build the structure</div>
+          </div>
+          <img class="panel-img" src="duct_tape.webp" alt="A roll of duct tape" loading="lazy" />
+        </div>
         <div class="panel-tags">
           <span class="ptag-tape">Siloed teams</span>
           <span class="ptag-tape">Inconsistent data</span>
@@ -227,8 +236,13 @@
         </div>
       </div>
       <div class="panel panel-drain">
-        <div class="panel-title">Drano</div>
-        <div class="panel-sub">When something isn't moving — I clear the path</div>
+        <div class="panel-head">
+          <div>
+            <div class="panel-title">Drano</div>
+            <div class="panel-sub">When something isn't moving — I clear the path</div>
+          </div>
+          <img class="panel-img" src="drano.webp" alt="A bottle of drain cleaner" loading="lazy" />
+        </div>
         <div class="panel-tags">
           <span class="ptag-drain">Stuck workflows</span>
           <span class="ptag-drain">Manual bottlenecks</span>
