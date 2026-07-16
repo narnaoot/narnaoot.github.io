@@ -1,5 +1,23 @@
 # Next Session Handoff
 
+## Current state (Jul 16 2026)
+
+Palette-brightening + readability pass across all seven live pages (design handed off from Claude Design; merged to master, commit `d9b3435`).
+
+**Color tokens — every page.** Brightened the accent hues and their tints in each `:root` (coral `#E8614F`→`#F5563F`, teal `#2DB5A8`→`#12C2B0`, mustard `#D4920A`→`#F0A500`, sage `#6A9F7A`→`#4FB870`, lavender `#8B7BC8`→`#9B6DE8`, plus denim/blush/citron/orchid tints). Darkened `--muted` `#9A8070`→`#7C6151` and deepened the text deep-cuts (`--coral-dk` `#9B3323`, `--teal-dk` `#14655D`, `--must-dk` `#7A5400`, `--sage-dk` `#3C6349`) so every colored-text and text-on-tint pairing clears WCAG AA. Added `--orchid-dk #7E3F78` to every page's `:root`. `FINAL_ROOT.css` from the handoff is the canonical token block.
+
+**Readability rule applied site-wide.** Bright teal/mustard/sage used as *text* (wordmarks, kickers, hero-title `em`, back-links, CTAs, captions, edu-degree/honors, side-fact labels) switched to their `-dk` cut; the same hues used as *fills, borders, kicker lines, tint backgrounds, image borders* stayed bright. Large display words that pass AA-large stayed bright ("infinite" on Home, "Work" on Work). White-on-accent button fills (teal/mustard/sage/lavender pages) use the `-dk` cut so the label stays legible.
+
+**Per-page accent chrome.** The masthead wordmark, nav underline, footer emphasis, and footer/LinkedIn button now match each page's own accent: Home **orchid**, Work **coral**, Patterns **teal**, About **lavender** (category chips too), Gardens **sage**, Probability **mustard**, Unicorns **teal**. Coral was removed from every page except Work — it now lives only there.
+
+**Hero alignment fix (main pages only).** On index/work/patterns/about the horizontal padding moved off `.hero` onto `.hero-inner` (e.g. `.hero { padding: 48px 0 48px }` + `.hero-inner { padding: 0 28px }`), so hero titles line up with the page body below. The note-hero read pages (gardens/probability/unicorns) were intentionally left alone.
+
+**Tableau pages kept their live embeds.** gardens.html and unicorns.html still use the real `tableauPlaceholder` + `<object>` + init `<script>` embed (not the simplified static-image `<img>` in the design references). Only tokens and accent colors were touched there.
+
+**To verify on the live site:** the handoff's AA contrast numbers were computed from the spec, not re-measured in-browser here — worth an eyeball on the deployed site, especially white-on-`-dk` buttons and deep-accent text on tint cards.
+
+---
+
 ## Current state (Jul 15 2026)
 
 Accuracy and polish pass across all four live pages (merged via PRs #94–#99).
