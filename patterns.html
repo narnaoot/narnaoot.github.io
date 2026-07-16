@@ -107,6 +107,13 @@
     .ptag-drain { background: rgba(18,194,176,.12); color: var(--teal-dk); border: 1px solid rgba(18,194,176,.22); border-radius: 3px; padding: 4px 12px; font-size: .75rem; font-weight: 600; }
     .panel-note { margin-top: 1.5rem; font-size: .84rem; color: var(--muted); font-style: italic; line-height: 1.6; }
 
+    /* ── Whiteboard ───────────────────────────────────────── */
+    .wb { background: var(--surface); border: 1.5px solid var(--border); border-radius: var(--r); padding: 40px 40px 34px; max-width: 780px; }
+    .wb p { font-size: 1rem; color: var(--text); line-height: 1.8; }
+    .wb p + p { margin-top: 1.1rem; }
+    .wb strong { font-weight: 800; }
+    .wb em { font-style: italic; font-weight: 700; color: var(--teal-dk); }
+
     /* ── Bell curve section ───────────────────────────────── */
     .bell-wrap {
       background: var(--surface);
@@ -231,6 +238,19 @@
           <span class="ptag-drain">Technical debt blocking features</span>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Everything Starts on a Whiteboard -->
+  <section>
+    <div class="section-h">
+      <h2>Everything Starts on a Whiteboard</h2>
+      <span class="section-tag">thinking out loud</span>
+    </div>
+    <div class="wb">
+      <p><strong>I can't work without a whiteboard.</strong> When I got to SFMTA I talked my director into putting one in my cubicle, and in meetings I'm usually the person who's drifted over to it and started sketching — lists, flowcharts, deliberately ugly diagrams. Getting the shape of a problem where everyone can see it and poke at it is most of the battle.</p>
+      <p>My rule of thumb is the line usually attributed to Einstein: <em>make it as simple as possible, but no simpler.</em> A diagram earns its spot on the board by being the simplest version that's still honest.</p>
+      <p>At Apple, one board carried a sketch of the high-availability backup system for our databases for years. The one in my cubicle now has a single line with two ends. One end says <strong>YEEHAW</strong> — cowboys on horseback with their guns out, which is roughly where ops teams like to live. The other says <strong>BIG BROTHER</strong>. A good part of my job is nudging the marker one step from the cowboy end toward the middle, while reassuring everyone I have zero interest in the other end. I'm not building a surveillance state. I just want to put microtags on the sheep.</p>
     </div>
   </section>
 
