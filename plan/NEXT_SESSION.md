@@ -37,7 +37,17 @@ Goal: kill the ~250-line inline `<style>` block duplicated across all 7 pages.
 - **The one wrinkle — per-page accent.** Each page hard-codes a different accent var for the wordmark `.last`, nav `::after`, footer/button, and hero `em`/kicker. Two ways:
   - (a) add a body class per page (`<body class="accent-orchid">` …) and key the accent rules off it in the shared CSS — fully centralizes; or
   - (b) link `styles.css` for the shared bulk and keep a *small* per-page inline `<style>` for just the accent overrides + page-unique sections. **Recommend (b) for a first pass** (lower risk, less rewiring).
-- **Execution / safety:** create `styles.css`; per page, replace *only* the shared portion of the inline block with `<link rel="stylesheet" href="styles.css">`, leave the page-specific remainder inline. Do **one page first** (a note page — smallest), screenshot before/after to confirm pixel-identical, then roll to the rest verifying each. Commit per page or in small batches. This is why it wants a live verify pass together — a single missed selector or specificity gap can shift the whole page.
+- **Execution / safety:** create `styles.css`; per page, replace *only* the shared portion of the inline block with `<link rel="stylesheet" href="css/styles.css">`, leave the page-specific remainder inline. Do **one page first** (a note page — smallest), screenshot before/after to confirm pixel-identical, then roll to the rest verifying each. Commit per page or in small batches. A single missed selector or specificity gap can shift the whole page, so screenshot every page.
+
+### PLANNED — assets/-folder reorg (bundle with the CSS refactor)
+Root is cluttered (7 HTML + 14 loose `.webp` + `Monogram.svg` + `icons/`). Move assets into folders:
+```
+assets/img/     ← the 14 .webp + Monogram.svg
+assets/icons/   ← book/cats/house/tea .png
+css/styles.css  ← the extracted shared CSS
+```
+- **Stays at root** (GitHub Pages / URL stability): the 7 HTML pages, `CNAME`, `README.md`.
+- This rewrites every image `src` in all 7 pages (`src="AboutHero.webp"` → `src="assets/img/AboutHero.webp"`, `src="icons/book.png"` → `src="assets/icons/book.png"`, `Monogram.svg` → `assets/img/Monogram.svg`) — so do it in the **same verified pass** as the CSS extraction (both touch every page). Verify: grep that no root-relative image refs remain + screenshot each page so every image still loads. Update the README asset paths to match.
 
 ---
 
