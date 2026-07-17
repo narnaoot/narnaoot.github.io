@@ -55,9 +55,9 @@ All illustrations are WebP (converted from source PNG/JPEG; the originals remain
 | `microchip.webp` | Patterns — Microchipping Sheep (whiteboard photo) |
 | `icons/*.png` | Home chips + About portrait icons (book, cats, house, tea) |
 
-`linked_in_profile.pdf` is a source reference, not used by the site.
+The repo now holds only what the live site uses. Prior source PNG/JPEG originals, reference imagery (`inspiration_samples/`), and old site versions were removed from the working tree and remain in git history.
 
 ## Working notes
 
-- `plan/NEXT_SESSION.md` — running handoff / review log. Current open items: confirm the Patterns page finished deploying, optional Tier-2 asset cleanup (`inspiration_samples/`), and the remaining copy-polish pass.
-- `plan/Inspiration.md` — design research and reference designers.
+- `plan/NEXT_SESSION.md` — running handoff / review log and current open items.
+- `plan/Inspiration.md` — design research and reference designers (its image links point at the removed `inspiration_samples/`; the notes still read fine, images are in git history).
