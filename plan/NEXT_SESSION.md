@@ -39,15 +39,9 @@ Goal: kill the ~250-line inline `<style>` block duplicated across all 7 pages.
   - (b) link `styles.css` for the shared bulk and keep a *small* per-page inline `<style>` for just the accent overrides + page-unique sections. **Recommend (b) for a first pass** (lower risk, less rewiring).
 - **Execution / safety:** create `styles.css`; per page, replace *only* the shared portion of the inline block with `<link rel="stylesheet" href="css/styles.css">`, leave the page-specific remainder inline. Do **one page first** (a note page — smallest), screenshot before/after to confirm pixel-identical, then roll to the rest verifying each. Commit per page or in small batches. A single missed selector or specificity gap can shift the whole page, so screenshot every page.
 
-### PLANNED — assets/-folder reorg (bundle with the CSS refactor)
-Root is cluttered (7 HTML + 14 loose `.webp` + `Monogram.svg` + `icons/`). Move assets into folders:
-```
-assets/img/     ← the 14 .webp + Monogram.svg
-assets/icons/   ← book/cats/house/tea .png
-css/styles.css  ← the extracted shared CSS
-```
-- **Stays at root** (GitHub Pages / URL stability): the 7 HTML pages, `CNAME`, `README.md`.
-- This rewrites every image `src` in all 7 pages (`src="AboutHero.webp"` → `src="assets/img/AboutHero.webp"`, `src="icons/book.png"` → `src="assets/icons/book.png"`, `Monogram.svg` → `assets/img/Monogram.svg`) — so do it in the **same verified pass** as the CSS extraction (both touch every page). Verify: grep that no root-relative image refs remain + screenshot each page so every image still loads. Update the README asset paths to match.
+### DONE ✅ — assets/-folder reorg (Jul 17)
+Moved assets into `assets/img/` (14 `.webp` + `Monogram.svg`) and `assets/icons/` (book/cats/house/tea `.png`); rewrote every image `src` across all 7 pages. Verified: no root-relative image refs remain, every referenced asset exists on disk, and all local images load on all 7 pages (headless-browser check with scroll to trigger lazy loads). Root now holds only the 7 HTML + `CNAME` + `README.md`; README asset paths updated.
+- **Still to come:** the shared-stylesheet refactor above. The assets/ + `css/` structure is ready — when the CSS is extracted it lands at `css/styles.css` and pages link `href="css/styles.css"`.
 
 ---
 

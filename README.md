@@ -39,21 +39,24 @@ Fonts: **Libre Caslon Text** (serif headings) + **Nunito** (body).
 
 ## Assets
 
-All illustrations are WebP (converted from source PNG/JPEG; the originals remain in git history). Root images:
+Assets live under `assets/` (the HTML pages, `CNAME`, and `README.md` stay at root). All illustrations are WebP (converted from source PNG/JPEG; the originals remain in git history).
 
-| File | Where used |
-|------|------------|
-| `Monogram.svg` | masthead logo (all pages) |
-| `ProfilePicture.webp` | Home + About hero avatar |
-| `CleoInspects.webp` | "Inspected by Cleo" footer (all pages) |
-| `CareerJourneyPainted.webp` | Work — career through-line |
-| `LighthousePainted.webp` | Work — eBay case study |
-| `QuietedPagersPainted.webp` | Work — iTunes case study; also the Home teaser thumbnail |
-| `KernelCleanupPainted.webp` | Work — Kernel case study |
-| `AboutHero.webp`, `ThreePillarsPainted.webp`, `TeachingScene.webp`, `WordCloudsPainted.webp`, `EducationWalkPainted.webp` | About section thumbnails |
-| `duct_tape.webp`, `drano.webp` | Patterns — Two Kinds of Problems panels |
-| `microchip.webp` | Patterns — Microchipping Sheep (whiteboard photo) |
-| `icons/*.png` | Home chips + About portrait icons (book, cats, house, tea) |
+- **`assets/img/`** — the 14 `.webp` illustrations + `Monogram.svg`:
+
+  | File | Where used |
+  |------|------------|
+  | `Monogram.svg` | masthead logo (all pages) |
+  | `ProfilePicture.webp` | Home + About hero avatar |
+  | `CleoInspects.webp` | "Inspected by Cleo" footer (all pages) |
+  | `CareerJourneyPainted.webp` | Work — career through-line |
+  | `LighthousePainted.webp` | Work — eBay case study |
+  | `QuietedPagersPainted.webp` | Work — iTunes case study; also the Home teaser thumbnail |
+  | `KernelCleanupPainted.webp` | Work — Kernel case study |
+  | `AboutHero.webp`, `ThreePillarsPainted.webp`, `TeachingScene.webp`, `WordCloudsPainted.webp`, `EducationWalkPainted.webp` | About section thumbnails |
+  | `duct_tape.webp`, `drano.webp` | Patterns — Two Kinds of Problems panels |
+  | `microchip.webp` | Patterns — Microchipping Sheep (whiteboard photo) |
+
+- **`assets/icons/`** — `book.png`, `cats.png`, `house.png`, `tea.png` (Home chips + About portrait icons).
 
 The repo now holds only what the live site uses. Prior source PNG/JPEG originals, reference imagery (`inspiration_samples/`), and old site versions were removed from the working tree and remain in git history.
 
