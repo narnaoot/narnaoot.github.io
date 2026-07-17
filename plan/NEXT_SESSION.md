@@ -1,42 +1,47 @@
 # Next Session Handoff
 
-## ⚠️ PAUSED (Jul 16, usage) — deploy lag + repo cleanup
+## Status & next steps (updated Jul 17)
 
-### 1. patterns.html deploy is stuck one commit behind
-- **master is correct** — verified `git show origin/master:patterns.html` has NO bell curve (`sweet spot`/`bell-wrap`/`Catherine Madden` absent) and DOES have `<h2>Microchipping Sheep</h2>`. The work is safe; commit `151737c` has it.
-- **Symptom:** both n4bil.com and narnaoot.github.io still show the old "My Professional Sweet Spot" bell curve on Patterns, **while every other change from today IS live.**
-- **Diagnosis:** NOT a Jekyll/build failure (other changes deployed) and NOT browser cache (persists in incognito). The GitHub Pages deploy is stuck at an earlier commit — almost certainly `68045e2` (the whiteboard-photo commit, which still had the bell curve; the curve wasn't removed until the next commit `151737c`). So the last commit's deploy hasn't propagated / that one build lagged.
-- **Env facts:** custom domain CNAME = `n4bil.com`; no `_config.yml`, no `.nojekyll` (plain static site, Jekyll running by default but building fine). From the sandbox the egress proxy 403s direct fetches of the live site and the GitHub Actions API 503s, so build status must be checked from a browser.
-- **Next steps (in order):**
-  1. This doc commit re-triggers a Pages build of latest master — after it lands, hard-refresh Patterns; the Microchipping section should appear.
-  2. If not: repo → **Settings → Pages** (confirm source = Deploy from branch `master` /root) and **Actions** tab → the "pages build and deployment" run for `151737c` — **Re-run** it if failed/stuck.
-  3. If it recurs, add a root **`.nojekyll`** file (correct config for this static HTML site) to take Jekyll out of the path.
+### Repo cleanup — DONE ✅ (45 MB → 1.5 MB)
+- **Tier 1** (`42ece32`, `b16cd58`, `264ffe7`): removed `pages_with_links/` (old LinkedIn HTML exports), `original_version/` (pre-redesign site versions), and 5 orphan root PNGs (`ConstellationPainted`, `ThingsILove`, `lighthouse`, `ac-river-scene`, `avatar`).
+- **Tier 2** (`acba83d`): removed `inspiration_samples/` (32 MB — hi-res illustration sources + reference imagery), `inspiration_scenes/`, `linked_in_profile.pdf`.
+- Every removal grepped-safe (nothing referenced by the live site) and preserved in git history; do NOT rewrite history. README refreshed to match (`c207ef4` + `acba83d`). The tree now holds only what the live site uses.
+- Note: `plan/Inspiration.md`'s image links now point at the removed `inspiration_samples/` — the notes still read fine; images are in git history if ever needed.
+- **Keep set:** 7 live HTML, 14 `.webp`, `Monogram.svg`, `icons/`, `CNAME`, `README.md`, `plan/` (31 files, 1.5 MB total).
 
-### 2. Repo cleanup — Tier 1 DONE; Tier 2 kept by judgment
-Repo went **45 MB → 34 MB**. Live site verified intact after each removal (all referenced `.webp`/`Monogram.svg`/`icons/`/`CNAME` present). Do NOT rewrite history.
-- **Tier 1 — DONE** (commits `42ece32`, `b16cd58`, `264ffe7`, each grepped-safe + pushed):
-  - removed `pages_with_links/` (2.6 MB, old LinkedIn HTML exports incl. the colon/em-dash filenames),
-  - removed `original_version/` (316 KB, pre-redesign site versions),
-  - removed 5 root orphan PNGs (8.8 MB): `ConstellationPainted.png`, `ThingsILove.png`, `lighthouse.png`, `ac-river-scene.png`, `avatar.png`.
-  - All recoverable from git history.
-- **Tier 2 — KEPT (Nabil stepped away, used my judgment to leave it):**
-  - `inspiration_samples/` (**32 MB**, 46 files — hi-res SOURCE art for the painted illustrations + reference imagery), `inspiration_scenes/` (4 KB), `linked_in_profile.pdf` (60 KB).
-  - Why kept: these are Nabil's own irreplaceable source files (not mine to delete), the site doesn't need them but there's no real cost to 32 MB in a personal repo, and unilaterally deleting source art while he's away is the wrong trade even with history preserving it. Wants his eyes.
-  - To finish if confirmed: `git rm -r --quiet inspiration_samples inspiration_scenes && git rm --quiet linked_in_profile.pdf && git commit && git push` → tree drops to ~2 MB. NOTE: several `inspiration_samples/` files are the hi-res originals behind the live webp (CareerRiver→CareerJourneyPainted, AboutHero, ThreePillars, Testimonials→WordClouds, Education→EducationWalkPainted, ProfilePicture.jpeg→ProfilePicture) — those at least stay in history.
-- **Keep (essential):** 7 live HTML, all 14 referenced `.webp`, `Monogram.svg`, `icons/`, `CNAME`, `README.md`, `plan/`.
+**Recovery map** — nothing is lost; check out the "last present at" commit to restore any file (`git checkout <sha> -- <path>`). Cleanup ran Jul 16 (Tier 1) → Jul 17 (Tier 2).
 
-### 3. README refreshed (commit `c207ef4`)
-Root `README.md` was badly stale — rewrote it to match reality: current page structure incl. the Microchipping Sheep section, per-page accents, the brightened palette + `-dk` cut tokens, the correct fonts (**Libre Caslon Text** + Nunito, not Playfair), the real WebP asset inventory (added `duct_tape`/`drano`/`microchip`), and dropped the large inline changelog in favor of a pointer here. Removed references to deleted `original_version/` and the removed root PNGs.
+| Removed | When | Last present at | Recover |
+|---|---|---|---|
+| `pages_with_links/` | Tier 1, Jul 16 | `6053f4a` | `git checkout 6053f4a -- pages_with_links` |
+| `original_version/` | Tier 1, Jul 16 | `42ece32` | `git checkout 42ece32 -- original_version` |
+| root PNGs: `ConstellationPainted`, `ThingsILove`, `lighthouse`, `ac-river-scene`, `avatar` | Tier 1, Jul 16 | `b16cd58` | `git checkout b16cd58 -- <file>` |
+| `inspiration_samples/` + `inspiration_scenes/` + `linked_in_profile.pdf` | Tier 2, Jul 17 | `e150f1b` | `git checkout e150f1b -- inspiration_samples inspiration_scenes linked_in_profile.pdf` |
+| `microchip.png` (whiteboard source) | Jul 16 | `35527fa` | `git checkout 35527fa -- microchip.png` |
+| `drano.png`, `duct_tape.png` (panel sources) | Jul 16 | `84ad87c` | `git checkout 84ad87c -- drano.png duct_tape.png` |
+| `microchipping_sheep.png` (redraw source) | Jul 17 | `9f73909` | `git checkout 9f73909 -- microchipping_sheep.png` |
 
-### Still open when resuming (need Nabil)
-- **Patterns deploy** — confirm the live site (n4bil.com) now shows "Microchipping Sheep" (my pushes should have re-triggered the Pages build); if not, Settings → Pages / re-run the last build.
-- **Tier 2 cleanup** — delete `inspiration_samples/` (32 MB source art) or keep — Nabil's call.
-- **Copy-polish leftovers** — #11 "It was a triumph.", #10 "stubbornly curious", #4 (staccato), #8 (em-dashes), last of #12 ("reverse burnout").
-- **Optional refactor** — extract the ~250 lines of near-duplicate inline `<style>` shared across all 7 pages into one stylesheet (structural, wants a page-by-page verify pass together).
+The older painted-illustration source originals (removed pre-session, 2026-05-04) also lived in `inspiration_samples/`, so they're recoverable at `e150f1b` too. (`git log --diff-filter=D --stat` lists every deletion if you need more.)
+
+### Patterns deploy — VERIFY on next visit
+- master is correct (Microchipping Sheep in, bell curve out; latest whiteboard art swapped in at `e150f1b`). Earlier symptom: the live site lagged one commit behind on the Pages deploy while everything else showed.
+- **Do:** hard-refresh Patterns on n4bil.com. If it still shows the old bell curve → repo **Settings → Pages** (source = Deploy from branch `master` /root) and **Actions** → re-run the latest "pages build and deployment". If it recurs, add a root **`.nojekyll`** (correct for a plain static site). From the sandbox I can't reach the live site (proxy 403) or the Actions API (503), so this needs a browser.
+
+### NEXT — higher-priority work first (Nabil's steer, Jul 17)
+Copy-cliché cleanup is **PAUSED — this round is done.** There's higher-priority work to tackle first (TBD with Nabil). Remaining cliché items for whenever we return: #11 "It was a triumph.", #10 "stubbornly curious", #4 (staccato fragments), #8 (em-dashes), last of #12 ("reverse burnout"). Full running log in the "AI-cliché copy pass" section below.
+
+### PLANNED — shared-stylesheet refactor
+Goal: kill the ~250-line inline `<style>` block duplicated across all 7 pages.
+- **Genuinely shared → extract to one `styles.css`:** the `:root` token block (identical values on every page), the `*`/`html`/`body` reset, the masthead/nav block, and `.section-h` / `.section-tag`. That's ~60–90 lines × 7 pages of duplication gone.
+- **Per-page (stays page-scoped):** each hero variant (Home grid / Work+Patterns flex / About column / note-hero), page-unique sections (Work case studies; Patterns panels + whiteboard + Microchipping + toolkit; About portrait/pillars/testimonials/timeline; note-page viz/article), and the **signature accent**.
+- **The one wrinkle — per-page accent.** Each page hard-codes a different accent var for the wordmark `.last`, nav `::after`, footer/button, and hero `em`/kicker. Two ways:
+  - (a) add a body class per page (`<body class="accent-orchid">` …) and key the accent rules off it in the shared CSS — fully centralizes; or
+  - (b) link `styles.css` for the shared bulk and keep a *small* per-page inline `<style>` for just the accent overrides + page-unique sections. **Recommend (b) for a first pass** (lower risk, less rewiring).
+- **Execution / safety:** create `styles.css`; per page, replace *only* the shared portion of the inline block with `<link rel="stylesheet" href="styles.css">`, leave the page-specific remainder inline. Do **one page first** (a note page — smallest), screenshot before/after to confirm pixel-identical, then roll to the rest verifying each. Commit per page or in small batches. This is why it wants a live verify pass together — a single missed selector or specificity gap can shift the whole page.
 
 ---
 
-## AI-cliché copy pass (Jul 16 2026 — in progress)
+## AI-cliché copy pass (Jul 16–17 2026 — PAUSED, this round done)
 
 Going through the live site's prose to soften LLM/AI tells (over-tidy rhetoric, stacked triads, staccato fragments, forced thematic refrains, em-dash overuse, buzzy abstractions). Working one item at a time; each fix is its own commit (code + this log entry) pushed straight to `master`.
 
