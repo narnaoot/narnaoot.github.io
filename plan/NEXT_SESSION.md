@@ -25,6 +25,15 @@ Repo went **45 MB → 34 MB**. Live site verified intact after each removal (all
   - To finish if confirmed: `git rm -r --quiet inspiration_samples inspiration_scenes && git rm --quiet linked_in_profile.pdf && git commit && git push` → tree drops to ~2 MB. NOTE: several `inspiration_samples/` files are the hi-res originals behind the live webp (CareerRiver→CareerJourneyPainted, AboutHero, ThreePillars, Testimonials→WordClouds, Education→EducationWalkPainted, ProfilePicture.jpeg→ProfilePicture) — those at least stay in history.
 - **Keep (essential):** 7 live HTML, all 14 referenced `.webp`, `Monogram.svg`, `icons/`, `CNAME`, `README.md`, `plan/`.
 
+### 3. README refreshed (commit `c207ef4`)
+Root `README.md` was badly stale — rewrote it to match reality: current page structure incl. the Microchipping Sheep section, per-page accents, the brightened palette + `-dk` cut tokens, the correct fonts (**Libre Caslon Text** + Nunito, not Playfair), the real WebP asset inventory (added `duct_tape`/`drano`/`microchip`), and dropped the large inline changelog in favor of a pointer here. Removed references to deleted `original_version/` and the removed root PNGs.
+
+### Still open when resuming (need Nabil)
+- **Patterns deploy** — confirm the live site (n4bil.com) now shows "Microchipping Sheep" (my pushes should have re-triggered the Pages build); if not, Settings → Pages / re-run the last build.
+- **Tier 2 cleanup** — delete `inspiration_samples/` (32 MB source art) or keep — Nabil's call.
+- **Copy-polish leftovers** — #11 "It was a triumph.", #10 "stubbornly curious", #4 (staccato), #8 (em-dashes), last of #12 ("reverse burnout").
+- **Optional refactor** — extract the ~250 lines of near-duplicate inline `<style>` shared across all 7 pages into one stylesheet (structural, wants a page-by-page verify pass together).
+
 ---
 
 ## AI-cliché copy pass (Jul 16 2026 — in progress)
