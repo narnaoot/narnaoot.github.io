@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Work — Nabil Arnaoot</title>
+  <meta name="description" content="Selected work: the eBay site security program, making iTunes' crashes countable, kernel updates for 500,000 systems — plus three lighter reads on probability, public gardens, and unicorns." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:       #FFFBF5;
+      --surface:  #FFFFFF;
+      --warm:     #FFF5E8;
+      --warm2:    #FDECD6;
+      --text:     #3D2B1F;
+      --muted:    #7C6151;
+      --border:   #E8DDD0;
+      --coral:    #F5563F;
+      --coral-lt: #FBD5CE;
+      --teal:     #12C2B0;
+      --teal-lt:  #C2EFEA;
+      --mustard:  #F0A500;
+      --must-lt:  #FCE7B8;
+      --sage:     #4FB870;
+      --sage-lt:  #CDEBD6;
+      --lavender: #9B6DE8;
+      --lav-lt:   #E4D8F8;
+      --denim:    #4A82B0;
+      --denim-lt: #D5E4EF;
+      --blush:    #D56A92;
+      --blush-lt: #F7D8E4;
+      --citron:   #97A24E;
+      --citron-lt: #E6EAC7;
+      --orchid:   #A75FA0;
+      --orchid-lt: #EAD6E7;
+      --orchid-dk: #7E3F78;
+      --coral-dk: #9B3323;
+      --teal-dk:  #14655D;
+      --must-dk:  #7A5400;
+      --sage-dk:  #3C6349;
+      --lav-dk:   #5F4E9C;
+      --r: 14px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: 'Nunito', sans-serif; line-height: 1.65; }
+
+    /* ── Nav ──────────────────────────────────────────────── */
+    .masthead { background: #fff; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+    .masthead-inner { max-width: 1080px; margin: 0 auto; padding: 10px 28px; width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .masthead-brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; }
+    .masthead-brand img { display: block; height: 40px; width: auto; }
+    .masthead-name { font-family: 'Libre Caslon Text', Georgia, serif; font-size: 1.35rem; font-weight: 700; color: var(--text); letter-spacing: -.01em; white-space: nowrap; }
+    .masthead-name .last { color: var(--coral); }
+    .masthead-nav { display: flex; gap: 26px; list-style: none; }
+    .masthead-nav a { position: relative; padding: 4px 0; font-size: .78rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color .18s; }
+    .masthead-nav a::after { content: ""; position: absolute; left: 0; bottom: -2px; height: 2px; width: 100%; background: var(--coral); transform: scaleX(0); transform-origin: left; transition: transform .28s ease; }
+    .masthead-nav a:hover { color: var(--text); }
+    .masthead-nav a:hover::after, .masthead-nav a.active::after { transform: scaleX(1); }
+    .masthead-nav a.active { color: var(--text); }
+    @media (max-width: 640px) {
+      .masthead-inner { flex-direction: column; gap: 10px; padding: 12px 20px; }
+      .masthead-nav { flex-wrap: wrap; justify-content: center; gap: 18px; }
+    }
+
+    /* ── Hero ─────────────────────────────────────────────── */
+    .hero { background: var(--bg); padding: 44px 0 40px; position: relative; overflow: hidden; }
+    .hero-inner { max-width: 1080px; margin: 0 auto; padding: 0 28px; position: relative; display: flex; flex-direction: row; align-items: flex-start; justify-content: space-between; gap: 48px; flex-wrap: wrap; }
+    .hero-kicker { display: flex; align-items: center; gap: 14px; font-size: .72rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; color: var(--coral-dk); }
+    .hero-kicker-line { width: 40px; height: 1.5px; background: var(--coral); flex-shrink: 0; }
+    .hero-title { font-family: 'Libre Caslon Text', Georgia, serif; font-size: clamp(2.4rem, 6vw, 3.8rem); font-weight: 700; line-height: 1.0; letter-spacing: -1px; color: var(--text); flex: 0 1 auto; white-space: nowrap; }
+    .hero-title em { font-style: normal; font-weight: 700; color: var(--coral); }
+    .hero-sub { font-size: clamp(.95rem, 1.8vw, 1.1rem); color: var(--muted); line-height: 1.65; max-width: 460px; flex: 1 1 300px; padding-bottom: 6px; }
+
+    /* ── Page body ────────────────────────────────────────── */
+    .page { max-width: 1080px; margin: 0 auto; padding: 40px 28px 80px; display: flex; flex-direction: column; gap: 60px; }
+
+    /* ── Section headings ─────────────────────────────────── */
+    .section-h { display: flex; align-items: baseline; gap: 16px; margin-bottom: 28px; flex-wrap: wrap; }
+    .section-h h2 { font-family: 'Libre Caslon Text', Georgia, serif; font-size: clamp(1.7rem, 3.5vw, 2.4rem); font-weight: 700; letter-spacing: -.5px; color: var(--text); }
+    .section-tag { background: var(--warm2); border: 1.5px solid var(--border); border-radius: 99px; padding: 3px 14px; font-size: .7rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+
+    /* ── Career arc (image + throughline) ─────────────────── */
+    .arc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 52px; align-items: center; }
+    @media (max-width: 720px) { .arc-grid { grid-template-columns: 1fr; gap: 28px; } }
+    .arc-img { width: 100%; height: auto; border-radius: 12px; display: block; box-shadow: 0 3px 16px rgba(0,0,0,0.13); }
+    .arc-lead { font-size: .95rem; color: var(--muted); line-height: 1.7; margin-bottom: 20px; }
+    .arc-path { font-family: 'Libre Caslon Text', Georgia, serif; font-size: clamp(1.3rem, 2.4vw, 1.7rem); font-weight: 700; color: var(--text); line-height: 1.45; letter-spacing: -.3px; }
+    .arc-path .arrow { color: var(--coral); font-weight: 700; padding: 0 3px; }
+    .arc-close { margin-top: 20px; font-family: 'Libre Caslon Text', Georgia, serif; font-size: 1.35rem; font-weight: 700; color: var(--coral); }
+
+    /* ── Case study: intro beside image ───────────────────── */
+    .case-top { display: grid; grid-template-columns: 1fr 400px; gap: 44px; align-items: start; margin-bottom: 1.75rem; }
+    @media (max-width: 760px) { .case-top { grid-template-columns: 1fr; gap: 20px; } }
+    .case-figure { margin: 0; }
+    .case-figure img { width: 100%; height: auto; border-radius: 12px; display: block; box-shadow: 0 3px 16px rgba(0,0,0,0.13); }
+    .case-top.flip { grid-template-columns: 400px 1fr; }
+    .case-top.flip .case-figure { order: 1; }
+    .case-top.flip .case-intro { order: 2; }
+    @media (max-width: 760px) { .case-top.flip .case-figure, .case-top.flip .case-intro { order: 0; } }
+
+    /* ── Career timeline ──────────────────────────────────── */
+    .career-timeline {
+      border: 1.5px solid var(--border);
+      border-radius: var(--r);
+      background: var(--bg);
+      padding: 36px 28px 28px;
+      overflow-x: auto;
+    }
+    .ct-rail {
+      display: flex;
+      align-items: flex-start;
+      min-width: 680px;
+      position: relative;
+    }
+    .ct-rail::before {
+      content: '';
+      position: absolute;
+      top: 22px; left: 22px; right: 22px;
+      height: 2px;
+      background: var(--border);
+      z-index: 0;
+    }
+    .ct-node {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      flex: 1;
+      position: relative;
+      z-index: 1;
+    }
+    .ct-dot {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+      margin-bottom: 14px;
+      border: 3px solid var(--bg);
+      box-shadow: 0 2px 10px rgba(0,0,0,.12);
+      flex-shrink: 0;
+    }
+    .ct-dot.current { box-shadow: 0 0 0 4px rgba(18,194,176,.25), 0 2px 10px rgba(0,0,0,.12); }
+    .ct-company { font-family: 'Libre Caslon Text', Georgia, serif; font-size: .95rem; font-weight: 700; color: var(--text); margin-bottom: 3px; }
+    .ct-role { font-size: .72rem; color: var(--muted); line-height: 1.4; margin-bottom: 5px; max-width: 110px; }
+    .ct-yrs { font-size: .65rem; font-weight: 800; letter-spacing: .08em; color: var(--muted); text-transform: uppercase; }
+    .ct-badge { display: inline-block; background: var(--teal); color: #fff; font-size: .55rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; border-radius: 99px; padding: 1px 7px; margin-top: 4px; }
+
+    /* ── Project list ─────────────────────────────────────── */
+    .project-list { display: flex; flex-direction: column; gap: 0; }
+    .project-item { display: grid; grid-template-columns: 1fr; gap: 2rem; padding: 3rem 0; border-bottom: 1.5px solid var(--border); }
+    .project-item:last-child { border-bottom: none; }
+    @media (max-width: 720px) { .project-item { grid-template-columns: 1fr; gap: 1rem; } }
+    .project-meta { font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: .6rem; display: flex; gap: 1rem; flex-wrap: wrap; }
+    .project-title { font-family: 'Libre Caslon Text', Georgia, serif; font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 700; line-height: 1.15; letter-spacing: -.5px; color: var(--text); margin-bottom: 1rem; }
+    .project-lead { font-size: 1rem; color: var(--muted); line-height: 1.7; margin-bottom: 1.5rem; max-width: 680px; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 1.5rem; }
+    .ptag { font-size: .72rem; font-weight: 600; letter-spacing: .04em; padding: 4px 12px; border-radius: 3px; }
+
+    /* ── Steps list ───────────────────────────────────────── */
+    .steps-list { display: flex; flex-direction: column; gap: 0; border-left: 2px solid var(--border); padding-left: 1.5rem; }
+    .step { padding: .7rem 0; }
+    .step-head { display: flex; align-items: baseline; gap: .75rem; margin-bottom: .2rem; }
+    .step-num { font-size: .65rem; font-weight: 700; letter-spacing: .12em; color: var(--coral-dk); width: 1.5rem; flex-shrink: 0; }
+    .step-title { font-size: .88rem; font-weight: 700; color: var(--text); }
+    .step-desc { font-size: .82rem; color: var(--muted); line-height: 1.55; padding-left: 2.25rem; }
+    .step-outcome { background: var(--coral-lt); border-radius: 8px; padding: .7rem 1rem; margin-top: .8rem; font-size: .88rem; font-weight: 700; color: var(--text); }
+
+    /* ── Footer ───────────────────────────────────────────── */
+    footer { border-top: 1.5px solid var(--border); padding: 60px 28px; text-align: center; }
+    .footer-inner { max-width: 1080px; margin: 0 auto; }
+    .footer-name { font-family: 'Libre Caslon Text', Georgia, serif; font-size: 1.6rem; font-weight: 700; letter-spacing: -.5px; color: var(--text); margin-bottom: 8px; }
+    .footer-sub { font-size: .84rem; color: var(--muted); margin-bottom: 24px; }
+    .footer-btn { display: inline-block; background: var(--coral); color: #fff; font-size: .82rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; padding: 12px 32px; border-radius: 99px; text-decoration: none; transition: opacity .15s; }
+    .footer-btn:hover { opacity: .85; }
+    .footer-copy { margin-top: 24px; font-size: .75rem; color: var(--muted); }
+  </style>
+</head>
+<body>
+<div style="background:#3D2B1F;color:#FFFBF5;font-family:'Nunito',sans-serif;font-size:.8rem;line-height:1.55;padding:9px 22px;text-align:center;"><strong style="letter-spacing:.08em;">PROPOSAL PREVIEW</strong> &nbsp;·&nbsp; Removed the three section pills ("the arc" / "three in depth" / "three lighter reads") and the skill-tag rows under each of the three case studies.</div>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <a href="index.html" class="masthead-brand">
+      <img src="../assets/img/Monogram.svg" alt="Nabil Arnaoot monogram" />
+      <span class="masthead-name">Nabil <span class="last">Arnaoot</span></span>
+    </a>
+    <ul class="masthead-nav">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="work.html" class="active">Work</a></li>
+      <li><a href="patterns.html">Patterns</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <h1 class="hero-title">Selected <em>Work</em></h1>
+    <p class="hero-sub">Real problems solved — through clear thinking, process design, and a good question or two.</p>
+  </div>
+</section>
+
+<main class="page">
+
+  <!-- Career Journey -->
+  <section>
+    <div class="section-h">
+      <h2>A Through-Line</h2>
+    </div>
+
+    <div class="arc-grid">
+      <img class="arc-img" src="../assets/img/CareerJourneyPainted.webp" alt="A painted career path winding past signposts — Elegrity, eBay, Apple, consulting, and SFMTA" loading="lazy">
+      <div class="arc-copy">
+        <p class="arc-path">Managing projects <span class="arrow">→</span> solving org-wide problems <span class="arrow">→</span> putting it all into public service.</p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Projects -->
+  <section>
+    <div class="section-h">
+      <h2>Case Studies</h2>
+    </div>
+    <div class="project-list">
+
+      <div class="project-item">
+        <div>
+          <div class="case-top">
+            <div class="case-intro">
+              <div class="project-meta"><span>Program Manager</span><span>eBay · 2009–2011</span></div>
+              <h3 class="project-title">eBay Site Security Program</h3>
+              <p class="project-lead">eBay Marketplaces' Site Security team had the right people but no shared map. The work in progress was invisible, product teams couldn't easily tell when they needed a security review, and the group's way of working didn't scale. I built the map, smoothed out the intake, designed how the team showed up as partners, not obstacles — and opened a cross-company conversation with PayPal's security org.</p>
+            </div>
+            <figure class="case-figure">
+              <img src="../assets/img/LighthousePainted.webp" alt="Before and after: a foggy harbor with a dark lighthouse, then the same lighthouse lit with its beam crossing a second lighthouse's beam over the water" loading="lazy">
+            </figure>
+          </div>
+          <div class="steps-list">
+            <div class="step"><div class="step-head"><span class="step-num">01</span><span class="step-title">Make the work visible</span></div><div class="step-desc">Built a roadmap so the team and its stakeholders could see what was on deck and when. Transparency turned out to be the missing prerequisite for everything that came after.</div></div>
+            <div class="step"><div class="step-head"><span class="step-num">02</span><span class="step-title">Unblock the intake</span></div><div class="step-desc">Picked up a stalled questionnaire project and shipped it — a triage tool product teams could use themselves to identify whether their work needed security consultation.</div></div>
+            <div class="step"><div class="step-head"><span class="step-num">03</span><span class="step-title">Operationalize the consulting role</span></div><div class="step-desc">Designed engagement processes so the team functioned better as internal consultants — clearer entry, clearer handoff, fewer surprises on either side.</div></div>
+            <div class="step"><div class="step-head"><span class="step-num">04</span><span class="step-title">Open the cross-company conversation</span></div><div class="step-desc">Started a recurring discussion group with PayPal's security org. Both companies were learning the same lessons; this turned them into shared lessons.</div></div>
+            <div class="step-outcome">The team stopped firefighting and started consulting. Product teams learned when to loop them in, and the work that mattered got the attention it needed.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-item">
+        <div>
+          <div class="case-top flip">
+            <div class="case-intro">
+              <div class="project-meta"><span>Engineering Project Manager → Business Analyst</span><span>Apple · 2011–2018</span></div>
+              <h3 class="project-title">Making iTunes' Crashes Countable</h3>
+              <p class="project-lead">iTunes was crashing constantly, and my team — the site reliability engineers carrying the pagers — knew exactly why. New features kept shipping, bugs kept accruing, technical debt kept growing. We held post-mortems, but the results lived in Word documents nobody could aggregate or compare. Even the basic question, <em>is downtime getting better or worse?</em>, had no answer: every property measured it differently, every year measured it differently. Leadership kept prioritizing features over bug fixes because the conversation couldn't land on the bugs. The team knew. There was no data backing us up yet.</p>
+            </div>
+            <figure class="case-figure">
+              <img src="../assets/img/QuietedPagersPainted.webp" alt="Before and after: SRE pagers going off through the night, then quiet pagers at rest" loading="lazy">
+            </figure>
+          </div>
+          <div class="steps-list">
+            <div class="step"><div class="step-head"><span class="step-num">01</span><span class="step-title">Get the root causes captured consistently</span></div><div class="step-desc">Found a web-based outage system the team could use. Talked the owners into letting me add the fields we actually needed. Trained the SREs and convinced them — one at a time — to use it. Suddenly there was a record of <em>why</em> outages happened, not just that they had.</div></div>
+            <div class="step"><div class="step-head"><span class="step-num">02</span><span class="step-title">Build the data pipeline — on a discarded machine</span></div><div class="step-desc">Stood up a MySQL prototype on a spare box, hooked it to Tableau, started shipping regular reports to management. Iterated on the format until it worked for the readers. Then handed the prototype off to my team — the logic, the data model, all of it — and led them in building the production system properly online.</div></div>
+            <div class="step"><div class="step-head"><span class="step-num">03</span><span class="step-title">Show leadership what the team already knew</span></div><div class="step-desc">Provided the visualizations for the monthly downtime reviews. The data said what the SREs had been saying for years: the majority of iTunes downtime came from bugs that were already tracked, just not fixed.</div></div>
+            <div class="step"><div class="step-head"><span class="step-num">04</span><span class="step-title">The screenshot that changed the roadmap</span></div><div class="step-desc">A friend called from the iTunes offsite with a screenshot — one of my visualizations, up on the VP's slide. The VP was using it to tell the engineers that bug fixes were going to start coming before new features. It was a triumph.</div></div>
+            <div class="step-outcome">I left Apple before the new roadmap played out, so there's no tidy number to point at. But iTunes crashes a lot less these days than it did when my people carried pagers.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-item">
+        <div>
+          <div class="case-top">
+            <div class="case-intro">
+              <div class="project-meta"><span>Business Analyst / Process Engineer</span><span>Apple · 2014–2018</span></div>
+              <h3 class="project-title">Kernel Updates for 500,000 Systems</h3>
+              <p class="project-lead">At Apple, kernel-update tickets generated themselves by the hundred every day. The information that mattered lived inside spreadsheets attached to each ticket — outdated by the time anyone opened them, impossible to scan. Most managers had given up trying to act on them. Across 500,000 systems and 40+ engineering groups, the work was happening in the dark, and the people responsible for it were burnt out. I pulled on three threads at once.</p>
+            </div>
+            <figure class="case-figure">
+              <img src="../assets/img/KernelCleanupPainted.webp" alt="Before and after: from overgrown chaos to an organized garden" loading="lazy">
+            </figure>
+          </div>
+          <div class="steps-list">
+            <div class="step"><div class="step-head"><span class="step-num">01</span><span class="step-title">Surface what the tickets buried</span></div><div class="step-desc">A live dashboard pulled the at-a-glance state — what needed updating, what was failing, where the risk concentrated — out of the spreadsheet attachments and onto a single screen managers could actually read.</div></div>
+            <div class="step"><div class="step-head"><span class="step-num">02</span><span class="step-title">Automate the work itself</span></div><div class="step-desc">Led the deployment of a new process that applied updates across the fleet at scale. Spotting what needed doing and actually doing it stopped being two separate hard problems.</div></div>
+            <div class="step"><div class="step-head"><span class="step-num">03</span><span class="step-title">Renegotiate the bar</span></div><div class="step-desc">Brokered a new agreement between ops and infosec — replacing security requirements no one could realistically meet with ones engineers could actually deliver against.</div></div>
+            <div class="step-outcome">Better security, and reverse burnout. Managers got a screen that showed exactly what needed doing; the work to do it was already automated; the bar was set where the team could clear it. Teams that had given up started knowing what they had to do — and being able to do it.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Notes, Essays & Side Quests -->
+  <section>
+    <div class="section-h">
+      <h2>Notes, Essays &amp; Side Quests</h2>
+    </div>
+    <div class="project-list">
+
+      <div class="project-item">
+        <div>
+          <h3 class="project-title"><a href="gardens.html" style="color:inherit;text-decoration:none;border-bottom:2px solid var(--sage);">Secret Gardens of San Francisco</a></h3>
+          <p class="project-lead">Downtown San Francisco hides public gardens on its rooftops and inside its office towers — the kind you reach by walking past a security guard to an unmarked elevator. A coworker showed me my first; I've been tracking them down and mapping them ever since.</p>
+          <a href="gardens.html" style="display:inline-block;margin-top:.75rem;font-size:.82rem;font-weight:800;color:var(--sage-dk);text-decoration:none;">Explore the map →</a>
+        </div>
+      </div>
+
+      <div class="project-item">
+        <div>
+          <h3 class="project-title"><a href="probability.html" style="color:inherit;text-decoration:none;border-bottom:2px solid var(--mustard);">Conditional Probability for Normal Humans</a></h3>
+          <p class="project-lead">If you test positive for malaria, how likely is it you actually have malaria? Many doctors get this wrong. Here's the intuition, without a single formula.</p>
+          <a href="probability.html" style="display:inline-block;margin-top:.75rem;font-size:.82rem;font-weight:800;color:var(--must-dk);text-decoration:none;">Read the explainer →</a>
+        </div>
+      </div>
+
+      <div class="project-item">
+        <div>
+          <h3 class="project-title"><a href="unicorns.html" style="color:inherit;text-decoration:none;border-bottom:2px solid var(--teal);">Chasing Unicorns for Pride</a></h3>
+          <p class="project-lead">In honor of Pride, I dug into Google searches for the word "unicorn." When were these searches most popular, where, and why? The answer surprised me.</p>
+          <a href="unicorns.html" style="display:inline-block;margin-top:.75rem;font-size:.82rem;font-weight:800;color:var(--teal-dk);text-decoration:none;">Follow the search →</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-name">Always up for a good conversation.</div>
+    <div class="footer-sub">Currently: Principal Business Analyst at SFMTA · San Francisco, CA</div>
+    <a href="https://www.linkedin.com/in/narnaoot" target="_blank" class="footer-btn">Connect on LinkedIn</a>
+    <p style="margin-top:12px;font-size:.75rem;color:var(--muted);"><img src="../assets/img/CleoInspects.webp" alt="Cleo" loading="lazy" style="height:36px;border-radius:50%;vertical-align:middle;margin-right:6px;">Inspected by Cleo</p>
+  </div>
+</footer>
+
+</body>
+</html>
