@@ -99,7 +99,7 @@
     .case-top.flip { grid-template-columns: 400px 1fr; }
     .case-top.flip .case-figure { order: 1; }
     .case-top.flip .case-intro { order: 2; }
-    @media (max-width: 760px) { .case-top.flip .case-figure, .case-top.flip .case-intro { order: 0; } }
+    @media (max-width: 760px) { .case-top.flip { grid-template-columns: 1fr; } .case-top.flip .case-figure, .case-top.flip .case-intro { order: 0; } }
 
     /* ── Career timeline ──────────────────────────────────── */
     .career-timeline {
