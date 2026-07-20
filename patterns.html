@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Patterns — Nabil Arnaoot</title>
-  <meta name="description" content="The questions I keep asking, the two kinds of problems that keep showing up (Duct Tape and Drano), the cowboys-to-Big-Brother metaphor I use for giving an org just enough structure, and the toolkit I bring to every project." />
+  <meta name="description" content="The questions I keep asking, the two kinds of problems that keep showing up (Duct Tape and Drano), the cowboys-to-Big-Brother metaphor I use for giving an org just enough structure." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
@@ -124,18 +124,6 @@
     .cbb-text { max-width: 720px; margin-top: 22px; font-size: 1.02rem; color: var(--text); line-height: 1.8; }
     .cbb-text strong { font-weight: 800; }
 
-    /* ── Skill toolkit ────────────────────────────────────── */
-    .toolkit-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; }
-    @media (max-width: 720px) { .toolkit-grid { grid-template-columns: 1fr; gap: 2rem; } }
-    .toolkit-col { border-top: 2px solid var(--border); padding-top: 2rem; }
-    .toolkit-col-header { display: flex; align-items: center; gap: .75rem; margin-bottom: 1.75rem; }
-    .toolkit-col-title { font-family: 'Libre Caslon Text', Georgia, serif; font-size: 1.1rem; font-weight: 700; color: var(--text); }
-    .toolkit-col-sub { font-size: .75rem; color: var(--muted); margin-top: 2px; }
-    .skill-chips { display: flex; flex-wrap: wrap; gap: 8px; }
-    .skill-chip { border-radius: 99px; padding: 5px 16px; font-size: .82rem; font-weight: 700; border: 1px solid transparent; }
-    .sc-teal    { background: var(--teal-lt);  color: var(--teal-dk);     border-color: rgba(18,194,176,.3); }
-    .sc-lav     { background: var(--lav-lt);   color: var(--lav-dk); border-color: rgba(155,109,232,.3); }
-    .sc-coral   { background: var(--teal-lt); color: var(--teal-dk);    border-color: rgba(18,194,176,.3); }
 
     /* ── Footer ───────────────────────────────────────────── */
     footer { border-top: 1.5px solid var(--border); padding: 60px 28px; text-align: center; }
@@ -213,11 +201,8 @@
         </div>
         <div class="panel-tags">
           <span class="ptag-tape">Siloed teams</span>
-          <span class="ptag-tape">Inconsistent data</span>
           <span class="ptag-tape">Unclear ownership</span>
           <span class="ptag-tape">No shared process</span>
-          <span class="ptag-tape">Missing documentation</span>
-          <span class="ptag-tape">Scattered reporting</span>
         </div>
       </div>
       <div class="panel panel-drain">
@@ -231,10 +216,7 @@
         <div class="panel-tags">
           <span class="ptag-drain">Stuck workflows</span>
           <span class="ptag-drain">Manual bottlenecks</span>
-          <span class="ptag-drain">Stalled projects</span>
-          <span class="ptag-drain">Buried insights</span>
           <span class="ptag-drain">Waiting on sign-off</span>
-          <span class="ptag-drain">Technical debt blocking features</span>
         </div>
       </div>
     </div>
@@ -262,59 +244,6 @@
       <img src="assets/img/microchip.webp" alt="A whiteboard drawn in orange marker: a horizontal line running from 'yeehaw!' on the left — a cowboy on horseback firing a pistol, labeled 'cowboys riding around shootin guns' — to 'big brother' on the right, a surveillance camera above a stack of books each labeled POLICY, captioned 'stacks of policies for everything you do.' An arrow points to a mark near the left end labeled 'microchip the sheep.'" loading="lazy" />
     </figure>
     <p class="cbb-text">Every org I walk into sits somewhere on this line, usually way over at the <strong>YEEHAW</strong> end — cowboys on horseback with their guns out, which is roughly where ops teams like to live. A good part of my job is nudging the marker one step toward the middle, while reassuring everyone I have zero interest in the other end. I'm not building a surveillance state. I just want to <strong>microchip the sheep</strong>.</p>
-  </section>
-
-  <!-- Skill Toolkit -->
-  <section>
-    <div class="section-h">
-      <h2>What I Bring.</h2>
-      <span class="section-tag">capabilities</span>
-    </div>
-    <div class="toolkit-grid">
-
-      <div class="toolkit-col">
-        <div class="toolkit-col-header">
-          <div>
-            <div class="toolkit-col-title">Building what doesn't exist yet</div>
-          </div>
-        </div>
-        <div class="skill-chips">
-          <span class="skill-chip sc-teal">Project Management</span>
-          <span class="skill-chip sc-teal">Process Design</span>
-          <span class="skill-chip sc-teal">Agile / Scrum</span>
-          <span class="skill-chip sc-teal">Gap Analysis</span>
-        </div>
-      </div>
-
-      <div class="toolkit-col">
-        <div class="toolkit-col-header">
-          <div>
-            <div class="toolkit-col-title">Making complexity legible</div>
-          </div>
-        </div>
-        <div class="skill-chips">
-          <span class="skill-chip sc-lav">Translating Complexity</span>
-          <span class="skill-chip sc-lav">Stakeholder Management</span>
-          <span class="skill-chip sc-lav">Technical Writing</span>
-          <span class="skill-chip sc-lav">Cross-functional Teams</span>
-          <span class="skill-chip sc-lav">Executive Comms</span>
-        </div>
-      </div>
-
-      <div class="toolkit-col">
-        <div class="toolkit-col-header">
-          <div>
-            <div class="toolkit-col-title">Turning numbers into decisions</div>
-          </div>
-        </div>
-        <div class="skill-chips">
-          <span class="skill-chip sc-coral">Requirements Analysis</span>
-          <span class="skill-chip sc-coral">Working in Code</span>
-          <span class="skill-chip sc-coral">Visualization</span>
-        </div>
-      </div>
-
-    </div>
   </section>
 
 </main>
