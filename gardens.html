@@ -8,62 +8,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
   <style>
-    :root {
-      --bg:       #FFFBF5;
-      --surface:  #FFFFFF;
-      --warm:     #FFF5E8;
-      --warm2:    #FDECD6;
-      --text:     #3D2B1F;
-      --muted:    #7C6151;
-      --border:   #E8DDD0;
-      --coral:    #F5563F;
-      --coral-lt: #FBD5CE;
-      --teal:     #12C2B0;
-      --teal-lt:  #C2EFEA;
-      --mustard:  #F0A500;
-      --must-lt:  #FCE7B8;
-      --sage:     #4FB870;
-      --sage-lt:  #CDEBD6;
-      --lavender: #9B6DE8;
-      --lav-lt:   #E4D8F8;
-      --denim:    #4A82B0;
-      --denim-lt: #D5E4EF;
-      --blush:    #D56A92;
-      --blush-lt: #F7D8E4;
-      --citron:   #97A24E;
-      --citron-lt: #E6EAC7;
-      --orchid:   #A75FA0;
-      --orchid-lt: #EAD6E7;
-      --orchid-dk: #7E3F78;
-      --coral-dk: #9B3323;
-      --teal-dk:  #14655D;
-      --must-dk:  #7A5400;
-      --sage-dk:  #3C6349;
-      --lav-dk:   #5F4E9C;
-      --r: 14px;
-    }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { background: var(--bg); color: var(--text); font-family: 'Nunito', sans-serif; line-height: 1.65; }
-
-    /* ── Nav ─────────────────────────────────────────────── */
-    .masthead { background: #fff; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
-    .masthead-inner { max-width: 1080px; margin: 0 auto; padding: 10px 28px; width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-    .masthead-brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; }
-    .masthead-brand img { display: block; height: 40px; width: auto; }
-    .masthead-name { font-family: 'Libre Caslon Text', Georgia, serif; font-size: 1.35rem; font-weight: 700; color: var(--text); letter-spacing: -.01em; white-space: nowrap; }
-    .masthead-name .last { color: var(--sage-dk); }
-    .masthead-nav { display: flex; gap: 26px; list-style: none; }
-    .masthead-nav a { position: relative; padding: 4px 0; font-size: .78rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color .18s; }
-    .masthead-nav a::after { content: ""; position: absolute; left: 0; bottom: -2px; height: 2px; width: 100%; background: var(--sage); transform: scaleX(0); transform-origin: left; transition: transform .28s ease; }
-    .masthead-nav a:hover { color: var(--text); }
-    .masthead-nav a:hover::after, .masthead-nav a.active::after { transform: scaleX(1); }
-    .masthead-nav a.active { color: var(--text); }
-    @media (max-width: 640px) {
-      .masthead-inner { flex-direction: column; gap: 10px; padding: 12px 20px; }
-      .masthead-nav { flex-wrap: wrap; justify-content: center; gap: 18px; }
-    }
+    /* Page accent — see css/styles.css for shared base */
+    :root { --accent: var(--sage); --accent-ink: var(--sage-dk); }
 
     /* ── Hero ────────────────────────────────────────────── */
     .note-hero { background: var(--bg); border-bottom: 1.5px solid var(--border); padding: 64px 28px 56px; }
