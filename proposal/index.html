@@ -149,12 +149,12 @@
 
     /* ── Stats strip ─────────────────────────────────────── */
     .stats-strip { background: var(--warm2); border-bottom: 1.5px solid var(--border); }
-    .stats-inner { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); }
-    .stat { padding: 22px 20px; text-align: center; border-right: 1px solid var(--border); }
+    .stats-inner { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: repeat(5, 1fr); }
+    .stat { padding: 22px 16px; text-align: center; border-right: 1px solid var(--border); }
     .stat:last-child { border-right: none; }
-    .stat-num { font-family: 'Libre Caslon Text', Georgia, serif; font-size: 2rem; font-weight: 700; color: var(--orchid); line-height: 1; margin-bottom: 4px; }
-    .stat-lbl { font-size: .7rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
-    @media (max-width: 600px) { .stats-inner { grid-template-columns: repeat(2, 1fr); } .stat:nth-child(2) { border-right: none; } }
+    .stat-num { font-family: 'Libre Caslon Text', Georgia, serif; font-size: 1.85rem; font-weight: 700; color: var(--orchid); line-height: 1; margin-bottom: 4px; }
+    .stat-lbl { font-size: .68rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+    @media (max-width: 600px) { .stats-inner { grid-template-columns: repeat(2, 1fr); } .stat:nth-child(even) { border-right: none; } .stat:last-child { grid-column: 1 / -1; border-right: none; } }
 
     /* ── Page body ───────────────────────────────────────── */
     .page { max-width: 1080px; margin: 0 auto; padding: 72px 28px 80px; display: flex; flex-direction: column; gap: 60px; }
@@ -235,6 +235,11 @@
     .tenure-track { flex: 1; height: 6px; background: var(--border); border-radius: 99px; overflow: hidden; }
     .tenure-bar { height: 100%; border-radius: 99px; }
     .tenure-yrs { font-size: .64rem; color: var(--muted); font-weight: 700; width: 28px; text-align: right; flex-shrink: 0; }
+    /* one-line career + education summary */
+    .home-cv { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 20px; margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border); font-size: .82rem; color: var(--muted); line-height: 1.55; }
+    .home-cv-item { display: flex; align-items: baseline; gap: 8px; }
+    .home-cv-label { font-size: .64rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--orchid-dk); flex-shrink: 0; }
+    .home-cv-item strong { color: var(--text); font-weight: 700; }
 
     /* ── Project cards ───────────────────────────────────── */
     .project-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
@@ -299,7 +304,7 @@
   </style>
 </head>
 <body>
-<div style="background:#3D2B1F;color:#FFFBF5;font-family:'Nunito',sans-serif;font-size:.8rem;line-height:1.55;padding:9px 22px;text-align:center;"><strong style="letter-spacing:.08em;">PROPOSAL PREVIEW</strong> &nbsp;·&nbsp; Removed the two section pills ("background", "portfolio"), the "Before SFMTA" tenure bars, and the "Education" side-fact (both live on other pages).</div>
+<div style="background:#3D2B1F;color:#FFFBF5;font-family:'Nunito',sans-serif;font-size:.8rem;line-height:1.55;padding:9px 22px;text-align:center;"><strong style="letter-spacing:.08em;">PROPOSAL PREVIEW</strong> &nbsp;·&nbsp; Dropped the two section pills; replaced the "Before SFMTA" tenure bars + "Education" side-fact with a single compact career + education line above Selected Work; added a fifth stat (500K systems · Apple kernel updates).</div>
 
 <header class="masthead">
   <div class="masthead-inner">
@@ -353,6 +358,10 @@
       <div class="stat-lbl">iTunes users behind the dashboards</div>
     </div>
     <div class="stat">
+      <div class="stat-num">500K</div>
+      <div class="stat-lbl">Systems tracked · Apple kernel updates</div>
+    </div>
+    <div class="stat">
       <div class="stat-num">3 of 3</div>
       <div class="stat-lbl">Sectors worked · corporate, nonprofit &amp; government</div>
     </div>
@@ -393,6 +402,10 @@
           <div class="side-fact-value">The blank-page kind — making something brand new.</div>
         </div>
       </div>
+    </div>
+    <div class="home-cv">
+      <span class="home-cv-item"><span class="home-cv-label">Career</span> <strong>Apple</strong> 7 yrs · Consulting 4 · Elegrity 3 · eBay 1.5 — now SFMTA</span>
+      <span class="home-cv-item"><span class="home-cv-label">Education</span> <strong>MS</strong> Business Analytics, Saint Mary's · <strong>BA</strong> English Lit, UChicago</span>
     </div>
   </section>
 
