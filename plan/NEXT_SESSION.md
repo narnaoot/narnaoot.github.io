@@ -30,18 +30,17 @@ The older painted-illustration source originals (removed pre-session, 2026-05-04
 ### NEXT — higher-priority work first (Nabil's steer, Jul 17)
 Copy-cliché cleanup is **PAUSED — this round is done.** There's higher-priority work to tackle first (TBD with Nabil). Remaining cliché items for whenever we return: #11 "It was a triumph.", #10 "stubbornly curious", #4 (staccato fragments), #8 (em-dashes), last of #12 ("reverse burnout"). Full running log in the "AI-cliché copy pass" section below.
 
-### PLANNED — shared-stylesheet refactor
-Goal: kill the ~250-line inline `<style>` block duplicated across all 7 pages.
-- **Genuinely shared → extract to one `styles.css`:** the `:root` token block (identical values on every page), the `*`/`html`/`body` reset, the masthead/nav block, and `.section-h` / `.section-tag`. That's ~60–90 lines × 7 pages of duplication gone.
-- **Per-page (stays page-scoped):** each hero variant (Home grid / Work+Patterns flex / About column / note-hero), page-unique sections (Work case studies; Patterns panels + whiteboard + Microchipping + toolkit; About portrait/pillars/testimonials/timeline; note-page viz/article), and the **signature accent**.
-- **The one wrinkle — per-page accent.** Each page hard-codes a different accent var for the wordmark `.last`, nav `::after`, footer/button, and hero `em`/kicker. Two ways:
-  - (a) add a body class per page (`<body class="accent-orchid">` …) and key the accent rules off it in the shared CSS — fully centralizes; or
-  - (b) link `styles.css` for the shared bulk and keep a *small* per-page inline `<style>` for just the accent overrides + page-unique sections. **Recommend (b) for a first pass** (lower risk, less rewiring).
-- **Execution / safety:** create `styles.css`; per page, replace *only* the shared portion of the inline block with `<link rel="stylesheet" href="css/styles.css">`, leave the page-specific remainder inline. Do **one page first** (a note page — smallest), screenshot before/after to confirm pixel-identical, then roll to the rest verifying each. Commit per page or in small batches. A single missed selector or specificity gap can shift the whole page, so screenshot every page.
+### DONE ✅ — shared-stylesheet refactor (Jul 23)
+Goal (met): kill the inline `<style>` base block duplicated across all 7 pages.
+- **Extracted to `css/styles.css`** (`12ca6ed`, then `d3fbf45` + this pass): the `:root` token block, the `*`/`html`/`body` reset, the full masthead/nav block, and — added in the final pass — `.section-h` / `.section-h h2` / `.section-tag` and the `footer { … }` base rule. Every page now `<link>`s the shared sheet.
+- **Approach: option (b)** (the lower-risk one). The shared sheet reads `var(--accent, …)` / `var(--accent-ink, …)`; each page keeps a *small* inline `<style>` that sets just those two accent vars plus its page-unique sections (hero variant, case studies / panels / portrait / timelines / note-page viz, and its own `.footer-inner` width + `.footer-btn` accent). No per-page body class was needed.
+- **One intentional override kept inline:** Home's `.section-h h2` is `1.8rem`; the shared base is `clamp(1.7rem, 3.5vw, 2.4rem)` (Work/Patterns/About). Home keeps a one-line `.section-h h2 { font-size: 1.8rem; }` override.
+- **Verified pixel-identical** via headless Chromium across all 7 pages: shared `footer` (border-top / 60px padding / centered) applies everywhere, `.section-tag` (99px pill) on the 4 content pages, and `h2` resolves to 28.8px on Home vs 38.4px elsewhere — matching pre-refactor values.
+- Per-page inline blocks are now hero + page-unique sections only (note pages ~30 lines; index/about ~230–250, all genuinely page-scoped).
 
 ### DONE ✅ — assets/-folder reorg (Jul 17)
 Moved assets into `assets/img/` (14 `.webp` + `Monogram.svg`) and `assets/icons/` (book/cats/house/tea `.png`); rewrote every image `src` across all 7 pages. Verified: no root-relative image refs remain, every referenced asset exists on disk, and all local images load on all 7 pages (headless-browser check with scroll to trigger lazy loads). Root now holds only the 7 HTML + `CNAME` + `README.md`; README asset paths updated.
-- **Still to come:** the shared-stylesheet refactor above. The assets/ + `css/` structure is ready — when the CSS is extracted it lands at `css/styles.css` and pages link `href="css/styles.css"`.
+- The assets/ + `css/` structure this set up is now fully used: the shared-stylesheet refactor (above) landed at `css/styles.css` and every page links `href="css/styles.css"`.
 
 ---
 
