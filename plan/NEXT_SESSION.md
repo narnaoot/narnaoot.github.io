@@ -1,6 +1,8 @@
 # Next Session Handoff
 
-## Status & next steps (updated Jul 17)
+## Status & next steps (updated Jul 23)
+
+**Open items (as of Jul 23):** (1) verify the Patterns Pages deploy on the live site (browser check — see below); (2) copy-cliché cleanup is paused mid-round (remaining items listed in the copy-pass section). Everything else — repo cleanup, assets reorg, and the shared-stylesheet refactor — is DONE.
 
 ### Repo cleanup — DONE ✅ (45 MB → 1.5 MB)
 - **Tier 1** (`42ece32`, `b16cd58`, `264ffe7`): removed `pages_with_links/` (old LinkedIn HTML exports), `original_version/` (pre-redesign site versions), and 5 orphan root PNGs (`ConstellationPainted`, `ThingsILove`, `lighthouse`, `ac-river-scene`, `avatar`).
