@@ -28,6 +28,31 @@
     .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: .82rem; font-weight: 800; color: var(--blush-dk); text-decoration: none; margin-bottom: 2.5rem; }
     .back-link:hover { opacity: .8; }
 
+    /* ── Tag cluster (HTML recreation of the app's name tags) ── */
+    .tag-cluster { display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-start; gap: 16px 12px; margin: 8px 0 44px; overflow: hidden; padding: 12px 4px; }
+    .nt { width: 168px; border-radius: 18px; padding: 16px 14px 0; box-shadow: 0 12px 26px rgba(61,43,31,.13); text-align: center; }
+    .nt-1 { transform: rotate(-5deg); }
+    .nt-2 { transform: rotate(3deg); margin-top: 14px; }
+    .nt-3 { transform: rotate(-2deg); }
+    .nt-hd { font-size: .56rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+    .nt-av { width: 54px; height: 54px; border-radius: 50%; margin: 0 auto 10px; display: flex; align-items: center; justify-content: center; background: var(--surface); font-family: 'Libre Caslon Text', Georgia, serif; font-weight: 700; font-size: 1.25rem; }
+    .nt-name { font-family: 'Libre Caslon Text', Georgia, serif; font-size: 1.55rem; font-weight: 700; color: var(--text); line-height: 1; margin-bottom: 11px; }
+    .nt-pro { display: inline-block; background: var(--surface); border-radius: 99px; padding: 3px 15px; font-size: .72rem; font-weight: 800; margin-bottom: 15px; }
+    .nt-status { margin: 0 -14px; background: var(--surface); border-radius: 0 0 18px 18px; padding: 9px 14px; font-family: 'Libre Caslon Text', Georgia, serif; font-style: italic; font-size: .92rem; text-align: left; }
+    /* per-tag colors */
+    .nt-blush { background: var(--blush-lt); }
+    .nt-blush .nt-av { border: 3px solid var(--blush); color: var(--blush-dk); }
+    .nt-blush .nt-pro { border: 2px solid var(--blush); color: var(--blush-dk); }
+    .nt-blush .nt-status { border-top: 2px solid var(--blush); color: var(--blush-dk); }
+    .nt-must { background: var(--must-lt); }
+    .nt-must .nt-av { border: 3px solid var(--mustard); color: var(--must-dk); }
+    .nt-must .nt-pro { border: 2px solid var(--mustard); color: var(--must-dk); }
+    .nt-must .nt-status { border-top: 2px solid var(--mustard); color: var(--must-dk); }
+    .nt-lav { background: var(--lav-lt); }
+    .nt-lav .nt-av { border: 3px solid var(--lavender); color: var(--lav-dk); }
+    .nt-lav .nt-pro { border: 2px solid var(--lavender); color: var(--lav-dk); }
+    .nt-lav .nt-status { border-top: 2px solid var(--lavender); color: var(--lav-dk); }
+
     /* ── Try-it CTA ──────────────────────────────────────── */
     .cta-card { background: var(--blush-lt); border: 1.5px solid var(--border); border-radius: var(--r); padding: 30px 28px; text-align: center; margin-bottom: 56px; }
     .cta-btn { display: inline-block; background: var(--blush-dk); color: #fff; font-size: .95rem; font-weight: 800; letter-spacing: .04em; padding: 15px 40px; border-radius: 99px; text-decoration: none; transition: opacity .15s; }
@@ -99,6 +124,30 @@
 <main>
   <div class="note-body">
     <a href="work.html" class="back-link">← Back to Work</a>
+
+    <div class="tag-cluster" aria-hidden="true">
+      <div class="nt nt-1 nt-blush">
+        <div class="nt-hd">Hello my name is</div>
+        <div class="nt-av">M</div>
+        <div class="nt-name">Maya</div>
+        <div class="nt-pro">she/her</div>
+        <div class="nt-status">Hi!</div>
+      </div>
+      <div class="nt nt-2 nt-must">
+        <div class="nt-hd">Hello my name is</div>
+        <div class="nt-av">J</div>
+        <div class="nt-name">Jonas</div>
+        <div class="nt-pro">he/him</div>
+        <div class="nt-status">New in town</div>
+      </div>
+      <div class="nt nt-3 nt-lav">
+        <div class="nt-hd">Hello my name is</div>
+        <div class="nt-av">N</div>
+        <div class="nt-name">Nabil</div>
+        <div class="nt-pro">he/him</div>
+        <div class="nt-status">Cats!</div>
+      </div>
+    </div>
 
     <div class="cta-card">
       <a href="https://nametag.n4bil.com" target="_blank" rel="noopener" class="cta-btn">Try Nametag →</a>

@@ -4,6 +4,13 @@
 
 **Open items (as of Jul 23):** (1) verify the Patterns Pages deploy on the live site (browser check — see below); (2) copy-cliché cleanup is paused mid-round (remaining items listed in the copy-pass section). Everything else — repo cleanup, assets reorg, and the shared-stylesheet refactor — is DONE.
 
+### DONE ✅ — Nametag side quest (Aug 22)
+- New **`nametag.html`** — an eighth page (fourth Notes/Side-Quest), on the shared note-page chassis with **blush** as its signature accent (`--accent: var(--blush)`; the last free accent with a `-dk` cut for AA text). Blush is also one of the app's own tag colors, so it ties in.
+- Content: hero tagline "Put a name to the room," an origin note ("built it for a need of my own — remembering names + pronouns at a party"), a how-it-works trio, a privacy section, a prominent **Try Nametag →** link-out to `https://nametag.n4bil.com` (new tab), and a **feedback form**.
+- **Feedback form is client-side mailto** (no backend — this is GitHub Pages): JS composes a `mailto:` to Nabil's inbox with the fields, address assembled at runtime (not plaintext in source), plus a direct-link fallback. Upgrade path if wanted: a hosted endpoint (Formspree / Web3Forms).
+- **Name-tag preview is pure HTML/CSS** (no image assets): three tilted "Hello my name is" cards — Maya/she-her (blush), Jonas/he-him (mustard), Nabil/he-him (lavender) — recreating the app's hero from screenshots Nabil shared. The app shares this site's design system (cream bg, Libre Caslon + Nunito, pill chrome), so it renders faithfully in-palette. Verified in headless Chromium at desktop + 390px (wraps, no overflow).
+- Wired in: a `Prototype`-tagged Nametag card leads `work.html`'s "Notes, Essays & Side Quests" (tag now "four side quests"); Home teaser + Work meta counts refreshed ("three lighter" → four / seven projects). README site-structure + accent tables updated.
+
 ### Repo cleanup — DONE ✅ (45 MB → 1.5 MB)
 - **Tier 1** (`42ece32`, `b16cd58`, `264ffe7`): removed `pages_with_links/` (old LinkedIn HTML exports), `original_version/` (pre-redesign site versions), and 5 orphan root PNGs (`ConstellationPainted`, `ThingsILove`, `lighthouse`, `ac-river-scene`, `avatar`).
 - **Tier 2** (`acba83d`): removed `inspiration_samples/` (32 MB — hi-res illustration sources + reference imagery), `inspiration_scenes/`, `linked_in_profile.pdf`.

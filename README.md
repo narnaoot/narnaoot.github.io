@@ -17,7 +17,7 @@ Foregrounds **project leadership** — walking into ambiguous situations, findin
 | `gardens.html` | Secret Gardens of San Francisco — Tableau embed |
 | `probability.html` | Conditional Probability for Normal Humans — essay + tables |
 | `unicorns.html` | Chasing Unicorns for Pride — Tableau embed |
-| `nametag.html` | Nametag — landing page for a prototype web app (link out + feedback form) |
+| `nametag.html` | Nametag — landing page for a prototype web app: HTML/CSS name-tag preview, "Try it" link-out, and a mailto feedback form |
 
 Masthead nav (4 main pages): Home · Work · Patterns · About. The four note/side-quest pages link back from Work.
 
