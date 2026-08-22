@@ -17,8 +17,9 @@ Foregrounds **project leadership** — walking into ambiguous situations, findin
 | `gardens.html` | Secret Gardens of San Francisco — Tableau embed |
 | `probability.html` | Conditional Probability for Normal Humans — essay + tables |
 | `unicorns.html` | Chasing Unicorns for Pride — Tableau embed |
+| `nametag.html` | Nametag — landing page for a prototype web app (link out + feedback form) |
 
-Masthead nav (4 main pages): Home · Work · Patterns · About. The three note pages link back from Work.
+Masthead nav (4 main pages): Home · Work · Patterns · About. The four note/side-quest pages link back from Work.
 
 ## Design system
 
@@ -32,6 +33,7 @@ Each page carries its own `:root` token block and inline `<style>`, plus a signa
 | About | lavender |
 | Gardens | sage |
 | Probability | mustard |
+| Nametag | blush |
 
 Shared palette: warm cream `--bg #FFFBF5`, ink `--text #3D2B1F`, `--muted #7C6151`; accents `--coral #F5563F`, `--teal #12C2B0`, `--mustard #F0A500`, `--sage #4FB870`, `--lavender #9B6DE8`, `--orchid #A75FA0` (plus `--denim`, `--blush`, `--citron`). Each accent has a deep `-dk` cut for legible colored text on tinted backgrounds (e.g. `--teal-dk #14655D`), so text-on-tint pairings clear WCAG AA.
 
