@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nametag — Nabil Arnaoot</title>
+  <meta name="description" content="Meet the people actually in the room with you — a wall of digital name tags. No feed, no follows, no messages. Visible only while you choose." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    /* Page accent — see css/styles.css for shared base */
+    :root { --accent: var(--blush); --accent-ink: var(--blush-dk); }
+
+    /* ── Hero ────────────────────────────────────────────── */
+    .note-hero { background: var(--bg); border-bottom: 1.5px solid var(--border); padding: 64px 28px 56px; }
+    .note-hero-inner { max-width: 720px; margin: 0 auto; }
+    .hero-kicker { display: flex; align-items: center; gap: 14px; font-size: .72rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; color: var(--blush-dk); margin-bottom: 20px; flex-wrap: wrap; }
+    .hero-kicker-line { width: 40px; height: 1.5px; background: var(--blush); flex-shrink: 0; }
+    .wip-badge { background: var(--blush-lt); color: var(--blush-dk); border-radius: 99px; padding: 3px 12px; font-size: .68rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+    .note-hero h1 { font-family: 'Libre Caslon Text', Georgia, serif; font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; line-height: 1.15; letter-spacing: -1px; color: var(--text); margin-bottom: 20px; }
+    .note-hero h1 em { font-style: normal; font-weight: 700; color: var(--blush-dk); }
+    .note-lead { font-size: 1.05rem; color: var(--muted); max-width: 620px; line-height: 1.75; }
+
+    /* ── Body ────────────────────────────────────────────── */
+    .note-body { max-width: 720px; margin: 0 auto; padding: 48px 28px 80px; }
+    .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: .82rem; font-weight: 800; color: var(--blush-dk); text-decoration: none; margin-bottom: 2.5rem; }
+    .back-link:hover { opacity: .8; }
+
+    /* ── Tag cluster (HTML recreation of the app's name tags) ── */
+    .tag-cluster { display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-start; gap: 16px 12px; margin: 8px 0 44px; overflow: hidden; padding: 12px 4px; }
+    .nt { width: 168px; border-radius: 18px; padding: 16px 14px 0; box-shadow: 0 12px 26px rgba(61,43,31,.13); text-align: center; }
+    .nt-1 { transform: rotate(-5deg); }
+    .nt-2 { transform: rotate(3deg); margin-top: 14px; }
+    .nt-3 { transform: rotate(-2deg); }
+    .nt-hd { font-size: .56rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+    .nt-av { width: 54px; height: 54px; border-radius: 50%; margin: 0 auto 10px; display: flex; align-items: center; justify-content: center; background: var(--surface); font-family: 'Libre Caslon Text', Georgia, serif; font-weight: 700; font-size: 1.25rem; }
+    .nt-name { font-family: 'Libre Caslon Text', Georgia, serif; font-size: 1.55rem; font-weight: 700; color: var(--text); line-height: 1; margin-bottom: 11px; }
+    .nt-pro { display: inline-block; background: var(--surface); border-radius: 99px; padding: 3px 15px; font-size: .72rem; font-weight: 800; margin-bottom: 15px; }
+    .nt-status { margin: 0 -14px; background: var(--surface); border-radius: 0 0 18px 18px; padding: 9px 14px; font-family: 'Libre Caslon Text', Georgia, serif; font-style: italic; font-size: .92rem; text-align: left; }
+    /* per-tag colors */
+    .nt-blush { background: var(--blush-lt); }
+    .nt-blush .nt-av { border: 3px solid var(--blush); color: var(--blush-dk); }
+    .nt-blush .nt-pro { border: 2px solid var(--blush); color: var(--blush-dk); }
+    .nt-blush .nt-status { border-top: 2px solid var(--blush); color: var(--blush-dk); }
+    .nt-must { background: var(--must-lt); }
+    .nt-must .nt-av { border: 3px solid var(--mustard); color: var(--must-dk); }
+    .nt-must .nt-pro { border: 2px solid var(--mustard); color: var(--must-dk); }
+    .nt-must .nt-status { border-top: 2px solid var(--mustard); color: var(--must-dk); }
+    .nt-lav { background: var(--lav-lt); }
+    .nt-lav .nt-av { border: 3px solid var(--lavender); color: var(--lav-dk); }
+    .nt-lav .nt-pro { border: 2px solid var(--lavender); color: var(--lav-dk); }
+    .nt-lav .nt-status { border-top: 2px solid var(--lavender); color: var(--lav-dk); }
+
+    /* ── Try-it CTA ──────────────────────────────────────── */
+    .cta-card { background: var(--blush-lt); border: 1.5px solid var(--border); border-radius: var(--r); padding: 30px 28px; text-align: center; margin-bottom: 56px; }
+    .cta-btn { display: inline-block; background: var(--blush-dk); color: #fff; font-size: .95rem; font-weight: 800; letter-spacing: .04em; padding: 15px 40px; border-radius: 99px; text-decoration: none; transition: opacity .15s; }
+    .cta-btn:hover { opacity: .88; }
+    .cta-note { margin-top: 16px; font-size: .84rem; color: var(--muted); line-height: 1.6; max-width: 440px; margin-left: auto; margin-right: auto; }
+
+    /* ── Prose ───────────────────────────────────────────── */
+    .prose h2 { font-family: 'Libre Caslon Text', Georgia, serif; font-size: clamp(1.5rem, 3vw, 1.9rem); font-weight: 700; letter-spacing: -.4px; color: var(--text); margin: 0 0 16px; }
+    .prose p { font-size: 1.02rem; color: var(--text); line-height: 1.8; margin-bottom: 18px; }
+    .prose p .soft { color: var(--muted); }
+    .prose + .prose { margin-top: 44px; }
+
+    /* ── Principles ──────────────────────────────────────── */
+    .principles { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin: 30px 0 8px; }
+    .principle { background: var(--surface); border: 1.5px solid var(--border); border-radius: var(--r); padding: 20px 22px; }
+    .principle h3 { font-size: .95rem; font-weight: 800; color: var(--blush-dk); margin-bottom: 8px; }
+    .principle p { font-size: .9rem; color: var(--muted); line-height: 1.65; margin: 0; }
+
+    /* ── Feedback form ───────────────────────────────────── */
+    .feedback { margin-top: 56px; background: var(--surface); border: 1.5px solid var(--border); border-radius: var(--r); padding: 32px 28px; }
+    .feedback h2 { font-family: 'Libre Caslon Text', Georgia, serif; font-size: clamp(1.4rem, 3vw, 1.8rem); font-weight: 700; letter-spacing: -.4px; color: var(--text); margin-bottom: 10px; }
+    .feedback-lead { font-size: .96rem; color: var(--muted); line-height: 1.7; margin-bottom: 24px; }
+    .field { display: block; margin-bottom: 18px; }
+    .field-label { display: block; font-size: .82rem; font-weight: 800; color: var(--text); margin-bottom: 7px; }
+    .field-label .opt { font-weight: 600; color: var(--muted); }
+    .field input, .field textarea { width: 100%; font-family: 'Nunito', sans-serif; font-size: .95rem; color: var(--text); background: var(--bg); border: 1.5px solid var(--border); border-radius: 10px; padding: 11px 13px; transition: border-color .15s; }
+    .field input:focus, .field textarea:focus { outline: none; border-color: var(--blush); }
+    .field textarea { resize: vertical; min-height: 120px; line-height: 1.6; }
+    .fb-btn { display: inline-block; background: var(--blush-dk); color: #fff; font-size: .88rem; font-weight: 800; letter-spacing: .04em; padding: 13px 34px; border-radius: 99px; border: none; cursor: pointer; transition: opacity .15s; }
+    .fb-btn:hover { opacity: .88; }
+    .form-note { margin-top: 14px; font-size: .8rem; color: var(--muted); line-height: 1.6; }
+    .form-note a { color: var(--blush-dk); font-weight: 700; text-decoration: none; }
+    .form-note a:hover { text-decoration: underline; }
+    .form-status { margin-top: 16px; font-size: .9rem; font-weight: 700; color: var(--blush-dk); line-height: 1.6; display: none; }
+
+    /* ── Footer ──────────────────────────────────────────── */
+    .footer-inner { max-width: 1080px; margin: 0 auto; }
+    .footer-name { font-family: 'Libre Caslon Text', Georgia, serif; font-size: 1.6rem; font-weight: 700; letter-spacing: -.5px; color: var(--text); margin-bottom: 8px; }
+    .footer-sub { font-size: .84rem; color: var(--muted); margin-bottom: 24px; }
+    .footer-btn { display: inline-block; background: var(--blush-dk); color: #fff; font-size: .82rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; padding: 12px 32px; border-radius: 99px; text-decoration: none; transition: opacity .15s; }
+    .footer-btn:hover { opacity: .85; }
+  </style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <a href="index.html" class="masthead-brand">
+      <img src="assets/img/Monogram.svg" alt="Nabil Arnaoot monogram" />
+      <span class="masthead-name">Nabil <span class="last">Arnaoot</span></span>
+    </a>
+    <ul class="masthead-nav">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="work.html" class="active">Work</a></li>
+      <li><a href="patterns.html">Patterns</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </div>
+</header>
+
+<header class="note-hero">
+  <div class="note-hero-inner">
+    <div class="hero-kicker"><span class="hero-kicker-line"></span>Prototype · Location-Based Web App<span class="wip-badge">Work in progress</span></div>
+    <h1>Put a <em>name</em> to the room</h1>
+    <p class="note-lead">A digital take on the paper <em>"Hello, my name is"</em> sticker — for a room full of strangers. Open Nametag somewhere with people around, and everyone here shows up as a wall of hand-tilted name tags: a face, a name, pronouns, and one line about what they're up to right now. No feed, no follows, no messages — just who's here, so you can go say hello.</p>
+  </div>
+</header>
+
+<main>
+  <div class="note-body">
+    <a href="work.html" class="back-link">← Back to Work</a>
+
+    <div class="tag-cluster" aria-hidden="true">
+      <div class="nt nt-1 nt-blush">
+        <div class="nt-hd">Hello my name is</div>
+        <div class="nt-av">M</div>
+        <div class="nt-name">Maya</div>
+        <div class="nt-pro">she/her</div>
+        <div class="nt-status">Hi!</div>
+      </div>
+      <div class="nt nt-2 nt-must">
+        <div class="nt-hd">Hello my name is</div>
+        <div class="nt-av">J</div>
+        <div class="nt-name">Jonas</div>
+        <div class="nt-pro">he/him</div>
+        <div class="nt-status">New in town</div>
+      </div>
+      <div class="nt nt-3 nt-lav">
+        <div class="nt-hd">Hello my name is</div>
+        <div class="nt-av">N</div>
+        <div class="nt-name">Nabil</div>
+        <div class="nt-pro">he/him</div>
+        <div class="nt-status">Cats!</div>
+      </div>
+    </div>
+
+    <div class="cta-card">
+      <a href="https://nametag.n4bil.com" target="_blank" rel="noopener" class="cta-btn">Try Nametag →</a>
+      <p class="cta-note">It's an early, vibe-coded prototype — a web app today, an iPhone app if it earns it. Works best on your phone, in a room with other people. Kick the tires and tell me what you think below.</p>
+    </div>
+
+    <div class="prose">
+      <h2>Why I built it</h2>
+      <p>Honestly? For a problem of my own. I'm not always great at remembering names — and pronouns — for the people around me at a party, and I wanted a graceful way to see them without the little dance of asking again. <span class="soft">So I built the thing I wished existed, for the rooms I'm actually in.</span></p>
+      <p>The whole idea is the opposite of a social network. There's nothing to scroll and no one to accumulate. You wear a digital name tag for as long as you're in the room, you glance at everyone else's, and then you get up and talk to a real person. That's the entire loop.</p>
+    </div>
+
+    <div class="prose">
+      <h2>How it works</h2>
+      <div class="principles">
+        <div class="principle">
+          <h3>Who's here, right now</h3>
+          <p>Everyone in the room appears as a tilted "Hello, my name is" tag — face, name, pronouns, and a line about what they're up to.</p>
+        </div>
+        <div class="principle">
+          <h3>No feed, no follows, no DMs</h3>
+          <p>There's nothing to scroll and no one to message. The tags are a nudge to walk over and start an actual conversation.</p>
+        </div>
+        <div class="principle">
+          <h3>Visible only while you choose</h3>
+          <p>You appear only while you're visible, you can duck into a private party code, and your tag disappears the moment you leave.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="prose">
+      <h2>Privacy is the point, not a setting</h2>
+      <p>Because I built this for real rooms with real people, privacy is the core constraint rather than an afterthought. You're only ever visible while you choose to be, a party code keeps a gathering to just its guests, and nothing about your presence sticks around once you've left. <span class="soft">The paper sticker you peel off at the end of the night was the whole design brief.</span></p>
+    </div>
+
+    <section class="feedback">
+      <h2>Tell me what you think</h2>
+      <p class="feedback-lead">I'm collecting reactions before I turn this into a real iPhone app. Anything at all helps — what clicked, what confused you, what you'd actually want when you walk into a room full of strangers.</p>
+      <form id="fb-form" novalidate>
+        <label class="field">
+          <span class="field-label">Your name <span class="opt">(optional)</span></span>
+          <input type="text" name="fromname" autocomplete="name" />
+        </label>
+        <label class="field">
+          <span class="field-label">Your email <span class="opt">(optional — so I can reply)</span></span>
+          <input type="email" name="fromemail" autocomplete="email" />
+        </label>
+        <label class="field">
+          <span class="field-label">What did you think?</span>
+          <textarea name="message" required></textarea>
+        </label>
+        <button type="submit" class="fb-btn">Send feedback →</button>
+        <p class="form-note">This opens your email app with the note ready to send to me — nothing is stored or sent through anyone else. If your device doesn't open a mail app, you can write to me directly at <a id="direct-email" href="#">my inbox</a>.</p>
+        <p class="form-status" id="fb-status"></p>
+      </form>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-name">Always up for a good conversation.</div>
+    <div class="footer-sub">Currently: Principal Business Analyst at SFMTA · San Francisco, CA</div>
+    <a href="https://www.linkedin.com/in/narnaoot" target="_blank" class="footer-btn">Connect on LinkedIn</a>
+    <p style="margin-top:12px;font-size:.75rem;color:var(--muted);"><img src="assets/img/CleoInspects.webp" alt="Cleo" loading="lazy" style="height:36px;border-radius:50%;vertical-align:middle;margin-right:6px;">Inspected by Cleo</p>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    // Address assembled at runtime so it isn't sitting in the page source as plain text.
+    var to = ['nnabil', 'gmail.com'].join('@');
+
+    var form = document.getElementById('fb-form');
+    var status = document.getElementById('fb-status');
+    var direct = document.getElementById('direct-email');
+
+    // Wire the fallback "direct" link.
+    direct.setAttribute('href', 'mailto:' + to + '?subject=' + encodeURIComponent('Nametag feedback'));
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      var name = form.elements['fromname'].value.trim();
+      var email = form.elements['fromemail'].value.trim();
+      var message = form.elements['message'].value.trim();
+
+      if (!message) {
+        form.elements['message'].focus();
+        status.style.display = 'block';
+        status.textContent = 'Add a line or two of feedback first, then hit send.';
+        return;
+      }
+
+      var lines = [message, '', '—'];
+      if (name) lines.push('From: ' + name);
+      if (email) lines.push('Reply to: ' + email);
+      lines.push('Sent from the Nametag feedback form');
+
+      var href = 'mailto:' + to +
+        '?subject=' + encodeURIComponent('Nametag feedback') +
+        '&body=' + encodeURIComponent(lines.join('\n'));
+
+      window.location.href = href;
+
+      status.style.display = 'block';
+      status.textContent = 'Thanks! Your email app should be opening with the note ready to send.';
+    });
+  })();
+</script>
+
+</body>
+</html>
