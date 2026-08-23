@@ -35,7 +35,8 @@
     .nt-2 { transform: rotate(3deg); margin-top: 14px; }
     .nt-3 { transform: rotate(-2deg); }
     .nt-hd { font-size: .56rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
-    .nt-av { width: 54px; height: 54px; border-radius: 50%; margin: 0 auto 10px; display: flex; align-items: center; justify-content: center; background: var(--surface); font-family: 'Libre Caslon Text', Georgia, serif; font-weight: 700; font-size: 1.25rem; }
+    .nt-av { width: 56px; height: 56px; border-radius: 50%; margin: 0 auto 10px; overflow: hidden; background: var(--surface); }
+    .nt-av svg { display: block; width: 100%; height: 100%; }
     .nt-name { font-family: 'Libre Caslon Text', Georgia, serif; font-size: 1.55rem; font-weight: 700; color: var(--text); line-height: 1; margin-bottom: 11px; }
     .nt-pro { display: inline-block; background: var(--surface); border-radius: 99px; padding: 3px 15px; font-size: .72rem; font-weight: 800; margin-bottom: 15px; }
     .nt-status { margin: 0 -14px; background: var(--surface); border-radius: 0 0 18px 18px; padding: 9px 14px; font-family: 'Libre Caslon Text', Georgia, serif; font-style: italic; font-size: .92rem; text-align: left; }
@@ -128,21 +129,67 @@
     <div class="tag-cluster" aria-hidden="true">
       <div class="nt nt-1 nt-blush">
         <div class="nt-hd">Hello my name is</div>
-        <div class="nt-av">M</div>
+        <div class="nt-av">
+          <svg viewBox="0 0 100 100" role="img" aria-label="Photo of Maya">
+            <rect width="100" height="100" fill="#F7E6D3"/>
+            <path d="M14 100 C14 79 30 71 50 71 C70 71 86 79 86 100 Z" fill="#D56A92"/>
+            <rect x="43.5" y="57" width="13" height="16" rx="6" fill="#E3A778"/>
+            <circle cx="50" cy="43" r="20.5" fill="#E3A778"/>
+            <circle cx="30" cy="46" r="3.2" fill="#E3A778"/>
+            <circle cx="70" cy="46" r="3.2" fill="#E3A778"/>
+            <path d="M28 48 C25 24 40 14 50 14 C60 14 75 24 72 48 L72 61 C72 52 68 49 66 49 C67 37 60 30 50 30 C40 30 33 37 34 49 C32 49 28 52 28 61 Z" fill="#4A2C1A"/>
+            <circle cx="42.5" cy="43" r="2.3" fill="#3B2B21"/>
+            <circle cx="57.5" cy="43" r="2.3" fill="#3B2B21"/>
+            <path d="M43 51 Q50 57 57 51" fill="none" stroke="#9C5A3F" stroke-width="2.3" stroke-linecap="round"/>
+          </svg>
+        </div>
         <div class="nt-name">Maya</div>
         <div class="nt-pro">she/her</div>
         <div class="nt-status">Hi!</div>
       </div>
       <div class="nt nt-2 nt-must">
         <div class="nt-hd">Hello my name is</div>
-        <div class="nt-av">J</div>
+        <div class="nt-av">
+          <svg viewBox="0 0 100 100" role="img" aria-label="Photo of Jonas">
+            <rect width="100" height="100" fill="#F7EBD3"/>
+            <path d="M14 100 C14 79 30 71 50 71 C70 71 86 79 86 100 Z" fill="#E59A00"/>
+            <rect x="43.5" y="57" width="13" height="16" rx="6" fill="#F0C89F"/>
+            <circle cx="50" cy="43" r="20.5" fill="#F0C89F"/>
+            <circle cx="30" cy="46" r="3.2" fill="#F0C89F"/>
+            <circle cx="70" cy="46" r="3.2" fill="#F0C89F"/>
+            <path d="M30 44 C30 24 41 16 50 16 C59 16 70 24 70 44 C70 33 62 29 50 29 C38 29 30 33 30 44 Z" fill="#C9A23A"/>
+            <circle cx="42.5" cy="43" r="2.3" fill="#3B2B21"/>
+            <circle cx="57.5" cy="43" r="2.3" fill="#3B2B21"/>
+            <path d="M43 51 Q50 57 57 51" fill="none" stroke="#B07A4A" stroke-width="2.3" stroke-linecap="round"/>
+          </svg>
+        </div>
         <div class="nt-name">Jonas</div>
         <div class="nt-pro">he/him</div>
         <div class="nt-status">New in town</div>
       </div>
       <div class="nt nt-3 nt-lav">
         <div class="nt-hd">Hello my name is</div>
-        <div class="nt-av">N</div>
+        <div class="nt-av">
+          <svg viewBox="0 0 100 100" role="img" aria-label="Photo of Nabil">
+            <rect width="100" height="100" fill="#ECE3F7"/>
+            <path d="M14 100 C14 79 30 71 50 71 C70 71 86 79 86 100 Z" fill="#9B6DE8"/>
+            <rect x="43.5" y="57" width="13" height="16" rx="6" fill="#B77C4E"/>
+            <circle cx="50" cy="43" r="20.5" fill="#B77C4E"/>
+            <circle cx="30" cy="46" r="3.2" fill="#B77C4E"/>
+            <circle cx="70" cy="46" r="3.2" fill="#B77C4E"/>
+            <path d="M30 43 C30 23 41 15 50 15 C59 15 70 23 70 43 C70 32 62 27 50 27 C38 27 30 32 30 43 Z" fill="#241D1A"/>
+            <path d="M43 52 Q50 57 57 52" fill="none" stroke="#7D4F30" stroke-width="2.3" stroke-linecap="round"/>
+            <g fill="none" stroke="#2A2320" stroke-width="2.2">
+              <circle cx="42.5" cy="44" r="6.2"/>
+              <circle cx="57.5" cy="44" r="6.2"/>
+              <path d="M48.7 44 h2.6"/>
+              <path d="M36.3 43 l-6 -1.6"/>
+              <path d="M63.7 43 l6 -1.6"/>
+            </g>
+            <circle cx="42.5" cy="44" r="2" fill="#3B2B21"/>
+            <circle cx="57.5" cy="44" r="2" fill="#3B2B21"/>
+          </svg>
+        </div>
         <div class="nt-name">Nabil</div>
         <div class="nt-pro">he/him</div>
         <div class="nt-status">Cats!</div>
