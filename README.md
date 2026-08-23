@@ -17,7 +17,7 @@ Foregrounds **project leadership** — walking into ambiguous situations, findin
 | `gardens.html` | Secret Gardens of San Francisco — Tableau embed |
 | `probability.html` | Conditional Probability for Normal Humans — essay + tables |
 | `unicorns.html` | Chasing Unicorns for Pride — Tableau embed |
-| `nametag.html` | Nametag — landing page for a prototype web app: HTML/CSS name-tag preview, "Try it" link-out, and a mailto feedback form |
+| `nametag.html` | Nametag — landing page for a prototype web app: app screenshot, "Try it" link-out, and a mailto feedback form |
 
 Masthead nav (4 main pages): Home · Work · Patterns · About. The four note/side-quest pages link back from Work.
 
@@ -43,7 +43,7 @@ Fonts: **Libre Caslon Text** (serif headings) + **Nunito** (body).
 
 Assets live under `assets/` (the HTML pages, `CNAME`, and `README.md` stay at root). All illustrations are WebP (converted from source PNG/JPEG; the originals remain in git history).
 
-- **`assets/img/`** — the 14 `.webp` illustrations + `Monogram.svg`:
+- **`assets/img/`** — the 15 `.webp` illustrations + `Monogram.svg`:
 
   | File | Where used |
   |------|------------|
@@ -57,6 +57,7 @@ Assets live under `assets/` (the HTML pages, `CNAME`, and `README.md` stay at ro
   | `AboutHero.webp`, `ThreePillarsPainted.webp`, `TeachingScene.webp`, `WordCloudsPainted.webp`, `EducationWalkPainted.webp` | About section thumbnails |
   | `duct_tape.webp`, `drano.webp` | Patterns — Two Kinds of Problems panels |
   | `microchip.webp` | Patterns — Microchipping Sheep (whiteboard photo) |
+  | `Nametag.webp` | Nametag — app home-screen screenshot (resized + converted from the uploaded `Nametag.png`, which remains in git history) |
 
 - **`assets/icons/`** — `book.png`, `cats.png`, `house.png`, `tea.png` (Home chips + About portrait icons).
 
