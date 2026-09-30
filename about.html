@@ -86,18 +86,15 @@
     .pillars-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
     @media (max-width: 700px) { .pillars-grid { grid-template-columns: 1fr; gap: 16px; } }
     .pillar {
-      background: var(--surface);
-      border: 1.5px solid var(--border);
-      border-radius: var(--r);
-      padding: 32px 28px;
+      border-left: 2px solid var(--dot);
+      padding: 4px 0 4px 24px;
       display: flex;
       flex-direction: column;
       gap: 12px;
     }
-    .pillar.p1 { background: var(--lav-lt); --dot: var(--lav-dk); }
-    .pillar.p2 { background: var(--teal-lt); --dot: var(--teal-dk); }
-    .pillar.p3 { background: var(--lav-lt); --dot: var(--lav-dk); }
-    .pillar-num { font-family: 'Libre Caslon Text', Georgia, serif; font-size: 2.2rem; font-weight: 700; line-height: 1; opacity: .15; }
+    .pillar.p1 { --dot: var(--lav-dk); }
+    .pillar.p2 { --dot: var(--teal-dk); }
+    .pillar.p3 { --dot: var(--lav-dk); }
     .pillar-title { font-family: 'Libre Caslon Text', Georgia, serif; font-size: 1.2rem; font-weight: 700; color: var(--dot, var(--text)); line-height: 1.25; }
     .pillar-body { font-size: .88rem; color: var(--muted); line-height: 1.7; flex: 1; }
 
@@ -312,19 +309,16 @@
     <div class="pillars-grid">
 
       <div class="pillar p1">
-        <div class="pillar-num">01</div>
         <div class="pillar-title">Networked Intelligence</div>
         <p class="pillar-body">The ability to stay involved in what's happening in the world, especially in areas that matter — and bring sharp analysis to conversations. Going deep very quickly. Making connections across a wide range of topics. From the outside: a mind that is part of a whole being, involving a lot of heart, and very fast.</p>
       </div>
 
       <div class="pillar p2">
-        <div class="pillar-num">02</div>
         <div class="pillar-title">Fierce Advocacy</div>
         <p class="pillar-body">Standing up for people worth standing up for, and for what you believe in. Knowing what can't be compromised — and being able to say it even when it's a little scary. Extremely generous with the people and animals around you.</p>
       </div>
 
       <div class="pillar p3">
-        <div class="pillar-num">03</div>
         <div class="pillar-title">Incorruptible Practicality</div>
         <p class="pillar-body">Moving forward in a world that doesn't have you in mind — in a way that is both completely honest and also accounts for the fact that some structures will take time to dismantle. Finding your way to be true to yourself while picking your battles. A survivor, who survives to keep using networked intelligence and fierce advocacy for good.</p>
       </div>

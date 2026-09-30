@@ -24,11 +24,7 @@
 
     /* ── Favorite Questions ──────────────────────────────── */
     .fav-questions { display: flex; flex-direction: column; gap: 28px; max-width: 740px; margin: 0; }
-    .fav-q { position: relative; padding: 18px 22px; border-radius: 8px; }
-    .fav-q.q1 { background: var(--teal-lt); --dot: var(--teal); }
-    .fav-q.q2 { background: var(--must-lt); --dot: var(--mustard); }
-    .fav-q.q3 { background: var(--lav-lt); --dot: var(--lavender); }
-    .fav-q.q4 { background: var(--teal-lt); --dot: var(--teal); }
+    .fav-q { border-left: 3px solid var(--teal); padding: 2px 0 2px 22px; }
     .fav-q-text { font-family: 'Libre Caslon Text', Georgia, serif; font-size: clamp(1.05rem, 2vw, 1.3rem); font-style: normal; font-weight: 700; color: var(--text); line-height: 1.55; }
 
     /* ── Duct Tape / Drano ────────────────────────────────── */
@@ -98,16 +94,16 @@
     </div>
 
     <div class="fav-questions">
-      <div class="fav-q q1">
+      <div class="fav-q">
         <p class="fav-q-text">"It's six months from now. You are really happy. What has changed?"</p>
       </div>
-      <div class="fav-q q2">
+      <div class="fav-q">
         <p class="fav-q-text">"What's actually in your way — the manual task you dread, the approval stuck somewhere, the data you don't have?"</p>
       </div>
-      <div class="fav-q q3">
+      <div class="fav-q">
         <p class="fav-q-text">"What does the team already know that leadership needs to hear?"</p>
       </div>
-      <div class="fav-q q4">
+      <div class="fav-q">
         <p class="fav-q-text">"What are you reading?"</p>
       </div>
     </div>
