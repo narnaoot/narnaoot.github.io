@@ -17,7 +17,6 @@
     .hero { background: var(--bg); padding: 44px 0 40px; position: relative; overflow: hidden; }
     .hero-inner { max-width: 1080px; margin: 0 auto; padding: 0 28px; position: relative; display: flex; flex-direction: row; align-items: flex-start; justify-content: space-between; gap: 48px; flex-wrap: wrap; }
     .hero-kicker { display: flex; align-items: center; gap: 14px; font-size: .72rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; color: var(--coral-dk); }
-    .hero-kicker-line { width: 40px; height: 1.5px; background: var(--coral); flex-shrink: 0; }
     .hero-title { font-family: 'Libre Caslon Text', Georgia, serif; font-size: clamp(2.4rem, 6vw, 3.8rem); font-weight: 700; line-height: 1.0; letter-spacing: -1px; color: var(--text); flex: 0 1 auto; white-space: nowrap; }
     .hero-title em { font-style: normal; font-weight: 700; color: var(--coral); }
     .hero-sub { font-size: clamp(.95rem, 1.8vw, 1.1rem); color: var(--muted); line-height: 1.65; max-width: 460px; flex: 1 1 300px; padding-bottom: 6px; }
@@ -110,14 +109,6 @@
     .step-title { font-size: .88rem; font-weight: 700; color: var(--text); }
     .step-desc { font-size: .82rem; color: var(--muted); line-height: 1.55; padding-left: 2.25rem; }
     .step-outcome { background: var(--coral-lt); border-radius: 8px; padding: .7rem 1rem; margin-top: .8rem; font-size: .88rem; font-weight: 700; color: var(--text); }
-
-    /* ── Footer ───────────────────────────────────────────── */
-    .footer-inner { max-width: 1080px; margin: 0 auto; }
-    .footer-name { font-family: 'Libre Caslon Text', Georgia, serif; font-size: 1.6rem; font-weight: 700; letter-spacing: -.5px; color: var(--text); margin-bottom: 8px; }
-    .footer-sub { font-size: .84rem; color: var(--muted); margin-bottom: 24px; }
-    .footer-btn { display: inline-block; background: var(--coral); color: #fff; font-size: .82rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; padding: 12px 32px; border-radius: 99px; text-decoration: none; transition: opacity .15s; }
-    .footer-btn:hover { opacity: .85; }
-    .footer-copy { margin-top: 24px; font-size: .75rem; color: var(--muted); }
   </style>
 </head>
 <body>
@@ -306,7 +297,7 @@
     <div class="footer-name">Always up for a good conversation.</div>
     <div class="footer-sub">Currently: Principal Business Analyst at SFMTA · San Francisco, CA</div>
     <a href="https://www.linkedin.com/in/narnaoot" target="_blank" class="footer-btn">Connect on LinkedIn</a>
-    <p style="margin-top:12px;font-size:.75rem;color:var(--muted);"><img src="assets/img/CleoInspects.webp" alt="Cleo" loading="lazy" style="height:36px;border-radius:50%;vertical-align:middle;margin-right:6px;">Inspected by Cleo</p>
+    <p class="footer-cleo"><img src="assets/img/CleoInspects.webp" alt="Cleo" loading="lazy">Inspected by Cleo</p>
   </div>
 </footer>
 
