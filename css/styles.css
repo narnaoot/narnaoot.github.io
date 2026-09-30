@@ -44,6 +44,7 @@
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
+section[id] { scroll-margin-top: 84px; }  /* clear the sticky masthead on #anchor jumps */
 body { background: var(--bg); color: var(--text); font-family: 'Nunito', sans-serif; line-height: 1.65; }
 
 /* ── Nav ─────────────────────────────────────────────── */
@@ -62,6 +63,7 @@ body { background: var(--bg); color: var(--text); font-family: 'Nunito', sans-se
 @media (max-width: 640px) {
   .masthead-inner { flex-direction: column; gap: 10px; padding: 12px 20px; }
   .masthead-nav { flex-wrap: wrap; justify-content: center; gap: 18px; }
+  section[id] { scroll-margin-top: 124px; }
 }
 
 /* ── Section headings ────────────────────────────────── */
