@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About Nabil — Nabil Arnaoot</title>
-  <meta name="description" content="The person behind the projects: cats, tea, English literature, three pillars described by a longtime friend, feminist science fiction off the clock, and twenty years of testimonials." />
+  <meta name="description" content="The person behind the projects: English literature, San Francisco, feral cats, three things a longtime friend says I always bring, teaching, and feminist science fiction." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
@@ -57,30 +57,6 @@
     /* ── Page body ────────────────────────────────────────── */
     .page { max-width: 1080px; margin: 0 auto; padding: 40px 28px 80px; display: flex; flex-direction: column; gap: 60px; }
 
-    /* ── Portrait grid ────────────────────────────────────── */
-    .portrait-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
-    @media (max-width: 900px) { .portrait-grid { grid-template-columns: 1fr 1fr; } }
-    @media (max-width: 480px) { .portrait-grid { grid-template-columns: 1fr; } }
-    .portrait-item { border-radius: var(--r); padding: 20px; }
-    .portrait-item.c { background: var(--lav-lt); --title: var(--lav-dk); }
-    .portrait-item.t { background: var(--teal-lt); --title: var(--teal-dk); }
-    .portrait-item.l { background: var(--lav-lt); --title: var(--lav-dk); }
-    .portrait-item.m { background: var(--must-lt); --title: var(--must-dk); }
-    .portrait-item.s { background: var(--sage-lt); --title: var(--sage-dk); }
-    .p-head { display: flex; align-items: center; gap: 9px; margin-bottom: 8px; }
-    .p-icon { width: 30px; height: 30px; object-fit: contain; flex: none; }
-    .p-label { font-size: .85rem; font-weight: 700; color: var(--title, var(--muted)); margin-bottom: 5px; }
-    .p-head .p-label { margin-bottom: 0; }
-    .p-value { font-family: 'Libre Caslon Text', Georgia, serif; font-size: 1.4rem; font-weight: 700; color: var(--text); line-height: 1.15; margin-bottom: 8px; }
-    .p-note { font-size: .84rem; color: var(--muted); line-height: 1.6; }
-    .cat-chips { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 8px; }
-    .cat-chip { background: var(--surface); border-radius: 4px; padding: 3px 12px; font-size: .8rem; font-weight: 700; color: var(--lav-dk); }
-    .mini-bar-wrap { margin: 6px 0; }
-    .mini-bar-row { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
-    .mini-bar-lbl { font-size: .74rem; font-weight: 700; width: 52px; flex-shrink: 0; color: var(--text); }
-    .mini-bar-track { flex: 1; height: 6px; background: var(--border); border-radius: 99px; overflow: hidden; }
-    .mini-bar-fill { height: 100%; border-radius: 99px; }
-
     /* ── Three pillars ────────────────────────────────────── */
     .pillars-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
     @media (max-width: 700px) { .pillars-grid { grid-template-columns: 1fr; gap: 16px; } }
@@ -96,36 +72,6 @@
     .pillar.p3 { --dot: var(--lav-dk); }
     .pillar-title { font-family: 'Libre Caslon Text', Georgia, serif; font-size: 1.2rem; font-weight: 700; color: var(--dot, var(--text)); line-height: 1.25; }
     .pillar-body { font-size: .88rem; color: var(--muted); line-height: 1.7; flex: 1; }
-
-    /* ── Teaching vignette ────────────────────────────────── */
-    .vignette {
-      background: var(--lav-lt);
-      border: 1.5px solid var(--border);
-      border-radius: var(--r);
-      padding: 48px 52px;
-      max-width: 780px;
-      position: relative;
-      overflow: hidden;
-    }
-    .vignette-text {
-      font-family: 'Libre Caslon Text', Georgia, serif;
-      font-size: clamp(1rem, 1.9vw, 1.25rem);
-      font-weight: 700;
-      color: var(--text);
-      line-height: 1.65;
-    }
-    .vignette-text em { font-style: normal; font-weight: 700; color: var(--lav-dk); }
-
-    /* ── Testimonials ─────────────────────────────────────── */
-    .testimonials-list { display: flex; flex-direction: column; gap: 0; }
-    .t-item { padding: 36px 0; border-bottom: 1px solid var(--border); display: grid; grid-template-columns: 3rem 1fr; gap: 24px; }
-    .t-item:last-child { border-bottom: none; }
-    @media (max-width: 640px) { .t-item { grid-template-columns: 1fr; gap: 10px; } }
-    .t-avatar { width: 3rem; height: 3rem; border-radius: 50%; background: var(--warm2); border: 1.5px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: .78rem; font-weight: 800; color: var(--muted); flex-shrink: 0; }
-    .t-who { font-size: .76rem; font-weight: 700; color: var(--muted); margin-bottom: 10px; letter-spacing: .03em; }
-    .t-who strong { color: var(--text); font-weight: 800; }
-    .t-quote { font-size: clamp(.9rem, 1.5vw, 1.02rem); font-weight: 600; color: var(--text); line-height: 1.75; }
-    .t-quote.featured { font-family: 'Libre Caslon Text', Georgia, serif; font-size: clamp(1rem, 1.8vw, 1.15rem); font-weight: 700; font-style: normal; }
 
     /* ── Education / Certs ────────────────────────────────── */
     .edu-certs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; }
@@ -168,51 +114,11 @@
       .section-thumb { width: 100%; }
     }
 
-    /* ── Career timeline (résumé view) ───────────────────── */
-    .career-timeline {
-      border: 1.5px solid var(--border);
-      border-radius: var(--r);
-      background: var(--bg);
-      padding: 36px 28px 28px;
-      overflow-x: auto;
-    }
-    .ct-rail {
-      display: flex;
-      align-items: flex-start;
-      min-width: 880px;
-      position: relative;
-    }
-    .ct-rail::before {
-      content: '';
-      position: absolute;
-      top: 22px; left: 22px; right: 22px;
-      height: 2px;
-      background: var(--border);
-      z-index: 0;
-    }
-    .ct-node {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      flex: 1;
-      position: relative;
-      z-index: 1;
-    }
-    .ct-dot {
-      width: 44px; height: 44px;
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.1rem;
-      margin-bottom: 14px;
-      border: 3px solid var(--bg);
-      flex-shrink: 0;
-    }
-    .ct-dot.current { box-shadow: 0 0 0 4px rgba(18,194,176,.25); }
-    .ct-company { font-family: 'Libre Caslon Text', Georgia, serif; font-size: .95rem; font-weight: 700; color: var(--text); margin-bottom: 3px; }
-    .ct-role { font-size: .72rem; color: var(--muted); line-height: 1.4; margin-bottom: 5px; max-width: 110px; }
-    .ct-yrs { font-size: .65rem; font-weight: 800; letter-spacing: .08em; color: var(--muted); text-transform: uppercase; }
-    .ct-badge { display: inline-block; background: var(--teal); color: #fff; font-size: .55rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; border-radius: 99px; padding: 1px 7px; margin-top: 4px; }
+    /* ── Prose sections ─────────────────────────────────── */
+    .about-prose { max-width: 720px; display: flex; flex-direction: column; gap: 18px; }
+    .about-prose p { font-size: 1.08rem; line-height: 1.8; color: var(--text); }
+    .prose-sub { font-family: 'Libre Caslon Text', Georgia, serif; font-size: 1.25rem; font-weight: 700; color: var(--text); margin-top: 10px; }
+    .prose-sub:first-child { margin-top: 0; }
   </style>
 </head>
 <body>
@@ -244,53 +150,12 @@
 </section>
 
 <main class="page">
-  <!-- Personal Portrait -->
+  <!-- In brief -->
   <section>
-    <div class="section-intro">
-      <div class="section-h">
-        <h2>The Human Behind the Projects</h2>
-      </div>
-      <img class="section-thumb" src="assets/img/AboutHero.webp" width="900" height="600" alt="The Human Behind the Projects" loading="lazy">
-    </div>
-    <div class="portrait-grid">
-
-      <div class="portrait-item c">
-        <div class="p-head"><img class="p-icon" src="assets/icons/cats.png" alt="" aria-hidden="true"><div class="p-label">Adopted cats</div></div>
-        <div class="cat-chips">
-          <span class="cat-chip">Octavia</span>
-          <span class="cat-chip">Cleopatra</span>
-        </div>
-        <p class="p-note">I specialize in ferals. Patience, consistency, and a safe environment make all the difference — for cats and people both.</p>
-      </div>
-
-      <div class="portrait-item t">
-        <div class="p-head"><img class="p-icon" src="assets/icons/tea.png" alt="" aria-hidden="true"><div class="p-label">Beverage preference</div></div>
-        <div class="p-value">Tea</div>
-        <div class="mini-bar-wrap">
-          <div class="mini-bar-row">
-            <div class="mini-bar-lbl">Tea</div>
-            <div class="mini-bar-track"><div class="mini-bar-fill" style="width:100%;background:var(--teal)"></div></div>
-          </div>
-          <div class="mini-bar-row">
-            <div class="mini-bar-lbl">Coffee</div>
-            <div class="mini-bar-track"><div class="mini-bar-fill" style="width:0%;background:var(--lavender)"></div></div>
-          </div>
-        </div>
-        <p class="p-note">No contest.</p>
-      </div>
-
-      <div class="portrait-item l">
-        <div class="p-head"><img class="p-icon" src="assets/icons/book.png" alt="" aria-hidden="true"><div class="p-label">Where I started</div></div>
-        <div class="p-value">English Lit</div>
-        <p class="p-note">University of Chicago. Structure, voice, audience — how writing carries an idea to a reader. I've been working on that same question ever since. My first job in tech was as a database administrator — a five-year stint before I moved into projects and analysis.</p>
-      </div>
-
-      <div class="portrait-item s">
-        <div class="p-head"><img class="p-icon" src="assets/icons/house.png" alt="" aria-hidden="true"><div class="p-label">My city</div></div>
-        <div class="p-value">San Francisco</div>
-        <p class="p-note">Making its transit better by day. Finding its hidden public gardens on the weekend. Proud to live and work here.</p>
-      </div>
-
+    <div class="about-prose">
+      <p>I studied English literature at the University of Chicago: structure, voice, audience, how writing carries an idea to a reader. I've been working on that same question ever since. My first job in tech was as a database administrator, a five-year stint before I moved into projects and analysis.</p>
+      <p>I live in San Francisco, making its transit better by day and finding its hidden public gardens on the weekend.</p>
+      <p>At home there are two adopted cats, Octavia and Cleopatra. I specialize in ferals. Patience, consistency, and a safe environment make all the difference, for cats and people both.</p>
     </div>
   </section>
 
@@ -323,105 +188,20 @@
     </div>
   </section>
 
-  <!-- Teaching Vignette -->
+  <!-- Teaching & Writing -->
   <section>
     <div class="section-intro">
       <div class="section-h">
-        <h2>One More Thing</h2>
+        <h2>Teaching and Writing</h2>
       </div>
       <img class="section-thumb" src="assets/img/TeachingScene.webp" width="900" height="600" alt="Teaching" loading="lazy">
     </div>
-    <div class="vignette">
-      <p class="vignette-text">
-        I've never had "teacher" in a job title, but it's something I keep ending up doing anyway. During my MS in Business Analytics, that meant being the one classmates came to when they were stuck — usually on something I'd already worked out, and I liked figuring out how to explain it so it made sense to them too. What works best, I've found, is a small hands-on exercise that starts simple and adds one layer at a time. For the cohort I built an hour-long intro to SQL that did exactly that: it opened with the most basic query and worked up, step by step, until people were writing queries that would have looked intimidating an hour earlier. The department head later invited me to come back and teach in the program; the timing hasn't worked out yet, but I'd like to.
-      </p>
-      <p class="vignette-text" style="margin-top:16px;">
-        The same thing happens at work. At SFMTA I co-sponsor a Power BI power user group, where I run demo sessions built on the same idea: I hand people sample data and walk them through setting something up themselves, like configuring row-level access controls. Figuring out how to make a complicated thing clear, then handing someone the steps to do it themselves, is the part of the work I like best.
-      </p>
-    </div>
-  </section>
-
-  <!-- Off the Clock -->
-  <section id="writing">
-    <div class="section-h">
-      <h2>Off the Clock</h2>
-    </div>
-    <div class="vignette" style="background:var(--sage-lt);">
-      <p class="vignette-text">
-        Off the clock, I'm a fanatical reader — and writer — of <em style="color:var(--teal-dk);">feminist science fiction.</em>
-        The instinct that makes someone walk into an org and ask <em style="color:var(--teal-dk);">"why do we do it this way?"</em> is, I think, the same one that draws me to a genre that takes the world apart and rebuilds it on different assumptions.
-        Octavia, the cat, is named for <strong>Octavia E. Butler</strong>. <strong>Samuel R. Delany</strong> lives on the nightstand. The drafts live in a different folder than the dashboards — one of them was nominated for the <strong style="color:var(--teal-dk);">Tiptree Award</strong>.
-      </p>
-    </div>
-  </section>
-
-  <!-- What People Say -->
-  <section id="praise">
-    <div class="section-intro">
-      <div class="section-h">
-        <h2>What People Say</h2>
-      </div>
-      <img class="section-thumb" src="assets/img/WordCloudsPainted.webp" width="900" height="600" alt="What People Say" loading="lazy">
-    </div>
-
-    <div class="testimonials-list">
-
-      <div class="t-item">
-        <div class="t-avatar">RM</div>
-        <div>
-          <div class="t-who"><strong>Robert Mooney</strong> · Principal Security Architect</div>
-          <div class="t-quote featured">"He's a natural. He takes a large amount of disparate and easily confused data and packages it into an easily understood, easily communicated snapshot of progress. He knows how to ask the right questions and does not relent until he has a clear understanding — but he's not a nuisance to the busy engineer. He has a genuine concern for others."</div>
-        </div>
-      </div>
-
-      <div class="t-item">
-        <div class="t-avatar">CW</div>
-        <div>
-          <div class="t-who"><strong>Chris Winter</strong> · Manager</div>
-          <div class="t-quote featured">"He brought a level of humanity to our team that we sometimes forget. When he leaves, we'll go back to being robots."</div>
-        </div>
-      </div>
-
-      <div class="t-item">
-        <div class="t-avatar">SP</div>
-        <div>
-          <div class="t-who"><strong>Sneha Phadke</strong> · Director, Application Security · eBay</div>
-          <div class="t-quote">"He is an extremely dynamic and versatile program and project manager. Besides being an eloquent speaker and writer, he brings teams together and makes projects successful. If there is a difficult moment in a project, he faces it and resolves it with a unique charm that makes it fun to work with him."</div>
-        </div>
-      </div>
-
-      <div class="t-item">
-        <div class="t-avatar">FL</div>
-        <div>
-          <div class="t-who"><strong>Faron Lyons</strong> · Enterprise Account Manager</div>
-          <div class="t-quote">"Nabil does much more than translate geek speak; he is able to lead. My experience with him has left me confident that any project under his responsibility will end successfully."</div>
-        </div>
-      </div>
-
-      <div class="t-item">
-        <div class="t-avatar">KA</div>
-        <div>
-          <div class="t-who"><strong>Kim Anderson</strong> · Colleague &amp; Friend</div>
-          <div class="t-quote" style="color:var(--must-dk);font-style:normal">"You mentor others — especially women, people of color, shy folks, young people. You pass on knowledge horizontally and vertically. You like shy cats, and you cannot lie."</div>
-        </div>
-      </div>
-
-      <div class="t-item">
-        <div class="t-avatar">FH</div>
-        <div>
-          <div class="t-who"><strong>Frankie Pauncevolt Hill</strong></div>
-          <div class="t-quote">"A broad-ranging, incisive and inspired mind; relentless passion; bright, glowing kindness; independence of judgment — you don't form your ideas to suit an existing framework, but think the values through until you know what you support deeply."</div>
-        </div>
-      </div>
-
-      <div class="t-item">
-        <div class="t-avatar">I</div>
-        <div>
-          <div class="t-who"><strong>Ipsita</strong> · MS Cohort, Saint Mary's College</div>
-          <div class="t-quote">"I really appreciate the way you explain, the way you solve a problem, the way you help us and the way you talk. I've learned a lot of things from you."</div>
-        </div>
-      </div>
-
+    <div class="about-prose">
+      <h3 class="prose-sub">Teaching</h3>
+      <p>I've never had "teacher" in a job title, but it's something I keep ending up doing anyway. During my MS in Business Analytics, that meant being the one classmates came to when they were stuck — usually on something I'd already worked out, and I liked figuring out how to explain it so it made sense to them too. What works best, I've found, is a small hands-on exercise that starts simple and adds one layer at a time. For the cohort I built an hour-long intro to SQL that did exactly that: it opened with the most basic query and worked up, step by step, until people were writing queries that would have looked intimidating an hour earlier. The department head later invited me to come back and teach in the program; the timing hasn't worked out yet, but I'd like to.</p>
+      <p>The same thing happens at work. At SFMTA I co-sponsor a Power BI power user group, where I run demo sessions built on the same idea: I hand people sample data and walk them through setting something up themselves, like configuring row-level access controls. Figuring out how to make a complicated thing clear, then handing someone the steps to do it themselves, is the part of the work I like best.</p>
+      <h3 class="prose-sub" id="writing">Writing</h3>
+      <p>Off the clock, I'm a fanatical reader — and writer — of feminist science fiction. The instinct that makes someone walk into an org and ask "why do we do it this way?" is, I think, the same one that draws me to a genre that takes the world apart and rebuilds it on different assumptions. Octavia, the cat, is named for <strong>Octavia E. Butler</strong>. <strong>Samuel R. Delany</strong> lives on the nightstand. The drafts live in a different folder than the dashboards — one of them was nominated for the <strong style="color:var(--teal-dk);">Tiptree Award</strong>.</p>
     </div>
   </section>
 
@@ -468,75 +248,6 @@
         </div>
       </div>
 
-    </div>
-  </section>
-
-  <!-- Career Timeline (the résumé view) -->
-  <section id="career">
-    <div class="section-h">
-      <h2>Career Timeline</h2>
-    </div>
-    <div class="career-timeline">
-      <div class="ct-rail">
-
-        <div class="ct-node">
-          <div class="ct-dot" style="background:var(--coral)"></div>
-          <div class="ct-company">Trust for Public Land</div>
-          <div class="ct-role">DBA / Enterprise Admin</div>
-          <div class="ct-yrs">2000 – 2005</div>
-        </div>
-
-        <div class="ct-node">
-          <div class="ct-dot" style="background:var(--sage)"></div>
-          <div class="ct-company">Elegrity</div>
-          <div class="ct-role">Engineering Project Manager</div>
-          <div class="ct-yrs">2006 – 2009</div>
-        </div>
-
-        <div class="ct-node">
-          <div class="ct-dot" style="background:var(--mustard)"></div>
-          <div class="ct-company">eBay</div>
-          <div class="ct-role">Program Manager</div>
-          <div class="ct-yrs">2009 – 2011</div>
-        </div>
-
-        <div class="ct-node">
-          <div class="ct-dot" style="background:var(--lavender)"></div>
-          <div class="ct-company">Apple</div>
-          <div class="ct-role">EPM → Business Analyst &amp; Process Engineer</div>
-          <div class="ct-yrs">2011 – 2018</div>
-        </div>
-
-        <div class="ct-node">
-          <div class="ct-dot" style="background:var(--sage)"></div>
-          <div class="ct-company">Sabbatical</div>
-          <div class="ct-role">Deliberate pause</div>
-          <div class="ct-yrs">2018 – 2020</div>
-        </div>
-
-        <div class="ct-node">
-          <div class="ct-dot" style="background:var(--lavender)"></div>
-          <div class="ct-company">Saint Mary's College</div>
-          <div class="ct-role">MS, Business Analytics</div>
-          <div class="ct-yrs">2020 – 2022</div>
-        </div>
-
-        <div class="ct-node">
-          <div class="ct-dot" style="background:var(--mustard)"></div>
-          <div class="ct-company">Independent Consulting</div>
-          <div class="ct-role">Data Analysis for Community Nonprofits</div>
-          <div class="ct-yrs">2022 – 2024</div>
-        </div>
-
-        <div class="ct-node">
-          <div class="ct-dot current" style="background:var(--teal)"></div>
-          <div class="ct-company">SFMTA</div>
-          <div class="ct-role">Principal Business Analyst</div>
-          <div class="ct-yrs">2024 – present</div>
-          <div class="ct-badge">Now</div>
-        </div>
-
-      </div>
     </div>
   </section>
 
