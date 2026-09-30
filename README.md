@@ -11,7 +11,7 @@ Foregrounds **project leadership** — walking into ambiguous situations, findin
 | Page | Contents |
 |------|----------|
 | `index.html` | Home — hero, stats strip, pull quote, "The work, briefly", selected-work teaser + cards |
-| `work.html` | 3 deep case studies (eBay, iTunes, Kernel) · What People Say (testimonials) · career through-line + career timeline (`#career`) · 4 side quests linking to the note pages |
+| `work.html` | 3 deep case studies (eBay, iTunes, Kernel) · What People Say (testimonials) · Career: river illustration + one-line dated career history (`#career`) · 4 side quests linking to the note pages |
 | `patterns.html` | Favorite questions · Duct Tape / Drano · Everything Starts on a Whiteboard · Microchipping Sheep · What I Bring |
 | `about.html` | Short personal intro (English Lit, SF, feral cats) · Three Things I Always Bring (Mary Salome) · Teaching and Writing (`#writing`) · education |
 | `gardens.html` | Secret Gardens of San Francisco — Tableau embed |
