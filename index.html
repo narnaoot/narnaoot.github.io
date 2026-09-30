@@ -92,13 +92,31 @@
     }
 
     /* ── Stats strip ─────────────────────────────────────── */
-    .stats-strip { background: var(--warm2); border-bottom: 1.5px solid var(--border); }
-    .stats-inner { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); }
-    .stat { padding: 22px 20px; text-align: center; border-right: 1px solid var(--border); }
-    .stat:last-child { border-right: none; }
-    .stat-num { font-family: 'Libre Caslon Text', Georgia, serif; font-size: 2rem; font-weight: 700; color: var(--orchid); line-height: 1; margin-bottom: 4px; }
-    .stat-lbl { font-size: .85rem; font-weight: 600; color: var(--muted); }
-    @media (max-width: 600px) { .stats-inner { grid-template-columns: repeat(2, 1fr); } .stat:nth-child(2) { border-right: none; } }
+    /* ── KPI panel ───────────────────────────────────────── */
+    .kpi { max-width: 1080px; margin: 0 auto; padding: 36px 28px 8px; }
+    .kpi-row { display: grid; border-top: 1.5px solid var(--text); border-bottom: 1px solid var(--border); }
+    .kpi-tile { padding: 18px 24px 20px; border-right: 1px solid var(--border); display: flex; flex-direction: column; gap: 2px; }
+    .kpi-tile:first-child { padding-left: 0; }
+    .kpi-tile:last-child { border-right: none; }
+    .kpi-label { font-size: .85rem; font-weight: 700; color: var(--muted); }
+    .kpi-value { font-family: 'Nunito', sans-serif; font-size: 2.3rem; font-weight: 800; color: var(--text); line-height: 1.1; letter-spacing: -.5px; }
+    .kpi-value small { font-size: 1rem; font-weight: 700; color: var(--muted); letter-spacing: 0; margin-left: 4px; }
+    .kpi-context { font-size: .85rem; color: var(--muted); line-height: 1.5; }
+    .kpi-link { margin-top: 6px; font-size: .82rem; font-weight: 800; color: var(--orchid-dk); text-decoration: none; }
+    .kpi-link:hover { text-decoration: underline; }
+    .kpi-note { font-size: .75rem; color: var(--muted); padding-top: 8px; }
+    @media (max-width: 700px) {
+      .kpi-row { grid-template-columns: 1fr 1fr !important; }
+      .kpi-tile { padding: 16px 12px 18px 0; border-right: none; }
+      .kpi-tile:first-child { grid-column: 1 / -1; border-bottom: 1px solid var(--border); }
+      .kpi-tile:last-child { padding-left: 12px; border-left: 1px solid var(--border); }
+    }
+    .sector-bar { display: flex; gap: 2px; height: 8px; margin: 10px 0 8px; max-width: 320px; }
+    .sector-bar span { border-radius: 2px; }
+    .sector-bar span:first-child { border-radius: 4px 2px 2px 4px; }
+    .sector-bar span:last-child { border-radius: 2px 4px 4px 2px; }
+    .career-legend { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: .78rem; color: var(--muted); }
+    .career-legend i { display: inline-block; width: 8px; height: 8px; border-radius: 2px; margin-right: 5px; vertical-align: 0; }
 
     /* ── Page body ───────────────────────────────────────── */
     .page { max-width: 1080px; margin: 0 auto; padding: 72px 28px 80px; display: flex; flex-direction: column; gap: 60px; }
@@ -257,26 +275,34 @@
 </section>
 
 <!-- Stats -->
-<div class="stats-strip">
-  <div class="stats-inner">
-    <div class="stat">
-      <div class="stat-num">25+</div>
-      <div class="stat-lbl">Years in tech</div>
+<section class="kpi" aria-label="Career at a glance">
+  <div class="kpi-row" style="grid-template-columns: repeat(3, 1fr);">
+    <div class="kpi-tile">
+      <div class="kpi-label">Years in tech</div>
+      <div class="kpi-value">25+</div>
+      <div class="sector-bar" role="img" aria-label="Working years by sector: nonprofit about 9, corporate about 12, government 2 and counting">
+        <span style="flex:9.25;background:#E0901A" title="Nonprofit · Trust for Public Land; MS + nonprofit data consulting"></span>
+        <span style="flex:11.6;background:#A75FA0" title="Corporate · Elegrity, eBay, Apple"></span>
+        <span style="flex:2.5;background:#1E9E88" title="Government · SFMTA, 2024–now"></span>
+      </div>
+      <div class="career-legend"><span><i style="background:#E0901A"></i>Nonprofit</span><span><i style="background:#A75FA0"></i>Corporate</span><span><i style="background:#1E9E88"></i>Government</span></div>
+      <a class="kpi-link" href="about.html#career">See the career timeline →</a>
     </div>
-    <div class="stat">
-      <div class="stat-num">300M+</div>
-      <div class="stat-lbl">iTunes users behind the dashboards</div>
+    <div class="kpi-tile">
+      <div class="kpi-label">Systems kept current</div>
+      <div class="kpi-value">500K</div>
+      <div class="kpi-context">Kernel updates across 40+ engineering groups, Apple</div>
+      <a class="kpi-link" href="work.html">Read the case study →</a>
     </div>
-    <div class="stat">
-      <div class="stat-num">3 of 3</div>
-      <div class="stat-lbl">Sectors worked · corporate, nonprofit &amp; government</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">1</div>
-      <div class="stat-lbl">Tiptree Award nominee · feminist SF</div>
+    <div class="kpi-tile">
+      <div class="kpi-label">Tiptree Award</div>
+      <div class="kpi-value">1<small>nomination</small></div>
+      <div class="kpi-context">Feminist science fiction, written off the clock</div>
+      <a class="kpi-link" href="about.html#writing">About the writing →</a>
     </div>
   </div>
-</div>
+  <div class="kpi-note">Source: career history, as of 2026.</div>
+</section>
 
 <main class="page">
 
