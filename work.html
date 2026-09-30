@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Work — Nabil Arnaoot</title>
-  <meta name="description" content="Selected work: the eBay site security program, making iTunes' crashes countable, kernel updates for 500,000 systems — plus side quests on probability, public gardens, unicorns, and Nametag, a prototype party app." />
+  <meta name="description" content="Selected work: the eBay site security program, making iTunes' crashes countable, kernel updates for 500,000 systems; what colleagues say; the career timeline; plus side quests on probability, public gardens, unicorns, and Nametag, a prototype party app." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
@@ -26,6 +26,9 @@
     .arc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 52px; align-items: center; }
     @media (max-width: 720px) { .arc-grid { grid-template-columns: 1fr; gap: 28px; } }
     .arc-img { width: 100%; height: auto; border-radius: 12px; display: block; }
+    .career-line { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--border); font-size: .9rem; color: var(--muted); line-height: 1.9; }
+    .career-line strong { color: var(--text); font-weight: 700; }
+    .career-line span { white-space: nowrap; }
     .arc-path { font-family: 'Libre Caslon Text', Georgia, serif; font-size: clamp(1.3rem, 2.4vw, 1.7rem); font-weight: 700; color: var(--text); line-height: 1.45; letter-spacing: -.3px; }
 
     /* ── Case study: intro beside image ───────────────────── */
@@ -38,51 +41,40 @@
     .case-top.flip .case-intro { order: 2; }
     @media (max-width: 760px) { .case-top.flip { grid-template-columns: 1fr; } .case-top.flip .case-figure, .case-top.flip .case-intro { order: 0; } }
 
-    /* ── Career timeline ──────────────────────────────────── */
-    .career-timeline {
-      border: 1.5px solid var(--border);
-      border-radius: var(--r);
-      background: var(--bg);
-      padding: 36px 28px 28px;
-      overflow-x: auto;
-    }
-    .ct-rail {
+    /* ── Testimonials ─────────────────────────────────────── */
+    .t-item { padding: 36px 0; border-bottom: 1px solid var(--border); display: grid; grid-template-columns: 3rem 1fr; gap: 24px; }
+    .t-item:last-child { border-bottom: none; }
+    @media (max-width: 640px) { .t-item { grid-template-columns: 1fr; gap: 10px; } }
+    .t-avatar { width: 3rem; height: 3rem; border-radius: 50%; background: var(--warm2); border: 1.5px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: .78rem; font-weight: 800; color: var(--muted); flex-shrink: 0; }
+    .t-who { font-size: .76rem; font-weight: 700; color: var(--muted); margin-bottom: 10px; letter-spacing: .03em; }
+    .t-who strong { color: var(--text); font-weight: 800; }
+    .t-quote { font-size: clamp(.9rem, 1.5vw, 1.02rem); font-weight: 600; color: var(--text); line-height: 1.75; }
+    .t-quote.featured { font-family: 'Libre Caslon Text', Georgia, serif; font-size: clamp(1rem, 1.8vw, 1.15rem); font-weight: 700; font-style: normal; }
+    .testimonials-list { display: grid; grid-template-columns: 1fr 1fr; column-gap: 48px; }
+    .t-item:nth-last-child(2):nth-child(odd) { border-bottom: none; }
+    @media (max-width: 760px) { .testimonials-list { grid-template-columns: 1fr; } .t-item:nth-last-child(2):nth-child(odd) { border-bottom: 1px solid var(--border); } }
+
+    /* ── Section thumbnails (Option A) ───────────────────── */
+    .section-intro {
       display: flex;
-      align-items: flex-start;
-      min-width: 680px;
-      position: relative;
-    }
-    .ct-rail::before {
-      content: '';
-      position: absolute;
-      top: 22px; left: 22px; right: 22px;
-      height: 2px;
-      background: var(--border);
-      z-index: 0;
-    }
-    .ct-node {
-      display: flex;
-      flex-direction: column;
       align-items: center;
-      text-align: center;
-      flex: 1;
-      position: relative;
-      z-index: 1;
+      gap: 24px;
+      margin-bottom: 28px;
     }
-    .ct-dot {
-      width: 44px; height: 44px;
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.1rem;
-      margin-bottom: 14px;
-      border: 3px solid var(--bg);
+    .section-intro .section-h {
+      flex: 1;
+      margin-bottom: 0;
+    }
+    .section-thumb {
+      width: 180px;
+      height: auto;
+      border-radius: 12px;
       flex-shrink: 0;
     }
-    .ct-dot.current { box-shadow: 0 0 0 4px rgba(18,194,176,.25); }
-    .ct-company { font-family: 'Libre Caslon Text', Georgia, serif; font-size: .95rem; font-weight: 700; color: var(--text); margin-bottom: 3px; }
-    .ct-role { font-size: .72rem; color: var(--muted); line-height: 1.4; margin-bottom: 5px; max-width: 110px; }
-    .ct-yrs { font-size: .65rem; font-weight: 800; letter-spacing: .08em; color: var(--muted); text-transform: uppercase; }
-    .ct-badge { display: inline-block; background: var(--teal); color: #fff; font-size: .55rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; border-radius: 99px; padding: 1px 7px; margin-top: 4px; }
+    @media (max-width: 640px) {
+      .section-intro { flex-direction: column-reverse; }
+      .section-thumb { width: 100%; }
+    }
 
     /* ── Project list ─────────────────────────────────────── */
     .project-list { display: flex; flex-direction: column; gap: 0; }
@@ -128,21 +120,6 @@
 </section>
 
 <main class="page">
-
-  <!-- Career Journey -->
-  <section>
-    <div class="section-h">
-      <h2>A Through-Line</h2>
-    </div>
-
-    <div class="arc-grid">
-      <img class="arc-img" src="assets/img/CareerJourneyPainted.webp" width="1100" height="733" alt="A painted career path winding past signposts — Elegrity, eBay, Apple, consulting, and SFMTA" loading="lazy">
-      <div class="arc-copy">
-        <p class="arc-path">I started out managing projects, moved on to solving org-wide problems, and now I put it all into public service.</p>
-      </div>
-    </div>
-
-  </section>
 
   <!-- Projects -->
   <section>
@@ -219,6 +196,93 @@
     </div>
   </section>
 
+  <!-- What People Say -->
+  <section id="praise">
+    <div class="section-intro">
+      <div class="section-h">
+        <h2>What People Say</h2>
+      </div>
+      <img class="section-thumb" src="assets/img/WordCloudsPainted.webp" width="900" height="600" alt="What People Say" loading="lazy">
+    </div>
+
+    <div class="testimonials-list">
+
+      <div class="t-item">
+        <div class="t-avatar">RM</div>
+        <div>
+          <div class="t-who"><strong>Robert Mooney</strong> · Principal Security Architect</div>
+          <div class="t-quote featured">"He's a natural. He takes a large amount of disparate and easily confused data and packages it into an easily understood, easily communicated snapshot of progress. He knows how to ask the right questions and does not relent until he has a clear understanding — but he's not a nuisance to the busy engineer. He has a genuine concern for others."</div>
+        </div>
+      </div>
+
+      <div class="t-item">
+        <div class="t-avatar">CW</div>
+        <div>
+          <div class="t-who"><strong>Chris Winter</strong> · Manager</div>
+          <div class="t-quote featured">"He brought a level of humanity to our team that we sometimes forget. When he leaves, we'll go back to being robots."</div>
+        </div>
+      </div>
+
+      <div class="t-item">
+        <div class="t-avatar">SP</div>
+        <div>
+          <div class="t-who"><strong>Sneha Phadke</strong> · Director, Application Security · eBay</div>
+          <div class="t-quote">"He is an extremely dynamic and versatile program and project manager. Besides being an eloquent speaker and writer, he brings teams together and makes projects successful. If there is a difficult moment in a project, he faces it and resolves it with a unique charm that makes it fun to work with him."</div>
+        </div>
+      </div>
+
+      <div class="t-item">
+        <div class="t-avatar">FL</div>
+        <div>
+          <div class="t-who"><strong>Faron Lyons</strong> · Enterprise Account Manager</div>
+          <div class="t-quote">"Nabil does much more than translate geek speak; he is able to lead. My experience with him has left me confident that any project under his responsibility will end successfully."</div>
+        </div>
+      </div>
+
+      <div class="t-item">
+        <div class="t-avatar">KA</div>
+        <div>
+          <div class="t-who"><strong>Kim Anderson</strong> · Colleague &amp; Friend</div>
+          <div class="t-quote" style="color:var(--must-dk);font-style:normal">"You mentor others — especially women, people of color, shy folks, young people. You pass on knowledge horizontally and vertically. You like shy cats, and you cannot lie."</div>
+        </div>
+      </div>
+
+      <div class="t-item">
+        <div class="t-avatar">FH</div>
+        <div>
+          <div class="t-who"><strong>Frankie Pauncevolt Hill</strong></div>
+          <div class="t-quote">"A broad-ranging, incisive and inspired mind; relentless passion; bright, glowing kindness; independence of judgment — you don't form your ideas to suit an existing framework, but think the values through until you know what you support deeply."</div>
+        </div>
+      </div>
+
+      <div class="t-item">
+        <div class="t-avatar">I</div>
+        <div>
+          <div class="t-who"><strong>Ipsita</strong> · MS Cohort, Saint Mary's College</div>
+          <div class="t-quote">"I really appreciate the way you explain, the way you solve a problem, the way you help us and the way you talk. I've learned a lot of things from you."</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Career -->
+  <section id="career">
+    <div class="section-h">
+      <h2>Career</h2>
+    </div>
+
+    <div class="arc-grid">
+      <img class="arc-img" src="assets/img/CareerJourneyPainted.webp" width="1100" height="733" alt="A painted river winding past signposts for eBay, Apple, St. Mary's College, and SFMTA" loading="lazy">
+      <div class="arc-copy">
+        <p class="arc-path">I started out managing projects, moved on to solving org-wide problems, and now I put it all into public service.</p>
+      </div>
+    </div>
+
+    <p class="career-line"><span><strong>Trust for Public Land</strong> 2000–05</span> · <span><strong>Elegrity</strong> 2006–09</span> · <span><strong>eBay</strong> 2009–11</span> · <span><strong>Apple</strong> 2011–18</span> · <span><strong>Sabbatical</strong> 2018–20</span> · <span><strong>MS, Saint Mary's</strong> 2020–22</span> · <span><strong>Consulting</strong> 2022–24</span> · <span><strong>SFMTA</strong> 2024–now</span></p>
+
+  </section>
+
   <!-- Notes, Essays & Side Quests -->
   <section>
     <div class="section-h">
@@ -269,6 +333,7 @@
     <div class="footer-sub">Currently: Principal Business Analyst at SFMTA · San Francisco, CA</div>
     <a href="https://www.linkedin.com/in/narnaoot" target="_blank" class="footer-btn">Connect on LinkedIn</a>
     <p class="footer-cleo"><img src="assets/img/CleoInspects.webp" width="200" height="200" alt="Cleo" loading="lazy">Inspected by Cleo</p>
+    <p class="footer-credit">Built by me, as a centaur, with help from Claude. Images by Copilot.</p>
   </div>
 </footer>
 

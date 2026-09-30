@@ -4,4 +4,4 @@ Personal portfolio site for Nabil Arnaoot (n4bil.com). Plain static HTML on GitH
 
 ## At the start of every session
 
-Before anything else, remind Nabil of the **open items** listed at the top of `plan/NEXT_SESSION.md` (currently: two date fixes needed inside the painted river illustration). Keep it to a short list; then ask what he wants to work on.
+Before anything else, remind Nabil of the **open items** listed at the top of `plan/NEXT_SESSION.md` (currently: two date fixes inside the painted river illustration, and a rewrite of the Teaching section on About). Keep it to a short list; then ask what he wants to work on.

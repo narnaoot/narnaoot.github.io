@@ -7,6 +7,7 @@
 2. **Image fix — St. Mary's signpost.** Same image: the "St. Mary's College · MS in Business Analytics" sign reads **2020–2024**. Correct: **2020–2022** (MS 2020–2022; consulting followed 2022–2024).
 
 Both dates are painted into the image, so they need an image edit or regeneration, not a code change. The text elsewhere on the site is already correct.
+3. **Rewrite the Teaching section (About → "Teaching and Writing").** Nabil wants it rewritten; pick up in a new session. It's currently two long paragraphs (MS cohort SQL intro + SFMTA Power BI user group) carried over verbatim from the old "One More Thing" box — now plain prose, so the length shows.
 
 Also still open, lower priority: iCloud vs. iTunes — LinkedIn describes the outage-tracking system as iCloud, while the Work case study and Home teaser tell it as "Making iTunes' crashes countable" (confirm which is intended). The older copy-cliché list (below) is still paused.
 
@@ -15,7 +16,8 @@ Also still open, lower priority: iCloud vs. iTunes — LinkedIn describes the ou
 - **Round 2 (#107):** removed skill-tag chips under case studies; About "Three Things" became plain columns (no ghost 01/02/03); Patterns questions became a plain list.
 - **Round 3 (#108):** Work arrow chain → one sentence; case-study results lost the pink box; removed decorative drop shadows; remaining uppercase labels → small plain text; Home side facts → plain lines.
 - **KPI panel (#109, #110):** Home stat strip replaced with three dashboard-style KPIs (25+ years with a nonprofit/corporate/government split bar → About `#career`; 500K systems → Work `#kernel`; Tiptree nomination → About `#writing`). About timeline gained Trust for Public Land (2000–2005) and split Saint Mary's MS (2020–2022) from consulting (2022–2024).
-- **Remaining visual-cliché candidates:** Tea vs. Coffee bar (About), icon chips in the Home hero, Before/After illustration framing (+ cute faces/sparkles on Duct Tape/Drano), repeated title-left/intro-right page tops, all-caps testimonial names.
+- **About / Work restructure (Sep 30):** Work now holds the professional record, most important first: case studies → What People Say (testimonials, moved from About, 2 columns) → Career (`#career`): the river illustration is the timeline, with a one-line dated career history under it (the dot timeline was dropped; Nabil intended the painting instead of a traditional timeline) → side quests (stay on Work). About is short and personal: prose intro (English Lit + DBA start, SF, feral cats) replacing the four portrait cards (tea dropped) → Three Things → "Teaching and Writing" (merged "One More Thing" + "Off the Clock" into plain prose, `#writing` on the Writing subhead) → Education. Duct Tape/Drano and the cowboys stay on Patterns (they're about how he works).
+- **Remaining visual-cliché candidates:** icon chips in the Home hero, Before/After illustration framing (+ cute faces/sparkles on Duct Tape/Drano), repeated title-left/intro-right page tops, all-caps testimonial names.
 
 ### DONE ✅ — Nametag side quest (Aug 22)
 - New **`nametag.html`** — an eighth page (fourth Notes/Side-Quest), on the shared note-page chassis with **blush** as its signature accent (`--accent: var(--blush)`; the last free accent with a `-dk` cut for AA text). Blush is also one of the app's own tag colors, so it ties in.

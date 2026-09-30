@@ -98,6 +98,7 @@ footer { border-top: 1.5px solid var(--border); padding: 60px 28px; text-align: 
 .footer-btn:hover { opacity: .85; }
 .footer-cleo { margin-top: 12px; font-size: .75rem; color: var(--muted); }
 .footer-cleo img { height: 36px; border-radius: 50%; vertical-align: middle; margin-right: 6px; }
+.footer-credit { margin-top: 6px; font-size: .75rem; color: var(--muted); }
 
 /* Feature footer (Home, About): narrower, big serif headline, sentence-case button */
 .footer-feature .footer-inner { max-width: 560px; }
