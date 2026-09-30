@@ -1,8 +1,21 @@
 # Next Session Handoff
 
-## Status & next steps (updated Jul 23)
+## Status & next steps (updated Sep 30)
 
-**Open items (as of Jul 23):** (1) verify the Patterns Pages deploy on the live site (browser check — see below); (2) copy-cliché cleanup is paused mid-round (remaining items listed in the copy-pass section). Everything else — repo cleanup, assets reorg, and the shared-stylesheet refactor — is DONE.
+**Open items — remind Nabil at the start of each session (see `CLAUDE.md`):**
+1. **Image fix — Apple signpost.** In `assets/img/CareerJourneyPainted.webp` (the river illustration on Work → "A Through-Line"), the Apple sign reads **2011–2020**. Correct: **2011–2018** (Apple May 2011 – Jun 2018).
+2. **Image fix — St. Mary's signpost.** Same image: the "St. Mary's College · MS in Business Analytics" sign reads **2020–2024**. Correct: **2020–2022** (MS 2020–2022; consulting followed 2022–2024).
+
+Both dates are painted into the image, so they need an image edit or regeneration, not a code change. The text elsewhere on the site is already correct.
+
+Also still open, lower priority: iCloud vs. iTunes — LinkedIn describes the outage-tracking system as iCloud, while the Work case study and Home teaser tell it as "Making iTunes' crashes countable" (confirm which is intended). The older copy-cliché list (below) is still paused.
+
+### DONE ✅ — Visual AI-cliché passes + KPI panel (Sep 30)
+- **Round 1 (#106):** removed pill tags after section headings; accent-colored heading word kept only on the Home hero; cut redundant uppercase eyebrows; flattened gradient boxes and removed giant quote marks.
+- **Round 2 (#107):** removed skill-tag chips under case studies; About "Three Things" became plain columns (no ghost 01/02/03); Patterns questions became a plain list.
+- **Round 3 (#108):** Work arrow chain → one sentence; case-study results lost the pink box; removed decorative drop shadows; remaining uppercase labels → small plain text; Home side facts → plain lines.
+- **KPI panel (#109, #110):** Home stat strip replaced with three dashboard-style KPIs (25+ years with a nonprofit/corporate/government split bar → About `#career`; 500K systems → Work `#kernel`; Tiptree nomination → About `#writing`). About timeline gained Trust for Public Land (2000–2005) and split Saint Mary's MS (2020–2022) from consulting (2022–2024).
+- **Remaining visual-cliché candidates:** Tea vs. Coffee bar (About), icon chips in the Home hero, Before/After illustration framing (+ cute faces/sparkles on Duct Tape/Drano), repeated title-left/intro-right page tops, all-caps testimonial names.
 
 ### DONE ✅ — Nametag side quest (Aug 22)
 - New **`nametag.html`** — an eighth page (fourth Notes/Side-Quest), on the shared note-page chassis with **blush** as its signature accent (`--accent: var(--blush)`; the last free accent with a `-dk` cut for AA text). Blush is also one of the app's own tag colors, so it ties in.
