@@ -13,19 +13,8 @@
     /* Page accent (mustard) — see css/styles.css for shared base */
     :root { --accent: var(--mustard); --accent-ink: var(--must-dk); }
 
-    /* ── Hero ────────────────────────────────────────────── */
-    .note-hero { background: var(--bg); border-bottom: 1.5px solid var(--border); padding: 64px 28px 56px; }
-    .note-hero-inner { max-width: 720px; margin: 0 auto; }
-    .hero-kicker { display: flex; align-items: center; gap: 14px; font-size: .72rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; color: var(--must-dk); margin-bottom: 20px; }
-    .hero-kicker-line { width: 40px; height: 1.5px; background: var(--mustard); flex-shrink: 0; }
-    .note-hero h1 { font-family: 'Libre Caslon Text', Georgia, serif; font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; line-height: 1.15; letter-spacing: -1px; color: var(--text); margin-bottom: 20px; }
-    .note-hero h1 em { font-style: normal; font-weight: 700; color: var(--must-dk); }
-    .note-lead { font-size: 1.05rem; color: var(--muted); max-width: 600px; line-height: 1.75; }
-
     /* ── Article body ────────────────────────────────────── */
     .note-body { max-width: 720px; margin: 0 auto; padding: 48px 28px 80px; }
-    .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: .82rem; font-weight: 800; color: var(--must-dk); text-decoration: none; margin-bottom: 2.5rem; }
-    .back-link:hover { opacity: .8; }
     .note-body p { margin-bottom: 1.4rem; font-size: 1rem; line-height: 1.8; }
     .note-body h2 { font-family: 'Libre Caslon Text', Georgia, serif; font-size: 1.3rem; font-weight: 700; letter-spacing: -.5px; color: var(--text); margin: 2.5rem 0 1rem; }
     .note-body ul { margin: .5rem 0 1.4rem 1.5rem; }
@@ -45,13 +34,6 @@
 
     /* ── Footnote ────────────────────────────────────────── */
     .note-foot { margin-top: 3rem; padding-top: 1.5rem; border-top: 1.5px solid var(--border); font-size: .82rem; color: var(--muted); line-height: 1.65; }
-
-    /* ── Footer ──────────────────────────────────────────── */
-    .footer-inner { max-width: 1080px; margin: 0 auto; }
-    .footer-name { font-family: 'Libre Caslon Text', Georgia, serif; font-size: 1.6rem; font-weight: 700; letter-spacing: -.5px; color: var(--text); margin-bottom: 8px; }
-    .footer-sub { font-size: .84rem; color: var(--muted); margin-bottom: 24px; }
-    .footer-btn { display: inline-block; background: var(--must-dk); color: #fff; font-size: .82rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; padding: 12px 32px; border-radius: 99px; text-decoration: none; transition: opacity .15s; }
-    .footer-btn:hover { opacity: .85; }
   </style>
 </head>
 <body>
@@ -199,7 +181,7 @@
     <div class="footer-name">Always up for a good conversation.</div>
     <div class="footer-sub">Currently: Principal Business Analyst at SFMTA · San Francisco, CA</div>
     <a href="https://www.linkedin.com/in/narnaoot" target="_blank" class="footer-btn">Connect on LinkedIn</a>
-    <p style="margin-top:12px;font-size:.75rem;color:var(--muted);"><img src="assets/img/CleoInspects.webp" alt="Cleo" style="height:36px;border-radius:50%;vertical-align:middle;margin-right:6px;">Inspected by Cleo</p>
+    <p class="footer-cleo"><img src="assets/img/CleoInspects.webp" alt="Cleo">Inspected by Cleo</p>
   </div>
 </footer>
 
