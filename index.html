@@ -108,7 +108,7 @@
 
     /* ── Pull quote ──────────────────────────────────────── */
     .pull-quote {
-      background: linear-gradient(135deg, var(--orchid-lt), var(--must-lt));
+      background: var(--orchid-lt);
       border: 1.5px solid var(--border);
       border-radius: var(--r);
       padding: 48px 52px;
@@ -117,16 +117,6 @@
       max-width: 780px;
       margin: 0 auto;
       text-align: center;
-    }
-    .pull-quote::before {
-      content: '"';
-      position: absolute;
-      top: -20px; left: 24px;
-      font-family: 'Libre Caslon Text', Georgia, serif;
-      font-size: 10rem;
-      color: rgba(167,95,160,.08);
-      line-height: 1;
-      pointer-events: none;
     }
     .pull-quote-text {
       font-family: 'Libre Caslon Text', Georgia, serif;
@@ -159,7 +149,6 @@
     .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
     @media (max-width: 700px) { .about-grid { grid-template-columns: 1fr; gap: 32px; } }
     .about-lead { font-family: 'Libre Caslon Text', Georgia, serif; font-size: clamp(1.2rem, 2.2vw, 1.5rem); font-weight: 700; color: var(--text); line-height: 1.45; margin-bottom: 18px; }
-    .about-lead em { font-style: normal; font-weight: 700; color: var(--orchid); }
     .about-body { font-size: .92rem; color: var(--muted); line-height: 1.75; }
     .about-body + .about-body { margin-top: 14px; }
     .about-cta { margin-top: 24px; display: inline-block; padding: 10px 24px; background: var(--orchid); color: #fff; border-radius: 99px; font-size: .82rem; font-weight: 800; text-decoration: none; transition: opacity .15s; }
@@ -190,7 +179,7 @@
       grid-template-columns: 280px 1fr;
       gap: 36px;
       align-items: center;
-      background: linear-gradient(135deg, var(--orchid-lt), var(--must-lt));
+      background: var(--orchid-lt);
       border: 1.5px solid var(--border);
       border-radius: var(--r);
       padding: 32px 36px;
@@ -202,9 +191,7 @@
     .work-teaser:hover { box-shadow: 0 14px 36px rgba(0,0,0,.10); border-color: var(--orchid); }
     .work-teaser img { width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 18px rgba(0,0,0,.14); display: block; }
     .work-teaser-body { display: flex; flex-direction: column; gap: 10px; }
-    .work-teaser-label { font-size: .68rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--orchid-dk); }
     .work-teaser-title { font-family: 'Libre Caslon Text', Georgia, serif; font-size: clamp(1.4rem, 2.6vw, 1.85rem); font-weight: 700; line-height: 1.15; letter-spacing: -.5px; }
-    .work-teaser-title em { font-style: normal; font-weight: 700; color: var(--orchid); }
     .work-teaser-desc { font-size: .92rem; color: var(--text); line-height: 1.65; opacity: .82; }
     .work-teaser-cta { font-size: .82rem; font-weight: 800; color: var(--orchid-dk); margin-top: 4px; }
     @media (max-width: 720px) {
@@ -225,7 +212,6 @@
       transition: box-shadow .2s, border-color .2s;
     }
     .pcard:hover { box-shadow: 0 12px 32px rgba(0,0,0,.08); border-color: var(--orchid); }
-    .pcard-label { font-size: .68rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
     .pcard-title { font-family: 'Libre Caslon Text', Georgia, serif; font-size: 1.25rem; font-weight: 700; line-height: 1.25; }
     .pcard-desc { font-size: .84rem; color: var(--muted); line-height: 1.6; flex: 1; }
     .pcard-cta { font-size: .78rem; font-weight: 800; color: var(--orchid-dk); margin-top: 4px; }
@@ -309,11 +295,10 @@
   <section>
     <div class="section-h">
       <h2>The work, briefly</h2>
-      <span class="section-tag">background</span>
     </div>
     <div class="about-grid">
       <div>
-        <p class="about-lead">An English major's career, <em>in disguise</em>.</p>
+        <p class="about-lead">An English major's career, in disguise.</p>
         <p class="about-body">From novels to dashboards, the work never really changed. It starts with reading closely for what isn't said and staying on a question until the real one surfaces — then figuring out how to explain it so the team can move. <strong>English-major roots, business-analyst present, stubbornly curious throughout.</strong></p>
       </div>
       <div class="side-facts">
@@ -337,13 +322,11 @@
   <section>
     <div class="section-h">
       <h2>Selected work</h2>
-      <span class="section-tag">portfolio</span>
     </div>
     <a class="work-teaser" href="work.html">
       <img src="assets/img/QuietedPagersPainted.webp" alt="Pagers going quiet — iTunes crash-tracking case study" loading="lazy" />
       <div class="work-teaser-body">
-        <div class="work-teaser-label">Portfolio · three told in depth</div>
-        <h3 class="work-teaser-title">Making iTunes' crashes <em>countable</em>, and other stories.</h3>
+        <h3 class="work-teaser-title">Making iTunes' crashes countable, and other stories.</h3>
         <p class="work-teaser-desc">Seven projects: from quieting the SRE pagers at iTunes, to kernel updates across 500,000 systems, to building an internal-consulting motion for eBay site security — plus lighter side quests on probability, public gardens, unicorns, and Nametag, a party app I'm prototyping.</p>
         <div class="work-teaser-cta">Read the stories →</div>
       </div>
@@ -352,14 +335,12 @@
     <div class="secondary-grid">
 
       <a class="pcard" href="patterns.html">
-        <div class="pcard-label">Practice</div>
         <div class="pcard-title">Patterns</div>
         <div class="pcard-desc">The questions I keep asking, the two kinds of problems that keep showing up, and how I think about giving an org just enough structure.</div>
         <div class="pcard-cta">See the patterns →</div>
       </a>
 
       <a class="pcard" href="about.html">
-        <div class="pcard-label">The Person</div>
         <div class="pcard-title">About Nabil</div>
         <div class="pcard-desc">Cats, tea, English literature, three pillars as described by Mary Salome, feminist science fiction off the clock, and twenty years of testimonials.</div>
         <div class="pcard-cta">Meet Nabil →</div>
@@ -372,7 +353,7 @@
 
 <footer class="footer-feature">
   <div class="footer-inner">
-    <h2 class="footer-head">Always up for a <em>good conversation.</em></h2>
+    <h2 class="footer-head">Always up for a good conversation.</h2>
     <p class="footer-sub">Currently Principal Business Analyst at SFMTA. If there's an interesting problem in the room, I want to hear about it.</p>
     <a class="footer-btn" href="https://www.linkedin.com/in/narnaoot" target="_blank">Connect on LinkedIn</a>
     <p class="footer-cleo"><img src="assets/img/CleoInspects.webp" alt="Cleo" loading="lazy">Inspected by Cleo</p>

@@ -35,16 +35,6 @@
       box-shadow: 0 4px 20px rgba(0,0,0,0.15);
     }
     .hero-avatar-lg img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
-    .hero-kicker {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      font-size: .72rem;
-      font-weight: 800;
-      letter-spacing: .15em;
-      text-transform: uppercase;
-      color: var(--lav-dk);
-    }
     .hero-headline { display: flex; flex-direction: row; align-items: flex-start; justify-content: space-between; gap: 48px; flex-wrap: wrap; }
     .hero-title {
       font-family: 'Libre Caslon Text', Georgia, serif;
@@ -56,7 +46,6 @@
       flex: 0 1 auto;
       white-space: nowrap;
     }
-    .hero-title em { font-style: normal; font-weight: 700; color: var(--lav-dk); }
     .hero-sub {
       font-size: clamp(.95rem, 1.8vw, 1.1rem);
       color: var(--muted);
@@ -111,11 +100,10 @@
     .pillar-num { font-family: 'Libre Caslon Text', Georgia, serif; font-size: 2.2rem; font-weight: 700; line-height: 1; opacity: .15; }
     .pillar-title { font-family: 'Libre Caslon Text', Georgia, serif; font-size: 1.2rem; font-weight: 700; color: var(--dot, var(--text)); line-height: 1.25; }
     .pillar-body { font-size: .88rem; color: var(--muted); line-height: 1.7; flex: 1; }
-    .pillar-attr { font-size: .7rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-top: 4px; }
 
     /* ── Teaching vignette ────────────────────────────────── */
     .vignette {
-      background: linear-gradient(135deg, var(--lav-lt), var(--must-lt));
+      background: var(--lav-lt);
       border: 1.5px solid var(--border);
       border-radius: var(--r);
       padding: 48px 52px;
@@ -123,17 +111,6 @@
       position: relative;
       overflow: hidden;
     }
-    .vignette::before {
-      content: '"';
-      position: absolute;
-      top: -20px; right: 24px;
-      font-family: 'Libre Caslon Text', Georgia, serif;
-      font-size: 10rem;
-      color: rgba(155,109,232,.07);
-      line-height: 1;
-      pointer-events: none;
-    }
-    .vignette-label { font-size: .7rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--lav-dk); margin-bottom: 16px; }
     .vignette-text {
       font-family: 'Libre Caslon Text', Georgia, serif;
       font-size: clamp(1rem, 1.9vw, 1.25rem);
@@ -157,7 +134,6 @@
     /* ── Education / Certs ────────────────────────────────── */
     .edu-certs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; }
     @media (max-width: 720px) { .edu-certs-grid { grid-template-columns: 1fr; gap: 40px; } }
-    .col-label { font-size: .7rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-bottom: 24px; }
 
     /* Education timeline */
     .edu-timeline { display: flex; flex-direction: column; gap: 0; position: relative; }
@@ -267,7 +243,7 @@
   <div class="hero-inner">
     <div class="hero-avatar-lg"><img src="assets/img/ProfilePicture.webp" alt="Nabil Arnaoot — Animal Crossing character portrait" /></div>
     <div class="hero-headline">
-      <h1 class="hero-title">About <em>Nabil</em></h1>
+      <h1 class="hero-title">About Nabil</h1>
       <p class="hero-sub">How an English-literature degree, two feral cats, and a stubbornly curious mind add up to a person who reads Octavia Butler at lunch and asks <em>"why do we do it this way?"</em> before standup.</p>
     </div>
   </div>
@@ -279,7 +255,6 @@
     <div class="section-intro">
       <div class="section-h">
         <h2>The Human Behind the Projects</h2>
-        <span class="section-tag">personal portrait</span>
       </div>
       <img class="section-thumb" src="assets/img/AboutHero.webp" alt="The Human Behind the Projects" loading="lazy">
     </div>
@@ -330,7 +305,7 @@
     <div class="section-intro">
       <div class="section-h">
         <h2>Three Things I Always Bring</h2>
-        <span class="section-tag">as described by Mary Salome, a longtime friend and collaborator</span>
+        <p class="section-note">As described by Mary Salome, a longtime friend and collaborator.</p>
       </div>
       <img class="section-thumb" src="assets/img/ThreePillarsPainted.webp" alt="Three Things I Always Bring" loading="lazy">
     </div>
@@ -362,7 +337,6 @@
     <div class="section-intro">
       <div class="section-h">
         <h2>One More Thing</h2>
-        <span class="section-tag">teaching</span>
       </div>
       <img class="section-thumb" src="assets/img/TeachingScene.webp" alt="Teaching" loading="lazy">
     </div>
@@ -380,10 +354,8 @@
   <section>
     <div class="section-h">
       <h2>Off the Clock</h2>
-      <span class="section-tag">the other writing life</span>
     </div>
-    <div class="vignette" style="background:linear-gradient(135deg,var(--sage-lt),var(--teal-lt));">
-      <div class="vignette-label" style="color:var(--teal-dk);">Reading &amp; writing</div>
+    <div class="vignette" style="background:var(--sage-lt);">
       <p class="vignette-text">
         Off the clock, I'm a fanatical reader — and writer — of <em style="color:var(--teal-dk);">feminist science fiction.</em>
         The instinct that makes someone walk into an org and ask <em style="color:var(--teal-dk);">"why do we do it this way?"</em> is, I think, the same one that draws me to a genre that takes the world apart and rebuilds it on different assumptions.
@@ -397,7 +369,6 @@
     <div class="section-intro">
       <div class="section-h">
         <h2>What People Say</h2>
-        <span class="section-tag">in their words</span>
       </div>
       <img class="section-thumb" src="assets/img/WordCloudsPainted.webp" alt="What People Say" loading="lazy">
     </div>
@@ -468,14 +439,12 @@
     <div class="section-intro">
       <div class="section-h">
         <h2>Education</h2>
-        <span class="section-tag">background</span>
       </div>
       <img class="section-thumb" src="assets/img/EducationWalkPainted.webp" alt="Education" loading="lazy">
     </div>
     <div class="edu-certs-grid" style="grid-template-columns:1fr;">
 
       <div>
-        <div class="col-label">A through-line</div>
         <div class="edu-timeline">
 
           <div class="edu-stop">
@@ -515,7 +484,6 @@
   <section>
     <div class="section-h">
       <h2>Career Timeline</h2>
-      <span class="section-tag">roles &amp; years</span>
     </div>
     <div class="career-timeline">
       <div class="ct-rail">
@@ -571,7 +539,7 @@
 
 <footer class="footer-feature">
   <div class="footer-inner">
-    <h2 class="footer-head">Always up for a <em>good conversation.</em></h2>
+    <h2 class="footer-head">Always up for a good conversation.</h2>
     <p class="footer-sub">Currently Principal Business Analyst at SFMTA. If there's an interesting problem in the room, I want to hear about it.</p>
     <a class="footer-btn" href="https://www.linkedin.com/in/narnaoot" target="_blank">Connect on LinkedIn</a>
     <p class="footer-cleo"><img src="assets/img/CleoInspects.webp" alt="Cleo" loading="lazy">Inspected by Cleo</p>
