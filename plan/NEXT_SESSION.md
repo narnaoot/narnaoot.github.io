@@ -3,21 +3,22 @@
 ## Status & next steps (updated Sep 30)
 
 **Open items — remind Nabil at the start of each session (see `CLAUDE.md`):**
-1. **Image fix — Apple signpost.** In `assets/img/CareerJourneyPainted.webp` (the river illustration on Work → "A Through-Line"), the Apple sign reads **2011–2020**. Correct: **2011–2018** (Apple May 2011 – Jun 2018).
+1. **Image fix — Apple signpost.** In `assets/img/CareerJourneyPainted.webp` (the river illustration on Work → "Career"), the Apple sign reads **2011–2020**. Correct: **2011–2018** (Apple May 2011 – Jun 2018).
 2. **Image fix — St. Mary's signpost.** Same image: the "St. Mary's College · MS in Business Analytics" sign reads **2020–2024**. Correct: **2020–2022** (MS 2020–2022; consulting followed 2022–2024).
-
-Both dates are painted into the image, so they need an image edit or regeneration, not a code change. The text elsewhere on the site is already correct.
+   Both dates are painted into the image, so they need an image edit or regeneration, not a code change. The text elsewhere on the site is already correct.
 3. **Rewrite the Teaching section (About → "Teaching and Writing").** Nabil wants it rewritten; pick up in a new session. It's currently two long paragraphs (MS cohort SQL intro + SFMTA Power BI user group) carried over verbatim from the old "One More Thing" box — now plain prose, so the length shows.
 
-Also still open, lower priority: iCloud vs. iTunes — LinkedIn describes the outage-tracking system as iCloud, while the Work case study and Home teaser tell it as "Making iTunes' crashes countable" (confirm which is intended). The older copy-cliché list (below) is still paused.
+Also still open, lower priority: the Home career line ("Apple 7 yrs · Consulting 2 · Elegrity 3 · eBay 1.5 — now SFMTA") omits Trust for Public Land (2000–2005). iCloud vs. iTunes — LinkedIn describes the outage-tracking system as iCloud, while the Work case study and Home teaser tell it as "Making iTunes' crashes countable" (confirm which is intended). The older copy-cliché list (below) is still paused.
 
 ### DONE ✅ — Visual AI-cliché passes + KPI panel (Sep 30)
+The design rules that came out of these passes are recorded in `README.md` → "Design guardrails" (and summarized in `CLAUDE.md`), so future work doesn't reintroduce them.
+- **Refactor (#105):** second shared-stylesheet pass — footer, note-page hero/back link, Tableau styles, and the Cleo line moved into `css/styles.css`; verified pixel-identical.
 - **Round 1 (#106):** removed pill tags after section headings; accent-colored heading word kept only on the Home hero; cut redundant uppercase eyebrows; flattened gradient boxes and removed giant quote marks.
 - **Round 2 (#107):** removed skill-tag chips under case studies; About "Three Things" became plain columns (no ghost 01/02/03); Patterns questions became a plain list.
 - **Round 3 (#108):** Work arrow chain → one sentence; case-study results lost the pink box; removed decorative drop shadows; remaining uppercase labels → small plain text; Home side facts → plain lines.
-- **KPI panel (#109, #110):** Home stat strip replaced with three dashboard-style KPIs (25+ years with a nonprofit/corporate/government split bar → About `#career`; 500K systems → Work `#kernel`; Tiptree nomination → About `#writing`). About timeline gained Trust for Public Land (2000–2005) and split Saint Mary's MS (2020–2022) from consulting (2022–2024).
-- **About / Work restructure (Sep 30):** Work now holds the professional record, most important first: case studies → What People Say (testimonials, moved from About, 2 columns) → Career (`#career`): the river illustration is the timeline, with a one-line dated career history under it (the dot timeline was dropped; Nabil intended the painting instead of a traditional timeline) → side quests (stay on Work). About is short and personal: prose intro (English Lit + DBA start, SF, feral cats) replacing the four portrait cards (tea dropped) → Three Things → "Teaching and Writing" (merged "One More Thing" + "Off the Clock" into plain prose, `#writing` on the Writing subhead) → Education. Duct Tape/Drano and the cowboys stay on Patterns (they're about how he works).
-- **Round 4 (Sep 30):** dropped the Home hero icon chips (and the now-unused `assets/icons/`); Work/Patterns/About page tops are a shared stacked `.page-hero` (title, intro beneath) instead of title-left/intro-right; Home quote attribution no longer all caps. **Kept by choice:** the Before/After illustrations (Nabil wants them).
+- **KPI panel (#109, #110):** Home stat strip replaced with three dashboard-style KPIs (25+ years with a nonprofit/corporate/government split bar → originally About `#career`, now `work.html#career`; 500K systems → Work `#kernel`; Tiptree nomination → About `#writing`). About timeline gained Trust for Public Land (2000–2005) and split Saint Mary's MS (2020–2022) from consulting (2022–2024).
+- **About / Work restructure (#112):** Work now holds the professional record, most important first: case studies → What People Say (testimonials, moved from About, 2 columns) → Career (`#career`): the river illustration is the timeline, with a one-line dated career history under it (the dot timeline was dropped; Nabil intended the painting instead of a traditional timeline) → side quests (stay on Work). About is short and personal: prose intro (English Lit + DBA start, SF, feral cats) replacing the four portrait cards (tea dropped) → Three Things → "Teaching and Writing" (merged "One More Thing" + "Off the Clock" into plain prose, `#writing` on the Writing subhead) → Education. Duct Tape/Drano and the cowboys stay on Patterns (they're about how he works). Also added a footer credit on every page: "Built by me, as a centaur, with help from Claude. Images by Copilot."
+- **Round 4 (#113):** dropped the Home hero icon chips (and the now-unused `assets/icons/`; `AboutHero.webp` removed in the docs pass after); Work/Patterns/About page tops are a shared stacked `.page-hero` (title, intro beneath) instead of title-left/intro-right; Home quote attribution no longer all caps. **Kept by choice:** the Before/After illustrations (Nabil wants them).
 
 ### DONE ✅ — Nametag side quest (Aug 22)
 - New **`nametag.html`** — an eighth page (fourth Notes/Side-Quest), on the shared note-page chassis with **blush** as its signature accent (`--accent: var(--blush)`; the last free accent with a `-dk` cut for AA text). Blush is also one of the app's own tag colors, so it ties in.
@@ -47,11 +48,11 @@ Also still open, lower priority: iCloud vs. iTunes — LinkedIn describes the ou
 
 The older painted-illustration source originals (removed pre-session, 2026-05-04) also lived in `inspiration_samples/`, so they're recoverable at `e150f1b` too. (`git log --diff-filter=D --stat` lists every deletion if you need more.)
 
-### Patterns deploy — VERIFY on next visit
+### ~~Patterns deploy — VERIFY on next visit~~ (resolved / superseded Sep 30 — Patterns has been redeployed many times since and checked live)
 - master is correct (Microchipping Sheep in, bell curve out; latest whiteboard art swapped in at `e150f1b`). Earlier symptom: the live site lagged one commit behind on the Pages deploy while everything else showed.
 - **Do:** hard-refresh Patterns on n4bil.com. If it still shows the old bell curve → repo **Settings → Pages** (source = Deploy from branch `master` /root) and **Actions** → re-run the latest "pages build and deployment". If it recurs, add a root **`.nojekyll`** (correct for a plain static site). From the sandbox I can't reach the live site (proxy 403) or the Actions API (503), so this needs a browser.
 
-### NEXT — higher-priority work first (Nabil's steer, Jul 17)
+### NEXT — higher-priority work first (Nabil's steer, Jul 17; copy pass still paused as of Sep 30)
 Copy-cliché cleanup is **PAUSED — this round is done.** There's higher-priority work to tackle first (TBD with Nabil). Remaining cliché items for whenever we return: #11 "It was a triumph.", #10 "stubbornly curious", #4 (staccato fragments), #8 (em-dashes), last of #12 ("reverse burnout"). Full running log in the "AI-cliché copy pass" section below.
 
 ### DONE ✅ — shared-stylesheet refactor (Jul 23)
