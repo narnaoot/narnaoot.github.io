@@ -59,7 +59,7 @@ Assets live under `assets/` (the HTML pages, `CNAME`, and `README.md` stay at ro
   | `microchip.webp` | Patterns — Microchipping Sheep (whiteboard photo) |
   | `Nametag.webp` | Nametag — app home-screen screenshot (resized + converted from the uploaded `Nametag.png`, which remains in git history) |
 
-- **`assets/icons/`** — `book.png`, `cats.png`, `house.png`, `tea.png` (Home chips + About portrait icons).
+- **`assets/icons/`** — removed Sep 30 (the Home hero chips and About portrait cards that used them are gone); recover with `git checkout ba0be56 -- assets/icons`.
 
 The repo now holds only what the live site uses. Prior source PNG/JPEG originals, reference imagery (`inspiration_samples/`), and old site versions were removed from the working tree and remain in git history.
 

@@ -71,6 +71,13 @@ body { background: var(--bg); color: var(--text); font-family: 'Nunito', sans-se
 .section-h h2 { font-family: 'Libre Caslon Text', Georgia, serif; font-size: clamp(1.7rem, 3.5vw, 2.4rem); font-weight: 700; letter-spacing: -.5px; color: var(--text); }
 .section-note { flex-basis: 100%; font-size: .95rem; font-style: italic; color: var(--muted); }
 
+/* ── Page header (Work, Patterns, About): title, then intro beneath ── */
+.page-hero { padding: 48px 0 0; }
+.page-hero-inner { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+.page-hero h1 { font-family: 'Libre Caslon Text', Georgia, serif; font-size: clamp(2.2rem, 5vw, 3.2rem); font-weight: 700; line-height: 1.1; letter-spacing: -1px; color: var(--text); margin-bottom: 14px; }
+.page-hero p { font-size: clamp(1rem, 1.8vw, 1.12rem); color: var(--muted); line-height: 1.7; max-width: 640px; }
+.page-hero-avatar { display: block; width: 96px; height: 96px; border-radius: 50%; object-fit: cover; object-position: top center; margin-bottom: 18px; }
+
 /* ── Hero kicker line (all pages) ─────────────────────── */
 .hero-kicker-line { width: 40px; height: 1.5px; background: var(--accent); flex-shrink: 0; }
 
