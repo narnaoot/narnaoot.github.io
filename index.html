@@ -54,17 +54,6 @@
       color: var(--text);
     }
     .hero-name em { font-style: normal; font-weight: 700; color: var(--orchid); }
-    .hero-role {
-      font-size: .8rem;
-      font-weight: 800;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      color: var(--muted);
-      border: 1.5px solid var(--border);
-      border-radius: 99px;
-      padding: 5px 16px;
-      white-space: nowrap;
-    }
     .hero-body {
       font-size: clamp(.95rem, 1.8vw, 1.1rem);
       color: var(--muted);
@@ -72,20 +61,6 @@
       max-width: 560px;
     }
     .hero-body strong { color: var(--text); font-weight: 700; }
-    .hero-chips { display: flex; flex-wrap: wrap; gap: 8px; }
-    .chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      background: var(--surface);
-      border: 1.5px solid var(--border);
-      border-radius: 99px;
-      padding: 5px 16px;
-      font-size: .82rem;
-      font-weight: 700;
-      color: var(--text);
-    }
-    .chip-icon { width: 1.5em; height: 1.5em; object-fit: contain; flex: none; }
     @media (max-width: 700px) {
       .hero-inner { grid-template-columns: 1fr; gap: 28px; }
       .hero-portrait { max-width: 200px; margin: 0 auto; }
@@ -142,13 +117,7 @@
       position: relative;
       margin-bottom: 20px;
     }
-    .pull-quote-attr {
-      font-size: .75rem;
-      font-weight: 800;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
+    .pull-quote-attr { font-size: .88rem; font-weight: 700; color: var(--muted); }
 
     /* ── Section headings (base in css/styles.css; Home uses a smaller h2) ── */
     .section-h h2 { font-size: 1.8rem; }
@@ -263,12 +232,6 @@
       <p class="hero-body">
         Systems, trainings, processes, documentation — I build <strong>the thing nobody's realized is missing</strong>. Over two decades of it: seven at Apple, now at SFMTA.
       </p>
-      <div class="hero-chips">
-        <span class="chip"><img class="chip-icon" src="assets/icons/house.png" alt="" aria-hidden="true"> San Francisco, CA</span>
-        <span class="chip"><img class="chip-icon" src="assets/icons/tea.png" alt="" aria-hidden="true"> Tea, not coffee</span>
-        <span class="chip"><img class="chip-icon" src="assets/icons/cats.png" alt="" aria-hidden="true"> Octavia &amp; Cleopatra</span>
-        <span class="chip"><img class="chip-icon" src="assets/icons/book.png" alt="" aria-hidden="true"> Reads &amp; writes feminist SF</span>
-      </div>
     </div>
   </div>
 </section>
